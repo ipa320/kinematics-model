@@ -1,0 +1,22 @@
+bin/
+target
+xtend-gen/
+.metadata
+.recommenders
+*.xtendbin
+xtend-gen/
+*.pyc
+plugin.xml_gen
+.antlr-generator-3.2.0-patch.jar
+
+# Maven
+target
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
