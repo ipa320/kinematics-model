@@ -68,32 +68,16 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
 	protected KinematicsSwitch<Adapter> modelSwitch =
 		new KinematicsSwitch<Adapter>() {
 			@Override
-			public Adapter caseLink(Link object) {
-				return createLinkAdapter();
+			public Adapter caserobot(robot object) {
+				return createrobotAdapter();
 			}
 			@Override
-			public Adapter caseJoint(Joint object) {
-				return createJointAdapter();
+			public Adapter caselink(link object) {
+				return createlinkAdapter();
 			}
 			@Override
-			public Adapter caseGeometry(Geometry object) {
-				return createGeometryAdapter();
-			}
-			@Override
-			public Adapter caseTranslation(Translation object) {
-				return createTranslationAdapter();
-			}
-			@Override
-			public Adapter caseRotation(Rotation object) {
-				return createRotationAdapter();
-			}
-			@Override
-			public Adapter caseTransform(Transform object) {
-				return createTransformAdapter();
-			}
-			@Override
-			public Adapter caseVector3d(Vector3d object) {
-				return createVector3dAdapter();
+			public Adapter casejoint(joint object) {
+				return createjointAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -116,100 +100,44 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.Link <em>Link</em>}'.
+	 * Creates a new adapter for an object of class '{@link kinematics.robot <em>robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see kinematics.Link
+	 * @see kinematics.robot
 	 * @generated
 	 */
-	public Adapter createLinkAdapter() {
+	public Adapter createrobotAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.Joint <em>Joint</em>}'.
+	 * Creates a new adapter for an object of class '{@link kinematics.link <em>link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see kinematics.Joint
+	 * @see kinematics.link
 	 * @generated
 	 */
-	public Adapter createJointAdapter() {
+	public Adapter createlinkAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.Geometry <em>Geometry</em>}'.
+	 * Creates a new adapter for an object of class '{@link kinematics.joint <em>joint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see kinematics.Geometry
+	 * @see kinematics.joint
 	 * @generated
 	 */
-	public Adapter createGeometryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.Translation <em>Translation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see kinematics.Translation
-	 * @generated
-	 */
-	public Adapter createTranslationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.Rotation <em>Rotation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see kinematics.Rotation
-	 * @generated
-	 */
-	public Adapter createRotationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.Transform <em>Transform</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see kinematics.Transform
-	 * @generated
-	 */
-	public Adapter createTransformAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.Vector3d <em>Vector3d</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see kinematics.Vector3d
-	 * @generated
-	 */
-	public Adapter createVector3dAdapter() {
+	public Adapter createjointAdapter() {
 		return null;
 	}
 

@@ -66,45 +66,21 @@ public class KinematicsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case KinematicsPackage.ROBOT: {
+				robot robot = (robot)theEObject;
+				T result = caserobot(robot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case KinematicsPackage.LINK: {
-				Link link = (Link)theEObject;
-				T result = caseLink(link);
+				link link = (link)theEObject;
+				T result = caselink(link);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KinematicsPackage.JOINT: {
-				Joint joint = (Joint)theEObject;
-				T result = caseJoint(joint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.GEOMETRY: {
-				Geometry geometry = (Geometry)theEObject;
-				T result = caseGeometry(geometry);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.TRANSLATION: {
-				Translation translation = (Translation)theEObject;
-				T result = caseTranslation(translation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.ROTATION: {
-				Rotation rotation = (Rotation)theEObject;
-				T result = caseRotation(rotation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.TRANSFORM: {
-				Transform transform = (Transform)theEObject;
-				T result = caseTransform(transform);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.VECTOR3D: {
-				Vector3d vector3d = (Vector3d)theEObject;
-				T result = caseVector3d(vector3d);
+				joint joint = (joint)theEObject;
+				T result = casejoint(joint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,107 +89,47 @@ public class KinematicsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>robot</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Link</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>robot</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLink(Link object) {
+	public T caserobot(robot object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Joint</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>link</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Joint</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>link</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseJoint(Joint object) {
+	public T caselink(link object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Geometry</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>joint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Geometry</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>joint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGeometry(Geometry object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Translation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Translation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTranslation(Translation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rotation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rotation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRotation(Rotation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Transform</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Transform</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTransform(Transform object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Vector3d</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Vector3d</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVector3d(Vector3d object) {
+	public T casejoint(joint object) {
 		return null;
 	}
 

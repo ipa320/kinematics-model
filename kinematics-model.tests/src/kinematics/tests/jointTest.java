@@ -7,23 +7,23 @@ import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import kinematics.KinematicsFactory;
-import kinematics.Link;
+import kinematics.joint;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Link</b></em>'.
+ * A test case for the model object '<em><b>joint</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class LinkTest extends TestCase {
+public class jointTest extends TestCase {
 
 	/**
-	 * The fixture for this Link test case.
+	 * The fixture for this joint test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Link fixture = null;
+	protected joint fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class LinkTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(LinkTest.class);
+		TestRunner.run(jointTest.class);
 	}
 
 	/**
-	 * Constructs a new Link test case with the given name.
+	 * Constructs a new joint test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LinkTest(String name) {
+	public jointTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Link test case.
+	 * Sets the fixture for this joint test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Link fixture) {
+	protected void setFixture(joint fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Link test case.
+	 * Returns the fixture for this joint test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Link getFixture() {
+	protected joint getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class LinkTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(KinematicsFactory.eINSTANCE.createLink());
+		setFixture(KinematicsFactory.eINSTANCE.createjoint());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class LinkTest extends TestCase {
 		setFixture(null);
 	}
 
-} //LinkTest
+} //jointTest

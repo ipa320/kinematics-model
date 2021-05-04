@@ -38,7 +38,7 @@ public interface KinematicsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.example.org/kinematics";
+	String eNS_URI = "https://de/fraunhofer/ipa/kinematics";
 
 	/**
 	 * The package namespace name.
@@ -46,7 +46,7 @@ public interface KinematicsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "kinematics";
+	String eNS_PREFIX = "de.fraunhofer.ipa.kinematics";
 
 	/**
 	 * The singleton instance of the package.
@@ -57,44 +57,81 @@ public interface KinematicsPackage extends EPackage {
 	KinematicsPackage eINSTANCE = kinematics.impl.KinematicsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link kinematics.impl.LinkImpl <em>Link</em>}' class.
+	 * The meta object id for the '{@link kinematics.impl.robotImpl <em>robot</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.LinkImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getLink()
+	 * @see kinematics.impl.robotImpl
+	 * @see kinematics.impl.KinematicsPackageImpl#getrobot()
 	 * @generated
 	 */
-	int LINK = 0;
+	int ROBOT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Visual</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__VISUAL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Collision</b></em>' reference.
+	 * The feature id for the '<em><b>Root link</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__COLLISION = 1;
+	int ROBOT__ROOT_LINK = 0;
 
 	/**
-	 * The number of structural features of the '<em>Link</em>' class.
+	 * The feature id for the '<em><b>Joint</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = 2;
+	int ROBOT__JOINT = 1;
 
 	/**
-	 * The number of operations of the '<em>Link</em>' class.
+	 * The number of structural features of the '<em>robot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>robot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kinematics.impl.linkImpl <em>link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kinematics.impl.linkImpl
+	 * @see kinematics.impl.KinematicsPackageImpl#getlink()
+	 * @generated
+	 */
+	int LINK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -103,14 +140,14 @@ public interface KinematicsPackage extends EPackage {
 	int LINK_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link kinematics.impl.JointImpl <em>Joint</em>}' class.
+	 * The meta object id for the '{@link kinematics.impl.jointImpl <em>joint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.JointImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getJoint()
+	 * @see kinematics.impl.jointImpl
+	 * @see kinematics.impl.KinematicsPackageImpl#getjoint()
 	 * @generated
 	 */
-	int JOINT = 1;
+	int JOINT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -122,7 +159,7 @@ public interface KinematicsPackage extends EPackage {
 	int JOINT__PARENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' reference list.
+	 * The feature id for the '<em><b>Child</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -131,43 +168,25 @@ public interface KinematicsPackage extends EPackage {
 	int JOINT__CHILD = 1;
 
 	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__PREFIX = 2;
+	int JOINT__NAME = 2;
 
 	/**
-	 * The feature id for the '<em><b>Origin</b></em>' reference.
+	 * The number of structural features of the '<em>joint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__ORIGIN = 3;
+	int JOINT_FEATURE_COUNT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Axis</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOINT__AXIS = 4;
-
-	/**
-	 * The number of structural features of the '<em>Joint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOINT_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Joint</em>' class.
+	 * The number of operations of the '<em>joint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -175,533 +194,102 @@ public interface KinematicsPackage extends EPackage {
 	 */
 	int JOINT_OPERATION_COUNT = 0;
 
+
 	/**
-	 * The meta object id for the '{@link kinematics.impl.GeometryImpl <em>Geometry</em>}' class.
+	 * Returns the meta object for class '{@link kinematics.robot <em>robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.GeometryImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getGeometry()
+	 * @return the meta object for class '<em>robot</em>'.
+	 * @see kinematics.robot
 	 * @generated
 	 */
-	int GEOMETRY = 2;
+	EClass getrobot();
 
 	/**
-	 * The feature id for the '<em><b>Mesh</b></em>' attribute.
+	 * Returns the meta object for the containment reference '{@link kinematics.robot#getRoot_link <em>Root link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Root link</em>'.
+	 * @see kinematics.robot#getRoot_link()
+	 * @see #getrobot()
 	 * @generated
-	 * @ordered
 	 */
-	int GEOMETRY__MESH = 0;
+	EReference getrobot_Root_link();
 
 	/**
-	 * The number of structural features of the '<em>Geometry</em>' class.
+	 * Returns the meta object for the containment reference list '{@link kinematics.robot#getJoint <em>Joint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Joint</em>'.
+	 * @see kinematics.robot#getJoint()
+	 * @see #getrobot()
 	 * @generated
-	 * @ordered
 	 */
-	int GEOMETRY_FEATURE_COUNT = 1;
+	EReference getrobot_Joint();
 
 	/**
-	 * The number of operations of the '<em>Geometry</em>' class.
+	 * Returns the meta object for class '{@link kinematics.link <em>link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>link</em>'.
+	 * @see kinematics.link
 	 * @generated
-	 * @ordered
 	 */
-	int GEOMETRY_OPERATION_COUNT = 0;
+	EClass getlink();
 
 	/**
-	 * The meta object id for the '{@link kinematics.impl.TranslationImpl <em>Translation</em>}' class.
+	 * Returns the meta object for the attribute '{@link kinematics.link#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.TranslationImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getTranslation()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kinematics.link#getName()
+	 * @see #getlink()
 	 * @generated
 	 */
-	int TRANSLATION = 3;
+	EAttribute getlink_Name();
 
 	/**
-	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * Returns the meta object for class '{@link kinematics.joint <em>joint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATION__X = 0;
-
-	/**
-	 * The feature id for the '<em><b>Y</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATION__Y = 1;
-
-	/**
-	 * The feature id for the '<em><b>Z</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATION__Z = 2;
-
-	/**
-	 * The number of structural features of the '<em>Translation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATION_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Translation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link kinematics.impl.RotationImpl <em>Rotation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.RotationImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getRotation()
+	 * @return the meta object for class '<em>joint</em>'.
+	 * @see kinematics.joint
 	 * @generated
 	 */
-	int ROTATION = 4;
+	EClass getjoint();
 
 	/**
-	 * The feature id for the '<em><b>R</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROTATION__R = 0;
-
-	/**
-	 * The feature id for the '<em><b>P</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROTATION__P = 1;
-
-	/**
-	 * The feature id for the '<em><b>Y</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROTATION__Y = 2;
-
-	/**
-	 * The number of structural features of the '<em>Rotation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROTATION_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Rotation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROTATION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link kinematics.impl.TransformImpl <em>Transform</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.TransformImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getTransform()
-	 * @generated
-	 */
-	int TRANSFORM = 5;
-
-	/**
-	 * The feature id for the '<em><b>XYZ</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORM__XYZ = 0;
-
-	/**
-	 * The feature id for the '<em><b>RPY</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORM__RPY = 1;
-
-	/**
-	 * The number of structural features of the '<em>Transform</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORM_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Transform</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORM_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link kinematics.impl.Vector3dImpl <em>Vector3d</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.Vector3dImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getVector3d()
-	 * @generated
-	 */
-	int VECTOR3D = 6;
-
-	/**
-	 * The feature id for the '<em><b>X</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VECTOR3D__X = 0;
-
-	/**
-	 * The feature id for the '<em><b>Y</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VECTOR3D__Y = 1;
-
-	/**
-	 * The feature id for the '<em><b>Z</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VECTOR3D__Z = 2;
-
-	/**
-	 * The number of structural features of the '<em>Vector3d</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VECTOR3D_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Vector3d</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VECTOR3D_OPERATION_COUNT = 0;
-
-
-	/**
-	 * Returns the meta object for class '{@link kinematics.Link <em>Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Link</em>'.
-	 * @see kinematics.Link
-	 * @generated
-	 */
-	EClass getLink();
-
-	/**
-	 * Returns the meta object for the reference '{@link kinematics.Link#getVisual <em>Visual</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Visual</em>'.
-	 * @see kinematics.Link#getVisual()
-	 * @see #getLink()
-	 * @generated
-	 */
-	EReference getLink_Visual();
-
-	/**
-	 * Returns the meta object for the reference '{@link kinematics.Link#getCollision <em>Collision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Collision</em>'.
-	 * @see kinematics.Link#getCollision()
-	 * @see #getLink()
-	 * @generated
-	 */
-	EReference getLink_Collision();
-
-	/**
-	 * Returns the meta object for class '{@link kinematics.Joint <em>Joint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Joint</em>'.
-	 * @see kinematics.Joint
-	 * @generated
-	 */
-	EClass getJoint();
-
-	/**
-	 * Returns the meta object for the reference '{@link kinematics.Joint#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the reference '{@link kinematics.joint#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Parent</em>'.
-	 * @see kinematics.Joint#getParent()
-	 * @see #getJoint()
+	 * @see kinematics.joint#getParent()
+	 * @see #getjoint()
 	 * @generated
 	 */
-	EReference getJoint_Parent();
+	EReference getjoint_Parent();
 
 	/**
-	 * Returns the meta object for the reference list '{@link kinematics.Joint#getChild <em>Child</em>}'.
+	 * Returns the meta object for the containment reference list '{@link kinematics.joint#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Child</em>'.
-	 * @see kinematics.Joint#getChild()
-	 * @see #getJoint()
+	 * @return the meta object for the containment reference list '<em>Child</em>'.
+	 * @see kinematics.joint#getChild()
+	 * @see #getjoint()
 	 * @generated
 	 */
-	EReference getJoint_Child();
+	EReference getjoint_Child();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Joint#getPrefix <em>Prefix</em>}'.
+	 * Returns the meta object for the attribute '{@link kinematics.joint#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Prefix</em>'.
-	 * @see kinematics.Joint#getPrefix()
-	 * @see #getJoint()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kinematics.joint#getName()
+	 * @see #getjoint()
 	 * @generated
 	 */
-	EAttribute getJoint_Prefix();
-
-	/**
-	 * Returns the meta object for the reference '{@link kinematics.Joint#getOrigin <em>Origin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Origin</em>'.
-	 * @see kinematics.Joint#getOrigin()
-	 * @see #getJoint()
-	 * @generated
-	 */
-	EReference getJoint_Origin();
-
-	/**
-	 * Returns the meta object for the reference '{@link kinematics.Joint#getAxis <em>Axis</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Axis</em>'.
-	 * @see kinematics.Joint#getAxis()
-	 * @see #getJoint()
-	 * @generated
-	 */
-	EReference getJoint_Axis();
-
-	/**
-	 * Returns the meta object for class '{@link kinematics.Geometry <em>Geometry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Geometry</em>'.
-	 * @see kinematics.Geometry
-	 * @generated
-	 */
-	EClass getGeometry();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Geometry#getMesh <em>Mesh</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mesh</em>'.
-	 * @see kinematics.Geometry#getMesh()
-	 * @see #getGeometry()
-	 * @generated
-	 */
-	EAttribute getGeometry_Mesh();
-
-	/**
-	 * Returns the meta object for class '{@link kinematics.Translation <em>Translation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Translation</em>'.
-	 * @see kinematics.Translation
-	 * @generated
-	 */
-	EClass getTranslation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Translation#getX <em>X</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>X</em>'.
-	 * @see kinematics.Translation#getX()
-	 * @see #getTranslation()
-	 * @generated
-	 */
-	EAttribute getTranslation_X();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Translation#getY <em>Y</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Y</em>'.
-	 * @see kinematics.Translation#getY()
-	 * @see #getTranslation()
-	 * @generated
-	 */
-	EAttribute getTranslation_Y();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Translation#getZ <em>Z</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Z</em>'.
-	 * @see kinematics.Translation#getZ()
-	 * @see #getTranslation()
-	 * @generated
-	 */
-	EAttribute getTranslation_Z();
-
-	/**
-	 * Returns the meta object for class '{@link kinematics.Rotation <em>Rotation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rotation</em>'.
-	 * @see kinematics.Rotation
-	 * @generated
-	 */
-	EClass getRotation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Rotation#getR <em>R</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>R</em>'.
-	 * @see kinematics.Rotation#getR()
-	 * @see #getRotation()
-	 * @generated
-	 */
-	EAttribute getRotation_R();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Rotation#getP <em>P</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>P</em>'.
-	 * @see kinematics.Rotation#getP()
-	 * @see #getRotation()
-	 * @generated
-	 */
-	EAttribute getRotation_P();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Rotation#getY <em>Y</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Y</em>'.
-	 * @see kinematics.Rotation#getY()
-	 * @see #getRotation()
-	 * @generated
-	 */
-	EAttribute getRotation_Y();
-
-	/**
-	 * Returns the meta object for class '{@link kinematics.Transform <em>Transform</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Transform</em>'.
-	 * @see kinematics.Transform
-	 * @generated
-	 */
-	EClass getTransform();
-
-	/**
-	 * Returns the meta object for the reference '{@link kinematics.Transform#getXYZ <em>XYZ</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>XYZ</em>'.
-	 * @see kinematics.Transform#getXYZ()
-	 * @see #getTransform()
-	 * @generated
-	 */
-	EReference getTransform_XYZ();
-
-	/**
-	 * Returns the meta object for the reference '{@link kinematics.Transform#getRPY <em>RPY</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>RPY</em>'.
-	 * @see kinematics.Transform#getRPY()
-	 * @see #getTransform()
-	 * @generated
-	 */
-	EReference getTransform_RPY();
-
-	/**
-	 * Returns the meta object for class '{@link kinematics.Vector3d <em>Vector3d</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Vector3d</em>'.
-	 * @see kinematics.Vector3d
-	 * @generated
-	 */
-	EClass getVector3d();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Vector3d#getX <em>X</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>X</em>'.
-	 * @see kinematics.Vector3d#getX()
-	 * @see #getVector3d()
-	 * @generated
-	 */
-	EAttribute getVector3d_X();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Vector3d#getY <em>Y</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Y</em>'.
-	 * @see kinematics.Vector3d#getY()
-	 * @see #getVector3d()
-	 * @generated
-	 */
-	EAttribute getVector3d_Y();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kinematics.Vector3d#getZ <em>Z</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Z</em>'.
-	 * @see kinematics.Vector3d#getZ()
-	 * @see #getVector3d()
-	 * @generated
-	 */
-	EAttribute getVector3d_Z();
+	EAttribute getjoint_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -727,40 +315,58 @@ public interface KinematicsPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link kinematics.impl.LinkImpl <em>Link</em>}' class.
+		 * The meta object literal for the '{@link kinematics.impl.robotImpl <em>robot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.LinkImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getLink()
+		 * @see kinematics.impl.robotImpl
+		 * @see kinematics.impl.KinematicsPackageImpl#getrobot()
 		 * @generated
 		 */
-		EClass LINK = eINSTANCE.getLink();
+		EClass ROBOT = eINSTANCE.getrobot();
 
 		/**
-		 * The meta object literal for the '<em><b>Visual</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Root link</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK__VISUAL = eINSTANCE.getLink_Visual();
+		EReference ROBOT__ROOT_LINK = eINSTANCE.getrobot_Root_link();
 
 		/**
-		 * The meta object literal for the '<em><b>Collision</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Joint</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK__COLLISION = eINSTANCE.getLink_Collision();
+		EReference ROBOT__JOINT = eINSTANCE.getrobot_Joint();
 
 		/**
-		 * The meta object literal for the '{@link kinematics.impl.JointImpl <em>Joint</em>}' class.
+		 * The meta object literal for the '{@link kinematics.impl.linkImpl <em>link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.JointImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getJoint()
+		 * @see kinematics.impl.linkImpl
+		 * @see kinematics.impl.KinematicsPackageImpl#getlink()
 		 * @generated
 		 */
-		EClass JOINT = eINSTANCE.getJoint();
+		EClass LINK = eINSTANCE.getlink();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__NAME = eINSTANCE.getlink_Name();
+
+		/**
+		 * The meta object literal for the '{@link kinematics.impl.jointImpl <em>joint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kinematics.impl.jointImpl
+		 * @see kinematics.impl.KinematicsPackageImpl#getjoint()
+		 * @generated
+		 */
+		EClass JOINT = eINSTANCE.getjoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
@@ -768,185 +374,23 @@ public interface KinematicsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JOINT__PARENT = eINSTANCE.getJoint_Parent();
+		EReference JOINT__PARENT = eINSTANCE.getjoint_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Child</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JOINT__CHILD = eINSTANCE.getJoint_Child();
+		EReference JOINT__CHILD = eINSTANCE.getjoint_Child();
 
 		/**
-		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JOINT__PREFIX = eINSTANCE.getJoint_Prefix();
-
-		/**
-		 * The meta object literal for the '<em><b>Origin</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference JOINT__ORIGIN = eINSTANCE.getJoint_Origin();
-
-		/**
-		 * The meta object literal for the '<em><b>Axis</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference JOINT__AXIS = eINSTANCE.getJoint_Axis();
-
-		/**
-		 * The meta object literal for the '{@link kinematics.impl.GeometryImpl <em>Geometry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.GeometryImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getGeometry()
-		 * @generated
-		 */
-		EClass GEOMETRY = eINSTANCE.getGeometry();
-
-		/**
-		 * The meta object literal for the '<em><b>Mesh</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GEOMETRY__MESH = eINSTANCE.getGeometry_Mesh();
-
-		/**
-		 * The meta object literal for the '{@link kinematics.impl.TranslationImpl <em>Translation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.TranslationImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getTranslation()
-		 * @generated
-		 */
-		EClass TRANSLATION = eINSTANCE.getTranslation();
-
-		/**
-		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRANSLATION__X = eINSTANCE.getTranslation_X();
-
-		/**
-		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRANSLATION__Y = eINSTANCE.getTranslation_Y();
-
-		/**
-		 * The meta object literal for the '<em><b>Z</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRANSLATION__Z = eINSTANCE.getTranslation_Z();
-
-		/**
-		 * The meta object literal for the '{@link kinematics.impl.RotationImpl <em>Rotation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.RotationImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getRotation()
-		 * @generated
-		 */
-		EClass ROTATION = eINSTANCE.getRotation();
-
-		/**
-		 * The meta object literal for the '<em><b>R</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROTATION__R = eINSTANCE.getRotation_R();
-
-		/**
-		 * The meta object literal for the '<em><b>P</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROTATION__P = eINSTANCE.getRotation_P();
-
-		/**
-		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROTATION__Y = eINSTANCE.getRotation_Y();
-
-		/**
-		 * The meta object literal for the '{@link kinematics.impl.TransformImpl <em>Transform</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.TransformImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getTransform()
-		 * @generated
-		 */
-		EClass TRANSFORM = eINSTANCE.getTransform();
-
-		/**
-		 * The meta object literal for the '<em><b>XYZ</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSFORM__XYZ = eINSTANCE.getTransform_XYZ();
-
-		/**
-		 * The meta object literal for the '<em><b>RPY</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSFORM__RPY = eINSTANCE.getTransform_RPY();
-
-		/**
-		 * The meta object literal for the '{@link kinematics.impl.Vector3dImpl <em>Vector3d</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.Vector3dImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getVector3d()
-		 * @generated
-		 */
-		EClass VECTOR3D = eINSTANCE.getVector3d();
-
-		/**
-		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VECTOR3D__X = eINSTANCE.getVector3d_X();
-
-		/**
-		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VECTOR3D__Y = eINSTANCE.getVector3d_Y();
-
-		/**
-		 * The meta object literal for the '<em><b>Z</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VECTOR3D__Z = eINSTANCE.getVector3d_Z();
+		EAttribute JOINT__NAME = eINSTANCE.getjoint_Name();
 
 	}
 

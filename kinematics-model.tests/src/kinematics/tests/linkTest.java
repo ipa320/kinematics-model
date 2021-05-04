@@ -6,24 +6,24 @@ import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import kinematics.Geometry;
 import kinematics.KinematicsFactory;
+import kinematics.link;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Geometry</b></em>'.
+ * A test case for the model object '<em><b>link</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class GeometryTest extends TestCase {
+public class linkTest extends TestCase {
 
 	/**
-	 * The fixture for this Geometry test case.
+	 * The fixture for this link test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Geometry fixture = null;
+	protected link fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class GeometryTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(GeometryTest.class);
+		TestRunner.run(linkTest.class);
 	}
 
 	/**
-	 * Constructs a new Geometry test case with the given name.
+	 * Constructs a new link test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GeometryTest(String name) {
+	public linkTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Geometry test case.
+	 * Sets the fixture for this link test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Geometry fixture) {
+	protected void setFixture(link fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Geometry test case.
+	 * Returns the fixture for this link test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Geometry getFixture() {
+	protected link getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class GeometryTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(KinematicsFactory.eINSTANCE.createGeometry());
+		setFixture(KinematicsFactory.eINSTANCE.createlink());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class GeometryTest extends TestCase {
 		setFixture(null);
 	}
 
-} //GeometryTest
+} //linkTest

@@ -72,164 +72,72 @@ public class KinematicsItemProviderAdapterFactory extends KinematicsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.Link} instances.
+	 * This keeps track of the one adapter used for all {@link kinematics.robot} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LinkItemProvider linkItemProvider;
+	protected robotItemProvider robotItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link kinematics.Link}.
+	 * This creates an adapter for a {@link kinematics.robot}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLinkAdapter() {
+	public Adapter createrobotAdapter() {
+		if (robotItemProvider == null) {
+			robotItemProvider = new robotItemProvider(this);
+		}
+
+		return robotItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link kinematics.link} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected linkItemProvider linkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link kinematics.link}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createlinkAdapter() {
 		if (linkItemProvider == null) {
-			linkItemProvider = new LinkItemProvider(this);
+			linkItemProvider = new linkItemProvider(this);
 		}
 
 		return linkItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.Joint} instances.
+	 * This keeps track of the one adapter used for all {@link kinematics.joint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JointItemProvider jointItemProvider;
+	protected jointItemProvider jointItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link kinematics.Joint}.
+	 * This creates an adapter for a {@link kinematics.joint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createJointAdapter() {
+	public Adapter createjointAdapter() {
 		if (jointItemProvider == null) {
-			jointItemProvider = new JointItemProvider(this);
+			jointItemProvider = new jointItemProvider(this);
 		}
 
 		return jointItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.Geometry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeometryItemProvider geometryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link kinematics.Geometry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeometryAdapter() {
-		if (geometryItemProvider == null) {
-			geometryItemProvider = new GeometryItemProvider(this);
-		}
-
-		return geometryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.Translation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TranslationItemProvider translationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link kinematics.Translation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTranslationAdapter() {
-		if (translationItemProvider == null) {
-			translationItemProvider = new TranslationItemProvider(this);
-		}
-
-		return translationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.Rotation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RotationItemProvider rotationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link kinematics.Rotation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRotationAdapter() {
-		if (rotationItemProvider == null) {
-			rotationItemProvider = new RotationItemProvider(this);
-		}
-
-		return rotationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.Transform} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TransformItemProvider transformItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link kinematics.Transform}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTransformAdapter() {
-		if (transformItemProvider == null) {
-			transformItemProvider = new TransformItemProvider(this);
-		}
-
-		return transformItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.Vector3d} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Vector3dItemProvider vector3dItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link kinematics.Vector3d}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVector3dAdapter() {
-		if (vector3dItemProvider == null) {
-			vector3dItemProvider = new Vector3dItemProvider(this);
-		}
-
-		return vector3dItemProvider;
 	}
 
 	/**
@@ -331,13 +239,9 @@ public class KinematicsItemProviderAdapterFactory extends KinematicsAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
+		if (robotItemProvider != null) robotItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
 		if (jointItemProvider != null) jointItemProvider.dispose();
-		if (geometryItemProvider != null) geometryItemProvider.dispose();
-		if (translationItemProvider != null) translationItemProvider.dispose();
-		if (rotationItemProvider != null) rotationItemProvider.dispose();
-		if (transformItemProvider != null) transformItemProvider.dispose();
-		if (vector3dItemProvider != null) vector3dItemProvider.dispose();
 	}
 
 }

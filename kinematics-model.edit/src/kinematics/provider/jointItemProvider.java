@@ -6,13 +6,16 @@ package kinematics.provider;
 import java.util.Collection;
 import java.util.List;
 
+import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
-import kinematics.Vector3d;
+import kinematics.joint;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -26,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link kinematics.Vector3d} object.
+ * This is the item provider adapter for a {@link kinematics.joint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class Vector3dItemProvider 
+public class jointItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +48,7 @@ public class Vector3dItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Vector3dItemProvider(AdapterFactory adapterFactory) {
+	public jointItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,88 +63,95 @@ public class Vector3dItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXPropertyDescriptor(object);
-			addYPropertyDescriptor(object);
-			addZPropertyDescriptor(object);
+			addParentPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the X feature.
+	 * This adds a property descriptor for the Parent feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXPropertyDescriptor(Object object) {
+	protected void addParentPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Vector3d_X_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Vector3d_X_feature", "_UI_Vector3d_type"),
-				 KinematicsPackage.Literals.VECTOR3D__X,
+				 getString("_UI_joint_parent_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_joint_parent_feature", "_UI_joint_type"),
+				 KinematicsPackage.Literals.JOINT__PARENT,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Y feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addYPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Vector3d_Y_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Vector3d_Y_feature", "_UI_Vector3d_type"),
-				 KinematicsPackage.Literals.VECTOR3D__Y,
+				 getString("_UI_joint_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_joint_name_feature", "_UI_joint_type"),
+				 KinematicsPackage.Literals.JOINT__NAME,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Z feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addZPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Vector3d_Z_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Vector3d_Z_feature", "_UI_Vector3d_type"),
-				 KinematicsPackage.Literals.VECTOR3D__Z,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(KinematicsPackage.Literals.JOINT__CHILD);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This returns Vector3d.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns joint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Vector3d"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/joint"));
 	}
 
 	/**
@@ -152,8 +162,10 @@ public class Vector3dItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Vector3d vector3d = (Vector3d)object;
-		return getString("_UI_Vector3d_type") + " " + vector3d.getX();
+		String label = ((joint)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_joint_type") :
+			getString("_UI_joint_type") + " " + label;
 	}
 
 
@@ -168,11 +180,12 @@ public class Vector3dItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Vector3d.class)) {
-			case KinematicsPackage.VECTOR3D__X:
-			case KinematicsPackage.VECTOR3D__Y:
-			case KinematicsPackage.VECTOR3D__Z:
+		switch (notification.getFeatureID(joint.class)) {
+			case KinematicsPackage.JOINT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case KinematicsPackage.JOINT__CHILD:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -188,6 +201,11 @@ public class Vector3dItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KinematicsPackage.Literals.JOINT__CHILD,
+				 KinematicsFactory.eINSTANCE.createlink()));
 	}
 
 	/**

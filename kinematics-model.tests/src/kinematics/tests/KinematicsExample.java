@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
-import kinematics.Link;
+import kinematics.robot;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
@@ -60,7 +60,7 @@ public class KinematicsExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.kinematics"));
-				Link root = KinematicsFactory.eINSTANCE.createLink();
+				robot root = KinematicsFactory.eINSTANCE.createrobot();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

@@ -22,67 +22,31 @@ public interface KinematicsFactory extends EFactory {
 	KinematicsFactory eINSTANCE = kinematics.impl.KinematicsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Link</em>'.
+	 * Returns a new object of class '<em>robot</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Link</em>'.
+	 * @return a new object of class '<em>robot</em>'.
 	 * @generated
 	 */
-	Link createLink();
+	robot createrobot();
 
 	/**
-	 * Returns a new object of class '<em>Joint</em>'.
+	 * Returns a new object of class '<em>link</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Joint</em>'.
+	 * @return a new object of class '<em>link</em>'.
 	 * @generated
 	 */
-	Joint createJoint();
+	link createlink();
 
 	/**
-	 * Returns a new object of class '<em>Geometry</em>'.
+	 * Returns a new object of class '<em>joint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Geometry</em>'.
+	 * @return a new object of class '<em>joint</em>'.
 	 * @generated
 	 */
-	Geometry createGeometry();
-
-	/**
-	 * Returns a new object of class '<em>Translation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Translation</em>'.
-	 * @generated
-	 */
-	Translation createTranslation();
-
-	/**
-	 * Returns a new object of class '<em>Rotation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rotation</em>'.
-	 * @generated
-	 */
-	Rotation createRotation();
-
-	/**
-	 * Returns a new object of class '<em>Transform</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Transform</em>'.
-	 * @generated
-	 */
-	Transform createTransform();
-
-	/**
-	 * Returns a new object of class '<em>Vector3d</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Vector3d</em>'.
-	 * @generated
-	 */
-	Vector3d createVector3d();
+	joint createjoint();
 
 	/**
 	 * Returns the package supported by this factory.

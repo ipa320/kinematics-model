@@ -2,8 +2,8 @@
  */
 package kinematics.impl;
 
-import kinematics.Geometry;
 import kinematics.KinematicsPackage;
+import kinematics.link;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,44 +14,44 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Geometry</b></em>'.
+ * An implementation of the model object '<em><b>link</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link kinematics.impl.GeometryImpl#getMesh <em>Mesh</em>}</li>
+ *   <li>{@link kinematics.impl.linkImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GeometryImpl extends MinimalEObjectImpl.Container implements Geometry {
+public class linkImpl extends MinimalEObjectImpl.Container implements link {
 	/**
-	 * The default value of the '{@link #getMesh() <em>Mesh</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMesh()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MESH_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMesh() <em>Mesh</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMesh()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String mesh = MESH_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GeometryImpl() {
+	protected linkImpl() {
 		super();
 	}
 
@@ -62,7 +62,7 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return KinematicsPackage.Literals.GEOMETRY;
+		return KinematicsPackage.Literals.LINK;
 	}
 
 	/**
@@ -70,8 +70,8 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMesh() {
-		return mesh;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -79,11 +79,11 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMesh(String newMesh) {
-		String oldMesh = mesh;
-		mesh = newMesh;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.GEOMETRY__MESH, oldMesh, mesh));
+			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.LINK__NAME, oldName, name));
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KinematicsPackage.GEOMETRY__MESH:
-				return getMesh();
+			case KinematicsPackage.LINK__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +108,8 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case KinematicsPackage.GEOMETRY__MESH:
-				setMesh((String)newValue);
+			case KinematicsPackage.LINK__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case KinematicsPackage.GEOMETRY__MESH:
-				setMesh(MESH_EDEFAULT);
+			case KinematicsPackage.LINK__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +138,8 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KinematicsPackage.GEOMETRY__MESH:
-				return MESH_EDEFAULT == null ? mesh != null : !MESH_EDEFAULT.equals(mesh);
+			case KinematicsPackage.LINK__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,10 +154,10 @@ public class GeometryImpl extends MinimalEObjectImpl.Container implements Geomet
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Mesh: ");
-		result.append(mesh);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
 
-} //GeometryImpl
+} //linkImpl

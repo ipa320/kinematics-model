@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 import kinematics.KinematicsPackage;
+import kinematics.link;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -20,15 +21,17 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link kinematics.Transform} object.
+ * This is the item provider adapter for a {@link kinematics.link} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransformItemProvider 
+public class linkItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -42,7 +45,7 @@ public class TransformItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransformItemProvider(AdapterFactory adapterFactory) {
+	public linkItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,65 +60,42 @@ public class TransformItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXYZPropertyDescriptor(object);
-			addRPYPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the XYZ feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXYZPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Transform_XYZ_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transform_XYZ_feature", "_UI_Transform_type"),
-				 KinematicsPackage.Literals.TRANSFORM__XYZ,
+				 getString("_UI_link_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_link_name_feature", "_UI_link_type"),
+				 KinematicsPackage.Literals.LINK__NAME,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the RPY feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRPYPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Transform_RPY_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transform_RPY_feature", "_UI_Transform_type"),
-				 KinematicsPackage.Literals.TRANSFORM__RPY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Transform.gif.
+	 * This returns link.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Transform"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/link"));
 	}
 
 	/**
@@ -126,7 +106,10 @@ public class TransformItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Transform_type");
+		String label = ((link)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_link_type") :
+			getString("_UI_link_type") + " " + label;
 	}
 
 
@@ -140,6 +123,12 @@ public class TransformItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(link.class)) {
+			case KinematicsPackage.LINK__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

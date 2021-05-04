@@ -56,13 +56,9 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case KinematicsPackage.LINK: return createLink();
-			case KinematicsPackage.JOINT: return createJoint();
-			case KinematicsPackage.GEOMETRY: return createGeometry();
-			case KinematicsPackage.TRANSLATION: return createTranslation();
-			case KinematicsPackage.ROTATION: return createRotation();
-			case KinematicsPackage.TRANSFORM: return createTransform();
-			case KinematicsPackage.VECTOR3D: return createVector3d();
+			case KinematicsPackage.ROBOT: return createrobot();
+			case KinematicsPackage.LINK: return createlink();
+			case KinematicsPackage.JOINT: return createjoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,8 +69,18 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link createLink() {
-		LinkImpl link = new LinkImpl();
+	public robot createrobot() {
+		robotImpl robot = new robotImpl();
+		return robot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public link createlink() {
+		linkImpl link = new linkImpl();
 		return link;
 	}
 
@@ -83,59 +89,9 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Joint createJoint() {
-		JointImpl joint = new JointImpl();
+	public joint createjoint() {
+		jointImpl joint = new jointImpl();
 		return joint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Geometry createGeometry() {
-		GeometryImpl geometry = new GeometryImpl();
-		return geometry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Translation createTranslation() {
-		TranslationImpl translation = new TranslationImpl();
-		return translation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Rotation createRotation() {
-		RotationImpl rotation = new RotationImpl();
-		return rotation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Transform createTransform() {
-		TransformImpl transform = new TransformImpl();
-		return transform;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Vector3d createVector3d() {
-		Vector3dImpl vector3d = new Vector3dImpl();
-		return vector3d;
 	}
 
 	/**

@@ -9,9 +9,9 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated kinematics -->
       <package
-            uri="http://www.example.org/kinematics"
+            uri="https://de/fraunhofer/ipa/kinematics"
             class="kinematics.KinematicsPackage"
-            genModel="kinematics.genmodel"/>
+            genModel="model/kinematics.genmodel"/>
    </extension>
 
 </plugin>
