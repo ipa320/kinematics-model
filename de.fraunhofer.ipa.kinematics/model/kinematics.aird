@@ -9,7 +9,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="kinematics.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MtAIkLJ-EeuF-NJLH0MiCQ" name="kinematics class diagram" repPath="#_Ms1JcLJ-EeuF-NJLH0MiCQ" changeId="2157b291-5069-4d36-99ee-bf1661ab4bef">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MtAIkLJ-EeuF-NJLH0MiCQ" name="kinematics class diagram" repPath="#_Ms1JcLJ-EeuF-NJLH0MiCQ" changeId="34cf36d3-6055-479f-9f9a-59bb28b2e569">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="kinematics.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -539,6 +539,7 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_NSHn1bJ-EeuF-NJLH0MiCQ" showIcon="false" labelColor="255,255,255">
           <customFeatures>labelColor</customFeatures>
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_NSHn1LJ-EeuF-NJLH0MiCQ" showIcon="false" labelColor="255,255,255">
           <customFeatures>labelColor</customFeatures>
@@ -554,6 +555,7 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_NSHn37J-EeuF-NJLH0MiCQ" showIcon="false" labelColor="255,255,255">
           <customFeatures>labelColor</customFeatures>
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_NSHn3rJ-EeuF-NJLH0MiCQ" showIcon="false" labelColor="255,255,255">
           <customFeatures>labelColor</customFeatures>
