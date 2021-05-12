@@ -1,0 +1,9 @@
+robot ur5 {
+	root_link link base_link
+	joints {
+		joint shoulder_pan_joint {
+			parent base_link
+			child link shoulder_link
+		}
+	}	
+}
