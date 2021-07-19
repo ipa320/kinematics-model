@@ -95,7 +95,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     robot returns robot
 	 *
 	 * Constraint:
-	 *     (name=EString root_link=Link? (joints+=Joint joints+=Joint*)?)
+	 *     (name=EString prefix=EString root_link=Link? (joints+=Joint joints+=Joint*)?)
 	 */
 	protected void sequence_robot(ISerializationContext context, robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

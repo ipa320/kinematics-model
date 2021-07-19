@@ -13,7 +13,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="kinematics.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_b8eNgOhiEeup3cIzlskZGw" name="kinematics class diagram" repPath="#_b8GaEOhiEeup3cIzlskZGw" changeId="f712bec8-64dd-4a9d-b12b-2d6c2dc016c6">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_b8eNgOhiEeup3cIzlskZGw" name="kinematics class diagram" repPath="#_b8GaEOhiEeup3cIzlskZGw" changeId="8b5faa62-a260-4ad6-bc09-e763d9649d17">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="kinematics.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -586,6 +586,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_eZ1n0ehiEeup3cIzlskZGw" fontName="Ubuntu" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_eZ1n0uhiEeup3cIzlskZGw"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_vqs1MOhuEeup3cIzlskZGw" type="3010" element="_vqNF8ehuEeup3cIzlskZGw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_vqs1MehuEeup3cIzlskZGw" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_vqs1MuhuEeup3cIzlskZGw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_eZzyouhiEeup3cIzlskZGw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_eZzyo-hiEeup3cIzlskZGw"/>
           </children>
@@ -742,6 +746,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_vqNF8ehuEeup3cIzlskZGw" name="prefix : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="kinematics.ecore#//robot/prefix"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="kinematics.ecore#//robot/prefix"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_vqOUEOhuEeup3cIzlskZGw" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_eZjT8OhiEeup3cIzlskZGw" name="Link" tooltipText="" incomingEdges="_eZuTEOhiEeup3cIzlskZGw _eZwIQOhiEeup3cIzlskZGw _eZwvWehiEeup3cIzlskZGw" width="12" height="10">
       <target xmi:type="ecore:EClass" href="kinematics.ecore#//Link"/>
@@ -813,6 +825,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_eZwvU-hiEeup3cIzlskZGw" description="_eZwvUOhiEeup3cIzlskZGw" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_eZwvVehiEeup3cIzlskZGw" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_eZwvVOhiEeup3cIzlskZGw" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -826,6 +839,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_eZxWY-hiEeup3cIzlskZGw" description="_eZxWYOhiEeup3cIzlskZGw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_eZxWZehiEeup3cIzlskZGw" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_eZxWZOhiEeup3cIzlskZGw" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>

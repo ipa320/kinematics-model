@@ -28,22 +28,22 @@ class KinematicsGenerator extends AbstractGenerator {
 	<robot name="«r.name»">
 	  <!-- «r.name» robot links and joints and more -->
 
-	  <link name="«r.root_link.name»">
+	  <link name="«r.prefix»«r.root_link.name»">
 	  </link>
 
 	  «FOR j : r.joints»
-		«j.compile»
+		«j.compile(r.prefix)»
 	  «ENDFOR»
 	</robot>
 '''
 
-	private def compile(Joint j)'''
+	private def compile(Joint j, String prefix)'''
 	<joint name="«j.name»">
-	    <parent link="«j.parent.name»"/>
-	    <child link="«j.child.name»"/>
+	    <parent link="«prefix»«j.parent.name»"/>
+	    <child link="«prefix»«j.child.name»"/>
 	</joint>
 
-	<link name="«j.child.name»">
+	<link name="«prefix»«j.child.name»">
 	</link>
 '''
 }

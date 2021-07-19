@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kinematics.impl.robotImpl#getRoot_link <em>Root link</em>}</li>
  *   <li>{@link kinematics.impl.robotImpl#getJoints <em>Joints</em>}</li>
  *   <li>{@link kinematics.impl.robotImpl#getName <em>Name</em>}</li>
+ *   <li>{@link kinematics.impl.robotImpl#getPrefix <em>Prefix</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +79,26 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PREFIX_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected String prefix = PREFIX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,6 +200,27 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPrefix() {
+		return prefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrefix(String newPrefix) {
+		String oldPrefix = prefix;
+		prefix = newPrefix;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.ROBOT__PREFIX, oldPrefix, prefix));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -204,6 +246,8 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 				return getJoints();
 			case KinematicsPackage.ROBOT__NAME:
 				return getName();
+			case KinematicsPackage.ROBOT__PREFIX:
+				return getPrefix();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,6 +271,9 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 			case KinematicsPackage.ROBOT__NAME:
 				setName((String)newValue);
 				return;
+			case KinematicsPackage.ROBOT__PREFIX:
+				setPrefix((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -248,6 +295,9 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 			case KinematicsPackage.ROBOT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case KinematicsPackage.ROBOT__PREFIX:
+				setPrefix(PREFIX_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -266,6 +316,8 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 				return joints != null && !joints.isEmpty();
 			case KinematicsPackage.ROBOT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case KinematicsPackage.ROBOT__PREFIX:
+				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -282,6 +334,8 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", prefix: ");
+		result.append(prefix);
 		result.append(')');
 		return result.toString();
 	}

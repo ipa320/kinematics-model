@@ -64,6 +64,7 @@ public class robotItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addPrefixPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,6 +83,28 @@ public class robotItemProvider
 				 getString("_UI_robot_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_robot_name_feature", "_UI_robot_type"),
 				 KinematicsPackage.Literals.ROBOT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Prefix feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrefixPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_robot_prefix_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_robot_prefix_feature", "_UI_robot_type"),
+				 KinematicsPackage.Literals.ROBOT__PREFIX,
 				 true,
 				 false,
 				 false,
@@ -160,6 +183,7 @@ public class robotItemProvider
 
 		switch (notification.getFeatureID(robot.class)) {
 			case KinematicsPackage.ROBOT__NAME:
+			case KinematicsPackage.ROBOT__PREFIX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case KinematicsPackage.ROBOT__ROOT_LINK:

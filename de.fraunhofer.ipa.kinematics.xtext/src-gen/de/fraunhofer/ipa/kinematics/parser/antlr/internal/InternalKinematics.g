@@ -110,17 +110,40 @@ rulerobot returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_3());
 		}
+		otherlv_4='prefix'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getRobotAccess().getPrefixKeyword_4());
+		}
 		(
-			otherlv_4='root_link'
+			(
+				{
+					newCompositeNode(grammarAccess.getRobotAccess().getPrefixEStringParserRuleCall_5_0());
+				}
+				lv_prefix_5_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRobotRule());
+					}
+					set(
+						$current,
+						"prefix",
+						lv_prefix_5_0,
+						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_6='root_link'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getRobotAccess().getRoot_linkKeyword_4_0());
+				newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getRoot_linkKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getRoot_linkLinkParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getRoot_linkLinkParserRuleCall_6_1_0());
 					}
-					lv_root_link_5_0=ruleLink
+					lv_root_link_7_0=ruleLink
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -128,7 +151,7 @@ rulerobot returns [EObject current=null]
 						set(
 							$current,
 							"root_link",
-							lv_root_link_5_0,
+							lv_root_link_7_0,
 							"de.fraunhofer.ipa.kinematics.Kinematics.Link");
 						afterParserOrEnumRuleCall();
 					}
@@ -136,20 +159,20 @@ rulerobot returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_6='joints'
+			otherlv_8='joints'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getJointsKeyword_5_0());
+				newLeafNode(otherlv_8, grammarAccess.getRobotAccess().getJointsKeyword_7_0());
 			}
-			otherlv_7='{'
+			otherlv_9='{'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_5_1());
+				newLeafNode(otherlv_9, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_7_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_7_2_0());
 					}
-					lv_joints_8_0=ruleJoint
+					lv_joints_10_0=ruleJoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -157,23 +180,23 @@ rulerobot returns [EObject current=null]
 						add(
 							$current,
 							"joints",
-							lv_joints_8_0,
+							lv_joints_10_0,
 							"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_9=','
+				otherlv_11=','
 				{
-					newLeafNode(otherlv_9, grammarAccess.getRobotAccess().getCommaKeyword_5_3_0());
+					newLeafNode(otherlv_11, grammarAccess.getRobotAccess().getCommaKeyword_7_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_7_3_1_0());
 						}
-						lv_joints_10_0=ruleJoint
+						lv_joints_12_0=ruleJoint
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -181,21 +204,21 @@ rulerobot returns [EObject current=null]
 							add(
 								$current,
 								"joints",
-								lv_joints_10_0,
+								lv_joints_12_0,
 								"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_11='}'
+			otherlv_13='}'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_5_4());
+				newLeafNode(otherlv_13, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7_4());
 			}
 		)?
-		otherlv_12='}'
+		otherlv_14='}'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_14, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;

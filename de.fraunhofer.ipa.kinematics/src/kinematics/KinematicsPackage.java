@@ -94,13 +94,22 @@ public interface KinematicsPackage extends EPackage {
 	int ROBOT__NAME = 2;
 
 	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__PREFIX = 3;
+
+	/**
 	 * The number of structural features of the '<em>robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 3;
+	int ROBOT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>robot</em>' class.
@@ -248,6 +257,17 @@ public interface KinematicsPackage extends EPackage {
 	EAttribute getrobot_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kinematics.robot#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see kinematics.robot#getPrefix()
+	 * @see #getrobot()
+	 * @generated
+	 */
+	EAttribute getrobot_Prefix();
+
+	/**
 	 * Returns the meta object for class '{@link kinematics.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -367,6 +387,14 @@ public interface KinematicsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROBOT__NAME = eINSTANCE.getrobot_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROBOT__PREFIX = eINSTANCE.getrobot_Prefix();
 
 		/**
 		 * The meta object literal for the '{@link kinematics.impl.LinkImpl <em>Link</em>}' class.

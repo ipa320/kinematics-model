@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kinematics.robot#getRoot_link <em>Root link</em>}</li>
  *   <li>{@link kinematics.robot#getJoints <em>Joints</em>}</li>
  *   <li>{@link kinematics.robot#getName <em>Name</em>}</li>
+ *   <li>{@link kinematics.robot#getPrefix <em>Prefix</em>}</li>
  * </ul>
  *
  * @see kinematics.KinematicsPackage#getrobot()
@@ -80,5 +81,27 @@ public interface robot extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prefix</em>' attribute.
+	 * @see #setPrefix(String)
+	 * @see kinematics.KinematicsPackage#getrobot_Prefix()
+	 * @model
+	 * @generated
+	 */
+	String getPrefix();
+
+	/**
+	 * Sets the value of the '{@link kinematics.robot#getPrefix <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prefix</em>' attribute.
+	 * @see #getPrefix()
+	 * @generated
+	 */
+	void setPrefix(String value);
 
 } // robot

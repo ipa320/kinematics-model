@@ -10,6 +10,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//robot/root_link"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//robot/joints"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//robot/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//robot/prefix"/>
     </genClasses>
     <genClasses ecoreClass="kinematics.ecore#//Link">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Link/name"/>

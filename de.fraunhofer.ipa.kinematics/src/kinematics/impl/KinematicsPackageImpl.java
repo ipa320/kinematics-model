@@ -145,6 +145,15 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getrobot_Prefix() {
+		return (EAttribute)robotEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLink() {
 		return linkEClass;
 	}
@@ -226,6 +235,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 		createEReference(robotEClass, ROBOT__ROOT_LINK);
 		createEReference(robotEClass, ROBOT__JOINTS);
 		createEAttribute(robotEClass, ROBOT__NAME);
+		createEAttribute(robotEClass, ROBOT__PREFIX);
 
 		linkEClass = createEClass(LINK);
 		createEAttribute(linkEClass, LINK__NAME);
@@ -270,6 +280,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 		initEReference(getrobot_Root_link(), this.getLink(), null, "root_link", null, 0, 1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getrobot_Joints(), this.getJoint(), null, "joints", null, 0, -1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getrobot_Name(), ecorePackage.getEString(), "name", null, 1, 1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getrobot_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLink_Name(), ecorePackage.getEString(), "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
