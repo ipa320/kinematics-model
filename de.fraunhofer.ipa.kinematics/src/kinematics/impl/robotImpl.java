@@ -4,9 +4,9 @@ package kinematics.impl;
 
 import java.util.Collection;
 
+import kinematics.Joint;
 import kinematics.KinematicsPackage;
-import kinematics.joint;
-import kinematics.link;
+import kinematics.Link;
 import kinematics.robot;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -47,7 +47,7 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * @generated
 	 * @ordered
 	 */
-	protected link root_link;
+	protected Link root_link;
 
 	/**
 	 * The cached value of the '{@link #getJoints() <em>Joints</em>}' containment reference list.
@@ -57,7 +57,7 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<joint> joints;
+	protected EList<Joint> joints;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -103,7 +103,7 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public link getRoot_link() {
+	public Link getRoot_link() {
 		return root_link;
 	}
 
@@ -112,8 +112,8 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot_link(link newRoot_link, NotificationChain msgs) {
-		link oldRoot_link = root_link;
+	public NotificationChain basicSetRoot_link(Link newRoot_link, NotificationChain msgs) {
+		Link oldRoot_link = root_link;
 		root_link = newRoot_link;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KinematicsPackage.ROBOT__ROOT_LINK, oldRoot_link, newRoot_link);
@@ -127,7 +127,7 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot_link(link newRoot_link) {
+	public void setRoot_link(Link newRoot_link) {
 		if (newRoot_link != root_link) {
 			NotificationChain msgs = null;
 			if (root_link != null)
@@ -146,9 +146,9 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<joint> getJoints() {
+	public EList<Joint> getJoints() {
 		if (joints == null) {
-			joints = new EObjectContainmentEList<joint>(joint.class, this, KinematicsPackage.ROBOT__JOINTS);
+			joints = new EObjectContainmentEList<Joint>(Joint.class, this, KinematicsPackage.ROBOT__JOINTS);
 		}
 		return joints;
 	}
@@ -218,11 +218,11 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case KinematicsPackage.ROBOT__ROOT_LINK:
-				setRoot_link((link)newValue);
+				setRoot_link((Link)newValue);
 				return;
 			case KinematicsPackage.ROBOT__JOINTS:
 				getJoints().clear();
-				getJoints().addAll((Collection<? extends joint>)newValue);
+				getJoints().addAll((Collection<? extends Joint>)newValue);
 				return;
 			case KinematicsPackage.ROBOT__NAME:
 				setName((String)newValue);
@@ -240,7 +240,7 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case KinematicsPackage.ROBOT__ROOT_LINK:
-				setRoot_link((link)null);
+				setRoot_link((Link)null);
 				return;
 			case KinematicsPackage.ROBOT__JOINTS:
 				getJoints().clear();

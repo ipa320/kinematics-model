@@ -184,12 +184,12 @@ public class robotItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KinematicsPackage.Literals.ROBOT__ROOT_LINK,
-				 KinematicsFactory.eINSTANCE.createlink()));
+				 KinematicsFactory.eINSTANCE.createLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KinematicsPackage.Literals.ROBOT__JOINTS,
-				 KinematicsFactory.eINSTANCE.createjoint()));
+				 KinematicsFactory.eINSTANCE.createJoint()));
 	}
 
 	/**

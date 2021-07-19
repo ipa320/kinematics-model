@@ -30,12 +30,12 @@ public interface robot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root link</em>' containment reference.
-	 * @see #setRoot_link(link)
+	 * @see #setRoot_link(Link)
 	 * @see kinematics.KinematicsPackage#getrobot_Root_link()
 	 * @model containment="true"
 	 * @generated
 	 */
-	link getRoot_link();
+	Link getRoot_link();
 
 	/**
 	 * Sets the value of the '{@link kinematics.robot#getRoot_link <em>Root link</em>}' containment reference.
@@ -45,11 +45,11 @@ public interface robot extends EObject {
 	 * @see #getRoot_link()
 	 * @generated
 	 */
-	void setRoot_link(link value);
+	void setRoot_link(Link value);
 
 	/**
 	 * Returns the value of the '<em><b>Joints</b></em>' containment reference list.
-	 * The list contents are of type {@link kinematics.joint}.
+	 * The list contents are of type {@link kinematics.Joint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Joints</em>' containment reference list.
@@ -57,7 +57,7 @@ public interface robot extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<joint> getJoints();
+	EList<Joint> getJoints();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

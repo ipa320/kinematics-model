@@ -31,22 +31,22 @@ public interface KinematicsFactory extends EFactory {
 	robot createrobot();
 
 	/**
-	 * Returns a new object of class '<em>link</em>'.
+	 * Returns a new object of class '<em>Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>link</em>'.
+	 * @return a new object of class '<em>Link</em>'.
 	 * @generated
 	 */
-	link createlink();
+	Link createLink();
 
 	/**
-	 * Returns a new object of class '<em>joint</em>'.
+	 * Returns a new object of class '<em>Joint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>joint</em>'.
+	 * @return a new object of class '<em>Joint</em>'.
 	 * @generated
 	 */
-	joint createjoint();
+	Joint createJoint();
 
 	/**
 	 * Returns the package supported by this factory.

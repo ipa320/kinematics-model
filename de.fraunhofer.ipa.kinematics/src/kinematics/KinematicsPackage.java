@@ -112,11 +112,11 @@ public interface KinematicsPackage extends EPackage {
 	int ROBOT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link kinematics.impl.linkImpl <em>link</em>}' class.
+	 * The meta object id for the '{@link kinematics.impl.LinkImpl <em>Link</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.linkImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getlink()
+	 * @see kinematics.impl.LinkImpl
+	 * @see kinematics.impl.KinematicsPackageImpl#getLink()
 	 * @generated
 	 */
 	int LINK = 1;
@@ -131,7 +131,7 @@ public interface KinematicsPackage extends EPackage {
 	int LINK__NAME = 0;
 
 	/**
-	 * The number of structural features of the '<em>link</em>' class.
+	 * The number of structural features of the '<em>Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -140,7 +140,7 @@ public interface KinematicsPackage extends EPackage {
 	int LINK_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>link</em>' class.
+	 * The number of operations of the '<em>Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -149,11 +149,11 @@ public interface KinematicsPackage extends EPackage {
 	int LINK_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link kinematics.impl.jointImpl <em>joint</em>}' class.
+	 * The meta object id for the '{@link kinematics.impl.JointImpl <em>Joint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see kinematics.impl.jointImpl
-	 * @see kinematics.impl.KinematicsPackageImpl#getjoint()
+	 * @see kinematics.impl.JointImpl
+	 * @see kinematics.impl.KinematicsPackageImpl#getJoint()
 	 * @generated
 	 */
 	int JOINT = 2;
@@ -186,7 +186,7 @@ public interface KinematicsPackage extends EPackage {
 	int JOINT__NAME = 2;
 
 	/**
-	 * The number of structural features of the '<em>joint</em>' class.
+	 * The number of structural features of the '<em>Joint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -195,7 +195,7 @@ public interface KinematicsPackage extends EPackage {
 	int JOINT_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>joint</em>' class.
+	 * The number of operations of the '<em>Joint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -248,68 +248,68 @@ public interface KinematicsPackage extends EPackage {
 	EAttribute getrobot_Name();
 
 	/**
-	 * Returns the meta object for class '{@link kinematics.link <em>link</em>}'.
+	 * Returns the meta object for class '{@link kinematics.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>link</em>'.
-	 * @see kinematics.link
+	 * @return the meta object for class '<em>Link</em>'.
+	 * @see kinematics.Link
 	 * @generated
 	 */
-	EClass getlink();
+	EClass getLink();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kinematics.link#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link kinematics.Link#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see kinematics.link#getName()
-	 * @see #getlink()
+	 * @see kinematics.Link#getName()
+	 * @see #getLink()
 	 * @generated
 	 */
-	EAttribute getlink_Name();
+	EAttribute getLink_Name();
 
 	/**
-	 * Returns the meta object for class '{@link kinematics.joint <em>joint</em>}'.
+	 * Returns the meta object for class '{@link kinematics.Joint <em>Joint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>joint</em>'.
-	 * @see kinematics.joint
+	 * @return the meta object for class '<em>Joint</em>'.
+	 * @see kinematics.Joint
 	 * @generated
 	 */
-	EClass getjoint();
+	EClass getJoint();
 
 	/**
-	 * Returns the meta object for the reference '{@link kinematics.joint#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the reference '{@link kinematics.Joint#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Parent</em>'.
-	 * @see kinematics.joint#getParent()
-	 * @see #getjoint()
+	 * @see kinematics.Joint#getParent()
+	 * @see #getJoint()
 	 * @generated
 	 */
-	EReference getjoint_Parent();
+	EReference getJoint_Parent();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link kinematics.joint#getChild <em>Child</em>}'.
+	 * Returns the meta object for the containment reference '{@link kinematics.Joint#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Child</em>'.
-	 * @see kinematics.joint#getChild()
-	 * @see #getjoint()
+	 * @see kinematics.Joint#getChild()
+	 * @see #getJoint()
 	 * @generated
 	 */
-	EReference getjoint_Child();
+	EReference getJoint_Child();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kinematics.joint#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link kinematics.Joint#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see kinematics.joint#getName()
-	 * @see #getjoint()
+	 * @see kinematics.Joint#getName()
+	 * @see #getJoint()
 	 * @generated
 	 */
-	EAttribute getjoint_Name();
+	EAttribute getJoint_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -369,14 +369,14 @@ public interface KinematicsPackage extends EPackage {
 		EAttribute ROBOT__NAME = eINSTANCE.getrobot_Name();
 
 		/**
-		 * The meta object literal for the '{@link kinematics.impl.linkImpl <em>link</em>}' class.
+		 * The meta object literal for the '{@link kinematics.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.linkImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getlink()
+		 * @see kinematics.impl.LinkImpl
+		 * @see kinematics.impl.KinematicsPackageImpl#getLink()
 		 * @generated
 		 */
-		EClass LINK = eINSTANCE.getlink();
+		EClass LINK = eINSTANCE.getLink();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -384,17 +384,17 @@ public interface KinematicsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LINK__NAME = eINSTANCE.getlink_Name();
+		EAttribute LINK__NAME = eINSTANCE.getLink_Name();
 
 		/**
-		 * The meta object literal for the '{@link kinematics.impl.jointImpl <em>joint</em>}' class.
+		 * The meta object literal for the '{@link kinematics.impl.JointImpl <em>Joint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see kinematics.impl.jointImpl
-		 * @see kinematics.impl.KinematicsPackageImpl#getjoint()
+		 * @see kinematics.impl.JointImpl
+		 * @see kinematics.impl.KinematicsPackageImpl#getJoint()
 		 * @generated
 		 */
-		EClass JOINT = eINSTANCE.getjoint();
+		EClass JOINT = eINSTANCE.getJoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
@@ -402,7 +402,7 @@ public interface KinematicsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JOINT__PARENT = eINSTANCE.getjoint_Parent();
+		EReference JOINT__PARENT = eINSTANCE.getJoint_Parent();
 
 		/**
 		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
@@ -410,7 +410,7 @@ public interface KinematicsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JOINT__CHILD = eINSTANCE.getjoint_Child();
+		EReference JOINT__CHILD = eINSTANCE.getJoint_Child();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -418,7 +418,7 @@ public interface KinematicsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JOINT__NAME = eINSTANCE.getjoint_Name();
+		EAttribute JOINT__NAME = eINSTANCE.getJoint_Name();
 
 	}
 

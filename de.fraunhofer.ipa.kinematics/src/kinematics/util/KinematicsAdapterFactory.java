@@ -72,12 +72,12 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
 				return createrobotAdapter();
 			}
 			@Override
-			public Adapter caselink(link object) {
-				return createlinkAdapter();
+			public Adapter caseLink(Link object) {
+				return createLinkAdapter();
 			}
 			@Override
-			public Adapter casejoint(joint object) {
-				return createjointAdapter();
+			public Adapter caseJoint(Joint object) {
+				return createJointAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -114,30 +114,30 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.link <em>link</em>}'.
+	 * Creates a new adapter for an object of class '{@link kinematics.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see kinematics.link
+	 * @see kinematics.Link
 	 * @generated
 	 */
-	public Adapter createlinkAdapter() {
+	public Adapter createLinkAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link kinematics.joint <em>joint</em>}'.
+	 * Creates a new adapter for an object of class '{@link kinematics.Joint <em>Joint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see kinematics.joint
+	 * @see kinematics.Joint
 	 * @generated
 	 */
-	public Adapter createjointAdapter() {
+	public Adapter createJointAdapter() {
 		return null;
 	}
 

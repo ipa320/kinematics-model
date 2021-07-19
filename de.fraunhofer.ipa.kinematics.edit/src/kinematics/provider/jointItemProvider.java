@@ -8,7 +8,7 @@ import java.util.List;
 
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
-import kinematics.joint;
+import kinematics.Joint;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -162,7 +162,7 @@ public class jointItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((joint)object).getName();
+		String label = ((Joint)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_joint_type") :
 			getString("_UI_joint_type") + " " + label;
@@ -180,7 +180,7 @@ public class jointItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(joint.class)) {
+		switch (notification.getFeatureID(Joint.class)) {
 			case KinematicsPackage.JOINT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -205,7 +205,7 @@ public class jointItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KinematicsPackage.Literals.JOINT__CHILD,
-				 KinematicsFactory.eINSTANCE.createlink()));
+				 KinematicsFactory.eINSTANCE.createLink()));
 	}
 
 	/**

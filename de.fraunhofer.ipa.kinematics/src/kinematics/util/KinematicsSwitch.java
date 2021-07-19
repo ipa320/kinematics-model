@@ -73,14 +73,14 @@ public class KinematicsSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case KinematicsPackage.LINK: {
-				link link = (link)theEObject;
-				T result = caselink(link);
+				Link link = (Link)theEObject;
+				T result = caseLink(link);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KinematicsPackage.JOINT: {
-				joint joint = (joint)theEObject;
-				T result = casejoint(joint);
+				Joint joint = (Joint)theEObject;
+				T result = caseJoint(joint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -104,32 +104,32 @@ public class KinematicsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>link</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>link</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Link</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caselink(link object) {
+	public T caseLink(Link object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>joint</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Joint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>joint</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Joint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casejoint(joint object) {
+	public T caseJoint(Joint object) {
 		return null;
 	}
 

@@ -95,46 +95,46 @@ public class KinematicsItemProviderAdapterFactory extends KinematicsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.link} instances.
+	 * This keeps track of the one adapter used for all {@link kinematics.Link} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected linkItemProvider linkItemProvider;
+	protected LinkItemProvider linkItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link kinematics.link}.
+	 * This creates an adapter for a {@link kinematics.Link}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createlinkAdapter() {
+	public Adapter createLinkAdapter() {
 		if (linkItemProvider == null) {
-			linkItemProvider = new linkItemProvider(this);
+			linkItemProvider = new LinkItemProvider(this);
 		}
 
 		return linkItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link kinematics.joint} instances.
+	 * This keeps track of the one adapter used for all {@link kinematics.Joint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected jointItemProvider jointItemProvider;
+	protected JointItemProvider jointItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link kinematics.joint}.
+	 * This creates an adapter for a {@link kinematics.Joint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createjointAdapter() {
+	public Adapter createJointAdapter() {
 		if (jointItemProvider == null) {
-			jointItemProvider = new jointItemProvider(this);
+			jointItemProvider = new JointItemProvider(this);
 		}
 
 		return jointItemProvider;

@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import kinematics.KinematicsFactory;
-import kinematics.link;
+import kinematics.Link;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,7 @@ public class linkTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected link fixture = null;
+	protected Link fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class linkTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(link fixture) {
+	protected void setFixture(Link fixture) {
 		this.fixture = fixture;
 	}
 
@@ -60,7 +60,7 @@ public class linkTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected link getFixture() {
+	protected Link getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class linkTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(KinematicsFactory.eINSTANCE.createlink());
+		setFixture(KinematicsFactory.eINSTANCE.createLink());
 	}
 
 	/**

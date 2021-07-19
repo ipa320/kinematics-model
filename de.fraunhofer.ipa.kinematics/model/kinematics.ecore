@@ -3,19 +3,19 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kinematics" nsURI="http://www.ipa.fraunhofer.de/kinematics"
     nsPrefix="kinematics">
   <eClassifiers xsi:type="ecore:EClass" name="robot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="root_link" eType="#//link"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root_link" eType="#//Link"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joints" upperBound="-1"
-        eType="#//joint" containment="true"/>
+        eType="#//Joint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="link">
+  <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="joint">
+  <eClassifiers xsi:type="ecore:EClass" name="Joint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-        eType="#//link"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1" eType="#//link"
+        eType="#//Link"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1" eType="#//Link"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

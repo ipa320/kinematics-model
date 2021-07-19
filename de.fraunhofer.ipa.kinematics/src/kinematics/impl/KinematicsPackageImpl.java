@@ -2,10 +2,10 @@
  */
 package kinematics.impl;
 
+import kinematics.Joint;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
-import kinematics.joint;
-import kinematics.link;
+import kinematics.Link;
 import kinematics.robot;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -145,7 +145,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getlink() {
+	public EClass getLink() {
 		return linkEClass;
 	}
 
@@ -154,7 +154,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getlink_Name() {
+	public EAttribute getLink_Name() {
 		return (EAttribute)linkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -163,7 +163,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getjoint() {
+	public EClass getJoint() {
 		return jointEClass;
 	}
 
@@ -172,7 +172,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getjoint_Parent() {
+	public EReference getJoint_Parent() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -181,7 +181,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getjoint_Child() {
+	public EReference getJoint_Child() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -190,7 +190,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getjoint_Name() {
+	public EAttribute getJoint_Name() {
 		return (EAttribute)jointEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -267,17 +267,17 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(robotEClass, robot.class, "robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getrobot_Root_link(), this.getlink(), null, "root_link", null, 0, 1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getrobot_Joints(), this.getjoint(), null, "joints", null, 0, -1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getrobot_Root_link(), this.getLink(), null, "root_link", null, 0, 1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getrobot_Joints(), this.getJoint(), null, "joints", null, 0, -1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getrobot_Name(), ecorePackage.getEString(), "name", null, 1, 1, robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(linkEClass, link.class, "link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getlink_Name(), ecorePackage.getEString(), "name", null, 1, 1, link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLink_Name(), ecorePackage.getEString(), "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(jointEClass, joint.class, "joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getjoint_Parent(), this.getlink(), null, "parent", null, 1, 1, joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getjoint_Child(), this.getlink(), null, "child", null, 1, 1, joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getjoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Child(), this.getLink(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

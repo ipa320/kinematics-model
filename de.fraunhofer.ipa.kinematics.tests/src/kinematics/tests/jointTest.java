@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import kinematics.KinematicsFactory;
-import kinematics.joint;
+import kinematics.Joint;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,7 @@ public class jointTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected joint fixture = null;
+	protected Joint fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class jointTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(joint fixture) {
+	protected void setFixture(Joint fixture) {
 		this.fixture = fixture;
 	}
 
@@ -60,7 +60,7 @@ public class jointTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected joint getFixture() {
+	protected Joint getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class jointTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(KinematicsFactory.eINSTANCE.createjoint());
+		setFixture(KinematicsFactory.eINSTANCE.createJoint());
 	}
 
 	/**

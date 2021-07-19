@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 import kinematics.KinematicsPackage;
-import kinematics.link;
+import kinematics.Link;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -106,7 +106,7 @@ public class linkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((link)object).getName();
+		String label = ((Link)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_link_type") :
 			getString("_UI_link_type") + " " + label;
@@ -124,7 +124,7 @@ public class linkItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(link.class)) {
+		switch (notification.getFeatureID(Link.class)) {
 			case KinematicsPackage.LINK__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
