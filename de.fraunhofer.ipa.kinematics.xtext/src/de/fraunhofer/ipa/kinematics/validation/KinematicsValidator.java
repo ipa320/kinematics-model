@@ -3,6 +3,14 @@
  */
 package de.fraunhofer.ipa.kinematics.validation;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.xtext.validation.Check;
+
+import kinematics.Joint;
+import kinematics.robot;
 
 /**
  * This class contains custom validation rules. 
@@ -10,16 +18,33 @@ package de.fraunhofer.ipa.kinematics.validation;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class KinematicsValidator extends AbstractKinematicsValidator {
-	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					KinematicsPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
-	
+
+
+	@Check
+	public void checkUniqueNames(robot robot) {
+		String prefix = robot.getPrefix();
+		String root = prefix + robot.getRoot_link().getName();
+		List<String> link_names = new ArrayList<String>(Arrays.asList(new String[] {root}));
+		List<String> joint_names = new ArrayList<String>();
+
+		for(Joint joint : robot.getJoints()) {
+			String child = prefix + joint.getChild().getName();
+			String joint_name = prefix + joint.getName();
+
+			// check link names uniqueness
+			// not checking for parent because it has containment=false
+			if(link_names.contains(child)) {
+				error("Link name is not unique!", null);
+			} else {
+				link_names.add(child);
+			}
+
+			// check joint names uniqueness
+			if(joint_names.contains(joint_name)) {
+				error("Joint name is not unique!", null);
+			} else {
+				joint_names.add(joint_name);
+			}
+		}
+	}
 }
