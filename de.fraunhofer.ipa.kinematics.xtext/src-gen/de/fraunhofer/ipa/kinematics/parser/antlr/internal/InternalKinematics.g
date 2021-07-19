@@ -110,38 +110,40 @@ rulerobot returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_3());
 		}
-		otherlv_4='prefix'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getRobotAccess().getPrefixKeyword_4());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getRobotAccess().getPrefixEStringParserRuleCall_5_0());
-				}
-				lv_prefix_5_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRobotRule());
-					}
-					set(
-						$current,
-						"prefix",
-						lv_prefix_5_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_6='root_link'
+			otherlv_4='prefix'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getRoot_linkKeyword_6_0());
+				newLeafNode(otherlv_4, grammarAccess.getRobotAccess().getPrefixKeyword_4_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getRoot_linkLinkParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getPrefixEStringParserRuleCall_4_1_0());
+					}
+					lv_prefix_5_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
+						}
+						set(
+							$current,
+							"prefix",
+							lv_prefix_5_0,
+							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_6='root_link'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getRoot_linkKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRobotAccess().getRoot_linkLinkParserRuleCall_5_1_0());
 					}
 					lv_root_link_7_0=ruleLink
 					{
@@ -161,16 +163,16 @@ rulerobot returns [EObject current=null]
 		(
 			otherlv_8='joints'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getRobotAccess().getJointsKeyword_7_0());
+				newLeafNode(otherlv_8, grammarAccess.getRobotAccess().getJointsKeyword_6_0());
 			}
 			otherlv_9='{'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_7_1());
+				newLeafNode(otherlv_9, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_6_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_7_2_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_6_2_0());
 					}
 					lv_joints_10_0=ruleJoint
 					{
@@ -189,12 +191,12 @@ rulerobot returns [EObject current=null]
 			(
 				otherlv_11=','
 				{
-					newLeafNode(otherlv_11, grammarAccess.getRobotAccess().getCommaKeyword_7_3_0());
+					newLeafNode(otherlv_11, grammarAccess.getRobotAccess().getCommaKeyword_6_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_7_3_1_0());
+							newCompositeNode(grammarAccess.getRobotAccess().getJointsJointParserRuleCall_6_3_1_0());
 						}
 						lv_joints_12_0=ruleJoint
 						{
@@ -213,12 +215,12 @@ rulerobot returns [EObject current=null]
 			)*
 			otherlv_13='}'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7_4());
+				newLeafNode(otherlv_13, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_6_4());
 			}
 		)?
 		otherlv_14='}'
 		{
-			newLeafNode(otherlv_14, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_14, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

@@ -4,11 +4,11 @@
 'child'=21
 'joints'=16
 'parent'=20
-'prefix'=13
+'prefix'=14
 'robot'=11
 'root_link'=15
 '{'=12
-'}'=14
+'}'=13
 RULE_ANY_OTHER=10
 RULE_ID=5
 RULE_INT=6

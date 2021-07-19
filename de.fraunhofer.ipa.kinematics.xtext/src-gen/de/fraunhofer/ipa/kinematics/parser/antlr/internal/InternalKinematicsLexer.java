@@ -278,10 +278,10 @@ public class InternalKinematicsLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKinematics.g:402:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalKinematics.g:402:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalKinematics.g:404:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalKinematics.g:404:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalKinematics.g:402:11: ( '^' )?
+            // InternalKinematics.g:404:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -290,7 +290,7 @@ public class InternalKinematicsLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalKinematics.g:402:11: '^'
+                    // InternalKinematics.g:404:11: '^'
                     {
                     match('^'); 
 
@@ -308,7 +308,7 @@ public class InternalKinematicsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalKinematics.g:402:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalKinematics.g:404:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -357,10 +357,10 @@ public class InternalKinematicsLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKinematics.g:404:10: ( ( '0' .. '9' )+ )
-            // InternalKinematics.g:404:12: ( '0' .. '9' )+
+            // InternalKinematics.g:406:10: ( ( '0' .. '9' )+ )
+            // InternalKinematics.g:406:12: ( '0' .. '9' )+
             {
-            // InternalKinematics.g:404:12: ( '0' .. '9' )+
+            // InternalKinematics.g:406:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -374,7 +374,7 @@ public class InternalKinematicsLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalKinematics.g:404:13: '0' .. '9'
+            	    // InternalKinematics.g:406:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -406,10 +406,10 @@ public class InternalKinematicsLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKinematics.g:406:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalKinematics.g:406:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalKinematics.g:408:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalKinematics.g:408:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalKinematics.g:406:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalKinematics.g:408:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -427,10 +427,10 @@ public class InternalKinematicsLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalKinematics.g:406:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalKinematics.g:408:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalKinematics.g:406:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalKinematics.g:408:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -446,7 +446,7 @@ public class InternalKinematicsLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalKinematics.g:406:21: '\\\\' .
+                    	    // InternalKinematics.g:408:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -454,7 +454,7 @@ public class InternalKinematicsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalKinematics.g:406:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalKinematics.g:408:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -479,10 +479,10 @@ public class InternalKinematicsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalKinematics.g:406:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalKinematics.g:408:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalKinematics.g:406:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalKinematics.g:408:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -498,7 +498,7 @@ public class InternalKinematicsLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalKinematics.g:406:54: '\\\\' .
+                    	    // InternalKinematics.g:408:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -506,7 +506,7 @@ public class InternalKinematicsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalKinematics.g:406:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalKinematics.g:408:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -549,12 +549,12 @@ public class InternalKinematicsLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKinematics.g:408:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalKinematics.g:408:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalKinematics.g:410:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalKinematics.g:410:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalKinematics.g:408:24: ( options {greedy=false; } : . )*
+            // InternalKinematics.g:410:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -579,7 +579,7 @@ public class InternalKinematicsLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalKinematics.g:408:52: .
+            	    // InternalKinematics.g:410:52: .
             	    {
             	    matchAny(); 
 
@@ -609,12 +609,12 @@ public class InternalKinematicsLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKinematics.g:410:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalKinematics.g:410:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalKinematics.g:412:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalKinematics.g:412:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalKinematics.g:410:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalKinematics.g:412:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -627,7 +627,7 @@ public class InternalKinematicsLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalKinematics.g:410:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalKinematics.g:412:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -647,7 +647,7 @@ public class InternalKinematicsLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalKinematics.g:410:40: ( ( '\\r' )? '\\n' )?
+            // InternalKinematics.g:412:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -656,9 +656,9 @@ public class InternalKinematicsLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalKinematics.g:410:41: ( '\\r' )? '\\n'
+                    // InternalKinematics.g:412:41: ( '\\r' )? '\\n'
                     {
-                    // InternalKinematics.g:410:41: ( '\\r' )?
+                    // InternalKinematics.g:412:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -667,7 +667,7 @@ public class InternalKinematicsLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalKinematics.g:410:41: '\\r'
+                            // InternalKinematics.g:412:41: '\\r'
                             {
                             match('\r'); 
 
@@ -699,10 +699,10 @@ public class InternalKinematicsLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKinematics.g:412:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalKinematics.g:412:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalKinematics.g:414:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalKinematics.g:414:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalKinematics.g:412:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalKinematics.g:414:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -756,8 +756,8 @@ public class InternalKinematicsLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKinematics.g:414:16: ( . )
-            // InternalKinematics.g:414:18: .
+            // InternalKinematics.g:416:16: ( . )
+            // InternalKinematics.g:416:18: .
             {
             matchAny(); 
 

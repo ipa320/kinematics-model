@@ -33,16 +33,17 @@ public class KinematicsParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, KinematicsGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getRobotAccess().getGroup(), "rule__Robot__Group__0");
+			builder.put(grammarAccess.getRobotAccess().getGroup_4(), "rule__Robot__Group_4__0");
+			builder.put(grammarAccess.getRobotAccess().getGroup_5(), "rule__Robot__Group_5__0");
 			builder.put(grammarAccess.getRobotAccess().getGroup_6(), "rule__Robot__Group_6__0");
-			builder.put(grammarAccess.getRobotAccess().getGroup_7(), "rule__Robot__Group_7__0");
-			builder.put(grammarAccess.getRobotAccess().getGroup_7_3(), "rule__Robot__Group_7_3__0");
+			builder.put(grammarAccess.getRobotAccess().getGroup_6_3(), "rule__Robot__Group_6_3__0");
 			builder.put(grammarAccess.getLinkAccess().getGroup(), "rule__Link__Group__0");
 			builder.put(grammarAccess.getJointAccess().getGroup(), "rule__Joint__Group__0");
 			builder.put(grammarAccess.getRobotAccess().getNameAssignment_2(), "rule__Robot__NameAssignment_2");
-			builder.put(grammarAccess.getRobotAccess().getPrefixAssignment_5(), "rule__Robot__PrefixAssignment_5");
-			builder.put(grammarAccess.getRobotAccess().getRoot_linkAssignment_6_1(), "rule__Robot__Root_linkAssignment_6_1");
-			builder.put(grammarAccess.getRobotAccess().getJointsAssignment_7_2(), "rule__Robot__JointsAssignment_7_2");
-			builder.put(grammarAccess.getRobotAccess().getJointsAssignment_7_3_1(), "rule__Robot__JointsAssignment_7_3_1");
+			builder.put(grammarAccess.getRobotAccess().getPrefixAssignment_4_1(), "rule__Robot__PrefixAssignment_4_1");
+			builder.put(grammarAccess.getRobotAccess().getRoot_linkAssignment_5_1(), "rule__Robot__Root_linkAssignment_5_1");
+			builder.put(grammarAccess.getRobotAccess().getJointsAssignment_6_2(), "rule__Robot__JointsAssignment_6_2");
+			builder.put(grammarAccess.getRobotAccess().getJointsAssignment_6_3_1(), "rule__Robot__JointsAssignment_6_3_1");
 			builder.put(grammarAccess.getLinkAccess().getNameAssignment_2(), "rule__Link__NameAssignment_2");
 			builder.put(grammarAccess.getJointAccess().getNameAssignment_1(), "rule__Joint__NameAssignment_1");
 			builder.put(grammarAccess.getJointAccess().getParentAssignment_4(), "rule__Joint__ParentAssignment_4");

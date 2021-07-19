@@ -32,30 +32,31 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cPrefixKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cPrefixAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPrefixEStringParserRuleCall_5_0 = (RuleCall)cPrefixAssignment_5.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cPrefixKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cPrefixAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cPrefixEStringParserRuleCall_4_1_0 = (RuleCall)cPrefixAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cRoot_linkKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cRoot_linkAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cRoot_linkLinkParserRuleCall_5_1_0 = (RuleCall)cRoot_linkAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cRoot_linkKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cRoot_linkAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cRoot_linkLinkParserRuleCall_6_1_0 = (RuleCall)cRoot_linkAssignment_6_1.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cJointsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cJointsAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cJointsJointParserRuleCall_7_2_0 = (RuleCall)cJointsAssignment_7_2.eContents().get(0);
-		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
-		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
-		private final Assignment cJointsAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
-		private final RuleCall cJointsJointParserRuleCall_7_3_1_0 = (RuleCall)cJointsAssignment_7_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cJointsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cJointsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cJointsJointParserRuleCall_6_2_0 = (RuleCall)cJointsAssignment_6_2.eContents().get(0);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Assignment cJointsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cJointsJointParserRuleCall_6_3_1_0 = (RuleCall)cJointsAssignment_6_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//robot returns robot:
 		//    {robot}
 		//    'robot' name=EString
 		//    '{'
-		//        'prefix' prefix=EString
+		//        ('prefix' prefix=EString)?
 		//        ('root_link' root_link=Link)?
 		//        ('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
 		//    '}';
@@ -64,7 +65,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//{robot}
 		//'robot' name=EString
 		//'{'
-		//    'prefix' prefix=EString
+		//    ('prefix' prefix=EString)?
 		//    ('root_link' root_link=Link)?
 		//    ('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
 		//'}'
@@ -85,59 +86,62 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
+		//('prefix' prefix=EString)?
+		public Group getGroup_4() { return cGroup_4; }
+		
 		//'prefix'
-		public Keyword getPrefixKeyword_4() { return cPrefixKeyword_4; }
+		public Keyword getPrefixKeyword_4_0() { return cPrefixKeyword_4_0; }
 		
 		//prefix=EString
-		public Assignment getPrefixAssignment_5() { return cPrefixAssignment_5; }
+		public Assignment getPrefixAssignment_4_1() { return cPrefixAssignment_4_1; }
 		
 		//EString
-		public RuleCall getPrefixEStringParserRuleCall_5_0() { return cPrefixEStringParserRuleCall_5_0; }
+		public RuleCall getPrefixEStringParserRuleCall_4_1_0() { return cPrefixEStringParserRuleCall_4_1_0; }
 		
 		//('root_link' root_link=Link)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//'root_link'
-		public Keyword getRoot_linkKeyword_6_0() { return cRoot_linkKeyword_6_0; }
+		public Keyword getRoot_linkKeyword_5_0() { return cRoot_linkKeyword_5_0; }
 		
 		//root_link=Link
-		public Assignment getRoot_linkAssignment_6_1() { return cRoot_linkAssignment_6_1; }
+		public Assignment getRoot_linkAssignment_5_1() { return cRoot_linkAssignment_5_1; }
 		
 		//Link
-		public RuleCall getRoot_linkLinkParserRuleCall_6_1_0() { return cRoot_linkLinkParserRuleCall_6_1_0; }
+		public RuleCall getRoot_linkLinkParserRuleCall_5_1_0() { return cRoot_linkLinkParserRuleCall_5_1_0; }
 		
 		//('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//'joints'
-		public Keyword getJointsKeyword_7_0() { return cJointsKeyword_7_0; }
+		public Keyword getJointsKeyword_6_0() { return cJointsKeyword_6_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
 		
 		//joints+=Joint
-		public Assignment getJointsAssignment_7_2() { return cJointsAssignment_7_2; }
+		public Assignment getJointsAssignment_6_2() { return cJointsAssignment_6_2; }
 		
 		//Joint
-		public RuleCall getJointsJointParserRuleCall_7_2_0() { return cJointsJointParserRuleCall_7_2_0; }
+		public RuleCall getJointsJointParserRuleCall_6_2_0() { return cJointsJointParserRuleCall_6_2_0; }
 		
 		//( "," joints+=Joint)*
-		public Group getGroup_7_3() { return cGroup_7_3; }
+		public Group getGroup_6_3() { return cGroup_6_3; }
 		
 		//","
-		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
+		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
 		
 		//joints+=Joint
-		public Assignment getJointsAssignment_7_3_1() { return cJointsAssignment_7_3_1; }
+		public Assignment getJointsAssignment_6_3_1() { return cJointsAssignment_6_3_1; }
 		
 		//Joint
-		public RuleCall getJointsJointParserRuleCall_7_3_1_0() { return cJointsJointParserRuleCall_7_3_1_0; }
+		public RuleCall getJointsJointParserRuleCall_6_3_1_0() { return cJointsJointParserRuleCall_6_3_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class LinkElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Link");
@@ -311,7 +315,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//    {robot}
 	//    'robot' name=EString
 	//    '{'
-	//        'prefix' prefix=EString
+	//        ('prefix' prefix=EString)?
 	//        ('root_link' root_link=Link)?
 	//        ('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
 	//    '}';
