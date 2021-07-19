@@ -8,6 +8,9 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 
+import kinematics.robot
+import kinematics.Joint
+
 /**
  * Generates code from your model files on save.
  * 
@@ -16,10 +19,31 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class KinematicsGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		for (robot : resource.allContents.toIterable.filter(robot)) {
+			fsa.generateFile(robot.name + ".urdf", robot.compile)
+        }
 	}
+
+	private def compile(robot r) '''
+	<robot name="«r.name»">
+	  <!-- «r.name» robot links and joints and more -->
+
+	  <link name="«r.root_link.name»">
+	  </link>
+
+	  «FOR j : r.joints»
+		«j.compile»
+	  «ENDFOR»
+	</robot>
+'''
+
+	private def compile(Joint j)'''
+	<joint name="«j.name»">
+	    <parent link="«j.parent.name»"/>
+	    <child link="«j.child.name»"/>
+	</joint>
+
+	<link name="«j.child.name»">
+	</link>
+'''
 }
