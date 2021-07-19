@@ -7,10 +7,13 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 
 import kinematics.Joint;
 import kinematics.robot;
+import kinematics.impl.JointImpl;
+import kinematics.impl.robotImpl;
 
 /**
  * This class contains custom validation rules. 
@@ -20,21 +23,42 @@ import kinematics.robot;
 public class KinematicsValidator extends AbstractKinematicsValidator {
 
 
+	String getPrefix(robot robot) {
+		String prefix = "";
+		if(robot != null && robot.getPrefix() != null) {
+			prefix = robot.getPrefix();
+		}
+		return prefix;
+	}
+
 	@Check
 	public void checkUniqueNames(robot robot) {
-		String prefix = robot.getPrefix();
+		String prefix = getPrefix(robot);
 		String root = prefix + robot.getRoot_link().getName();
 		List<String> link_names = new ArrayList<String>(Arrays.asList(new String[] {root}));
 		List<String> joint_names = new ArrayList<String>();
 
 		for(Joint joint : robot.getJoints()) {
+			robotImpl rImpl = null;
+			if(joint.eCrossReferences().size() > 0) {
+				EObject obj = joint.eCrossReferences().get(0).eContainer();
+				if (obj instanceof JointImpl) {
+					rImpl = (robotImpl) obj.eContainer();
+				} else {
+					rImpl = (robotImpl) obj;
+				}
+			}
+
 			String child = prefix + joint.getChild().getName();
+			String parent = getPrefix(rImpl) + joint.getParent().getName();
 			String joint_name = prefix + joint.getName();
 
 			// check link names uniqueness
-			// not checking for parent because it has containment=false
+			if(link_names.contains(parent) && (robot != rImpl)) {
+				error(parent + ": Link name is not unique!", null);
+			}
 			if(link_names.contains(child)) {
-				error("Link name is not unique!", null);
+				error(child + ": Link name is not unique!", null);
 			} else {
 				link_names.add(child);
 			}
