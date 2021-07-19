@@ -1,0 +1,9 @@
+robot demo {
+	root_link Link dummy_link
+	joints {
+		Joint combination_joint {
+			parent "ur10.base_link"
+			child Link shoulder_link
+		}
+	}
+}

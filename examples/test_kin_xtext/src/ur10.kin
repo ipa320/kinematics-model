@@ -1,4 +1,4 @@
-robot ur5 {
+robot ur10 {
 	root_link Link base_link
 	joints {
 		Joint shoulder_pan_joint {

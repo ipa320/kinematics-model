@@ -1,5 +1,5 @@
-<robot name="ur5">
-  <!-- ur5 robot links and joints and more -->
+<robot name="ur10">
+  <!-- ur10 robot links and joints and more -->
   
   <link name="base_link">
   </link>
