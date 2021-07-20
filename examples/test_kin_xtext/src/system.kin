@@ -1,9 +1,14 @@
 robot demo {
-	root_link Link dummy_link
+	root_link Link base_link
 	joints {
-		Joint combination_joint {
+		Joint joint_1 {
 			parent "ur10.base_link"
-			child Link shoulder_link
+			child Link base_link_x
+		},
+		Joint joint_2 {
+			parent "ur5.base_link"
+			child Link base_link_y
 		}
 	}
 }
+
