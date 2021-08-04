@@ -1,14 +1,13 @@
 robot demo {
+	robots {
+		ref_robot demo prefix hello,
+		ref_robot ur5 prefix yahoo
+	}
 	root_link Link base_link
 	joints {
 		Joint joint_1 {
-			parent "ur10.base_link"
-			child Link base_link_x
-		},
-		Joint joint_2 {
 			parent "ur5.base_link"
-			child Link base_link_y
+			child Link dummy_link
 		}
 	}
 }
-
