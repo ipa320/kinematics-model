@@ -11,6 +11,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//robot/joints"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//robot/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//robot/prefix"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics.ecore#//robot/robots"/>
     </genClasses>
     <genClasses ecoreClass="kinematics.ecore#//Link">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Link/name"/>
@@ -19,6 +20,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/child"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Joint/name"/>
+    </genClasses>
+    <genClasses ecoreClass="kinematics.ecore#//ref_robot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//ref_robot/prefix"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics.ecore#//ref_robot/robot"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

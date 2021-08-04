@@ -7,6 +7,7 @@ import java.util.Collection;
 import kinematics.Joint;
 import kinematics.KinematicsPackage;
 import kinematics.Link;
+import kinematics.ref_robot;
 import kinematics.robot;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kinematics.impl.robotImpl#getJoints <em>Joints</em>}</li>
  *   <li>{@link kinematics.impl.robotImpl#getName <em>Name</em>}</li>
  *   <li>{@link kinematics.impl.robotImpl#getPrefix <em>Prefix</em>}</li>
+ *   <li>{@link kinematics.impl.robotImpl#getRobots <em>Robots</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +101,16 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * @ordered
 	 */
 	protected String prefix = PREFIX_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRobots() <em>Robots</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRobots()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ref_robot> robots;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,6 +233,18 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ref_robot> getRobots() {
+		if (robots == null) {
+			robots = new EObjectContainmentEList<ref_robot>(ref_robot.class, this, KinematicsPackage.ROBOT__ROBOTS);
+		}
+		return robots;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -228,6 +252,8 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 				return basicSetRoot_link(null, msgs);
 			case KinematicsPackage.ROBOT__JOINTS:
 				return ((InternalEList<?>)getJoints()).basicRemove(otherEnd, msgs);
+			case KinematicsPackage.ROBOT__ROBOTS:
+				return ((InternalEList<?>)getRobots()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -248,6 +274,8 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 				return getName();
 			case KinematicsPackage.ROBOT__PREFIX:
 				return getPrefix();
+			case KinematicsPackage.ROBOT__ROBOTS:
+				return getRobots();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -274,6 +302,10 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 			case KinematicsPackage.ROBOT__PREFIX:
 				setPrefix((String)newValue);
 				return;
+			case KinematicsPackage.ROBOT__ROBOTS:
+				getRobots().clear();
+				getRobots().addAll((Collection<? extends ref_robot>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -298,6 +330,9 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 			case KinematicsPackage.ROBOT__PREFIX:
 				setPrefix(PREFIX_EDEFAULT);
 				return;
+			case KinematicsPackage.ROBOT__ROBOTS:
+				getRobots().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -318,6 +353,8 @@ public class robotImpl extends MinimalEObjectImpl.Container implements robot {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KinematicsPackage.ROBOT__PREFIX:
 				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
+			case KinematicsPackage.ROBOT__ROBOTS:
+				return robots != null && !robots.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

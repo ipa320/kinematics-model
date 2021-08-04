@@ -141,6 +141,29 @@ public class KinematicsItemProviderAdapterFactory extends KinematicsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link kinematics.ref_robot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ref_robotItemProvider ref_robotItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link kinematics.ref_robot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createref_robotAdapter() {
+		if (ref_robotItemProvider == null) {
+			ref_robotItemProvider = new ref_robotItemProvider(this);
+		}
+
+		return ref_robotItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class KinematicsItemProviderAdapterFactory extends KinematicsAdapterFacto
 		if (robotItemProvider != null) robotItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
 		if (jointItemProvider != null) jointItemProvider.dispose();
+		if (ref_robotItemProvider != null) ref_robotItemProvider.dispose();
 	}
 
 }

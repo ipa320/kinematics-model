@@ -80,6 +80,10 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
 				return createJointAdapter();
 			}
 			@Override
+			public Adapter caseref_robot(ref_robot object) {
+				return createref_robotAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -138,6 +142,20 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kinematics.ref_robot <em>ref robot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kinematics.ref_robot
+	 * @generated
+	 */
+	public Adapter createref_robotAdapter() {
 		return null;
 	}
 

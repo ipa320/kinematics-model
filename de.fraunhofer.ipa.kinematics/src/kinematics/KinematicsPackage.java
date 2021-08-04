@@ -103,13 +103,22 @@ public interface KinematicsPackage extends EPackage {
 	int ROBOT__PREFIX = 3;
 
 	/**
+	 * The feature id for the '<em><b>Robots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__ROBOTS = 4;
+
+	/**
 	 * The number of structural features of the '<em>robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 4;
+	int ROBOT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>robot</em>' class.
@@ -214,6 +223,53 @@ public interface KinematicsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link kinematics.impl.ref_robotImpl <em>ref robot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kinematics.impl.ref_robotImpl
+	 * @see kinematics.impl.KinematicsPackageImpl#getref_robot()
+	 * @generated
+	 */
+	int REF_ROBOT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_ROBOT__PREFIX = 0;
+
+	/**
+	 * The feature id for the '<em><b>Robot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_ROBOT__ROBOT = 1;
+
+	/**
+	 * The number of structural features of the '<em>ref robot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_ROBOT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>ref robot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_ROBOT_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link kinematics.robot <em>robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +322,17 @@ public interface KinematicsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getrobot_Prefix();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link kinematics.robot#getRobots <em>Robots</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Robots</em>'.
+	 * @see kinematics.robot#getRobots()
+	 * @see #getrobot()
+	 * @generated
+	 */
+	EReference getrobot_Robots();
 
 	/**
 	 * Returns the meta object for class '{@link kinematics.Link <em>Link</em>}'.
@@ -330,6 +397,38 @@ public interface KinematicsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJoint_Name();
+
+	/**
+	 * Returns the meta object for class '{@link kinematics.ref_robot <em>ref robot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ref robot</em>'.
+	 * @see kinematics.ref_robot
+	 * @generated
+	 */
+	EClass getref_robot();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kinematics.ref_robot#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see kinematics.ref_robot#getPrefix()
+	 * @see #getref_robot()
+	 * @generated
+	 */
+	EAttribute getref_robot_Prefix();
+
+	/**
+	 * Returns the meta object for the reference '{@link kinematics.ref_robot#getRobot <em>Robot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Robot</em>'.
+	 * @see kinematics.ref_robot#getRobot()
+	 * @see #getref_robot()
+	 * @generated
+	 */
+	EReference getref_robot_Robot();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -397,6 +496,14 @@ public interface KinematicsPackage extends EPackage {
 		EAttribute ROBOT__PREFIX = eINSTANCE.getrobot_Prefix();
 
 		/**
+		 * The meta object literal for the '<em><b>Robots</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__ROBOTS = eINSTANCE.getrobot_Robots();
+
+		/**
 		 * The meta object literal for the '{@link kinematics.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -447,6 +554,32 @@ public interface KinematicsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOINT__NAME = eINSTANCE.getJoint_Name();
+
+		/**
+		 * The meta object literal for the '{@link kinematics.impl.ref_robotImpl <em>ref robot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kinematics.impl.ref_robotImpl
+		 * @see kinematics.impl.KinematicsPackageImpl#getref_robot()
+		 * @generated
+		 */
+		EClass REF_ROBOT = eINSTANCE.getref_robot();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REF_ROBOT__PREFIX = eINSTANCE.getref_robot_Prefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Robot</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REF_ROBOT__ROBOT = eINSTANCE.getref_robot_Robot();
 
 	}
 

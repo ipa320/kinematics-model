@@ -52,7 +52,7 @@ public interface Joint extends EObject {
 	 * @return the value of the '<em>Child</em>' containment reference.
 	 * @see #setChild(Link)
 	 * @see kinematics.KinematicsPackage#getJoint_Child()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	Link getChild();

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kinematics.robot#getJoints <em>Joints</em>}</li>
  *   <li>{@link kinematics.robot#getName <em>Name</em>}</li>
  *   <li>{@link kinematics.robot#getPrefix <em>Prefix</em>}</li>
+ *   <li>{@link kinematics.robot#getRobots <em>Robots</em>}</li>
  * </ul>
  *
  * @see kinematics.KinematicsPackage#getrobot()
@@ -103,5 +104,17 @@ public interface robot extends EObject {
 	 * @generated
 	 */
 	void setPrefix(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Robots</b></em>' containment reference list.
+	 * The list contents are of type {@link kinematics.ref_robot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Robots</em>' containment reference list.
+	 * @see kinematics.KinematicsPackage#getrobot_Robots()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ref_robot> getRobots();
 
 } // robot

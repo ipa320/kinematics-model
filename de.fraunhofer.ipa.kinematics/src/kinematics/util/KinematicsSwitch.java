@@ -84,6 +84,12 @@ public class KinematicsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KinematicsPackage.REF_ROBOT: {
+				ref_robot ref_robot = (ref_robot)theEObject;
+				T result = caseref_robot(ref_robot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -130,6 +136,21 @@ public class KinematicsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJoint(Joint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ref robot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ref robot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseref_robot(ref_robot object) {
 		return null;
 	}
 

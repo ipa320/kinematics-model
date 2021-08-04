@@ -9,6 +9,7 @@ import java.util.Set;
 import kinematics.Joint;
 import kinematics.KinematicsPackage;
 import kinematics.Link;
+import kinematics.ref_robot;
 import kinematics.robot;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -39,6 +40,9 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case KinematicsPackage.LINK:
 				sequence_Link(context, (Link) semanticObject); 
+				return; 
+			case KinematicsPackage.REF_ROBOT:
+				sequence_ref_robot(context, (ref_robot) semanticObject); 
 				return; 
 			case KinematicsPackage.ROBOT:
 				sequence_robot(context, (robot) semanticObject); 
@@ -92,10 +96,31 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ref_robot returns ref_robot
+	 *
+	 * Constraint:
+	 *     (robot=[robot|EString] prefix=EString)
+	 */
+	protected void sequence_ref_robot(ISerializationContext context, ref_robot semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KinematicsPackage.Literals.REF_ROBOT__ROBOT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KinematicsPackage.Literals.REF_ROBOT__ROBOT));
+			if (transientValues.isValueTransient(semanticObject, KinematicsPackage.Literals.REF_ROBOT__PREFIX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KinematicsPackage.Literals.REF_ROBOT__PREFIX));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRef_robotAccess().getRobotRobotEStringParserRuleCall_2_0_1(), semanticObject.eGet(KinematicsPackage.Literals.REF_ROBOT__ROBOT, false));
+		feeder.accept(grammarAccess.getRef_robotAccess().getPrefixEStringParserRuleCall_4_0(), semanticObject.getPrefix());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     robot returns robot
 	 *
 	 * Constraint:
-	 *     (name=EString prefix=EString? root_link=Link? (joints+=Joint joints+=Joint*)?)
+	 *     (name=EString (robots+=ref_robot robots+=ref_robot*)? prefix=EString? root_link=Link? (joints+=Joint joints+=Joint*)?)
 	 */
 	protected void sequence_robot(ISerializationContext context, robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

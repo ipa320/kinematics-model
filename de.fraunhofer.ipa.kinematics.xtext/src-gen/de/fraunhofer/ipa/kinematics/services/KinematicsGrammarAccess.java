@@ -33,29 +33,40 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cPrefixKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cPrefixAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cPrefixEStringParserRuleCall_4_1_0 = (RuleCall)cPrefixAssignment_4_1.eContents().get(0);
+		private final Keyword cRobotsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cRobotsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cRobotsRef_robotParserRuleCall_4_2_0 = (RuleCall)cRobotsAssignment_4_2.eContents().get(0);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cRobotsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cRobotsRef_robotParserRuleCall_4_3_1_0 = (RuleCall)cRobotsAssignment_4_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cRoot_linkKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cRoot_linkAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cRoot_linkLinkParserRuleCall_5_1_0 = (RuleCall)cRoot_linkAssignment_5_1.eContents().get(0);
+		private final Keyword cPrefixKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cPrefixAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cPrefixEStringParserRuleCall_5_1_0 = (RuleCall)cPrefixAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cJointsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cJointsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cJointsJointParserRuleCall_6_2_0 = (RuleCall)cJointsAssignment_6_2.eContents().get(0);
-		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
-		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cJointsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cJointsJointParserRuleCall_6_3_1_0 = (RuleCall)cJointsAssignment_6_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cRoot_linkKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cRoot_linkAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cRoot_linkLinkParserRuleCall_6_1_0 = (RuleCall)cRoot_linkAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cJointsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cJointsAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cJointsJointParserRuleCall_7_2_0 = (RuleCall)cJointsAssignment_7_2.eContents().get(0);
+		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
+		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
+		private final Assignment cJointsAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
+		private final RuleCall cJointsJointParserRuleCall_7_3_1_0 = (RuleCall)cJointsAssignment_7_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//robot returns robot:
 		//    {robot}
 		//    'robot' name=EString
 		//    '{'
+		//        ('robots' '{' robots+=ref_robot ( "," robots+=ref_robot)*  '}' )?
 		//        ('prefix' prefix=EString)?
 		//        ('root_link' root_link=Link)?
 		//        ('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
@@ -65,6 +76,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//{robot}
 		//'robot' name=EString
 		//'{'
+		//    ('robots' '{' robots+=ref_robot ( "," robots+=ref_robot)*  '}' )?
 		//    ('prefix' prefix=EString)?
 		//    ('root_link' root_link=Link)?
 		//    ('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
@@ -86,62 +98,144 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('prefix' prefix=EString)?
+		//('robots' '{' robots+=ref_robot ( "," robots+=ref_robot)*  '}' )?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'prefix'
-		public Keyword getPrefixKeyword_4_0() { return cPrefixKeyword_4_0; }
-		
-		//prefix=EString
-		public Assignment getPrefixAssignment_4_1() { return cPrefixAssignment_4_1; }
-		
-		//EString
-		public RuleCall getPrefixEStringParserRuleCall_4_1_0() { return cPrefixEStringParserRuleCall_4_1_0; }
-		
-		//('root_link' root_link=Link)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'root_link'
-		public Keyword getRoot_linkKeyword_5_0() { return cRoot_linkKeyword_5_0; }
-		
-		//root_link=Link
-		public Assignment getRoot_linkAssignment_5_1() { return cRoot_linkAssignment_5_1; }
-		
-		//Link
-		public RuleCall getRoot_linkLinkParserRuleCall_5_1_0() { return cRoot_linkLinkParserRuleCall_5_1_0; }
-		
-		//('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'joints'
-		public Keyword getJointsKeyword_6_0() { return cJointsKeyword_6_0; }
+		//'robots'
+		public Keyword getRobotsKeyword_4_0() { return cRobotsKeyword_4_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 		
-		//joints+=Joint
-		public Assignment getJointsAssignment_6_2() { return cJointsAssignment_6_2; }
+		//robots+=ref_robot
+		public Assignment getRobotsAssignment_4_2() { return cRobotsAssignment_4_2; }
 		
-		//Joint
-		public RuleCall getJointsJointParserRuleCall_6_2_0() { return cJointsJointParserRuleCall_6_2_0; }
+		//ref_robot
+		public RuleCall getRobotsRef_robotParserRuleCall_4_2_0() { return cRobotsRef_robotParserRuleCall_4_2_0; }
 		
-		//( "," joints+=Joint)*
-		public Group getGroup_6_3() { return cGroup_6_3; }
+		//( "," robots+=ref_robot)*
+		public Group getGroup_4_3() { return cGroup_4_3; }
 		
 		//","
-		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
+		
+		//robots+=ref_robot
+		public Assignment getRobotsAssignment_4_3_1() { return cRobotsAssignment_4_3_1; }
+		
+		//ref_robot
+		public RuleCall getRobotsRef_robotParserRuleCall_4_3_1_0() { return cRobotsRef_robotParserRuleCall_4_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
+		
+		//('prefix' prefix=EString)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'prefix'
+		public Keyword getPrefixKeyword_5_0() { return cPrefixKeyword_5_0; }
+		
+		//prefix=EString
+		public Assignment getPrefixAssignment_5_1() { return cPrefixAssignment_5_1; }
+		
+		//EString
+		public RuleCall getPrefixEStringParserRuleCall_5_1_0() { return cPrefixEStringParserRuleCall_5_1_0; }
+		
+		//('root_link' root_link=Link)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'root_link'
+		public Keyword getRoot_linkKeyword_6_0() { return cRoot_linkKeyword_6_0; }
+		
+		//root_link=Link
+		public Assignment getRoot_linkAssignment_6_1() { return cRoot_linkAssignment_6_1; }
+		
+		//Link
+		public RuleCall getRoot_linkLinkParserRuleCall_6_1_0() { return cRoot_linkLinkParserRuleCall_6_1_0; }
+		
+		//('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'joints'
+		public Keyword getJointsKeyword_7_0() { return cJointsKeyword_7_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
 		
 		//joints+=Joint
-		public Assignment getJointsAssignment_6_3_1() { return cJointsAssignment_6_3_1; }
+		public Assignment getJointsAssignment_7_2() { return cJointsAssignment_7_2; }
 		
 		//Joint
-		public RuleCall getJointsJointParserRuleCall_6_3_1_0() { return cJointsJointParserRuleCall_6_3_1_0; }
+		public RuleCall getJointsJointParserRuleCall_7_2_0() { return cJointsJointParserRuleCall_7_2_0; }
+		
+		//( "," joints+=Joint)*
+		public Group getGroup_7_3() { return cGroup_7_3; }
+		
+		//","
+		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
+		
+		//joints+=Joint
+		public Assignment getJointsAssignment_7_3_1() { return cJointsAssignment_7_3_1; }
+		
+		//Joint
+		public RuleCall getJointsJointParserRuleCall_7_3_1_0() { return cJointsJointParserRuleCall_7_3_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+	public class Ref_robotElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.ref_robot");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRef_robotAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRef_robotKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRobotAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cRobotRobotCrossReference_2_0 = (CrossReference)cRobotAssignment_2.eContents().get(0);
+		private final RuleCall cRobotRobotEStringParserRuleCall_2_0_1 = (RuleCall)cRobotRobotCrossReference_2_0.eContents().get(1);
+		private final Keyword cPrefixKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cPrefixAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPrefixEStringParserRuleCall_4_0 = (RuleCall)cPrefixAssignment_4.eContents().get(0);
+		
+		//ref_robot returns ref_robot:
+		//    {ref_robot}
+		//    'ref_robot'
+		//    robot=[robot|EString]
+		//    'prefix'
+		//    prefix=EString
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ref_robot}
+		//'ref_robot'
+		//robot=[robot|EString]
+		//'prefix'
+		//prefix=EString
+		public Group getGroup() { return cGroup; }
+		
+		//{ref_robot}
+		public Action getRef_robotAction_0() { return cRef_robotAction_0; }
+		
+		//'ref_robot'
+		public Keyword getRef_robotKeyword_1() { return cRef_robotKeyword_1; }
+		
+		//robot=[robot|EString]
+		public Assignment getRobotAssignment_2() { return cRobotAssignment_2; }
+		
+		//[robot|EString]
+		public CrossReference getRobotRobotCrossReference_2_0() { return cRobotRobotCrossReference_2_0; }
+		
+		//EString
+		public RuleCall getRobotRobotEStringParserRuleCall_2_0_1() { return cRobotRobotEStringParserRuleCall_2_0_1; }
+		
+		//'prefix'
+		public Keyword getPrefixKeyword_3() { return cPrefixKeyword_3; }
+		
+		//prefix=EString
+		public Assignment getPrefixAssignment_4() { return cPrefixAssignment_4; }
+		
+		//EString
+		public RuleCall getPrefixEStringParserRuleCall_4_0() { return cPrefixEStringParserRuleCall_4_0; }
 	}
 	public class LinkElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Link");
@@ -194,7 +288,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//    'Joint'
 		//    name=EString
 		//    '{'
-		//        'parent' parent=[Link|EString]
+		//        'parent'  parent=[Link|EString]
 		//        'child' child=Link
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
@@ -202,7 +296,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'Joint'
 		//name=EString
 		//'{'
-		//    'parent' parent=[Link|EString]
+		//    'parent'  parent=[Link|EString]
 		//    'child' child=Link
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -265,6 +359,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	
 	private final RobotElements pRobot;
+	private final Ref_robotElements pRef_robot;
 	private final LinkElements pLink;
 	private final JointElements pJoint;
 	private final EStringElements pEString;
@@ -279,6 +374,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pRobot = new RobotElements();
+		this.pRef_robot = new Ref_robotElements();
 		this.pLink = new LinkElements();
 		this.pJoint = new JointElements();
 		this.pEString = new EStringElements();
@@ -315,6 +411,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//    {robot}
 	//    'robot' name=EString
 	//    '{'
+	//        ('robots' '{' robots+=ref_robot ( "," robots+=ref_robot)*  '}' )?
 	//        ('prefix' prefix=EString)?
 	//        ('root_link' root_link=Link)?
 	//        ('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
@@ -325,6 +422,21 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	public ParserRule getRobotRule() {
 		return getRobotAccess().getRule();
+	}
+	
+	//ref_robot returns ref_robot:
+	//    {ref_robot}
+	//    'ref_robot'
+	//    robot=[robot|EString]
+	//    'prefix'
+	//    prefix=EString
+	//;
+	public Ref_robotElements getRef_robotAccess() {
+		return pRef_robot;
+	}
+	
+	public ParserRule getRef_robotRule() {
+		return getRef_robotAccess().getRule();
 	}
 	
 	//Link returns Link:
@@ -343,7 +455,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//    'Joint'
 	//    name=EString
 	//    '{'
-	//        'parent' parent=[Link|EString]
+	//        'parent'  parent=[Link|EString]
 	//        'child' child=Link
 	//    '}';
 	public JointElements getJointAccess() {

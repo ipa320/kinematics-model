@@ -49,6 +49,15 @@ public interface KinematicsFactory extends EFactory {
 	Joint createJoint();
 
 	/**
+	 * Returns a new object of class '<em>ref robot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ref robot</em>'.
+	 * @generated
+	 */
+	ref_robot createref_robot();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

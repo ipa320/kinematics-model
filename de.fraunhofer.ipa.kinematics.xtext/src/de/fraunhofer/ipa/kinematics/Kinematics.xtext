@@ -8,11 +8,19 @@ robot returns robot:
 	{robot}
 	'robot' name=EString
 	'{'
+		('robots' '{' robots+=ref_robot ( "," robots+=ref_robot)*  '}' )?
 		('prefix' prefix=EString)?
 		('root_link' root_link=Link)?
 		('joints' '{' joints+=Joint ( "," joints+=Joint)* '}' )?
 	'}';
 
+ref_robot returns ref_robot:
+	{ref_robot}
+	'ref_robot'
+	robot=[robot|EString]
+	'prefix'
+	prefix=EString
+;
 
 Link returns Link:
 	{Link}
@@ -23,9 +31,11 @@ Joint returns Joint:
 	'Joint'
 	name=EString
 	'{'
-		'parent' parent=[Link|EString]
+		'parent'  parent=[Link|EString]
 		'child' child=Link
 	'}';
+
+
 
 EString returns ecore::EString:
 	STRING | ID;
