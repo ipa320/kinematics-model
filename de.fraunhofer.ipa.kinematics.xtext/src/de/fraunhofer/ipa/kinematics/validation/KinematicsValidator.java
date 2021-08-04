@@ -12,6 +12,7 @@ import org.eclipse.xtext.validation.Check;
 
 import kinematics.Joint;
 import kinematics.Link;
+import kinematics.ref_robot;
 import kinematics.robot;
 import kinematics.impl.JointImpl;
 import kinematics.impl.robotImpl;
@@ -92,6 +93,37 @@ public class KinematicsValidator extends AbstractKinematicsValidator {
 			if(link != rImpl.getRoot_link()) {
 				error("Two root links found: " + getPrefix(rImpl) + rImpl.getRoot_link().getName() +
 						" and " + getPrefix(robot) + robot.getRoot_link().getName(), null);
+			}
+		}
+	}
+
+	@Check
+	public void checkLinkIncuded(robot robot) {
+		boolean isIncluded = false;
+		for(Joint joint : robot.getJoints()) {
+			robotImpl rImpl = null;
+			Link link = null;
+			if(joint.eCrossReferences().size() > 0) {
+				link = (Link) joint.eCrossReferences().get(0);
+				EObject obj = link.eContainer();
+				if (obj instanceof JointImpl) {
+					rImpl = (robotImpl) obj.eContainer();
+				} else {
+					rImpl = (robotImpl) obj;
+				}
+			}
+
+			if (rImpl == robot) {
+				isIncluded = isIncluded || true;
+			}
+			for (ref_robot ref_r : robot.getRobots()) {
+				if (rImpl == ref_r.getRobot()) {
+					isIncluded = isIncluded || true;
+				}
+			}
+
+			if(!isIncluded) {
+				error("Robot " + rImpl.getName() + " is not included", null);
 			}
 		}
 	}
