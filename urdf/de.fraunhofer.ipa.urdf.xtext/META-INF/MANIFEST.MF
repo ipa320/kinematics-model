@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: de.fraunhofer.ipa.urdf.xtext
+Bundle-ManifestVersion: 2
+Bundle-Name: de.fraunhofer.ipa.urdf.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.fraunhofer.ipa.urdf.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.fraunhofer.ipa.urdf,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: de.fraunhofer.ipa.services,
+ de.fraunhofer.ipa.parser.antlr,
+ de.fraunhofer.ipa.formatting2,
+ de.fraunhofer.ipa.parser.antlr.internal,
+ de.fraunhofer.ipa.validation,
+ de.fraunhofer.ipa,
+ de.fraunhofer.ipa.scoping,
+ de.fraunhofer.ipa.generator,
+ de.fraunhofer.ipa.serializer
+Import-Package: org.apache.log4j
