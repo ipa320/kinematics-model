@@ -7,10 +7,10 @@
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated kinematics -->
+      <!-- @generated urdf -->
       <factory
-            uri="http://www.ipa.fraunhofer.de/kinematics"
-            class="kinematics.provider.KinematicsItemProviderAdapterFactory"
+            uri="http://www.ipa.fraunhofer.de/urdf"
+            class="urdf.provider.UrdfItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

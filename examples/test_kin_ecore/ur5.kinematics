@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<kinematics:robot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:kinematics="http://www.ipa.fraunhofer.de/kinematics" name="ur5">
-  <root_link name="base_link"/>
-  <joints parent="//@root_link" name="shoulder_pan_joint">
-    <child name="shoulder_link"/>
-  </joints>
-</kinematics:robot>

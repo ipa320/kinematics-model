@@ -7,11 +7,18 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated kinematics -->
+      <!-- @generated urdf -->
       <package
-            uri="http://www.ipa.fraunhofer.de/kinematics"
-            class="kinematics.KinematicsPackage"
-            genModel="model/kinematics.genmodel"/>
+            uri="http://www.ipa.fraunhofer.de/urdf"
+            class="urdf.UrdfPackage"
+            genModel="model/urdf.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated urdf -->
+      <parser
+            type="urdf"
+            class="urdf.util.UrdfResourceFactoryImpl"/>
    </extension>
 
 </plugin>

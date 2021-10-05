@@ -7,30 +7,30 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated kinematics -->
+      <!-- @generated urdf -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="kinematics.presentation.KinematicsModelWizardID"
-            name="%_UI_KinematicsModelWizard_label"
-            class="kinematics.presentation.KinematicsModelWizard"
+            id="urdf.presentation.UrdfModelWizardID"
+            name="%_UI_UrdfModelWizard_label"
+            class="urdf.presentation.UrdfModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/KinematicsModelFile.gif">
-         <description>%_UI_KinematicsModelWizard_description</description>
+            icon="icons/full/obj16/UrdfModelFile.gif">
+         <description>%_UI_UrdfModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated kinematics -->
+      <!-- @generated urdf -->
       <editor
-            id="kinematics.presentation.KinematicsEditorID"
-            name="%_UI_KinematicsEditor_label"
-            icon="icons/full/obj16/KinematicsModelFile.gif"
-            extensions="kinematics"
-            class="kinematics.presentation.KinematicsEditor"
-            contributorClass="kinematics.presentation.KinematicsActionBarContributor">
+            id="urdf.presentation.UrdfEditorID"
+            name="%_UI_UrdfEditor_label"
+            icon="icons/full/obj16/UrdfModelFile.gif"
+            extensions="urdf"
+            class="urdf.presentation.UrdfEditor"
+            contributorClass="urdf.presentation.UrdfActionBarContributor">
       </editor>
    </extension>
 

@@ -5,15 +5,16 @@ Bundle-SymbolicName: de.fraunhofer.ipa.kinematics.editor;singleton:=true
 Automatic-Module-Name: de.fraunhofer.ipa.kinematics.editor
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: kinematics.presentation.KinematicsEditorPlugin$Implementation
+Bundle-Activator: urdf.presentation.UrdfEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: kinematics.presentation
+Export-Package: urdf.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.fraunhofer.ipa.kinematics.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
