@@ -997,9 +997,9 @@ ruleTransmission returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDoubleParserRuleCall_2_2_0());
+						newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_2_2_0());
 					}
-					lv_mechanicalReduction_4_0=ruleDouble
+					lv_mechanicalReduction_4_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
@@ -1008,7 +1008,7 @@ ruleTransmission returns [EObject current=null]
 							$current,
 							"mechanicalReduction",
 							lv_mechanicalReduction_4_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1021,9 +1021,9 @@ ruleTransmission returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDoubleParserRuleCall_2_3_1_0());
+							newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_2_3_1_0());
 						}
-						lv_mechanicalReduction_6_0=ruleDouble
+						lv_mechanicalReduction_6_0=ruleDouble0
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
@@ -1032,7 +1032,7 @@ ruleTransmission returns [EObject current=null]
 								$current,
 								"mechanicalReduction",
 								lv_mechanicalReduction_6_0,
-								"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+								"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -1916,9 +1916,9 @@ ruleCalibration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getFallingDoubleParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getCalibrationAccess().getFallingDouble0ParserRuleCall_3_1_0());
 					}
-					lv_falling_4_0=ruleDouble
+					lv_falling_4_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
@@ -1927,7 +1927,7 @@ ruleCalibration returns [EObject current=null]
 							$current,
 							"falling",
 							lv_falling_4_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1941,9 +1941,9 @@ ruleCalibration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getReferencePositionDoubleParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getCalibrationAccess().getReferencePositionDouble0ParserRuleCall_4_1_0());
 					}
-					lv_referencePosition_6_0=ruleDouble
+					lv_referencePosition_6_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
@@ -1952,7 +1952,7 @@ ruleCalibration returns [EObject current=null]
 							$current,
 							"referencePosition",
 							lv_referencePosition_6_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1966,9 +1966,9 @@ ruleCalibration returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getRisingDoubleParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getCalibrationAccess().getRisingDouble0ParserRuleCall_5_1_0());
 					}
-					lv_rising_8_0=ruleDouble
+					lv_rising_8_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
@@ -1977,7 +1977,7 @@ ruleCalibration returns [EObject current=null]
 							$current,
 							"rising",
 							lv_rising_8_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2029,9 +2029,9 @@ ruleDynamics returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDynamicsAccess().getDampingDoubleParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getDynamicsAccess().getDampingDouble0ParserRuleCall_3_1_0());
 					}
-					lv_damping_4_0=ruleDouble
+					lv_damping_4_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDynamicsRule());
@@ -2040,7 +2040,7 @@ ruleDynamics returns [EObject current=null]
 							$current,
 							"damping",
 							lv_damping_4_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2054,9 +2054,9 @@ ruleDynamics returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDynamicsAccess().getFrictionDoubleParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getDynamicsAccess().getFrictionDouble0ParserRuleCall_4_1_0());
 					}
-					lv_friction_6_0=ruleDouble
+					lv_friction_6_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDynamicsRule());
@@ -2065,7 +2065,7 @@ ruleDynamics returns [EObject current=null]
 							$current,
 							"friction",
 							lv_friction_6_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2117,9 +2117,9 @@ ruleLimit returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getEffortDoubleParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0());
 					}
-					lv_effort_4_0=ruleDouble
+					lv_effort_4_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLimitRule());
@@ -2128,7 +2128,7 @@ ruleLimit returns [EObject current=null]
 							$current,
 							"effort",
 							lv_effort_4_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2142,9 +2142,9 @@ ruleLimit returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getLowerDoubleParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0());
 					}
-					lv_lower_6_0=ruleDouble
+					lv_lower_6_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLimitRule());
@@ -2153,7 +2153,7 @@ ruleLimit returns [EObject current=null]
 							$current,
 							"lower",
 							lv_lower_6_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2167,9 +2167,9 @@ ruleLimit returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getUpperDoubleParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0());
 					}
-					lv_upper_8_0=ruleDouble
+					lv_upper_8_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLimitRule());
@@ -2178,7 +2178,7 @@ ruleLimit returns [EObject current=null]
 							$current,
 							"upper",
 							lv_upper_8_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2192,9 +2192,9 @@ ruleLimit returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getVelocityDoubleParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0());
 					}
-					lv_velocity_10_0=ruleDouble
+					lv_velocity_10_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLimitRule());
@@ -2203,7 +2203,7 @@ ruleLimit returns [EObject current=null]
 							$current,
 							"velocity",
 							lv_velocity_10_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2248,9 +2248,9 @@ ruleSafetyController returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getKPositionDoubleParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getSafetyControllerAccess().getKPositionDouble0ParserRuleCall_2_1_0());
 					}
-					lv_kPosition_3_0=ruleDouble
+					lv_kPosition_3_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
@@ -2259,7 +2259,7 @@ ruleSafetyController returns [EObject current=null]
 							$current,
 							"kPosition",
 							lv_kPosition_3_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2272,9 +2272,9 @@ ruleSafetyController returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSafetyControllerAccess().getKVelocityDoubleParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSafetyControllerAccess().getKVelocityDouble0ParserRuleCall_4_0());
 				}
-				lv_kVelocity_5_0=ruleDouble
+				lv_kVelocity_5_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
@@ -2283,7 +2283,7 @@ ruleSafetyController returns [EObject current=null]
 						$current,
 						"kVelocity",
 						lv_kVelocity_5_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -2296,9 +2296,9 @@ ruleSafetyController returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitDoubleParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitDouble0ParserRuleCall_5_1_0());
 					}
-					lv_softLowerLimit_7_0=ruleDouble
+					lv_softLowerLimit_7_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
@@ -2307,7 +2307,7 @@ ruleSafetyController returns [EObject current=null]
 							$current,
 							"softLowerLimit",
 							lv_softLowerLimit_7_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2321,9 +2321,9 @@ ruleSafetyController returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitDoubleParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitDouble0ParserRuleCall_6_1_0());
 					}
-					lv_softUpperLimit_9_0=ruleDouble
+					lv_softUpperLimit_9_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
@@ -2332,7 +2332,7 @@ ruleSafetyController returns [EObject current=null]
 							$current,
 							"softUpperLimit",
 							lv_softUpperLimit_9_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2400,9 +2400,9 @@ ruleMimic returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMimicAccess().getMultiplierDoubleParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getMimicAccess().getMultiplierDouble0ParserRuleCall_4_1_0());
 					}
-					lv_multiplier_5_0=ruleDouble
+					lv_multiplier_5_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMimicRule());
@@ -2411,7 +2411,7 @@ ruleMimic returns [EObject current=null]
 							$current,
 							"multiplier",
 							lv_multiplier_5_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2425,9 +2425,9 @@ ruleMimic returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMimicAccess().getOffsetDoubleParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getMimicAccess().getOffsetDouble0ParserRuleCall_5_1_0());
 					}
-					lv_offset_7_0=ruleDouble
+					lv_offset_7_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMimicRule());
@@ -2436,7 +2436,7 @@ ruleMimic returns [EObject current=null]
 							$current,
 							"offset",
 							lv_offset_7_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2447,28 +2447,6 @@ ruleMimic returns [EObject current=null]
 			newLeafNode(otherlv_8, grammarAccess.getMimicAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
-;
-
-// Entry rule entryRuleDouble
-entryRuleDouble returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getDoubleRule()); }
-	iv_ruleDouble=ruleDouble
-	{ $current=$iv_ruleDouble.current.getText(); }
-	EOF;
-
-// Rule Double
-ruleDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	kw='Double'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getDoubleAccess().getDoubleKeyword());
-	}
 ;
 
 // Entry rule entryRuleInertial
@@ -2856,9 +2834,9 @@ ruleMass returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMassAccess().getValueDoubleParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getMassAccess().getValueDouble0ParserRuleCall_3_1_0());
 					}
-					lv_value_4_0=ruleDouble
+					lv_value_4_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMassRule());
@@ -2867,7 +2845,7 @@ ruleMass returns [EObject current=null]
 							$current,
 							"value",
 							lv_value_4_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2919,9 +2897,9 @@ ruleInertia returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getInertiaAccess().getIxxDoubleParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getInertiaAccess().getIxxDouble0ParserRuleCall_3_1_0());
 					}
-					lv_ixx_4_0=ruleDouble
+					lv_ixx_4_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getInertiaRule());
@@ -2930,7 +2908,7 @@ ruleInertia returns [EObject current=null]
 							$current,
 							"ixx",
 							lv_ixx_4_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2944,9 +2922,9 @@ ruleInertia returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getInertiaAccess().getIxyDoubleParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getInertiaAccess().getIxyDouble0ParserRuleCall_4_1_0());
 					}
-					lv_ixy_6_0=ruleDouble
+					lv_ixy_6_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getInertiaRule());
@@ -2955,7 +2933,7 @@ ruleInertia returns [EObject current=null]
 							$current,
 							"ixy",
 							lv_ixy_6_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2969,9 +2947,9 @@ ruleInertia returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getInertiaAccess().getIxzDoubleParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getInertiaAccess().getIxzDouble0ParserRuleCall_5_1_0());
 					}
-					lv_ixz_8_0=ruleDouble
+					lv_ixz_8_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getInertiaRule());
@@ -2980,7 +2958,7 @@ ruleInertia returns [EObject current=null]
 							$current,
 							"ixz",
 							lv_ixz_8_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2994,9 +2972,9 @@ ruleInertia returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getInertiaAccess().getIyyDoubleParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getInertiaAccess().getIyyDouble0ParserRuleCall_6_1_0());
 					}
-					lv_iyy_10_0=ruleDouble
+					lv_iyy_10_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getInertiaRule());
@@ -3005,7 +2983,7 @@ ruleInertia returns [EObject current=null]
 							$current,
 							"iyy",
 							lv_iyy_10_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -3019,9 +2997,9 @@ ruleInertia returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getInertiaAccess().getIyzDoubleParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getInertiaAccess().getIyzDouble0ParserRuleCall_7_1_0());
 					}
-					lv_iyz_12_0=ruleDouble
+					lv_iyz_12_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getInertiaRule());
@@ -3030,7 +3008,7 @@ ruleInertia returns [EObject current=null]
 							$current,
 							"iyz",
 							lv_iyz_12_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -3044,9 +3022,9 @@ ruleInertia returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getInertiaAccess().getIzzDoubleParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getInertiaAccess().getIzzDouble0ParserRuleCall_8_1_0());
 					}
-					lv_izz_14_0=ruleDouble
+					lv_izz_14_0=ruleDouble0
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getInertiaRule());
@@ -3055,7 +3033,7 @@ ruleInertia returns [EObject current=null]
 							$current,
 							"izz",
 							lv_izz_14_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -3413,9 +3391,9 @@ ruleCylinder returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCylinderAccess().getLengthDoubleParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_3_0());
 				}
-				lv_length_3_0=ruleDouble
+				lv_length_3_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCylinderRule());
@@ -3424,7 +3402,7 @@ ruleCylinder returns [EObject current=null]
 						$current,
 						"length",
 						lv_length_3_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3436,9 +3414,9 @@ ruleCylinder returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCylinderAccess().getRadiusDoubleParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_5_0());
 				}
-				lv_radius_5_0=ruleDouble
+				lv_radius_5_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCylinderRule());
@@ -3447,7 +3425,7 @@ ruleCylinder returns [EObject current=null]
 						$current,
 						"radius",
 						lv_radius_5_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3490,9 +3468,9 @@ ruleSphere returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSphereAccess().getRadiusDoubleParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_3_0());
 				}
-				lv_radius_3_0=ruleDouble
+				lv_radius_3_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSphereRule());
@@ -3501,7 +3479,7 @@ ruleSphere returns [EObject current=null]
 						$current,
 						"radius",
 						lv_radius_3_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3544,9 +3522,9 @@ ruleMesh returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0());
 				}
-				lv_filename_3_0=ruleAnyURI
+				lv_filename_3_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMeshRule());
@@ -3555,7 +3533,7 @@ ruleMesh returns [EObject current=null]
 						$current,
 						"filename",
 						lv_filename_3_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.AnyURI");
+						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3834,9 +3812,9 @@ ruleActuatorTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionDoubleParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_3_0());
 				}
-				lv_mechanicalReduction_3_0=ruleDouble
+				lv_mechanicalReduction_3_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getActuatorTransmissionRule());
@@ -3845,7 +3823,7 @@ ruleActuatorTransmission returns [EObject current=null]
 						$current,
 						"mechanicalReduction",
 						lv_mechanicalReduction_3_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3911,9 +3889,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getADoubleParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getADouble0ParserRuleCall_3_0());
 				}
-				lv_a_3_0=ruleDouble
+				lv_a_3_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -3922,7 +3900,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"a",
 						lv_a_3_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3934,9 +3912,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getBDoubleParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getBDouble0ParserRuleCall_5_0());
 				}
-				lv_b_5_0=ruleDouble
+				lv_b_5_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -3945,7 +3923,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"b",
 						lv_b_5_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3957,9 +3935,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getGearRatioDoubleParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getGearRatioDouble0ParserRuleCall_7_0());
 				}
-				lv_gearRatio_7_0=ruleDouble
+				lv_gearRatio_7_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -3968,7 +3946,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"gearRatio",
 						lv_gearRatio_7_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -3980,9 +3958,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getHDoubleParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getHDouble0ParserRuleCall_9_0());
 				}
-				lv_h_9_0=ruleDouble
+				lv_h_9_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -3991,7 +3969,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"h",
 						lv_h_9_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4003,9 +3981,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getL0DoubleParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getL0Double0ParserRuleCall_11_0());
 				}
-				lv_l0_11_0=ruleDouble
+				lv_l0_11_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -4014,7 +3992,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"l0",
 						lv_l0_11_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4026,9 +4004,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionDoubleParserRuleCall_13_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_13_0());
 				}
-				lv_mechanicalReduction_13_0=ruleDouble
+				lv_mechanicalReduction_13_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -4037,7 +4015,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"mechanicalReduction",
 						lv_mechanicalReduction_13_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4072,9 +4050,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getPhi0DoubleParserRuleCall_17_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getPhi0Double0ParserRuleCall_17_0());
 				}
-				lv_phi0_17_0=ruleDouble
+				lv_phi0_17_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -4083,7 +4061,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"phi0",
 						lv_phi0_17_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4095,9 +4073,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getRDoubleParserRuleCall_19_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getRDouble0ParserRuleCall_19_0());
 				}
-				lv_r_19_0=ruleDouble
+				lv_r_19_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -4106,7 +4084,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"r",
 						lv_r_19_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4118,9 +4096,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getScrewReductionDoubleParserRuleCall_21_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getScrewReductionDouble0ParserRuleCall_21_0());
 				}
-				lv_screwReduction_21_0=ruleDouble
+				lv_screwReduction_21_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -4129,7 +4107,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"screwReduction",
 						lv_screwReduction_21_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4141,9 +4119,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getT0DoubleParserRuleCall_23_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getT0Double0ParserRuleCall_23_0());
 				}
-				lv_t0_23_0=ruleDouble
+				lv_t0_23_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -4152,7 +4130,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"t0",
 						lv_t0_23_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4164,9 +4142,9 @@ ruleGapJointTransmission returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getTheta0DoubleParserRuleCall_25_0());
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getTheta0Double0ParserRuleCall_25_0());
 				}
-				lv_theta0_25_0=ruleDouble
+				lv_theta0_25_0=ruleDouble0
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
@@ -4175,7 +4153,7 @@ ruleGapJointTransmission returns [EObject current=null]
 						$current,
 						"theta0",
 						lv_theta0_25_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Double");
+						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4333,6 +4311,38 @@ ruleName returns [EObject current=null]
 		}
 	)
 ;
+
+// Entry rule entryRuleDouble0
+entryRuleDouble0 returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getDouble0Rule()); }
+	iv_ruleDouble0=ruleDouble0
+	{ $current=$iv_ruleDouble0.current.getText(); }
+	EOF;
+
+// Rule Double0
+ruleDouble0 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	this_DOUBLE_0=RULE_DOUBLE
+	{
+		$current.merge(this_DOUBLE_0);
+	}
+	{
+		newLeafNode(this_DOUBLE_0, grammarAccess.getDouble0Access().getDOUBLETerminalRuleCall());
+	}
+;
+
+fragment RULE_DIGIT : '0'..'9';
+
+RULE_BOOLEAN : ('true'|'false');
+
+RULE_DOUBLE : RULE_DECINT ('.' RULE_DIGIT*|('.' RULE_DIGIT*)? ('E'|'e') ('-'|'+')? RULE_DECINT);
+
+RULE_DECINT : ('0'|'1'..'9' RULE_DIGIT*|'-' '0'..'9' RULE_DIGIT*);
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

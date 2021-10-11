@@ -56,7 +56,7 @@ MaterialGlobal returns MaterialGlobal:
 Transmission returns Transmission:
 	'Transmission'
 	'{'
-		('mechanicalReduction' '{' mechanicalReduction+=Double ( "," mechanicalReduction+=Double)* '}' )?
+		('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
 		'name' name=EString
 		'type' type=EString
 		('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
@@ -101,48 +101,45 @@ Calibration returns Calibration:
 	{Calibration}
 	'Calibration'
 	'{'
-		('falling' falling=Double)?
-		('referencePosition' referencePosition=Double)?
-		('rising' rising=Double)?
+		('falling' falling=Double0)?
+		('referencePosition' referencePosition=Double0)?
+		('rising' rising=Double0)?
 	'}';
 
 Dynamics returns Dynamics:
 	{Dynamics}
 	'Dynamics'
 	'{'
-		('damping' damping=Double)?
-		('friction' friction=Double)?
+		('damping' damping=Double0)?
+		('friction' friction=Double0)?
 	'}';
 
 Limit returns Limit:
 	{Limit}
 	'Limit'
 	'{'
-		('effort' effort=Double)?
-		('lower' lower=Double)?
-		('upper' upper=Double)?
-		('velocity' velocity=Double)?
+		('effort' effort=Double0)?
+		('lower' lower=Double0)?
+		('upper' upper=Double0)?
+		('velocity' velocity=Double0)?
 	'}';
 
 SafetyController returns SafetyController:
 	'SafetyController'
 	'{'
-		('kPosition' kPosition=Double)?
-		'kVelocity' kVelocity=Double
-		('softLowerLimit' softLowerLimit=Double)?
-		('softUpperLimit' softUpperLimit=Double)?
+		('kPosition' kPosition=Double0)?
+		'kVelocity' kVelocity=Double0
+		('softLowerLimit' softLowerLimit=Double0)?
+		('softUpperLimit' softUpperLimit=Double0)?
 	'}';
 
 Mimic returns Mimic:
 	'Mimic'
 	'{'
 		'joint' joint=EString
-		('multiplier' multiplier=Double)?
-		('offset' offset=Double)?
+		('multiplier' multiplier=Double0)?
+		('offset' offset=Double0)?
 	'}';
-
-Double returns type::Double:
-	'Double' /* TODO: implement this rule and an appropriate IValueConverter */;
 
 Inertial returns Inertial:
 	{Inertial}
@@ -174,19 +171,19 @@ Mass returns Mass:
 	{Mass}
 	'Mass'
 	'{'
-		('value' value=Double)?
+		('value' value=Double0)?
 	'}';
 
 Inertia returns Inertia:
 	{Inertia}
 	'Inertia'
 	'{'
-		('ixx' ixx=Double)?
-		('ixy' ixy=Double)?
-		('ixz' ixz=Double)?
-		('iyy' iyy=Double)?
-		('iyz' iyz=Double)?
-		('izz' izz=Double)?
+		('ixx' ixx=Double0)?
+		('ixy' ixy=Double0)?
+		('ixz' ixz=Double0)?
+		('iyy' iyy=Double0)?
+		('iyz' iyz=Double0)?
+		('izz' izz=Double0)?
 	'}';
 
 Geometry returns Geometry:
@@ -218,20 +215,20 @@ Box returns Box:
 Cylinder returns Cylinder:
 	'Cylinder'
 	'{'
-		'length' length=Double
-		'radius' radius=Double
+		'length' length=Double0
+		'radius' radius=Double0
 	'}';
 
 Sphere returns Sphere:
 	'Sphere'
 	'{'
-		'radius' radius=Double
+		'radius' radius=Double0
 	'}';
 
 Mesh returns Mesh:
 	'Mesh'
 	'{'
-		'filename' filename=AnyURI
+		'filename' filename=EString
 		('scale' scale=EString)?
 	'}';
 
@@ -262,25 +259,25 @@ Verbose returns Verbose:
 ActuatorTransmission returns ActuatorTransmission:
 	'ActuatorTransmission'
 	'{'
-		'mechanicalReduction' mechanicalReduction=Double
+		'mechanicalReduction' mechanicalReduction=Double0
 		'name' name=EString
 	'}';
 
 GapJointTransmission returns GapJointTransmission:
 	'GapJointTransmission'
 	'{'
-		'a' a=Double
-		'b' b=Double
-		'gearRatio' gearRatio=Double
-		'h' h=Double
-		'l0' l0=Double
-		'mechanicalReduction' mechanicalReduction=Double
+		'a' a=Double0
+		'b' b=Double0
+		'gearRatio' gearRatio=Double0
+		'h' h=Double0
+		'l0' l0=Double0
+		'mechanicalReduction' mechanicalReduction=Double0
 		'name' name=EString
-		'phi0' phi0=Double
-		'r' r=Double
-		'screwReduction' screwReduction=Double
-		't0' t0=Double
-		'theta0' theta0=Double
+		'phi0' phi0=Double0
+		'r' r=Double0
+		'screwReduction' screwReduction=Double0
+		't0' t0=Double0
+		'theta0' theta0=Double0
 	'}';
 
 PassiveJointTransmission returns PassiveJointTransmission:
@@ -300,3 +297,15 @@ Name returns Name:
 	'{'
 		('name' name=EString)?
 	'}';
+
+// from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307
+terminal fragment DIGIT: '0'..'9';
+terminal BOOLEAN: 'true'|'false';
+terminal DOUBLE returns ecore::EDouble: DECINT (('.' DIGIT*) | (('.' DIGIT*)? ('E'|'e') ('-'|'+')? DECINT));  // Use terminal to avoid 'e' turning into a keyword
+terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
+
+Double0 returns type::Double:
+	DOUBLE;
+
+Integer0 returns type::Int:
+	DECINT;

@@ -173,7 +173,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ActuatorTransmission returns ActuatorTransmission
 	 *
 	 * Constraint:
-	 *     (mechanicalReduction=Double name=EString)
+	 *     (mechanicalReduction=Double0 name=EString)
 	 */
 	protected void sequence_ActuatorTransmission(ISerializationContext context, ActuatorTransmission semanticObject) {
 		if (errorAcceptor != null) {
@@ -183,7 +183,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.ACTUATOR_TRANSMISSION__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionDoubleParserRuleCall_3_0(), semanticObject.getMechanicalReduction());
+		feeder.accept(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_3_0(), semanticObject.getMechanicalReduction());
 		feeder.accept(grammarAccess.getActuatorTransmissionAccess().getNameEStringParserRuleCall_5_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -218,7 +218,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Calibration returns Calibration
 	 *
 	 * Constraint:
-	 *     (falling=Double? referencePosition=Double? rising=Double?)
+	 *     (falling=Double0? referencePosition=Double0? rising=Double0?)
 	 */
 	protected void sequence_Calibration(ISerializationContext context, Calibration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -272,7 +272,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Cylinder returns Cylinder
 	 *
 	 * Constraint:
-	 *     (length=Double radius=Double)
+	 *     (length=Double0 radius=Double0)
 	 */
 	protected void sequence_Cylinder(ISerializationContext context, Cylinder semanticObject) {
 		if (errorAcceptor != null) {
@@ -282,8 +282,8 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.CYLINDER__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCylinderAccess().getLengthDoubleParserRuleCall_3_0(), semanticObject.getLength());
-		feeder.accept(grammarAccess.getCylinderAccess().getRadiusDoubleParserRuleCall_5_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_3_0(), semanticObject.getLength());
+		feeder.accept(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_5_0(), semanticObject.getRadius());
 		feeder.finish();
 	}
 	
@@ -293,7 +293,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Dynamics returns Dynamics
 	 *
 	 * Constraint:
-	 *     (damping=Double? friction=Double?)
+	 *     (damping=Double0? friction=Double0?)
 	 */
 	protected void sequence_Dynamics(ISerializationContext context, Dynamics semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -306,18 +306,18 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         a=Double 
-	 *         b=Double 
-	 *         gearRatio=Double 
-	 *         h=Double 
-	 *         l0=Double 
-	 *         mechanicalReduction=Double 
+	 *         a=Double0 
+	 *         b=Double0 
+	 *         gearRatio=Double0 
+	 *         h=Double0 
+	 *         l0=Double0 
+	 *         mechanicalReduction=Double0 
 	 *         name=EString 
-	 *         phi0=Double 
-	 *         r=Double 
-	 *         screwReduction=Double 
-	 *         t0=Double 
-	 *         theta0=Double
+	 *         phi0=Double0 
+	 *         r=Double0 
+	 *         screwReduction=Double0 
+	 *         t0=Double0 
+	 *         theta0=Double0
 	 *     )
 	 */
 	protected void sequence_GapJointTransmission(ISerializationContext context, GapJointTransmission semanticObject) {
@@ -348,18 +348,18 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.GAP_JOINT_TRANSMISSION__THETA0));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getADoubleParserRuleCall_3_0(), semanticObject.getA());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getBDoubleParserRuleCall_5_0(), semanticObject.getB());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getGearRatioDoubleParserRuleCall_7_0(), semanticObject.getGearRatio());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getHDoubleParserRuleCall_9_0(), semanticObject.getH());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getL0DoubleParserRuleCall_11_0(), semanticObject.getL0());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionDoubleParserRuleCall_13_0(), semanticObject.getMechanicalReduction());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getADouble0ParserRuleCall_3_0(), semanticObject.getA());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getBDouble0ParserRuleCall_5_0(), semanticObject.getB());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getGearRatioDouble0ParserRuleCall_7_0(), semanticObject.getGearRatio());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getHDouble0ParserRuleCall_9_0(), semanticObject.getH());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getL0Double0ParserRuleCall_11_0(), semanticObject.getL0());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_13_0(), semanticObject.getMechanicalReduction());
 		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getNameEStringParserRuleCall_15_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getPhi0DoubleParserRuleCall_17_0(), semanticObject.getPhi0());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getRDoubleParserRuleCall_19_0(), semanticObject.getR());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getScrewReductionDoubleParserRuleCall_21_0(), semanticObject.getScrewReduction());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getT0DoubleParserRuleCall_23_0(), semanticObject.getT0());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getTheta0DoubleParserRuleCall_25_0(), semanticObject.getTheta0());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getPhi0Double0ParserRuleCall_17_0(), semanticObject.getPhi0());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getRDouble0ParserRuleCall_19_0(), semanticObject.getR());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getScrewReductionDouble0ParserRuleCall_21_0(), semanticObject.getScrewReduction());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getT0Double0ParserRuleCall_23_0(), semanticObject.getT0());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getTheta0Double0ParserRuleCall_25_0(), semanticObject.getTheta0());
 		feeder.finish();
 	}
 	
@@ -382,12 +382,12 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         ixx=Double? 
-	 *         ixy=Double? 
-	 *         ixz=Double? 
-	 *         iyy=Double? 
-	 *         iyz=Double? 
-	 *         izz=Double?
+	 *         ixx=Double0? 
+	 *         ixy=Double0? 
+	 *         ixz=Double0? 
+	 *         iyy=Double0? 
+	 *         iyz=Double0? 
+	 *         izz=Double0?
 	 *     )
 	 */
 	protected void sequence_Inertia(ISerializationContext context, Inertia semanticObject) {
@@ -436,7 +436,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Limit returns Limit
 	 *
 	 * Constraint:
-	 *     (effort=Double? lower=Double? upper=Double? velocity=Double?)
+	 *     (effort=Double0? lower=Double0? upper=Double0? velocity=Double0?)
 	 */
 	protected void sequence_Limit(ISerializationContext context, Limit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -460,7 +460,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Mass returns Mass
 	 *
 	 * Constraint:
-	 *     value=Double?
+	 *     value=Double0?
 	 */
 	protected void sequence_Mass(ISerializationContext context, Mass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -496,7 +496,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Mesh returns Mesh
 	 *
 	 * Constraint:
-	 *     (filename=AnyURI scale=EString?)
+	 *     (filename=EString scale=EString?)
 	 */
 	protected void sequence_Mesh(ISerializationContext context, Mesh semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -508,7 +508,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Mimic returns Mimic
 	 *
 	 * Constraint:
-	 *     (joint=EString multiplier=Double? offset=Double?)
+	 *     (joint=EString multiplier=Double0? offset=Double0?)
 	 */
 	protected void sequence_Mimic(ISerializationContext context, Mimic semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -599,7 +599,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     SafetyController returns SafetyController
 	 *
 	 * Constraint:
-	 *     (kPosition=Double? kVelocity=Double softLowerLimit=Double? softUpperLimit=Double?)
+	 *     (kPosition=Double0? kVelocity=Double0 softLowerLimit=Double0? softUpperLimit=Double0?)
 	 */
 	protected void sequence_SafetyController(ISerializationContext context, SafetyController semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -611,7 +611,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Sphere returns Sphere
 	 *
 	 * Constraint:
-	 *     radius=Double
+	 *     radius=Double0
 	 */
 	protected void sequence_Sphere(ISerializationContext context, Sphere semanticObject) {
 		if (errorAcceptor != null) {
@@ -619,7 +619,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.SPHERE__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSphereAccess().getRadiusDoubleParserRuleCall_3_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_3_0(), semanticObject.getRadius());
 		feeder.finish();
 	}
 	
@@ -642,7 +642,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         (mechanicalReduction+=Double mechanicalReduction+=Double*)? 
+	 *         (mechanicalReduction+=Double0 mechanicalReduction+=Double0*)? 
 	 *         name=EString 
 	 *         type=EString 
 	 *         (leftActuator+=ActuatorTransmission leftActuator+=ActuatorTransmission*)? 
