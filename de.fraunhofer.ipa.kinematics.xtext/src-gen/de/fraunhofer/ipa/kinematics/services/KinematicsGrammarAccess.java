@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -286,10 +287,12 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cOriginPoseParserRuleCall_6_1_0 = (RuleCall)cOriginAssignment_6_1.eContents().get(0);
 		private final Keyword cParentKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cParentAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cParentParentParserRuleCall_8_0 = (RuleCall)cParentAssignment_8.eContents().get(0);
+		private final CrossReference cParentLinkCrossReference_8_0 = (CrossReference)cParentAssignment_8.eContents().get(0);
+		private final RuleCall cParentLinkEStringParserRuleCall_8_0_1 = (RuleCall)cParentLinkCrossReference_8_0.eContents().get(1);
 		private final Keyword cChildKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Assignment cChildAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cChildChildParserRuleCall_10_0 = (RuleCall)cChildAssignment_10.eContents().get(0);
+		private final CrossReference cChildLinkCrossReference_10_0 = (CrossReference)cChildAssignment_10.eContents().get(0);
+		private final RuleCall cChildLinkEStringParserRuleCall_10_0_1 = (RuleCall)cChildLinkCrossReference_10_0.eContents().get(1);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
 		private final Keyword cAxisKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
 		private final Assignment cAxisAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
@@ -322,8 +325,8 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//        'name' name=EString
 		//        'type' type=EString
 		//        ('origin' origin=Pose)?
-		//        'parent' parent=Parent
-		//        'child' child=Child
+		//        'parent' parent=[Link|EString]
+		//        'child' child=[Link|EString]
 		//        ('axis' axis=Axis)?
 		//        ('calibration' calibration=Calibration)?
 		//        ('dynamics' dynamics=Dynamics)?
@@ -338,8 +341,8 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//    'name' name=EString
 		//    'type' type=EString
 		//    ('origin' origin=Pose)?
-		//    'parent' parent=Parent
-		//    'child' child=Child
+		//    'parent' parent=[Link|EString]
+		//    'child' child=[Link|EString]
 		//    ('axis' axis=Axis)?
 		//    ('calibration' calibration=Calibration)?
 		//    ('dynamics' dynamics=Dynamics)?
@@ -388,20 +391,26 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'parent'
 		public Keyword getParentKeyword_7() { return cParentKeyword_7; }
 		
-		//parent=Parent
+		//parent=[Link|EString]
 		public Assignment getParentAssignment_8() { return cParentAssignment_8; }
 		
-		//Parent
-		public RuleCall getParentParentParserRuleCall_8_0() { return cParentParentParserRuleCall_8_0; }
+		//[Link|EString]
+		public CrossReference getParentLinkCrossReference_8_0() { return cParentLinkCrossReference_8_0; }
+		
+		//EString
+		public RuleCall getParentLinkEStringParserRuleCall_8_0_1() { return cParentLinkEStringParserRuleCall_8_0_1; }
 		
 		//'child'
 		public Keyword getChildKeyword_9() { return cChildKeyword_9; }
 		
-		//child=Child
+		//child=[Link|EString]
 		public Assignment getChildAssignment_10() { return cChildAssignment_10; }
 		
-		//Child
-		public RuleCall getChildChildParserRuleCall_10_0() { return cChildChildParserRuleCall_10_0; }
+		//[Link|EString]
+		public CrossReference getChildLinkCrossReference_10_0() { return cChildLinkCrossReference_10_0; }
+		
+		//EString
+		public RuleCall getChildLinkEStringParserRuleCall_10_0_1() { return cChildLinkEStringParserRuleCall_10_0_1; }
 		
 		//('axis' axis=Axis)?
 		public Group getGroup_11() { return cGroup_11; }
@@ -1211,88 +1220,6 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class ParentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Parent");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cParentKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLinkKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cLinkAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLinkEStringParserRuleCall_3_0 = (RuleCall)cLinkAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//Parent returns Parent:
-		//    'Parent'
-		//    '{'
-		//        'link' link=EString
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Parent'
-		//'{'
-		//    'link' link=EString
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Parent'
-		public Keyword getParentKeyword_0() { return cParentKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'link'
-		public Keyword getLinkKeyword_2() { return cLinkKeyword_2; }
-		
-		//link=EString
-		public Assignment getLinkAssignment_3() { return cLinkAssignment_3; }
-		
-		//EString
-		public RuleCall getLinkEStringParserRuleCall_3_0() { return cLinkEStringParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class ChildElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Child");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cChildKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLinkKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cLinkAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLinkEStringParserRuleCall_3_0 = (RuleCall)cLinkAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//Child returns Child:
-		//    'Child'
-		//    '{'
-		//        'link' link=EString
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Child'
-		//'{'
-		//    'link' link=EString
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Child'
-		public Keyword getChildKeyword_0() { return cChildKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'link'
-		public Keyword getLinkKeyword_2() { return cLinkKeyword_2; }
-		
-		//link=EString
-		public Assignment getLinkAssignment_3() { return cLinkAssignment_3; }
-		
-		//EString
-		public RuleCall getLinkEStringParserRuleCall_3_0() { return cLinkEStringParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class AxisElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Axis");
@@ -3186,8 +3113,6 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final MaterialGlobalElements pMaterialGlobal;
 	private final TransmissionElements pTransmission;
 	private final PoseElements pPose;
-	private final ParentElements pParent;
-	private final ChildElements pChild;
 	private final AxisElements pAxis;
 	private final CalibrationElements pCalibration;
 	private final DynamicsElements pDynamics;
@@ -3237,8 +3162,6 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pMaterialGlobal = new MaterialGlobalElements();
 		this.pTransmission = new TransmissionElements();
 		this.pPose = new PoseElements();
-		this.pParent = new ParentElements();
-		this.pChild = new ChildElements();
 		this.pAxis = new AxisElements();
 		this.pCalibration = new CalibrationElements();
 		this.pDynamics = new DynamicsElements();
@@ -3334,8 +3257,8 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//        'name' name=EString
 	//        'type' type=EString
 	//        ('origin' origin=Pose)?
-	//        'parent' parent=Parent
-	//        'child' child=Child
+	//        'parent' parent=[Link|EString]
+	//        'child' child=[Link|EString]
 	//        ('axis' axis=Axis)?
 	//        ('calibration' calibration=Calibration)?
 	//        ('dynamics' dynamics=Dynamics)?
@@ -3420,32 +3343,6 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	public ParserRule getPoseRule() {
 		return getPoseAccess().getRule();
-	}
-	
-	//Parent returns Parent:
-	//    'Parent'
-	//    '{'
-	//        'link' link=EString
-	//    '}';
-	public ParentElements getParentAccess() {
-		return pParent;
-	}
-	
-	public ParserRule getParentRule() {
-		return getParentAccess().getRule();
-	}
-	
-	//Child returns Child:
-	//    'Child'
-	//    '{'
-	//        'link' link=EString
-	//    '}';
-	public ChildElements getChildAccess() {
-		return pChild;
-	}
-	
-	public ParserRule getChildRule() {
-		return getChildAccess().getRule();
 	}
 	
 	//Axis returns Axis:

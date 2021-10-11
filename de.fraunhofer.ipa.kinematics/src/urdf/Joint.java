@@ -14,8 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link urdf.Joint#getOrigin <em>Origin</em>}</li>
- *   <li>{@link urdf.Joint#getParent <em>Parent</em>}</li>
- *   <li>{@link urdf.Joint#getChild <em>Child</em>}</li>
  *   <li>{@link urdf.Joint#getAxis <em>Axis</em>}</li>
  *   <li>{@link urdf.Joint#getCalibration <em>Calibration</em>}</li>
  *   <li>{@link urdf.Joint#getDynamics <em>Dynamics</em>}</li>
@@ -24,6 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link urdf.Joint#getMimic <em>Mimic</em>}</li>
  *   <li>{@link urdf.Joint#getName <em>Name</em>}</li>
  *   <li>{@link urdf.Joint#getType <em>Type</em>}</li>
+ *   <li>{@link urdf.Joint#getParent <em>Parent</em>}</li>
+ *   <li>{@link urdf.Joint#getChild <em>Child</em>}</li>
  * </ul>
  *
  * @see urdf.UrdfPackage#getJoint()
@@ -55,50 +55,48 @@ public interface Joint extends EObject {
 	void setOrigin(Pose value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' containment reference.
-	 * @see #setParent(Parent)
+	 * @return the value of the '<em>Parent</em>' reference.
+	 * @see #setParent(Link)
 	 * @see urdf.UrdfPackage#getJoint_Parent()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='parent' namespace='##targetNamespace'"
+	 * @model required="true"
 	 * @generated
 	 */
-	Parent getParent();
+	Link getParent();
 
 	/**
-	 * Sets the value of the '{@link urdf.Joint#getParent <em>Parent</em>}' containment reference.
+	 * Sets the value of the '{@link urdf.Joint#getParent <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' containment reference.
+	 * @param value the new value of the '<em>Parent</em>' reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-	void setParent(Parent value);
+	void setParent(Link value);
 
 	/**
-	 * Returns the value of the '<em><b>Child</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Child</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child</em>' containment reference.
-	 * @see #setChild(Child)
+	 * @return the value of the '<em>Child</em>' reference.
+	 * @see #setChild(Link)
 	 * @see urdf.UrdfPackage#getJoint_Child()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='child' namespace='##targetNamespace'"
+	 * @model required="true"
 	 * @generated
 	 */
-	Child getChild();
+	Link getChild();
 
 	/**
-	 * Sets the value of the '{@link urdf.Joint#getChild <em>Child</em>}' containment reference.
+	 * Sets the value of the '{@link urdf.Joint#getChild <em>Child</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Child</em>' containment reference.
+	 * @param value the new value of the '<em>Child</em>' reference.
 	 * @see #getChild()
 	 * @generated
 	 */
-	void setChild(Child value);
+	void setChild(Link value);
 
 	/**
 	 * Returns the value of the '<em><b>Axis</b></em>' containment reference.

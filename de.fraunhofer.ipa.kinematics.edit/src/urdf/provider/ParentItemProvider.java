@@ -18,7 +18,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -82,7 +81,7 @@ public class ParentItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -106,10 +105,7 @@ public class ParentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Parent)object).getLink();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Parent_type") :
-			getString("_UI_Parent_type") + " " + label;
+		return getString("_UI_Parent_type");
 	}
 
 

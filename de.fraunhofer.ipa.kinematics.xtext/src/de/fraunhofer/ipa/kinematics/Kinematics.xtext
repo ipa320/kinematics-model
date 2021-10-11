@@ -25,8 +25,8 @@ Joint returns Joint:
 		'name' name=EString
 		'type' type=EString
 		('origin' origin=Pose)?
-		'parent' parent=Parent
-		'child' child=Child
+		'parent' parent=[Link|EString]
+		'child' child=[Link|EString]
 		('axis' axis=Axis)?
 		('calibration' calibration=Calibration)?
 		('dynamics' dynamics=Dynamics)?
@@ -76,18 +76,6 @@ Pose returns Pose:
 	'{'
 		('rpy' rpy=EString)?
 		('xyz' xyz=EString)?
-	'}';
-
-Parent returns Parent:
-	'Parent'
-	'{'
-		'link' link=EString
-	'}';
-
-Child returns Child:
-	'Child'
-	'{'
-		'link' link=EString
 	'}';
 
 Axis returns Axis:

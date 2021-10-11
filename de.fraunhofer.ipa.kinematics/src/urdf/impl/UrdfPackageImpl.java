@@ -923,7 +923,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Parent() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(1);
+		return (EReference)jointEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -932,7 +932,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Child() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(2);
+		return (EReference)jointEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -941,7 +941,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Axis() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(3);
+		return (EReference)jointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -950,7 +950,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Calibration() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(4);
+		return (EReference)jointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -959,7 +959,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Dynamics() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(5);
+		return (EReference)jointEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -968,7 +968,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Limit() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(6);
+		return (EReference)jointEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -977,7 +977,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_SafetyController() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(7);
+		return (EReference)jointEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -986,7 +986,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Mimic() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(8);
+		return (EReference)jointEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -995,7 +995,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EAttribute getJoint_Name() {
-		return (EAttribute)jointEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)jointEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1004,7 +1004,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EAttribute getJoint_Type() {
-		return (EAttribute)jointEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)jointEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1291,8 +1291,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParent_Link() {
-		return (EAttribute)parentEClass.getEStructuralFeatures().get(0);
+	public EReference getParent_Link() {
+		return (EReference)parentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1786,8 +1786,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		jointEClass = createEClass(JOINT);
 		createEReference(jointEClass, JOINT__ORIGIN);
-		createEReference(jointEClass, JOINT__PARENT);
-		createEReference(jointEClass, JOINT__CHILD);
 		createEReference(jointEClass, JOINT__AXIS);
 		createEReference(jointEClass, JOINT__CALIBRATION);
 		createEReference(jointEClass, JOINT__DYNAMICS);
@@ -1796,6 +1794,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEReference(jointEClass, JOINT__MIMIC);
 		createEAttribute(jointEClass, JOINT__NAME);
 		createEAttribute(jointEClass, JOINT__TYPE);
+		createEReference(jointEClass, JOINT__PARENT);
+		createEReference(jointEClass, JOINT__CHILD);
 
 		limitEClass = createEClass(LIMIT);
 		createEAttribute(limitEClass, LIMIT__EFFORT);
@@ -1836,7 +1836,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEAttribute(nameEClass, NAME__NAME);
 
 		parentEClass = createEClass(PARENT);
-		createEAttribute(parentEClass, PARENT__LINK);
+		createEReference(parentEClass, PARENT__LINK);
 
 		passiveJointTransmissionEClass = createEClass(PASSIVE_JOINT_TRANSMISSION);
 		createEAttribute(passiveJointTransmissionEClass, PASSIVE_JOINT_TRANSMISSION__NAME);
@@ -2002,8 +2002,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Parent(), this.getParent(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Child(), this.getChild(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Axis(), this.getAxis(), null, "axis", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Calibration(), this.getCalibration(), null, "calibration", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Dynamics(), this.getDynamics(), null, "dynamics", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2012,6 +2010,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEReference(getJoint_Mimic(), this.getMimic(), null, "mimic", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoint_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoint_Type(), theXMLTypePackage.getString(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Child(), this.getLink(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLimit_Effort(), theXMLTypePackage.getDouble(), "effort", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2052,7 +2052,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEAttribute(getName_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parentEClass, Parent.class, "Parent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParent_Link(), theXMLTypePackage.getString(), "link", null, 1, 1, Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParent_Link(), this.getLink(), null, "link", null, 1, 1, Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(passiveJointTransmissionEClass, PassiveJointTransmission.class, "PassiveJointTransmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPassiveJointTransmission_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, PassiveJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2570,22 +2570,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 			   "namespace", "##targetNamespace"
 		   });
 		addAnnotation
-		  (getJoint_Parent(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "parent",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_Child(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "child",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
 		  (getJoint_Axis(),
 		   source,
 		   new String[] {
@@ -2870,13 +2854,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		   new String[] {
 			   "name", "parent",
 			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getParent_Link(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "link"
 		   });
 		addAnnotation
 		  (passiveJointTransmissionEClass,

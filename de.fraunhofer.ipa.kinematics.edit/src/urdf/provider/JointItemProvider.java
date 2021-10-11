@@ -126,14 +126,14 @@ public class JointItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__ORIGIN);
-			childrenFeatures.add(UrdfPackage.Literals.JOINT__PARENT);
-			childrenFeatures.add(UrdfPackage.Literals.JOINT__CHILD);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__AXIS);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__CALIBRATION);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__DYNAMICS);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__LIMIT);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__SAFETY_CONTROLLER);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__MIMIC);
+			childrenFeatures.add(UrdfPackage.Literals.JOINT__PARENT);
+			childrenFeatures.add(UrdfPackage.Literals.JOINT__CHILD);
 		}
 		return childrenFeatures;
 	}
@@ -194,14 +194,14 @@ public class JointItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case UrdfPackage.JOINT__ORIGIN:
-			case UrdfPackage.JOINT__PARENT:
-			case UrdfPackage.JOINT__CHILD:
 			case UrdfPackage.JOINT__AXIS:
 			case UrdfPackage.JOINT__CALIBRATION:
 			case UrdfPackage.JOINT__DYNAMICS:
 			case UrdfPackage.JOINT__LIMIT:
 			case UrdfPackage.JOINT__SAFETY_CONTROLLER:
 			case UrdfPackage.JOINT__MIMIC:
+			case UrdfPackage.JOINT__PARENT:
+			case UrdfPackage.JOINT__CHILD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -223,16 +223,6 @@ public class JointItemProvider
 			(createChildParameter
 				(UrdfPackage.Literals.JOINT__ORIGIN,
 				 UrdfFactory.eINSTANCE.createPose()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UrdfPackage.Literals.JOINT__PARENT,
-				 UrdfFactory.eINSTANCE.createParent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UrdfPackage.Literals.JOINT__CHILD,
-				 UrdfFactory.eINSTANCE.createChild()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -263,6 +253,39 @@ public class JointItemProvider
 			(createChildParameter
 				(UrdfPackage.Literals.JOINT__MIMIC,
 				 UrdfFactory.eINSTANCE.createMimic()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UrdfPackage.Literals.JOINT__PARENT,
+				 UrdfFactory.eINSTANCE.createLink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UrdfPackage.Literals.JOINT__CHILD,
+				 UrdfFactory.eINSTANCE.createLink()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == UrdfPackage.Literals.JOINT__PARENT ||
+			childFeature == UrdfPackage.Literals.JOINT__CHILD;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

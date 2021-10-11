@@ -507,18 +507,15 @@ ruleJoint returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getJointAccess().getParentParentParserRuleCall_8_0());
-				}
-				lv_parent_9_0=ruleParent
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getJointRule());
+						$current = createModelElement(grammarAccess.getJointRule());
 					}
-					set(
-						$current,
-						"parent",
-						lv_parent_9_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Parent");
+				}
+				{
+					newCompositeNode(grammarAccess.getJointAccess().getParentLinkCrossReference_8_0());
+				}
+				ruleEString
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -530,18 +527,15 @@ ruleJoint returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getJointAccess().getChildChildParserRuleCall_10_0());
-				}
-				lv_child_11_0=ruleChild
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getJointRule());
+						$current = createModelElement(grammarAccess.getJointRule());
 					}
-					set(
-						$current,
-						"child",
-						lv_child_11_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.Child");
+				}
+				{
+					newCompositeNode(grammarAccess.getJointAccess().getChildLinkCrossReference_10_0());
+				}
+				ruleEString
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1702,114 +1696,6 @@ rulePose returns [EObject current=null]
 		otherlv_7='}'
 		{
 			newLeafNode(otherlv_7, grammarAccess.getPoseAccess().getRightCurlyBracketKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleParent
-entryRuleParent returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getParentRule()); }
-	iv_ruleParent=ruleParent
-	{ $current=$iv_ruleParent.current; }
-	EOF;
-
-// Rule Parent
-ruleParent returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Parent'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getParentAccess().getParentKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getParentAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='link'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getParentAccess().getLinkKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getParentAccess().getLinkEStringParserRuleCall_3_0());
-				}
-				lv_link_3_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getParentRule());
-					}
-					set(
-						$current,
-						"link",
-						lv_link_3_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='}'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getParentAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleChild
-entryRuleChild returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getChildRule()); }
-	iv_ruleChild=ruleChild
-	{ $current=$iv_ruleChild.current; }
-	EOF;
-
-// Rule Child
-ruleChild returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Child'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getChildAccess().getChildKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getChildAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='link'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getChildAccess().getLinkKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getChildAccess().getLinkEStringParserRuleCall_3_0());
-				}
-				lv_link_3_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getChildRule());
-					}
-					set(
-						$current,
-						"link",
-						lv_link_3_0,
-						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='}'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getChildAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;

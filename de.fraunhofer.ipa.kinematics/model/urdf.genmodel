@@ -83,8 +83,6 @@
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//Joint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/origin"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/parent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/child"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/axis"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/calibration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/dynamics"/>
@@ -93,6 +91,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/mimic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Joint/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Joint/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/child"/>
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//Limit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Limit/effort"/>
@@ -133,7 +133,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Name/name"/>
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//Parent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Parent/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference urdf.ecore#//Parent/link"/>
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//PassiveJointTransmission">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//PassiveJointTransmission/name"/>

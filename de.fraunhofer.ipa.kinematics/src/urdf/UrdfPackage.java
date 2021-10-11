@@ -882,31 +882,13 @@ public interface UrdfPackage extends EPackage {
 	int JOINT__ORIGIN = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOINT__PARENT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Child</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOINT__CHILD = 2;
-
-	/**
 	 * The feature id for the '<em><b>Axis</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__AXIS = 3;
+	int JOINT__AXIS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Calibration</b></em>' containment reference.
@@ -915,7 +897,7 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__CALIBRATION = 4;
+	int JOINT__CALIBRATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Dynamics</b></em>' containment reference.
@@ -924,7 +906,7 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__DYNAMICS = 5;
+	int JOINT__DYNAMICS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Limit</b></em>' containment reference.
@@ -933,7 +915,7 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__LIMIT = 6;
+	int JOINT__LIMIT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Safety Controller</b></em>' containment reference.
@@ -942,7 +924,7 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__SAFETY_CONTROLLER = 7;
+	int JOINT__SAFETY_CONTROLLER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Mimic</b></em>' containment reference.
@@ -951,7 +933,7 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__MIMIC = 8;
+	int JOINT__MIMIC = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -960,7 +942,7 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__NAME = 9;
+	int JOINT__NAME = 7;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -969,7 +951,25 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOINT__TYPE = 10;
+	int JOINT__TYPE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__PARENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Child</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOINT__CHILD = 10;
 
 	/**
 	 * The number of structural features of the '<em>Joint</em>' class.
@@ -1422,7 +1422,7 @@ public interface UrdfPackage extends EPackage {
 	int PARENT = 23;
 
 	/**
-	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * The feature id for the '<em><b>Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2694,10 +2694,10 @@ public interface UrdfPackage extends EPackage {
 	EReference getJoint_Origin();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link urdf.Joint#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the reference '{@link urdf.Joint#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Parent</em>'.
+	 * @return the meta object for the reference '<em>Parent</em>'.
 	 * @see urdf.Joint#getParent()
 	 * @see #getJoint()
 	 * @generated
@@ -2705,10 +2705,10 @@ public interface UrdfPackage extends EPackage {
 	EReference getJoint_Parent();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link urdf.Joint#getChild <em>Child</em>}'.
+	 * Returns the meta object for the reference '{@link urdf.Joint#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Child</em>'.
+	 * @return the meta object for the reference '<em>Child</em>'.
 	 * @see urdf.Joint#getChild()
 	 * @see #getJoint()
 	 * @generated
@@ -3136,15 +3136,15 @@ public interface UrdfPackage extends EPackage {
 	EClass getParent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link urdf.Parent#getLink <em>Link</em>}'.
+	 * Returns the meta object for the reference '{@link urdf.Parent#getLink <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Link</em>'.
+	 * @return the meta object for the reference '<em>Link</em>'.
 	 * @see urdf.Parent#getLink()
 	 * @see #getParent()
 	 * @generated
 	 */
-	EAttribute getParent_Link();
+	EReference getParent_Link();
 
 	/**
 	 * Returns the meta object for class '{@link urdf.PassiveJointTransmission <em>Passive Joint Transmission</em>}'.
@@ -4159,7 +4159,7 @@ public interface UrdfPackage extends EPackage {
 		EReference JOINT__ORIGIN = eINSTANCE.getJoint_Origin();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4167,7 +4167,7 @@ public interface UrdfPackage extends EPackage {
 		EReference JOINT__PARENT = eINSTANCE.getJoint_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Child</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4505,12 +4505,12 @@ public interface UrdfPackage extends EPackage {
 		EClass PARENT = eINSTANCE.getParent();
 
 		/**
-		 * The meta object literal for the '<em><b>Link</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARENT__LINK = eINSTANCE.getParent_Link();
+		EReference PARENT__LINK = eINSTANCE.getParent_Link();
 
 		/**
 		 * The meta object literal for the '{@link urdf.impl.PassiveJointTransmissionImpl <em>Passive Joint Transmission</em>}' class.

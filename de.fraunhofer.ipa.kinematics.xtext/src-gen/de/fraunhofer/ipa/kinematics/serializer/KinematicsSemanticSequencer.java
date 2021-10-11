@@ -19,7 +19,6 @@ import urdf.ActuatorTransmission;
 import urdf.Axis;
 import urdf.Box;
 import urdf.Calibration;
-import urdf.Child;
 import urdf.Collision;
 import urdf.Color;
 import urdf.Cylinder;
@@ -37,7 +36,6 @@ import urdf.MaterialGlobal;
 import urdf.Mesh;
 import urdf.Mimic;
 import urdf.Name;
-import urdf.Parent;
 import urdf.PassiveJointTransmission;
 import urdf.Pose;
 import urdf.RobotType;
@@ -75,9 +73,6 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case UrdfPackage.CALIBRATION:
 				sequence_Calibration(context, (Calibration) semanticObject); 
-				return; 
-			case UrdfPackage.CHILD:
-				sequence_Child(context, (Child) semanticObject); 
 				return; 
 			case UrdfPackage.COLLISION:
 				sequence_Collision(context, (Collision) semanticObject); 
@@ -129,9 +124,6 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case UrdfPackage.NAME:
 				sequence_Name(context, (Name) semanticObject); 
-				return; 
-			case UrdfPackage.PARENT:
-				sequence_Parent(context, (Parent) semanticObject); 
 				return; 
 			case UrdfPackage.PASSIVE_JOINT_TRANSMISSION:
 				sequence_PassiveJointTransmission(context, (PassiveJointTransmission) semanticObject); 
@@ -222,24 +214,6 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Calibration(ISerializationContext context, Calibration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Child returns Child
-	 *
-	 * Constraint:
-	 *     link=EString
-	 */
-	protected void sequence_Child(ISerializationContext context, Child semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UrdfPackage.Literals.CHILD__LINK) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.CHILD__LINK));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getChildAccess().getLinkEStringParserRuleCall_3_0(), semanticObject.getLink());
-		feeder.finish();
 	}
 	
 	
@@ -416,8 +390,8 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         name=EString 
 	 *         type=EString 
 	 *         origin=Pose? 
-	 *         parent=Parent 
-	 *         child=Child 
+	 *         parent=[Link|EString] 
+	 *         child=[Link|EString] 
 	 *         axis=Axis? 
 	 *         calibration=Calibration? 
 	 *         dynamics=Dynamics? 
@@ -524,24 +498,6 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Name(ISerializationContext context, Name semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Parent returns Parent
-	 *
-	 * Constraint:
-	 *     link=EString
-	 */
-	protected void sequence_Parent(ISerializationContext context, Parent semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UrdfPackage.Literals.PARENT__LINK) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.PARENT__LINK));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParentAccess().getLinkEStringParserRuleCall_3_0(), semanticObject.getLink());
-		feeder.finish();
 	}
 	
 	

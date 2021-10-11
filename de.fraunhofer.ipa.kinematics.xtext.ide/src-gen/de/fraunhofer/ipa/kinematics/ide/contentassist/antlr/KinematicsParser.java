@@ -82,8 +82,6 @@ public class KinematicsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPoseAccess().getGroup(), "rule__Pose__Group__0");
 			builder.put(grammarAccess.getPoseAccess().getGroup_3(), "rule__Pose__Group_3__0");
 			builder.put(grammarAccess.getPoseAccess().getGroup_4(), "rule__Pose__Group_4__0");
-			builder.put(grammarAccess.getParentAccess().getGroup(), "rule__Parent__Group__0");
-			builder.put(grammarAccess.getChildAccess().getGroup(), "rule__Child__Group__0");
 			builder.put(grammarAccess.getAxisAccess().getGroup(), "rule__Axis__Group__0");
 			builder.put(grammarAccess.getAxisAccess().getGroup_3(), "rule__Axis__Group_3__0");
 			builder.put(grammarAccess.getCalibrationAccess().getGroup(), "rule__Calibration__Group__0");
@@ -205,8 +203,6 @@ public class KinematicsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTransmissionAccess().getJointAssignment_15_3_1(), "rule__Transmission__JointAssignment_15_3_1");
 			builder.put(grammarAccess.getPoseAccess().getRpyAssignment_3_1(), "rule__Pose__RpyAssignment_3_1");
 			builder.put(grammarAccess.getPoseAccess().getXyzAssignment_4_1(), "rule__Pose__XyzAssignment_4_1");
-			builder.put(grammarAccess.getParentAccess().getLinkAssignment_3(), "rule__Parent__LinkAssignment_3");
-			builder.put(grammarAccess.getChildAccess().getLinkAssignment_3(), "rule__Child__LinkAssignment_3");
 			builder.put(grammarAccess.getAxisAccess().getXyzAssignment_3_1(), "rule__Axis__XyzAssignment_3_1");
 			builder.put(grammarAccess.getCalibrationAccess().getFallingAssignment_3_1(), "rule__Calibration__FallingAssignment_3_1");
 			builder.put(grammarAccess.getCalibrationAccess().getReferencePositionAssignment_4_1(), "rule__Calibration__ReferencePositionAssignment_4_1");
