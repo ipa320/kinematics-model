@@ -13,4 +13,4 @@ Require-Bundle: de.fraunhofer.ipa.kinematics.xtext,
  org.eclipse.xtext.xbase.testing,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: de.fraunhofer.ipa.kinematics.xtext.tests;x-internal=true
+Export-Package: de.fraunhofer.ipa.kinematics.tests;x-internal=true

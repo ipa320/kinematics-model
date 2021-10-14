@@ -14,13 +14,13 @@ Require-Bundle: de.fraunhofer.ipa.kinematics,
  org.eclipse.xtext.util,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: de.fraunhofer.ipa.kinematics.xtext.validation,
- de.fraunhofer.ipa.kinematics.xtext.parser.antlr,
- de.fraunhofer.ipa.kinematics.xtext.generator,
- de.fraunhofer.ipa.kinematics.xtext,
- de.fraunhofer.ipa.kinematics.xtext.serializer,
- de.fraunhofer.ipa.kinematics.xtext.scoping,
- de.fraunhofer.ipa.kinematics.xtext.services,
- de.fraunhofer.ipa.kinematics.xtext.parser.antlr.internal,
- de.fraunhofer.ipa.kinematics.xtext.formatting2
+Export-Package: de.fraunhofer.ipa.kinematics.formatting2,
+ de.fraunhofer.ipa.kinematics.validation,
+ de.fraunhofer.ipa.kinematics.parser.antlr.internal,
+ de.fraunhofer.ipa.kinematics.generator,
+ de.fraunhofer.ipa.kinematics,
+ de.fraunhofer.ipa.kinematics.services,
+ de.fraunhofer.ipa.kinematics.parser.antlr,
+ de.fraunhofer.ipa.kinematics.scoping,
+ de.fraunhofer.ipa.kinematics.serializer
 Import-Package: org.apache.log4j

@@ -16,4 +16,4 @@ Require-Bundle: de.fraunhofer.ipa.kinematics.xtext.ui,
  org.eclipse.xtext.ui.testing,
  org.eclipse.ui.workbench;resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: de.fraunhofer.ipa.kinematics.xtext.ui.tests;x-internal=true
+Export-Package: de.fraunhofer.ipa.kinematics.ui.tests;x-internal=true
