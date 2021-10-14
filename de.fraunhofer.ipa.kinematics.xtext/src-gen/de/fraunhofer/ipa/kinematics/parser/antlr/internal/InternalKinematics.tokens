@@ -60,14 +60,14 @@
 'iyy'=90
 'iyz'=91
 'izz'=92
-'joint'=19
+'joint'=22
 'kPosition'=70
 'kVelocity'=71
 'l0'=119
 'leftActuator'=45
 'length'=102
 'limit'=33
-'link'=22
+'link'=19
 'lower'=66
 'mass'=78
 'material'=23

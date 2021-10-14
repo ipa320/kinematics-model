@@ -1,10 +1,119 @@
-RobotType { name Test 
-	joint { Joint { 
-		name joint_1 
-		type fixed 
-		parent Parent { link link_1 } 
-		child Child { link link_2 }
-	}}
+RobotType { name r2d2
+ 	link {
+	 Link { name dummy_link},
+	 Link { name base_link},
+	 Link { name left_leg},
+	 Link { name left_base},
+	 Link { name left_back_wheel},
+	 Link { name left_front_wheel},
+	 Link { name right_leg},
+	 Link { name right_base},
+	 Link { name right_back_wheel},
+	 Link { name right_front_wheel},
+	 Link { name gripper_pole},
+	 Link { name left_gripper},
+	 Link { name left_tip},
+	 Link { name right_gripper},
+	 Link { name right_tip},
+	 Link { name head},
+	 Link { name box_}}
 	
-	link { Link { name link_1 } }
+	joint {
+	Joint {
+ 		name dummy_to_base
+ 		type revolute
+ 		parent dummy_link
+ 		child base_link
+ 		
+ 	},
+	Joint {
+ 		name base_to_left_leg
+ 		type revolute
+ 		parent base_link
+ 		child left_leg
+ 	},
+	Joint {
+ 		name left_base_joint
+ 		type revolute
+ 		parent left_leg
+ 		child left_base
+ 	},
+	Joint {
+ 		name left_back_wheel_joint
+ 		type revolute
+ 		parent left_base
+ 		child left_back_wheel
+ 	},
+	Joint {
+ 		name left_front_wheel_joint
+ 		type revolute
+ 		parent left_base
+ 		child left_front_wheel
+ 	},
+	Joint {
+ 		name base_to_right_leg
+ 		type revolute
+ 		parent base_link
+ 		child right_leg
+ 	},
+	Joint {
+ 		name right_base_joint
+ 		type revolute
+ 		parent right_leg
+ 		child right_base
+ 	},
+	Joint {
+ 		name right_back_wheel_joint
+ 		type revolute
+ 		parent right_base
+ 		child right_back_wheel
+ 	},
+	Joint {
+ 		name right_front_wheel_joint
+ 		type revolute
+ 		parent right_base
+ 		child right_front_wheel
+ 	},
+	Joint {
+ 		name gripper_extension
+ 		type revolute
+ 		parent base_link
+ 		child gripper_pole
+ 	},
+	Joint {
+ 		name left_gripper_joint
+ 		type revolute
+ 		parent gripper_pole
+ 		child  left_gripper
+ 	},
+	Joint {
+ 		name left_tip_joint
+ 		type revolute
+ 		parent left_gripper
+ 		child left_tip
+ 	},
+	Joint {
+ 		name right_gripper_joint
+ 		type revolute
+ 		parent gripper_pole
+ 		child right_gripper
+ 	},
+	Joint {
+ 		name right_tip_joint
+ 		type revolute
+ 		parent right_gripper
+ 		child right_tip
+ 	},
+	Joint {
+ 		name head_swivel
+ 		type revolute
+ 		parent base_link
+ 		child head
+ 	},
+	Joint {
+ 		name tobox
+ 		type revolute
+ 		parent head
+ 		child box_
+ 	}}
 }

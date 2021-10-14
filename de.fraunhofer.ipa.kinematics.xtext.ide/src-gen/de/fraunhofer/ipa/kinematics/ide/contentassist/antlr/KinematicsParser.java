@@ -152,10 +152,10 @@ public class KinematicsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNameAccess().getGroup_3(), "rule__Name__Group_3__0");
 			builder.put(grammarAccess.getRobotTypeAccess().getNameAssignment_3(), "rule__RobotType__NameAssignment_3");
 			builder.put(grammarAccess.getRobotTypeAccess().getVersionAssignment_4_1(), "rule__RobotType__VersionAssignment_4_1");
-			builder.put(grammarAccess.getRobotTypeAccess().getJointAssignment_5_2(), "rule__RobotType__JointAssignment_5_2");
-			builder.put(grammarAccess.getRobotTypeAccess().getJointAssignment_5_3_1(), "rule__RobotType__JointAssignment_5_3_1");
-			builder.put(grammarAccess.getRobotTypeAccess().getLinkAssignment_6_2(), "rule__RobotType__LinkAssignment_6_2");
-			builder.put(grammarAccess.getRobotTypeAccess().getLinkAssignment_6_3_1(), "rule__RobotType__LinkAssignment_6_3_1");
+			builder.put(grammarAccess.getRobotTypeAccess().getLinkAssignment_5_2(), "rule__RobotType__LinkAssignment_5_2");
+			builder.put(grammarAccess.getRobotTypeAccess().getLinkAssignment_5_3_1(), "rule__RobotType__LinkAssignment_5_3_1");
+			builder.put(grammarAccess.getRobotTypeAccess().getJointAssignment_6_2(), "rule__RobotType__JointAssignment_6_2");
+			builder.put(grammarAccess.getRobotTypeAccess().getJointAssignment_6_3_1(), "rule__RobotType__JointAssignment_6_3_1");
 			builder.put(grammarAccess.getRobotTypeAccess().getMaterialAssignment_7_2(), "rule__RobotType__MaterialAssignment_7_2");
 			builder.put(grammarAccess.getRobotTypeAccess().getMaterialAssignment_7_3_1(), "rule__RobotType__MaterialAssignment_7_3_1");
 			builder.put(grammarAccess.getRobotTypeAccess().getTransmissionAssignment_8_2(), "rule__RobotType__TransmissionAssignment_8_2");

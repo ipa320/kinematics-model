@@ -10,8 +10,8 @@ RobotType returns RobotType:
 	'{'
 		'name' name=EString
 		('version' version=EString)?
-		('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
 		('link' '{' link+=Link ( "," link+=Link)* '}' )?
+		('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
 		('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
 		('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 	'}';

@@ -133,9 +133,9 @@ ruleRobotType returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_6='joint'
+			otherlv_6='link'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getRobotTypeAccess().getJointKeyword_5_0());
+				newLeafNode(otherlv_6, grammarAccess.getRobotTypeAccess().getLinkKeyword_5_0());
 			}
 			otherlv_7='{'
 			{
@@ -144,18 +144,18 @@ ruleRobotType returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_5_2_0());
 					}
-					lv_joint_8_0=ruleJoint
+					lv_link_8_0=ruleLink
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotTypeRule());
 						}
 						add(
 							$current,
-							"joint",
-							lv_joint_8_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
+							"link",
+							lv_link_8_0,
+							"de.fraunhofer.ipa.kinematics.Kinematics.Link");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -168,18 +168,18 @@ ruleRobotType returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_5_3_1_0());
 						}
-						lv_joint_10_0=ruleJoint
+						lv_link_10_0=ruleLink
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRobotTypeRule());
 							}
 							add(
 								$current,
-								"joint",
-								lv_joint_10_0,
-								"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
+								"link",
+								lv_link_10_0,
+								"de.fraunhofer.ipa.kinematics.Kinematics.Link");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -191,9 +191,9 @@ ruleRobotType returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_12='link'
+			otherlv_12='joint'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getRobotTypeAccess().getLinkKeyword_6_0());
+				newLeafNode(otherlv_12, grammarAccess.getRobotTypeAccess().getJointKeyword_6_0());
 			}
 			otherlv_13='{'
 			{
@@ -202,18 +202,18 @@ ruleRobotType returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_6_2_0());
+						newCompositeNode(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_6_2_0());
 					}
-					lv_link_14_0=ruleLink
+					lv_joint_14_0=ruleJoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotTypeRule());
 						}
 						add(
 							$current,
-							"link",
-							lv_link_14_0,
-							"de.fraunhofer.ipa.kinematics.Kinematics.Link");
+							"joint",
+							lv_joint_14_0,
+							"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -226,18 +226,18 @@ ruleRobotType returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_6_3_1_0());
+							newCompositeNode(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_6_3_1_0());
 						}
-						lv_link_16_0=ruleLink
+						lv_joint_16_0=ruleJoint
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRobotTypeRule());
 							}
 							add(
 								$current,
-								"link",
-								lv_link_16_0,
-								"de.fraunhofer.ipa.kinematics.Kinematics.Link");
+								"joint",
+								lv_joint_16_0,
+								"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
 							afterParserOrEnumRuleCall();
 						}
 					)

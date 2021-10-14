@@ -539,8 +539,8 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         name=EString 
 	 *         version=EString? 
-	 *         (joint+=Joint joint+=Joint*)? 
 	 *         (link+=Link link+=Link*)? 
+	 *         (joint+=Joint joint+=Joint*)? 
 	 *         (material+=MaterialGlobal material+=MaterialGlobal*)? 
 	 *         (transmission+=Transmission transmission+=Transmission*)?
 	 *     )

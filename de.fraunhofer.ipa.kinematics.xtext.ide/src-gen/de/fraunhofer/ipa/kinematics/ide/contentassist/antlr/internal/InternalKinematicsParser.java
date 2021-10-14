@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalKinematicsParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DOUBLE", "RULE_STRING", "RULE_ID", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AnyURI'", "'RobotType'", "'{'", "'name'", "'}'", "'version'", "'joint'", "','", "'link'", "'material'", "'transmission'", "'Joint'", "'type'", "'parent'", "'child'", "'origin'", "'axis'", "'calibration'", "'dynamics'", "'limit'", "'safetyController'", "'mimic'", "'Link'", "'inertial'", "'visual'", "'collision'", "'MaterialGlobal'", "'color'", "'texture'", "'Transmission'", "'mechanicalReduction'", "'leftActuator'", "'rightActuator'", "'flexJoint'", "'rollJoint'", "'gapJoint'", "'passiveJoint'", "'useSimulatedGripperJoint'", "'actuator'", "'Pose'", "'rpy'", "'xyz'", "'Axis'", "'Calibration'", "'falling'", "'referencePosition'", "'rising'", "'Dynamics'", "'damping'", "'friction'", "'Limit'", "'effort'", "'lower'", "'upper'", "'velocity'", "'SafetyController'", "'kVelocity'", "'kPosition'", "'softLowerLimit'", "'softUpperLimit'", "'Mimic'", "'multiplier'", "'offset'", "'Inertial'", "'mass'", "'inertia'", "'Visual'", "'geometry'", "'Collision'", "'verbose'", "'Mass'", "'value'", "'Inertia'", "'ixx'", "'ixy'", "'ixz'", "'iyy'", "'iyz'", "'izz'", "'Geometry'", "'box'", "'cylinder'", "'sphere'", "'mesh'", "'Material'", "'Box'", "'size'", "'Cylinder'", "'length'", "'radius'", "'Sphere'", "'Mesh'", "'filename'", "'scale'", "'Color'", "'rgba'", "'Texture'", "'Verbose'", "'ActuatorTransmission'", "'GapJointTransmission'", "'a'", "'b'", "'gearRatio'", "'h'", "'l0'", "'phi0'", "'r'", "'screwReduction'", "'t0'", "'theta0'", "'PassiveJointTransmission'", "'UseSimulatedGripperJointType'", "'Name'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DOUBLE", "RULE_STRING", "RULE_ID", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AnyURI'", "'RobotType'", "'{'", "'name'", "'}'", "'version'", "'link'", "','", "'joint'", "'material'", "'transmission'", "'Joint'", "'type'", "'parent'", "'child'", "'origin'", "'axis'", "'calibration'", "'dynamics'", "'limit'", "'safetyController'", "'mimic'", "'Link'", "'inertial'", "'visual'", "'collision'", "'MaterialGlobal'", "'color'", "'texture'", "'Transmission'", "'mechanicalReduction'", "'leftActuator'", "'rightActuator'", "'flexJoint'", "'rollJoint'", "'gapJoint'", "'passiveJoint'", "'useSimulatedGripperJoint'", "'actuator'", "'Pose'", "'rpy'", "'xyz'", "'Axis'", "'Calibration'", "'falling'", "'referencePosition'", "'rising'", "'Dynamics'", "'damping'", "'friction'", "'Limit'", "'effort'", "'lower'", "'upper'", "'velocity'", "'SafetyController'", "'kVelocity'", "'kPosition'", "'softLowerLimit'", "'softUpperLimit'", "'Mimic'", "'multiplier'", "'offset'", "'Inertial'", "'mass'", "'inertia'", "'Visual'", "'geometry'", "'Collision'", "'verbose'", "'Mass'", "'value'", "'Inertia'", "'ixx'", "'ixy'", "'ixz'", "'iyy'", "'iyz'", "'izz'", "'Geometry'", "'box'", "'cylinder'", "'sphere'", "'mesh'", "'Material'", "'Box'", "'size'", "'Cylinder'", "'length'", "'radius'", "'Sphere'", "'Mesh'", "'filename'", "'scale'", "'Color'", "'rgba'", "'Texture'", "'Verbose'", "'ActuatorTransmission'", "'GapJointTransmission'", "'a'", "'b'", "'gearRatio'", "'h'", "'l0'", "'phi0'", "'r'", "'screwReduction'", "'t0'", "'theta0'", "'PassiveJointTransmission'", "'UseSimulatedGripperJointType'", "'Name'"
     };
     public static final int T__50=50;
     public static final int T__59=59;
@@ -3908,21 +3908,21 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotType__Group_5__0__Impl"
-    // InternalKinematics.g:1259:1: rule__RobotType__Group_5__0__Impl : ( 'joint' ) ;
+    // InternalKinematics.g:1259:1: rule__RobotType__Group_5__0__Impl : ( 'link' ) ;
     public final void rule__RobotType__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:1263:1: ( ( 'joint' ) )
-            // InternalKinematics.g:1264:1: ( 'joint' )
+            // InternalKinematics.g:1263:1: ( ( 'link' ) )
+            // InternalKinematics.g:1264:1: ( 'link' )
             {
-            // InternalKinematics.g:1264:1: ( 'joint' )
-            // InternalKinematics.g:1265:2: 'joint'
+            // InternalKinematics.g:1264:1: ( 'link' )
+            // InternalKinematics.g:1265:2: 'link'
             {
-             before(grammarAccess.getRobotTypeAccess().getJointKeyword_5_0()); 
+             before(grammarAccess.getRobotTypeAccess().getLinkKeyword_5_0()); 
             match(input,21,FOLLOW_2); 
-             after(grammarAccess.getRobotTypeAccess().getJointKeyword_5_0()); 
+             after(grammarAccess.getRobotTypeAccess().getLinkKeyword_5_0()); 
 
             }
 
@@ -4058,31 +4058,31 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotType__Group_5__2__Impl"
-    // InternalKinematics.g:1313:1: rule__RobotType__Group_5__2__Impl : ( ( rule__RobotType__JointAssignment_5_2 ) ) ;
+    // InternalKinematics.g:1313:1: rule__RobotType__Group_5__2__Impl : ( ( rule__RobotType__LinkAssignment_5_2 ) ) ;
     public final void rule__RobotType__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:1317:1: ( ( ( rule__RobotType__JointAssignment_5_2 ) ) )
-            // InternalKinematics.g:1318:1: ( ( rule__RobotType__JointAssignment_5_2 ) )
+            // InternalKinematics.g:1317:1: ( ( ( rule__RobotType__LinkAssignment_5_2 ) ) )
+            // InternalKinematics.g:1318:1: ( ( rule__RobotType__LinkAssignment_5_2 ) )
             {
-            // InternalKinematics.g:1318:1: ( ( rule__RobotType__JointAssignment_5_2 ) )
-            // InternalKinematics.g:1319:2: ( rule__RobotType__JointAssignment_5_2 )
+            // InternalKinematics.g:1318:1: ( ( rule__RobotType__LinkAssignment_5_2 ) )
+            // InternalKinematics.g:1319:2: ( rule__RobotType__LinkAssignment_5_2 )
             {
-             before(grammarAccess.getRobotTypeAccess().getJointAssignment_5_2()); 
-            // InternalKinematics.g:1320:2: ( rule__RobotType__JointAssignment_5_2 )
-            // InternalKinematics.g:1320:3: rule__RobotType__JointAssignment_5_2
+             before(grammarAccess.getRobotTypeAccess().getLinkAssignment_5_2()); 
+            // InternalKinematics.g:1320:2: ( rule__RobotType__LinkAssignment_5_2 )
+            // InternalKinematics.g:1320:3: rule__RobotType__LinkAssignment_5_2
             {
             pushFollow(FOLLOW_2);
-            rule__RobotType__JointAssignment_5_2();
+            rule__RobotType__LinkAssignment_5_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRobotTypeAccess().getJointAssignment_5_2()); 
+             after(grammarAccess.getRobotTypeAccess().getLinkAssignment_5_2()); 
 
             }
 
@@ -4386,31 +4386,31 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotType__Group_5_3__1__Impl"
-    // InternalKinematics.g:1420:1: rule__RobotType__Group_5_3__1__Impl : ( ( rule__RobotType__JointAssignment_5_3_1 ) ) ;
+    // InternalKinematics.g:1420:1: rule__RobotType__Group_5_3__1__Impl : ( ( rule__RobotType__LinkAssignment_5_3_1 ) ) ;
     public final void rule__RobotType__Group_5_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:1424:1: ( ( ( rule__RobotType__JointAssignment_5_3_1 ) ) )
-            // InternalKinematics.g:1425:1: ( ( rule__RobotType__JointAssignment_5_3_1 ) )
+            // InternalKinematics.g:1424:1: ( ( ( rule__RobotType__LinkAssignment_5_3_1 ) ) )
+            // InternalKinematics.g:1425:1: ( ( rule__RobotType__LinkAssignment_5_3_1 ) )
             {
-            // InternalKinematics.g:1425:1: ( ( rule__RobotType__JointAssignment_5_3_1 ) )
-            // InternalKinematics.g:1426:2: ( rule__RobotType__JointAssignment_5_3_1 )
+            // InternalKinematics.g:1425:1: ( ( rule__RobotType__LinkAssignment_5_3_1 ) )
+            // InternalKinematics.g:1426:2: ( rule__RobotType__LinkAssignment_5_3_1 )
             {
-             before(grammarAccess.getRobotTypeAccess().getJointAssignment_5_3_1()); 
-            // InternalKinematics.g:1427:2: ( rule__RobotType__JointAssignment_5_3_1 )
-            // InternalKinematics.g:1427:3: rule__RobotType__JointAssignment_5_3_1
+             before(grammarAccess.getRobotTypeAccess().getLinkAssignment_5_3_1()); 
+            // InternalKinematics.g:1427:2: ( rule__RobotType__LinkAssignment_5_3_1 )
+            // InternalKinematics.g:1427:3: rule__RobotType__LinkAssignment_5_3_1
             {
             pushFollow(FOLLOW_2);
-            rule__RobotType__JointAssignment_5_3_1();
+            rule__RobotType__LinkAssignment_5_3_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRobotTypeAccess().getJointAssignment_5_3_1()); 
+             after(grammarAccess.getRobotTypeAccess().getLinkAssignment_5_3_1()); 
 
             }
 
@@ -4471,21 +4471,21 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotType__Group_6__0__Impl"
-    // InternalKinematics.g:1448:1: rule__RobotType__Group_6__0__Impl : ( 'link' ) ;
+    // InternalKinematics.g:1448:1: rule__RobotType__Group_6__0__Impl : ( 'joint' ) ;
     public final void rule__RobotType__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:1452:1: ( ( 'link' ) )
-            // InternalKinematics.g:1453:1: ( 'link' )
+            // InternalKinematics.g:1452:1: ( ( 'joint' ) )
+            // InternalKinematics.g:1453:1: ( 'joint' )
             {
-            // InternalKinematics.g:1453:1: ( 'link' )
-            // InternalKinematics.g:1454:2: 'link'
+            // InternalKinematics.g:1453:1: ( 'joint' )
+            // InternalKinematics.g:1454:2: 'joint'
             {
-             before(grammarAccess.getRobotTypeAccess().getLinkKeyword_6_0()); 
+             before(grammarAccess.getRobotTypeAccess().getJointKeyword_6_0()); 
             match(input,23,FOLLOW_2); 
-             after(grammarAccess.getRobotTypeAccess().getLinkKeyword_6_0()); 
+             after(grammarAccess.getRobotTypeAccess().getJointKeyword_6_0()); 
 
             }
 
@@ -4621,31 +4621,31 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotType__Group_6__2__Impl"
-    // InternalKinematics.g:1502:1: rule__RobotType__Group_6__2__Impl : ( ( rule__RobotType__LinkAssignment_6_2 ) ) ;
+    // InternalKinematics.g:1502:1: rule__RobotType__Group_6__2__Impl : ( ( rule__RobotType__JointAssignment_6_2 ) ) ;
     public final void rule__RobotType__Group_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:1506:1: ( ( ( rule__RobotType__LinkAssignment_6_2 ) ) )
-            // InternalKinematics.g:1507:1: ( ( rule__RobotType__LinkAssignment_6_2 ) )
+            // InternalKinematics.g:1506:1: ( ( ( rule__RobotType__JointAssignment_6_2 ) ) )
+            // InternalKinematics.g:1507:1: ( ( rule__RobotType__JointAssignment_6_2 ) )
             {
-            // InternalKinematics.g:1507:1: ( ( rule__RobotType__LinkAssignment_6_2 ) )
-            // InternalKinematics.g:1508:2: ( rule__RobotType__LinkAssignment_6_2 )
+            // InternalKinematics.g:1507:1: ( ( rule__RobotType__JointAssignment_6_2 ) )
+            // InternalKinematics.g:1508:2: ( rule__RobotType__JointAssignment_6_2 )
             {
-             before(grammarAccess.getRobotTypeAccess().getLinkAssignment_6_2()); 
-            // InternalKinematics.g:1509:2: ( rule__RobotType__LinkAssignment_6_2 )
-            // InternalKinematics.g:1509:3: rule__RobotType__LinkAssignment_6_2
+             before(grammarAccess.getRobotTypeAccess().getJointAssignment_6_2()); 
+            // InternalKinematics.g:1509:2: ( rule__RobotType__JointAssignment_6_2 )
+            // InternalKinematics.g:1509:3: rule__RobotType__JointAssignment_6_2
             {
             pushFollow(FOLLOW_2);
-            rule__RobotType__LinkAssignment_6_2();
+            rule__RobotType__JointAssignment_6_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRobotTypeAccess().getLinkAssignment_6_2()); 
+             after(grammarAccess.getRobotTypeAccess().getJointAssignment_6_2()); 
 
             }
 
@@ -4949,31 +4949,31 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotType__Group_6_3__1__Impl"
-    // InternalKinematics.g:1609:1: rule__RobotType__Group_6_3__1__Impl : ( ( rule__RobotType__LinkAssignment_6_3_1 ) ) ;
+    // InternalKinematics.g:1609:1: rule__RobotType__Group_6_3__1__Impl : ( ( rule__RobotType__JointAssignment_6_3_1 ) ) ;
     public final void rule__RobotType__Group_6_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:1613:1: ( ( ( rule__RobotType__LinkAssignment_6_3_1 ) ) )
-            // InternalKinematics.g:1614:1: ( ( rule__RobotType__LinkAssignment_6_3_1 ) )
+            // InternalKinematics.g:1613:1: ( ( ( rule__RobotType__JointAssignment_6_3_1 ) ) )
+            // InternalKinematics.g:1614:1: ( ( rule__RobotType__JointAssignment_6_3_1 ) )
             {
-            // InternalKinematics.g:1614:1: ( ( rule__RobotType__LinkAssignment_6_3_1 ) )
-            // InternalKinematics.g:1615:2: ( rule__RobotType__LinkAssignment_6_3_1 )
+            // InternalKinematics.g:1614:1: ( ( rule__RobotType__JointAssignment_6_3_1 ) )
+            // InternalKinematics.g:1615:2: ( rule__RobotType__JointAssignment_6_3_1 )
             {
-             before(grammarAccess.getRobotTypeAccess().getLinkAssignment_6_3_1()); 
-            // InternalKinematics.g:1616:2: ( rule__RobotType__LinkAssignment_6_3_1 )
-            // InternalKinematics.g:1616:3: rule__RobotType__LinkAssignment_6_3_1
+             before(grammarAccess.getRobotTypeAccess().getJointAssignment_6_3_1()); 
+            // InternalKinematics.g:1616:2: ( rule__RobotType__JointAssignment_6_3_1 )
+            // InternalKinematics.g:1616:3: rule__RobotType__JointAssignment_6_3_1
             {
             pushFollow(FOLLOW_2);
-            rule__RobotType__LinkAssignment_6_3_1();
+            rule__RobotType__JointAssignment_6_3_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRobotTypeAccess().getLinkAssignment_6_3_1()); 
+             after(grammarAccess.getRobotTypeAccess().getJointAssignment_6_3_1()); 
 
             }
 
@@ -12394,7 +12394,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==21) ) {
+            if ( (LA33_0==23) ) {
                 alt33=1;
             }
             switch (alt33) {
@@ -17623,7 +17623,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematics.g:5801:2: 'joint'
             {
              before(grammarAccess.getTransmissionAccess().getJointKeyword_15_0()); 
-            match(input,21,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getJointKeyword_15_0()); 
 
             }
@@ -23956,7 +23956,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematics.g:7934:2: 'joint'
             {
              before(grammarAccess.getMimicAccess().getJointKeyword_2()); 
-            match(input,21,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getMimicAccess().getJointKeyword_2()); 
 
             }
@@ -39961,108 +39961,26 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__RobotType__VersionAssignment_4_1"
 
 
-    // $ANTLR start "rule__RobotType__JointAssignment_5_2"
-    // InternalKinematics.g:13373:1: rule__RobotType__JointAssignment_5_2 : ( ruleJoint ) ;
-    public final void rule__RobotType__JointAssignment_5_2() throws RecognitionException {
+    // $ANTLR start "rule__RobotType__LinkAssignment_5_2"
+    // InternalKinematics.g:13373:1: rule__RobotType__LinkAssignment_5_2 : ( ruleLink ) ;
+    public final void rule__RobotType__LinkAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:13377:1: ( ( ruleJoint ) )
-            // InternalKinematics.g:13378:2: ( ruleJoint )
+            // InternalKinematics.g:13377:1: ( ( ruleLink ) )
+            // InternalKinematics.g:13378:2: ( ruleLink )
             {
-            // InternalKinematics.g:13378:2: ( ruleJoint )
-            // InternalKinematics.g:13379:3: ruleJoint
+            // InternalKinematics.g:13378:2: ( ruleLink )
+            // InternalKinematics.g:13379:3: ruleLink
             {
-             before(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_5_2_0()); 
-            pushFollow(FOLLOW_2);
-            ruleJoint();
-
-            state._fsp--;
-
-             after(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_5_2_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RobotType__JointAssignment_5_2"
-
-
-    // $ANTLR start "rule__RobotType__JointAssignment_5_3_1"
-    // InternalKinematics.g:13388:1: rule__RobotType__JointAssignment_5_3_1 : ( ruleJoint ) ;
-    public final void rule__RobotType__JointAssignment_5_3_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKinematics.g:13392:1: ( ( ruleJoint ) )
-            // InternalKinematics.g:13393:2: ( ruleJoint )
-            {
-            // InternalKinematics.g:13393:2: ( ruleJoint )
-            // InternalKinematics.g:13394:3: ruleJoint
-            {
-             before(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_5_3_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleJoint();
-
-            state._fsp--;
-
-             after(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_5_3_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__RobotType__JointAssignment_5_3_1"
-
-
-    // $ANTLR start "rule__RobotType__LinkAssignment_6_2"
-    // InternalKinematics.g:13403:1: rule__RobotType__LinkAssignment_6_2 : ( ruleLink ) ;
-    public final void rule__RobotType__LinkAssignment_6_2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKinematics.g:13407:1: ( ( ruleLink ) )
-            // InternalKinematics.g:13408:2: ( ruleLink )
-            {
-            // InternalKinematics.g:13408:2: ( ruleLink )
-            // InternalKinematics.g:13409:3: ruleLink
-            {
-             before(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_6_2_0()); 
+             before(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_5_2_0()); 
             pushFollow(FOLLOW_2);
             ruleLink();
 
             state._fsp--;
 
-             after(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_6_2_0()); 
+             after(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_5_2_0()); 
 
             }
 
@@ -40081,29 +39999,29 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__RobotType__LinkAssignment_6_2"
+    // $ANTLR end "rule__RobotType__LinkAssignment_5_2"
 
 
-    // $ANTLR start "rule__RobotType__LinkAssignment_6_3_1"
-    // InternalKinematics.g:13418:1: rule__RobotType__LinkAssignment_6_3_1 : ( ruleLink ) ;
-    public final void rule__RobotType__LinkAssignment_6_3_1() throws RecognitionException {
+    // $ANTLR start "rule__RobotType__LinkAssignment_5_3_1"
+    // InternalKinematics.g:13388:1: rule__RobotType__LinkAssignment_5_3_1 : ( ruleLink ) ;
+    public final void rule__RobotType__LinkAssignment_5_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematics.g:13422:1: ( ( ruleLink ) )
-            // InternalKinematics.g:13423:2: ( ruleLink )
+            // InternalKinematics.g:13392:1: ( ( ruleLink ) )
+            // InternalKinematics.g:13393:2: ( ruleLink )
             {
-            // InternalKinematics.g:13423:2: ( ruleLink )
-            // InternalKinematics.g:13424:3: ruleLink
+            // InternalKinematics.g:13393:2: ( ruleLink )
+            // InternalKinematics.g:13394:3: ruleLink
             {
-             before(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_6_3_1_0()); 
+             before(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_5_3_1_0()); 
             pushFollow(FOLLOW_2);
             ruleLink();
 
             state._fsp--;
 
-             after(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_6_3_1_0()); 
+             after(grammarAccess.getRobotTypeAccess().getLinkLinkParserRuleCall_5_3_1_0()); 
 
             }
 
@@ -40122,7 +40040,89 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__RobotType__LinkAssignment_6_3_1"
+    // $ANTLR end "rule__RobotType__LinkAssignment_5_3_1"
+
+
+    // $ANTLR start "rule__RobotType__JointAssignment_6_2"
+    // InternalKinematics.g:13403:1: rule__RobotType__JointAssignment_6_2 : ( ruleJoint ) ;
+    public final void rule__RobotType__JointAssignment_6_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKinematics.g:13407:1: ( ( ruleJoint ) )
+            // InternalKinematics.g:13408:2: ( ruleJoint )
+            {
+            // InternalKinematics.g:13408:2: ( ruleJoint )
+            // InternalKinematics.g:13409:3: ruleJoint
+            {
+             before(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_6_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleJoint();
+
+            state._fsp--;
+
+             after(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_6_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RobotType__JointAssignment_6_2"
+
+
+    // $ANTLR start "rule__RobotType__JointAssignment_6_3_1"
+    // InternalKinematics.g:13418:1: rule__RobotType__JointAssignment_6_3_1 : ( ruleJoint ) ;
+    public final void rule__RobotType__JointAssignment_6_3_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKinematics.g:13422:1: ( ( ruleJoint ) )
+            // InternalKinematics.g:13423:2: ( ruleJoint )
+            {
+            // InternalKinematics.g:13423:2: ( ruleJoint )
+            // InternalKinematics.g:13424:3: ruleJoint
+            {
+             before(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_6_3_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleJoint();
+
+            state._fsp--;
+
+             after(grammarAccess.getRobotTypeAccess().getJointJointParserRuleCall_6_3_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RobotType__JointAssignment_6_3_1"
 
 
     // $ANTLR start "rule__RobotType__MaterialAssignment_7_2"
@@ -44784,10 +44784,10 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000060L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000003B80000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000480000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000020000000000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000008000000L});
@@ -44809,7 +44809,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000200000040000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x003FC00000280000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x003FC00000880000L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
@@ -44823,7 +44823,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000080000L,0x000000000000003CL});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000180L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000080000L,0x0000000000000600L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000080000L,0x0000000000003000L});
     public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000040080000L,0x0000000000018000L});
     public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
