@@ -3,20 +3,26 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xacro" nsURI="http://www.ipa.fraunhofer.de/xacro" nsPrefix="xacro">
   <eClassifiers xsi:type="ecore:EClass" name="Robot">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
-        eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//Body"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="macro" upperBound="-1"
+        eType="#//Macro" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Default" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Body">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transmission" upperBound="-1"
-        eType="ecore:EClass urdf.ecore#//Transmission" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inertial" upperBound="-1"
-        eType="ecore:EClass urdf.ecore#//Inertial" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="robot" upperBound="-1"
-        eType="ecore:EClass urdf.ecore#//RobotType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
+        eType="ecore:EClass urdf.ecore#//Joint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="ecore:EClass urdf.ecore#//Link"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="material" upperBound="-1"
+        eType="ecore:EClass urdf.ecore#//MaterialGlobal" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Macro">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
 </ecore:EPackage>

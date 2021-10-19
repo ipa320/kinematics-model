@@ -6,8 +6,8 @@ package de.fraunhofer.ipa.kinematics.xtext.ui.internal;
 import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import de.fraunhofer.ipa.kinematics.KinematicsRuntimeModule;
-import de.fraunhofer.ipa.kinematics.ui.KinematicsUiModule;
+import de.fraunhofer.ipa.kinematics.UrdfRuntimeModule;
+import de.fraunhofer.ipa.kinematics.ui.UrdfUiModule;
 import java.util.Collections;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -23,7 +23,7 @@ import org.osgi.framework.BundleContext;
 public class XtextActivator extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "de.fraunhofer.ipa.kinematics.xtext.ui";
-	public static final String DE_FRAUNHOFER_IPA_KINEMATICS_KINEMATICS = "de.fraunhofer.ipa.kinematics.Kinematics";
+	public static final String DE_FRAUNHOFER_IPA_KINEMATICS_URDF = "de.fraunhofer.ipa.kinematics.Urdf";
 	
 	private static final Logger logger = Logger.getLogger(XtextActivator.class);
 	
@@ -73,15 +73,15 @@ public class XtextActivator extends AbstractUIPlugin {
 	}
 	
 	protected com.google.inject.Module getRuntimeModule(String grammar) {
-		if (DE_FRAUNHOFER_IPA_KINEMATICS_KINEMATICS.equals(grammar)) {
-			return new KinematicsRuntimeModule();
+		if (DE_FRAUNHOFER_IPA_KINEMATICS_URDF.equals(grammar)) {
+			return new UrdfRuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected com.google.inject.Module getUiModule(String grammar) {
-		if (DE_FRAUNHOFER_IPA_KINEMATICS_KINEMATICS.equals(grammar)) {
-			return new KinematicsUiModule(this);
+		if (DE_FRAUNHOFER_IPA_KINEMATICS_URDF.equals(grammar)) {
+			return new UrdfUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);
 	}

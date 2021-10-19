@@ -34,4 +34,31 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated xacro -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="xacro.presentation.XacroModelWizardID"
+            name="%_UI_XacroModelWizard_label"
+            class="xacro.presentation.XacroModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/XacroModelFile.gif">
+         <description>%_UI_XacroModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated xacro -->
+      <editor
+            id="xacro.presentation.XacroEditorID"
+            name="%_UI_XacroEditor_label"
+            icon="icons/full/obj16/XacroModelFile.gif"
+            extensions="xacro"
+            class="xacro.presentation.XacroEditor"
+            contributorClass="xacro.presentation.XacroActionBarContributor">
+      </editor>
+   </extension>
 </plugin>
