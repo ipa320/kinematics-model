@@ -1,0 +1,40 @@
+Robot { name test_macro version "1.0"
+macro {
+Macro { name link_wheel
+	parameter {
+		Parameter link_name { } }
+	body Body {
+	link{
+		Link { name link_name
+			inertial Inertial {
+				origin Pose { rpy "0.0 1.5707 1.5707" xyz "0.0 0.0 0.0" } }
+			visual Visual {
+				origin Pose { rpy "0.0 1.5707 1.5707" xyz "0.0 0.0 0.0" }
+				geometry Geometry {
+					cylinder Cylinder { length 0.04 radius 0.1 } } }
+			collision Collision {
+				origin Pose { rpy "0.0 1.5707 1.5707" xyz "0.0 0.0 0.0" }
+				geometry Geometry {
+					cylinder Cylinder { length 0.04 radius 0.1 } } } } } } },
+Macro { name joint_wheel
+	parameter {
+		Parameter link_name { },
+		Parameter child_ { },
+		Parameter origin_xyz { } }
+	body Body {
+	joint{
+		Joint { name link_name
+			type continuous
+			parent "link_wheel.link_name"
+			child "link_wheel.link_name"
+			origin Pose { rpy "0.0 0.0 0.0" xyz "0.0 0.0 0.0" }
+			axis Axis { xyz "0.0 1.0 0.0" }
+			limit Limit { effort 10000.0 lower 0.0 upper 0.0 velocity 1000.0 } } } } } } 
+body Body {
+	link {
+		Link { name world } }
+	joint {
+		Joint { name world_joint
+			type fixed
+			parent world 
+			child "link_wheel.link_name" } } } }
