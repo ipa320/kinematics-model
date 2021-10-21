@@ -7,6 +7,16 @@ import java.util.Arrays;
 import java.util.List;
 import org.eclipse.xtext.validation.Check;
 import urdf.Joint;
+import java.util.Iterator;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
+
+import xacro.Macro;
+import xacro.MacroCall;
+import xacro.Parameter;
+import xacro.ParameterCall;
 
 /**
  * This class contains custom validation rules. 
@@ -25,4 +35,43 @@ public class XacroValidator extends AbstractXacroValidator {
 		}
 	}
 	
+	// Checks if the parameter being set belongs to the corresponding macro
+	@Check
+	public void checkParameterCallParentMacro(ParameterCall parameter) {
+		Macro mCall = (Macro) parameter.eContainer().eCrossReferences().get(0);
+
+		if(parameter.eCrossReferences().size() > 0) {
+			EObject macroParam = parameter.eCrossReferences().get(0);
+			if (macroParam instanceof Parameter) {
+				Macro m = (Macro) macroParam.eContainer();
+
+				if (m != mCall) {
+					error("Parameter belongs to " + m.getName() + " macro", null);
+				}
+			}
+		}
+	}
+
+	// checks if all the parameters defined in the macro have non-null values during instantiation
+	@Check
+	public void checkAllParametersSet(MacroCall macro) {
+		EList<Parameter> macroParams = (((Macro) macro.eCrossReferences().get(0)).getParameter());
+		for (Iterator<Parameter> iterator = macroParams.iterator(); iterator.hasNext();) {
+			Parameter parameter = (Parameter) iterator.next();
+			if (parameter.getValue() == null && parameter.getDefault() == null) {
+
+				boolean isSet = false;
+				for (Iterator<ParameterCall> iterator2 = macro.getParameterCall().iterator(); iterator2.hasNext();) {
+					Parameter p =  (Parameter) iterator2.next().eCrossReferences().get(0);
+					if (p == parameter) {
+						isSet = true;
+						break;
+					}
+				}
+				if (!isSet) {
+					error("Parameter " + parameter.getName() + " is not set.", null);
+				}
+			}
+		}
+	}
 }
