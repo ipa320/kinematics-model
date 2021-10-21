@@ -38,4 +38,14 @@ Robot { name test_macro version "1.0"
 				type fixed
 				parent world
 				child "link_wheel.link_name" } } }
+
+	macroCall {
+		MacroCall {
+			macro link_wheel
+			parameter {
+				ParameterCall { parameter "joint_wheel.link_name" value "hello" } } },
+		MacroCall {
+			macro joint_wheel
+			parameter {
+				ParameterCall { parameter "joint_wheel.origin_xyz" value "world" } } } }
 }
