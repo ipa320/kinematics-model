@@ -29,15 +29,7 @@ Robot { name test_macro version "1.0"
 					child "link_wheel.link_name"
 					origin Pose { rpy "0.0 0.0 0.0" xyz "0.0 0.0 0.0" }
 					axis Axis { xyz "0.0 1.0 0.0" }
-					limit Limit { effort 10000.0 lower 0.0 upper 0.0 velocity 1000.0 } } } } } }
-	body Body {
-		link {
-			Link { name world } }
-		joint {
-			Joint { name world_joint
-				type fixed
-				parent world
-				child "link_wheel.link_name" } } }
+					limit Limit { effort 10000.0 lower 0.0 upper 0.0 velocity 1000.0 } } } } } } 
 
 	macroCall {
 		MacroCall {
@@ -48,4 +40,13 @@ Robot { name test_macro version "1.0"
 			macro joint_wheel
 			parameter {
 				ParameterCall { parameter "joint_wheel.origin_xyz" value "world" } } } }
+
+	body Body {
+		link {
+			Link { name world } }
+		joint {
+			Joint { name world_joint
+				type fixed
+				parent world
+				child "link_wheel.link_name" } } }
 }
