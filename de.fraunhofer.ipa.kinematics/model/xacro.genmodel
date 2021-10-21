@@ -10,6 +10,8 @@
     <genClasses ecoreClass="xacro.ecore#//Robot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Robot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/macro"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Robot/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/body"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/name"/>
@@ -20,6 +22,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/joint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/link"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/material"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/transmission"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Macro">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/parameter"/>

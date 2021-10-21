@@ -115,20 +115,45 @@ ruleRobot returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_5='macro'
+			otherlv_5='version'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getRobotAccess().getMacroKeyword_5_0());
-			}
-			otherlv_6='{'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_5_1());
+				newLeafNode(otherlv_5, grammarAccess.getRobotAccess().getVersionKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getMacroMacroParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getVersionEStringParserRuleCall_5_1_0());
 					}
-					lv_macro_7_0=ruleMacro
+					lv_version_6_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
+						}
+						set(
+							$current,
+							"version",
+							lv_version_6_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_7='macro'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getRobotAccess().getMacroKeyword_6_0());
+			}
+			otherlv_8='{'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_6_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRobotAccess().getMacroMacroParserRuleCall_6_2_0());
+					}
+					lv_macro_9_0=ruleMacro
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -136,23 +161,23 @@ ruleRobot returns [EObject current=null]
 						add(
 							$current,
 							"macro",
-							lv_macro_7_0,
+							lv_macro_9_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Macro");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_8=','
+				otherlv_10=','
 				{
-					newLeafNode(otherlv_8, grammarAccess.getRobotAccess().getCommaKeyword_5_3_0());
+					newLeafNode(otherlv_10, grammarAccess.getRobotAccess().getCommaKeyword_6_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRobotAccess().getMacroMacroParserRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getRobotAccess().getMacroMacroParserRuleCall_6_3_1_0());
 						}
-						lv_macro_9_0=ruleMacro
+						lv_macro_11_0=ruleMacro
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -160,21 +185,46 @@ ruleRobot returns [EObject current=null]
 							add(
 								$current,
 								"macro",
-								lv_macro_9_0,
+								lv_macro_11_0,
 								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Macro");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_10='}'
+			otherlv_12='}'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_5_4());
+				newLeafNode(otherlv_12, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_6_4());
 			}
 		)?
-		otherlv_11='}'
+		(
+			otherlv_13='body'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getRobotAccess().getBodyKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRobotAccess().getBodyBodyParserRuleCall_7_1_0());
+					}
+					lv_body_14_0=ruleBody
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
+						}
+						set(
+							$current,
+							"body",
+							lv_body_14_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Body");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_15='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_15, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -662,9 +712,67 @@ ruleBody returns [EObject current=null]
 				newLeafNode(otherlv_20, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_5_4());
 			}
 		)?
-		otherlv_21='}'
+		(
+			otherlv_21='transmission'
+			{
+				newLeafNode(otherlv_21, grammarAccess.getBodyAccess().getTransmissionKeyword_6_0());
+			}
+			otherlv_22='{'
+			{
+				newLeafNode(otherlv_22, grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_6_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_6_2_0());
+					}
+					lv_transmission_23_0=ruleTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBodyRule());
+						}
+						add(
+							$current,
+							"transmission",
+							lv_transmission_23_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_24=','
+				{
+					newLeafNode(otherlv_24, grammarAccess.getBodyAccess().getCommaKeyword_6_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_6_3_1_0());
+						}
+						lv_transmission_25_0=ruleTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getBodyRule());
+							}
+							add(
+								$current,
+								"transmission",
+								lv_transmission_25_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_26='}'
+			{
+				newLeafNode(otherlv_26, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_6_4());
+			}
+		)?
+		otherlv_27='}'
 		{
-			newLeafNode(otherlv_21, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_27, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -1215,6 +1323,663 @@ ruleMaterialGlobal returns [EObject current=null]
 		otherlv_8='}'
 		{
 			newLeafNode(otherlv_8, grammarAccess.getMaterialGlobalAccess().getRightCurlyBracketKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRuleTransmission
+entryRuleTransmission returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTransmissionRule()); }
+	iv_ruleTransmission=ruleTransmission
+	{ $current=$iv_ruleTransmission.current; }
+	EOF;
+
+// Rule Transmission
+ruleTransmission returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Transmission'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTransmissionAccess().getTransmissionKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			otherlv_2='mechanicalReduction'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getTransmissionAccess().getMechanicalReductionKeyword_2_0());
+			}
+			otherlv_3='{'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_2_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_2_2_0());
+					}
+					lv_mechanicalReduction_4_0=ruleDouble0
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"mechanicalReduction",
+							lv_mechanicalReduction_4_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getTransmissionAccess().getCommaKeyword_2_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_2_3_1_0());
+						}
+						lv_mechanicalReduction_6_0=ruleDouble0
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"mechanicalReduction",
+								lv_mechanicalReduction_6_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_7='}'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_2_4());
+			}
+		)?
+		otherlv_8='name'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getTransmissionAccess().getNameKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTransmissionAccess().getNameEStringParserRuleCall_4_0());
+				}
+				lv_name_9_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_9_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_10='type'
+		{
+			newLeafNode(otherlv_10, grammarAccess.getTransmissionAccess().getTypeKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTransmissionAccess().getTypeEStringParserRuleCall_6_0());
+				}
+				lv_type_11_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_11_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_12='leftActuator'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getTransmissionAccess().getLeftActuatorKeyword_7_0());
+			}
+			otherlv_13='{'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_7_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getLeftActuatorActuatorTransmissionParserRuleCall_7_2_0());
+					}
+					lv_leftActuator_14_0=ruleActuatorTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"leftActuator",
+							lv_leftActuator_14_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_15=','
+				{
+					newLeafNode(otherlv_15, grammarAccess.getTransmissionAccess().getCommaKeyword_7_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getLeftActuatorActuatorTransmissionParserRuleCall_7_3_1_0());
+						}
+						lv_leftActuator_16_0=ruleActuatorTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"leftActuator",
+								lv_leftActuator_16_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_17='}'
+			{
+				newLeafNode(otherlv_17, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_7_4());
+			}
+		)?
+		(
+			otherlv_18='rightActuator'
+			{
+				newLeafNode(otherlv_18, grammarAccess.getTransmissionAccess().getRightActuatorKeyword_8_0());
+			}
+			otherlv_19='{'
+			{
+				newLeafNode(otherlv_19, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_8_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getRightActuatorActuatorTransmissionParserRuleCall_8_2_0());
+					}
+					lv_rightActuator_20_0=ruleActuatorTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"rightActuator",
+							lv_rightActuator_20_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_21=','
+				{
+					newLeafNode(otherlv_21, grammarAccess.getTransmissionAccess().getCommaKeyword_8_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getRightActuatorActuatorTransmissionParserRuleCall_8_3_1_0());
+						}
+						lv_rightActuator_22_0=ruleActuatorTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"rightActuator",
+								lv_rightActuator_22_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_23='}'
+			{
+				newLeafNode(otherlv_23, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_8_4());
+			}
+		)?
+		(
+			otherlv_24='flexJoint'
+			{
+				newLeafNode(otherlv_24, grammarAccess.getTransmissionAccess().getFlexJointKeyword_9_0());
+			}
+			otherlv_25='{'
+			{
+				newLeafNode(otherlv_25, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_9_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getFlexJointActuatorTransmissionParserRuleCall_9_2_0());
+					}
+					lv_flexJoint_26_0=ruleActuatorTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"flexJoint",
+							lv_flexJoint_26_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_27=','
+				{
+					newLeafNode(otherlv_27, grammarAccess.getTransmissionAccess().getCommaKeyword_9_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getFlexJointActuatorTransmissionParserRuleCall_9_3_1_0());
+						}
+						lv_flexJoint_28_0=ruleActuatorTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"flexJoint",
+								lv_flexJoint_28_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_29='}'
+			{
+				newLeafNode(otherlv_29, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_9_4());
+			}
+		)?
+		(
+			otherlv_30='rollJoint'
+			{
+				newLeafNode(otherlv_30, grammarAccess.getTransmissionAccess().getRollJointKeyword_10_0());
+			}
+			otherlv_31='{'
+			{
+				newLeafNode(otherlv_31, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_10_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getRollJointActuatorTransmissionParserRuleCall_10_2_0());
+					}
+					lv_rollJoint_32_0=ruleActuatorTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"rollJoint",
+							lv_rollJoint_32_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_33=','
+				{
+					newLeafNode(otherlv_33, grammarAccess.getTransmissionAccess().getCommaKeyword_10_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getRollJointActuatorTransmissionParserRuleCall_10_3_1_0());
+						}
+						lv_rollJoint_34_0=ruleActuatorTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"rollJoint",
+								lv_rollJoint_34_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_35='}'
+			{
+				newLeafNode(otherlv_35, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_10_4());
+			}
+		)?
+		(
+			otherlv_36='gapJoint'
+			{
+				newLeafNode(otherlv_36, grammarAccess.getTransmissionAccess().getGapJointKeyword_11_0());
+			}
+			otherlv_37='{'
+			{
+				newLeafNode(otherlv_37, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_11_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getGapJointGapJointTransmissionParserRuleCall_11_2_0());
+					}
+					lv_gapJoint_38_0=ruleGapJointTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"gapJoint",
+							lv_gapJoint_38_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.GapJointTransmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_39=','
+				{
+					newLeafNode(otherlv_39, grammarAccess.getTransmissionAccess().getCommaKeyword_11_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getGapJointGapJointTransmissionParserRuleCall_11_3_1_0());
+						}
+						lv_gapJoint_40_0=ruleGapJointTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"gapJoint",
+								lv_gapJoint_40_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.GapJointTransmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_41='}'
+			{
+				newLeafNode(otherlv_41, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_11_4());
+			}
+		)?
+		(
+			otherlv_42='passiveJoint'
+			{
+				newLeafNode(otherlv_42, grammarAccess.getTransmissionAccess().getPassiveJointKeyword_12_0());
+			}
+			otherlv_43='{'
+			{
+				newLeafNode(otherlv_43, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_12_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getPassiveJointPassiveJointTransmissionParserRuleCall_12_2_0());
+					}
+					lv_passiveJoint_44_0=rulePassiveJointTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"passiveJoint",
+							lv_passiveJoint_44_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.PassiveJointTransmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_45=','
+				{
+					newLeafNode(otherlv_45, grammarAccess.getTransmissionAccess().getCommaKeyword_12_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getPassiveJointPassiveJointTransmissionParserRuleCall_12_3_1_0());
+						}
+						lv_passiveJoint_46_0=rulePassiveJointTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"passiveJoint",
+								lv_passiveJoint_46_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.PassiveJointTransmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_47='}'
+			{
+				newLeafNode(otherlv_47, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_12_4());
+			}
+		)?
+		(
+			otherlv_48='useSimulatedGripperJoint'
+			{
+				newLeafNode(otherlv_48, grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointKeyword_13_0());
+			}
+			otherlv_49='{'
+			{
+				newLeafNode(otherlv_49, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_13_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_2_0());
+					}
+					lv_useSimulatedGripperJoint_50_0=ruleUseSimulatedGripperJointType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"useSimulatedGripperJoint",
+							lv_useSimulatedGripperJoint_50_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.UseSimulatedGripperJointType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_51=','
+				{
+					newLeafNode(otherlv_51, grammarAccess.getTransmissionAccess().getCommaKeyword_13_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_3_1_0());
+						}
+						lv_useSimulatedGripperJoint_52_0=ruleUseSimulatedGripperJointType
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"useSimulatedGripperJoint",
+								lv_useSimulatedGripperJoint_52_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.UseSimulatedGripperJointType");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_53='}'
+			{
+				newLeafNode(otherlv_53, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_13_4());
+			}
+		)?
+		(
+			otherlv_54='actuator'
+			{
+				newLeafNode(otherlv_54, grammarAccess.getTransmissionAccess().getActuatorKeyword_14_0());
+			}
+			otherlv_55='{'
+			{
+				newLeafNode(otherlv_55, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_14_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getActuatorNameParserRuleCall_14_2_0());
+					}
+					lv_actuator_56_0=ruleName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"actuator",
+							lv_actuator_56_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_57=','
+				{
+					newLeafNode(otherlv_57, grammarAccess.getTransmissionAccess().getCommaKeyword_14_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getActuatorNameParserRuleCall_14_3_1_0());
+						}
+						lv_actuator_58_0=ruleName
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"actuator",
+								lv_actuator_58_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_59='}'
+			{
+				newLeafNode(otherlv_59, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_14_4());
+			}
+		)?
+		(
+			otherlv_60='joint'
+			{
+				newLeafNode(otherlv_60, grammarAccess.getTransmissionAccess().getJointKeyword_15_0());
+			}
+			otherlv_61='{'
+			{
+				newLeafNode(otherlv_61, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_15_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransmissionAccess().getJointNameParserRuleCall_15_2_0());
+					}
+					lv_joint_62_0=ruleName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						}
+						add(
+							$current,
+							"joint",
+							lv_joint_62_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_63=','
+				{
+					newLeafNode(otherlv_63, grammarAccess.getTransmissionAccess().getCommaKeyword_15_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransmissionAccess().getJointNameParserRuleCall_15_3_1_0());
+						}
+						lv_joint_64_0=ruleName
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+							}
+							add(
+								$current,
+								"joint",
+								lv_joint_64_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_65='}'
+			{
+				newLeafNode(otherlv_65, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_15_4());
+			}
+		)?
+		otherlv_66='}'
+		{
+			newLeafNode(otherlv_66, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_16());
 		}
 	)
 ;
@@ -3270,6 +4035,537 @@ ruleVerbose returns [EObject current=null]
 		otherlv_5='}'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getVerboseAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleActuatorTransmission
+entryRuleActuatorTransmission returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getActuatorTransmissionRule()); }
+	iv_ruleActuatorTransmission=ruleActuatorTransmission
+	{ $current=$iv_ruleActuatorTransmission.current; }
+	EOF;
+
+// Rule ActuatorTransmission
+ruleActuatorTransmission returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='ActuatorTransmission'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getActuatorTransmissionAccess().getActuatorTransmissionKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getActuatorTransmissionAccess().getLeftCurlyBracketKeyword_1());
+		}
+		otherlv_2='mechanicalReduction'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_3_0());
+				}
+				lv_mechanicalReduction_3_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getActuatorTransmissionRule());
+					}
+					set(
+						$current,
+						"mechanicalReduction",
+						lv_mechanicalReduction_3_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='name'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getActuatorTransmissionAccess().getNameKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getActuatorTransmissionAccess().getNameEStringParserRuleCall_5_0());
+				}
+				lv_name_5_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getActuatorTransmissionRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_5_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getActuatorTransmissionAccess().getRightCurlyBracketKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRuleGapJointTransmission
+entryRuleGapJointTransmission returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGapJointTransmissionRule()); }
+	iv_ruleGapJointTransmission=ruleGapJointTransmission
+	{ $current=$iv_ruleGapJointTransmission.current; }
+	EOF;
+
+// Rule GapJointTransmission
+ruleGapJointTransmission returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='GapJointTransmission'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getGapJointTransmissionAccess().getGapJointTransmissionKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getGapJointTransmissionAccess().getLeftCurlyBracketKeyword_1());
+		}
+		otherlv_2='a'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getGapJointTransmissionAccess().getAKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getADouble0ParserRuleCall_3_0());
+				}
+				lv_a_3_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"a",
+						lv_a_3_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='b'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getGapJointTransmissionAccess().getBKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getBDouble0ParserRuleCall_5_0());
+				}
+				lv_b_5_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"b",
+						lv_b_5_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6='gearRatio'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getGapJointTransmissionAccess().getGearRatioKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getGearRatioDouble0ParserRuleCall_7_0());
+				}
+				lv_gearRatio_7_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"gearRatio",
+						lv_gearRatio_7_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_8='h'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getGapJointTransmissionAccess().getHKeyword_8());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getHDouble0ParserRuleCall_9_0());
+				}
+				lv_h_9_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"h",
+						lv_h_9_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_10='l0'
+		{
+			newLeafNode(otherlv_10, grammarAccess.getGapJointTransmissionAccess().getL0Keyword_10());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getL0Double0ParserRuleCall_11_0());
+				}
+				lv_l0_11_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"l0",
+						lv_l0_11_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_12='mechanicalReduction'
+		{
+			newLeafNode(otherlv_12, grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionKeyword_12());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_13_0());
+				}
+				lv_mechanicalReduction_13_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"mechanicalReduction",
+						lv_mechanicalReduction_13_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_14='name'
+		{
+			newLeafNode(otherlv_14, grammarAccess.getGapJointTransmissionAccess().getNameKeyword_14());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getNameEStringParserRuleCall_15_0());
+				}
+				lv_name_15_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_15_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_16='phi0'
+		{
+			newLeafNode(otherlv_16, grammarAccess.getGapJointTransmissionAccess().getPhi0Keyword_16());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getPhi0Double0ParserRuleCall_17_0());
+				}
+				lv_phi0_17_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"phi0",
+						lv_phi0_17_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_18='r'
+		{
+			newLeafNode(otherlv_18, grammarAccess.getGapJointTransmissionAccess().getRKeyword_18());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getRDouble0ParserRuleCall_19_0());
+				}
+				lv_r_19_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"r",
+						lv_r_19_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_20='screwReduction'
+		{
+			newLeafNode(otherlv_20, grammarAccess.getGapJointTransmissionAccess().getScrewReductionKeyword_20());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getScrewReductionDouble0ParserRuleCall_21_0());
+				}
+				lv_screwReduction_21_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"screwReduction",
+						lv_screwReduction_21_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_22='t0'
+		{
+			newLeafNode(otherlv_22, grammarAccess.getGapJointTransmissionAccess().getT0Keyword_22());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getT0Double0ParserRuleCall_23_0());
+				}
+				lv_t0_23_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"t0",
+						lv_t0_23_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_24='theta0'
+		{
+			newLeafNode(otherlv_24, grammarAccess.getGapJointTransmissionAccess().getTheta0Keyword_24());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getTheta0Double0ParserRuleCall_25_0());
+				}
+				lv_theta0_25_0=ruleDouble0
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+					}
+					set(
+						$current,
+						"theta0",
+						lv_theta0_25_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_26='}'
+		{
+			newLeafNode(otherlv_26, grammarAccess.getGapJointTransmissionAccess().getRightCurlyBracketKeyword_26());
+		}
+	)
+;
+
+// Entry rule entryRulePassiveJointTransmission
+entryRulePassiveJointTransmission returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPassiveJointTransmissionRule()); }
+	iv_rulePassiveJointTransmission=rulePassiveJointTransmission
+	{ $current=$iv_rulePassiveJointTransmission.current; }
+	EOF;
+
+// Rule PassiveJointTransmission
+rulePassiveJointTransmission returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='PassiveJointTransmission'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPassiveJointTransmissionAccess().getPassiveJointTransmissionKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getPassiveJointTransmissionAccess().getLeftCurlyBracketKeyword_1());
+		}
+		otherlv_2='name'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getPassiveJointTransmissionAccess().getNameKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPassiveJointTransmissionAccess().getNameEStringParserRuleCall_3_0());
+				}
+				lv_name_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPassiveJointTransmissionRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_3_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getPassiveJointTransmissionAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleUseSimulatedGripperJointType
+entryRuleUseSimulatedGripperJointType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getUseSimulatedGripperJointTypeRule()); }
+	iv_ruleUseSimulatedGripperJointType=ruleUseSimulatedGripperJointType
+	{ $current=$iv_ruleUseSimulatedGripperJointType.current; }
+	EOF;
+
+// Rule UseSimulatedGripperJointType
+ruleUseSimulatedGripperJointType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getUseSimulatedGripperJointTypeAccess().getUseSimulatedGripperJointTypeAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='UseSimulatedGripperJointType'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getUseSimulatedGripperJointTypeAccess().getUseSimulatedGripperJointTypeKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleName
+entryRuleName returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNameRule()); }
+	iv_ruleName=ruleName
+	{ $current=$iv_ruleName.current; }
+	EOF;
+
+// Rule Name
+ruleName returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getNameAccess().getNameAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='Name'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getNameAccess().getNameKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getNameAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='name'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getNameAccess().getNameKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNameAccess().getNameEStringParserRuleCall_3_1_0());
+					}
+					lv_name_4_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNameRule());
+						}
+						set(
+							$current,
+							"name",
+							lv_name_4_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getNameAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;

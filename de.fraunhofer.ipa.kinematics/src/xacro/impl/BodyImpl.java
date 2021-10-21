@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import urdf.Joint;
 import urdf.Link;
 import urdf.MaterialGlobal;
+import urdf.Transmission;
 import xacro.Body;
 import xacro.XacroPackage;
 
@@ -32,6 +33,7 @@ import xacro.XacroPackage;
  *   <li>{@link xacro.impl.BodyImpl#getJoint <em>Joint</em>}</li>
  *   <li>{@link xacro.impl.BodyImpl#getLink <em>Link</em>}</li>
  *   <li>{@link xacro.impl.BodyImpl#getMaterial <em>Material</em>}</li>
+ *   <li>{@link xacro.impl.BodyImpl#getTransmission <em>Transmission</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +68,16 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	 * @ordered
 	 */
 	protected EList<MaterialGlobal> material;
+
+	/**
+	 * The cached value of the '{@link #getTransmission() <em>Transmission</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransmission()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Transmission> transmission;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,6 +139,18 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Transmission> getTransmission() {
+		if (transmission == null) {
+			transmission = new EObjectContainmentEList<Transmission>(Transmission.class, this, XacroPackage.BODY__TRANSMISSION);
+		}
+		return transmission;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -136,6 +160,8 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 				return ((InternalEList<?>)getLink()).basicRemove(otherEnd, msgs);
 			case XacroPackage.BODY__MATERIAL:
 				return ((InternalEList<?>)getMaterial()).basicRemove(otherEnd, msgs);
+			case XacroPackage.BODY__TRANSMISSION:
+				return ((InternalEList<?>)getTransmission()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -154,6 +180,8 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 				return getLink();
 			case XacroPackage.BODY__MATERIAL:
 				return getMaterial();
+			case XacroPackage.BODY__TRANSMISSION:
+				return getTransmission();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,6 +207,10 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 				getMaterial().clear();
 				getMaterial().addAll((Collection<? extends MaterialGlobal>)newValue);
 				return;
+			case XacroPackage.BODY__TRANSMISSION:
+				getTransmission().clear();
+				getTransmission().addAll((Collection<? extends Transmission>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -200,6 +232,9 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 			case XacroPackage.BODY__MATERIAL:
 				getMaterial().clear();
 				return;
+			case XacroPackage.BODY__TRANSMISSION:
+				getTransmission().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,6 +253,8 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 				return link != null && !link.isEmpty();
 			case XacroPackage.BODY__MATERIAL:
 				return material != null && !material.isEmpty();
+			case XacroPackage.BODY__TRANSMISSION:
+				return transmission != null && !transmission.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import xacro.Body;
 import xacro.Macro;
 import xacro.Robot;
 import xacro.XacroPackage;
@@ -31,6 +32,8 @@ import xacro.XacroPackage;
  * <ul>
  *   <li>{@link xacro.impl.RobotImpl#getName <em>Name</em>}</li>
  *   <li>{@link xacro.impl.RobotImpl#getMacro <em>Macro</em>}</li>
+ *   <li>{@link xacro.impl.RobotImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link xacro.impl.RobotImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +68,36 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @ordered
 	 */
 	protected EList<Macro> macro;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = "1.0";
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBody()
+	 * @generated
+	 * @ordered
+	 */
+	protected Body body;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,11 +156,77 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.ROBOT__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Body getBody() {
+		return body;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBody(Body newBody, NotificationChain msgs) {
+		Body oldBody = body;
+		body = newBody;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.ROBOT__BODY, oldBody, newBody);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBody(Body newBody) {
+		if (newBody != body) {
+			NotificationChain msgs = null;
+			if (body != null)
+				msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.ROBOT__BODY, null, msgs);
+			if (newBody != null)
+				msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.ROBOT__BODY, null, msgs);
+			msgs = basicSetBody(newBody, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.ROBOT__BODY, newBody, newBody));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case XacroPackage.ROBOT__MACRO:
 				return ((InternalEList<?>)getMacro()).basicRemove(otherEnd, msgs);
+			case XacroPackage.ROBOT__BODY:
+				return basicSetBody(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -144,6 +243,10 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return getName();
 			case XacroPackage.ROBOT__MACRO:
 				return getMacro();
+			case XacroPackage.ROBOT__VERSION:
+				return getVersion();
+			case XacroPackage.ROBOT__BODY:
+				return getBody();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,6 +267,12 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				getMacro().clear();
 				getMacro().addAll((Collection<? extends Macro>)newValue);
 				return;
+			case XacroPackage.ROBOT__VERSION:
+				setVersion((String)newValue);
+				return;
+			case XacroPackage.ROBOT__BODY:
+				setBody((Body)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -182,6 +291,12 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			case XacroPackage.ROBOT__MACRO:
 				getMacro().clear();
 				return;
+			case XacroPackage.ROBOT__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case XacroPackage.ROBOT__BODY:
+				setBody((Body)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -198,6 +313,10 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case XacroPackage.ROBOT__MACRO:
 				return macro != null && !macro.isEmpty();
+			case XacroPackage.ROBOT__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case XacroPackage.ROBOT__BODY:
+				return body != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,6 +333,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", version: ");
+		result.append(version);
 		result.append(')');
 		return result.toString();
 	}

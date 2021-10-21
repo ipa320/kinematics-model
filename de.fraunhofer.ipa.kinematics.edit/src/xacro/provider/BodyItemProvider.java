@@ -81,6 +81,7 @@ public class BodyItemProvider
 			childrenFeatures.add(XacroPackage.Literals.BODY__JOINT);
 			childrenFeatures.add(XacroPackage.Literals.BODY__LINK);
 			childrenFeatures.add(XacroPackage.Literals.BODY__MATERIAL);
+			childrenFeatures.add(XacroPackage.Literals.BODY__TRANSMISSION);
 		}
 		return childrenFeatures;
 	}
@@ -136,6 +137,7 @@ public class BodyItemProvider
 			case XacroPackage.BODY__JOINT:
 			case XacroPackage.BODY__LINK:
 			case XacroPackage.BODY__MATERIAL:
+			case XacroPackage.BODY__TRANSMISSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,6 +169,11 @@ public class BodyItemProvider
 			(createChildParameter
 				(XacroPackage.Literals.BODY__MATERIAL,
 				 UrdfFactory.eINSTANCE.createMaterialGlobal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(XacroPackage.Literals.BODY__TRANSMISSION,
+				 UrdfFactory.eINSTANCE.createTransmission()));
 	}
 
 	/**

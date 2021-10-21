@@ -11,7 +11,9 @@ Robot returns Robot:
 	'Robot'
 	'{'
 		'name' name=EString
+		('version' version=EString)?
 		('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
+		('body' body=Body)?
 	'}';
 
 EString returns ecore::EString:
@@ -41,6 +43,7 @@ Body returns Body:
 		('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
 		('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
+		('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 	'}';
 
 Joint returns urdf::Joint:
@@ -75,6 +78,23 @@ MaterialGlobal returns urdf::MaterialGlobal:
 		'name' name=EString
 		('color' color=Color)?
 		('texture' texture=Texture)?
+	'}';
+	
+Transmission returns urdf::Transmission:
+	'Transmission'
+	'{'
+		('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
+		'name' name=EString
+		'type' type=EString
+		('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
+		('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
+		('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
+		('rollJoint' '{' rollJoint+=ActuatorTransmission ( "," rollJoint+=ActuatorTransmission)* '}' )?
+		('gapJoint' '{' gapJoint+=GapJointTransmission ( "," gapJoint+=GapJointTransmission)* '}' )?
+		('passiveJoint' '{' passiveJoint+=PassiveJointTransmission ( "," passiveJoint+=PassiveJointTransmission)* '}' )?
+		('useSimulatedGripperJoint' '{' useSimulatedGripperJoint+=UseSimulatedGripperJointType ( "," useSimulatedGripperJoint+=UseSimulatedGripperJointType)* '}' )?
+		('actuator' '{' actuator+=Name ( "," actuator+=Name)* '}' )?
+		('joint' '{' joint+=Name ( "," joint+=Name)* '}' )?
 	'}';
 
 Pose returns urdf::Pose:
@@ -249,6 +269,48 @@ Verbose returns urdf::Verbose:
 	'Verbose'
 	'{'
 		('value' value=EString)?
+	'}';
+	
+ActuatorTransmission returns urdf::ActuatorTransmission:
+	'ActuatorTransmission'
+	'{'
+		'mechanicalReduction' mechanicalReduction=Double0
+		'name' name=EString
+	'}';
+
+GapJointTransmission returns urdf::GapJointTransmission:
+	'GapJointTransmission'
+	'{'
+		'a' a=Double0
+		'b' b=Double0
+		'gearRatio' gearRatio=Double0
+		'h' h=Double0
+		'l0' l0=Double0
+		'mechanicalReduction' mechanicalReduction=Double0
+		'name' name=EString
+		'phi0' phi0=Double0
+		'r' r=Double0
+		'screwReduction' screwReduction=Double0
+		't0' t0=Double0
+		'theta0' theta0=Double0
+	'}';
+
+PassiveJointTransmission returns urdf::PassiveJointTransmission:
+	'PassiveJointTransmission'
+	'{'
+		'name' name=EString
+	'}';
+	
+UseSimulatedGripperJointType returns urdf::UseSimulatedGripperJointType:
+	{urdf::UseSimulatedGripperJointType}
+	'UseSimulatedGripperJointType'
+	;
+	
+Name returns urdf::Name:
+	{urdf::Name}
+	'Name'
+	'{'
+		('name' name=EString)?
 	'}';
 
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307

@@ -63,6 +63,7 @@ public class RobotItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,28 @@ public class RobotItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Robot_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Robot_version_feature", "_UI_Robot_type"),
+				 XacroPackage.Literals.ROBOT__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -102,6 +125,7 @@ public class RobotItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(XacroPackage.Literals.ROBOT__MACRO);
+			childrenFeatures.add(XacroPackage.Literals.ROBOT__BODY);
 		}
 		return childrenFeatures;
 	}
@@ -158,9 +182,11 @@ public class RobotItemProvider
 
 		switch (notification.getFeatureID(Robot.class)) {
 			case XacroPackage.ROBOT__NAME:
+			case XacroPackage.ROBOT__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case XacroPackage.ROBOT__MACRO:
+			case XacroPackage.ROBOT__BODY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,6 +208,11 @@ public class RobotItemProvider
 			(createChildParameter
 				(XacroPackage.Literals.ROBOT__MACRO,
 				 XacroFactory.eINSTANCE.createMacro()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(XacroPackage.Literals.ROBOT__BODY,
+				 XacroFactory.eINSTANCE.createBody()));
 	}
 
 	/**

@@ -34,23 +34,33 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cMacroKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cMacroAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cMacroMacroParserRuleCall_5_2_0 = (RuleCall)cMacroAssignment_5_2.eContents().get(0);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cMacroAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cMacroMacroParserRuleCall_5_3_1_0 = (RuleCall)cMacroAssignment_5_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cVersionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cVersionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cVersionEStringParserRuleCall_5_1_0 = (RuleCall)cVersionAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cMacroKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cMacroAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cMacroMacroParserRuleCall_6_2_0 = (RuleCall)cMacroAssignment_6_2.eContents().get(0);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Assignment cMacroAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cMacroMacroParserRuleCall_6_3_1_0 = (RuleCall)cMacroAssignment_6_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cBodyKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cBodyAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cBodyBodyParserRuleCall_7_1_0 = (RuleCall)cBodyAssignment_7_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Robot returns Robot:
 		//    {Robot}
 		//    'Robot'
 		//    '{'
 		//        'name' name=EString
+		//        ('version' version=EString)?
 		//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
+		//        ('body' body=Body)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -58,7 +68,9 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'Robot'
 		//'{'
 		//    'name' name=EString
+		//    ('version' version=EString)?
 		//    ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
+		//    ('body' body=Body)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -80,38 +92,62 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//EString
 		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
 		
-		//('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
+		//('version' version=EString)?
 		public Group getGroup_5() { return cGroup_5; }
 		
+		//'version'
+		public Keyword getVersionKeyword_5_0() { return cVersionKeyword_5_0; }
+		
+		//version=EString
+		public Assignment getVersionAssignment_5_1() { return cVersionAssignment_5_1; }
+		
+		//EString
+		public RuleCall getVersionEStringParserRuleCall_5_1_0() { return cVersionEStringParserRuleCall_5_1_0; }
+		
+		//('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
+		public Group getGroup_6() { return cGroup_6; }
+		
 		//'macro'
-		public Keyword getMacroKeyword_5_0() { return cMacroKeyword_5_0; }
+		public Keyword getMacroKeyword_6_0() { return cMacroKeyword_6_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
 		
 		//macro+=Macro
-		public Assignment getMacroAssignment_5_2() { return cMacroAssignment_5_2; }
+		public Assignment getMacroAssignment_6_2() { return cMacroAssignment_6_2; }
 		
 		//Macro
-		public RuleCall getMacroMacroParserRuleCall_5_2_0() { return cMacroMacroParserRuleCall_5_2_0; }
+		public RuleCall getMacroMacroParserRuleCall_6_2_0() { return cMacroMacroParserRuleCall_6_2_0; }
 		
 		//( "," macro+=Macro)*
-		public Group getGroup_5_3() { return cGroup_5_3; }
+		public Group getGroup_6_3() { return cGroup_6_3; }
 		
 		//","
-		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
+		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
 		
 		//macro+=Macro
-		public Assignment getMacroAssignment_5_3_1() { return cMacroAssignment_5_3_1; }
+		public Assignment getMacroAssignment_6_3_1() { return cMacroAssignment_6_3_1; }
 		
 		//Macro
-		public RuleCall getMacroMacroParserRuleCall_5_3_1_0() { return cMacroMacroParserRuleCall_5_3_1_0; }
+		public RuleCall getMacroMacroParserRuleCall_6_3_1_0() { return cMacroMacroParserRuleCall_6_3_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+		
+		//('body' body=Body)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'body'
+		public Keyword getBodyKeyword_7_0() { return cBodyKeyword_7_0; }
+		
+		//body=Body
+		public Assignment getBodyAssignment_7_1() { return cBodyAssignment_7_1; }
+		
+		//Body
+		public RuleCall getBodyBodyParserRuleCall_7_1_0() { return cBodyBodyParserRuleCall_7_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
@@ -348,7 +384,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cMaterialAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
 		private final RuleCall cMaterialMaterialGlobalParserRuleCall_5_3_1_0 = (RuleCall)cMaterialAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cTransmissionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cTransmissionAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cTransmissionTransmissionParserRuleCall_6_2_0 = (RuleCall)cTransmissionAssignment_6_2.eContents().get(0);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Assignment cTransmissionAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cTransmissionTransmissionParserRuleCall_6_3_1_0 = (RuleCall)cTransmissionAssignment_6_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Body returns Body:
 		//    {Body}
@@ -357,6 +403,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		//        ('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
 		//        ('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
+		//        ('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -366,6 +413,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		//    ('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
 		//    ('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
+		//    ('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -468,8 +516,38 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
 		
+		//('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'transmission'
+		public Keyword getTransmissionKeyword_6_0() { return cTransmissionKeyword_6_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		
+		//transmission+=Transmission
+		public Assignment getTransmissionAssignment_6_2() { return cTransmissionAssignment_6_2; }
+		
+		//Transmission
+		public RuleCall getTransmissionTransmissionParserRuleCall_6_2_0() { return cTransmissionTransmissionParserRuleCall_6_2_0; }
+		
+		//( "," transmission+=Transmission)*
+		public Group getGroup_6_3() { return cGroup_6_3; }
+		
+		//","
+		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+		
+		//transmission+=Transmission
+		public Assignment getTransmissionAssignment_6_3_1() { return cTransmissionAssignment_6_3_1; }
+		
+		//Transmission
+		public RuleCall getTransmissionTransmissionParserRuleCall_6_3_1_0() { return cTransmissionTransmissionParserRuleCall_6_3_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class JointElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Joint");
@@ -877,6 +955,481 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class TransmissionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTransmissionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cMechanicalReductionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cMechanicalReductionAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cMechanicalReductionDouble0ParserRuleCall_2_2_0 = (RuleCall)cMechanicalReductionAssignment_2_2.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cMechanicalReductionAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cMechanicalReductionDouble0ParserRuleCall_2_3_1_0 = (RuleCall)cMechanicalReductionAssignment_2_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTypeEStringParserRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cLeftActuatorKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cLeftActuatorAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cLeftActuatorActuatorTransmissionParserRuleCall_7_2_0 = (RuleCall)cLeftActuatorAssignment_7_2.eContents().get(0);
+		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
+		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
+		private final Assignment cLeftActuatorAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
+		private final RuleCall cLeftActuatorActuatorTransmissionParserRuleCall_7_3_1_0 = (RuleCall)cLeftActuatorAssignment_7_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cRightActuatorKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cRightActuatorAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cRightActuatorActuatorTransmissionParserRuleCall_8_2_0 = (RuleCall)cRightActuatorAssignment_8_2.eContents().get(0);
+		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
+		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
+		private final Assignment cRightActuatorAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
+		private final RuleCall cRightActuatorActuatorTransmissionParserRuleCall_8_3_1_0 = (RuleCall)cRightActuatorAssignment_8_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cFlexJointKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cFlexJointAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cFlexJointActuatorTransmissionParserRuleCall_9_2_0 = (RuleCall)cFlexJointAssignment_9_2.eContents().get(0);
+		private final Group cGroup_9_3 = (Group)cGroup_9.eContents().get(3);
+		private final Keyword cCommaKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
+		private final Assignment cFlexJointAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
+		private final RuleCall cFlexJointActuatorTransmissionParserRuleCall_9_3_1_0 = (RuleCall)cFlexJointAssignment_9_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cRollJointKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Assignment cRollJointAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final RuleCall cRollJointActuatorTransmissionParserRuleCall_10_2_0 = (RuleCall)cRollJointAssignment_10_2.eContents().get(0);
+		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
+		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
+		private final Assignment cRollJointAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
+		private final RuleCall cRollJointActuatorTransmissionParserRuleCall_10_3_1_0 = (RuleCall)cRollJointAssignment_10_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cGapJointKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
+		private final Assignment cGapJointAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
+		private final RuleCall cGapJointGapJointTransmissionParserRuleCall_11_2_0 = (RuleCall)cGapJointAssignment_11_2.eContents().get(0);
+		private final Group cGroup_11_3 = (Group)cGroup_11.eContents().get(3);
+		private final Keyword cCommaKeyword_11_3_0 = (Keyword)cGroup_11_3.eContents().get(0);
+		private final Assignment cGapJointAssignment_11_3_1 = (Assignment)cGroup_11_3.eContents().get(1);
+		private final RuleCall cGapJointGapJointTransmissionParserRuleCall_11_3_1_0 = (RuleCall)cGapJointAssignment_11_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11_4 = (Keyword)cGroup_11.eContents().get(4);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cPassiveJointKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
+		private final Assignment cPassiveJointAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
+		private final RuleCall cPassiveJointPassiveJointTransmissionParserRuleCall_12_2_0 = (RuleCall)cPassiveJointAssignment_12_2.eContents().get(0);
+		private final Group cGroup_12_3 = (Group)cGroup_12.eContents().get(3);
+		private final Keyword cCommaKeyword_12_3_0 = (Keyword)cGroup_12_3.eContents().get(0);
+		private final Assignment cPassiveJointAssignment_12_3_1 = (Assignment)cGroup_12_3.eContents().get(1);
+		private final RuleCall cPassiveJointPassiveJointTransmissionParserRuleCall_12_3_1_0 = (RuleCall)cPassiveJointAssignment_12_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_12_4 = (Keyword)cGroup_12.eContents().get(4);
+		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
+		private final Keyword cUseSimulatedGripperJointKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
+		private final Assignment cUseSimulatedGripperJointAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
+		private final RuleCall cUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_2_0 = (RuleCall)cUseSimulatedGripperJointAssignment_13_2.eContents().get(0);
+		private final Group cGroup_13_3 = (Group)cGroup_13.eContents().get(3);
+		private final Keyword cCommaKeyword_13_3_0 = (Keyword)cGroup_13_3.eContents().get(0);
+		private final Assignment cUseSimulatedGripperJointAssignment_13_3_1 = (Assignment)cGroup_13_3.eContents().get(1);
+		private final RuleCall cUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_3_1_0 = (RuleCall)cUseSimulatedGripperJointAssignment_13_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_13_4 = (Keyword)cGroup_13.eContents().get(4);
+		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
+		private final Keyword cActuatorKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
+		private final Assignment cActuatorAssignment_14_2 = (Assignment)cGroup_14.eContents().get(2);
+		private final RuleCall cActuatorNameParserRuleCall_14_2_0 = (RuleCall)cActuatorAssignment_14_2.eContents().get(0);
+		private final Group cGroup_14_3 = (Group)cGroup_14.eContents().get(3);
+		private final Keyword cCommaKeyword_14_3_0 = (Keyword)cGroup_14_3.eContents().get(0);
+		private final Assignment cActuatorAssignment_14_3_1 = (Assignment)cGroup_14_3.eContents().get(1);
+		private final RuleCall cActuatorNameParserRuleCall_14_3_1_0 = (RuleCall)cActuatorAssignment_14_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_14_4 = (Keyword)cGroup_14.eContents().get(4);
+		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
+		private final Keyword cJointKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
+		private final Assignment cJointAssignment_15_2 = (Assignment)cGroup_15.eContents().get(2);
+		private final RuleCall cJointNameParserRuleCall_15_2_0 = (RuleCall)cJointAssignment_15_2.eContents().get(0);
+		private final Group cGroup_15_3 = (Group)cGroup_15.eContents().get(3);
+		private final Keyword cCommaKeyword_15_3_0 = (Keyword)cGroup_15_3.eContents().get(0);
+		private final Assignment cJointAssignment_15_3_1 = (Assignment)cGroup_15_3.eContents().get(1);
+		private final RuleCall cJointNameParserRuleCall_15_3_1_0 = (RuleCall)cJointAssignment_15_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_15_4 = (Keyword)cGroup_15.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		
+		//Transmission returns urdf::Transmission:
+		//    'Transmission'
+		//    '{'
+		//        ('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
+		//        'name' name=EString
+		//        'type' type=EString
+		//        ('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
+		//        ('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
+		//        ('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
+		//        ('rollJoint' '{' rollJoint+=ActuatorTransmission ( "," rollJoint+=ActuatorTransmission)* '}' )?
+		//        ('gapJoint' '{' gapJoint+=GapJointTransmission ( "," gapJoint+=GapJointTransmission)* '}' )?
+		//        ('passiveJoint' '{' passiveJoint+=PassiveJointTransmission ( "," passiveJoint+=PassiveJointTransmission)* '}' )?
+		//        ('useSimulatedGripperJoint' '{' useSimulatedGripperJoint+=UseSimulatedGripperJointType ( "," useSimulatedGripperJoint+=UseSimulatedGripperJointType)* '}' )?
+		//        ('actuator' '{' actuator+=Name ( "," actuator+=Name)* '}' )?
+		//        ('joint' '{' joint+=Name ( "," joint+=Name)* '}' )?
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Transmission'
+		//'{'
+		//    ('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
+		//    'name' name=EString
+		//    'type' type=EString
+		//    ('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
+		//    ('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
+		//    ('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
+		//    ('rollJoint' '{' rollJoint+=ActuatorTransmission ( "," rollJoint+=ActuatorTransmission)* '}' )?
+		//    ('gapJoint' '{' gapJoint+=GapJointTransmission ( "," gapJoint+=GapJointTransmission)* '}' )?
+		//    ('passiveJoint' '{' passiveJoint+=PassiveJointTransmission ( "," passiveJoint+=PassiveJointTransmission)* '}' )?
+		//    ('useSimulatedGripperJoint' '{' useSimulatedGripperJoint+=UseSimulatedGripperJointType ( "," useSimulatedGripperJoint+=UseSimulatedGripperJointType)* '}' )?
+		//    ('actuator' '{' actuator+=Name ( "," actuator+=Name)* '}' )?
+		//    ('joint' '{' joint+=Name ( "," joint+=Name)* '}' )?
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Transmission'
+		public Keyword getTransmissionKeyword_0() { return cTransmissionKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'mechanicalReduction'
+		public Keyword getMechanicalReductionKeyword_2_0() { return cMechanicalReductionKeyword_2_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
+		
+		//mechanicalReduction+=Double0
+		public Assignment getMechanicalReductionAssignment_2_2() { return cMechanicalReductionAssignment_2_2; }
+		
+		//Double0
+		public RuleCall getMechanicalReductionDouble0ParserRuleCall_2_2_0() { return cMechanicalReductionDouble0ParserRuleCall_2_2_0; }
+		
+		//( "," mechanicalReduction+=Double0)*
+		public Group getGroup_2_3() { return cGroup_2_3; }
+		
+		//","
+		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
+		
+		//mechanicalReduction+=Double0
+		public Assignment getMechanicalReductionAssignment_2_3_1() { return cMechanicalReductionAssignment_2_3_1; }
+		
+		//Double0
+		public RuleCall getMechanicalReductionDouble0ParserRuleCall_2_3_1_0() { return cMechanicalReductionDouble0ParserRuleCall_2_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
+		
+		//'name'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//'type'
+		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
+		
+		//type=EString
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
+		
+		//EString
+		public RuleCall getTypeEStringParserRuleCall_6_0() { return cTypeEStringParserRuleCall_6_0; }
+		
+		//('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'leftActuator'
+		public Keyword getLeftActuatorKeyword_7_0() { return cLeftActuatorKeyword_7_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
+		
+		//leftActuator+=ActuatorTransmission
+		public Assignment getLeftActuatorAssignment_7_2() { return cLeftActuatorAssignment_7_2; }
+		
+		//ActuatorTransmission
+		public RuleCall getLeftActuatorActuatorTransmissionParserRuleCall_7_2_0() { return cLeftActuatorActuatorTransmissionParserRuleCall_7_2_0; }
+		
+		//( "," leftActuator+=ActuatorTransmission)*
+		public Group getGroup_7_3() { return cGroup_7_3; }
+		
+		//","
+		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
+		
+		//leftActuator+=ActuatorTransmission
+		public Assignment getLeftActuatorAssignment_7_3_1() { return cLeftActuatorAssignment_7_3_1; }
+		
+		//ActuatorTransmission
+		public RuleCall getLeftActuatorActuatorTransmissionParserRuleCall_7_3_1_0() { return cLeftActuatorActuatorTransmissionParserRuleCall_7_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		
+		//('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'rightActuator'
+		public Keyword getRightActuatorKeyword_8_0() { return cRightActuatorKeyword_8_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_8_1() { return cLeftCurlyBracketKeyword_8_1; }
+		
+		//rightActuator+=ActuatorTransmission
+		public Assignment getRightActuatorAssignment_8_2() { return cRightActuatorAssignment_8_2; }
+		
+		//ActuatorTransmission
+		public RuleCall getRightActuatorActuatorTransmissionParserRuleCall_8_2_0() { return cRightActuatorActuatorTransmissionParserRuleCall_8_2_0; }
+		
+		//( "," rightActuator+=ActuatorTransmission)*
+		public Group getGroup_8_3() { return cGroup_8_3; }
+		
+		//","
+		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
+		
+		//rightActuator+=ActuatorTransmission
+		public Assignment getRightActuatorAssignment_8_3_1() { return cRightActuatorAssignment_8_3_1; }
+		
+		//ActuatorTransmission
+		public RuleCall getRightActuatorActuatorTransmissionParserRuleCall_8_3_1_0() { return cRightActuatorActuatorTransmissionParserRuleCall_8_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8_4() { return cRightCurlyBracketKeyword_8_4; }
+		
+		//('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'flexJoint'
+		public Keyword getFlexJointKeyword_9_0() { return cFlexJointKeyword_9_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_9_1() { return cLeftCurlyBracketKeyword_9_1; }
+		
+		//flexJoint+=ActuatorTransmission
+		public Assignment getFlexJointAssignment_9_2() { return cFlexJointAssignment_9_2; }
+		
+		//ActuatorTransmission
+		public RuleCall getFlexJointActuatorTransmissionParserRuleCall_9_2_0() { return cFlexJointActuatorTransmissionParserRuleCall_9_2_0; }
+		
+		//( "," flexJoint+=ActuatorTransmission)*
+		public Group getGroup_9_3() { return cGroup_9_3; }
+		
+		//","
+		public Keyword getCommaKeyword_9_3_0() { return cCommaKeyword_9_3_0; }
+		
+		//flexJoint+=ActuatorTransmission
+		public Assignment getFlexJointAssignment_9_3_1() { return cFlexJointAssignment_9_3_1; }
+		
+		//ActuatorTransmission
+		public RuleCall getFlexJointActuatorTransmissionParserRuleCall_9_3_1_0() { return cFlexJointActuatorTransmissionParserRuleCall_9_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_9_4() { return cRightCurlyBracketKeyword_9_4; }
+		
+		//('rollJoint' '{' rollJoint+=ActuatorTransmission ( "," rollJoint+=ActuatorTransmission)* '}' )?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'rollJoint'
+		public Keyword getRollJointKeyword_10_0() { return cRollJointKeyword_10_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_10_1() { return cLeftCurlyBracketKeyword_10_1; }
+		
+		//rollJoint+=ActuatorTransmission
+		public Assignment getRollJointAssignment_10_2() { return cRollJointAssignment_10_2; }
+		
+		//ActuatorTransmission
+		public RuleCall getRollJointActuatorTransmissionParserRuleCall_10_2_0() { return cRollJointActuatorTransmissionParserRuleCall_10_2_0; }
+		
+		//( "," rollJoint+=ActuatorTransmission)*
+		public Group getGroup_10_3() { return cGroup_10_3; }
+		
+		//","
+		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
+		
+		//rollJoint+=ActuatorTransmission
+		public Assignment getRollJointAssignment_10_3_1() { return cRollJointAssignment_10_3_1; }
+		
+		//ActuatorTransmission
+		public RuleCall getRollJointActuatorTransmissionParserRuleCall_10_3_1_0() { return cRollJointActuatorTransmissionParserRuleCall_10_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_10_4() { return cRightCurlyBracketKeyword_10_4; }
+		
+		//('gapJoint' '{' gapJoint+=GapJointTransmission ( "," gapJoint+=GapJointTransmission)* '}' )?
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//'gapJoint'
+		public Keyword getGapJointKeyword_11_0() { return cGapJointKeyword_11_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_11_1() { return cLeftCurlyBracketKeyword_11_1; }
+		
+		//gapJoint+=GapJointTransmission
+		public Assignment getGapJointAssignment_11_2() { return cGapJointAssignment_11_2; }
+		
+		//GapJointTransmission
+		public RuleCall getGapJointGapJointTransmissionParserRuleCall_11_2_0() { return cGapJointGapJointTransmissionParserRuleCall_11_2_0; }
+		
+		//( "," gapJoint+=GapJointTransmission)*
+		public Group getGroup_11_3() { return cGroup_11_3; }
+		
+		//","
+		public Keyword getCommaKeyword_11_3_0() { return cCommaKeyword_11_3_0; }
+		
+		//gapJoint+=GapJointTransmission
+		public Assignment getGapJointAssignment_11_3_1() { return cGapJointAssignment_11_3_1; }
+		
+		//GapJointTransmission
+		public RuleCall getGapJointGapJointTransmissionParserRuleCall_11_3_1_0() { return cGapJointGapJointTransmissionParserRuleCall_11_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_11_4() { return cRightCurlyBracketKeyword_11_4; }
+		
+		//('passiveJoint' '{' passiveJoint+=PassiveJointTransmission ( "," passiveJoint+=PassiveJointTransmission)* '}' )?
+		public Group getGroup_12() { return cGroup_12; }
+		
+		//'passiveJoint'
+		public Keyword getPassiveJointKeyword_12_0() { return cPassiveJointKeyword_12_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_12_1() { return cLeftCurlyBracketKeyword_12_1; }
+		
+		//passiveJoint+=PassiveJointTransmission
+		public Assignment getPassiveJointAssignment_12_2() { return cPassiveJointAssignment_12_2; }
+		
+		//PassiveJointTransmission
+		public RuleCall getPassiveJointPassiveJointTransmissionParserRuleCall_12_2_0() { return cPassiveJointPassiveJointTransmissionParserRuleCall_12_2_0; }
+		
+		//( "," passiveJoint+=PassiveJointTransmission)*
+		public Group getGroup_12_3() { return cGroup_12_3; }
+		
+		//","
+		public Keyword getCommaKeyword_12_3_0() { return cCommaKeyword_12_3_0; }
+		
+		//passiveJoint+=PassiveJointTransmission
+		public Assignment getPassiveJointAssignment_12_3_1() { return cPassiveJointAssignment_12_3_1; }
+		
+		//PassiveJointTransmission
+		public RuleCall getPassiveJointPassiveJointTransmissionParserRuleCall_12_3_1_0() { return cPassiveJointPassiveJointTransmissionParserRuleCall_12_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_12_4() { return cRightCurlyBracketKeyword_12_4; }
+		
+		//('useSimulatedGripperJoint' '{' useSimulatedGripperJoint+=UseSimulatedGripperJointType ( "," useSimulatedGripperJoint+=UseSimulatedGripperJointType)* '}' )?
+		public Group getGroup_13() { return cGroup_13; }
+		
+		//'useSimulatedGripperJoint'
+		public Keyword getUseSimulatedGripperJointKeyword_13_0() { return cUseSimulatedGripperJointKeyword_13_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_13_1() { return cLeftCurlyBracketKeyword_13_1; }
+		
+		//useSimulatedGripperJoint+=UseSimulatedGripperJointType
+		public Assignment getUseSimulatedGripperJointAssignment_13_2() { return cUseSimulatedGripperJointAssignment_13_2; }
+		
+		//UseSimulatedGripperJointType
+		public RuleCall getUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_2_0() { return cUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_2_0; }
+		
+		//( "," useSimulatedGripperJoint+=UseSimulatedGripperJointType)*
+		public Group getGroup_13_3() { return cGroup_13_3; }
+		
+		//","
+		public Keyword getCommaKeyword_13_3_0() { return cCommaKeyword_13_3_0; }
+		
+		//useSimulatedGripperJoint+=UseSimulatedGripperJointType
+		public Assignment getUseSimulatedGripperJointAssignment_13_3_1() { return cUseSimulatedGripperJointAssignment_13_3_1; }
+		
+		//UseSimulatedGripperJointType
+		public RuleCall getUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_3_1_0() { return cUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_13_4() { return cRightCurlyBracketKeyword_13_4; }
+		
+		//('actuator' '{' actuator+=Name ( "," actuator+=Name)* '}' )?
+		public Group getGroup_14() { return cGroup_14; }
+		
+		//'actuator'
+		public Keyword getActuatorKeyword_14_0() { return cActuatorKeyword_14_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_14_1() { return cLeftCurlyBracketKeyword_14_1; }
+		
+		//actuator+=Name
+		public Assignment getActuatorAssignment_14_2() { return cActuatorAssignment_14_2; }
+		
+		//Name
+		public RuleCall getActuatorNameParserRuleCall_14_2_0() { return cActuatorNameParserRuleCall_14_2_0; }
+		
+		//( "," actuator+=Name)*
+		public Group getGroup_14_3() { return cGroup_14_3; }
+		
+		//","
+		public Keyword getCommaKeyword_14_3_0() { return cCommaKeyword_14_3_0; }
+		
+		//actuator+=Name
+		public Assignment getActuatorAssignment_14_3_1() { return cActuatorAssignment_14_3_1; }
+		
+		//Name
+		public RuleCall getActuatorNameParserRuleCall_14_3_1_0() { return cActuatorNameParserRuleCall_14_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_14_4() { return cRightCurlyBracketKeyword_14_4; }
+		
+		//('joint' '{' joint+=Name ( "," joint+=Name)* '}' )?
+		public Group getGroup_15() { return cGroup_15; }
+		
+		//'joint'
+		public Keyword getJointKeyword_15_0() { return cJointKeyword_15_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_15_1() { return cLeftCurlyBracketKeyword_15_1; }
+		
+		//joint+=Name
+		public Assignment getJointAssignment_15_2() { return cJointAssignment_15_2; }
+		
+		//Name
+		public RuleCall getJointNameParserRuleCall_15_2_0() { return cJointNameParserRuleCall_15_2_0; }
+		
+		//( "," joint+=Name)*
+		public Group getGroup_15_3() { return cGroup_15_3; }
+		
+		//","
+		public Keyword getCommaKeyword_15_3_0() { return cCommaKeyword_15_3_0; }
+		
+		//joint+=Name
+		public Assignment getJointAssignment_15_3_1() { return cJointAssignment_15_3_1; }
+		
+		//Name
+		public RuleCall getJointNameParserRuleCall_15_3_1_0() { return cJointNameParserRuleCall_15_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_15_4() { return cRightCurlyBracketKeyword_15_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 	}
 	public class PoseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Pose");
@@ -2444,6 +2997,370 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
+	public class ActuatorTransmissionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cActuatorTransmissionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cMechanicalReductionKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMechanicalReductionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMechanicalReductionDouble0ParserRuleCall_3_0 = (RuleCall)cMechanicalReductionAssignment_3.eContents().get(0);
+		private final Keyword cNameKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNameEStringParserRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//ActuatorTransmission returns urdf::ActuatorTransmission:
+		//    'ActuatorTransmission'
+		//    '{'
+		//        'mechanicalReduction' mechanicalReduction=Double0
+		//        'name' name=EString
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ActuatorTransmission'
+		//'{'
+		//    'mechanicalReduction' mechanicalReduction=Double0
+		//    'name' name=EString
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'ActuatorTransmission'
+		public Keyword getActuatorTransmissionKeyword_0() { return cActuatorTransmissionKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'mechanicalReduction'
+		public Keyword getMechanicalReductionKeyword_2() { return cMechanicalReductionKeyword_2; }
+		
+		//mechanicalReduction=Double0
+		public Assignment getMechanicalReductionAssignment_3() { return cMechanicalReductionAssignment_3; }
+		
+		//Double0
+		public RuleCall getMechanicalReductionDouble0ParserRuleCall_3_0() { return cMechanicalReductionDouble0ParserRuleCall_3_0; }
+		
+		//'name'
+		public Keyword getNameKeyword_4() { return cNameKeyword_4; }
+		
+		//name=EString
+		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_5_0() { return cNameEStringParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class GapJointTransmissionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.GapJointTransmission");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGapJointTransmissionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cAKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cAAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cADouble0ParserRuleCall_3_0 = (RuleCall)cAAssignment_3.eContents().get(0);
+		private final Keyword cBKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cBAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cBDouble0ParserRuleCall_5_0 = (RuleCall)cBAssignment_5.eContents().get(0);
+		private final Keyword cGearRatioKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cGearRatioAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cGearRatioDouble0ParserRuleCall_7_0 = (RuleCall)cGearRatioAssignment_7.eContents().get(0);
+		private final Keyword cHKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cHAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cHDouble0ParserRuleCall_9_0 = (RuleCall)cHAssignment_9.eContents().get(0);
+		private final Keyword cL0Keyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cL0Assignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cL0Double0ParserRuleCall_11_0 = (RuleCall)cL0Assignment_11.eContents().get(0);
+		private final Keyword cMechanicalReductionKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cMechanicalReductionAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cMechanicalReductionDouble0ParserRuleCall_13_0 = (RuleCall)cMechanicalReductionAssignment_13.eContents().get(0);
+		private final Keyword cNameKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Assignment cNameAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cNameEStringParserRuleCall_15_0 = (RuleCall)cNameAssignment_15.eContents().get(0);
+		private final Keyword cPhi0Keyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Assignment cPhi0Assignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cPhi0Double0ParserRuleCall_17_0 = (RuleCall)cPhi0Assignment_17.eContents().get(0);
+		private final Keyword cRKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Assignment cRAssignment_19 = (Assignment)cGroup.eContents().get(19);
+		private final RuleCall cRDouble0ParserRuleCall_19_0 = (RuleCall)cRAssignment_19.eContents().get(0);
+		private final Keyword cScrewReductionKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Assignment cScrewReductionAssignment_21 = (Assignment)cGroup.eContents().get(21);
+		private final RuleCall cScrewReductionDouble0ParserRuleCall_21_0 = (RuleCall)cScrewReductionAssignment_21.eContents().get(0);
+		private final Keyword cT0Keyword_22 = (Keyword)cGroup.eContents().get(22);
+		private final Assignment cT0Assignment_23 = (Assignment)cGroup.eContents().get(23);
+		private final RuleCall cT0Double0ParserRuleCall_23_0 = (RuleCall)cT0Assignment_23.eContents().get(0);
+		private final Keyword cTheta0Keyword_24 = (Keyword)cGroup.eContents().get(24);
+		private final Assignment cTheta0Assignment_25 = (Assignment)cGroup.eContents().get(25);
+		private final RuleCall cTheta0Double0ParserRuleCall_25_0 = (RuleCall)cTheta0Assignment_25.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_26 = (Keyword)cGroup.eContents().get(26);
+		
+		//GapJointTransmission returns urdf::GapJointTransmission:
+		//    'GapJointTransmission'
+		//    '{'
+		//        'a' a=Double0
+		//        'b' b=Double0
+		//        'gearRatio' gearRatio=Double0
+		//        'h' h=Double0
+		//        'l0' l0=Double0
+		//        'mechanicalReduction' mechanicalReduction=Double0
+		//        'name' name=EString
+		//        'phi0' phi0=Double0
+		//        'r' r=Double0
+		//        'screwReduction' screwReduction=Double0
+		//        't0' t0=Double0
+		//        'theta0' theta0=Double0
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'GapJointTransmission'
+		//'{'
+		//    'a' a=Double0
+		//    'b' b=Double0
+		//    'gearRatio' gearRatio=Double0
+		//    'h' h=Double0
+		//    'l0' l0=Double0
+		//    'mechanicalReduction' mechanicalReduction=Double0
+		//    'name' name=EString
+		//    'phi0' phi0=Double0
+		//    'r' r=Double0
+		//    'screwReduction' screwReduction=Double0
+		//    't0' t0=Double0
+		//    'theta0' theta0=Double0
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'GapJointTransmission'
+		public Keyword getGapJointTransmissionKeyword_0() { return cGapJointTransmissionKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'a'
+		public Keyword getAKeyword_2() { return cAKeyword_2; }
+		
+		//a=Double0
+		public Assignment getAAssignment_3() { return cAAssignment_3; }
+		
+		//Double0
+		public RuleCall getADouble0ParserRuleCall_3_0() { return cADouble0ParserRuleCall_3_0; }
+		
+		//'b'
+		public Keyword getBKeyword_4() { return cBKeyword_4; }
+		
+		//b=Double0
+		public Assignment getBAssignment_5() { return cBAssignment_5; }
+		
+		//Double0
+		public RuleCall getBDouble0ParserRuleCall_5_0() { return cBDouble0ParserRuleCall_5_0; }
+		
+		//'gearRatio'
+		public Keyword getGearRatioKeyword_6() { return cGearRatioKeyword_6; }
+		
+		//gearRatio=Double0
+		public Assignment getGearRatioAssignment_7() { return cGearRatioAssignment_7; }
+		
+		//Double0
+		public RuleCall getGearRatioDouble0ParserRuleCall_7_0() { return cGearRatioDouble0ParserRuleCall_7_0; }
+		
+		//'h'
+		public Keyword getHKeyword_8() { return cHKeyword_8; }
+		
+		//h=Double0
+		public Assignment getHAssignment_9() { return cHAssignment_9; }
+		
+		//Double0
+		public RuleCall getHDouble0ParserRuleCall_9_0() { return cHDouble0ParserRuleCall_9_0; }
+		
+		//'l0'
+		public Keyword getL0Keyword_10() { return cL0Keyword_10; }
+		
+		//l0=Double0
+		public Assignment getL0Assignment_11() { return cL0Assignment_11; }
+		
+		//Double0
+		public RuleCall getL0Double0ParserRuleCall_11_0() { return cL0Double0ParserRuleCall_11_0; }
+		
+		//'mechanicalReduction'
+		public Keyword getMechanicalReductionKeyword_12() { return cMechanicalReductionKeyword_12; }
+		
+		//mechanicalReduction=Double0
+		public Assignment getMechanicalReductionAssignment_13() { return cMechanicalReductionAssignment_13; }
+		
+		//Double0
+		public RuleCall getMechanicalReductionDouble0ParserRuleCall_13_0() { return cMechanicalReductionDouble0ParserRuleCall_13_0; }
+		
+		//'name'
+		public Keyword getNameKeyword_14() { return cNameKeyword_14; }
+		
+		//name=EString
+		public Assignment getNameAssignment_15() { return cNameAssignment_15; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_15_0() { return cNameEStringParserRuleCall_15_0; }
+		
+		//'phi0'
+		public Keyword getPhi0Keyword_16() { return cPhi0Keyword_16; }
+		
+		//phi0=Double0
+		public Assignment getPhi0Assignment_17() { return cPhi0Assignment_17; }
+		
+		//Double0
+		public RuleCall getPhi0Double0ParserRuleCall_17_0() { return cPhi0Double0ParserRuleCall_17_0; }
+		
+		//'r'
+		public Keyword getRKeyword_18() { return cRKeyword_18; }
+		
+		//r=Double0
+		public Assignment getRAssignment_19() { return cRAssignment_19; }
+		
+		//Double0
+		public RuleCall getRDouble0ParserRuleCall_19_0() { return cRDouble0ParserRuleCall_19_0; }
+		
+		//'screwReduction'
+		public Keyword getScrewReductionKeyword_20() { return cScrewReductionKeyword_20; }
+		
+		//screwReduction=Double0
+		public Assignment getScrewReductionAssignment_21() { return cScrewReductionAssignment_21; }
+		
+		//Double0
+		public RuleCall getScrewReductionDouble0ParserRuleCall_21_0() { return cScrewReductionDouble0ParserRuleCall_21_0; }
+		
+		//'t0'
+		public Keyword getT0Keyword_22() { return cT0Keyword_22; }
+		
+		//t0=Double0
+		public Assignment getT0Assignment_23() { return cT0Assignment_23; }
+		
+		//Double0
+		public RuleCall getT0Double0ParserRuleCall_23_0() { return cT0Double0ParserRuleCall_23_0; }
+		
+		//'theta0'
+		public Keyword getTheta0Keyword_24() { return cTheta0Keyword_24; }
+		
+		//theta0=Double0
+		public Assignment getTheta0Assignment_25() { return cTheta0Assignment_25; }
+		
+		//Double0
+		public RuleCall getTheta0Double0ParserRuleCall_25_0() { return cTheta0Double0ParserRuleCall_25_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_26() { return cRightCurlyBracketKeyword_26; }
+	}
+	public class PassiveJointTransmissionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.PassiveJointTransmission");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPassiveJointTransmissionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//PassiveJointTransmission returns urdf::PassiveJointTransmission:
+		//    'PassiveJointTransmission'
+		//    '{'
+		//        'name' name=EString
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PassiveJointTransmission'
+		//'{'
+		//    'name' name=EString
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'PassiveJointTransmission'
+		public Keyword getPassiveJointTransmissionKeyword_0() { return cPassiveJointTransmissionKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'name'
+		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		
+		//name=EString
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class UseSimulatedGripperJointTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.UseSimulatedGripperJointType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cUseSimulatedGripperJointTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cUseSimulatedGripperJointTypeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//UseSimulatedGripperJointType returns urdf::UseSimulatedGripperJointType:
+		//    {urdf::UseSimulatedGripperJointType}
+		//    'UseSimulatedGripperJointType'
+		//    ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{urdf::UseSimulatedGripperJointType}
+		//'UseSimulatedGripperJointType'
+		public Group getGroup() { return cGroup; }
+		
+		//{urdf::UseSimulatedGripperJointType}
+		public Action getUseSimulatedGripperJointTypeAction_0() { return cUseSimulatedGripperJointTypeAction_0; }
+		
+		//'UseSimulatedGripperJointType'
+		public Keyword getUseSimulatedGripperJointTypeKeyword_1() { return cUseSimulatedGripperJointTypeKeyword_1; }
+	}
+	public class NameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cNameAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Name returns urdf::Name:
+		//    {urdf::Name}
+		//    'Name'
+		//    '{'
+		//        ('name' name=EString)?
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{urdf::Name}
+		//'Name'
+		//'{'
+		//    ('name' name=EString)?
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//{urdf::Name}
+		public Action getNameAction_0() { return cNameAction_0; }
+		
+		//'Name'
+		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('name' name=EString)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'name'
+		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
 	public class Double0Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
 		private final RuleCall cDOUBLETerminalRuleCall = (RuleCall)rule.eContents().get(1);
@@ -2476,6 +3393,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final JointElements pJoint;
 	private final LinkElements pLink;
 	private final MaterialGlobalElements pMaterialGlobal;
+	private final TransmissionElements pTransmission;
 	private final PoseElements pPose;
 	private final AxisElements pAxis;
 	private final CalibrationElements pCalibration;
@@ -2498,6 +3416,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ColorElements pColor;
 	private final TextureElements pTexture;
 	private final VerboseElements pVerbose;
+	private final ActuatorTransmissionElements pActuatorTransmission;
+	private final GapJointTransmissionElements pGapJointTransmission;
+	private final PassiveJointTransmissionElements pPassiveJointTransmission;
+	private final UseSimulatedGripperJointTypeElements pUseSimulatedGripperJointType;
+	private final NameElements pName;
 	private final TerminalRule tDIGIT;
 	private final TerminalRule tBOOLEAN;
 	private final TerminalRule tDOUBLE;
@@ -2522,6 +3445,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pJoint = new JointElements();
 		this.pLink = new LinkElements();
 		this.pMaterialGlobal = new MaterialGlobalElements();
+		this.pTransmission = new TransmissionElements();
 		this.pPose = new PoseElements();
 		this.pAxis = new AxisElements();
 		this.pCalibration = new CalibrationElements();
@@ -2544,6 +3468,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pColor = new ColorElements();
 		this.pTexture = new TextureElements();
 		this.pVerbose = new VerboseElements();
+		this.pActuatorTransmission = new ActuatorTransmissionElements();
+		this.pGapJointTransmission = new GapJointTransmissionElements();
+		this.pPassiveJointTransmission = new PassiveJointTransmissionElements();
+		this.pUseSimulatedGripperJointType = new UseSimulatedGripperJointTypeElements();
+		this.pName = new NameElements();
 		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.DIGIT");
 		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.BOOLEAN");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.DOUBLE");
@@ -2584,7 +3513,9 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'Robot'
 	//    '{'
 	//        'name' name=EString
+	//        ('version' version=EString)?
 	//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
+	//        ('body' body=Body)?
 	//    '}';
 	public RobotElements getRobotAccess() {
 		return pRobot;
@@ -2642,6 +3573,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 	//        ('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
 	//        ('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
+	//        ('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 	//    '}';
 	public BodyElements getBodyAccess() {
 		return pBody;
@@ -2704,6 +3636,30 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getMaterialGlobalRule() {
 		return getMaterialGlobalAccess().getRule();
+	}
+	
+	//Transmission returns urdf::Transmission:
+	//    'Transmission'
+	//    '{'
+	//        ('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
+	//        'name' name=EString
+	//        'type' type=EString
+	//        ('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
+	//        ('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
+	//        ('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
+	//        ('rollJoint' '{' rollJoint+=ActuatorTransmission ( "," rollJoint+=ActuatorTransmission)* '}' )?
+	//        ('gapJoint' '{' gapJoint+=GapJointTransmission ( "," gapJoint+=GapJointTransmission)* '}' )?
+	//        ('passiveJoint' '{' passiveJoint+=PassiveJointTransmission ( "," passiveJoint+=PassiveJointTransmission)* '}' )?
+	//        ('useSimulatedGripperJoint' '{' useSimulatedGripperJoint+=UseSimulatedGripperJointType ( "," useSimulatedGripperJoint+=UseSimulatedGripperJointType)* '}' )?
+	//        ('actuator' '{' actuator+=Name ( "," actuator+=Name)* '}' )?
+	//        ('joint' '{' joint+=Name ( "," joint+=Name)* '}' )?
+	//    '}';
+	public TransmissionElements getTransmissionAccess() {
+		return pTransmission;
+	}
+	
+	public ParserRule getTransmissionRule() {
+		return getTransmissionAccess().getRule();
 	}
 	
 	//Pose returns urdf::Pose:
@@ -3032,6 +3988,83 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getVerboseRule() {
 		return getVerboseAccess().getRule();
+	}
+	
+	//ActuatorTransmission returns urdf::ActuatorTransmission:
+	//    'ActuatorTransmission'
+	//    '{'
+	//        'mechanicalReduction' mechanicalReduction=Double0
+	//        'name' name=EString
+	//    '}';
+	public ActuatorTransmissionElements getActuatorTransmissionAccess() {
+		return pActuatorTransmission;
+	}
+	
+	public ParserRule getActuatorTransmissionRule() {
+		return getActuatorTransmissionAccess().getRule();
+	}
+	
+	//GapJointTransmission returns urdf::GapJointTransmission:
+	//    'GapJointTransmission'
+	//    '{'
+	//        'a' a=Double0
+	//        'b' b=Double0
+	//        'gearRatio' gearRatio=Double0
+	//        'h' h=Double0
+	//        'l0' l0=Double0
+	//        'mechanicalReduction' mechanicalReduction=Double0
+	//        'name' name=EString
+	//        'phi0' phi0=Double0
+	//        'r' r=Double0
+	//        'screwReduction' screwReduction=Double0
+	//        't0' t0=Double0
+	//        'theta0' theta0=Double0
+	//    '}';
+	public GapJointTransmissionElements getGapJointTransmissionAccess() {
+		return pGapJointTransmission;
+	}
+	
+	public ParserRule getGapJointTransmissionRule() {
+		return getGapJointTransmissionAccess().getRule();
+	}
+	
+	//PassiveJointTransmission returns urdf::PassiveJointTransmission:
+	//    'PassiveJointTransmission'
+	//    '{'
+	//        'name' name=EString
+	//    '}';
+	public PassiveJointTransmissionElements getPassiveJointTransmissionAccess() {
+		return pPassiveJointTransmission;
+	}
+	
+	public ParserRule getPassiveJointTransmissionRule() {
+		return getPassiveJointTransmissionAccess().getRule();
+	}
+	
+	//UseSimulatedGripperJointType returns urdf::UseSimulatedGripperJointType:
+	//    {urdf::UseSimulatedGripperJointType}
+	//    'UseSimulatedGripperJointType'
+	//    ;
+	public UseSimulatedGripperJointTypeElements getUseSimulatedGripperJointTypeAccess() {
+		return pUseSimulatedGripperJointType;
+	}
+	
+	public ParserRule getUseSimulatedGripperJointTypeRule() {
+		return getUseSimulatedGripperJointTypeAccess().getRule();
+	}
+	
+	//Name returns urdf::Name:
+	//    {urdf::Name}
+	//    'Name'
+	//    '{'
+	//        ('name' name=EString)?
+	//    '}';
+	public NameElements getNameAccess() {
+		return pName;
+	}
+	
+	public ParserRule getNameRule() {
+		return getNameAccess().getRule();
 	}
 	
 	//// from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307

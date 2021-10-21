@@ -85,13 +85,31 @@ public interface XacroPackage extends EPackage {
 	int ROBOT__MACRO = 1;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__VERSION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__BODY = 3;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 2;
+	int ROBOT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Robot</em>' class.
@@ -195,13 +213,22 @@ public interface XacroPackage extends EPackage {
 	int BODY__MATERIAL = 2;
 
 	/**
+	 * The feature id for the '<em><b>Transmission</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BODY__TRANSMISSION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Body</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BODY_FEATURE_COUNT = 3;
+	int BODY_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Body</em>' class.
@@ -302,6 +329,28 @@ public interface XacroPackage extends EPackage {
 	EReference getRobot_Macro();
 
 	/**
+	 * Returns the meta object for the attribute '{@link xacro.Robot#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see xacro.Robot#getVersion()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EAttribute getRobot_Version();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link xacro.Robot#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body</em>'.
+	 * @see xacro.Robot#getBody()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EReference getRobot_Body();
+
+	/**
 	 * Returns the meta object for class '{@link xacro.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +435,17 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBody_Material();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link xacro.Body#getTransmission <em>Transmission</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Transmission</em>'.
+	 * @see xacro.Body#getTransmission()
+	 * @see #getBody()
+	 * @generated
+	 */
+	EReference getBody_Transmission();
 
 	/**
 	 * Returns the meta object for class '{@link xacro.Macro <em>Macro</em>}'.
@@ -480,6 +540,22 @@ public interface XacroPackage extends EPackage {
 		EReference ROBOT__MACRO = eINSTANCE.getRobot_Macro();
 
 		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROBOT__VERSION = eINSTANCE.getRobot_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__BODY = eINSTANCE.getRobot_Body();
+
+		/**
 		 * The meta object literal for the '{@link xacro.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -546,6 +622,14 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BODY__MATERIAL = eINSTANCE.getBody_Material();
+
+		/**
+		 * The meta object literal for the '<em><b>Transmission</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BODY__TRANSMISSION = eINSTANCE.getBody_Transmission();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.MacroImpl <em>Macro</em>}' class.
