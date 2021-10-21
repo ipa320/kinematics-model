@@ -16210,9 +16210,9 @@ rule__Mesh__FilenameAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); }
-		ruleAnyURI
-		{ after(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); }
+		{ before(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); }
+		ruleEString
+		{ after(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); }
 	)
 ;
 finally {

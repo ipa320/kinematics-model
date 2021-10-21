@@ -514,7 +514,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Mesh returns Mesh
 	 *
 	 * Constraint:
-	 *     (filename=AnyURI scale=EString?)
+	 *     (filename=EString scale=EString?)
 	 */
 	protected void sequence_Mesh(ISerializationContext context, Mesh semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

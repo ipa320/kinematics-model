@@ -37709,7 +37709,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12558:1: ( rule__Mesh__Group__2__Impl rule__Mesh__Group__3 )
             // InternalXacro.g:12559:2: rule__Mesh__Group__2__Impl rule__Mesh__Group__3
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_6);
             rule__Mesh__Group__2__Impl();
 
             state._fsp--;
@@ -37784,7 +37784,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12585:1: ( rule__Mesh__Group__3__Impl rule__Mesh__Group__4 )
             // InternalXacro.g:12586:2: rule__Mesh__Group__3__Impl rule__Mesh__Group__4
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_78);
             rule__Mesh__Group__3__Impl();
 
             state._fsp--;
@@ -37869,7 +37869,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12612:1: ( rule__Mesh__Group__4__Impl rule__Mesh__Group__5 )
             // InternalXacro.g:12613:2: rule__Mesh__Group__4__Impl rule__Mesh__Group__5
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_78);
             rule__Mesh__Group__4__Impl();
 
             state._fsp--;
@@ -38340,7 +38340,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12774:1: ( rule__Color__Group__2__Impl rule__Color__Group__3 )
             // InternalXacro.g:12775:2: rule__Color__Group__2__Impl rule__Color__Group__3
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_79);
             rule__Color__Group__2__Impl();
 
             state._fsp--;
@@ -38415,7 +38415,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12801:1: ( rule__Color__Group__3__Impl rule__Color__Group__4 )
             // InternalXacro.g:12802:2: rule__Color__Group__3__Impl rule__Color__Group__4
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_79);
             rule__Color__Group__3__Impl();
 
             state._fsp--;
@@ -38886,7 +38886,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12963:1: ( rule__Texture__Group__2__Impl rule__Texture__Group__3 )
             // InternalXacro.g:12964:2: rule__Texture__Group__2__Impl rule__Texture__Group__3
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_80);
             rule__Texture__Group__2__Impl();
 
             state._fsp--;
@@ -38961,7 +38961,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12990:1: ( rule__Texture__Group__3__Impl rule__Texture__Group__4 )
             // InternalXacro.g:12991:2: rule__Texture__Group__3__Impl rule__Texture__Group__4
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_80);
             rule__Texture__Group__3__Impl();
 
             state._fsp--;
@@ -39127,7 +39127,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13044:1: ( rule__Texture__Group_3__0__Impl rule__Texture__Group_3__1 )
             // InternalXacro.g:13045:2: rule__Texture__Group_3__0__Impl rule__Texture__Group_3__1
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_81);
             rule__Texture__Group_3__0__Impl();
 
             state._fsp--;
@@ -48014,25 +48014,25 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Mesh__FilenameAssignment_3"
-    // InternalXacro.g:16207:1: rule__Mesh__FilenameAssignment_3 : ( ruleAnyURI ) ;
+    // InternalXacro.g:16207:1: rule__Mesh__FilenameAssignment_3 : ( ruleEString ) ;
     public final void rule__Mesh__FilenameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:16211:1: ( ( ruleAnyURI ) )
-            // InternalXacro.g:16212:2: ( ruleAnyURI )
+            // InternalXacro.g:16211:1: ( ( ruleEString ) )
+            // InternalXacro.g:16212:2: ( ruleEString )
             {
-            // InternalXacro.g:16212:2: ( ruleAnyURI )
-            // InternalXacro.g:16213:3: ruleAnyURI
+            // InternalXacro.g:16212:2: ( ruleEString )
+            // InternalXacro.g:16213:3: ruleEString
             {
-             before(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); 
+             before(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
-            ruleAnyURI();
+            ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); 
+             after(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); 
 
             }
 
@@ -48955,10 +48955,10 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
     public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000080000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000080000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000080000L,0x0004000000000000L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000080000L,0x0008000000000000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000080000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000080000L,0x0004000000000000L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0020000000000000L});
     public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000000L,0x0400000000000000L});
     public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});

@@ -8618,7 +8618,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMesh"
-    // InternalXacro.g:3760:1: ruleMesh returns [EObject current=null] : (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleAnyURI ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' ) ;
+    // InternalXacro.g:3760:1: ruleMesh returns [EObject current=null] : (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleEString ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' ) ;
     public final EObject ruleMesh() throws RecognitionException {
         EObject current = null;
 
@@ -8636,11 +8636,11 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:3766:2: ( (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleAnyURI ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' ) )
-            // InternalXacro.g:3767:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleAnyURI ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' )
+            // InternalXacro.g:3766:2: ( (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleEString ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' ) )
+            // InternalXacro.g:3767:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleEString ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' )
             {
-            // InternalXacro.g:3767:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleAnyURI ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' )
-            // InternalXacro.g:3768:3: otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleAnyURI ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}'
+            // InternalXacro.g:3767:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleEString ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' )
+            // InternalXacro.g:3768:3: otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= ruleEString ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}'
             {
             otherlv_0=(Token)match(input,112,FOLLOW_3); 
 
@@ -8650,21 +8650,21 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getMeshAccess().getLeftCurlyBracketKeyword_1());
             		
-            otherlv_2=(Token)match(input,113,FOLLOW_119); 
+            otherlv_2=(Token)match(input,113,FOLLOW_5); 
 
             			newLeafNode(otherlv_2, grammarAccess.getMeshAccess().getFilenameKeyword_2());
             		
-            // InternalXacro.g:3780:3: ( (lv_filename_3_0= ruleAnyURI ) )
-            // InternalXacro.g:3781:4: (lv_filename_3_0= ruleAnyURI )
+            // InternalXacro.g:3780:3: ( (lv_filename_3_0= ruleEString ) )
+            // InternalXacro.g:3781:4: (lv_filename_3_0= ruleEString )
             {
-            // InternalXacro.g:3781:4: (lv_filename_3_0= ruleAnyURI )
-            // InternalXacro.g:3782:5: lv_filename_3_0= ruleAnyURI
+            // InternalXacro.g:3781:4: (lv_filename_3_0= ruleEString )
+            // InternalXacro.g:3782:5: lv_filename_3_0= ruleEString
             {
 
-            					newCompositeNode(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_120);
-            lv_filename_3_0=ruleAnyURI();
+            pushFollow(FOLLOW_119);
+            lv_filename_3_0=ruleEString();
 
             state._fsp--;
 
@@ -8676,7 +8676,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             						current,
             						"filename",
             						lv_filename_3_0,
-            						"de.fraunhofer.ipa.kinematics.xacro.Xacro.AnyURI");
+            						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
             					afterParserOrEnumRuleCall();
             				
 
@@ -8910,7 +8910,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getColorAccess().getColorKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_121); 
+            otherlv_2=(Token)match(input,16,FOLLOW_120); 
 
             			newLeafNode(otherlv_2, grammarAccess.getColorAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -9065,7 +9065,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getTextureAccess().getTextureKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_122); 
+            otherlv_2=(Token)match(input,16,FOLLOW_121); 
 
             			newLeafNode(otherlv_2, grammarAccess.getTextureAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -9080,7 +9080,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalXacro.g:3948:4: otherlv_3= 'filename' ( (lv_filename_4_0= ruleAnyURI ) )
                     {
-                    otherlv_3=(Token)match(input,113,FOLLOW_119); 
+                    otherlv_3=(Token)match(input,113,FOLLOW_122); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getTextureAccess().getFilenameKeyword_3_0());
                     			
@@ -10582,10 +10582,10 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_116 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
     public static final BitSet FOLLOW_117 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
     public static final BitSet FOLLOW_118 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-    public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0000000000200000L,0x0004000000000000L});
-    public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0000000000200000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0000000000200000L,0x0002000000000000L});
+    public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x0000000000200000L,0x0004000000000000L});
+    public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0000000000200000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0000000000200000L,0x0002000000000000L});
+    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
     public static final BitSet FOLLOW_123 = new BitSet(new long[]{0x0010000000000000L});
     public static final BitSet FOLLOW_124 = new BitSet(new long[]{0x0000000000000000L,0x0400000000000000L});
     public static final BitSet FOLLOW_125 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});

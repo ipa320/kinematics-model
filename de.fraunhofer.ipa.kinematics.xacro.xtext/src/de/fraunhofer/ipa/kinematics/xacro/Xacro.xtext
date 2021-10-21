@@ -243,7 +243,7 @@ Sphere returns urdf::Sphere:
 Mesh returns urdf::Mesh:
 	'Mesh'
 	'{'
-		'filename' filename=AnyURI
+		'filename' filename=EString
 		('scale' scale=EString)?
 	'}';
 

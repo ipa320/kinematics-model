@@ -2781,7 +2781,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cFilenameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cFilenameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFilenameAnyURIParserRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
+		private final RuleCall cFilenameEStringParserRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cScaleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cScaleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -2791,14 +2791,14 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Mesh returns urdf::Mesh:
 		//    'Mesh'
 		//    '{'
-		//        'filename' filename=AnyURI
+		//        'filename' filename=EString
 		//        ('scale' scale=EString)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Mesh'
 		//'{'
-		//    'filename' filename=AnyURI
+		//    'filename' filename=EString
 		//    ('scale' scale=EString)?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -2812,11 +2812,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'filename'
 		public Keyword getFilenameKeyword_2() { return cFilenameKeyword_2; }
 		
-		//filename=AnyURI
+		//filename=EString
 		public Assignment getFilenameAssignment_3() { return cFilenameAssignment_3; }
 		
-		//AnyURI
-		public RuleCall getFilenameAnyURIParserRuleCall_3_0() { return cFilenameAnyURIParserRuleCall_3_0; }
+		//EString
+		public RuleCall getFilenameEStringParserRuleCall_3_0() { return cFilenameEStringParserRuleCall_3_0; }
 		
 		//('scale' scale=EString)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -3927,7 +3927,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Mesh returns urdf::Mesh:
 	//    'Mesh'
 	//    '{'
-	//        'filename' filename=AnyURI
+	//        'filename' filename=EString
 	//        ('scale' scale=EString)?
 	//    '}';
 	public MeshElements getMeshAccess() {
