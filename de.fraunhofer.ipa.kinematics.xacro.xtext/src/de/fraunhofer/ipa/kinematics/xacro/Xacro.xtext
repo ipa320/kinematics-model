@@ -50,7 +50,7 @@ Joint returns urdf::Joint:
 	'Joint'
 	'{'
 		'name' name=EString
-		'type' type=EString
+		'type' type=JOINTTYPE
 		'parent' parent=[urdf::Link|EString]
 		'child' child=[urdf::Link|EString]
 		('origin' origin=Pose)?
@@ -318,6 +318,7 @@ terminal fragment DIGIT: '0'..'9';
 terminal BOOLEAN: 'true'|'false';
 terminal DOUBLE returns ecore::EDouble: DECINT (('.' DIGIT*) | (('.' DIGIT*)? ('E'|'e') ('-'|'+')? DECINT));  // Use terminal to avoid 'e' turning into a keyword
 terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
+terminal JOINTTYPE: 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar';
 
 Double0 returns type::Double:
 	DOUBLE;
