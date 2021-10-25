@@ -1,0 +1,148 @@
+Robot { name ur5
+	body Body {
+		link {
+			Link { name world },
+			Link { name base_link
+				inertial Inertial {
+					origin Pose {   }
+					mass Mass { value 4.000000 }
+					inertia Inertia { ixx 0.004433 ixy 0.000000 ixz 0.000000 iyy 0.004433 iyz 0.000000 izz 0.007200 } }
+				visual Visual {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/visual/base.dae" } } }
+				collision Collision {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/collision/base.stl" } } } },
+			Link { name base },
+			Link { name shoulder_link
+				inertial Inertial {
+					origin Pose {   }
+					mass Mass { value 3.700000 }
+					inertia Inertia { ixx 0.010267 ixy 0.000000 ixz 0.000000 iyy 0.010267 iyz 0.000000 izz 0.006660 } }
+				visual Visual {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/visual/shoulder.dae" } } }
+				collision Collision {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/collision/shoulder.stl" } } } },
+			Link { name upper_arm_link
+				inertial Inertial {
+					origin Pose {  xyz "0.000000 0.000000 0.280000" }
+					mass Mass { value 8.393000 }
+					inertia Inertia { ixx 0.226891 ixy 0.000000 ixz 0.000000 iyy 0.226891 iyz 0.000000 izz 0.015107 } }
+				visual Visual {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/visual/upperarm.dae" } } }
+				collision Collision {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/collision/upperarm.stl" } } } },
+			Link { name forearm_link
+				inertial Inertial {
+					origin Pose {  xyz "0.000000 0.000000 0.196125" }
+					mass Mass { value 2.275000 }
+					inertia Inertia { ixx 0.031217 ixy 0.000000 ixz 0.000000 iyy 0.031217 iyz 0.000000 izz 0.004095 } }
+				visual Visual {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/visual/forearm.dae" } } }
+				collision Collision {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/collision/forearm.stl" } } } },
+			Link { name wrist_1_link
+				inertial Inertial {
+					origin Pose {  xyz "0.000000 0.093000 0.000000" }
+					mass Mass { value 1.219000 }
+					inertia Inertia { ixx 0.002560 ixy 0.000000 ixz 0.000000 iyy 0.002560 iyz 0.000000 izz 0.002194 } }
+				visual Visual {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/visual/wrist1.dae" } } }
+				collision Collision {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/collision/wrist1.stl" } } } },
+			Link { name wrist_2_link
+				inertial Inertial {
+					origin Pose {  xyz "0.000000 0.000000 0.094650" }
+					mass Mass { value 1.219000 }
+					inertia Inertia { ixx 0.002560 ixy 0.000000 ixz 0.000000 iyy 0.002560 iyz 0.000000 izz 0.002194 } }
+				visual Visual {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/visual/wrist2.dae" } } }
+				collision Collision {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/collision/wrist2.stl" } } } },
+			Link { name wrist_3_link
+				inertial Inertial {
+					origin Pose { rpy "1.570796 -0.000000 0.000000" xyz "0.000000 0.065050 0.000000" }
+					mass Mass { value 0.187900 }
+					inertia Inertia { ixx 0.000085 ixy 0.000000 ixz 0.000000 iyy 0.000085 iyz 0.000000 izz 0.000132 } }
+				visual Visual {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/visual/wrist3.dae" } } }
+				collision Collision {
+					geometry Geometry {
+						mesh Mesh { filename "package://ur_description/meshes/ur5/collision/wrist3.stl" } } } },
+			Link { name ee_link
+				collision Collision {
+					geometry Geometry {
+						box Box { size "0.010000 0.010000 0.010000" } } } },
+			Link { name tool0 } }
+			joint {
+			Joint {
+	 			name world_joint
+	 			type fixed
+				parent world
+	 			child base_link },
+			Joint {
+	 			name base_link_base_fixed_joint
+	 			type fixed
+				parent base_link
+	 			child base },
+			Joint {
+	 			name shoulder_pan_joint
+	 			type revolute
+				parent base_link
+	 			child shoulder_link
+				axis Axis { xyz "0.000000 0.000000 1.000000" } },
+			Joint {
+	 			name shoulder_lift_joint
+	 			type revolute
+	 			parent shoulder_link
+	 			child upper_arm_link
+				origin Pose { rpy "0.000000 1.570796 -0.000000" xyz "0.000000 0.135850 0.000000" }
+				axis Axis { xyz "0.000000 1.000000 0.000000" } },
+			Joint {
+	 			name elbow_joint
+	 			type revolute
+				parent upper_arm_link
+	 			child forearm_link
+				axis Axis { xyz "0.000000 1.000000 0.000000" } },
+			Joint {
+	 			name wrist_1_joint
+	 			type revolute
+	 			parent forearm_link
+	 			child wrist_1_link
+				origin Pose { rpy "0.000000 1.570796 -0.000000" xyz "0.000000 0.000000 0.392250" }			
+				axis Axis { xyz "0.000000 1.000000 0.000000" } },
+			Joint {
+	 			name wrist_2_joint
+	 			type revolute
+				parent wrist_1_link
+	 			child wrist_2_link
+				axis Axis { xyz "0.000000 0.000000 1.000000" } },
+			Joint {
+	 			name wrist_3_joint
+	 			type revolute
+				parent wrist_2_link
+	 			child wrist_3_link
+				axis Axis { xyz "0.000000 1.000000 0.000000" } },
+			Joint {
+	 			name ee_fixed_joint
+	 			type fixed
+	 			parent wrist_3_link
+	 			child ee_link 
+				origin Pose { rpy "0.000000 -0.000000 1.570796" xyz "0.000000 0.082300 0.000000" }},
+			Joint {
+	 			name wrist_3_link_tool0_fixed_joint
+	 			type fixed
+	 			parent wrist_3_link
+	 			child tool0
+				origin Pose { rpy "-1.570796 0.000000 0.000000" xyz "0.000000 0.082300 0.000000" } } } } }
