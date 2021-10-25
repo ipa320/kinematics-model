@@ -13,10 +13,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 
+import urdf.Joint;
+import urdf.Link;
 import xacro.Macro;
 import xacro.MacroCall;
 import xacro.Parameter;
 import xacro.ParameterCall;
+import xacro.Robot;
 
 /**
  * This class contains custom validation rules. 
@@ -70,6 +73,48 @@ public class XacroValidator extends AbstractXacroValidator {
 				}
 				if (!isSet) {
 					error("Parameter " + parameter.getName() + " is not set.", null);
+				}
+			}
+		}
+	}
+
+	boolean checkMacroInstantiated(Link link) {
+		EObject obj = link.eContainer().eContainer();
+		if (obj instanceof Macro) {
+			EList<MacroCall> macroCalls = ((Robot)obj.eContainer()).getMacroCall();
+
+			boolean isInstantiated = false;
+			for (Iterator<MacroCall> iterator = macroCalls.iterator(); iterator.hasNext();) {
+				MacroCall macroCall = (MacroCall) iterator.next();
+				if (macroCall.eCrossReferences().size() > 0 ) {
+					Macro m = (Macro) macroCall.eCrossReferences().get(0);
+					if (m == obj) {
+						isInstantiated = true;
+						break;
+					}
+				}
+			}
+			return isInstantiated;
+		}
+		return true;
+	}
+
+	// check if link is defined in macro, that the macro is instantiated
+	@Check
+	public void checkLinkInstantiated(Joint joint) {
+		for (Iterator iterator = joint.eCrossReferences().iterator(); iterator.hasNext();) {
+			EObject obj = (EObject) iterator.next();
+			if (obj instanceof Link) {
+				if (joint.eCrossReferences().size() > 1) {
+					Link parent = (Link) joint.eCrossReferences().get(0);
+					Link child = (Link) joint.eCrossReferences().get(1);
+
+					if (!checkMacroInstantiated(parent)) {
+						error("Parent link " + parent.getName() + " belongs to an uninstantiated macro", null);
+					}
+					if (!checkMacroInstantiated(child)) {
+						error("Child link " + child.getName() + " belongs to an uninstantiated macro", null);
+					}
 				}
 			}
 		}
