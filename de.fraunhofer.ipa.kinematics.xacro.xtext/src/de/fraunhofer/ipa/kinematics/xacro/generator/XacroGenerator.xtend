@@ -7,6 +7,11 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import urdf.Joint
+import urdf.Link
+import xacro.Body
+import xacro.Robot
+import xacro.Macro
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +20,102 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class XacroGenerator extends AbstractGenerator {
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		for (robot : resource.allContents.toIterable.filter(Robot)) {
+			fsa.generateFile(robot.name + ".xacro", robot.compile)
+		}
 	}
+
+
+	private def compile_link(Link link)'''
+<link name="«link.name»" >
+	«IF link.visual !== null»
+	<visual>
+		«IF link.visual.geometry !== null»
+		<geometry>
+			«IF link.visual.geometry.mesh !== null»
+			<mesh filename="«link.visual.geometry.mesh.filename»" />
+			«ENDIF»
+			«IF link.visual.geometry.box !== null»
+			<box size="«link.visual.geometry.box.size»" />
+			«ENDIF»
+		</geometry>
+		«ENDIF»
+	</visual>
+	«ENDIF»
+	«IF link.collision !== null»
+	<collision>
+		«IF link.collision.geometry !== null»
+		<geometry>
+			«IF link.collision.geometry.mesh !== null»
+			<mesh filename="«link.collision.geometry.mesh.filename»" />
+			«ENDIF»
+			«IF link.collision.geometry.box !== null»
+			<box size="«link.collision.geometry.box.size»" />
+			«ENDIF»
+		</geometry>
+		«ENDIF»
+	</collision>
+	«ENDIF»
+	«IF link.inertial !== null»
+	<inertial>
+		«IF link.inertial.mass !== null»
+		<mass value="«link.inertial.mass.value»">
+		«ENDIF»
+		«IF link.inertial.origin !== null»
+		<origin xyz="«link.inertial.origin.xyz»" rpy="«link.inertial.origin.rpy»" />
+		«ENDIF»
+		«IF link.inertial.inertia !== null»
+		<inertia ixx="«link.inertial.inertia.ixx»" ixy="«link.inertial.inertia.ixy»" ixz="«link.inertial.inertia.ixz»"
+			iyy="«link.inertial.inertia.iyy»" iyz="«link.inertial.inertia.iyz»"
+			izz="«link.inertial.inertia.izz»" />
+		«ENDIF»
+	</inertial>
+	«ENDIF»
+</link>
+	'''
+
+	private def compile_joint(Joint joint)'''
+<joint name="«joint.name»" type="«joint.type»">
+	<parent link="«joint.parent.name»" />
+	<child link="«joint.child.name»" />
+	«IF joint.origin !== null»
+	<origin xyz="«joint.origin.xyz»" rpy="«joint.origin.rpy»"/>
+	«ENDIF»
+	«IF joint.axis !== null»
+	<axis xyz="«joint.axis.xyz»">
+	«ENDIF»
+</joint>
+	'''
+
+	private def compile_body(Body body)'''
+	«FOR link : body.link»
+	«compile_link(link)»
+	«ENDFOR»
+
+	«FOR joint : body.joint»
+	«compile_joint(joint)»
+	«ENDFOR»
+	'''
+
+	private def compile_macro(Macro macro) '''
+	<xacro:macro name="«macro.name»" params="«FOR param : macro.parameter»«param.name» «ENDFOR»">
+		«compile_body(macro.body)»
+	</xacro:macro>
+	'''
+
+	private def compile(Robot robot) '''
+	<?xml version="«robot.version»"?>
+	<robot xmlns:xacro="http://wiki.ros.org/xacro"
+		name="«robot.name»" >
+
+		«FOR macro : robot.macro»
+		«compile_macro(macro)»
+
+		«ENDFOR»
+
+		«compile_body(robot.body)»
+
+	</robot>
+	'''
 }
