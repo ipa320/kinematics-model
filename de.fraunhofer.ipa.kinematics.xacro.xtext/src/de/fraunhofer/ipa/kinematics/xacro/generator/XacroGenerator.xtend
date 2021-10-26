@@ -12,6 +12,7 @@ import urdf.Link
 import xacro.Body
 import xacro.Robot
 import xacro.Macro
+import xacro.MacroCall
 
 /**
  * Generates code from your model files on save.
@@ -115,6 +116,10 @@ class XacroGenerator extends AbstractGenerator {
 	</xacro:macro>
 	'''
 
+	private def compile_macroCall(MacroCall macroCall)'''
+	<xacro:«macroCall.macro.name» «FOR param : macroCall.parameterCall»«param.parameter.name»="«param.value»" «ENDFOR»/>
+	'''
+
 	private def compile(Robot robot) '''
 	<?xml version="«robot.version»"?>
 	<robot xmlns:xacro="http://wiki.ros.org/xacro"
@@ -122,7 +127,9 @@ class XacroGenerator extends AbstractGenerator {
 
 		«FOR macro : robot.macro»
 		«compile_macro(macro)»
-
+		«ENDFOR»
+		«FOR macroCall : robot.macroCall»
+		«compile_macroCall(macroCall)»
 		«ENDFOR»
 
 		«compile_body(robot.body)»
