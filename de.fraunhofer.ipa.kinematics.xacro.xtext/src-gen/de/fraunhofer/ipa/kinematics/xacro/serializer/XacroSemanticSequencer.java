@@ -421,7 +421,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         type=JOINTTYPE 
+	 *         type=EString 
 	 *         parent=[Link|EString] 
 	 *         child=[Link|EString] 
 	 *         origin=Pose? 
