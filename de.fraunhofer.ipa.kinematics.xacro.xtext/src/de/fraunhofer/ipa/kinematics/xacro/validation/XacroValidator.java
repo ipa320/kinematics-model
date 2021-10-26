@@ -65,10 +65,13 @@ public class XacroValidator extends AbstractXacroValidator {
 
 				boolean isSet = false;
 				for (Iterator<ParameterCall> iterator2 = macro.getParameterCall().iterator(); iterator2.hasNext();) {
-					Parameter p =  (Parameter) iterator2.next().eCrossReferences().get(0);
-					if (p == parameter) {
-						isSet = true;
-						break;
+					EList<EObject> ref = iterator2.next().eCrossReferences();
+					if (ref.size() > 0) {
+						Parameter p = (Parameter) ref.get(0);
+						if (p == parameter) {
+							isSet = true;
+							break;
+						}
 					}
 				}
 				if (!isSet) {
