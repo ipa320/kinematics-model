@@ -38364,7 +38364,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12774:1: ( rule__Mesh__Group__2__Impl rule__Mesh__Group__3 )
             // InternalXacro.g:12775:2: rule__Mesh__Group__2__Impl rule__Mesh__Group__3
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_6);
             rule__Mesh__Group__2__Impl();
 
             state._fsp--;
@@ -38439,7 +38439,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12801:1: ( rule__Mesh__Group__3__Impl rule__Mesh__Group__4 )
             // InternalXacro.g:12802:2: rule__Mesh__Group__3__Impl rule__Mesh__Group__4
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_78);
             rule__Mesh__Group__3__Impl();
 
             state._fsp--;
@@ -38524,7 +38524,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12828:1: ( rule__Mesh__Group__4__Impl rule__Mesh__Group__5 )
             // InternalXacro.g:12829:2: rule__Mesh__Group__4__Impl rule__Mesh__Group__5
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_78);
             rule__Mesh__Group__4__Impl();
 
             state._fsp--;
@@ -38995,7 +38995,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12990:1: ( rule__Color__Group__2__Impl rule__Color__Group__3 )
             // InternalXacro.g:12991:2: rule__Color__Group__2__Impl rule__Color__Group__3
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_79);
             rule__Color__Group__2__Impl();
 
             state._fsp--;
@@ -39070,7 +39070,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13017:1: ( rule__Color__Group__3__Impl rule__Color__Group__4 )
             // InternalXacro.g:13018:2: rule__Color__Group__3__Impl rule__Color__Group__4
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_79);
             rule__Color__Group__3__Impl();
 
             state._fsp--;
@@ -39541,7 +39541,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13179:1: ( rule__Texture__Group__2__Impl rule__Texture__Group__3 )
             // InternalXacro.g:13180:2: rule__Texture__Group__2__Impl rule__Texture__Group__3
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_80);
             rule__Texture__Group__2__Impl();
 
             state._fsp--;
@@ -39616,7 +39616,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13206:1: ( rule__Texture__Group__3__Impl rule__Texture__Group__4 )
             // InternalXacro.g:13207:2: rule__Texture__Group__3__Impl rule__Texture__Group__4
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_80);
             rule__Texture__Group__3__Impl();
 
             state._fsp--;
@@ -39782,7 +39782,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13260:1: ( rule__Texture__Group_3__0__Impl rule__Texture__Group_3__1 )
             // InternalXacro.g:13261:2: rule__Texture__Group_3__0__Impl rule__Texture__Group_3__1
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_81);
             rule__Texture__Group_3__0__Impl();
 
             state._fsp--;
@@ -48751,25 +48751,25 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Mesh__FilenameAssignment_3"
-    // InternalXacro.g:16453:1: rule__Mesh__FilenameAssignment_3 : ( ruleAnyURI ) ;
+    // InternalXacro.g:16453:1: rule__Mesh__FilenameAssignment_3 : ( ruleEString ) ;
     public final void rule__Mesh__FilenameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:16457:1: ( ( ruleAnyURI ) )
-            // InternalXacro.g:16458:2: ( ruleAnyURI )
+            // InternalXacro.g:16457:1: ( ( ruleEString ) )
+            // InternalXacro.g:16458:2: ( ruleEString )
             {
-            // InternalXacro.g:16458:2: ( ruleAnyURI )
-            // InternalXacro.g:16459:3: ruleAnyURI
+            // InternalXacro.g:16458:2: ( ruleEString )
+            // InternalXacro.g:16459:3: ruleEString
             {
-             before(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); 
+             before(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
-            ruleAnyURI();
+            ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); 
+             after(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); 
 
             }
 
@@ -49614,11 +49614,11 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     protected DFA11 dfa11 = new DFA11(this);
-    static final String dfa_1s = "\u015c\uffff";
-    static final String dfa_2s = "\1\23\1\21\1\uffff\1\55\1\21\1\22\1\5\2\23\1\5\1\126\1\131\1\133\3\23\3\21\1\55\1\uffff\1\23\1\46\1\22\1\21\1\76\1\135\1\136\1\23\1\76\1\145\1\5\1\76\1\145\1\22\5\21\2\46\2\21\1\5\11\23\2\5\1\23\1\4\1\23\6\4\1\23\2\5\1\132\1\153\1\155\1\160\1\161\1\23\2\5\1\132\1\153\1\155\1\160\1\161\1\23\1\5\1\126\1\131\1\133\20\23\4\21\1\152\5\23\4\21\1\167\3\23\3\21\1\23\1\156\1\157\1\162\1\21\1\23\1\156\1\157\1\162\1\21\1\23\1\46\1\22\1\5\1\23\2\4\1\17\1\22\1\5\1\23\2\4\1\17\1\23\1\76\1\135\1\136\1\23\1\76\1\145\1\5\1\76\1\145\2\23\1\157\2\23\1\5\1\164\1\166\3\23\1\157\2\23\1\5\1\23\5\21\2\46\2\21\1\4\1\23\1\5\3\23\2\21\1\4\1\23\1\5\22\23\2\5\1\23\1\4\1\23\6\4\1\23\2\5\1\132\1\153\1\155\1\160\1\161\1\23\2\5\1\132\1\153\1\155\1\160\1\161\2\23\1\5\1\23\1\17\21\23\4\21\1\152\5\23\4\21\1\167\5\23\1\156\1\157\1\162\1\21\1\23\1\156\1\157\1\162\1\21\1\5\1\23\2\4\1\17\1\22\1\5\1\23\2\4\1\17\3\23\1\157\2\23\1\5\1\164\1\166\3\23\1\157\2\23\1\5\1\23\1\4\1\23\1\5\3\23\2\21\1\4\1\23\1\5\14\23\1\5\1\23\1\17\5\23";
-    static final String dfa_3s = "\1\41\1\21\1\uffff\1\55\1\21\1\22\1\6\2\60\1\6\1\126\1\131\1\133\1\26\2\60\3\21\1\55\1\uffff\1\130\2\132\1\21\1\76\1\135\1\136\1\60\1\76\1\145\1\6\1\76\1\145\1\22\5\21\2\132\2\21\1\6\1\100\1\34\1\144\1\100\1\151\1\100\1\151\2\60\2\6\1\130\1\4\1\130\6\4\1\23\2\6\1\132\1\153\1\155\1\160\1\161\1\40\2\6\1\132\1\153\1\155\1\160\1\161\1\134\1\6\1\126\1\131\1\133\1\26\2\100\3\23\5\144\1\23\2\100\2\23\4\21\1\152\1\60\2\100\2\23\4\21\1\167\1\23\2\60\3\21\1\154\1\156\1\157\1\162\1\21\1\154\1\156\1\157\1\162\1\21\1\130\2\132\1\6\1\151\2\4\1\17\1\63\1\6\1\151\2\4\1\17\1\34\1\76\1\135\1\136\1\60\1\76\1\145\1\6\1\76\1\145\2\23\1\157\1\23\1\163\1\6\1\164\1\166\3\23\1\157\1\23\1\163\1\6\1\23\5\21\2\132\2\21\1\4\1\151\1\6\1\23\2\63\2\21\1\4\1\151\1\6\3\23\1\100\1\34\1\144\1\100\1\151\1\100\1\151\3\23\1\165\1\162\3\23\2\6\1\130\1\4\1\130\6\4\1\23\2\6\1\132\1\153\1\155\1\160\1\161\1\40\2\6\1\132\1\153\1\155\1\160\1\161\1\134\1\151\1\6\1\63\1\17\1\23\1\151\2\100\3\23\5\144\1\23\2\100\2\23\4\21\1\152\1\60\2\100\2\23\4\21\1\167\4\23\1\154\1\156\1\157\1\162\1\21\1\154\1\156\1\157\1\162\1\21\1\6\1\151\2\4\1\17\1\63\1\6\1\151\2\4\1\17\1\34\2\23\1\157\1\23\1\163\1\6\1\164\1\166\3\23\1\157\1\23\1\163\1\6\1\23\1\4\1\151\1\6\1\23\2\63\2\21\1\4\1\151\1\6\6\23\1\165\1\162\3\23\1\151\1\6\1\63\1\17\1\23\1\151\3\23";
-    static final String dfa_4s = "\2\uffff\1\2\21\uffff\1\1\u0147\uffff";
-    static final String dfa_5s = "\u015c\uffff}>";
+    static final String dfa_1s = "\u0160\uffff";
+    static final String dfa_2s = "\1\23\1\21\1\uffff\1\55\1\21\1\22\1\5\2\23\1\5\1\126\1\131\1\133\3\23\3\21\1\55\1\uffff\1\23\1\46\1\22\1\21\1\76\1\135\1\136\1\23\1\76\1\145\1\5\1\76\1\145\1\22\5\21\2\46\2\21\1\5\11\23\2\5\1\23\1\4\1\23\6\4\1\23\2\5\1\132\1\153\1\155\1\160\1\161\1\23\2\5\1\132\1\153\1\155\1\160\1\161\1\23\1\5\1\126\1\131\1\133\20\23\4\21\1\152\5\23\4\21\1\167\3\23\3\21\1\23\1\156\1\157\1\162\1\21\1\23\1\156\1\157\1\162\1\21\1\23\1\46\1\22\1\5\1\23\2\4\1\5\1\22\1\5\1\23\2\4\1\5\1\23\1\76\1\135\1\136\1\23\1\76\1\145\1\5\1\76\1\145\2\23\1\157\3\23\1\5\1\164\1\166\3\23\1\157\3\23\1\5\1\23\5\21\2\46\2\21\1\4\1\23\1\5\3\23\2\21\1\4\1\23\1\5\22\23\2\5\1\23\1\4\1\23\6\4\1\23\2\5\1\132\1\153\1\155\1\160\1\161\1\23\2\5\1\132\1\153\1\155\1\160\1\161\2\23\1\5\1\23\1\17\21\23\4\21\1\152\5\23\4\21\1\167\5\23\1\156\1\157\1\162\1\21\1\23\1\156\1\157\1\162\1\21\1\5\1\23\2\4\1\5\1\22\1\5\1\23\2\4\1\5\3\23\1\157\3\23\1\5\1\164\1\166\3\23\1\157\3\23\1\5\1\23\1\4\1\23\1\5\3\23\2\21\1\4\1\23\1\5\14\23\1\5\1\23\1\17\5\23";
+    static final String dfa_3s = "\1\41\1\21\1\uffff\1\55\1\21\1\22\1\6\2\60\1\6\1\126\1\131\1\133\1\26\2\60\3\21\1\55\1\uffff\1\130\2\132\1\21\1\76\1\135\1\136\1\60\1\76\1\145\1\6\1\76\1\145\1\22\5\21\2\132\2\21\1\6\1\100\1\34\1\144\1\100\1\151\1\100\1\151\2\60\2\6\1\130\1\4\1\130\6\4\1\23\2\6\1\132\1\153\1\155\1\160\1\161\1\40\2\6\1\132\1\153\1\155\1\160\1\161\1\134\1\6\1\126\1\131\1\133\1\26\2\100\3\23\5\144\1\23\2\100\2\23\4\21\1\152\1\60\2\100\2\23\4\21\1\167\1\23\2\60\3\21\1\154\1\156\1\157\1\162\1\21\1\154\1\156\1\157\1\162\1\21\1\130\2\132\1\6\1\151\2\4\1\6\1\63\1\6\1\151\2\4\1\6\1\34\1\76\1\135\1\136\1\60\1\76\1\145\1\6\1\76\1\145\2\23\1\157\1\23\2\163\1\6\1\164\1\166\3\23\1\157\1\23\2\163\1\6\1\23\5\21\2\132\2\21\1\4\1\151\1\6\1\23\2\63\2\21\1\4\1\151\1\6\3\23\1\100\1\34\1\144\1\100\1\151\1\100\1\151\3\23\1\165\1\162\3\23\2\6\1\130\1\4\1\130\6\4\1\23\2\6\1\132\1\153\1\155\1\160\1\161\1\40\2\6\1\132\1\153\1\155\1\160\1\161\1\134\1\151\1\6\1\63\1\17\1\23\1\151\2\100\3\23\5\144\1\23\2\100\2\23\4\21\1\152\1\60\2\100\2\23\4\21\1\167\4\23\1\154\1\156\1\157\1\162\1\21\1\154\1\156\1\157\1\162\1\21\1\6\1\151\2\4\1\6\1\63\1\6\1\151\2\4\1\6\1\34\2\23\1\157\1\23\2\163\1\6\1\164\1\166\3\23\1\157\1\23\2\163\1\6\1\23\1\4\1\151\1\6\1\23\2\63\2\21\1\4\1\151\1\6\6\23\1\165\1\162\3\23\1\151\1\6\1\63\1\17\1\23\1\151\3\23";
+    static final String dfa_4s = "\2\uffff\1\2\21\uffff\1\1\u014b\uffff";
+    static final String dfa_5s = "\u0160\uffff}>";
     static final String[] dfa_6s = {
             "\1\2\12\uffff\1\1\3\2",
             "\1\3",
@@ -49760,214 +49760,218 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             "\1\111\123\uffff\1\106\1\107\1\110",
             "\1\u009f",
             "\1\u00a0",
-            "\1\u00a1",
-            "\1\u00a2\1\u00a5\36\uffff\1\u00a3\1\u00a4",
-            "\1\u00a6\1\u00a7",
+            "\1\u00a1\1\u00a2",
+            "\1\u00a3\1\u00a6\36\uffff\1\u00a4\1\u00a5",
+            "\1\u00a7\1\u00a8",
             "\1\121\123\uffff\1\116\1\117\1\120",
-            "\1\u00a8",
             "\1\u00a9",
             "\1\u00aa",
-            "\1\u00ac\10\uffff\1\u00ab",
-            "\1\u00ad",
-            "\1\u00ae",
+            "\1\u00ab\1\u00ac",
+            "\1\u00ae\10\uffff\1\u00ad",
             "\1\u00af",
-            "\1\126\33\uffff\1\124\1\125",
             "\1\u00b0",
             "\1\u00b1",
-            "\1\u00b2\1\u00b3",
-            "\1\u00b4",
-            "\1\u00b5",
-            "\1\u0089",
-            "\1\u0089",
+            "\1\126\33\uffff\1\124\1\125",
+            "\1\u00b2",
+            "\1\u00b3",
+            "\1\u00b4\1\u00b5",
             "\1\u00b6",
             "\1\u00b7",
-            "\1\u00b9\137\uffff\1\u00b8",
-            "\1\u00ba\1\u00bb",
-            "\1\u00bc",
-            "\1\u00bd",
+            "\1\u0089",
+            "\1\u0089",
+            "\1\u00b8",
+            "\1\u00b9",
+            "\1\u00bb\137\uffff\1\u00ba",
+            "\1\u00bb\137\uffff\1\u00ba",
+            "\1\u00bc\1\u00bd",
+            "\1\u00be",
+            "\1\u00bf",
             "\1\153",
             "\1\u008f",
             "\1\u008f",
-            "\1\u00be",
-            "\1\u00bf",
-            "\1\u00c1\137\uffff\1\u00c0",
-            "\1\u00c2\1\u00c3",
+            "\1\u00c0",
+            "\1\u00c1",
+            "\1\u00c3\137\uffff\1\u00c2",
+            "\1\u00c3\137\uffff\1\u00c2",
+            "\1\u00c4\1\u00c5",
             "\1\165",
-            "\1\u00c4",
-            "\1\u00c5",
             "\1\u00c6",
             "\1\u00c7",
             "\1\u00c8",
-            "\1\u009b\63\uffff\1\u009c",
-            "\1\u009b\63\uffff\1\u009c",
             "\1\u00c9",
             "\1\u00ca",
+            "\1\u009b\63\uffff\1\u009c",
+            "\1\u009b\63\uffff\1\u009c",
             "\1\u00cb",
+            "\1\u00cc",
+            "\1\u00cd",
             "\1\111\125\uffff\1\110",
-            "\1\u00cc\1\u00cd",
+            "\1\u00ce\1\u00cf",
             "\1\111",
-            "\1\u00a5\36\uffff\1\u00a3\1\u00a4",
-            "\1\u00a5\36\uffff\1\u00a3\1\u00a4",
-            "\1\u00ce",
-            "\1\u00cf",
+            "\1\u00a6\36\uffff\1\u00a4\1\u00a5",
+            "\1\u00a6\36\uffff\1\u00a4\1\u00a5",
             "\1\u00d0",
+            "\1\u00d1",
+            "\1\u00d2",
             "\1\121\125\uffff\1\120",
-            "\1\u00d1\1\u00d2",
+            "\1\u00d3\1\u00d4",
             "\1\121",
-            "\1\u00ac",
-            "\1\u00ac",
-            "\1\u00d5\53\uffff\1\u00d3\1\u00d4",
-            "\1\u00d7\10\uffff\1\u00d6",
-            "\1\u00de\113\uffff\1\u00d8\1\u00d9\1\u00da\1\u00db\1\u00dc\1\u00dd",
-            "\1\u00e1\53\uffff\1\u00df\1\u00e0",
-            "\1\u00e6\122\uffff\1\u00e2\1\u00e3\1\u00e4\1\u00e5",
-            "\1\u00e9\53\uffff\1\u00e7\1\u00e8",
-            "\1\u00ee\122\uffff\1\u00ea\1\u00eb\1\u00ec\1\u00ed",
-            "\1\u00ef",
-            "\1\u00b9",
-            "\1\u00b9",
-            "\1\u00f1\141\uffff\1\u00f0",
-            "\1\u00f3\136\uffff\1\u00f2",
-            "\1\u00f4",
-            "\1\u00c1",
-            "\1\u00c1",
-            "\1\u00f5\1\u00f6",
+            "\1\u00ae",
+            "\1\u00ae",
+            "\1\u00d7\53\uffff\1\u00d5\1\u00d6",
+            "\1\u00d9\10\uffff\1\u00d8",
+            "\1\u00e0\113\uffff\1\u00da\1\u00db\1\u00dc\1\u00dd\1\u00de\1\u00df",
+            "\1\u00e3\53\uffff\1\u00e1\1\u00e2",
+            "\1\u00e8\122\uffff\1\u00e4\1\u00e5\1\u00e6\1\u00e7",
+            "\1\u00eb\53\uffff\1\u00e9\1\u00ea",
+            "\1\u00f0\122\uffff\1\u00ec\1\u00ed\1\u00ee\1\u00ef",
+            "\1\u00f1",
+            "\1\u00bb",
+            "\1\u00bb",
+            "\1\u00f3\141\uffff\1\u00f2",
+            "\1\u00f5\136\uffff\1\u00f4",
+            "\1\u00f6",
+            "\1\u00c3",
+            "\1\u00c3",
             "\1\u00f7\1\u00f8",
+            "\1\u00f9\1\u00fa",
             "\1\u0097\103\uffff\1\u0095\1\u0096",
-            "\1\u00f9",
-            "\1\u0097\104\uffff\1\u0096",
-            "\1\u00fa",
             "\1\u00fb",
+            "\1\u0097\104\uffff\1\u0096",
             "\1\u00fc",
             "\1\u00fd",
             "\1\u00fe",
             "\1\u00ff",
+            "\1\u0100",
+            "\1\u0101",
             "\1\u0097",
-            "\1\u0100\1\u0101",
             "\1\u0102\1\u0103",
+            "\1\u0104\1\u0105",
             "\1\u0099",
-            "\1\u0104",
-            "\1\u0105",
             "\1\u0106",
             "\1\u0107",
-            "\1\u0109\14\uffff\1\u0108",
-            "\1\u010a\1\u010b",
+            "\1\u0108",
+            "\1\u0109",
+            "\1\u010b\14\uffff\1\u010a",
             "\1\u010c\1\u010d",
+            "\1\u010e\1\u010f",
             "\1\u009c",
-            "\1\u010e",
-            "\1\u010f",
             "\1\u0110",
             "\1\u0111",
-            "\1\u0113\110\uffff\1\u0112",
+            "\1\u0112",
+            "\1\u0113",
+            "\1\u0115\110\uffff\1\u0114",
             "\1\111\124\uffff\1\107\1\110",
-            "\1\u0114\1\u0115",
-            "\1\u00a5\37\uffff\1\u00a4",
-            "\1\u0116",
-            "\1\u00a5",
-            "\1\121\124\uffff\1\117\1\120",
-            "\1\u00d5\54\uffff\1\u00d4",
-            "\1\u00d5\54\uffff\1\u00d4",
-            "\1\u00d5",
-            "\1\u00d5",
-            "\1\u00d7",
-            "\1\u00de\114\uffff\1\u00d9\1\u00da\1\u00db\1\u00dc\1\u00dd",
-            "\1\u00de\115\uffff\1\u00da\1\u00db\1\u00dc\1\u00dd",
-            "\1\u00de\116\uffff\1\u00db\1\u00dc\1\u00dd",
-            "\1\u00de\117\uffff\1\u00dc\1\u00dd",
-            "\1\u00de\120\uffff\1\u00dd",
-            "\1\u00de",
-            "\1\u00e1\54\uffff\1\u00e0",
-            "\1\u00e1\54\uffff\1\u00e0",
-            "\1\u00e1",
-            "\1\u00e1",
-            "\1\u0117",
+            "\1\u0116\1\u0117",
+            "\1\u00a6\37\uffff\1\u00a5",
             "\1\u0118",
+            "\1\u00a6",
+            "\1\121\124\uffff\1\117\1\120",
+            "\1\u00d7\54\uffff\1\u00d6",
+            "\1\u00d7\54\uffff\1\u00d6",
+            "\1\u00d7",
+            "\1\u00d7",
+            "\1\u00d9",
+            "\1\u00e0\114\uffff\1\u00db\1\u00dc\1\u00dd\1\u00de\1\u00df",
+            "\1\u00e0\115\uffff\1\u00dc\1\u00dd\1\u00de\1\u00df",
+            "\1\u00e0\116\uffff\1\u00dd\1\u00de\1\u00df",
+            "\1\u00e0\117\uffff\1\u00de\1\u00df",
+            "\1\u00e0\120\uffff\1\u00df",
+            "\1\u00e0",
+            "\1\u00e3\54\uffff\1\u00e2",
+            "\1\u00e3\54\uffff\1\u00e2",
+            "\1\u00e3",
+            "\1\u00e3",
             "\1\u0119",
             "\1\u011a",
             "\1\u011b",
-            "\1\126\34\uffff\1\125",
-            "\1\u00e9\54\uffff\1\u00e8",
-            "\1\u00e9\54\uffff\1\u00e8",
-            "\1\u00e9",
-            "\1\u00e9",
             "\1\u011c",
             "\1\u011d",
+            "\1\126\34\uffff\1\125",
+            "\1\u00eb\54\uffff\1\u00ea",
+            "\1\u00eb\54\uffff\1\u00ea",
+            "\1\u00eb",
+            "\1\u00eb",
             "\1\u011e",
             "\1\u011f",
             "\1\u0120",
+            "\1\u0121",
+            "\1\u0122",
             "\1\126",
-            "\1\u00f1",
-            "\1\u00f1",
             "\1\u00f3",
-            "\1\u0122\130\uffff\1\u0121",
-            "\1\u0123",
-            "\1\u0124",
+            "\1\u00f3",
+            "\1\u00f5",
+            "\1\u0124\130\uffff\1\u0123",
             "\1\u0125",
             "\1\u0126",
-            "\1\u0128\130\uffff\1\u0127",
-            "\1\u0129",
-            "\1\u012a",
+            "\1\u0127",
+            "\1\u0128",
+            "\1\u012a\130\uffff\1\u0129",
             "\1\u012b",
             "\1\u012c",
-            "\1\u012d\1\u012e",
-            "\1\u00e6\123\uffff\1\u00e3\1\u00e4\1\u00e5",
-            "\1\u012f",
-            "\1\u0130",
+            "\1\u012d",
+            "\1\u012e",
+            "\1\u012f\1\u0130",
+            "\1\u00e8\123\uffff\1\u00e5\1\u00e6\1\u00e7",
             "\1\u0131",
-            "\1\u0132\1\u0135\36\uffff\1\u0133\1\u0134",
-            "\1\u0136\1\u0137",
-            "\1\u00ee\123\uffff\1\u00eb\1\u00ec\1\u00ed",
-            "\1\u0138",
-            "\1\u0139",
-            "\1\u013a",
-            "\1\u013c\10\uffff\1\u013b",
-            "\1\u0122",
-            "\1\u0122",
-            "\1\u013d",
-            "\1\u013e",
-            "\1\u0140\137\uffff\1\u013f",
-            "\1\u0141\1\u0142",
-            "\1\u0143",
-            "\1\u0144",
-            "\1\u0109",
-            "\1\u0128",
-            "\1\u0128",
-            "\1\u0145",
-            "\1\u0146",
-            "\1\u0148\137\uffff\1\u0147",
-            "\1\u0149\1\u014a",
-            "\1\u0113",
-            "\1\u014b",
-            "\1\u00e6\125\uffff\1\u00e5",
-            "\1\u014c\1\u014d",
-            "\1\u00e6",
-            "\1\u0135\36\uffff\1\u0133\1\u0134",
-            "\1\u0135\36\uffff\1\u0133\1\u0134",
-            "\1\u014e",
+            "\1\u0132",
+            "\1\u0133\1\u0134",
+            "\1\u0135\1\u0138\36\uffff\1\u0136\1\u0137",
+            "\1\u0139\1\u013a",
+            "\1\u00f0\123\uffff\1\u00ed\1\u00ee\1\u00ef",
+            "\1\u013b",
+            "\1\u013c",
+            "\1\u013d\1\u013e",
+            "\1\u0140\10\uffff\1\u013f",
+            "\1\u0124",
+            "\1\u0124",
+            "\1\u0141",
+            "\1\u0142",
+            "\1\u0144\137\uffff\1\u0143",
+            "\1\u0144\137\uffff\1\u0143",
+            "\1\u0145\1\u0146",
+            "\1\u0147",
+            "\1\u0148",
+            "\1\u010b",
+            "\1\u012a",
+            "\1\u012a",
+            "\1\u0149",
+            "\1\u014a",
+            "\1\u014c\137\uffff\1\u014b",
+            "\1\u014c\137\uffff\1\u014b",
+            "\1\u014d\1\u014e",
+            "\1\u0115",
             "\1\u014f",
-            "\1\u0150",
-            "\1\u00ee\125\uffff\1\u00ed",
-            "\1\u0151\1\u0152",
-            "\1\u00ee",
-            "\1\u013c",
-            "\1\u013c",
+            "\1\u00e8\125\uffff\1\u00e7",
+            "\1\u0150\1\u0151",
+            "\1\u00e8",
+            "\1\u0138\36\uffff\1\u0136\1\u0137",
+            "\1\u0138\36\uffff\1\u0136\1\u0137",
+            "\1\u0152",
             "\1\u0153",
+            "\1\u0154",
+            "\1\u00f0\125\uffff\1\u00ef",
+            "\1\u0155\1\u0156",
+            "\1\u00f0",
             "\1\u0140",
             "\1\u0140",
-            "\1\u0155\141\uffff\1\u0154",
-            "\1\u0157\136\uffff\1\u0156",
-            "\1\u0158",
-            "\1\u0148",
-            "\1\u0148",
-            "\1\u00e6\124\uffff\1\u00e4\1\u00e5",
-            "\1\u0159\1\u015a",
-            "\1\u0135\37\uffff\1\u0134",
-            "\1\u015b",
-            "\1\u0135",
-            "\1\u00ee\124\uffff\1\u00ec\1\u00ed",
-            "\1\u0155",
-            "\1\u0155",
-            "\1\u0157"
+            "\1\u0157",
+            "\1\u0144",
+            "\1\u0144",
+            "\1\u0159\141\uffff\1\u0158",
+            "\1\u015b\136\uffff\1\u015a",
+            "\1\u015c",
+            "\1\u014c",
+            "\1\u014c",
+            "\1\u00e8\124\uffff\1\u00e6\1\u00e7",
+            "\1\u015d\1\u015e",
+            "\1\u0138\37\uffff\1\u0137",
+            "\1\u015f",
+            "\1\u0138",
+            "\1\u00f0\124\uffff\1\u00ee\1\u00ef",
+            "\1\u0159",
+            "\1\u0159",
+            "\1\u015b"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
@@ -50073,10 +50077,10 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
     public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000080000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000080000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000080000L,0x0004000000000000L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000080000L,0x0008000000000000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000080000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000080000L,0x0004000000000000L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0020000000000000L});
     public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000000L,0x0400000000000000L});
     public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});

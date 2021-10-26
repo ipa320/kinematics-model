@@ -3838,9 +3838,9 @@ ruleMesh returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0());
 				}
-				lv_filename_3_0=ruleAnyURI
+				lv_filename_3_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMeshRule());
@@ -3849,7 +3849,7 @@ ruleMesh returns [EObject current=null]
 						$current,
 						"filename",
 						lv_filename_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.AnyURI");
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
