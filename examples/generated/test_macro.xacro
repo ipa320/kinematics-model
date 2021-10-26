@@ -6,10 +6,12 @@
 		<link name="link_name" >
 			<visual>
 				<geometry>
+					<cylinder length="0.04" radius"0.1"/>
 				</geometry>
-			</visual>	
+			</visual>
 			<collision>
 				<geometry>
+					<cylinder length="0.04" radius"0.1"/>
 				</geometry>
 			</collision>
 			<inertial>

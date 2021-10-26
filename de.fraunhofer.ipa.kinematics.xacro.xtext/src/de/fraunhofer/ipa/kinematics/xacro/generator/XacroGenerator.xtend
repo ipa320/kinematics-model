@@ -40,6 +40,9 @@ class XacroGenerator extends AbstractGenerator {
 			«IF link.visual.geometry.box !== null»
 			<box size="«link.visual.geometry.box.size»" />
 			«ENDIF»
+			«IF link.visual.geometry.cylinder !== null»
+			<cylinder length="«link.visual.geometry.cylinder.length»" radius"«link.visual.geometry.cylinder.radius»"/>
+			«ENDIF»
 		</geometry>
 		«ENDIF»
 	</visual>
@@ -53,6 +56,9 @@ class XacroGenerator extends AbstractGenerator {
 			«ENDIF»
 			«IF link.collision.geometry.box !== null»
 			<box size="«link.collision.geometry.box.size»" />
+			«ENDIF»
+			«IF link.collision.geometry.cylinder !== null»
+			<cylinder length="«link.collision.geometry.cylinder.length»" radius"«link.collision.geometry.cylinder.radius»"/>
 			«ENDIF»
 		</geometry>
 		«ENDIF»
@@ -93,7 +99,6 @@ class XacroGenerator extends AbstractGenerator {
 	«FOR link : body.link»
 	«compile_link(link)»
 	«ENDFOR»
-
 	«FOR joint : body.joint»
 	«compile_joint(joint)»
 	«ENDFOR»
