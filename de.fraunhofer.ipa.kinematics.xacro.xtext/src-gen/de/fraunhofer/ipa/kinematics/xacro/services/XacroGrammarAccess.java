@@ -51,7 +51,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cBodyKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cBodyAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final RuleCall cBodyBodyParserRuleCall_7_1_0 = (RuleCall)cBodyAssignment_7_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cMacroCallKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cMacroCallAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cMacroCallMacroCallParserRuleCall_8_2_0 = (RuleCall)cMacroCallAssignment_8_2.eContents().get(0);
+		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
+		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
+		private final Assignment cMacroCallAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
+		private final RuleCall cMacroCallMacroCallParserRuleCall_8_3_1_0 = (RuleCall)cMacroCallAssignment_8_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Robot returns Robot:
 		//    {Robot}
@@ -61,6 +71,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//        ('version' version=EString)?
 		//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 		//        ('body' body=Body)?
+		//        ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -71,6 +82,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    ('version' version=EString)?
 		//    ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 		//    ('body' body=Body)?
+		//    ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -146,8 +158,38 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Body
 		public RuleCall getBodyBodyParserRuleCall_7_1_0() { return cBodyBodyParserRuleCall_7_1_0; }
 		
+		//('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'macroCall'
+		public Keyword getMacroCallKeyword_8_0() { return cMacroCallKeyword_8_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_8_1() { return cLeftCurlyBracketKeyword_8_1; }
+		
+		//macroCall+=MacroCall
+		public Assignment getMacroCallAssignment_8_2() { return cMacroCallAssignment_8_2; }
+		
+		//MacroCall
+		public RuleCall getMacroCallMacroCallParserRuleCall_8_2_0() { return cMacroCallMacroCallParserRuleCall_8_2_0; }
+		
+		//( "," macroCall+=MacroCall)*
+		public Group getGroup_8_3() { return cGroup_8_3; }
+		
+		//","
+		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
+		
+		//macroCall+=MacroCall
+		public Assignment getMacroCallAssignment_8_3_1() { return cMacroCallAssignment_8_3_1; }
+		
+		//MacroCall
+		public RuleCall getMacroCallMacroCallParserRuleCall_8_3_1_0() { return cMacroCallMacroCallParserRuleCall_8_3_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_8_4() { return cRightCurlyBracketKeyword_8_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
@@ -590,6 +632,188 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+	public class MacroCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.MacroCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMacroCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMacroCallKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cMacroKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMacroAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cMacroMacroCrossReference_3_1_0 = (CrossReference)cMacroAssignment_3_1.eContents().get(0);
+		private final RuleCall cMacroMacroEStringParserRuleCall_3_1_0_1 = (RuleCall)cMacroMacroCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cMacroAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final CrossReference cMacroMacroCrossReference_3_2_1_0 = (CrossReference)cMacroAssignment_3_2_1.eContents().get(0);
+		private final RuleCall cMacroMacroEStringParserRuleCall_3_2_1_0_1 = (RuleCall)cMacroMacroCrossReference_3_2_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cParameterKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cParameterCallAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cParameterCallParameterCallParserRuleCall_4_2_0 = (RuleCall)cParameterCallAssignment_4_2.eContents().get(0);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cParameterCallAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cParameterCallParameterCallParserRuleCall_4_3_1_0 = (RuleCall)cParameterCallAssignment_4_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//MacroCall returns MacroCall:
+		//    {MacroCall}
+		//    'MacroCall'
+		//    '{'
+		//        ('macro' macro+=[Macro|EString] ( "," macro+=[Macro|EString])* )?
+		//        ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{MacroCall}
+		//'MacroCall'
+		//'{'
+		//    ('macro' macro+=[Macro|EString] ( "," macro+=[Macro|EString])* )?
+		//    ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//{MacroCall}
+		public Action getMacroCallAction_0() { return cMacroCallAction_0; }
+		
+		//'MacroCall'
+		public Keyword getMacroCallKeyword_1() { return cMacroCallKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('macro' macro+=[Macro|EString] ( "," macro+=[Macro|EString])* )?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'macro'
+		public Keyword getMacroKeyword_3_0() { return cMacroKeyword_3_0; }
+		
+		//macro+=[Macro|EString]
+		public Assignment getMacroAssignment_3_1() { return cMacroAssignment_3_1; }
+		
+		//[Macro|EString]
+		public CrossReference getMacroMacroCrossReference_3_1_0() { return cMacroMacroCrossReference_3_1_0; }
+		
+		//EString
+		public RuleCall getMacroMacroEStringParserRuleCall_3_1_0_1() { return cMacroMacroEStringParserRuleCall_3_1_0_1; }
+		
+		//( "," macro+=[Macro|EString])*
+		public Group getGroup_3_2() { return cGroup_3_2; }
+		
+		//","
+		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
+		
+		//macro+=[Macro|EString]
+		public Assignment getMacroAssignment_3_2_1() { return cMacroAssignment_3_2_1; }
+		
+		//[Macro|EString]
+		public CrossReference getMacroMacroCrossReference_3_2_1_0() { return cMacroMacroCrossReference_3_2_1_0; }
+		
+		//EString
+		public RuleCall getMacroMacroEStringParserRuleCall_3_2_1_0_1() { return cMacroMacroEStringParserRuleCall_3_2_1_0_1; }
+		
+		//('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'parameter'
+		public Keyword getParameterKeyword_4_0() { return cParameterKeyword_4_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
+		
+		//parameterCall+=ParameterCall
+		public Assignment getParameterCallAssignment_4_2() { return cParameterCallAssignment_4_2; }
+		
+		//ParameterCall
+		public RuleCall getParameterCallParameterCallParserRuleCall_4_2_0() { return cParameterCallParameterCallParserRuleCall_4_2_0; }
+		
+		//( "," parameterCall+=ParameterCall)*
+		public Group getGroup_4_3() { return cGroup_4_3; }
+		
+		//","
+		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
+		
+		//parameterCall+=ParameterCall
+		public Assignment getParameterCallAssignment_4_3_1() { return cParameterCallAssignment_4_3_1; }
+		
+		//ParameterCall
+		public RuleCall getParameterCallParameterCallParserRuleCall_4_3_1_0() { return cParameterCallParameterCallParserRuleCall_4_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class ParameterCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cParameterCallKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cParameterKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cParameterAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cParameterParameterCrossReference_4_0 = (CrossReference)cParameterAssignment_4.eContents().get(0);
+		private final RuleCall cParameterParameterEStringParserRuleCall_4_0_1 = (RuleCall)cParameterParameterCrossReference_4_0.eContents().get(1);
+		private final Keyword cValueKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cValueAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cValueEStringParserRuleCall_6_0 = (RuleCall)cValueAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//ParameterCall returns ParameterCall:
+		//    {ParameterCall}
+		//    'ParameterCall'
+		//    '{'
+		//        'parameter' parameter=[Parameter|EString]
+		//        'value' value=EString
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ParameterCall}
+		//'ParameterCall'
+		//'{'
+		//    'parameter' parameter=[Parameter|EString]
+		//    'value' value=EString
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//{ParameterCall}
+		public Action getParameterCallAction_0() { return cParameterCallAction_0; }
+		
+		//'ParameterCall'
+		public Keyword getParameterCallKeyword_1() { return cParameterCallKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'parameter'
+		public Keyword getParameterKeyword_3() { return cParameterKeyword_3; }
+		
+		//parameter=[Parameter|EString]
+		public Assignment getParameterAssignment_4() { return cParameterAssignment_4; }
+		
+		//[Parameter|EString]
+		public CrossReference getParameterParameterCrossReference_4_0() { return cParameterParameterCrossReference_4_0; }
+		
+		//EString
+		public RuleCall getParameterParameterEStringParserRuleCall_4_0_1() { return cParameterParameterEStringParserRuleCall_4_0_1; }
+		
+		//'value'
+		public Keyword getValueKeyword_5() { return cValueKeyword_5; }
+		
+		//value=EString
+		public Assignment getValueAssignment_6() { return cValueAssignment_6; }
+		
+		//EString
+		public RuleCall getValueEStringParserRuleCall_6_0() { return cValueEStringParserRuleCall_6_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class JointElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Joint");
@@ -3432,6 +3656,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final MacroElements pMacro;
 	private final ParameterElements pParameter;
 	private final BodyElements pBody;
+	private final MacroCallElements pMacroCall;
+	private final ParameterCallElements pParameterCall;
 	private final JointElements pJoint;
 	private final LinkElements pLink;
 	private final MaterialGlobalElements pMaterialGlobal;
@@ -3484,6 +3710,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pMacro = new MacroElements();
 		this.pParameter = new ParameterElements();
 		this.pBody = new BodyElements();
+		this.pMacroCall = new MacroCallElements();
+		this.pParameterCall = new ParameterCallElements();
 		this.pJoint = new JointElements();
 		this.pLink = new LinkElements();
 		this.pMaterialGlobal = new MaterialGlobalElements();
@@ -3558,6 +3786,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//        ('version' version=EString)?
 	//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 	//        ('body' body=Body)?
+	//        ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 	//    '}';
 	public RobotElements getRobotAccess() {
 		return pRobot;
@@ -3624,6 +3853,36 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getBodyRule() {
 		return getBodyAccess().getRule();
+	}
+	
+	//MacroCall returns MacroCall:
+	//    {MacroCall}
+	//    'MacroCall'
+	//    '{'
+	//        ('macro' macro+=[Macro|EString] ( "," macro+=[Macro|EString])* )?
+	//        ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
+	//    '}';
+	public MacroCallElements getMacroCallAccess() {
+		return pMacroCall;
+	}
+	
+	public ParserRule getMacroCallRule() {
+		return getMacroCallAccess().getRule();
+	}
+	
+	//ParameterCall returns ParameterCall:
+	//    {ParameterCall}
+	//    'ParameterCall'
+	//    '{'
+	//        'parameter' parameter=[Parameter|EString]
+	//        'value' value=EString
+	//    '}';
+	public ParameterCallElements getParameterCallAccess() {
+		return pParameterCall;
+	}
+	
+	public ParserRule getParameterCallRule() {
+		return getParameterCallAccess().getRule();
 	}
 	
 	//Joint returns urdf::Joint:

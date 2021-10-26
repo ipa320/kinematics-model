@@ -48,6 +48,8 @@ import urdf.Verbose;
 import urdf.Visual;
 import xacro.Body;
 import xacro.Macro;
+import xacro.MacroCall;
+import xacro.ParameterCall;
 import xacro.Robot;
 import xacro.XacroPackage;
 
@@ -164,8 +166,14 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case XacroPackage.MACRO:
 				sequence_Macro(context, (Macro) semanticObject); 
 				return; 
+			case XacroPackage.MACRO_CALL:
+				sequence_MacroCall(context, (MacroCall) semanticObject); 
+				return; 
 			case XacroPackage.PARAMETER:
 				sequence_Parameter(context, (xacro.Parameter) semanticObject); 
+				return; 
+			case XacroPackage.PARAMETER_CALL:
+				sequence_ParameterCall(context, (ParameterCall) semanticObject); 
 				return; 
 			case XacroPackage.ROBOT:
 				sequence_Robot(context, (Robot) semanticObject); 
@@ -464,6 +472,18 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     MacroCall returns MacroCall
+	 *
+	 * Constraint:
+	 *     ((macro+=[Macro|EString] macro+=[Macro|EString]*)? (parameterCall+=ParameterCall parameterCall+=ParameterCall*)?)
+	 */
+	protected void sequence_MacroCall(ISerializationContext context, MacroCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Macro returns Macro
 	 *
 	 * Constraint:
@@ -548,6 +568,27 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ParameterCall returns ParameterCall
+	 *
+	 * Constraint:
+	 *     (parameter=[Parameter|EString] value=EString)
+	 */
+	protected void sequence_ParameterCall(ISerializationContext context, ParameterCall semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, XacroPackage.Literals.PARAMETER_CALL__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.PARAMETER_CALL__PARAMETER));
+			if (transientValues.isValueTransient(semanticObject, XacroPackage.Literals.PARAMETER_CALL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.PARAMETER_CALL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterCallAccess().getParameterParameterEStringParserRuleCall_4_0_1(), semanticObject.eGet(XacroPackage.Literals.PARAMETER_CALL__PARAMETER, false));
+		feeder.accept(grammarAccess.getParameterCallAccess().getValueEStringParserRuleCall_6_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
@@ -593,7 +634,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=EString version=EString? (macro+=Macro macro+=Macro*)? body=Body?)
+	 *     (name=EString version=EString? (macro+=Macro macro+=Macro*)? body=Body? (macroCall+=MacroCall macroCall+=MacroCall*)?)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -15,7 +15,9 @@ import urdf.UrdfPackage;
 
 import xacro.Body;
 import xacro.Macro;
+import xacro.MacroCall;
 import xacro.Parameter;
+import xacro.ParameterCall;
 import xacro.Robot;
 import xacro.XacroFactory;
 import xacro.XacroPackage;
@@ -54,6 +56,20 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * @generated
 	 */
 	private EClass macroEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass macroCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterCallEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -164,6 +180,15 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 */
 	public EReference getRobot_Body() {
 		return (EReference)robotEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRobot_MacroCall() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -288,6 +313,60 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMacroCall() {
+		return macroCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMacroCall_Macro() {
+		return (EReference)macroCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMacroCall_ParameterCall() {
+		return (EReference)macroCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterCall() {
+		return parameterCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameterCall_Value() {
+		return (EAttribute)parameterCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterCall_Parameter() {
+		return (EReference)parameterCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XacroFactory getXacroFactory() {
 		return (XacroFactory)getEFactoryInstance();
 	}
@@ -316,6 +395,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		createEReference(robotEClass, ROBOT__MACRO);
 		createEAttribute(robotEClass, ROBOT__VERSION);
 		createEReference(robotEClass, ROBOT__BODY);
+		createEReference(robotEClass, ROBOT__MACRO_CALL);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
@@ -332,6 +412,14 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		createEReference(macroEClass, MACRO__PARAMETER);
 		createEReference(macroEClass, MACRO__BODY);
 		createEAttribute(macroEClass, MACRO__NAME);
+
+		macroCallEClass = createEClass(MACRO_CALL);
+		createEReference(macroCallEClass, MACRO_CALL__MACRO);
+		createEReference(macroCallEClass, MACRO_CALL__PARAMETER_CALL);
+
+		parameterCallEClass = createEClass(PARAMETER_CALL);
+		createEAttribute(parameterCallEClass, PARAMETER_CALL__VALUE);
+		createEReference(parameterCallEClass, PARAMETER_CALL__PARAMETER);
 	}
 
 	/**
@@ -374,6 +462,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		initEReference(getRobot_Macro(), this.getMacro(), null, "macro", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRobot_Version(), theXMLTypePackage.getString(), "version", "1.0", 0, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Body(), this.getBody(), null, "body", null, 0, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_MacroCall(), this.getMacroCall(), null, "macroCall", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_Name(), theEcorePackage.getEString(), "name", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -390,6 +479,14 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		initEReference(getMacro_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Macro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMacro_Body(), this.getBody(), null, "body", null, 0, 1, Macro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMacro_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, Macro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(macroCallEClass, MacroCall.class, "MacroCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMacroCall_Macro(), this.getMacro(), null, "macro", null, 0, -1, MacroCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMacroCall_ParameterCall(), this.getParameterCall(), null, "parameterCall", null, 0, -1, MacroCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterCallEClass, ParameterCall.class, "ParameterCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterCall_Value(), theXMLTypePackage.getString(), "value", null, 1, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterCall_Parameter(), this.getParameter(), null, "parameter", null, 1, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

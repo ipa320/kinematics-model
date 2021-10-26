@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,17 +22,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import xacro.Robot;
-import xacro.XacroFactory;
+import xacro.ParameterCall;
 import xacro.XacroPackage;
 
 /**
- * This is the item provider adapter for a {@link xacro.Robot} object.
+ * This is the item provider adapter for a {@link xacro.ParameterCall} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RobotItemProvider 
+public class ParameterCallItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +45,7 @@ public class RobotItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RobotItemProvider(AdapterFactory adapterFactory) {
+	public ParameterCallItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,26 +60,26 @@ public class RobotItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
+			addParameterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Robot_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Robot_name_feature", "_UI_Robot_type"),
-				 XacroPackage.Literals.ROBOT__NAME,
+				 getString("_UI_ParameterCall_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterCall_value_feature", "_UI_ParameterCall_type"),
+				 XacroPackage.Literals.PARAMETER_CALL__VALUE,
 				 true,
 				 false,
 				 false,
@@ -91,68 +89,36 @@ public class RobotItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Version feature.
+	 * This adds a property descriptor for the Parameter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVersionPropertyDescriptor(Object object) {
+	protected void addParameterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Robot_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Robot_version_feature", "_UI_Robot_type"),
-				 XacroPackage.Literals.ROBOT__VERSION,
+				 getString("_UI_ParameterCall_parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterCall_parameter_feature", "_UI_ParameterCall_type"),
+				 XacroPackage.Literals.PARAMETER_CALL__PARAMETER,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(XacroPackage.Literals.ROBOT__MACRO);
-			childrenFeatures.add(XacroPackage.Literals.ROBOT__BODY);
-			childrenFeatures.add(XacroPackage.Literals.ROBOT__MACRO_CALL);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Robot.gif.
+	 * This returns ParameterCall.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Robot"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterCall"));
 	}
 
 	/**
@@ -163,10 +129,10 @@ public class RobotItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Robot)object).getName();
+		String label = ((ParameterCall)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Robot_type") :
-			getString("_UI_Robot_type") + " " + label;
+			getString("_UI_ParameterCall_type") :
+			getString("_UI_ParameterCall_type") + " " + label;
 	}
 
 
@@ -181,15 +147,9 @@ public class RobotItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Robot.class)) {
-			case XacroPackage.ROBOT__NAME:
-			case XacroPackage.ROBOT__VERSION:
+		switch (notification.getFeatureID(ParameterCall.class)) {
+			case XacroPackage.PARAMETER_CALL__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case XacroPackage.ROBOT__MACRO:
-			case XacroPackage.ROBOT__BODY:
-			case XacroPackage.ROBOT__MACRO_CALL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -205,21 +165,6 @@ public class RobotItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.ROBOT__MACRO,
-				 XacroFactory.eINSTANCE.createMacro()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.ROBOT__BODY,
-				 XacroFactory.eINSTANCE.createBody()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.ROBOT__MACRO_CALL,
-				 XacroFactory.eINSTANCE.createMacroCall()));
 	}
 
 	/**

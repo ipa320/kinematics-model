@@ -14,6 +14,7 @@ Robot returns Robot:
 		('version' version=EString)?
 		('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 		('body' body=Body)?
+		('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 	'}';
 
 EString returns ecore::EString:
@@ -45,6 +46,22 @@ Body returns Body:
 		('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
 		('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
+	'}';
+	
+MacroCall returns MacroCall:
+	{MacroCall}
+	'MacroCall'
+	'{'
+		('macro' macro+=[Macro|EString] ( "," macro+=[Macro|EString])* )?
+		('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
+	'}';
+
+ParameterCall returns ParameterCall:
+	{ParameterCall}
+	'ParameterCall'
+	'{'
+		'parameter' parameter=[Parameter|EString]
+		'value' value=EString
 	'}';
 
 Joint returns urdf::Joint:

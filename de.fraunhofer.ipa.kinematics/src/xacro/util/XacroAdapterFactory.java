@@ -84,6 +84,14 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 				return createMacroAdapter();
 			}
 			@Override
+			public Adapter caseMacroCall(MacroCall object) {
+				return createMacroCallAdapter();
+			}
+			@Override
+			public Adapter caseParameterCall(ParameterCall object) {
+				return createParameterCallAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +164,34 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMacroAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.MacroCall <em>Macro Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.MacroCall
+	 * @generated
+	 */
+	public Adapter createMacroCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterCall <em>Parameter Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterCall
+	 * @generated
+	 */
+	public Adapter createParameterCallAdapter() {
 		return null;
 	}
 

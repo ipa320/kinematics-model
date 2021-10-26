@@ -90,6 +90,18 @@ public class XacroSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case XacroPackage.MACRO_CALL: {
+				MacroCall macroCall = (MacroCall)theEObject;
+				T result = caseMacroCall(macroCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XacroPackage.PARAMETER_CALL: {
+				ParameterCall parameterCall = (ParameterCall)theEObject;
+				T result = caseParameterCall(parameterCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -151,6 +163,36 @@ public class XacroSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMacro(Macro object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Macro Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Macro Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMacroCall(MacroCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterCall(ParameterCall object) {
 		return null;
 	}
 

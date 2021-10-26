@@ -58,6 +58,24 @@ public interface XacroFactory extends EFactory {
 	Macro createMacro();
 
 	/**
+	 * Returns a new object of class '<em>Macro Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Macro Call</em>'.
+	 * @generated
+	 */
+	MacroCall createMacroCall();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Call</em>'.
+	 * @generated
+	 */
+	ParameterCall createParameterCall();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

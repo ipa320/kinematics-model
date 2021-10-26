@@ -103,13 +103,22 @@ public interface XacroPackage extends EPackage {
 	int ROBOT__BODY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Macro Call</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__MACRO_CALL = 4;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 4;
+	int ROBOT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Robot</em>' class.
@@ -297,6 +306,99 @@ public interface XacroPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link xacro.impl.MacroCallImpl <em>Macro Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.MacroCallImpl
+	 * @see xacro.impl.XacroPackageImpl#getMacroCall()
+	 * @generated
+	 */
+	int MACRO_CALL = 4;
+
+	/**
+	 * The feature id for the '<em><b>Macro</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_CALL__MACRO = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Call</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_CALL__PARAMETER_CALL = 1;
+
+	/**
+	 * The number of structural features of the '<em>Macro Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_CALL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Macro Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_CALL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterCallImpl <em>Parameter Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterCallImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterCall()
+	 * @generated
+	 */
+	int PARAMETER_CALL = 5;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL__PARAMETER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Parameter Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link xacro.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,6 +451,17 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRobot_Body();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link xacro.Robot#getMacroCall <em>Macro Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Macro Call</em>'.
+	 * @see xacro.Robot#getMacroCall()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EReference getRobot_MacroCall();
 
 	/**
 	 * Returns the meta object for class '{@link xacro.Parameter <em>Parameter</em>}'.
@@ -491,6 +604,70 @@ public interface XacroPackage extends EPackage {
 	EAttribute getMacro_Name();
 
 	/**
+	 * Returns the meta object for class '{@link xacro.MacroCall <em>Macro Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Macro Call</em>'.
+	 * @see xacro.MacroCall
+	 * @generated
+	 */
+	EClass getMacroCall();
+
+	/**
+	 * Returns the meta object for the reference list '{@link xacro.MacroCall#getMacro <em>Macro</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Macro</em>'.
+	 * @see xacro.MacroCall#getMacro()
+	 * @see #getMacroCall()
+	 * @generated
+	 */
+	EReference getMacroCall_Macro();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link xacro.MacroCall#getParameterCall <em>Parameter Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Call</em>'.
+	 * @see xacro.MacroCall#getParameterCall()
+	 * @see #getMacroCall()
+	 * @generated
+	 */
+	EReference getMacroCall_ParameterCall();
+
+	/**
+	 * Returns the meta object for class '{@link xacro.ParameterCall <em>Parameter Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Call</em>'.
+	 * @see xacro.ParameterCall
+	 * @generated
+	 */
+	EClass getParameterCall();
+
+	/**
+	 * Returns the meta object for the attribute '{@link xacro.ParameterCall#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see xacro.ParameterCall#getValue()
+	 * @see #getParameterCall()
+	 * @generated
+	 */
+	EAttribute getParameterCall_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link xacro.ParameterCall#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @see xacro.ParameterCall#getParameter()
+	 * @see #getParameterCall()
+	 * @generated
+	 */
+	EReference getParameterCall_Parameter();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -554,6 +731,14 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROBOT__BODY = eINSTANCE.getRobot_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Macro Call</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__MACRO_CALL = eINSTANCE.getRobot_MacroCall();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -664,6 +849,58 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MACRO__NAME = eINSTANCE.getMacro_Name();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.MacroCallImpl <em>Macro Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.MacroCallImpl
+		 * @see xacro.impl.XacroPackageImpl#getMacroCall()
+		 * @generated
+		 */
+		EClass MACRO_CALL = eINSTANCE.getMacroCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Macro</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MACRO_CALL__MACRO = eINSTANCE.getMacroCall_Macro();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Call</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MACRO_CALL__PARAMETER_CALL = eINSTANCE.getMacroCall_ParameterCall();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterCallImpl <em>Parameter Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterCallImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterCall()
+		 * @generated
+		 */
+		EClass PARAMETER_CALL = eINSTANCE.getParameterCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_CALL__VALUE = eINSTANCE.getParameterCall_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_CALL__PARAMETER = eINSTANCE.getParameterCall_Parameter();
 
 	}
 

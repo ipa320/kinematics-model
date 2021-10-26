@@ -12,6 +12,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/macro"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Robot/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/macroCall"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/name"/>
@@ -28,6 +29,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/parameter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/body"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Macro/name"/>
+    </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//MacroCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//MacroCall/macro"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//MacroCall/parameterCall"/>
+    </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//ParameterCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//ParameterCall/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterCall/parameter"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

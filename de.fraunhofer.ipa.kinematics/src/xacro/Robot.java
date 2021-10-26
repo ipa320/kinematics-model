@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link xacro.Robot#getMacro <em>Macro</em>}</li>
  *   <li>{@link xacro.Robot#getVersion <em>Version</em>}</li>
  *   <li>{@link xacro.Robot#getBody <em>Body</em>}</li>
+ *   <li>{@link xacro.Robot#getMacroCall <em>Macro Call</em>}</li>
  * </ul>
  *
  * @see xacro.XacroPackage#getRobot()
@@ -104,5 +105,17 @@ public interface Robot extends EObject {
 	 * @generated
 	 */
 	void setBody(Body value);
+
+	/**
+	 * Returns the value of the '<em><b>Macro Call</b></em>' containment reference list.
+	 * The list contents are of type {@link xacro.MacroCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Macro Call</em>' containment reference list.
+	 * @see xacro.XacroPackage#getRobot_MacroCall()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MacroCall> getMacroCall();
 
 } // Robot

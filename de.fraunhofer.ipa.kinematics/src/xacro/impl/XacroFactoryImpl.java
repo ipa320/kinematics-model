@@ -60,6 +60,8 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 			case XacroPackage.PARAMETER: return createParameter();
 			case XacroPackage.BODY: return createBody();
 			case XacroPackage.MACRO: return createMacro();
+			case XacroPackage.MACRO_CALL: return createMacroCall();
+			case XacroPackage.PARAMETER_CALL: return createParameterCall();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -103,6 +105,26 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 	public Macro createMacro() {
 		MacroImpl macro = new MacroImpl();
 		return macro;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MacroCall createMacroCall() {
+		MacroCallImpl macroCall = new MacroCallImpl();
+		return macroCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterCall createParameterCall() {
+		ParameterCallImpl parameterCall = new ParameterCallImpl();
+		return parameterCall;
 	}
 
 	/**

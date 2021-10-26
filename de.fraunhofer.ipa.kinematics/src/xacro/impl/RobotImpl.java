@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import xacro.Body;
 import xacro.Macro;
+import xacro.MacroCall;
 import xacro.Robot;
 import xacro.XacroPackage;
 
@@ -34,6 +35,7 @@ import xacro.XacroPackage;
  *   <li>{@link xacro.impl.RobotImpl#getMacro <em>Macro</em>}</li>
  *   <li>{@link xacro.impl.RobotImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link xacro.impl.RobotImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link xacro.impl.RobotImpl#getMacroCall <em>Macro Call</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,6 +100,16 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @ordered
 	 */
 	protected Body body;
+
+	/**
+	 * The cached value of the '{@link #getMacroCall() <em>Macro Call</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMacroCall()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MacroCall> macroCall;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -220,6 +232,18 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MacroCall> getMacroCall() {
+		if (macroCall == null) {
+			macroCall = new EObjectContainmentEList<MacroCall>(MacroCall.class, this, XacroPackage.ROBOT__MACRO_CALL);
+		}
+		return macroCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -227,6 +251,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return ((InternalEList<?>)getMacro()).basicRemove(otherEnd, msgs);
 			case XacroPackage.ROBOT__BODY:
 				return basicSetBody(null, msgs);
+			case XacroPackage.ROBOT__MACRO_CALL:
+				return ((InternalEList<?>)getMacroCall()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,6 +273,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return getVersion();
 			case XacroPackage.ROBOT__BODY:
 				return getBody();
+			case XacroPackage.ROBOT__MACRO_CALL:
+				return getMacroCall();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,6 +301,10 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			case XacroPackage.ROBOT__BODY:
 				setBody((Body)newValue);
 				return;
+			case XacroPackage.ROBOT__MACRO_CALL:
+				getMacroCall().clear();
+				getMacroCall().addAll((Collection<? extends MacroCall>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -297,6 +329,9 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			case XacroPackage.ROBOT__BODY:
 				setBody((Body)null);
 				return;
+			case XacroPackage.ROBOT__MACRO_CALL:
+				getMacroCall().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -317,6 +352,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case XacroPackage.ROBOT__BODY:
 				return body != null;
+			case XacroPackage.ROBOT__MACRO_CALL:
+				return macroCall != null && !macroCall.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

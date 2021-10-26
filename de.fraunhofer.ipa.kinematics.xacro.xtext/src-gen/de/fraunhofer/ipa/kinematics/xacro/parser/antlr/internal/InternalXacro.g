@@ -222,9 +222,67 @@ ruleRobot returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_15='}'
+		(
+			otherlv_15='macroCall'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getRobotAccess().getMacroCallKeyword_8_0());
+			}
+			otherlv_16='{'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_8_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_2_0());
+					}
+					lv_macroCall_17_0=ruleMacroCall
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
+						}
+						add(
+							$current,
+							"macroCall",
+							lv_macroCall_17_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.MacroCall");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_18=','
+				{
+					newLeafNode(otherlv_18, grammarAccess.getRobotAccess().getCommaKeyword_8_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_3_1_0());
+						}
+						lv_macroCall_19_0=ruleMacroCall
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getRobotRule());
+							}
+							add(
+								$current,
+								"macroCall",
+								lv_macroCall_19_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.MacroCall");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_20='}'
+			{
+				newLeafNode(otherlv_20, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8_4());
+			}
+		)?
+		otherlv_21='}'
 		{
-			newLeafNode(otherlv_15, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_21, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -831,6 +889,227 @@ ruleBody returns [EObject current=null]
 		otherlv_33='}'
 		{
 			newLeafNode(otherlv_33, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_8());
+		}
+	)
+;
+
+// Entry rule entryRuleMacroCall
+entryRuleMacroCall returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMacroCallRule()); }
+	iv_ruleMacroCall=ruleMacroCall
+	{ $current=$iv_ruleMacroCall.current; }
+	EOF;
+
+// Rule MacroCall
+ruleMacroCall returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getMacroCallAccess().getMacroCallAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='MacroCall'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getMacroCallAccess().getMacroCallKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getMacroCallAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='macro'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getMacroCallAccess().getMacroKeyword_3_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getMacroCallRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getMacroCallAccess().getMacroMacroCrossReference_3_1_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getMacroCallAccess().getCommaKeyword_3_2_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getMacroCallRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getMacroCallAccess().getMacroMacroCrossReference_3_2_1_0());
+						}
+						ruleEString
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_7='parameter'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getMacroCallAccess().getParameterKeyword_4_0());
+			}
+			otherlv_8='{'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getMacroCallAccess().getLeftCurlyBracketKeyword_4_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMacroCallAccess().getParameterCallParameterCallParserRuleCall_4_2_0());
+					}
+					lv_parameterCall_9_0=ruleParameterCall
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMacroCallRule());
+						}
+						add(
+							$current,
+							"parameterCall",
+							lv_parameterCall_9_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterCall");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_10=','
+				{
+					newLeafNode(otherlv_10, grammarAccess.getMacroCallAccess().getCommaKeyword_4_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getMacroCallAccess().getParameterCallParameterCallParserRuleCall_4_3_1_0());
+						}
+						lv_parameterCall_11_0=ruleParameterCall
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getMacroCallRule());
+							}
+							add(
+								$current,
+								"parameterCall",
+								lv_parameterCall_11_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterCall");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_12='}'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getMacroCallAccess().getRightCurlyBracketKeyword_4_4());
+			}
+		)?
+		otherlv_13='}'
+		{
+			newLeafNode(otherlv_13, grammarAccess.getMacroCallAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleParameterCall
+entryRuleParameterCall returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterCallRule()); }
+	iv_ruleParameterCall=ruleParameterCall
+	{ $current=$iv_ruleParameterCall.current; }
+	EOF;
+
+// Rule ParameterCall
+ruleParameterCall returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getParameterCallAccess().getParameterCallAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='ParameterCall'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getParameterCallAccess().getParameterCallKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getParameterCallAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='parameter'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getParameterCallAccess().getParameterKeyword_3());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterCallRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getParameterCallAccess().getParameterParameterCrossReference_4_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='value'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getParameterCallAccess().getValueKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParameterCallAccess().getValueEStringParserRuleCall_6_0());
+				}
+				lv_value_6_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParameterCallRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_6_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_7='}'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getParameterCallAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

@@ -164,6 +164,52 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link xacro.MacroCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MacroCallItemProvider macroCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.MacroCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMacroCallAdapter() {
+		if (macroCallItemProvider == null) {
+			macroCallItemProvider = new MacroCallItemProvider(this);
+		}
+
+		return macroCallItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterCallItemProvider parameterCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterCallAdapter() {
+		if (parameterCallItemProvider == null) {
+			parameterCallItemProvider = new ParameterCallItemProvider(this);
+		}
+
+		return parameterCallItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +312,8 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (bodyItemProvider != null) bodyItemProvider.dispose();
 		if (macroItemProvider != null) macroItemProvider.dispose();
+		if (macroCallItemProvider != null) macroCallItemProvider.dispose();
+		if (parameterCallItemProvider != null) parameterCallItemProvider.dispose();
 	}
 
 }
