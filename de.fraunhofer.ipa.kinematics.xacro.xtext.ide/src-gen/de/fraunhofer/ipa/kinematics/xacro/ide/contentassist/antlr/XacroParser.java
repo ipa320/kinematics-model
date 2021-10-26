@@ -53,6 +53,8 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBodyAccess().getGroup_5_3(), "rule__Body__Group_5_3__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup_6(), "rule__Body__Group_6__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup_6_3(), "rule__Body__Group_6_3__0");
+			builder.put(grammarAccess.getBodyAccess().getGroup_7(), "rule__Body__Group_7__0");
+			builder.put(grammarAccess.getBodyAccess().getGroup_7_3(), "rule__Body__Group_7_3__0");
 			builder.put(grammarAccess.getJointAccess().getGroup(), "rule__Joint__Group__0");
 			builder.put(grammarAccess.getJointAccess().getGroup_10(), "rule__Joint__Group_10__0");
 			builder.put(grammarAccess.getJointAccess().getGroup_11(), "rule__Joint__Group_11__0");
@@ -177,10 +179,12 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_3_3_1(), "rule__Body__LinkAssignment_3_3_1");
 			builder.put(grammarAccess.getBodyAccess().getJointAssignment_4_2(), "rule__Body__JointAssignment_4_2");
 			builder.put(grammarAccess.getBodyAccess().getJointAssignment_4_3_1(), "rule__Body__JointAssignment_4_3_1");
-			builder.put(grammarAccess.getBodyAccess().getMaterialAssignment_5_2(), "rule__Body__MaterialAssignment_5_2");
-			builder.put(grammarAccess.getBodyAccess().getMaterialAssignment_5_3_1(), "rule__Body__MaterialAssignment_5_3_1");
-			builder.put(grammarAccess.getBodyAccess().getTransmissionAssignment_6_2(), "rule__Body__TransmissionAssignment_6_2");
-			builder.put(grammarAccess.getBodyAccess().getTransmissionAssignment_6_3_1(), "rule__Body__TransmissionAssignment_6_3_1");
+			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_5_2(), "rule__Body__LinkAssignment_5_2");
+			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_5_3_1(), "rule__Body__LinkAssignment_5_3_1");
+			builder.put(grammarAccess.getBodyAccess().getMaterialAssignment_6_2(), "rule__Body__MaterialAssignment_6_2");
+			builder.put(grammarAccess.getBodyAccess().getMaterialAssignment_6_3_1(), "rule__Body__MaterialAssignment_6_3_1");
+			builder.put(grammarAccess.getBodyAccess().getTransmissionAssignment_7_2(), "rule__Body__TransmissionAssignment_7_2");
+			builder.put(grammarAccess.getBodyAccess().getTransmissionAssignment_7_3_1(), "rule__Body__TransmissionAssignment_7_3_1");
 			builder.put(grammarAccess.getJointAccess().getNameAssignment_3(), "rule__Joint__NameAssignment_3");
 			builder.put(grammarAccess.getJointAccess().getTypeAssignment_5(), "rule__Joint__TypeAssignment_5");
 			builder.put(grammarAccess.getJointAccess().getParentAssignment_7(), "rule__Joint__ParentAssignment_7");

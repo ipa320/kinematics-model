@@ -42,6 +42,7 @@ Body returns Body:
 	'{'
 		('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
+		('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
 		('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 	'}';
@@ -243,7 +244,7 @@ Sphere returns urdf::Sphere:
 Mesh returns urdf::Mesh:
 	'Mesh'
 	'{'
-		'filename' filename=EString
+		'filename' filename=AnyURI
 		('scale' scale=EString)?
 	'}';
 
@@ -312,7 +313,7 @@ Name returns urdf::Name:
 	'{'
 		('name' name=EString)?
 	'}';
-
+	
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307
 terminal fragment DIGIT: '0'..'9';
 terminal BOOLEAN: 'true'|'false';

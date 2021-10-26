@@ -655,9 +655,9 @@ ruleBody returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_15='material'
+			otherlv_15='link'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getBodyAccess().getMaterialKeyword_5_0());
+				newLeafNode(otherlv_15, grammarAccess.getBodyAccess().getLinkKeyword_5_0());
 			}
 			otherlv_16='{'
 			{
@@ -666,18 +666,18 @@ ruleBody returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getBodyAccess().getMaterialMaterialGlobalParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getBodyAccess().getLinkLinkParserRuleCall_5_2_0());
 					}
-					lv_material_17_0=ruleMaterialGlobal
+					lv_link_17_0=ruleLink
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getBodyRule());
 						}
 						add(
 							$current,
-							"material",
-							lv_material_17_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.MaterialGlobal");
+							"link",
+							lv_link_17_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Link");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -690,18 +690,18 @@ ruleBody returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getBodyAccess().getMaterialMaterialGlobalParserRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getBodyAccess().getLinkLinkParserRuleCall_5_3_1_0());
 						}
-						lv_material_19_0=ruleMaterialGlobal
+						lv_link_19_0=ruleLink
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getBodyRule());
 							}
 							add(
 								$current,
-								"material",
-								lv_material_19_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.MaterialGlobal");
+								"link",
+								lv_link_19_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Link");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -713,9 +713,9 @@ ruleBody returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_21='transmission'
+			otherlv_21='material'
 			{
-				newLeafNode(otherlv_21, grammarAccess.getBodyAccess().getTransmissionKeyword_6_0());
+				newLeafNode(otherlv_21, grammarAccess.getBodyAccess().getMaterialKeyword_6_0());
 			}
 			otherlv_22='{'
 			{
@@ -724,18 +724,18 @@ ruleBody returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_6_2_0());
+						newCompositeNode(grammarAccess.getBodyAccess().getMaterialMaterialGlobalParserRuleCall_6_2_0());
 					}
-					lv_transmission_23_0=ruleTransmission
+					lv_material_23_0=ruleMaterialGlobal
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getBodyRule());
 						}
 						add(
 							$current,
-							"transmission",
-							lv_transmission_23_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
+							"material",
+							lv_material_23_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.MaterialGlobal");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -748,18 +748,18 @@ ruleBody returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_6_3_1_0());
+							newCompositeNode(grammarAccess.getBodyAccess().getMaterialMaterialGlobalParserRuleCall_6_3_1_0());
 						}
-						lv_transmission_25_0=ruleTransmission
+						lv_material_25_0=ruleMaterialGlobal
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getBodyRule());
 							}
 							add(
 								$current,
-								"transmission",
-								lv_transmission_25_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
+								"material",
+								lv_material_25_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.MaterialGlobal");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -770,9 +770,67 @@ ruleBody returns [EObject current=null]
 				newLeafNode(otherlv_26, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_6_4());
 			}
 		)?
-		otherlv_27='}'
+		(
+			otherlv_27='transmission'
+			{
+				newLeafNode(otherlv_27, grammarAccess.getBodyAccess().getTransmissionKeyword_7_0());
+			}
+			otherlv_28='{'
+			{
+				newLeafNode(otherlv_28, grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_7_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_7_2_0());
+					}
+					lv_transmission_29_0=ruleTransmission
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBodyRule());
+						}
+						add(
+							$current,
+							"transmission",
+							lv_transmission_29_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_30=','
+				{
+					newLeafNode(otherlv_30, grammarAccess.getBodyAccess().getCommaKeyword_7_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_7_3_1_0());
+						}
+						lv_transmission_31_0=ruleTransmission
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getBodyRule());
+							}
+							add(
+								$current,
+								"transmission",
+								lv_transmission_31_0,
+								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_32='}'
+			{
+				newLeafNode(otherlv_32, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_7_4());
+			}
+		)?
+		otherlv_33='}'
 		{
-			newLeafNode(otherlv_27, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_33, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -3779,9 +3837,9 @@ ruleMesh returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0());
 				}
-				lv_filename_3_0=ruleEString
+				lv_filename_3_0=ruleAnyURI
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMeshRule());
@@ -3790,7 +3848,7 @@ ruleMesh returns [EObject current=null]
 						$current,
 						"filename",
 						lv_filename_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.AnyURI");
 					afterParserOrEnumRuleCall();
 				}
 			)

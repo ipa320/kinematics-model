@@ -375,26 +375,36 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cJointJointParserRuleCall_4_3_1_0 = (RuleCall)cJointAssignment_4_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cMaterialKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cLinkKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cMaterialAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cMaterialMaterialGlobalParserRuleCall_5_2_0 = (RuleCall)cMaterialAssignment_5_2.eContents().get(0);
+		private final Assignment cLinkAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cLinkLinkParserRuleCall_5_2_0 = (RuleCall)cLinkAssignment_5_2.eContents().get(0);
 		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
 		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cMaterialAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cMaterialMaterialGlobalParserRuleCall_5_3_1_0 = (RuleCall)cMaterialAssignment_5_3_1.eContents().get(0);
+		private final Assignment cLinkAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
+		private final RuleCall cLinkLinkParserRuleCall_5_3_1_0 = (RuleCall)cLinkAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cTransmissionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cMaterialKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cTransmissionAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cTransmissionTransmissionParserRuleCall_6_2_0 = (RuleCall)cTransmissionAssignment_6_2.eContents().get(0);
+		private final Assignment cMaterialAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cMaterialMaterialGlobalParserRuleCall_6_2_0 = (RuleCall)cMaterialAssignment_6_2.eContents().get(0);
 		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
 		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cTransmissionAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cTransmissionTransmissionParserRuleCall_6_3_1_0 = (RuleCall)cTransmissionAssignment_6_3_1.eContents().get(0);
+		private final Assignment cMaterialAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cMaterialMaterialGlobalParserRuleCall_6_3_1_0 = (RuleCall)cMaterialAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTransmissionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cTransmissionAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cTransmissionTransmissionParserRuleCall_7_2_0 = (RuleCall)cTransmissionAssignment_7_2.eContents().get(0);
+		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
+		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
+		private final Assignment cTransmissionAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
+		private final RuleCall cTransmissionTransmissionParserRuleCall_7_3_1_0 = (RuleCall)cTransmissionAssignment_7_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Body returns Body:
 		//    {Body}
@@ -402,6 +412,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    '{'
 		//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		//        ('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
+		//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		//        ('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
 		//        ('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 		//    '}';
@@ -412,6 +423,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		//    ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		//    ('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
+		//    ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		//    ('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
 		//    ('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 		//'}'
@@ -486,68 +498,98 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
 		
-		//('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
+		//('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//'material'
-		public Keyword getMaterialKeyword_5_0() { return cMaterialKeyword_5_0; }
+		//'link'
+		public Keyword getLinkKeyword_5_0() { return cLinkKeyword_5_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
 		
-		//material+=MaterialGlobal
-		public Assignment getMaterialAssignment_5_2() { return cMaterialAssignment_5_2; }
+		//link+=Link
+		public Assignment getLinkAssignment_5_2() { return cLinkAssignment_5_2; }
 		
-		//MaterialGlobal
-		public RuleCall getMaterialMaterialGlobalParserRuleCall_5_2_0() { return cMaterialMaterialGlobalParserRuleCall_5_2_0; }
+		//Link
+		public RuleCall getLinkLinkParserRuleCall_5_2_0() { return cLinkLinkParserRuleCall_5_2_0; }
 		
-		//( "," material+=MaterialGlobal)*
+		//( "," link+=Link)*
 		public Group getGroup_5_3() { return cGroup_5_3; }
 		
 		//","
 		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
 		
-		//material+=MaterialGlobal
-		public Assignment getMaterialAssignment_5_3_1() { return cMaterialAssignment_5_3_1; }
+		//link+=Link
+		public Assignment getLinkAssignment_5_3_1() { return cLinkAssignment_5_3_1; }
 		
-		//MaterialGlobal
-		public RuleCall getMaterialMaterialGlobalParserRuleCall_5_3_1_0() { return cMaterialMaterialGlobalParserRuleCall_5_3_1_0; }
+		//Link
+		public RuleCall getLinkLinkParserRuleCall_5_3_1_0() { return cLinkLinkParserRuleCall_5_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
 		
-		//('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
+		//('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'transmission'
-		public Keyword getTransmissionKeyword_6_0() { return cTransmissionKeyword_6_0; }
+		//'material'
+		public Keyword getMaterialKeyword_6_0() { return cMaterialKeyword_6_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
 		
-		//transmission+=Transmission
-		public Assignment getTransmissionAssignment_6_2() { return cTransmissionAssignment_6_2; }
+		//material+=MaterialGlobal
+		public Assignment getMaterialAssignment_6_2() { return cMaterialAssignment_6_2; }
 		
-		//Transmission
-		public RuleCall getTransmissionTransmissionParserRuleCall_6_2_0() { return cTransmissionTransmissionParserRuleCall_6_2_0; }
+		//MaterialGlobal
+		public RuleCall getMaterialMaterialGlobalParserRuleCall_6_2_0() { return cMaterialMaterialGlobalParserRuleCall_6_2_0; }
 		
-		//( "," transmission+=Transmission)*
+		//( "," material+=MaterialGlobal)*
 		public Group getGroup_6_3() { return cGroup_6_3; }
 		
 		//","
 		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
 		
-		//transmission+=Transmission
-		public Assignment getTransmissionAssignment_6_3_1() { return cTransmissionAssignment_6_3_1; }
+		//material+=MaterialGlobal
+		public Assignment getMaterialAssignment_6_3_1() { return cMaterialAssignment_6_3_1; }
 		
-		//Transmission
-		public RuleCall getTransmissionTransmissionParserRuleCall_6_3_1_0() { return cTransmissionTransmissionParserRuleCall_6_3_1_0; }
+		//MaterialGlobal
+		public RuleCall getMaterialMaterialGlobalParserRuleCall_6_3_1_0() { return cMaterialMaterialGlobalParserRuleCall_6_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
 		
+		//('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'transmission'
+		public Keyword getTransmissionKeyword_7_0() { return cTransmissionKeyword_7_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
+		
+		//transmission+=Transmission
+		public Assignment getTransmissionAssignment_7_2() { return cTransmissionAssignment_7_2; }
+		
+		//Transmission
+		public RuleCall getTransmissionTransmissionParserRuleCall_7_2_0() { return cTransmissionTransmissionParserRuleCall_7_2_0; }
+		
+		//( "," transmission+=Transmission)*
+		public Group getGroup_7_3() { return cGroup_7_3; }
+		
+		//","
+		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
+		
+		//transmission+=Transmission
+		public Assignment getTransmissionAssignment_7_3_1() { return cTransmissionAssignment_7_3_1; }
+		
+		//Transmission
+		public RuleCall getTransmissionTransmissionParserRuleCall_7_3_1_0() { return cTransmissionTransmissionParserRuleCall_7_3_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class JointElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Joint");
@@ -2781,7 +2823,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cFilenameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cFilenameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFilenameEStringParserRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
+		private final RuleCall cFilenameAnyURIParserRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cScaleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cScaleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -2791,14 +2833,14 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Mesh returns urdf::Mesh:
 		//    'Mesh'
 		//    '{'
-		//        'filename' filename=EString
+		//        'filename' filename=AnyURI
 		//        ('scale' scale=EString)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Mesh'
 		//'{'
-		//    'filename' filename=EString
+		//    'filename' filename=AnyURI
 		//    ('scale' scale=EString)?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -2812,11 +2854,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'filename'
 		public Keyword getFilenameKeyword_2() { return cFilenameKeyword_2; }
 		
-		//filename=EString
+		//filename=AnyURI
 		public Assignment getFilenameAssignment_3() { return cFilenameAssignment_3; }
 		
-		//EString
-		public RuleCall getFilenameEStringParserRuleCall_3_0() { return cFilenameEStringParserRuleCall_3_0; }
+		//AnyURI
+		public RuleCall getFilenameAnyURIParserRuleCall_3_0() { return cFilenameAnyURIParserRuleCall_3_0; }
 		
 		//('scale' scale=EString)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -3574,6 +3616,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    '{'
 	//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 	//        ('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
+	//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
 	//        ('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
 	//        ('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 	//    '}';
@@ -3929,7 +3972,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Mesh returns urdf::Mesh:
 	//    'Mesh'
 	//    '{'
-	//        'filename' filename=EString
+	//        'filename' filename=AnyURI
 	//        ('scale' scale=EString)?
 	//    '}';
 	public MeshElements getMeshAccess() {

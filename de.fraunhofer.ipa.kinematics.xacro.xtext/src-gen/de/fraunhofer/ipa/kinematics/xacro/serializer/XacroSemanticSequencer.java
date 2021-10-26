@@ -216,6 +216,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         (link+=Link link+=Link*)? 
 	 *         (joint+=Joint joint+=Joint*)? 
+	 *         (link+=Link link+=Link*)? 
 	 *         (material+=MaterialGlobal material+=MaterialGlobal*)? 
 	 *         (transmission+=Transmission transmission+=Transmission*)?
 	 *     )
@@ -514,7 +515,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Mesh returns Mesh
 	 *
 	 * Constraint:
-	 *     (filename=EString scale=EString?)
+	 *     (filename=AnyURI scale=EString?)
 	 */
 	protected void sequence_Mesh(ISerializationContext context, Mesh semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
