@@ -16243,9 +16243,9 @@ rule__Joint__TypeAssignment_5
 	}
 :
 	(
-		{ before(grammarAccess.getJointAccess().getTypeEStringParserRuleCall_5_0()); }
-		ruleEString
-		{ after(grammarAccess.getJointAccess().getTypeEStringParserRuleCall_5_0()); }
+		{ before(grammarAccess.getJointAccess().getTypeJOINTTYPETerminalRuleCall_5_0()); }
+		RULE_JOINTTYPE
+		{ after(grammarAccess.getJointAccess().getTypeJOINTTYPETerminalRuleCall_5_0()); }
 	)
 ;
 finally {
@@ -17556,9 +17556,9 @@ rule__Mesh__FilenameAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); }
-		ruleEString
-		{ after(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); }
+		{ before(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); }
+		ruleAnyURI
+		{ after(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); }
 	)
 ;
 finally {
@@ -17872,6 +17872,8 @@ RULE_BOOLEAN : ('true'|'false');
 RULE_DOUBLE : RULE_DECINT ('.' RULE_DIGIT*|('.' RULE_DIGIT*)? ('E'|'e') ('-'|'+')? RULE_DECINT);
 
 RULE_DECINT : ('0'|'1'..'9' RULE_DIGIT*|'-' '0'..'9' RULE_DIGIT*);
+
+RULE_JOINTTYPE : ('revolute'|'continuous'|'prismatic'|'fixed'|'floating'|'planar');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

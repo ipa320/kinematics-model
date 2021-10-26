@@ -429,7 +429,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         type=EString 
+	 *         type=JOINTTYPE 
 	 *         parent=[Link|EString] 
 	 *         child=[Link|EString] 
 	 *         origin=Pose? 
@@ -535,7 +535,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Mesh returns Mesh
 	 *
 	 * Constraint:
-	 *     (filename=EString scale=EString?)
+	 *     (filename=AnyURI scale=EString?)
 	 */
 	protected void sequence_Mesh(ISerializationContext context, Mesh semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

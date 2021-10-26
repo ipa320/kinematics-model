@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DOUBLE", "RULE_STRING", "RULE_ID", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AnyURI'", "'Robot'", "'{'", "'name'", "'}'", "'version'", "'macro'", "','", "'macroCall'", "'body'", "'Macro'", "'parameter'", "'Parameter'", "'default'", "'value'", "'Body'", "'link'", "'joint'", "'material'", "'transmission'", "'MacroCall'", "'ParameterCall'", "'Joint'", "'type'", "'parent'", "'child'", "'origin'", "'axis'", "'calibration'", "'dynamics'", "'limit'", "'safetyController'", "'mimic'", "'Link'", "'inertial'", "'visual'", "'collision'", "'MaterialGlobal'", "'color'", "'texture'", "'Transmission'", "'mechanicalReduction'", "'leftActuator'", "'rightActuator'", "'flexJoint'", "'rollJoint'", "'gapJoint'", "'passiveJoint'", "'useSimulatedGripperJoint'", "'actuator'", "'Pose'", "'rpy'", "'xyz'", "'Axis'", "'Calibration'", "'falling'", "'referencePosition'", "'rising'", "'Dynamics'", "'damping'", "'friction'", "'Limit'", "'effort'", "'lower'", "'upper'", "'velocity'", "'SafetyController'", "'kVelocity'", "'kPosition'", "'softLowerLimit'", "'softUpperLimit'", "'Mimic'", "'multiplier'", "'offset'", "'Inertial'", "'mass'", "'inertia'", "'Visual'", "'geometry'", "'Collision'", "'verbose'", "'Mass'", "'Inertia'", "'ixx'", "'ixy'", "'ixz'", "'iyy'", "'iyz'", "'izz'", "'Geometry'", "'box'", "'cylinder'", "'sphere'", "'mesh'", "'Material'", "'Box'", "'size'", "'Cylinder'", "'length'", "'radius'", "'Sphere'", "'Mesh'", "'filename'", "'scale'", "'Color'", "'rgba'", "'Texture'", "'Verbose'", "'ActuatorTransmission'", "'GapJointTransmission'", "'a'", "'b'", "'gearRatio'", "'h'", "'l0'", "'phi0'", "'r'", "'screwReduction'", "'t0'", "'theta0'", "'PassiveJointTransmission'", "'UseSimulatedGripperJointType'", "'Name'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DOUBLE", "RULE_STRING", "RULE_ID", "RULE_JOINTTYPE", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AnyURI'", "'Robot'", "'{'", "'name'", "'}'", "'version'", "'macro'", "','", "'macroCall'", "'body'", "'Macro'", "'parameter'", "'Parameter'", "'default'", "'value'", "'Body'", "'link'", "'joint'", "'material'", "'transmission'", "'MacroCall'", "'ParameterCall'", "'Joint'", "'type'", "'parent'", "'child'", "'origin'", "'axis'", "'calibration'", "'dynamics'", "'limit'", "'safetyController'", "'mimic'", "'Link'", "'inertial'", "'visual'", "'collision'", "'MaterialGlobal'", "'color'", "'texture'", "'Transmission'", "'mechanicalReduction'", "'leftActuator'", "'rightActuator'", "'flexJoint'", "'rollJoint'", "'gapJoint'", "'passiveJoint'", "'useSimulatedGripperJoint'", "'actuator'", "'Pose'", "'rpy'", "'xyz'", "'Axis'", "'Calibration'", "'falling'", "'referencePosition'", "'rising'", "'Dynamics'", "'damping'", "'friction'", "'Limit'", "'effort'", "'lower'", "'upper'", "'velocity'", "'SafetyController'", "'kVelocity'", "'kPosition'", "'softLowerLimit'", "'softUpperLimit'", "'Mimic'", "'multiplier'", "'offset'", "'Inertial'", "'mass'", "'inertia'", "'Visual'", "'geometry'", "'Collision'", "'verbose'", "'Mass'", "'Inertia'", "'ixx'", "'ixy'", "'ixz'", "'iyy'", "'iyz'", "'izz'", "'Geometry'", "'box'", "'cylinder'", "'sphere'", "'mesh'", "'Material'", "'Box'", "'size'", "'Cylinder'", "'length'", "'radius'", "'Sphere'", "'Mesh'", "'filename'", "'scale'", "'Color'", "'rgba'", "'Texture'", "'Verbose'", "'ActuatorTransmission'", "'GapJointTransmission'", "'a'", "'b'", "'gearRatio'", "'h'", "'l0'", "'phi0'", "'r'", "'screwReduction'", "'t0'", "'theta0'", "'PassiveJointTransmission'", "'UseSimulatedGripperJointType'", "'Name'"
     };
     public static final int T__50=50;
     public static final int T__59=59;
@@ -36,6 +36,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final int T__136=136;
     public static final int T__53=53;
     public static final int T__54=54;
+    public static final int T__138=138;
     public static final int T__133=133;
     public static final int T__132=132;
     public static final int T__60=60;
@@ -45,10 +46,10 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final int RULE_ID=6;
     public static final int T__131=131;
     public static final int T__130=130;
-    public static final int RULE_DIGIT=7;
-    public static final int RULE_INT=10;
+    public static final int RULE_DIGIT=8;
+    public static final int RULE_INT=11;
     public static final int T__66=66;
-    public static final int RULE_ML_COMMENT=11;
+    public static final int RULE_ML_COMMENT=12;
     public static final int T__67=67;
     public static final int T__129=129;
     public static final int T__68=68;
@@ -68,7 +69,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
-    public static final int RULE_DECINT=9;
+    public static final int RULE_DECINT=10;
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
@@ -90,9 +91,8 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final int T__94=94;
     public static final int T__101=101;
     public static final int T__90=90;
-    public static final int RULE_BOOLEAN=8;
+    public static final int RULE_BOOLEAN=9;
     public static final int T__19=19;
-    public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
@@ -120,13 +120,14 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final int T__123=123;
     public static final int T__120=120;
     public static final int RULE_STRING=5;
-    public static final int RULE_SL_COMMENT=12;
+    public static final int RULE_SL_COMMENT=13;
     public static final int RULE_DOUBLE=4;
     public static final int T__77=77;
     public static final int T__119=119;
     public static final int T__78=78;
     public static final int T__118=118;
     public static final int T__79=79;
+    public static final int RULE_JOINTTYPE=7;
     public static final int T__73=73;
     public static final int T__115=115;
     public static final int EOF=-1;
@@ -144,8 +145,8 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final int T__113=113;
     public static final int T__83=83;
     public static final int T__112=112;
-    public static final int RULE_WS=13;
-    public static final int RULE_ANY_OTHER=14;
+    public static final int RULE_WS=14;
+    public static final int RULE_ANY_OTHER=15;
     public static final int T__88=88;
     public static final int T__108=108;
     public static final int T__89=89;
@@ -2472,7 +2473,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:793:3: 'AnyURI'
             {
              before(grammarAccess.getAnyURIAccess().getAnyURIKeyword()); 
-            match(input,15,FOLLOW_2); 
+            match(input,16,FOLLOW_2); 
              after(grammarAccess.getAnyURIAccess().getAnyURIKeyword()); 
 
             }
@@ -3376,7 +3377,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1093:2: 'Robot'
             {
              before(grammarAccess.getRobotAccess().getRobotKeyword_1()); 
-            match(input,16,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getRobotKeyword_1()); 
 
             }
@@ -3451,7 +3452,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1120:2: '{'
             {
              before(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -3526,7 +3527,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1147:2: 'name'
             {
              before(grammarAccess.getRobotAccess().getNameKeyword_3()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getNameKeyword_3()); 
 
             }
@@ -3690,7 +3691,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==20) ) {
+            if ( (LA2_0==21) ) {
                 alt2=1;
             }
             switch (alt2) {
@@ -3786,7 +3787,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==21) ) {
+            if ( (LA3_0==22) ) {
                 alt3=1;
             }
             switch (alt3) {
@@ -3882,7 +3883,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==23) ) {
+            if ( (LA4_0==24) ) {
                 alt4=1;
             }
             switch (alt4) {
@@ -3978,7 +3979,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==24) ) {
+            if ( (LA5_0==25) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -4065,7 +4066,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1308:2: '}'
             {
              before(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_9()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_9()); 
 
             }
@@ -4140,7 +4141,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1336:2: 'version'
             {
              before(grammarAccess.getRobotAccess().getVersionKeyword_5_0()); 
-            match(input,20,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getVersionKeyword_5_0()); 
 
             }
@@ -4295,7 +4296,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1390:2: 'macro'
             {
              before(grammarAccess.getRobotAccess().getMacroKeyword_6_0()); 
-            match(input,21,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getMacroKeyword_6_0()); 
 
             }
@@ -4370,7 +4371,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1417:2: '{'
             {
              before(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_6_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_6_1()); 
 
             }
@@ -4536,7 +4537,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==22) ) {
+                if ( (LA6_0==23) ) {
                     alt6=1;
                 }
 
@@ -4628,7 +4629,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1497:2: '}'
             {
              before(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_6_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_6_4()); 
 
             }
@@ -4703,7 +4704,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1525:2: ','
             {
              before(grammarAccess.getRobotAccess().getCommaKeyword_6_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getCommaKeyword_6_3_0()); 
 
             }
@@ -4858,7 +4859,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1579:2: 'macroCall'
             {
              before(grammarAccess.getRobotAccess().getMacroCallKeyword_7_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getMacroCallKeyword_7_0()); 
 
             }
@@ -4933,7 +4934,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1606:2: '{'
             {
              before(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_7_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_7_1()); 
 
             }
@@ -5099,7 +5100,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==22) ) {
+                if ( (LA7_0==23) ) {
                     alt7=1;
                 }
 
@@ -5191,7 +5192,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1686:2: '}'
             {
              before(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7_4()); 
 
             }
@@ -5266,7 +5267,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1714:2: ','
             {
              before(grammarAccess.getRobotAccess().getCommaKeyword_7_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getCommaKeyword_7_3_0()); 
 
             }
@@ -5421,7 +5422,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1768:2: 'body'
             {
              before(grammarAccess.getRobotAccess().getBodyKeyword_8_0()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getRobotAccess().getBodyKeyword_8_0()); 
 
             }
@@ -5576,7 +5577,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1822:2: 'Macro'
             {
              before(grammarAccess.getMacroAccess().getMacroKeyword_0()); 
-            match(input,25,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getMacroKeyword_0()); 
 
             }
@@ -5651,7 +5652,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1849:2: '{'
             {
              before(grammarAccess.getMacroAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -5726,7 +5727,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1876:2: 'name'
             {
              before(grammarAccess.getMacroAccess().getNameKeyword_2()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getNameKeyword_2()); 
 
             }
@@ -5890,7 +5891,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==26) ) {
+            if ( (LA8_0==27) ) {
                 alt8=1;
             }
             switch (alt8) {
@@ -5986,7 +5987,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==24) ) {
+            if ( (LA9_0==25) ) {
                 alt9=1;
             }
             switch (alt9) {
@@ -6073,7 +6074,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1983:2: '}'
             {
              before(grammarAccess.getMacroAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -6148,7 +6149,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2011:2: 'parameter'
             {
              before(grammarAccess.getMacroAccess().getParameterKeyword_4_0()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getParameterKeyword_4_0()); 
 
             }
@@ -6223,7 +6224,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2038:2: '{'
             {
              before(grammarAccess.getMacroAccess().getLeftCurlyBracketKeyword_4_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getLeftCurlyBracketKeyword_4_1()); 
 
             }
@@ -6389,7 +6390,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==22) ) {
+                if ( (LA10_0==23) ) {
                     alt10=1;
                 }
 
@@ -6481,7 +6482,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2118:2: '}'
             {
              before(grammarAccess.getMacroAccess().getRightCurlyBracketKeyword_4_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getRightCurlyBracketKeyword_4_4()); 
 
             }
@@ -6556,7 +6557,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2146:2: ','
             {
              before(grammarAccess.getMacroAccess().getCommaKeyword_4_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getCommaKeyword_4_3_0()); 
 
             }
@@ -6711,7 +6712,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2200:2: 'body'
             {
              before(grammarAccess.getMacroAccess().getBodyKeyword_5_0()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getBodyKeyword_5_0()); 
 
             }
@@ -6941,7 +6942,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2281:2: 'Parameter'
             {
              before(grammarAccess.getParameterAccess().getParameterKeyword_1()); 
-            match(input,27,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getParameterAccess().getParameterKeyword_1()); 
 
             }
@@ -7101,7 +7102,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2335:2: '{'
             {
              before(grammarAccess.getParameterAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getParameterAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -7180,7 +7181,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==28) ) {
+            if ( (LA11_0==29) ) {
                 alt11=1;
             }
             switch (alt11) {
@@ -7276,7 +7277,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==29) ) {
+            if ( (LA12_0==30) ) {
                 alt12=1;
             }
             switch (alt12) {
@@ -7363,7 +7364,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2415:2: '}'
             {
              before(grammarAccess.getParameterAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getParameterAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -7438,7 +7439,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2443:2: 'default'
             {
              before(grammarAccess.getParameterAccess().getDefaultKeyword_4_0()); 
-            match(input,28,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getParameterAccess().getDefaultKeyword_4_0()); 
 
             }
@@ -7593,7 +7594,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2497:2: 'value'
             {
              before(grammarAccess.getParameterAccess().getValueKeyword_5_0()); 
-            match(input,29,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getParameterAccess().getValueKeyword_5_0()); 
 
             }
@@ -7823,7 +7824,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2578:2: 'Body'
             {
              before(grammarAccess.getBodyAccess().getBodyKeyword_1()); 
-            match(input,30,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getBodyKeyword_1()); 
 
             }
@@ -7898,7 +7899,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2605:2: '{'
             {
              before(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -8069,7 +8070,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==32) ) {
+            if ( (LA14_0==33) ) {
                 alt14=1;
             }
             switch (alt14) {
@@ -8165,7 +8166,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==31) ) {
+            if ( (LA15_0==32) ) {
                 alt15=1;
             }
             switch (alt15) {
@@ -8261,7 +8262,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==33) ) {
+            if ( (LA16_0==34) ) {
                 alt16=1;
             }
             switch (alt16) {
@@ -8357,7 +8358,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==34) ) {
+            if ( (LA17_0==35) ) {
                 alt17=1;
             }
             switch (alt17) {
@@ -8444,7 +8445,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2766:2: '}'
             {
              before(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_8()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_8()); 
 
             }
@@ -8519,7 +8520,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2794:2: 'link'
             {
              before(grammarAccess.getBodyAccess().getLinkKeyword_3_0()); 
-            match(input,31,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLinkKeyword_3_0()); 
 
             }
@@ -8594,7 +8595,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2821:2: '{'
             {
              before(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_3_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_3_1()); 
 
             }
@@ -8760,7 +8761,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt18=2;
                 int LA18_0 = input.LA(1);
 
-                if ( (LA18_0==22) ) {
+                if ( (LA18_0==23) ) {
                     alt18=1;
                 }
 
@@ -8852,7 +8853,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2901:2: '}'
             {
              before(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_3_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_3_4()); 
 
             }
@@ -8927,7 +8928,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2929:2: ','
             {
              before(grammarAccess.getBodyAccess().getCommaKeyword_3_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getCommaKeyword_3_3_0()); 
 
             }
@@ -9082,7 +9083,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2983:2: 'joint'
             {
              before(grammarAccess.getBodyAccess().getJointKeyword_4_0()); 
-            match(input,32,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getJointKeyword_4_0()); 
 
             }
@@ -9157,7 +9158,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3010:2: '{'
             {
              before(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_4_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_4_1()); 
 
             }
@@ -9323,7 +9324,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt19=2;
                 int LA19_0 = input.LA(1);
 
-                if ( (LA19_0==22) ) {
+                if ( (LA19_0==23) ) {
                     alt19=1;
                 }
 
@@ -9415,7 +9416,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3090:2: '}'
             {
              before(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_4_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_4_4()); 
 
             }
@@ -9490,7 +9491,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3118:2: ','
             {
              before(grammarAccess.getBodyAccess().getCommaKeyword_4_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getCommaKeyword_4_3_0()); 
 
             }
@@ -9645,7 +9646,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3172:2: 'link'
             {
              before(grammarAccess.getBodyAccess().getLinkKeyword_5_0()); 
-            match(input,31,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLinkKeyword_5_0()); 
 
             }
@@ -9720,7 +9721,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3199:2: '{'
             {
              before(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_5_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_5_1()); 
 
             }
@@ -9886,7 +9887,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==22) ) {
+                if ( (LA20_0==23) ) {
                     alt20=1;
                 }
 
@@ -9978,7 +9979,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3279:2: '}'
             {
              before(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_5_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_5_4()); 
 
             }
@@ -10053,7 +10054,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3307:2: ','
             {
              before(grammarAccess.getBodyAccess().getCommaKeyword_5_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getCommaKeyword_5_3_0()); 
 
             }
@@ -10208,7 +10209,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3361:2: 'material'
             {
              before(grammarAccess.getBodyAccess().getMaterialKeyword_6_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getMaterialKeyword_6_0()); 
 
             }
@@ -10283,7 +10284,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3388:2: '{'
             {
              before(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_6_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_6_1()); 
 
             }
@@ -10449,7 +10450,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt21=2;
                 int LA21_0 = input.LA(1);
 
-                if ( (LA21_0==22) ) {
+                if ( (LA21_0==23) ) {
                     alt21=1;
                 }
 
@@ -10541,7 +10542,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3468:2: '}'
             {
              before(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_6_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_6_4()); 
 
             }
@@ -10616,7 +10617,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3496:2: ','
             {
              before(grammarAccess.getBodyAccess().getCommaKeyword_6_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getCommaKeyword_6_3_0()); 
 
             }
@@ -10771,7 +10772,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3550:2: 'transmission'
             {
              before(grammarAccess.getBodyAccess().getTransmissionKeyword_7_0()); 
-            match(input,34,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getTransmissionKeyword_7_0()); 
 
             }
@@ -10846,7 +10847,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3577:2: '{'
             {
              before(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_7_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_7_1()); 
 
             }
@@ -11012,7 +11013,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( (LA22_0==22) ) {
+                if ( (LA22_0==23) ) {
                     alt22=1;
                 }
 
@@ -11104,7 +11105,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3657:2: '}'
             {
              before(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_7_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_7_4()); 
 
             }
@@ -11179,7 +11180,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3685:2: ','
             {
              before(grammarAccess.getBodyAccess().getCommaKeyword_7_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getCommaKeyword_7_3_0()); 
 
             }
@@ -11409,7 +11410,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3766:2: 'MacroCall'
             {
              before(grammarAccess.getMacroCallAccess().getMacroCallKeyword_1()); 
-            match(input,35,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getMacroCallKeyword_1()); 
 
             }
@@ -11484,7 +11485,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3793:2: '{'
             {
              before(grammarAccess.getMacroCallAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -11563,7 +11564,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==21) ) {
+            if ( (LA23_0==22) ) {
                 alt23=1;
             }
             switch (alt23) {
@@ -11659,7 +11660,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==26) ) {
+            if ( (LA24_0==27) ) {
                 alt24=1;
             }
             switch (alt24) {
@@ -11746,7 +11747,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3873:2: '}'
             {
              before(grammarAccess.getMacroCallAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -11821,7 +11822,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3901:2: 'macro'
             {
              before(grammarAccess.getMacroCallAccess().getMacroKeyword_3_0()); 
-            match(input,21,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getMacroKeyword_3_0()); 
 
             }
@@ -11982,7 +11983,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt25=2;
                 int LA25_0 = input.LA(1);
 
-                if ( (LA25_0==22) ) {
+                if ( (LA25_0==23) ) {
                     alt25=1;
                 }
 
@@ -12079,7 +12080,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3982:2: ','
             {
              before(grammarAccess.getMacroCallAccess().getCommaKeyword_3_2_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getCommaKeyword_3_2_0()); 
 
             }
@@ -12234,7 +12235,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4036:2: 'parameter'
             {
              before(grammarAccess.getMacroCallAccess().getParameterKeyword_4_0()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getParameterKeyword_4_0()); 
 
             }
@@ -12309,7 +12310,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4063:2: '{'
             {
              before(grammarAccess.getMacroCallAccess().getLeftCurlyBracketKeyword_4_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getLeftCurlyBracketKeyword_4_1()); 
 
             }
@@ -12475,7 +12476,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt26=2;
                 int LA26_0 = input.LA(1);
 
-                if ( (LA26_0==22) ) {
+                if ( (LA26_0==23) ) {
                     alt26=1;
                 }
 
@@ -12567,7 +12568,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4143:2: '}'
             {
              before(grammarAccess.getMacroCallAccess().getRightCurlyBracketKeyword_4_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getRightCurlyBracketKeyword_4_4()); 
 
             }
@@ -12642,7 +12643,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4171:2: ','
             {
              before(grammarAccess.getMacroCallAccess().getCommaKeyword_4_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getMacroCallAccess().getCommaKeyword_4_3_0()); 
 
             }
@@ -12872,7 +12873,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4252:2: 'ParameterCall'
             {
              before(grammarAccess.getParameterCallAccess().getParameterCallKeyword_1()); 
-            match(input,36,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getParameterCallAccess().getParameterCallKeyword_1()); 
 
             }
@@ -12947,7 +12948,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4279:2: '{'
             {
              before(grammarAccess.getParameterCallAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getParameterCallAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -13022,7 +13023,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4306:2: 'parameter'
             {
              before(grammarAccess.getParameterCallAccess().getParameterKeyword_3()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getParameterCallAccess().getParameterKeyword_3()); 
 
             }
@@ -13182,7 +13183,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4360:2: 'value'
             {
              before(grammarAccess.getParameterCallAccess().getValueKeyword_5()); 
-            match(input,29,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getParameterCallAccess().getValueKeyword_5()); 
 
             }
@@ -13337,7 +13338,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4413:2: '}'
             {
              before(grammarAccess.getParameterCallAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getParameterCallAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -13412,7 +13413,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4441:2: 'Joint'
             {
              before(grammarAccess.getJointAccess().getJointKeyword_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getJointKeyword_0()); 
 
             }
@@ -13487,7 +13488,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4468:2: '{'
             {
              before(grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -13562,7 +13563,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4495:2: 'name'
             {
              before(grammarAccess.getJointAccess().getNameKeyword_2()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getNameKeyword_2()); 
 
             }
@@ -13680,7 +13681,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4535:1: ( rule__Joint__Group__4__Impl rule__Joint__Group__5 )
             // InternalXacro.g:4536:2: rule__Joint__Group__4__Impl rule__Joint__Group__5
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_28);
             rule__Joint__Group__4__Impl();
 
             state._fsp--;
@@ -13722,7 +13723,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4549:2: 'type'
             {
              before(grammarAccess.getJointAccess().getTypeKeyword_4()); 
-            match(input,38,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getTypeKeyword_4()); 
 
             }
@@ -13755,7 +13756,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4562:1: ( rule__Joint__Group__5__Impl rule__Joint__Group__6 )
             // InternalXacro.g:4563:2: rule__Joint__Group__5__Impl rule__Joint__Group__6
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__Joint__Group__5__Impl();
 
             state._fsp--;
@@ -13882,7 +13883,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4603:2: 'parent'
             {
              before(grammarAccess.getJointAccess().getParentKeyword_6()); 
-            match(input,39,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getParentKeyword_6()); 
 
             }
@@ -13915,7 +13916,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4616:1: ( rule__Joint__Group__7__Impl rule__Joint__Group__8 )
             // InternalXacro.g:4617:2: rule__Joint__Group__7__Impl rule__Joint__Group__8
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__Joint__Group__7__Impl();
 
             state._fsp--;
@@ -14042,7 +14043,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4657:2: 'child'
             {
              before(grammarAccess.getJointAccess().getChildKeyword_8()); 
-            match(input,40,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getChildKeyword_8()); 
 
             }
@@ -14075,7 +14076,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4670:1: ( rule__Joint__Group__9__Impl rule__Joint__Group__10 )
             // InternalXacro.g:4671:2: rule__Joint__Group__9__Impl rule__Joint__Group__10
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__9__Impl();
 
             state._fsp--;
@@ -14160,7 +14161,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4697:1: ( rule__Joint__Group__10__Impl rule__Joint__Group__11 )
             // InternalXacro.g:4698:2: rule__Joint__Group__10__Impl rule__Joint__Group__11
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__10__Impl();
 
             state._fsp--;
@@ -14206,7 +14207,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( (LA27_0==41) ) {
+            if ( (LA27_0==42) ) {
                 alt27=1;
             }
             switch (alt27) {
@@ -14256,7 +14257,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4724:1: ( rule__Joint__Group__11__Impl rule__Joint__Group__12 )
             // InternalXacro.g:4725:2: rule__Joint__Group__11__Impl rule__Joint__Group__12
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__11__Impl();
 
             state._fsp--;
@@ -14302,7 +14303,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt28=2;
             int LA28_0 = input.LA(1);
 
-            if ( (LA28_0==42) ) {
+            if ( (LA28_0==43) ) {
                 alt28=1;
             }
             switch (alt28) {
@@ -14352,7 +14353,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4751:1: ( rule__Joint__Group__12__Impl rule__Joint__Group__13 )
             // InternalXacro.g:4752:2: rule__Joint__Group__12__Impl rule__Joint__Group__13
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__12__Impl();
 
             state._fsp--;
@@ -14398,7 +14399,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( (LA29_0==43) ) {
+            if ( (LA29_0==44) ) {
                 alt29=1;
             }
             switch (alt29) {
@@ -14448,7 +14449,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4778:1: ( rule__Joint__Group__13__Impl rule__Joint__Group__14 )
             // InternalXacro.g:4779:2: rule__Joint__Group__13__Impl rule__Joint__Group__14
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__13__Impl();
 
             state._fsp--;
@@ -14494,7 +14495,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( (LA30_0==44) ) {
+            if ( (LA30_0==45) ) {
                 alt30=1;
             }
             switch (alt30) {
@@ -14544,7 +14545,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4805:1: ( rule__Joint__Group__14__Impl rule__Joint__Group__15 )
             // InternalXacro.g:4806:2: rule__Joint__Group__14__Impl rule__Joint__Group__15
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__14__Impl();
 
             state._fsp--;
@@ -14590,7 +14591,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==45) ) {
+            if ( (LA31_0==46) ) {
                 alt31=1;
             }
             switch (alt31) {
@@ -14640,7 +14641,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4832:1: ( rule__Joint__Group__15__Impl rule__Joint__Group__16 )
             // InternalXacro.g:4833:2: rule__Joint__Group__15__Impl rule__Joint__Group__16
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__15__Impl();
 
             state._fsp--;
@@ -14686,7 +14687,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt32=2;
             int LA32_0 = input.LA(1);
 
-            if ( (LA32_0==46) ) {
+            if ( (LA32_0==47) ) {
                 alt32=1;
             }
             switch (alt32) {
@@ -14736,7 +14737,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4859:1: ( rule__Joint__Group__16__Impl rule__Joint__Group__17 )
             // InternalXacro.g:4860:2: rule__Joint__Group__16__Impl rule__Joint__Group__17
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Joint__Group__16__Impl();
 
             state._fsp--;
@@ -14782,7 +14783,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==47) ) {
+            if ( (LA33_0==48) ) {
                 alt33=1;
             }
             switch (alt33) {
@@ -14869,7 +14870,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4899:2: '}'
             {
              before(grammarAccess.getJointAccess().getRightCurlyBracketKeyword_17()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getRightCurlyBracketKeyword_17()); 
 
             }
@@ -14902,7 +14903,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4913:1: ( rule__Joint__Group_10__0__Impl rule__Joint__Group_10__1 )
             // InternalXacro.g:4914:2: rule__Joint__Group_10__0__Impl rule__Joint__Group_10__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Joint__Group_10__0__Impl();
 
             state._fsp--;
@@ -14944,7 +14945,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4927:2: 'origin'
             {
              before(grammarAccess.getJointAccess().getOriginKeyword_10_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getOriginKeyword_10_0()); 
 
             }
@@ -15057,7 +15058,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4967:1: ( rule__Joint__Group_11__0__Impl rule__Joint__Group_11__1 )
             // InternalXacro.g:4968:2: rule__Joint__Group_11__0__Impl rule__Joint__Group_11__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__Joint__Group_11__0__Impl();
 
             state._fsp--;
@@ -15099,7 +15100,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:4981:2: 'axis'
             {
              before(grammarAccess.getJointAccess().getAxisKeyword_11_0()); 
-            match(input,42,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getAxisKeyword_11_0()); 
 
             }
@@ -15212,7 +15213,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5021:1: ( rule__Joint__Group_12__0__Impl rule__Joint__Group_12__1 )
             // InternalXacro.g:5022:2: rule__Joint__Group_12__0__Impl rule__Joint__Group_12__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Joint__Group_12__0__Impl();
 
             state._fsp--;
@@ -15254,7 +15255,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5035:2: 'calibration'
             {
              before(grammarAccess.getJointAccess().getCalibrationKeyword_12_0()); 
-            match(input,43,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getCalibrationKeyword_12_0()); 
 
             }
@@ -15367,7 +15368,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5075:1: ( rule__Joint__Group_13__0__Impl rule__Joint__Group_13__1 )
             // InternalXacro.g:5076:2: rule__Joint__Group_13__0__Impl rule__Joint__Group_13__1
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_35);
             rule__Joint__Group_13__0__Impl();
 
             state._fsp--;
@@ -15409,7 +15410,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5089:2: 'dynamics'
             {
              before(grammarAccess.getJointAccess().getDynamicsKeyword_13_0()); 
-            match(input,44,FOLLOW_2); 
+            match(input,45,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getDynamicsKeyword_13_0()); 
 
             }
@@ -15522,7 +15523,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5129:1: ( rule__Joint__Group_14__0__Impl rule__Joint__Group_14__1 )
             // InternalXacro.g:5130:2: rule__Joint__Group_14__0__Impl rule__Joint__Group_14__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_36);
             rule__Joint__Group_14__0__Impl();
 
             state._fsp--;
@@ -15564,7 +15565,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5143:2: 'limit'
             {
              before(grammarAccess.getJointAccess().getLimitKeyword_14_0()); 
-            match(input,45,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getLimitKeyword_14_0()); 
 
             }
@@ -15677,7 +15678,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5183:1: ( rule__Joint__Group_15__0__Impl rule__Joint__Group_15__1 )
             // InternalXacro.g:5184:2: rule__Joint__Group_15__0__Impl rule__Joint__Group_15__1
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_37);
             rule__Joint__Group_15__0__Impl();
 
             state._fsp--;
@@ -15719,7 +15720,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5197:2: 'safetyController'
             {
              before(grammarAccess.getJointAccess().getSafetyControllerKeyword_15_0()); 
-            match(input,46,FOLLOW_2); 
+            match(input,47,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getSafetyControllerKeyword_15_0()); 
 
             }
@@ -15832,7 +15833,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5237:1: ( rule__Joint__Group_16__0__Impl rule__Joint__Group_16__1 )
             // InternalXacro.g:5238:2: rule__Joint__Group_16__0__Impl rule__Joint__Group_16__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_38);
             rule__Joint__Group_16__0__Impl();
 
             state._fsp--;
@@ -15874,7 +15875,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5251:2: 'mimic'
             {
              before(grammarAccess.getJointAccess().getMimicKeyword_16_0()); 
-            match(input,47,FOLLOW_2); 
+            match(input,48,FOLLOW_2); 
              after(grammarAccess.getJointAccess().getMimicKeyword_16_0()); 
 
             }
@@ -16029,7 +16030,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5305:2: 'Link'
             {
              before(grammarAccess.getLinkAccess().getLinkKeyword_0()); 
-            match(input,48,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getLinkKeyword_0()); 
 
             }
@@ -16104,7 +16105,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5332:2: '{'
             {
              before(grammarAccess.getLinkAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -16179,7 +16180,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5359:2: 'name'
             {
              before(grammarAccess.getLinkAccess().getNameKeyword_2()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getNameKeyword_2()); 
 
             }
@@ -16212,7 +16213,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5372:1: ( rule__Link__Group__3__Impl rule__Link__Group__4 )
             // InternalXacro.g:5373:2: rule__Link__Group__3__Impl rule__Link__Group__4
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_39);
             rule__Link__Group__3__Impl();
 
             state._fsp--;
@@ -16297,7 +16298,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5399:1: ( rule__Link__Group__4__Impl rule__Link__Group__5 )
             // InternalXacro.g:5400:2: rule__Link__Group__4__Impl rule__Link__Group__5
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_39);
             rule__Link__Group__4__Impl();
 
             state._fsp--;
@@ -16343,7 +16344,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( (LA34_0==38) ) {
+            if ( (LA34_0==39) ) {
                 alt34=1;
             }
             switch (alt34) {
@@ -16393,7 +16394,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5426:1: ( rule__Link__Group__5__Impl rule__Link__Group__6 )
             // InternalXacro.g:5427:2: rule__Link__Group__5__Impl rule__Link__Group__6
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_39);
             rule__Link__Group__5__Impl();
 
             state._fsp--;
@@ -16439,7 +16440,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt35=2;
             int LA35_0 = input.LA(1);
 
-            if ( (LA35_0==49) ) {
+            if ( (LA35_0==50) ) {
                 alt35=1;
             }
             switch (alt35) {
@@ -16489,7 +16490,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5453:1: ( rule__Link__Group__6__Impl rule__Link__Group__7 )
             // InternalXacro.g:5454:2: rule__Link__Group__6__Impl rule__Link__Group__7
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_39);
             rule__Link__Group__6__Impl();
 
             state._fsp--;
@@ -16535,7 +16536,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( (LA36_0==50) ) {
+            if ( (LA36_0==51) ) {
                 alt36=1;
             }
             switch (alt36) {
@@ -16585,7 +16586,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5480:1: ( rule__Link__Group__7__Impl rule__Link__Group__8 )
             // InternalXacro.g:5481:2: rule__Link__Group__7__Impl rule__Link__Group__8
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_39);
             rule__Link__Group__7__Impl();
 
             state._fsp--;
@@ -16631,7 +16632,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt37=2;
             int LA37_0 = input.LA(1);
 
-            if ( (LA37_0==51) ) {
+            if ( (LA37_0==52) ) {
                 alt37=1;
             }
             switch (alt37) {
@@ -16718,7 +16719,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5520:2: '}'
             {
              before(grammarAccess.getLinkAccess().getRightCurlyBracketKeyword_8()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getRightCurlyBracketKeyword_8()); 
 
             }
@@ -16793,7 +16794,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5548:2: 'type'
             {
              before(grammarAccess.getLinkAccess().getTypeKeyword_4_0()); 
-            match(input,38,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getTypeKeyword_4_0()); 
 
             }
@@ -16906,7 +16907,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5588:1: ( rule__Link__Group_5__0__Impl rule__Link__Group_5__1 )
             // InternalXacro.g:5589:2: rule__Link__Group_5__0__Impl rule__Link__Group_5__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_40);
             rule__Link__Group_5__0__Impl();
 
             state._fsp--;
@@ -16948,7 +16949,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5602:2: 'inertial'
             {
              before(grammarAccess.getLinkAccess().getInertialKeyword_5_0()); 
-            match(input,49,FOLLOW_2); 
+            match(input,50,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getInertialKeyword_5_0()); 
 
             }
@@ -17061,7 +17062,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5642:1: ( rule__Link__Group_6__0__Impl rule__Link__Group_6__1 )
             // InternalXacro.g:5643:2: rule__Link__Group_6__0__Impl rule__Link__Group_6__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_41);
             rule__Link__Group_6__0__Impl();
 
             state._fsp--;
@@ -17103,7 +17104,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5656:2: 'visual'
             {
              before(grammarAccess.getLinkAccess().getVisualKeyword_6_0()); 
-            match(input,50,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getVisualKeyword_6_0()); 
 
             }
@@ -17216,7 +17217,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5696:1: ( rule__Link__Group_7__0__Impl rule__Link__Group_7__1 )
             // InternalXacro.g:5697:2: rule__Link__Group_7__0__Impl rule__Link__Group_7__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_42);
             rule__Link__Group_7__0__Impl();
 
             state._fsp--;
@@ -17258,7 +17259,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5710:2: 'collision'
             {
              before(grammarAccess.getLinkAccess().getCollisionKeyword_7_0()); 
-            match(input,51,FOLLOW_2); 
+            match(input,52,FOLLOW_2); 
              after(grammarAccess.getLinkAccess().getCollisionKeyword_7_0()); 
 
             }
@@ -17413,7 +17414,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5764:2: 'MaterialGlobal'
             {
              before(grammarAccess.getMaterialGlobalAccess().getMaterialGlobalKeyword_0()); 
-            match(input,52,FOLLOW_2); 
+            match(input,53,FOLLOW_2); 
              after(grammarAccess.getMaterialGlobalAccess().getMaterialGlobalKeyword_0()); 
 
             }
@@ -17488,7 +17489,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5791:2: '{'
             {
              before(grammarAccess.getMaterialGlobalAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMaterialGlobalAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -17563,7 +17564,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5818:2: 'name'
             {
              before(grammarAccess.getMaterialGlobalAccess().getNameKeyword_2()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getMaterialGlobalAccess().getNameKeyword_2()); 
 
             }
@@ -17596,7 +17597,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5831:1: ( rule__MaterialGlobal__Group__3__Impl rule__MaterialGlobal__Group__4 )
             // InternalXacro.g:5832:2: rule__MaterialGlobal__Group__3__Impl rule__MaterialGlobal__Group__4
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_43);
             rule__MaterialGlobal__Group__3__Impl();
 
             state._fsp--;
@@ -17681,7 +17682,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5858:1: ( rule__MaterialGlobal__Group__4__Impl rule__MaterialGlobal__Group__5 )
             // InternalXacro.g:5859:2: rule__MaterialGlobal__Group__4__Impl rule__MaterialGlobal__Group__5
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_43);
             rule__MaterialGlobal__Group__4__Impl();
 
             state._fsp--;
@@ -17727,7 +17728,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( (LA38_0==53) ) {
+            if ( (LA38_0==54) ) {
                 alt38=1;
             }
             switch (alt38) {
@@ -17777,7 +17778,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5885:1: ( rule__MaterialGlobal__Group__5__Impl rule__MaterialGlobal__Group__6 )
             // InternalXacro.g:5886:2: rule__MaterialGlobal__Group__5__Impl rule__MaterialGlobal__Group__6
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_43);
             rule__MaterialGlobal__Group__5__Impl();
 
             state._fsp--;
@@ -17823,7 +17824,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt39=2;
             int LA39_0 = input.LA(1);
 
-            if ( (LA39_0==54) ) {
+            if ( (LA39_0==55) ) {
                 alt39=1;
             }
             switch (alt39) {
@@ -17910,7 +17911,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5925:2: '}'
             {
              before(grammarAccess.getMaterialGlobalAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMaterialGlobalAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -17943,7 +17944,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5939:1: ( rule__MaterialGlobal__Group_4__0__Impl rule__MaterialGlobal__Group_4__1 )
             // InternalXacro.g:5940:2: rule__MaterialGlobal__Group_4__0__Impl rule__MaterialGlobal__Group_4__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_44);
             rule__MaterialGlobal__Group_4__0__Impl();
 
             state._fsp--;
@@ -17985,7 +17986,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5953:2: 'color'
             {
              before(grammarAccess.getMaterialGlobalAccess().getColorKeyword_4_0()); 
-            match(input,53,FOLLOW_2); 
+            match(input,54,FOLLOW_2); 
              after(grammarAccess.getMaterialGlobalAccess().getColorKeyword_4_0()); 
 
             }
@@ -18098,7 +18099,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5993:1: ( rule__MaterialGlobal__Group_5__0__Impl rule__MaterialGlobal__Group_5__1 )
             // InternalXacro.g:5994:2: rule__MaterialGlobal__Group_5__0__Impl rule__MaterialGlobal__Group_5__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_45);
             rule__MaterialGlobal__Group_5__0__Impl();
 
             state._fsp--;
@@ -18140,7 +18141,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6007:2: 'texture'
             {
              before(grammarAccess.getMaterialGlobalAccess().getTextureKeyword_5_0()); 
-            match(input,54,FOLLOW_2); 
+            match(input,55,FOLLOW_2); 
              after(grammarAccess.getMaterialGlobalAccess().getTextureKeyword_5_0()); 
 
             }
@@ -18295,7 +18296,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6061:2: 'Transmission'
             {
              before(grammarAccess.getTransmissionAccess().getTransmissionKeyword_0()); 
-            match(input,55,FOLLOW_2); 
+            match(input,56,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getTransmissionKeyword_0()); 
 
             }
@@ -18328,7 +18329,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6074:1: ( rule__Transmission__Group__1__Impl rule__Transmission__Group__2 )
             // InternalXacro.g:6075:2: rule__Transmission__Group__1__Impl rule__Transmission__Group__2
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_46);
             rule__Transmission__Group__1__Impl();
 
             state._fsp--;
@@ -18370,7 +18371,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6088:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -18403,7 +18404,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6101:1: ( rule__Transmission__Group__2__Impl rule__Transmission__Group__3 )
             // InternalXacro.g:6102:2: rule__Transmission__Group__2__Impl rule__Transmission__Group__3
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_46);
             rule__Transmission__Group__2__Impl();
 
             state._fsp--;
@@ -18449,7 +18450,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt40=2;
             int LA40_0 = input.LA(1);
 
-            if ( (LA40_0==56) ) {
+            if ( (LA40_0==57) ) {
                 alt40=1;
             }
             switch (alt40) {
@@ -18541,7 +18542,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6142:2: 'name'
             {
              before(grammarAccess.getTransmissionAccess().getNameKeyword_3()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getNameKeyword_3()); 
 
             }
@@ -18701,7 +18702,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6196:2: 'type'
             {
              before(grammarAccess.getTransmissionAccess().getTypeKeyword_5()); 
-            match(input,38,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getTypeKeyword_5()); 
 
             }
@@ -18734,7 +18735,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6209:1: ( rule__Transmission__Group__6__Impl rule__Transmission__Group__7 )
             // InternalXacro.g:6210:2: rule__Transmission__Group__6__Impl rule__Transmission__Group__7
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__6__Impl();
 
             state._fsp--;
@@ -18819,7 +18820,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6236:1: ( rule__Transmission__Group__7__Impl rule__Transmission__Group__8 )
             // InternalXacro.g:6237:2: rule__Transmission__Group__7__Impl rule__Transmission__Group__8
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__7__Impl();
 
             state._fsp--;
@@ -18865,7 +18866,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt41=2;
             int LA41_0 = input.LA(1);
 
-            if ( (LA41_0==57) ) {
+            if ( (LA41_0==58) ) {
                 alt41=1;
             }
             switch (alt41) {
@@ -18915,7 +18916,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6263:1: ( rule__Transmission__Group__8__Impl rule__Transmission__Group__9 )
             // InternalXacro.g:6264:2: rule__Transmission__Group__8__Impl rule__Transmission__Group__9
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__8__Impl();
 
             state._fsp--;
@@ -18961,7 +18962,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt42=2;
             int LA42_0 = input.LA(1);
 
-            if ( (LA42_0==58) ) {
+            if ( (LA42_0==59) ) {
                 alt42=1;
             }
             switch (alt42) {
@@ -19011,7 +19012,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6290:1: ( rule__Transmission__Group__9__Impl rule__Transmission__Group__10 )
             // InternalXacro.g:6291:2: rule__Transmission__Group__9__Impl rule__Transmission__Group__10
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__9__Impl();
 
             state._fsp--;
@@ -19057,7 +19058,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt43=2;
             int LA43_0 = input.LA(1);
 
-            if ( (LA43_0==59) ) {
+            if ( (LA43_0==60) ) {
                 alt43=1;
             }
             switch (alt43) {
@@ -19107,7 +19108,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6317:1: ( rule__Transmission__Group__10__Impl rule__Transmission__Group__11 )
             // InternalXacro.g:6318:2: rule__Transmission__Group__10__Impl rule__Transmission__Group__11
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__10__Impl();
 
             state._fsp--;
@@ -19153,7 +19154,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt44=2;
             int LA44_0 = input.LA(1);
 
-            if ( (LA44_0==60) ) {
+            if ( (LA44_0==61) ) {
                 alt44=1;
             }
             switch (alt44) {
@@ -19203,7 +19204,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6344:1: ( rule__Transmission__Group__11__Impl rule__Transmission__Group__12 )
             // InternalXacro.g:6345:2: rule__Transmission__Group__11__Impl rule__Transmission__Group__12
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__11__Impl();
 
             state._fsp--;
@@ -19249,7 +19250,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt45=2;
             int LA45_0 = input.LA(1);
 
-            if ( (LA45_0==61) ) {
+            if ( (LA45_0==62) ) {
                 alt45=1;
             }
             switch (alt45) {
@@ -19299,7 +19300,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6371:1: ( rule__Transmission__Group__12__Impl rule__Transmission__Group__13 )
             // InternalXacro.g:6372:2: rule__Transmission__Group__12__Impl rule__Transmission__Group__13
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__12__Impl();
 
             state._fsp--;
@@ -19345,7 +19346,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt46=2;
             int LA46_0 = input.LA(1);
 
-            if ( (LA46_0==62) ) {
+            if ( (LA46_0==63) ) {
                 alt46=1;
             }
             switch (alt46) {
@@ -19395,7 +19396,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6398:1: ( rule__Transmission__Group__13__Impl rule__Transmission__Group__14 )
             // InternalXacro.g:6399:2: rule__Transmission__Group__13__Impl rule__Transmission__Group__14
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__13__Impl();
 
             state._fsp--;
@@ -19441,7 +19442,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( (LA47_0==63) ) {
+            if ( (LA47_0==64) ) {
                 alt47=1;
             }
             switch (alt47) {
@@ -19491,7 +19492,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6425:1: ( rule__Transmission__Group__14__Impl rule__Transmission__Group__15 )
             // InternalXacro.g:6426:2: rule__Transmission__Group__14__Impl rule__Transmission__Group__15
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__14__Impl();
 
             state._fsp--;
@@ -19537,7 +19538,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt48=2;
             int LA48_0 = input.LA(1);
 
-            if ( (LA48_0==64) ) {
+            if ( (LA48_0==65) ) {
                 alt48=1;
             }
             switch (alt48) {
@@ -19587,7 +19588,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6452:1: ( rule__Transmission__Group__15__Impl rule__Transmission__Group__16 )
             // InternalXacro.g:6453:2: rule__Transmission__Group__15__Impl rule__Transmission__Group__16
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_47);
             rule__Transmission__Group__15__Impl();
 
             state._fsp--;
@@ -19633,7 +19634,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt49=2;
             int LA49_0 = input.LA(1);
 
-            if ( (LA49_0==32) ) {
+            if ( (LA49_0==33) ) {
                 alt49=1;
             }
             switch (alt49) {
@@ -19720,7 +19721,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6492:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_16()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_16()); 
 
             }
@@ -19795,7 +19796,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6520:2: 'mechanicalReduction'
             {
              before(grammarAccess.getTransmissionAccess().getMechanicalReductionKeyword_2_0()); 
-            match(input,56,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getMechanicalReductionKeyword_2_0()); 
 
             }
@@ -19828,7 +19829,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6533:1: ( rule__Transmission__Group_2__1__Impl rule__Transmission__Group_2__2 )
             // InternalXacro.g:6534:2: rule__Transmission__Group_2__1__Impl rule__Transmission__Group_2__2
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Transmission__Group_2__1__Impl();
 
             state._fsp--;
@@ -19870,7 +19871,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6547:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_2_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_2_1()); 
 
             }
@@ -20036,7 +20037,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt50=2;
                 int LA50_0 = input.LA(1);
 
-                if ( (LA50_0==22) ) {
+                if ( (LA50_0==23) ) {
                     alt50=1;
                 }
 
@@ -20128,7 +20129,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6627:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_2_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_2_4()); 
 
             }
@@ -20161,7 +20162,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6641:1: ( rule__Transmission__Group_2_3__0__Impl rule__Transmission__Group_2_3__1 )
             // InternalXacro.g:6642:2: rule__Transmission__Group_2_3__0__Impl rule__Transmission__Group_2_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Transmission__Group_2_3__0__Impl();
 
             state._fsp--;
@@ -20203,7 +20204,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6655:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_2_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_2_3_0()); 
 
             }
@@ -20358,7 +20359,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6709:2: 'leftActuator'
             {
              before(grammarAccess.getTransmissionAccess().getLeftActuatorKeyword_7_0()); 
-            match(input,57,FOLLOW_2); 
+            match(input,58,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftActuatorKeyword_7_0()); 
 
             }
@@ -20391,7 +20392,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6722:1: ( rule__Transmission__Group_7__1__Impl rule__Transmission__Group_7__2 )
             // InternalXacro.g:6723:2: rule__Transmission__Group_7__1__Impl rule__Transmission__Group_7__2
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_7__1__Impl();
 
             state._fsp--;
@@ -20433,7 +20434,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6736:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_7_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_7_1()); 
 
             }
@@ -20599,7 +20600,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt51=2;
                 int LA51_0 = input.LA(1);
 
-                if ( (LA51_0==22) ) {
+                if ( (LA51_0==23) ) {
                     alt51=1;
                 }
 
@@ -20691,7 +20692,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6816:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_7_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_7_4()); 
 
             }
@@ -20724,7 +20725,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6830:1: ( rule__Transmission__Group_7_3__0__Impl rule__Transmission__Group_7_3__1 )
             // InternalXacro.g:6831:2: rule__Transmission__Group_7_3__0__Impl rule__Transmission__Group_7_3__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_7_3__0__Impl();
 
             state._fsp--;
@@ -20766,7 +20767,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6844:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_7_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_7_3_0()); 
 
             }
@@ -20921,7 +20922,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6898:2: 'rightActuator'
             {
              before(grammarAccess.getTransmissionAccess().getRightActuatorKeyword_8_0()); 
-            match(input,58,FOLLOW_2); 
+            match(input,59,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightActuatorKeyword_8_0()); 
 
             }
@@ -20954,7 +20955,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6911:1: ( rule__Transmission__Group_8__1__Impl rule__Transmission__Group_8__2 )
             // InternalXacro.g:6912:2: rule__Transmission__Group_8__1__Impl rule__Transmission__Group_8__2
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_8__1__Impl();
 
             state._fsp--;
@@ -20996,7 +20997,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6925:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_8_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_8_1()); 
 
             }
@@ -21162,7 +21163,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt52=2;
                 int LA52_0 = input.LA(1);
 
-                if ( (LA52_0==22) ) {
+                if ( (LA52_0==23) ) {
                     alt52=1;
                 }
 
@@ -21254,7 +21255,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7005:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_8_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_8_4()); 
 
             }
@@ -21287,7 +21288,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7019:1: ( rule__Transmission__Group_8_3__0__Impl rule__Transmission__Group_8_3__1 )
             // InternalXacro.g:7020:2: rule__Transmission__Group_8_3__0__Impl rule__Transmission__Group_8_3__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_8_3__0__Impl();
 
             state._fsp--;
@@ -21329,7 +21330,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7033:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_8_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_8_3_0()); 
 
             }
@@ -21484,7 +21485,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7087:2: 'flexJoint'
             {
              before(grammarAccess.getTransmissionAccess().getFlexJointKeyword_9_0()); 
-            match(input,59,FOLLOW_2); 
+            match(input,60,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getFlexJointKeyword_9_0()); 
 
             }
@@ -21517,7 +21518,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7100:1: ( rule__Transmission__Group_9__1__Impl rule__Transmission__Group_9__2 )
             // InternalXacro.g:7101:2: rule__Transmission__Group_9__1__Impl rule__Transmission__Group_9__2
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_9__1__Impl();
 
             state._fsp--;
@@ -21559,7 +21560,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7114:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_9_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_9_1()); 
 
             }
@@ -21725,7 +21726,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt53=2;
                 int LA53_0 = input.LA(1);
 
-                if ( (LA53_0==22) ) {
+                if ( (LA53_0==23) ) {
                     alt53=1;
                 }
 
@@ -21817,7 +21818,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7194:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_9_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_9_4()); 
 
             }
@@ -21850,7 +21851,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7208:1: ( rule__Transmission__Group_9_3__0__Impl rule__Transmission__Group_9_3__1 )
             // InternalXacro.g:7209:2: rule__Transmission__Group_9_3__0__Impl rule__Transmission__Group_9_3__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_9_3__0__Impl();
 
             state._fsp--;
@@ -21892,7 +21893,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7222:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_9_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_9_3_0()); 
 
             }
@@ -22047,7 +22048,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7276:2: 'rollJoint'
             {
              before(grammarAccess.getTransmissionAccess().getRollJointKeyword_10_0()); 
-            match(input,60,FOLLOW_2); 
+            match(input,61,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRollJointKeyword_10_0()); 
 
             }
@@ -22080,7 +22081,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7289:1: ( rule__Transmission__Group_10__1__Impl rule__Transmission__Group_10__2 )
             // InternalXacro.g:7290:2: rule__Transmission__Group_10__1__Impl rule__Transmission__Group_10__2
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_10__1__Impl();
 
             state._fsp--;
@@ -22122,7 +22123,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7303:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_10_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_10_1()); 
 
             }
@@ -22288,7 +22289,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt54=2;
                 int LA54_0 = input.LA(1);
 
-                if ( (LA54_0==22) ) {
+                if ( (LA54_0==23) ) {
                     alt54=1;
                 }
 
@@ -22380,7 +22381,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7383:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_10_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_10_4()); 
 
             }
@@ -22413,7 +22414,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7397:1: ( rule__Transmission__Group_10_3__0__Impl rule__Transmission__Group_10_3__1 )
             // InternalXacro.g:7398:2: rule__Transmission__Group_10_3__0__Impl rule__Transmission__Group_10_3__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_49);
             rule__Transmission__Group_10_3__0__Impl();
 
             state._fsp--;
@@ -22455,7 +22456,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7411:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_10_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_10_3_0()); 
 
             }
@@ -22610,7 +22611,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7465:2: 'gapJoint'
             {
              before(grammarAccess.getTransmissionAccess().getGapJointKeyword_11_0()); 
-            match(input,61,FOLLOW_2); 
+            match(input,62,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getGapJointKeyword_11_0()); 
 
             }
@@ -22643,7 +22644,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7478:1: ( rule__Transmission__Group_11__1__Impl rule__Transmission__Group_11__2 )
             // InternalXacro.g:7479:2: rule__Transmission__Group_11__1__Impl rule__Transmission__Group_11__2
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_50);
             rule__Transmission__Group_11__1__Impl();
 
             state._fsp--;
@@ -22685,7 +22686,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7492:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_11_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_11_1()); 
 
             }
@@ -22851,7 +22852,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt55=2;
                 int LA55_0 = input.LA(1);
 
-                if ( (LA55_0==22) ) {
+                if ( (LA55_0==23) ) {
                     alt55=1;
                 }
 
@@ -22943,7 +22944,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7572:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_11_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_11_4()); 
 
             }
@@ -22976,7 +22977,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7586:1: ( rule__Transmission__Group_11_3__0__Impl rule__Transmission__Group_11_3__1 )
             // InternalXacro.g:7587:2: rule__Transmission__Group_11_3__0__Impl rule__Transmission__Group_11_3__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_50);
             rule__Transmission__Group_11_3__0__Impl();
 
             state._fsp--;
@@ -23018,7 +23019,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7600:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_11_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_11_3_0()); 
 
             }
@@ -23173,7 +23174,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7654:2: 'passiveJoint'
             {
              before(grammarAccess.getTransmissionAccess().getPassiveJointKeyword_12_0()); 
-            match(input,62,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getPassiveJointKeyword_12_0()); 
 
             }
@@ -23206,7 +23207,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7667:1: ( rule__Transmission__Group_12__1__Impl rule__Transmission__Group_12__2 )
             // InternalXacro.g:7668:2: rule__Transmission__Group_12__1__Impl rule__Transmission__Group_12__2
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_51);
             rule__Transmission__Group_12__1__Impl();
 
             state._fsp--;
@@ -23248,7 +23249,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7681:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_12_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_12_1()); 
 
             }
@@ -23414,7 +23415,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt56=2;
                 int LA56_0 = input.LA(1);
 
-                if ( (LA56_0==22) ) {
+                if ( (LA56_0==23) ) {
                     alt56=1;
                 }
 
@@ -23506,7 +23507,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7761:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_12_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_12_4()); 
 
             }
@@ -23539,7 +23540,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7775:1: ( rule__Transmission__Group_12_3__0__Impl rule__Transmission__Group_12_3__1 )
             // InternalXacro.g:7776:2: rule__Transmission__Group_12_3__0__Impl rule__Transmission__Group_12_3__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_51);
             rule__Transmission__Group_12_3__0__Impl();
 
             state._fsp--;
@@ -23581,7 +23582,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7789:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_12_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_12_3_0()); 
 
             }
@@ -23736,7 +23737,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7843:2: 'useSimulatedGripperJoint'
             {
              before(grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointKeyword_13_0()); 
-            match(input,63,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointKeyword_13_0()); 
 
             }
@@ -23769,7 +23770,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7856:1: ( rule__Transmission__Group_13__1__Impl rule__Transmission__Group_13__2 )
             // InternalXacro.g:7857:2: rule__Transmission__Group_13__1__Impl rule__Transmission__Group_13__2
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_52);
             rule__Transmission__Group_13__1__Impl();
 
             state._fsp--;
@@ -23811,7 +23812,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7870:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_13_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_13_1()); 
 
             }
@@ -23977,7 +23978,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt57=2;
                 int LA57_0 = input.LA(1);
 
-                if ( (LA57_0==22) ) {
+                if ( (LA57_0==23) ) {
                     alt57=1;
                 }
 
@@ -24069,7 +24070,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7950:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_13_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_13_4()); 
 
             }
@@ -24102,7 +24103,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7964:1: ( rule__Transmission__Group_13_3__0__Impl rule__Transmission__Group_13_3__1 )
             // InternalXacro.g:7965:2: rule__Transmission__Group_13_3__0__Impl rule__Transmission__Group_13_3__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_52);
             rule__Transmission__Group_13_3__0__Impl();
 
             state._fsp--;
@@ -24144,7 +24145,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7978:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_13_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_13_3_0()); 
 
             }
@@ -24299,7 +24300,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8032:2: 'actuator'
             {
              before(grammarAccess.getTransmissionAccess().getActuatorKeyword_14_0()); 
-            match(input,64,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getActuatorKeyword_14_0()); 
 
             }
@@ -24332,7 +24333,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8045:1: ( rule__Transmission__Group_14__1__Impl rule__Transmission__Group_14__2 )
             // InternalXacro.g:8046:2: rule__Transmission__Group_14__1__Impl rule__Transmission__Group_14__2
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_53);
             rule__Transmission__Group_14__1__Impl();
 
             state._fsp--;
@@ -24374,7 +24375,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8059:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_14_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_14_1()); 
 
             }
@@ -24540,7 +24541,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt58=2;
                 int LA58_0 = input.LA(1);
 
-                if ( (LA58_0==22) ) {
+                if ( (LA58_0==23) ) {
                     alt58=1;
                 }
 
@@ -24632,7 +24633,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8139:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_14_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_14_4()); 
 
             }
@@ -24665,7 +24666,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8153:1: ( rule__Transmission__Group_14_3__0__Impl rule__Transmission__Group_14_3__1 )
             // InternalXacro.g:8154:2: rule__Transmission__Group_14_3__0__Impl rule__Transmission__Group_14_3__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_53);
             rule__Transmission__Group_14_3__0__Impl();
 
             state._fsp--;
@@ -24707,7 +24708,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8167:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_14_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_14_3_0()); 
 
             }
@@ -24862,7 +24863,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8221:2: 'joint'
             {
              before(grammarAccess.getTransmissionAccess().getJointKeyword_15_0()); 
-            match(input,32,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getJointKeyword_15_0()); 
 
             }
@@ -24895,7 +24896,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8234:1: ( rule__Transmission__Group_15__1__Impl rule__Transmission__Group_15__2 )
             // InternalXacro.g:8235:2: rule__Transmission__Group_15__1__Impl rule__Transmission__Group_15__2
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_53);
             rule__Transmission__Group_15__1__Impl();
 
             state._fsp--;
@@ -24937,7 +24938,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8248:2: '{'
             {
              before(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_15_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_15_1()); 
 
             }
@@ -25103,7 +25104,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
                 int alt59=2;
                 int LA59_0 = input.LA(1);
 
-                if ( (LA59_0==22) ) {
+                if ( (LA59_0==23) ) {
                     alt59=1;
                 }
 
@@ -25195,7 +25196,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8328:2: '}'
             {
              before(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_15_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_15_4()); 
 
             }
@@ -25228,7 +25229,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8342:1: ( rule__Transmission__Group_15_3__0__Impl rule__Transmission__Group_15_3__1 )
             // InternalXacro.g:8343:2: rule__Transmission__Group_15_3__0__Impl rule__Transmission__Group_15_3__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_53);
             rule__Transmission__Group_15_3__0__Impl();
 
             state._fsp--;
@@ -25270,7 +25271,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8356:2: ','
             {
              before(grammarAccess.getTransmissionAccess().getCommaKeyword_15_3_0()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getTransmissionAccess().getCommaKeyword_15_3_0()); 
 
             }
@@ -25383,7 +25384,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8396:1: ( rule__Pose__Group__0__Impl rule__Pose__Group__1 )
             // InternalXacro.g:8397:2: rule__Pose__Group__0__Impl rule__Pose__Group__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Pose__Group__0__Impl();
 
             state._fsp--;
@@ -25500,7 +25501,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8437:2: 'Pose'
             {
              before(grammarAccess.getPoseAccess().getPoseKeyword_1()); 
-            match(input,65,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getPoseAccess().getPoseKeyword_1()); 
 
             }
@@ -25533,7 +25534,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8450:1: ( rule__Pose__Group__2__Impl rule__Pose__Group__3 )
             // InternalXacro.g:8451:2: rule__Pose__Group__2__Impl rule__Pose__Group__3
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_54);
             rule__Pose__Group__2__Impl();
 
             state._fsp--;
@@ -25575,7 +25576,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8464:2: '{'
             {
              before(grammarAccess.getPoseAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getPoseAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -25608,7 +25609,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8477:1: ( rule__Pose__Group__3__Impl rule__Pose__Group__4 )
             // InternalXacro.g:8478:2: rule__Pose__Group__3__Impl rule__Pose__Group__4
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_54);
             rule__Pose__Group__3__Impl();
 
             state._fsp--;
@@ -25654,7 +25655,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt60=2;
             int LA60_0 = input.LA(1);
 
-            if ( (LA60_0==66) ) {
+            if ( (LA60_0==67) ) {
                 alt60=1;
             }
             switch (alt60) {
@@ -25704,7 +25705,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8504:1: ( rule__Pose__Group__4__Impl rule__Pose__Group__5 )
             // InternalXacro.g:8505:2: rule__Pose__Group__4__Impl rule__Pose__Group__5
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_54);
             rule__Pose__Group__4__Impl();
 
             state._fsp--;
@@ -25750,7 +25751,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( (LA61_0==67) ) {
+            if ( (LA61_0==68) ) {
                 alt61=1;
             }
             switch (alt61) {
@@ -25837,7 +25838,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8544:2: '}'
             {
              before(grammarAccess.getPoseAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getPoseAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -25912,7 +25913,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8572:2: 'rpy'
             {
              before(grammarAccess.getPoseAccess().getRpyKeyword_3_0()); 
-            match(input,66,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getPoseAccess().getRpyKeyword_3_0()); 
 
             }
@@ -26067,7 +26068,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8626:2: 'xyz'
             {
              before(grammarAccess.getPoseAccess().getXyzKeyword_4_0()); 
-            match(input,67,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getPoseAccess().getXyzKeyword_4_0()); 
 
             }
@@ -26180,7 +26181,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8666:1: ( rule__Axis__Group__0__Impl rule__Axis__Group__1 )
             // InternalXacro.g:8667:2: rule__Axis__Group__0__Impl rule__Axis__Group__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__Axis__Group__0__Impl();
 
             state._fsp--;
@@ -26297,7 +26298,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8707:2: 'Axis'
             {
              before(grammarAccess.getAxisAccess().getAxisKeyword_1()); 
-            match(input,68,FOLLOW_2); 
+            match(input,69,FOLLOW_2); 
              after(grammarAccess.getAxisAccess().getAxisKeyword_1()); 
 
             }
@@ -26330,7 +26331,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8720:1: ( rule__Axis__Group__2__Impl rule__Axis__Group__3 )
             // InternalXacro.g:8721:2: rule__Axis__Group__2__Impl rule__Axis__Group__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_55);
             rule__Axis__Group__2__Impl();
 
             state._fsp--;
@@ -26372,7 +26373,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8734:2: '{'
             {
              before(grammarAccess.getAxisAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getAxisAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -26405,7 +26406,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8747:1: ( rule__Axis__Group__3__Impl rule__Axis__Group__4 )
             // InternalXacro.g:8748:2: rule__Axis__Group__3__Impl rule__Axis__Group__4
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_55);
             rule__Axis__Group__3__Impl();
 
             state._fsp--;
@@ -26451,7 +26452,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( (LA62_0==67) ) {
+            if ( (LA62_0==68) ) {
                 alt62=1;
             }
             switch (alt62) {
@@ -26538,7 +26539,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8787:2: '}'
             {
              before(grammarAccess.getAxisAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getAxisAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -26613,7 +26614,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8815:2: 'xyz'
             {
              before(grammarAccess.getAxisAccess().getXyzKeyword_3_0()); 
-            match(input,67,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getAxisAccess().getXyzKeyword_3_0()); 
 
             }
@@ -26726,7 +26727,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8855:1: ( rule__Calibration__Group__0__Impl rule__Calibration__Group__1 )
             // InternalXacro.g:8856:2: rule__Calibration__Group__0__Impl rule__Calibration__Group__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Calibration__Group__0__Impl();
 
             state._fsp--;
@@ -26843,7 +26844,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8896:2: 'Calibration'
             {
              before(grammarAccess.getCalibrationAccess().getCalibrationKeyword_1()); 
-            match(input,69,FOLLOW_2); 
+            match(input,70,FOLLOW_2); 
              after(grammarAccess.getCalibrationAccess().getCalibrationKeyword_1()); 
 
             }
@@ -26876,7 +26877,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8909:1: ( rule__Calibration__Group__2__Impl rule__Calibration__Group__3 )
             // InternalXacro.g:8910:2: rule__Calibration__Group__2__Impl rule__Calibration__Group__3
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_56);
             rule__Calibration__Group__2__Impl();
 
             state._fsp--;
@@ -26918,7 +26919,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8923:2: '{'
             {
              before(grammarAccess.getCalibrationAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getCalibrationAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -26951,7 +26952,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8936:1: ( rule__Calibration__Group__3__Impl rule__Calibration__Group__4 )
             // InternalXacro.g:8937:2: rule__Calibration__Group__3__Impl rule__Calibration__Group__4
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_56);
             rule__Calibration__Group__3__Impl();
 
             state._fsp--;
@@ -26997,7 +26998,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt63=2;
             int LA63_0 = input.LA(1);
 
-            if ( (LA63_0==70) ) {
+            if ( (LA63_0==71) ) {
                 alt63=1;
             }
             switch (alt63) {
@@ -27047,7 +27048,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8963:1: ( rule__Calibration__Group__4__Impl rule__Calibration__Group__5 )
             // InternalXacro.g:8964:2: rule__Calibration__Group__4__Impl rule__Calibration__Group__5
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_56);
             rule__Calibration__Group__4__Impl();
 
             state._fsp--;
@@ -27093,7 +27094,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt64=2;
             int LA64_0 = input.LA(1);
 
-            if ( (LA64_0==71) ) {
+            if ( (LA64_0==72) ) {
                 alt64=1;
             }
             switch (alt64) {
@@ -27143,7 +27144,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8990:1: ( rule__Calibration__Group__5__Impl rule__Calibration__Group__6 )
             // InternalXacro.g:8991:2: rule__Calibration__Group__5__Impl rule__Calibration__Group__6
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_56);
             rule__Calibration__Group__5__Impl();
 
             state._fsp--;
@@ -27189,7 +27190,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt65=2;
             int LA65_0 = input.LA(1);
 
-            if ( (LA65_0==72) ) {
+            if ( (LA65_0==73) ) {
                 alt65=1;
             }
             switch (alt65) {
@@ -27276,7 +27277,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9030:2: '}'
             {
              before(grammarAccess.getCalibrationAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getCalibrationAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -27309,7 +27310,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9044:1: ( rule__Calibration__Group_3__0__Impl rule__Calibration__Group_3__1 )
             // InternalXacro.g:9045:2: rule__Calibration__Group_3__0__Impl rule__Calibration__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Calibration__Group_3__0__Impl();
 
             state._fsp--;
@@ -27351,7 +27352,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9058:2: 'falling'
             {
              before(grammarAccess.getCalibrationAccess().getFallingKeyword_3_0()); 
-            match(input,70,FOLLOW_2); 
+            match(input,71,FOLLOW_2); 
              after(grammarAccess.getCalibrationAccess().getFallingKeyword_3_0()); 
 
             }
@@ -27464,7 +27465,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9098:1: ( rule__Calibration__Group_4__0__Impl rule__Calibration__Group_4__1 )
             // InternalXacro.g:9099:2: rule__Calibration__Group_4__0__Impl rule__Calibration__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Calibration__Group_4__0__Impl();
 
             state._fsp--;
@@ -27506,7 +27507,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9112:2: 'referencePosition'
             {
              before(grammarAccess.getCalibrationAccess().getReferencePositionKeyword_4_0()); 
-            match(input,71,FOLLOW_2); 
+            match(input,72,FOLLOW_2); 
              after(grammarAccess.getCalibrationAccess().getReferencePositionKeyword_4_0()); 
 
             }
@@ -27619,7 +27620,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9152:1: ( rule__Calibration__Group_5__0__Impl rule__Calibration__Group_5__1 )
             // InternalXacro.g:9153:2: rule__Calibration__Group_5__0__Impl rule__Calibration__Group_5__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Calibration__Group_5__0__Impl();
 
             state._fsp--;
@@ -27661,7 +27662,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9166:2: 'rising'
             {
              before(grammarAccess.getCalibrationAccess().getRisingKeyword_5_0()); 
-            match(input,72,FOLLOW_2); 
+            match(input,73,FOLLOW_2); 
              after(grammarAccess.getCalibrationAccess().getRisingKeyword_5_0()); 
 
             }
@@ -27774,7 +27775,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9206:1: ( rule__Dynamics__Group__0__Impl rule__Dynamics__Group__1 )
             // InternalXacro.g:9207:2: rule__Dynamics__Group__0__Impl rule__Dynamics__Group__1
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_35);
             rule__Dynamics__Group__0__Impl();
 
             state._fsp--;
@@ -27891,7 +27892,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9247:2: 'Dynamics'
             {
              before(grammarAccess.getDynamicsAccess().getDynamicsKeyword_1()); 
-            match(input,73,FOLLOW_2); 
+            match(input,74,FOLLOW_2); 
              after(grammarAccess.getDynamicsAccess().getDynamicsKeyword_1()); 
 
             }
@@ -27924,7 +27925,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9260:1: ( rule__Dynamics__Group__2__Impl rule__Dynamics__Group__3 )
             // InternalXacro.g:9261:2: rule__Dynamics__Group__2__Impl rule__Dynamics__Group__3
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_57);
             rule__Dynamics__Group__2__Impl();
 
             state._fsp--;
@@ -27966,7 +27967,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9274:2: '{'
             {
              before(grammarAccess.getDynamicsAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getDynamicsAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -27999,7 +28000,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9287:1: ( rule__Dynamics__Group__3__Impl rule__Dynamics__Group__4 )
             // InternalXacro.g:9288:2: rule__Dynamics__Group__3__Impl rule__Dynamics__Group__4
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_57);
             rule__Dynamics__Group__3__Impl();
 
             state._fsp--;
@@ -28045,7 +28046,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt66=2;
             int LA66_0 = input.LA(1);
 
-            if ( (LA66_0==74) ) {
+            if ( (LA66_0==75) ) {
                 alt66=1;
             }
             switch (alt66) {
@@ -28095,7 +28096,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9314:1: ( rule__Dynamics__Group__4__Impl rule__Dynamics__Group__5 )
             // InternalXacro.g:9315:2: rule__Dynamics__Group__4__Impl rule__Dynamics__Group__5
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_57);
             rule__Dynamics__Group__4__Impl();
 
             state._fsp--;
@@ -28141,7 +28142,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt67=2;
             int LA67_0 = input.LA(1);
 
-            if ( (LA67_0==75) ) {
+            if ( (LA67_0==76) ) {
                 alt67=1;
             }
             switch (alt67) {
@@ -28228,7 +28229,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9354:2: '}'
             {
              before(grammarAccess.getDynamicsAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getDynamicsAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -28261,7 +28262,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9368:1: ( rule__Dynamics__Group_3__0__Impl rule__Dynamics__Group_3__1 )
             // InternalXacro.g:9369:2: rule__Dynamics__Group_3__0__Impl rule__Dynamics__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Dynamics__Group_3__0__Impl();
 
             state._fsp--;
@@ -28303,7 +28304,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9382:2: 'damping'
             {
              before(grammarAccess.getDynamicsAccess().getDampingKeyword_3_0()); 
-            match(input,74,FOLLOW_2); 
+            match(input,75,FOLLOW_2); 
              after(grammarAccess.getDynamicsAccess().getDampingKeyword_3_0()); 
 
             }
@@ -28416,7 +28417,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9422:1: ( rule__Dynamics__Group_4__0__Impl rule__Dynamics__Group_4__1 )
             // InternalXacro.g:9423:2: rule__Dynamics__Group_4__0__Impl rule__Dynamics__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Dynamics__Group_4__0__Impl();
 
             state._fsp--;
@@ -28458,7 +28459,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9436:2: 'friction'
             {
              before(grammarAccess.getDynamicsAccess().getFrictionKeyword_4_0()); 
-            match(input,75,FOLLOW_2); 
+            match(input,76,FOLLOW_2); 
              after(grammarAccess.getDynamicsAccess().getFrictionKeyword_4_0()); 
 
             }
@@ -28571,7 +28572,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9476:1: ( rule__Limit__Group__0__Impl rule__Limit__Group__1 )
             // InternalXacro.g:9477:2: rule__Limit__Group__0__Impl rule__Limit__Group__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_36);
             rule__Limit__Group__0__Impl();
 
             state._fsp--;
@@ -28688,7 +28689,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9517:2: 'Limit'
             {
              before(grammarAccess.getLimitAccess().getLimitKeyword_1()); 
-            match(input,76,FOLLOW_2); 
+            match(input,77,FOLLOW_2); 
              after(grammarAccess.getLimitAccess().getLimitKeyword_1()); 
 
             }
@@ -28721,7 +28722,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9530:1: ( rule__Limit__Group__2__Impl rule__Limit__Group__3 )
             // InternalXacro.g:9531:2: rule__Limit__Group__2__Impl rule__Limit__Group__3
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_58);
             rule__Limit__Group__2__Impl();
 
             state._fsp--;
@@ -28763,7 +28764,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9544:2: '{'
             {
              before(grammarAccess.getLimitAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getLimitAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -28796,7 +28797,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9557:1: ( rule__Limit__Group__3__Impl rule__Limit__Group__4 )
             // InternalXacro.g:9558:2: rule__Limit__Group__3__Impl rule__Limit__Group__4
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_58);
             rule__Limit__Group__3__Impl();
 
             state._fsp--;
@@ -28842,7 +28843,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt68=2;
             int LA68_0 = input.LA(1);
 
-            if ( (LA68_0==77) ) {
+            if ( (LA68_0==78) ) {
                 alt68=1;
             }
             switch (alt68) {
@@ -28892,7 +28893,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9584:1: ( rule__Limit__Group__4__Impl rule__Limit__Group__5 )
             // InternalXacro.g:9585:2: rule__Limit__Group__4__Impl rule__Limit__Group__5
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_58);
             rule__Limit__Group__4__Impl();
 
             state._fsp--;
@@ -28938,7 +28939,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt69=2;
             int LA69_0 = input.LA(1);
 
-            if ( (LA69_0==78) ) {
+            if ( (LA69_0==79) ) {
                 alt69=1;
             }
             switch (alt69) {
@@ -28988,7 +28989,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9611:1: ( rule__Limit__Group__5__Impl rule__Limit__Group__6 )
             // InternalXacro.g:9612:2: rule__Limit__Group__5__Impl rule__Limit__Group__6
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_58);
             rule__Limit__Group__5__Impl();
 
             state._fsp--;
@@ -29034,7 +29035,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt70=2;
             int LA70_0 = input.LA(1);
 
-            if ( (LA70_0==79) ) {
+            if ( (LA70_0==80) ) {
                 alt70=1;
             }
             switch (alt70) {
@@ -29084,7 +29085,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9638:1: ( rule__Limit__Group__6__Impl rule__Limit__Group__7 )
             // InternalXacro.g:9639:2: rule__Limit__Group__6__Impl rule__Limit__Group__7
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_58);
             rule__Limit__Group__6__Impl();
 
             state._fsp--;
@@ -29130,7 +29131,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt71=2;
             int LA71_0 = input.LA(1);
 
-            if ( (LA71_0==80) ) {
+            if ( (LA71_0==81) ) {
                 alt71=1;
             }
             switch (alt71) {
@@ -29217,7 +29218,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9678:2: '}'
             {
              before(grammarAccess.getLimitAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getLimitAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -29250,7 +29251,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9692:1: ( rule__Limit__Group_3__0__Impl rule__Limit__Group_3__1 )
             // InternalXacro.g:9693:2: rule__Limit__Group_3__0__Impl rule__Limit__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Limit__Group_3__0__Impl();
 
             state._fsp--;
@@ -29292,7 +29293,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9706:2: 'effort'
             {
              before(grammarAccess.getLimitAccess().getEffortKeyword_3_0()); 
-            match(input,77,FOLLOW_2); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getLimitAccess().getEffortKeyword_3_0()); 
 
             }
@@ -29405,7 +29406,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9746:1: ( rule__Limit__Group_4__0__Impl rule__Limit__Group_4__1 )
             // InternalXacro.g:9747:2: rule__Limit__Group_4__0__Impl rule__Limit__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Limit__Group_4__0__Impl();
 
             state._fsp--;
@@ -29447,7 +29448,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9760:2: 'lower'
             {
              before(grammarAccess.getLimitAccess().getLowerKeyword_4_0()); 
-            match(input,78,FOLLOW_2); 
+            match(input,79,FOLLOW_2); 
              after(grammarAccess.getLimitAccess().getLowerKeyword_4_0()); 
 
             }
@@ -29560,7 +29561,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9800:1: ( rule__Limit__Group_5__0__Impl rule__Limit__Group_5__1 )
             // InternalXacro.g:9801:2: rule__Limit__Group_5__0__Impl rule__Limit__Group_5__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Limit__Group_5__0__Impl();
 
             state._fsp--;
@@ -29602,7 +29603,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9814:2: 'upper'
             {
              before(grammarAccess.getLimitAccess().getUpperKeyword_5_0()); 
-            match(input,79,FOLLOW_2); 
+            match(input,80,FOLLOW_2); 
              after(grammarAccess.getLimitAccess().getUpperKeyword_5_0()); 
 
             }
@@ -29715,7 +29716,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9854:1: ( rule__Limit__Group_6__0__Impl rule__Limit__Group_6__1 )
             // InternalXacro.g:9855:2: rule__Limit__Group_6__0__Impl rule__Limit__Group_6__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Limit__Group_6__0__Impl();
 
             state._fsp--;
@@ -29757,7 +29758,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9868:2: 'velocity'
             {
              before(grammarAccess.getLimitAccess().getVelocityKeyword_6_0()); 
-            match(input,80,FOLLOW_2); 
+            match(input,81,FOLLOW_2); 
              after(grammarAccess.getLimitAccess().getVelocityKeyword_6_0()); 
 
             }
@@ -29912,7 +29913,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9922:2: 'SafetyController'
             {
              before(grammarAccess.getSafetyControllerAccess().getSafetyControllerKeyword_0()); 
-            match(input,81,FOLLOW_2); 
+            match(input,82,FOLLOW_2); 
              after(grammarAccess.getSafetyControllerAccess().getSafetyControllerKeyword_0()); 
 
             }
@@ -29945,7 +29946,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9935:1: ( rule__SafetyController__Group__1__Impl rule__SafetyController__Group__2 )
             // InternalXacro.g:9936:2: rule__SafetyController__Group__1__Impl rule__SafetyController__Group__2
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_59);
             rule__SafetyController__Group__1__Impl();
 
             state._fsp--;
@@ -29987,7 +29988,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9949:2: '{'
             {
              before(grammarAccess.getSafetyControllerAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getSafetyControllerAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -30020,7 +30021,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9962:1: ( rule__SafetyController__Group__2__Impl rule__SafetyController__Group__3 )
             // InternalXacro.g:9963:2: rule__SafetyController__Group__2__Impl rule__SafetyController__Group__3
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_59);
             rule__SafetyController__Group__2__Impl();
 
             state._fsp--;
@@ -30066,7 +30067,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt72=2;
             int LA72_0 = input.LA(1);
 
-            if ( (LA72_0==83) ) {
+            if ( (LA72_0==84) ) {
                 alt72=1;
             }
             switch (alt72) {
@@ -30116,7 +30117,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:9989:1: ( rule__SafetyController__Group__3__Impl rule__SafetyController__Group__4 )
             // InternalXacro.g:9990:2: rule__SafetyController__Group__3__Impl rule__SafetyController__Group__4
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__SafetyController__Group__3__Impl();
 
             state._fsp--;
@@ -30158,7 +30159,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10003:2: 'kVelocity'
             {
              before(grammarAccess.getSafetyControllerAccess().getKVelocityKeyword_3()); 
-            match(input,82,FOLLOW_2); 
+            match(input,83,FOLLOW_2); 
              after(grammarAccess.getSafetyControllerAccess().getKVelocityKeyword_3()); 
 
             }
@@ -30191,7 +30192,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10016:1: ( rule__SafetyController__Group__4__Impl rule__SafetyController__Group__5 )
             // InternalXacro.g:10017:2: rule__SafetyController__Group__4__Impl rule__SafetyController__Group__5
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_60);
             rule__SafetyController__Group__4__Impl();
 
             state._fsp--;
@@ -30276,7 +30277,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10043:1: ( rule__SafetyController__Group__5__Impl rule__SafetyController__Group__6 )
             // InternalXacro.g:10044:2: rule__SafetyController__Group__5__Impl rule__SafetyController__Group__6
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_60);
             rule__SafetyController__Group__5__Impl();
 
             state._fsp--;
@@ -30322,7 +30323,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt73=2;
             int LA73_0 = input.LA(1);
 
-            if ( (LA73_0==84) ) {
+            if ( (LA73_0==85) ) {
                 alt73=1;
             }
             switch (alt73) {
@@ -30372,7 +30373,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10070:1: ( rule__SafetyController__Group__6__Impl rule__SafetyController__Group__7 )
             // InternalXacro.g:10071:2: rule__SafetyController__Group__6__Impl rule__SafetyController__Group__7
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_60);
             rule__SafetyController__Group__6__Impl();
 
             state._fsp--;
@@ -30418,7 +30419,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt74=2;
             int LA74_0 = input.LA(1);
 
-            if ( (LA74_0==85) ) {
+            if ( (LA74_0==86) ) {
                 alt74=1;
             }
             switch (alt74) {
@@ -30505,7 +30506,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10110:2: '}'
             {
              before(grammarAccess.getSafetyControllerAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getSafetyControllerAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -30538,7 +30539,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10124:1: ( rule__SafetyController__Group_2__0__Impl rule__SafetyController__Group_2__1 )
             // InternalXacro.g:10125:2: rule__SafetyController__Group_2__0__Impl rule__SafetyController__Group_2__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__SafetyController__Group_2__0__Impl();
 
             state._fsp--;
@@ -30580,7 +30581,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10138:2: 'kPosition'
             {
              before(grammarAccess.getSafetyControllerAccess().getKPositionKeyword_2_0()); 
-            match(input,83,FOLLOW_2); 
+            match(input,84,FOLLOW_2); 
              after(grammarAccess.getSafetyControllerAccess().getKPositionKeyword_2_0()); 
 
             }
@@ -30693,7 +30694,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10178:1: ( rule__SafetyController__Group_5__0__Impl rule__SafetyController__Group_5__1 )
             // InternalXacro.g:10179:2: rule__SafetyController__Group_5__0__Impl rule__SafetyController__Group_5__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__SafetyController__Group_5__0__Impl();
 
             state._fsp--;
@@ -30735,7 +30736,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10192:2: 'softLowerLimit'
             {
              before(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitKeyword_5_0()); 
-            match(input,84,FOLLOW_2); 
+            match(input,85,FOLLOW_2); 
              after(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitKeyword_5_0()); 
 
             }
@@ -30848,7 +30849,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10232:1: ( rule__SafetyController__Group_6__0__Impl rule__SafetyController__Group_6__1 )
             // InternalXacro.g:10233:2: rule__SafetyController__Group_6__0__Impl rule__SafetyController__Group_6__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__SafetyController__Group_6__0__Impl();
 
             state._fsp--;
@@ -30890,7 +30891,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10246:2: 'softUpperLimit'
             {
              before(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitKeyword_6_0()); 
-            match(input,85,FOLLOW_2); 
+            match(input,86,FOLLOW_2); 
              after(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitKeyword_6_0()); 
 
             }
@@ -31045,7 +31046,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10300:2: 'Mimic'
             {
              before(grammarAccess.getMimicAccess().getMimicKeyword_0()); 
-            match(input,86,FOLLOW_2); 
+            match(input,87,FOLLOW_2); 
              after(grammarAccess.getMimicAccess().getMimicKeyword_0()); 
 
             }
@@ -31078,7 +31079,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10313:1: ( rule__Mimic__Group__1__Impl rule__Mimic__Group__2 )
             // InternalXacro.g:10314:2: rule__Mimic__Group__1__Impl rule__Mimic__Group__2
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_61);
             rule__Mimic__Group__1__Impl();
 
             state._fsp--;
@@ -31120,7 +31121,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10327:2: '{'
             {
              before(grammarAccess.getMimicAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMimicAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -31195,7 +31196,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10354:2: 'joint'
             {
              before(grammarAccess.getMimicAccess().getJointKeyword_2()); 
-            match(input,32,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getMimicAccess().getJointKeyword_2()); 
 
             }
@@ -31228,7 +31229,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10367:1: ( rule__Mimic__Group__3__Impl rule__Mimic__Group__4 )
             // InternalXacro.g:10368:2: rule__Mimic__Group__3__Impl rule__Mimic__Group__4
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_62);
             rule__Mimic__Group__3__Impl();
 
             state._fsp--;
@@ -31313,7 +31314,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10394:1: ( rule__Mimic__Group__4__Impl rule__Mimic__Group__5 )
             // InternalXacro.g:10395:2: rule__Mimic__Group__4__Impl rule__Mimic__Group__5
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_62);
             rule__Mimic__Group__4__Impl();
 
             state._fsp--;
@@ -31359,7 +31360,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt75=2;
             int LA75_0 = input.LA(1);
 
-            if ( (LA75_0==87) ) {
+            if ( (LA75_0==88) ) {
                 alt75=1;
             }
             switch (alt75) {
@@ -31409,7 +31410,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10421:1: ( rule__Mimic__Group__5__Impl rule__Mimic__Group__6 )
             // InternalXacro.g:10422:2: rule__Mimic__Group__5__Impl rule__Mimic__Group__6
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_62);
             rule__Mimic__Group__5__Impl();
 
             state._fsp--;
@@ -31455,7 +31456,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt76=2;
             int LA76_0 = input.LA(1);
 
-            if ( (LA76_0==88) ) {
+            if ( (LA76_0==89) ) {
                 alt76=1;
             }
             switch (alt76) {
@@ -31542,7 +31543,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10461:2: '}'
             {
              before(grammarAccess.getMimicAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMimicAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -31575,7 +31576,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10475:1: ( rule__Mimic__Group_4__0__Impl rule__Mimic__Group_4__1 )
             // InternalXacro.g:10476:2: rule__Mimic__Group_4__0__Impl rule__Mimic__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Mimic__Group_4__0__Impl();
 
             state._fsp--;
@@ -31617,7 +31618,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10489:2: 'multiplier'
             {
              before(grammarAccess.getMimicAccess().getMultiplierKeyword_4_0()); 
-            match(input,87,FOLLOW_2); 
+            match(input,88,FOLLOW_2); 
              after(grammarAccess.getMimicAccess().getMultiplierKeyword_4_0()); 
 
             }
@@ -31730,7 +31731,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10529:1: ( rule__Mimic__Group_5__0__Impl rule__Mimic__Group_5__1 )
             // InternalXacro.g:10530:2: rule__Mimic__Group_5__0__Impl rule__Mimic__Group_5__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Mimic__Group_5__0__Impl();
 
             state._fsp--;
@@ -31772,7 +31773,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10543:2: 'offset'
             {
              before(grammarAccess.getMimicAccess().getOffsetKeyword_5_0()); 
-            match(input,88,FOLLOW_2); 
+            match(input,89,FOLLOW_2); 
              after(grammarAccess.getMimicAccess().getOffsetKeyword_5_0()); 
 
             }
@@ -31885,7 +31886,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10583:1: ( rule__Inertial__Group__0__Impl rule__Inertial__Group__1 )
             // InternalXacro.g:10584:2: rule__Inertial__Group__0__Impl rule__Inertial__Group__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_40);
             rule__Inertial__Group__0__Impl();
 
             state._fsp--;
@@ -32002,7 +32003,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10624:2: 'Inertial'
             {
              before(grammarAccess.getInertialAccess().getInertialKeyword_1()); 
-            match(input,89,FOLLOW_2); 
+            match(input,90,FOLLOW_2); 
              after(grammarAccess.getInertialAccess().getInertialKeyword_1()); 
 
             }
@@ -32035,7 +32036,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10637:1: ( rule__Inertial__Group__2__Impl rule__Inertial__Group__3 )
             // InternalXacro.g:10638:2: rule__Inertial__Group__2__Impl rule__Inertial__Group__3
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_63);
             rule__Inertial__Group__2__Impl();
 
             state._fsp--;
@@ -32077,7 +32078,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10651:2: '{'
             {
              before(grammarAccess.getInertialAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getInertialAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -32110,7 +32111,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10664:1: ( rule__Inertial__Group__3__Impl rule__Inertial__Group__4 )
             // InternalXacro.g:10665:2: rule__Inertial__Group__3__Impl rule__Inertial__Group__4
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_63);
             rule__Inertial__Group__3__Impl();
 
             state._fsp--;
@@ -32156,7 +32157,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt77=2;
             int LA77_0 = input.LA(1);
 
-            if ( (LA77_0==41) ) {
+            if ( (LA77_0==42) ) {
                 alt77=1;
             }
             switch (alt77) {
@@ -32206,7 +32207,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10691:1: ( rule__Inertial__Group__4__Impl rule__Inertial__Group__5 )
             // InternalXacro.g:10692:2: rule__Inertial__Group__4__Impl rule__Inertial__Group__5
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_63);
             rule__Inertial__Group__4__Impl();
 
             state._fsp--;
@@ -32252,7 +32253,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt78=2;
             int LA78_0 = input.LA(1);
 
-            if ( (LA78_0==90) ) {
+            if ( (LA78_0==91) ) {
                 alt78=1;
             }
             switch (alt78) {
@@ -32302,7 +32303,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10718:1: ( rule__Inertial__Group__5__Impl rule__Inertial__Group__6 )
             // InternalXacro.g:10719:2: rule__Inertial__Group__5__Impl rule__Inertial__Group__6
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_63);
             rule__Inertial__Group__5__Impl();
 
             state._fsp--;
@@ -32348,7 +32349,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt79=2;
             int LA79_0 = input.LA(1);
 
-            if ( (LA79_0==91) ) {
+            if ( (LA79_0==92) ) {
                 alt79=1;
             }
             switch (alt79) {
@@ -32435,7 +32436,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10758:2: '}'
             {
              before(grammarAccess.getInertialAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getInertialAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -32468,7 +32469,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10772:1: ( rule__Inertial__Group_3__0__Impl rule__Inertial__Group_3__1 )
             // InternalXacro.g:10773:2: rule__Inertial__Group_3__0__Impl rule__Inertial__Group_3__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Inertial__Group_3__0__Impl();
 
             state._fsp--;
@@ -32510,7 +32511,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10786:2: 'origin'
             {
              before(grammarAccess.getInertialAccess().getOriginKeyword_3_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getInertialAccess().getOriginKeyword_3_0()); 
 
             }
@@ -32623,7 +32624,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10826:1: ( rule__Inertial__Group_4__0__Impl rule__Inertial__Group_4__1 )
             // InternalXacro.g:10827:2: rule__Inertial__Group_4__0__Impl rule__Inertial__Group_4__1
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_64);
             rule__Inertial__Group_4__0__Impl();
 
             state._fsp--;
@@ -32665,7 +32666,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10840:2: 'mass'
             {
              before(grammarAccess.getInertialAccess().getMassKeyword_4_0()); 
-            match(input,90,FOLLOW_2); 
+            match(input,91,FOLLOW_2); 
              after(grammarAccess.getInertialAccess().getMassKeyword_4_0()); 
 
             }
@@ -32778,7 +32779,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10880:1: ( rule__Inertial__Group_5__0__Impl rule__Inertial__Group_5__1 )
             // InternalXacro.g:10881:2: rule__Inertial__Group_5__0__Impl rule__Inertial__Group_5__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_65);
             rule__Inertial__Group_5__0__Impl();
 
             state._fsp--;
@@ -32820,7 +32821,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10894:2: 'inertia'
             {
              before(grammarAccess.getInertialAccess().getInertiaKeyword_5_0()); 
-            match(input,91,FOLLOW_2); 
+            match(input,92,FOLLOW_2); 
              after(grammarAccess.getInertialAccess().getInertiaKeyword_5_0()); 
 
             }
@@ -32975,7 +32976,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10948:2: 'Visual'
             {
              before(grammarAccess.getVisualAccess().getVisualKeyword_0()); 
-            match(input,92,FOLLOW_2); 
+            match(input,93,FOLLOW_2); 
              after(grammarAccess.getVisualAccess().getVisualKeyword_0()); 
 
             }
@@ -33008,7 +33009,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10961:1: ( rule__Visual__Group__1__Impl rule__Visual__Group__2 )
             // InternalXacro.g:10962:2: rule__Visual__Group__1__Impl rule__Visual__Group__2
             {
-            pushFollow(FOLLOW_65);
+            pushFollow(FOLLOW_66);
             rule__Visual__Group__1__Impl();
 
             state._fsp--;
@@ -33050,7 +33051,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10975:2: '{'
             {
              before(grammarAccess.getVisualAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getVisualAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -33083,7 +33084,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:10988:1: ( rule__Visual__Group__2__Impl rule__Visual__Group__3 )
             // InternalXacro.g:10989:2: rule__Visual__Group__2__Impl rule__Visual__Group__3
             {
-            pushFollow(FOLLOW_65);
+            pushFollow(FOLLOW_66);
             rule__Visual__Group__2__Impl();
 
             state._fsp--;
@@ -33129,7 +33130,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt80=2;
             int LA80_0 = input.LA(1);
 
-            if ( (LA80_0==41) ) {
+            if ( (LA80_0==42) ) {
                 alt80=1;
             }
             switch (alt80) {
@@ -33179,7 +33180,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11015:1: ( rule__Visual__Group__3__Impl rule__Visual__Group__4 )
             // InternalXacro.g:11016:2: rule__Visual__Group__3__Impl rule__Visual__Group__4
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_67);
             rule__Visual__Group__3__Impl();
 
             state._fsp--;
@@ -33221,7 +33222,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11029:2: 'geometry'
             {
              before(grammarAccess.getVisualAccess().getGeometryKeyword_3()); 
-            match(input,93,FOLLOW_2); 
+            match(input,94,FOLLOW_2); 
              after(grammarAccess.getVisualAccess().getGeometryKeyword_3()); 
 
             }
@@ -33254,7 +33255,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11042:1: ( rule__Visual__Group__4__Impl rule__Visual__Group__5 )
             // InternalXacro.g:11043:2: rule__Visual__Group__4__Impl rule__Visual__Group__5
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_68);
             rule__Visual__Group__4__Impl();
 
             state._fsp--;
@@ -33339,7 +33340,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11069:1: ( rule__Visual__Group__5__Impl rule__Visual__Group__6 )
             // InternalXacro.g:11070:2: rule__Visual__Group__5__Impl rule__Visual__Group__6
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_68);
             rule__Visual__Group__5__Impl();
 
             state._fsp--;
@@ -33385,7 +33386,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt81=2;
             int LA81_0 = input.LA(1);
 
-            if ( (LA81_0==33) ) {
+            if ( (LA81_0==34) ) {
                 alt81=1;
             }
             switch (alt81) {
@@ -33472,7 +33473,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11109:2: '}'
             {
              before(grammarAccess.getVisualAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getVisualAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -33505,7 +33506,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11123:1: ( rule__Visual__Group_2__0__Impl rule__Visual__Group_2__1 )
             // InternalXacro.g:11124:2: rule__Visual__Group_2__0__Impl rule__Visual__Group_2__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Visual__Group_2__0__Impl();
 
             state._fsp--;
@@ -33547,7 +33548,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11137:2: 'origin'
             {
              before(grammarAccess.getVisualAccess().getOriginKeyword_2_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getVisualAccess().getOriginKeyword_2_0()); 
 
             }
@@ -33660,7 +33661,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11177:1: ( rule__Visual__Group_5__0__Impl rule__Visual__Group_5__1 )
             // InternalXacro.g:11178:2: rule__Visual__Group_5__0__Impl rule__Visual__Group_5__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_69);
             rule__Visual__Group_5__0__Impl();
 
             state._fsp--;
@@ -33702,7 +33703,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11191:2: 'material'
             {
              before(grammarAccess.getVisualAccess().getMaterialKeyword_5_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getVisualAccess().getMaterialKeyword_5_0()); 
 
             }
@@ -33857,7 +33858,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11245:2: 'Collision'
             {
              before(grammarAccess.getCollisionAccess().getCollisionKeyword_0()); 
-            match(input,94,FOLLOW_2); 
+            match(input,95,FOLLOW_2); 
              after(grammarAccess.getCollisionAccess().getCollisionKeyword_0()); 
 
             }
@@ -33890,7 +33891,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11258:1: ( rule__Collision__Group__1__Impl rule__Collision__Group__2 )
             // InternalXacro.g:11259:2: rule__Collision__Group__1__Impl rule__Collision__Group__2
             {
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_70);
             rule__Collision__Group__1__Impl();
 
             state._fsp--;
@@ -33932,7 +33933,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11272:2: '{'
             {
              before(grammarAccess.getCollisionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getCollisionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -33965,7 +33966,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11285:1: ( rule__Collision__Group__2__Impl rule__Collision__Group__3 )
             // InternalXacro.g:11286:2: rule__Collision__Group__2__Impl rule__Collision__Group__3
             {
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_70);
             rule__Collision__Group__2__Impl();
 
             state._fsp--;
@@ -34011,7 +34012,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt82=2;
             int LA82_0 = input.LA(1);
 
-            if ( (LA82_0==18) ) {
+            if ( (LA82_0==19) ) {
                 alt82=1;
             }
             switch (alt82) {
@@ -34061,7 +34062,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11312:1: ( rule__Collision__Group__3__Impl rule__Collision__Group__4 )
             // InternalXacro.g:11313:2: rule__Collision__Group__3__Impl rule__Collision__Group__4
             {
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_70);
             rule__Collision__Group__3__Impl();
 
             state._fsp--;
@@ -34107,7 +34108,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt83=2;
             int LA83_0 = input.LA(1);
 
-            if ( (LA83_0==41) ) {
+            if ( (LA83_0==42) ) {
                 alt83=1;
             }
             switch (alt83) {
@@ -34157,7 +34158,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11339:1: ( rule__Collision__Group__4__Impl rule__Collision__Group__5 )
             // InternalXacro.g:11340:2: rule__Collision__Group__4__Impl rule__Collision__Group__5
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_67);
             rule__Collision__Group__4__Impl();
 
             state._fsp--;
@@ -34199,7 +34200,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11353:2: 'geometry'
             {
              before(grammarAccess.getCollisionAccess().getGeometryKeyword_4()); 
-            match(input,93,FOLLOW_2); 
+            match(input,94,FOLLOW_2); 
              after(grammarAccess.getCollisionAccess().getGeometryKeyword_4()); 
 
             }
@@ -34232,7 +34233,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11366:1: ( rule__Collision__Group__5__Impl rule__Collision__Group__6 )
             // InternalXacro.g:11367:2: rule__Collision__Group__5__Impl rule__Collision__Group__6
             {
-            pushFollow(FOLLOW_70);
+            pushFollow(FOLLOW_71);
             rule__Collision__Group__5__Impl();
 
             state._fsp--;
@@ -34317,7 +34318,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11393:1: ( rule__Collision__Group__6__Impl rule__Collision__Group__7 )
             // InternalXacro.g:11394:2: rule__Collision__Group__6__Impl rule__Collision__Group__7
             {
-            pushFollow(FOLLOW_70);
+            pushFollow(FOLLOW_71);
             rule__Collision__Group__6__Impl();
 
             state._fsp--;
@@ -34363,7 +34364,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt84=2;
             int LA84_0 = input.LA(1);
 
-            if ( (LA84_0==95) ) {
+            if ( (LA84_0==96) ) {
                 alt84=1;
             }
             switch (alt84) {
@@ -34450,7 +34451,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11433:2: '}'
             {
              before(grammarAccess.getCollisionAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getCollisionAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -34525,7 +34526,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11461:2: 'name'
             {
              before(grammarAccess.getCollisionAccess().getNameKeyword_2_0()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getCollisionAccess().getNameKeyword_2_0()); 
 
             }
@@ -34638,7 +34639,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11501:1: ( rule__Collision__Group_3__0__Impl rule__Collision__Group_3__1 )
             // InternalXacro.g:11502:2: rule__Collision__Group_3__0__Impl rule__Collision__Group_3__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Collision__Group_3__0__Impl();
 
             state._fsp--;
@@ -34680,7 +34681,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11515:2: 'origin'
             {
              before(grammarAccess.getCollisionAccess().getOriginKeyword_3_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getCollisionAccess().getOriginKeyword_3_0()); 
 
             }
@@ -34793,7 +34794,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11555:1: ( rule__Collision__Group_6__0__Impl rule__Collision__Group_6__1 )
             // InternalXacro.g:11556:2: rule__Collision__Group_6__0__Impl rule__Collision__Group_6__1
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_72);
             rule__Collision__Group_6__0__Impl();
 
             state._fsp--;
@@ -34835,7 +34836,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11569:2: 'verbose'
             {
              before(grammarAccess.getCollisionAccess().getVerboseKeyword_6_0()); 
-            match(input,95,FOLLOW_2); 
+            match(input,96,FOLLOW_2); 
              after(grammarAccess.getCollisionAccess().getVerboseKeyword_6_0()); 
 
             }
@@ -34948,7 +34949,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11609:1: ( rule__Mass__Group__0__Impl rule__Mass__Group__1 )
             // InternalXacro.g:11610:2: rule__Mass__Group__0__Impl rule__Mass__Group__1
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_64);
             rule__Mass__Group__0__Impl();
 
             state._fsp--;
@@ -35065,7 +35066,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11650:2: 'Mass'
             {
              before(grammarAccess.getMassAccess().getMassKeyword_1()); 
-            match(input,96,FOLLOW_2); 
+            match(input,97,FOLLOW_2); 
              after(grammarAccess.getMassAccess().getMassKeyword_1()); 
 
             }
@@ -35098,7 +35099,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11663:1: ( rule__Mass__Group__2__Impl rule__Mass__Group__3 )
             // InternalXacro.g:11664:2: rule__Mass__Group__2__Impl rule__Mass__Group__3
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_73);
             rule__Mass__Group__2__Impl();
 
             state._fsp--;
@@ -35140,7 +35141,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11677:2: '{'
             {
              before(grammarAccess.getMassAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMassAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -35173,7 +35174,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11690:1: ( rule__Mass__Group__3__Impl rule__Mass__Group__4 )
             // InternalXacro.g:11691:2: rule__Mass__Group__3__Impl rule__Mass__Group__4
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_73);
             rule__Mass__Group__3__Impl();
 
             state._fsp--;
@@ -35219,7 +35220,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt85=2;
             int LA85_0 = input.LA(1);
 
-            if ( (LA85_0==29) ) {
+            if ( (LA85_0==30) ) {
                 alt85=1;
             }
             switch (alt85) {
@@ -35306,7 +35307,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11730:2: '}'
             {
              before(grammarAccess.getMassAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMassAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -35339,7 +35340,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11744:1: ( rule__Mass__Group_3__0__Impl rule__Mass__Group_3__1 )
             // InternalXacro.g:11745:2: rule__Mass__Group_3__0__Impl rule__Mass__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Mass__Group_3__0__Impl();
 
             state._fsp--;
@@ -35381,7 +35382,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11758:2: 'value'
             {
              before(grammarAccess.getMassAccess().getValueKeyword_3_0()); 
-            match(input,29,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getMassAccess().getValueKeyword_3_0()); 
 
             }
@@ -35494,7 +35495,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11798:1: ( rule__Inertia__Group__0__Impl rule__Inertia__Group__1 )
             // InternalXacro.g:11799:2: rule__Inertia__Group__0__Impl rule__Inertia__Group__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_65);
             rule__Inertia__Group__0__Impl();
 
             state._fsp--;
@@ -35611,7 +35612,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11839:2: 'Inertia'
             {
              before(grammarAccess.getInertiaAccess().getInertiaKeyword_1()); 
-            match(input,97,FOLLOW_2); 
+            match(input,98,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getInertiaKeyword_1()); 
 
             }
@@ -35644,7 +35645,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11852:1: ( rule__Inertia__Group__2__Impl rule__Inertia__Group__3 )
             // InternalXacro.g:11853:2: rule__Inertia__Group__2__Impl rule__Inertia__Group__3
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_74);
             rule__Inertia__Group__2__Impl();
 
             state._fsp--;
@@ -35686,7 +35687,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11866:2: '{'
             {
              before(grammarAccess.getInertiaAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -35719,7 +35720,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11879:1: ( rule__Inertia__Group__3__Impl rule__Inertia__Group__4 )
             // InternalXacro.g:11880:2: rule__Inertia__Group__3__Impl rule__Inertia__Group__4
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_74);
             rule__Inertia__Group__3__Impl();
 
             state._fsp--;
@@ -35765,7 +35766,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt86=2;
             int LA86_0 = input.LA(1);
 
-            if ( (LA86_0==98) ) {
+            if ( (LA86_0==99) ) {
                 alt86=1;
             }
             switch (alt86) {
@@ -35815,7 +35816,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11906:1: ( rule__Inertia__Group__4__Impl rule__Inertia__Group__5 )
             // InternalXacro.g:11907:2: rule__Inertia__Group__4__Impl rule__Inertia__Group__5
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_74);
             rule__Inertia__Group__4__Impl();
 
             state._fsp--;
@@ -35861,7 +35862,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt87=2;
             int LA87_0 = input.LA(1);
 
-            if ( (LA87_0==99) ) {
+            if ( (LA87_0==100) ) {
                 alt87=1;
             }
             switch (alt87) {
@@ -35911,7 +35912,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11933:1: ( rule__Inertia__Group__5__Impl rule__Inertia__Group__6 )
             // InternalXacro.g:11934:2: rule__Inertia__Group__5__Impl rule__Inertia__Group__6
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_74);
             rule__Inertia__Group__5__Impl();
 
             state._fsp--;
@@ -35957,7 +35958,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt88=2;
             int LA88_0 = input.LA(1);
 
-            if ( (LA88_0==100) ) {
+            if ( (LA88_0==101) ) {
                 alt88=1;
             }
             switch (alt88) {
@@ -36007,7 +36008,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11960:1: ( rule__Inertia__Group__6__Impl rule__Inertia__Group__7 )
             // InternalXacro.g:11961:2: rule__Inertia__Group__6__Impl rule__Inertia__Group__7
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_74);
             rule__Inertia__Group__6__Impl();
 
             state._fsp--;
@@ -36053,7 +36054,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt89=2;
             int LA89_0 = input.LA(1);
 
-            if ( (LA89_0==101) ) {
+            if ( (LA89_0==102) ) {
                 alt89=1;
             }
             switch (alt89) {
@@ -36103,7 +36104,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:11987:1: ( rule__Inertia__Group__7__Impl rule__Inertia__Group__8 )
             // InternalXacro.g:11988:2: rule__Inertia__Group__7__Impl rule__Inertia__Group__8
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_74);
             rule__Inertia__Group__7__Impl();
 
             state._fsp--;
@@ -36149,7 +36150,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt90=2;
             int LA90_0 = input.LA(1);
 
-            if ( (LA90_0==102) ) {
+            if ( (LA90_0==103) ) {
                 alt90=1;
             }
             switch (alt90) {
@@ -36199,7 +36200,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12014:1: ( rule__Inertia__Group__8__Impl rule__Inertia__Group__9 )
             // InternalXacro.g:12015:2: rule__Inertia__Group__8__Impl rule__Inertia__Group__9
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_74);
             rule__Inertia__Group__8__Impl();
 
             state._fsp--;
@@ -36245,7 +36246,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt91=2;
             int LA91_0 = input.LA(1);
 
-            if ( (LA91_0==103) ) {
+            if ( (LA91_0==104) ) {
                 alt91=1;
             }
             switch (alt91) {
@@ -36332,7 +36333,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12054:2: '}'
             {
              before(grammarAccess.getInertiaAccess().getRightCurlyBracketKeyword_9()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getRightCurlyBracketKeyword_9()); 
 
             }
@@ -36365,7 +36366,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12068:1: ( rule__Inertia__Group_3__0__Impl rule__Inertia__Group_3__1 )
             // InternalXacro.g:12069:2: rule__Inertia__Group_3__0__Impl rule__Inertia__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Inertia__Group_3__0__Impl();
 
             state._fsp--;
@@ -36407,7 +36408,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12082:2: 'ixx'
             {
              before(grammarAccess.getInertiaAccess().getIxxKeyword_3_0()); 
-            match(input,98,FOLLOW_2); 
+            match(input,99,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getIxxKeyword_3_0()); 
 
             }
@@ -36520,7 +36521,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12122:1: ( rule__Inertia__Group_4__0__Impl rule__Inertia__Group_4__1 )
             // InternalXacro.g:12123:2: rule__Inertia__Group_4__0__Impl rule__Inertia__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Inertia__Group_4__0__Impl();
 
             state._fsp--;
@@ -36562,7 +36563,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12136:2: 'ixy'
             {
              before(grammarAccess.getInertiaAccess().getIxyKeyword_4_0()); 
-            match(input,99,FOLLOW_2); 
+            match(input,100,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getIxyKeyword_4_0()); 
 
             }
@@ -36675,7 +36676,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12176:1: ( rule__Inertia__Group_5__0__Impl rule__Inertia__Group_5__1 )
             // InternalXacro.g:12177:2: rule__Inertia__Group_5__0__Impl rule__Inertia__Group_5__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Inertia__Group_5__0__Impl();
 
             state._fsp--;
@@ -36717,7 +36718,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12190:2: 'ixz'
             {
              before(grammarAccess.getInertiaAccess().getIxzKeyword_5_0()); 
-            match(input,100,FOLLOW_2); 
+            match(input,101,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getIxzKeyword_5_0()); 
 
             }
@@ -36830,7 +36831,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12230:1: ( rule__Inertia__Group_6__0__Impl rule__Inertia__Group_6__1 )
             // InternalXacro.g:12231:2: rule__Inertia__Group_6__0__Impl rule__Inertia__Group_6__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Inertia__Group_6__0__Impl();
 
             state._fsp--;
@@ -36872,7 +36873,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12244:2: 'iyy'
             {
              before(grammarAccess.getInertiaAccess().getIyyKeyword_6_0()); 
-            match(input,101,FOLLOW_2); 
+            match(input,102,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getIyyKeyword_6_0()); 
 
             }
@@ -36985,7 +36986,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12284:1: ( rule__Inertia__Group_7__0__Impl rule__Inertia__Group_7__1 )
             // InternalXacro.g:12285:2: rule__Inertia__Group_7__0__Impl rule__Inertia__Group_7__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Inertia__Group_7__0__Impl();
 
             state._fsp--;
@@ -37027,7 +37028,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12298:2: 'iyz'
             {
              before(grammarAccess.getInertiaAccess().getIyzKeyword_7_0()); 
-            match(input,102,FOLLOW_2); 
+            match(input,103,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getIyzKeyword_7_0()); 
 
             }
@@ -37140,7 +37141,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12338:1: ( rule__Inertia__Group_8__0__Impl rule__Inertia__Group_8__1 )
             // InternalXacro.g:12339:2: rule__Inertia__Group_8__0__Impl rule__Inertia__Group_8__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Inertia__Group_8__0__Impl();
 
             state._fsp--;
@@ -37182,7 +37183,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12352:2: 'izz'
             {
              before(grammarAccess.getInertiaAccess().getIzzKeyword_8_0()); 
-            match(input,103,FOLLOW_2); 
+            match(input,104,FOLLOW_2); 
              after(grammarAccess.getInertiaAccess().getIzzKeyword_8_0()); 
 
             }
@@ -37295,7 +37296,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12392:1: ( rule__Geometry__Group__0__Impl rule__Geometry__Group__1 )
             // InternalXacro.g:12393:2: rule__Geometry__Group__0__Impl rule__Geometry__Group__1
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_67);
             rule__Geometry__Group__0__Impl();
 
             state._fsp--;
@@ -37412,7 +37413,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12433:2: 'Geometry'
             {
              before(grammarAccess.getGeometryAccess().getGeometryKeyword_1()); 
-            match(input,104,FOLLOW_2); 
+            match(input,105,FOLLOW_2); 
              after(grammarAccess.getGeometryAccess().getGeometryKeyword_1()); 
 
             }
@@ -37445,7 +37446,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12446:1: ( rule__Geometry__Group__2__Impl rule__Geometry__Group__3 )
             // InternalXacro.g:12447:2: rule__Geometry__Group__2__Impl rule__Geometry__Group__3
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_75);
             rule__Geometry__Group__2__Impl();
 
             state._fsp--;
@@ -37487,7 +37488,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12460:2: '{'
             {
              before(grammarAccess.getGeometryAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getGeometryAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -37520,7 +37521,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12473:1: ( rule__Geometry__Group__3__Impl rule__Geometry__Group__4 )
             // InternalXacro.g:12474:2: rule__Geometry__Group__3__Impl rule__Geometry__Group__4
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_75);
             rule__Geometry__Group__3__Impl();
 
             state._fsp--;
@@ -37566,7 +37567,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt92=2;
             int LA92_0 = input.LA(1);
 
-            if ( (LA92_0==105) ) {
+            if ( (LA92_0==106) ) {
                 alt92=1;
             }
             switch (alt92) {
@@ -37616,7 +37617,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12500:1: ( rule__Geometry__Group__4__Impl rule__Geometry__Group__5 )
             // InternalXacro.g:12501:2: rule__Geometry__Group__4__Impl rule__Geometry__Group__5
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_75);
             rule__Geometry__Group__4__Impl();
 
             state._fsp--;
@@ -37662,7 +37663,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt93=2;
             int LA93_0 = input.LA(1);
 
-            if ( (LA93_0==106) ) {
+            if ( (LA93_0==107) ) {
                 alt93=1;
             }
             switch (alt93) {
@@ -37712,7 +37713,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12527:1: ( rule__Geometry__Group__5__Impl rule__Geometry__Group__6 )
             // InternalXacro.g:12528:2: rule__Geometry__Group__5__Impl rule__Geometry__Group__6
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_75);
             rule__Geometry__Group__5__Impl();
 
             state._fsp--;
@@ -37758,7 +37759,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt94=2;
             int LA94_0 = input.LA(1);
 
-            if ( (LA94_0==107) ) {
+            if ( (LA94_0==108) ) {
                 alt94=1;
             }
             switch (alt94) {
@@ -37808,7 +37809,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12554:1: ( rule__Geometry__Group__6__Impl rule__Geometry__Group__7 )
             // InternalXacro.g:12555:2: rule__Geometry__Group__6__Impl rule__Geometry__Group__7
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_75);
             rule__Geometry__Group__6__Impl();
 
             state._fsp--;
@@ -37854,7 +37855,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt95=2;
             int LA95_0 = input.LA(1);
 
-            if ( (LA95_0==108) ) {
+            if ( (LA95_0==109) ) {
                 alt95=1;
             }
             switch (alt95) {
@@ -37941,7 +37942,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12594:2: '}'
             {
              before(grammarAccess.getGeometryAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getGeometryAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -37974,7 +37975,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12608:1: ( rule__Geometry__Group_3__0__Impl rule__Geometry__Group_3__1 )
             // InternalXacro.g:12609:2: rule__Geometry__Group_3__0__Impl rule__Geometry__Group_3__1
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_76);
             rule__Geometry__Group_3__0__Impl();
 
             state._fsp--;
@@ -38016,7 +38017,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12622:2: 'box'
             {
              before(grammarAccess.getGeometryAccess().getBoxKeyword_3_0()); 
-            match(input,105,FOLLOW_2); 
+            match(input,106,FOLLOW_2); 
              after(grammarAccess.getGeometryAccess().getBoxKeyword_3_0()); 
 
             }
@@ -38129,7 +38130,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12662:1: ( rule__Geometry__Group_4__0__Impl rule__Geometry__Group_4__1 )
             // InternalXacro.g:12663:2: rule__Geometry__Group_4__0__Impl rule__Geometry__Group_4__1
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_77);
             rule__Geometry__Group_4__0__Impl();
 
             state._fsp--;
@@ -38171,7 +38172,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12676:2: 'cylinder'
             {
              before(grammarAccess.getGeometryAccess().getCylinderKeyword_4_0()); 
-            match(input,106,FOLLOW_2); 
+            match(input,107,FOLLOW_2); 
              after(grammarAccess.getGeometryAccess().getCylinderKeyword_4_0()); 
 
             }
@@ -38284,7 +38285,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12716:1: ( rule__Geometry__Group_5__0__Impl rule__Geometry__Group_5__1 )
             // InternalXacro.g:12717:2: rule__Geometry__Group_5__0__Impl rule__Geometry__Group_5__1
             {
-            pushFollow(FOLLOW_77);
+            pushFollow(FOLLOW_78);
             rule__Geometry__Group_5__0__Impl();
 
             state._fsp--;
@@ -38326,7 +38327,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12730:2: 'sphere'
             {
              before(grammarAccess.getGeometryAccess().getSphereKeyword_5_0()); 
-            match(input,107,FOLLOW_2); 
+            match(input,108,FOLLOW_2); 
              after(grammarAccess.getGeometryAccess().getSphereKeyword_5_0()); 
 
             }
@@ -38439,7 +38440,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12770:1: ( rule__Geometry__Group_6__0__Impl rule__Geometry__Group_6__1 )
             // InternalXacro.g:12771:2: rule__Geometry__Group_6__0__Impl rule__Geometry__Group_6__1
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_79);
             rule__Geometry__Group_6__0__Impl();
 
             state._fsp--;
@@ -38481,7 +38482,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12784:2: 'mesh'
             {
              before(grammarAccess.getGeometryAccess().getMeshKeyword_6_0()); 
-            match(input,108,FOLLOW_2); 
+            match(input,109,FOLLOW_2); 
              after(grammarAccess.getGeometryAccess().getMeshKeyword_6_0()); 
 
             }
@@ -38594,7 +38595,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12824:1: ( rule__Material__Group__0__Impl rule__Material__Group__1 )
             // InternalXacro.g:12825:2: rule__Material__Group__0__Impl rule__Material__Group__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_69);
             rule__Material__Group__0__Impl();
 
             state._fsp--;
@@ -38711,7 +38712,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12865:2: 'Material'
             {
              before(grammarAccess.getMaterialAccess().getMaterialKeyword_1()); 
-            match(input,109,FOLLOW_2); 
+            match(input,110,FOLLOW_2); 
              after(grammarAccess.getMaterialAccess().getMaterialKeyword_1()); 
 
             }
@@ -38744,7 +38745,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12878:1: ( rule__Material__Group__2__Impl rule__Material__Group__3 )
             // InternalXacro.g:12879:2: rule__Material__Group__2__Impl rule__Material__Group__3
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_80);
             rule__Material__Group__2__Impl();
 
             state._fsp--;
@@ -38786,7 +38787,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12892:2: '{'
             {
              before(grammarAccess.getMaterialAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMaterialAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -38819,7 +38820,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12905:1: ( rule__Material__Group__3__Impl rule__Material__Group__4 )
             // InternalXacro.g:12906:2: rule__Material__Group__3__Impl rule__Material__Group__4
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_80);
             rule__Material__Group__3__Impl();
 
             state._fsp--;
@@ -38865,7 +38866,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt96=2;
             int LA96_0 = input.LA(1);
 
-            if ( (LA96_0==18) ) {
+            if ( (LA96_0==19) ) {
                 alt96=1;
             }
             switch (alt96) {
@@ -38915,7 +38916,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12932:1: ( rule__Material__Group__4__Impl rule__Material__Group__5 )
             // InternalXacro.g:12933:2: rule__Material__Group__4__Impl rule__Material__Group__5
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_80);
             rule__Material__Group__4__Impl();
 
             state._fsp--;
@@ -38961,7 +38962,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt97=2;
             int LA97_0 = input.LA(1);
 
-            if ( (LA97_0==53) ) {
+            if ( (LA97_0==54) ) {
                 alt97=1;
             }
             switch (alt97) {
@@ -39011,7 +39012,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12959:1: ( rule__Material__Group__5__Impl rule__Material__Group__6 )
             // InternalXacro.g:12960:2: rule__Material__Group__5__Impl rule__Material__Group__6
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_80);
             rule__Material__Group__5__Impl();
 
             state._fsp--;
@@ -39057,7 +39058,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt98=2;
             int LA98_0 = input.LA(1);
 
-            if ( (LA98_0==54) ) {
+            if ( (LA98_0==55) ) {
                 alt98=1;
             }
             switch (alt98) {
@@ -39144,7 +39145,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:12999:2: '}'
             {
              before(grammarAccess.getMaterialAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMaterialAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -39219,7 +39220,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13027:2: 'name'
             {
              before(grammarAccess.getMaterialAccess().getNameKeyword_3_0()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getMaterialAccess().getNameKeyword_3_0()); 
 
             }
@@ -39332,7 +39333,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13067:1: ( rule__Material__Group_4__0__Impl rule__Material__Group_4__1 )
             // InternalXacro.g:13068:2: rule__Material__Group_4__0__Impl rule__Material__Group_4__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_44);
             rule__Material__Group_4__0__Impl();
 
             state._fsp--;
@@ -39374,7 +39375,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13081:2: 'color'
             {
              before(grammarAccess.getMaterialAccess().getColorKeyword_4_0()); 
-            match(input,53,FOLLOW_2); 
+            match(input,54,FOLLOW_2); 
              after(grammarAccess.getMaterialAccess().getColorKeyword_4_0()); 
 
             }
@@ -39487,7 +39488,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13121:1: ( rule__Material__Group_5__0__Impl rule__Material__Group_5__1 )
             // InternalXacro.g:13122:2: rule__Material__Group_5__0__Impl rule__Material__Group_5__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_45);
             rule__Material__Group_5__0__Impl();
 
             state._fsp--;
@@ -39529,7 +39530,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13135:2: 'texture'
             {
              before(grammarAccess.getMaterialAccess().getTextureKeyword_5_0()); 
-            match(input,54,FOLLOW_2); 
+            match(input,55,FOLLOW_2); 
              after(grammarAccess.getMaterialAccess().getTextureKeyword_5_0()); 
 
             }
@@ -39642,7 +39643,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13175:1: ( rule__Box__Group__0__Impl rule__Box__Group__1 )
             // InternalXacro.g:13176:2: rule__Box__Group__0__Impl rule__Box__Group__1
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_76);
             rule__Box__Group__0__Impl();
 
             state._fsp--;
@@ -39759,7 +39760,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13216:2: 'Box'
             {
              before(grammarAccess.getBoxAccess().getBoxKeyword_1()); 
-            match(input,110,FOLLOW_2); 
+            match(input,111,FOLLOW_2); 
              after(grammarAccess.getBoxAccess().getBoxKeyword_1()); 
 
             }
@@ -39792,7 +39793,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13229:1: ( rule__Box__Group__2__Impl rule__Box__Group__3 )
             // InternalXacro.g:13230:2: rule__Box__Group__2__Impl rule__Box__Group__3
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_81);
             rule__Box__Group__2__Impl();
 
             state._fsp--;
@@ -39834,7 +39835,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13243:2: '{'
             {
              before(grammarAccess.getBoxAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBoxAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -39867,7 +39868,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13256:1: ( rule__Box__Group__3__Impl rule__Box__Group__4 )
             // InternalXacro.g:13257:2: rule__Box__Group__3__Impl rule__Box__Group__4
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_81);
             rule__Box__Group__3__Impl();
 
             state._fsp--;
@@ -39913,7 +39914,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt99=2;
             int LA99_0 = input.LA(1);
 
-            if ( (LA99_0==111) ) {
+            if ( (LA99_0==112) ) {
                 alt99=1;
             }
             switch (alt99) {
@@ -40000,7 +40001,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13296:2: '}'
             {
              before(grammarAccess.getBoxAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getBoxAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -40075,7 +40076,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13324:2: 'size'
             {
              before(grammarAccess.getBoxAccess().getSizeKeyword_3_0()); 
-            match(input,111,FOLLOW_2); 
+            match(input,112,FOLLOW_2); 
              after(grammarAccess.getBoxAccess().getSizeKeyword_3_0()); 
 
             }
@@ -40230,7 +40231,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13378:2: 'Cylinder'
             {
              before(grammarAccess.getCylinderAccess().getCylinderKeyword_0()); 
-            match(input,112,FOLLOW_2); 
+            match(input,113,FOLLOW_2); 
              after(grammarAccess.getCylinderAccess().getCylinderKeyword_0()); 
 
             }
@@ -40263,7 +40264,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13391:1: ( rule__Cylinder__Group__1__Impl rule__Cylinder__Group__2 )
             // InternalXacro.g:13392:2: rule__Cylinder__Group__1__Impl rule__Cylinder__Group__2
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_82);
             rule__Cylinder__Group__1__Impl();
 
             state._fsp--;
@@ -40305,7 +40306,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13405:2: '{'
             {
              before(grammarAccess.getCylinderAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getCylinderAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -40338,7 +40339,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13418:1: ( rule__Cylinder__Group__2__Impl rule__Cylinder__Group__3 )
             // InternalXacro.g:13419:2: rule__Cylinder__Group__2__Impl rule__Cylinder__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Cylinder__Group__2__Impl();
 
             state._fsp--;
@@ -40380,7 +40381,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13432:2: 'length'
             {
              before(grammarAccess.getCylinderAccess().getLengthKeyword_2()); 
-            match(input,113,FOLLOW_2); 
+            match(input,114,FOLLOW_2); 
              after(grammarAccess.getCylinderAccess().getLengthKeyword_2()); 
 
             }
@@ -40413,7 +40414,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13445:1: ( rule__Cylinder__Group__3__Impl rule__Cylinder__Group__4 )
             // InternalXacro.g:13446:2: rule__Cylinder__Group__3__Impl rule__Cylinder__Group__4
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_83);
             rule__Cylinder__Group__3__Impl();
 
             state._fsp--;
@@ -40498,7 +40499,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13472:1: ( rule__Cylinder__Group__4__Impl rule__Cylinder__Group__5 )
             // InternalXacro.g:13473:2: rule__Cylinder__Group__4__Impl rule__Cylinder__Group__5
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Cylinder__Group__4__Impl();
 
             state._fsp--;
@@ -40540,7 +40541,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13486:2: 'radius'
             {
              before(grammarAccess.getCylinderAccess().getRadiusKeyword_4()); 
-            match(input,114,FOLLOW_2); 
+            match(input,115,FOLLOW_2); 
              after(grammarAccess.getCylinderAccess().getRadiusKeyword_4()); 
 
             }
@@ -40695,7 +40696,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13539:2: '}'
             {
              before(grammarAccess.getCylinderAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getCylinderAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -40770,7 +40771,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13567:2: 'Sphere'
             {
              before(grammarAccess.getSphereAccess().getSphereKeyword_0()); 
-            match(input,115,FOLLOW_2); 
+            match(input,116,FOLLOW_2); 
              after(grammarAccess.getSphereAccess().getSphereKeyword_0()); 
 
             }
@@ -40803,7 +40804,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13580:1: ( rule__Sphere__Group__1__Impl rule__Sphere__Group__2 )
             // InternalXacro.g:13581:2: rule__Sphere__Group__1__Impl rule__Sphere__Group__2
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_83);
             rule__Sphere__Group__1__Impl();
 
             state._fsp--;
@@ -40845,7 +40846,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13594:2: '{'
             {
              before(grammarAccess.getSphereAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getSphereAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -40878,7 +40879,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13607:1: ( rule__Sphere__Group__2__Impl rule__Sphere__Group__3 )
             // InternalXacro.g:13608:2: rule__Sphere__Group__2__Impl rule__Sphere__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__Sphere__Group__2__Impl();
 
             state._fsp--;
@@ -40920,7 +40921,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13621:2: 'radius'
             {
              before(grammarAccess.getSphereAccess().getRadiusKeyword_2()); 
-            match(input,114,FOLLOW_2); 
+            match(input,115,FOLLOW_2); 
              after(grammarAccess.getSphereAccess().getRadiusKeyword_2()); 
 
             }
@@ -41075,7 +41076,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13674:2: '}'
             {
              before(grammarAccess.getSphereAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getSphereAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -41150,7 +41151,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13702:2: 'Mesh'
             {
              before(grammarAccess.getMeshAccess().getMeshKeyword_0()); 
-            match(input,116,FOLLOW_2); 
+            match(input,117,FOLLOW_2); 
              after(grammarAccess.getMeshAccess().getMeshKeyword_0()); 
 
             }
@@ -41183,7 +41184,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13715:1: ( rule__Mesh__Group__1__Impl rule__Mesh__Group__2 )
             // InternalXacro.g:13716:2: rule__Mesh__Group__1__Impl rule__Mesh__Group__2
             {
-            pushFollow(FOLLOW_83);
+            pushFollow(FOLLOW_84);
             rule__Mesh__Group__1__Impl();
 
             state._fsp--;
@@ -41225,7 +41226,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13729:2: '{'
             {
              before(grammarAccess.getMeshAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getMeshAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -41258,7 +41259,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13742:1: ( rule__Mesh__Group__2__Impl rule__Mesh__Group__3 )
             // InternalXacro.g:13743:2: rule__Mesh__Group__2__Impl rule__Mesh__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_85);
             rule__Mesh__Group__2__Impl();
 
             state._fsp--;
@@ -41300,7 +41301,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13756:2: 'filename'
             {
              before(grammarAccess.getMeshAccess().getFilenameKeyword_2()); 
-            match(input,117,FOLLOW_2); 
+            match(input,118,FOLLOW_2); 
              after(grammarAccess.getMeshAccess().getFilenameKeyword_2()); 
 
             }
@@ -41333,7 +41334,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13769:1: ( rule__Mesh__Group__3__Impl rule__Mesh__Group__4 )
             // InternalXacro.g:13770:2: rule__Mesh__Group__3__Impl rule__Mesh__Group__4
             {
-            pushFollow(FOLLOW_84);
+            pushFollow(FOLLOW_86);
             rule__Mesh__Group__3__Impl();
 
             state._fsp--;
@@ -41418,7 +41419,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13796:1: ( rule__Mesh__Group__4__Impl rule__Mesh__Group__5 )
             // InternalXacro.g:13797:2: rule__Mesh__Group__4__Impl rule__Mesh__Group__5
             {
-            pushFollow(FOLLOW_84);
+            pushFollow(FOLLOW_86);
             rule__Mesh__Group__4__Impl();
 
             state._fsp--;
@@ -41464,7 +41465,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt100=2;
             int LA100_0 = input.LA(1);
 
-            if ( (LA100_0==118) ) {
+            if ( (LA100_0==119) ) {
                 alt100=1;
             }
             switch (alt100) {
@@ -41551,7 +41552,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13836:2: '}'
             {
              before(grammarAccess.getMeshAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getMeshAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -41626,7 +41627,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13864:2: 'scale'
             {
              before(grammarAccess.getMeshAccess().getScaleKeyword_4_0()); 
-            match(input,118,FOLLOW_2); 
+            match(input,119,FOLLOW_2); 
              after(grammarAccess.getMeshAccess().getScaleKeyword_4_0()); 
 
             }
@@ -41739,7 +41740,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13904:1: ( rule__Color__Group__0__Impl rule__Color__Group__1 )
             // InternalXacro.g:13905:2: rule__Color__Group__0__Impl rule__Color__Group__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_44);
             rule__Color__Group__0__Impl();
 
             state._fsp--;
@@ -41856,7 +41857,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13945:2: 'Color'
             {
              before(grammarAccess.getColorAccess().getColorKeyword_1()); 
-            match(input,119,FOLLOW_2); 
+            match(input,120,FOLLOW_2); 
              after(grammarAccess.getColorAccess().getColorKeyword_1()); 
 
             }
@@ -41889,7 +41890,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13958:1: ( rule__Color__Group__2__Impl rule__Color__Group__3 )
             // InternalXacro.g:13959:2: rule__Color__Group__2__Impl rule__Color__Group__3
             {
-            pushFollow(FOLLOW_85);
+            pushFollow(FOLLOW_87);
             rule__Color__Group__2__Impl();
 
             state._fsp--;
@@ -41931,7 +41932,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13972:2: '{'
             {
              before(grammarAccess.getColorAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getColorAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -41964,7 +41965,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:13985:1: ( rule__Color__Group__3__Impl rule__Color__Group__4 )
             // InternalXacro.g:13986:2: rule__Color__Group__3__Impl rule__Color__Group__4
             {
-            pushFollow(FOLLOW_85);
+            pushFollow(FOLLOW_87);
             rule__Color__Group__3__Impl();
 
             state._fsp--;
@@ -42010,7 +42011,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt101=2;
             int LA101_0 = input.LA(1);
 
-            if ( (LA101_0==120) ) {
+            if ( (LA101_0==121) ) {
                 alt101=1;
             }
             switch (alt101) {
@@ -42097,7 +42098,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14025:2: '}'
             {
              before(grammarAccess.getColorAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getColorAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -42172,7 +42173,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14053:2: 'rgba'
             {
              before(grammarAccess.getColorAccess().getRgbaKeyword_3_0()); 
-            match(input,120,FOLLOW_2); 
+            match(input,121,FOLLOW_2); 
              after(grammarAccess.getColorAccess().getRgbaKeyword_3_0()); 
 
             }
@@ -42285,7 +42286,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14093:1: ( rule__Texture__Group__0__Impl rule__Texture__Group__1 )
             // InternalXacro.g:14094:2: rule__Texture__Group__0__Impl rule__Texture__Group__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_45);
             rule__Texture__Group__0__Impl();
 
             state._fsp--;
@@ -42402,7 +42403,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14134:2: 'Texture'
             {
              before(grammarAccess.getTextureAccess().getTextureKeyword_1()); 
-            match(input,121,FOLLOW_2); 
+            match(input,122,FOLLOW_2); 
              after(grammarAccess.getTextureAccess().getTextureKeyword_1()); 
 
             }
@@ -42435,7 +42436,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14147:1: ( rule__Texture__Group__2__Impl rule__Texture__Group__3 )
             // InternalXacro.g:14148:2: rule__Texture__Group__2__Impl rule__Texture__Group__3
             {
-            pushFollow(FOLLOW_86);
+            pushFollow(FOLLOW_88);
             rule__Texture__Group__2__Impl();
 
             state._fsp--;
@@ -42477,7 +42478,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14161:2: '{'
             {
              before(grammarAccess.getTextureAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTextureAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -42510,7 +42511,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14174:1: ( rule__Texture__Group__3__Impl rule__Texture__Group__4 )
             // InternalXacro.g:14175:2: rule__Texture__Group__3__Impl rule__Texture__Group__4
             {
-            pushFollow(FOLLOW_86);
+            pushFollow(FOLLOW_88);
             rule__Texture__Group__3__Impl();
 
             state._fsp--;
@@ -42556,7 +42557,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt102=2;
             int LA102_0 = input.LA(1);
 
-            if ( (LA102_0==117) ) {
+            if ( (LA102_0==118) ) {
                 alt102=1;
             }
             switch (alt102) {
@@ -42643,7 +42644,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14214:2: '}'
             {
              before(grammarAccess.getTextureAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getTextureAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -42676,7 +42677,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14228:1: ( rule__Texture__Group_3__0__Impl rule__Texture__Group_3__1 )
             // InternalXacro.g:14229:2: rule__Texture__Group_3__0__Impl rule__Texture__Group_3__1
             {
-            pushFollow(FOLLOW_87);
+            pushFollow(FOLLOW_85);
             rule__Texture__Group_3__0__Impl();
 
             state._fsp--;
@@ -42718,7 +42719,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14242:2: 'filename'
             {
              before(grammarAccess.getTextureAccess().getFilenameKeyword_3_0()); 
-            match(input,117,FOLLOW_2); 
+            match(input,118,FOLLOW_2); 
              after(grammarAccess.getTextureAccess().getFilenameKeyword_3_0()); 
 
             }
@@ -42831,7 +42832,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14282:1: ( rule__Verbose__Group__0__Impl rule__Verbose__Group__1 )
             // InternalXacro.g:14283:2: rule__Verbose__Group__0__Impl rule__Verbose__Group__1
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_72);
             rule__Verbose__Group__0__Impl();
 
             state._fsp--;
@@ -42948,7 +42949,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14323:2: 'Verbose'
             {
              before(grammarAccess.getVerboseAccess().getVerboseKeyword_1()); 
-            match(input,122,FOLLOW_2); 
+            match(input,123,FOLLOW_2); 
              after(grammarAccess.getVerboseAccess().getVerboseKeyword_1()); 
 
             }
@@ -42981,7 +42982,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14336:1: ( rule__Verbose__Group__2__Impl rule__Verbose__Group__3 )
             // InternalXacro.g:14337:2: rule__Verbose__Group__2__Impl rule__Verbose__Group__3
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_73);
             rule__Verbose__Group__2__Impl();
 
             state._fsp--;
@@ -43023,7 +43024,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14350:2: '{'
             {
              before(grammarAccess.getVerboseAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getVerboseAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -43056,7 +43057,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14363:1: ( rule__Verbose__Group__3__Impl rule__Verbose__Group__4 )
             // InternalXacro.g:14364:2: rule__Verbose__Group__3__Impl rule__Verbose__Group__4
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_73);
             rule__Verbose__Group__3__Impl();
 
             state._fsp--;
@@ -43102,7 +43103,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt103=2;
             int LA103_0 = input.LA(1);
 
-            if ( (LA103_0==29) ) {
+            if ( (LA103_0==30) ) {
                 alt103=1;
             }
             switch (alt103) {
@@ -43189,7 +43190,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14403:2: '}'
             {
              before(grammarAccess.getVerboseAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getVerboseAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -43264,7 +43265,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14431:2: 'value'
             {
              before(grammarAccess.getVerboseAccess().getValueKeyword_3_0()); 
-            match(input,29,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getVerboseAccess().getValueKeyword_3_0()); 
 
             }
@@ -43419,7 +43420,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14485:2: 'ActuatorTransmission'
             {
              before(grammarAccess.getActuatorTransmissionAccess().getActuatorTransmissionKeyword_0()); 
-            match(input,123,FOLLOW_2); 
+            match(input,124,FOLLOW_2); 
              after(grammarAccess.getActuatorTransmissionAccess().getActuatorTransmissionKeyword_0()); 
 
             }
@@ -43452,7 +43453,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14498:1: ( rule__ActuatorTransmission__Group__1__Impl rule__ActuatorTransmission__Group__2 )
             // InternalXacro.g:14499:2: rule__ActuatorTransmission__Group__1__Impl rule__ActuatorTransmission__Group__2
             {
-            pushFollow(FOLLOW_88);
+            pushFollow(FOLLOW_89);
             rule__ActuatorTransmission__Group__1__Impl();
 
             state._fsp--;
@@ -43494,7 +43495,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14512:2: '{'
             {
              before(grammarAccess.getActuatorTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getActuatorTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -43527,7 +43528,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14525:1: ( rule__ActuatorTransmission__Group__2__Impl rule__ActuatorTransmission__Group__3 )
             // InternalXacro.g:14526:2: rule__ActuatorTransmission__Group__2__Impl rule__ActuatorTransmission__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__ActuatorTransmission__Group__2__Impl();
 
             state._fsp--;
@@ -43569,7 +43570,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14539:2: 'mechanicalReduction'
             {
              before(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionKeyword_2()); 
-            match(input,56,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionKeyword_2()); 
 
             }
@@ -43729,7 +43730,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14593:2: 'name'
             {
              before(grammarAccess.getActuatorTransmissionAccess().getNameKeyword_4()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getActuatorTransmissionAccess().getNameKeyword_4()); 
 
             }
@@ -43884,7 +43885,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14646:2: '}'
             {
              before(grammarAccess.getActuatorTransmissionAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getActuatorTransmissionAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -43959,7 +43960,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14674:2: 'GapJointTransmission'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getGapJointTransmissionKeyword_0()); 
-            match(input,124,FOLLOW_2); 
+            match(input,125,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getGapJointTransmissionKeyword_0()); 
 
             }
@@ -43992,7 +43993,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14687:1: ( rule__GapJointTransmission__Group__1__Impl rule__GapJointTransmission__Group__2 )
             // InternalXacro.g:14688:2: rule__GapJointTransmission__Group__1__Impl rule__GapJointTransmission__Group__2
             {
-            pushFollow(FOLLOW_89);
+            pushFollow(FOLLOW_90);
             rule__GapJointTransmission__Group__1__Impl();
 
             state._fsp--;
@@ -44034,7 +44035,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14701:2: '{'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -44067,7 +44068,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14714:1: ( rule__GapJointTransmission__Group__2__Impl rule__GapJointTransmission__Group__3 )
             // InternalXacro.g:14715:2: rule__GapJointTransmission__Group__2__Impl rule__GapJointTransmission__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__2__Impl();
 
             state._fsp--;
@@ -44109,7 +44110,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14728:2: 'a'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getAKeyword_2()); 
-            match(input,125,FOLLOW_2); 
+            match(input,126,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getAKeyword_2()); 
 
             }
@@ -44142,7 +44143,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14741:1: ( rule__GapJointTransmission__Group__3__Impl rule__GapJointTransmission__Group__4 )
             // InternalXacro.g:14742:2: rule__GapJointTransmission__Group__3__Impl rule__GapJointTransmission__Group__4
             {
-            pushFollow(FOLLOW_90);
+            pushFollow(FOLLOW_91);
             rule__GapJointTransmission__Group__3__Impl();
 
             state._fsp--;
@@ -44227,7 +44228,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14768:1: ( rule__GapJointTransmission__Group__4__Impl rule__GapJointTransmission__Group__5 )
             // InternalXacro.g:14769:2: rule__GapJointTransmission__Group__4__Impl rule__GapJointTransmission__Group__5
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__4__Impl();
 
             state._fsp--;
@@ -44269,7 +44270,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14782:2: 'b'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getBKeyword_4()); 
-            match(input,126,FOLLOW_2); 
+            match(input,127,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getBKeyword_4()); 
 
             }
@@ -44302,7 +44303,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14795:1: ( rule__GapJointTransmission__Group__5__Impl rule__GapJointTransmission__Group__6 )
             // InternalXacro.g:14796:2: rule__GapJointTransmission__Group__5__Impl rule__GapJointTransmission__Group__6
             {
-            pushFollow(FOLLOW_91);
+            pushFollow(FOLLOW_92);
             rule__GapJointTransmission__Group__5__Impl();
 
             state._fsp--;
@@ -44387,7 +44388,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14822:1: ( rule__GapJointTransmission__Group__6__Impl rule__GapJointTransmission__Group__7 )
             // InternalXacro.g:14823:2: rule__GapJointTransmission__Group__6__Impl rule__GapJointTransmission__Group__7
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__6__Impl();
 
             state._fsp--;
@@ -44429,7 +44430,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14836:2: 'gearRatio'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getGearRatioKeyword_6()); 
-            match(input,127,FOLLOW_2); 
+            match(input,128,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getGearRatioKeyword_6()); 
 
             }
@@ -44462,7 +44463,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14849:1: ( rule__GapJointTransmission__Group__7__Impl rule__GapJointTransmission__Group__8 )
             // InternalXacro.g:14850:2: rule__GapJointTransmission__Group__7__Impl rule__GapJointTransmission__Group__8
             {
-            pushFollow(FOLLOW_92);
+            pushFollow(FOLLOW_93);
             rule__GapJointTransmission__Group__7__Impl();
 
             state._fsp--;
@@ -44547,7 +44548,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14876:1: ( rule__GapJointTransmission__Group__8__Impl rule__GapJointTransmission__Group__9 )
             // InternalXacro.g:14877:2: rule__GapJointTransmission__Group__8__Impl rule__GapJointTransmission__Group__9
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__8__Impl();
 
             state._fsp--;
@@ -44589,7 +44590,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14890:2: 'h'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getHKeyword_8()); 
-            match(input,128,FOLLOW_2); 
+            match(input,129,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getHKeyword_8()); 
 
             }
@@ -44622,7 +44623,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14903:1: ( rule__GapJointTransmission__Group__9__Impl rule__GapJointTransmission__Group__10 )
             // InternalXacro.g:14904:2: rule__GapJointTransmission__Group__9__Impl rule__GapJointTransmission__Group__10
             {
-            pushFollow(FOLLOW_93);
+            pushFollow(FOLLOW_94);
             rule__GapJointTransmission__Group__9__Impl();
 
             state._fsp--;
@@ -44707,7 +44708,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14930:1: ( rule__GapJointTransmission__Group__10__Impl rule__GapJointTransmission__Group__11 )
             // InternalXacro.g:14931:2: rule__GapJointTransmission__Group__10__Impl rule__GapJointTransmission__Group__11
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__10__Impl();
 
             state._fsp--;
@@ -44749,7 +44750,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14944:2: 'l0'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getL0Keyword_10()); 
-            match(input,129,FOLLOW_2); 
+            match(input,130,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getL0Keyword_10()); 
 
             }
@@ -44782,7 +44783,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14957:1: ( rule__GapJointTransmission__Group__11__Impl rule__GapJointTransmission__Group__12 )
             // InternalXacro.g:14958:2: rule__GapJointTransmission__Group__11__Impl rule__GapJointTransmission__Group__12
             {
-            pushFollow(FOLLOW_88);
+            pushFollow(FOLLOW_89);
             rule__GapJointTransmission__Group__11__Impl();
 
             state._fsp--;
@@ -44867,7 +44868,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14984:1: ( rule__GapJointTransmission__Group__12__Impl rule__GapJointTransmission__Group__13 )
             // InternalXacro.g:14985:2: rule__GapJointTransmission__Group__12__Impl rule__GapJointTransmission__Group__13
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__12__Impl();
 
             state._fsp--;
@@ -44909,7 +44910,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:14998:2: 'mechanicalReduction'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionKeyword_12()); 
-            match(input,56,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionKeyword_12()); 
 
             }
@@ -45069,7 +45070,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15052:2: 'name'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getNameKeyword_14()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getNameKeyword_14()); 
 
             }
@@ -45102,7 +45103,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15065:1: ( rule__GapJointTransmission__Group__15__Impl rule__GapJointTransmission__Group__16 )
             // InternalXacro.g:15066:2: rule__GapJointTransmission__Group__15__Impl rule__GapJointTransmission__Group__16
             {
-            pushFollow(FOLLOW_94);
+            pushFollow(FOLLOW_95);
             rule__GapJointTransmission__Group__15__Impl();
 
             state._fsp--;
@@ -45187,7 +45188,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15092:1: ( rule__GapJointTransmission__Group__16__Impl rule__GapJointTransmission__Group__17 )
             // InternalXacro.g:15093:2: rule__GapJointTransmission__Group__16__Impl rule__GapJointTransmission__Group__17
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__16__Impl();
 
             state._fsp--;
@@ -45229,7 +45230,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15106:2: 'phi0'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getPhi0Keyword_16()); 
-            match(input,130,FOLLOW_2); 
+            match(input,131,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getPhi0Keyword_16()); 
 
             }
@@ -45262,7 +45263,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15119:1: ( rule__GapJointTransmission__Group__17__Impl rule__GapJointTransmission__Group__18 )
             // InternalXacro.g:15120:2: rule__GapJointTransmission__Group__17__Impl rule__GapJointTransmission__Group__18
             {
-            pushFollow(FOLLOW_95);
+            pushFollow(FOLLOW_96);
             rule__GapJointTransmission__Group__17__Impl();
 
             state._fsp--;
@@ -45347,7 +45348,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15146:1: ( rule__GapJointTransmission__Group__18__Impl rule__GapJointTransmission__Group__19 )
             // InternalXacro.g:15147:2: rule__GapJointTransmission__Group__18__Impl rule__GapJointTransmission__Group__19
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__18__Impl();
 
             state._fsp--;
@@ -45389,7 +45390,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15160:2: 'r'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getRKeyword_18()); 
-            match(input,131,FOLLOW_2); 
+            match(input,132,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getRKeyword_18()); 
 
             }
@@ -45422,7 +45423,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15173:1: ( rule__GapJointTransmission__Group__19__Impl rule__GapJointTransmission__Group__20 )
             // InternalXacro.g:15174:2: rule__GapJointTransmission__Group__19__Impl rule__GapJointTransmission__Group__20
             {
-            pushFollow(FOLLOW_96);
+            pushFollow(FOLLOW_97);
             rule__GapJointTransmission__Group__19__Impl();
 
             state._fsp--;
@@ -45507,7 +45508,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15200:1: ( rule__GapJointTransmission__Group__20__Impl rule__GapJointTransmission__Group__21 )
             // InternalXacro.g:15201:2: rule__GapJointTransmission__Group__20__Impl rule__GapJointTransmission__Group__21
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__20__Impl();
 
             state._fsp--;
@@ -45549,7 +45550,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15214:2: 'screwReduction'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getScrewReductionKeyword_20()); 
-            match(input,132,FOLLOW_2); 
+            match(input,133,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getScrewReductionKeyword_20()); 
 
             }
@@ -45582,7 +45583,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15227:1: ( rule__GapJointTransmission__Group__21__Impl rule__GapJointTransmission__Group__22 )
             // InternalXacro.g:15228:2: rule__GapJointTransmission__Group__21__Impl rule__GapJointTransmission__Group__22
             {
-            pushFollow(FOLLOW_97);
+            pushFollow(FOLLOW_98);
             rule__GapJointTransmission__Group__21__Impl();
 
             state._fsp--;
@@ -45667,7 +45668,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15254:1: ( rule__GapJointTransmission__Group__22__Impl rule__GapJointTransmission__Group__23 )
             // InternalXacro.g:15255:2: rule__GapJointTransmission__Group__22__Impl rule__GapJointTransmission__Group__23
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__22__Impl();
 
             state._fsp--;
@@ -45709,7 +45710,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15268:2: 't0'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getT0Keyword_22()); 
-            match(input,133,FOLLOW_2); 
+            match(input,134,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getT0Keyword_22()); 
 
             }
@@ -45742,7 +45743,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15281:1: ( rule__GapJointTransmission__Group__23__Impl rule__GapJointTransmission__Group__24 )
             // InternalXacro.g:15282:2: rule__GapJointTransmission__Group__23__Impl rule__GapJointTransmission__Group__24
             {
-            pushFollow(FOLLOW_98);
+            pushFollow(FOLLOW_99);
             rule__GapJointTransmission__Group__23__Impl();
 
             state._fsp--;
@@ -45827,7 +45828,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15308:1: ( rule__GapJointTransmission__Group__24__Impl rule__GapJointTransmission__Group__25 )
             // InternalXacro.g:15309:2: rule__GapJointTransmission__Group__24__Impl rule__GapJointTransmission__Group__25
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_48);
             rule__GapJointTransmission__Group__24__Impl();
 
             state._fsp--;
@@ -45869,7 +45870,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15322:2: 'theta0'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getTheta0Keyword_24()); 
-            match(input,134,FOLLOW_2); 
+            match(input,135,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getTheta0Keyword_24()); 
 
             }
@@ -46024,7 +46025,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15375:2: '}'
             {
              before(grammarAccess.getGapJointTransmissionAccess().getRightCurlyBracketKeyword_26()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getGapJointTransmissionAccess().getRightCurlyBracketKeyword_26()); 
 
             }
@@ -46099,7 +46100,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15403:2: 'PassiveJointTransmission'
             {
              before(grammarAccess.getPassiveJointTransmissionAccess().getPassiveJointTransmissionKeyword_0()); 
-            match(input,135,FOLLOW_2); 
+            match(input,136,FOLLOW_2); 
              after(grammarAccess.getPassiveJointTransmissionAccess().getPassiveJointTransmissionKeyword_0()); 
 
             }
@@ -46174,7 +46175,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15430:2: '{'
             {
              before(grammarAccess.getPassiveJointTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getPassiveJointTransmissionAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -46249,7 +46250,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15457:2: 'name'
             {
              before(grammarAccess.getPassiveJointTransmissionAccess().getNameKeyword_2()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getPassiveJointTransmissionAccess().getNameKeyword_2()); 
 
             }
@@ -46404,7 +46405,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15510:2: '}'
             {
              before(grammarAccess.getPassiveJointTransmissionAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getPassiveJointTransmissionAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -46437,7 +46438,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15524:1: ( rule__UseSimulatedGripperJointType__Group__0__Impl rule__UseSimulatedGripperJointType__Group__1 )
             // InternalXacro.g:15525:2: rule__UseSimulatedGripperJointType__Group__0__Impl rule__UseSimulatedGripperJointType__Group__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_52);
             rule__UseSimulatedGripperJointType__Group__0__Impl();
 
             state._fsp--;
@@ -46549,7 +46550,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15564:2: 'UseSimulatedGripperJointType'
             {
              before(grammarAccess.getUseSimulatedGripperJointTypeAccess().getUseSimulatedGripperJointTypeKeyword_1()); 
-            match(input,136,FOLLOW_2); 
+            match(input,137,FOLLOW_2); 
              after(grammarAccess.getUseSimulatedGripperJointTypeAccess().getUseSimulatedGripperJointTypeKeyword_1()); 
 
             }
@@ -46582,7 +46583,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15578:1: ( rule__Name__Group__0__Impl rule__Name__Group__1 )
             // InternalXacro.g:15579:2: rule__Name__Group__0__Impl rule__Name__Group__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_53);
             rule__Name__Group__0__Impl();
 
             state._fsp--;
@@ -46699,7 +46700,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15619:2: 'Name'
             {
              before(grammarAccess.getNameAccess().getNameKeyword_1()); 
-            match(input,137,FOLLOW_2); 
+            match(input,138,FOLLOW_2); 
              after(grammarAccess.getNameAccess().getNameKeyword_1()); 
 
             }
@@ -46732,7 +46733,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15632:1: ( rule__Name__Group__2__Impl rule__Name__Group__3 )
             // InternalXacro.g:15633:2: rule__Name__Group__2__Impl rule__Name__Group__3
             {
-            pushFollow(FOLLOW_99);
+            pushFollow(FOLLOW_100);
             rule__Name__Group__2__Impl();
 
             state._fsp--;
@@ -46774,7 +46775,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15646:2: '{'
             {
              before(grammarAccess.getNameAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,17,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getNameAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -46807,7 +46808,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15659:1: ( rule__Name__Group__3__Impl rule__Name__Group__4 )
             // InternalXacro.g:15660:2: rule__Name__Group__3__Impl rule__Name__Group__4
             {
-            pushFollow(FOLLOW_99);
+            pushFollow(FOLLOW_100);
             rule__Name__Group__3__Impl();
 
             state._fsp--;
@@ -46853,7 +46854,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt104=2;
             int LA104_0 = input.LA(1);
 
-            if ( (LA104_0==18) ) {
+            if ( (LA104_0==19) ) {
                 alt104=1;
             }
             switch (alt104) {
@@ -46940,7 +46941,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15699:2: '}'
             {
              before(grammarAccess.getNameAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,19,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getNameAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -47015,7 +47016,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15727:2: 'name'
             {
              before(grammarAccess.getNameAccess().getNameKeyword_3_0()); 
-            match(input,18,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getNameAccess().getNameKeyword_3_0()); 
 
             }
@@ -48414,25 +48415,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Joint__TypeAssignment_5"
-    // InternalXacro.g:16240:1: rule__Joint__TypeAssignment_5 : ( ruleEString ) ;
+    // InternalXacro.g:16240:1: rule__Joint__TypeAssignment_5 : ( RULE_JOINTTYPE ) ;
     public final void rule__Joint__TypeAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:16244:1: ( ( ruleEString ) )
-            // InternalXacro.g:16245:2: ( ruleEString )
+            // InternalXacro.g:16244:1: ( ( RULE_JOINTTYPE ) )
+            // InternalXacro.g:16245:2: ( RULE_JOINTTYPE )
             {
-            // InternalXacro.g:16245:2: ( ruleEString )
-            // InternalXacro.g:16246:3: ruleEString
+            // InternalXacro.g:16245:2: ( RULE_JOINTTYPE )
+            // InternalXacro.g:16246:3: RULE_JOINTTYPE
             {
-             before(grammarAccess.getJointAccess().getTypeEStringParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getJointAccess().getTypeEStringParserRuleCall_5_0()); 
+             before(grammarAccess.getJointAccess().getTypeJOINTTYPETerminalRuleCall_5_0()); 
+            match(input,RULE_JOINTTYPE,FOLLOW_2); 
+             after(grammarAccess.getJointAccess().getTypeJOINTTYPETerminalRuleCall_5_0()); 
 
             }
 
@@ -51997,25 +51994,25 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Mesh__FilenameAssignment_3"
-    // InternalXacro.g:17553:1: rule__Mesh__FilenameAssignment_3 : ( ruleEString ) ;
+    // InternalXacro.g:17553:1: rule__Mesh__FilenameAssignment_3 : ( ruleAnyURI ) ;
     public final void rule__Mesh__FilenameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:17557:1: ( ( ruleEString ) )
-            // InternalXacro.g:17558:2: ( ruleEString )
+            // InternalXacro.g:17557:1: ( ( ruleAnyURI ) )
+            // InternalXacro.g:17558:2: ( ruleAnyURI )
             {
-            // InternalXacro.g:17558:2: ( ruleEString )
-            // InternalXacro.g:17559:3: ruleEString
+            // InternalXacro.g:17558:2: ( ruleAnyURI )
+            // InternalXacro.g:17559:3: ruleAnyURI
             {
-             before(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); 
+             before(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
-            ruleEString();
+            ruleAnyURI();
 
             state._fsp--;
 
-             after(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0()); 
+             after(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0()); 
 
             }
 
@@ -52860,11 +52857,11 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     protected DFA13 dfa13 = new DFA13(this);
-    static final String dfa_1s = "\u0160\uffff";
-    static final String dfa_2s = "\1\23\1\21\1\uffff\1\60\1\21\1\22\1\5\2\23\1\5\1\131\1\134\1\136\3\23\3\21\1\60\1\uffff\1\23\1\51\1\22\1\21\1\101\1\140\1\141\1\23\1\101\1\150\1\5\1\101\1\150\1\22\5\21\2\51\2\21\1\5\11\23\2\5\1\23\1\4\1\23\6\4\1\23\2\5\1\135\1\156\1\160\1\163\1\164\1\23\2\5\1\135\1\156\1\160\1\163\1\164\1\23\1\5\1\131\1\134\1\136\20\23\4\21\1\155\5\23\4\21\1\172\3\23\3\21\1\23\1\161\1\162\1\165\1\21\1\23\1\161\1\162\1\165\1\21\1\23\1\51\1\22\1\5\1\23\2\4\1\5\1\22\1\5\1\23\2\4\1\5\1\23\1\101\1\140\1\141\1\23\1\101\1\150\1\5\1\101\1\150\2\23\1\162\3\23\1\5\1\167\1\171\3\23\1\162\3\23\1\5\1\23\5\21\2\51\2\21\1\4\1\23\1\5\3\23\2\21\1\4\1\23\1\5\22\23\2\5\1\23\1\4\1\23\6\4\1\23\2\5\1\135\1\156\1\160\1\163\1\164\1\23\2\5\1\135\1\156\1\160\1\163\1\164\2\23\1\5\1\23\1\17\21\23\4\21\1\155\5\23\4\21\1\172\5\23\1\161\1\162\1\165\1\21\1\23\1\161\1\162\1\165\1\21\1\5\1\23\2\4\1\5\1\22\1\5\1\23\2\4\1\5\3\23\1\162\3\23\1\5\1\167\1\171\3\23\1\162\3\23\1\5\1\23\1\4\1\23\1\5\3\23\2\21\1\4\1\23\1\5\14\23\1\5\1\23\1\17\5\23";
-    static final String dfa_3s = "\1\42\1\21\1\uffff\1\60\1\21\1\22\1\6\2\63\1\6\1\131\1\134\1\136\1\26\2\63\3\21\1\60\1\uffff\1\133\2\135\1\21\1\101\1\140\1\141\1\63\1\101\1\150\1\6\1\101\1\150\1\22\5\21\2\135\2\21\1\6\1\103\1\35\1\147\1\103\1\154\1\103\1\154\2\63\2\6\1\133\1\4\1\133\6\4\1\23\2\6\1\135\1\156\1\160\1\163\1\164\1\41\2\6\1\135\1\156\1\160\1\163\1\164\1\137\1\6\1\131\1\134\1\136\1\26\2\103\3\23\5\147\1\23\2\103\2\23\4\21\1\155\1\63\2\103\2\23\4\21\1\172\1\23\2\63\3\21\1\157\1\161\1\162\1\165\1\21\1\157\1\161\1\162\1\165\1\21\1\133\2\135\1\6\1\154\2\4\1\6\1\66\1\6\1\154\2\4\1\6\1\35\1\101\1\140\1\141\1\63\1\101\1\150\1\6\1\101\1\150\2\23\1\162\1\23\2\166\1\6\1\167\1\171\3\23\1\162\1\23\2\166\1\6\1\23\5\21\2\135\2\21\1\4\1\154\1\6\1\23\2\66\2\21\1\4\1\154\1\6\3\23\1\103\1\35\1\147\1\103\1\154\1\103\1\154\3\23\1\170\1\165\3\23\2\6\1\133\1\4\1\133\6\4\1\23\2\6\1\135\1\156\1\160\1\163\1\164\1\41\2\6\1\135\1\156\1\160\1\163\1\164\1\137\1\154\1\6\1\66\1\17\1\23\1\154\2\103\3\23\5\147\1\23\2\103\2\23\4\21\1\155\1\63\2\103\2\23\4\21\1\172\4\23\1\157\1\161\1\162\1\165\1\21\1\157\1\161\1\162\1\165\1\21\1\6\1\154\2\4\1\6\1\66\1\6\1\154\2\4\1\6\1\35\2\23\1\162\1\23\2\166\1\6\1\167\1\171\3\23\1\162\1\23\2\166\1\6\1\23\1\4\1\154\1\6\1\23\2\66\2\21\1\4\1\154\1\6\6\23\1\170\1\165\3\23\1\154\1\6\1\66\1\17\1\23\1\154\3\23";
-    static final String dfa_4s = "\2\uffff\1\2\21\uffff\1\1\u014b\uffff";
-    static final String dfa_5s = "\u0160\uffff}>";
+    static final String dfa_1s = "\u015c\uffff";
+    static final String dfa_2s = "\1\24\1\22\1\uffff\1\61\1\22\1\23\1\5\2\24\1\5\1\132\1\135\1\137\3\24\3\22\1\61\1\uffff\1\24\1\52\1\23\1\22\1\102\1\141\1\142\1\24\1\102\1\151\1\5\1\102\1\151\1\23\5\22\2\52\2\22\1\5\11\24\2\5\1\24\1\4\1\24\6\4\1\24\2\5\1\136\1\157\1\161\1\164\1\165\1\24\2\5\1\136\1\157\1\161\1\164\1\165\1\24\1\5\1\132\1\135\1\137\20\24\4\22\1\156\5\24\4\22\1\173\3\24\3\22\1\24\1\162\1\163\1\166\1\22\1\24\1\162\1\163\1\166\1\22\1\24\1\52\1\23\1\5\1\24\2\4\1\20\1\23\1\5\1\24\2\4\1\20\1\24\1\102\1\141\1\142\1\24\1\102\1\151\1\5\1\102\1\151\2\24\1\163\2\24\1\5\1\170\1\172\3\24\1\163\2\24\1\5\1\24\5\22\2\52\2\22\1\4\1\24\1\5\3\24\2\22\1\4\1\24\1\5\22\24\2\5\1\24\1\4\1\24\6\4\1\24\2\5\1\136\1\157\1\161\1\164\1\165\1\24\2\5\1\136\1\157\1\161\1\164\1\165\2\24\1\5\1\24\1\20\21\24\4\22\1\156\5\24\4\22\1\173\5\24\1\162\1\163\1\166\1\22\1\24\1\162\1\163\1\166\1\22\1\5\1\24\2\4\1\20\1\23\1\5\1\24\2\4\1\20\3\24\1\163\2\24\1\5\1\170\1\172\3\24\1\163\2\24\1\5\1\24\1\4\1\24\1\5\3\24\2\22\1\4\1\24\1\5\14\24\1\5\1\24\1\20\5\24";
+    static final String dfa_3s = "\1\43\1\22\1\uffff\1\61\1\22\1\23\1\6\2\64\1\6\1\132\1\135\1\137\1\27\2\64\3\22\1\61\1\uffff\1\134\2\136\1\22\1\102\1\141\1\142\1\64\1\102\1\151\1\6\1\102\1\151\1\23\5\22\2\136\2\22\1\6\1\104\1\36\1\150\1\104\1\155\1\104\1\155\2\64\2\6\1\134\1\4\1\134\6\4\1\24\2\6\1\136\1\157\1\161\1\164\1\165\1\42\2\6\1\136\1\157\1\161\1\164\1\165\1\140\1\6\1\132\1\135\1\137\1\27\2\104\3\24\5\150\1\24\2\104\2\24\4\22\1\156\1\64\2\104\2\24\4\22\1\173\1\24\2\64\3\22\1\160\1\162\1\163\1\166\1\22\1\160\1\162\1\163\1\166\1\22\1\134\2\136\1\6\1\155\2\4\1\20\1\67\1\6\1\155\2\4\1\20\1\36\1\102\1\141\1\142\1\64\1\102\1\151\1\6\1\102\1\151\2\24\1\163\1\24\1\167\1\6\1\170\1\172\3\24\1\163\1\24\1\167\1\6\1\24\5\22\2\136\2\22\1\4\1\155\1\6\1\24\2\67\2\22\1\4\1\155\1\6\3\24\1\104\1\36\1\150\1\104\1\155\1\104\1\155\3\24\1\171\1\166\3\24\2\6\1\134\1\4\1\134\6\4\1\24\2\6\1\136\1\157\1\161\1\164\1\165\1\42\2\6\1\136\1\157\1\161\1\164\1\165\1\140\1\155\1\6\1\67\1\20\1\24\1\155\2\104\3\24\5\150\1\24\2\104\2\24\4\22\1\156\1\64\2\104\2\24\4\22\1\173\4\24\1\160\1\162\1\163\1\166\1\22\1\160\1\162\1\163\1\166\1\22\1\6\1\155\2\4\1\20\1\67\1\6\1\155\2\4\1\20\1\36\2\24\1\163\1\24\1\167\1\6\1\170\1\172\3\24\1\163\1\24\1\167\1\6\1\24\1\4\1\155\1\6\1\24\2\67\2\22\1\4\1\155\1\6\6\24\1\171\1\166\3\24\1\155\1\6\1\67\1\20\1\24\1\155\3\24";
+    static final String dfa_4s = "\2\uffff\1\2\21\uffff\1\1\u0147\uffff";
+    static final String dfa_5s = "\u015c\uffff}>";
     static final String[] dfa_6s = {
             "\1\2\13\uffff\1\1\3\2",
             "\1\3",
@@ -53006,218 +53003,214 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             "\1\111\126\uffff\1\106\1\107\1\110",
             "\1\u009f",
             "\1\u00a0",
-            "\1\u00a1\1\u00a2",
-            "\1\u00a3\1\u00a6\41\uffff\1\u00a4\1\u00a5",
-            "\1\u00a7\1\u00a8",
+            "\1\u00a1",
+            "\1\u00a2\1\u00a5\41\uffff\1\u00a3\1\u00a4",
+            "\1\u00a6\1\u00a7",
             "\1\121\126\uffff\1\116\1\117\1\120",
+            "\1\u00a8",
             "\1\u00a9",
             "\1\u00aa",
-            "\1\u00ab\1\u00ac",
-            "\1\u00ae\11\uffff\1\u00ad",
+            "\1\u00ac\11\uffff\1\u00ab",
+            "\1\u00ad",
+            "\1\u00ae",
             "\1\u00af",
+            "\1\126\36\uffff\1\124\1\125",
             "\1\u00b0",
             "\1\u00b1",
-            "\1\126\36\uffff\1\124\1\125",
-            "\1\u00b2",
-            "\1\u00b3",
-            "\1\u00b4\1\u00b5",
+            "\1\u00b2\1\u00b3",
+            "\1\u00b4",
+            "\1\u00b5",
+            "\1\u0089",
+            "\1\u0089",
             "\1\u00b6",
             "\1\u00b7",
-            "\1\u0089",
-            "\1\u0089",
-            "\1\u00b8",
-            "\1\u00b9",
-            "\1\u00bb\142\uffff\1\u00ba",
-            "\1\u00bb\142\uffff\1\u00ba",
-            "\1\u00bc\1\u00bd",
-            "\1\u00be",
-            "\1\u00bf",
+            "\1\u00b9\142\uffff\1\u00b8",
+            "\1\u00ba\1\u00bb",
+            "\1\u00bc",
+            "\1\u00bd",
             "\1\153",
             "\1\u008f",
             "\1\u008f",
-            "\1\u00c0",
-            "\1\u00c1",
-            "\1\u00c3\142\uffff\1\u00c2",
-            "\1\u00c3\142\uffff\1\u00c2",
-            "\1\u00c4\1\u00c5",
+            "\1\u00be",
+            "\1\u00bf",
+            "\1\u00c1\142\uffff\1\u00c0",
+            "\1\u00c2\1\u00c3",
             "\1\165",
+            "\1\u00c4",
+            "\1\u00c5",
             "\1\u00c6",
             "\1\u00c7",
             "\1\u00c8",
+            "\1\u009b\63\uffff\1\u009c",
+            "\1\u009b\63\uffff\1\u009c",
             "\1\u00c9",
             "\1\u00ca",
-            "\1\u009b\63\uffff\1\u009c",
-            "\1\u009b\63\uffff\1\u009c",
             "\1\u00cb",
-            "\1\u00cc",
-            "\1\u00cd",
             "\1\111\130\uffff\1\110",
-            "\1\u00ce\1\u00cf",
+            "\1\u00cc\1\u00cd",
             "\1\111",
-            "\1\u00a6\41\uffff\1\u00a4\1\u00a5",
-            "\1\u00a6\41\uffff\1\u00a4\1\u00a5",
+            "\1\u00a5\41\uffff\1\u00a3\1\u00a4",
+            "\1\u00a5\41\uffff\1\u00a3\1\u00a4",
+            "\1\u00ce",
+            "\1\u00cf",
             "\1\u00d0",
-            "\1\u00d1",
-            "\1\u00d2",
             "\1\121\130\uffff\1\120",
-            "\1\u00d3\1\u00d4",
+            "\1\u00d1\1\u00d2",
             "\1\121",
-            "\1\u00ae",
-            "\1\u00ae",
-            "\1\u00d7\56\uffff\1\u00d5\1\u00d6",
-            "\1\u00d9\11\uffff\1\u00d8",
-            "\1\u00e0\116\uffff\1\u00da\1\u00db\1\u00dc\1\u00dd\1\u00de\1\u00df",
-            "\1\u00e3\56\uffff\1\u00e1\1\u00e2",
-            "\1\u00e8\125\uffff\1\u00e4\1\u00e5\1\u00e6\1\u00e7",
-            "\1\u00eb\56\uffff\1\u00e9\1\u00ea",
-            "\1\u00f0\125\uffff\1\u00ec\1\u00ed\1\u00ee\1\u00ef",
-            "\1\u00f1",
-            "\1\u00bb",
-            "\1\u00bb",
-            "\1\u00f3\144\uffff\1\u00f2",
-            "\1\u00f5\141\uffff\1\u00f4",
-            "\1\u00f6",
-            "\1\u00c3",
-            "\1\u00c3",
+            "\1\u00ac",
+            "\1\u00ac",
+            "\1\u00d5\56\uffff\1\u00d3\1\u00d4",
+            "\1\u00d7\11\uffff\1\u00d6",
+            "\1\u00de\116\uffff\1\u00d8\1\u00d9\1\u00da\1\u00db\1\u00dc\1\u00dd",
+            "\1\u00e1\56\uffff\1\u00df\1\u00e0",
+            "\1\u00e6\125\uffff\1\u00e2\1\u00e3\1\u00e4\1\u00e5",
+            "\1\u00e9\56\uffff\1\u00e7\1\u00e8",
+            "\1\u00ee\125\uffff\1\u00ea\1\u00eb\1\u00ec\1\u00ed",
+            "\1\u00ef",
+            "\1\u00b9",
+            "\1\u00b9",
+            "\1\u00f1\144\uffff\1\u00f0",
+            "\1\u00f3\141\uffff\1\u00f2",
+            "\1\u00f4",
+            "\1\u00c1",
+            "\1\u00c1",
+            "\1\u00f5\1\u00f6",
             "\1\u00f7\1\u00f8",
-            "\1\u00f9\1\u00fa",
             "\1\u0097\106\uffff\1\u0095\1\u0096",
-            "\1\u00fb",
+            "\1\u00f9",
             "\1\u0097\107\uffff\1\u0096",
+            "\1\u00fa",
+            "\1\u00fb",
             "\1\u00fc",
             "\1\u00fd",
             "\1\u00fe",
             "\1\u00ff",
-            "\1\u0100",
-            "\1\u0101",
             "\1\u0097",
+            "\1\u0100\1\u0101",
             "\1\u0102\1\u0103",
-            "\1\u0104\1\u0105",
             "\1\u0099",
+            "\1\u0104",
+            "\1\u0105",
             "\1\u0106",
             "\1\u0107",
-            "\1\u0108",
-            "\1\u0109",
-            "\1\u010b\15\uffff\1\u010a",
+            "\1\u0109\15\uffff\1\u0108",
+            "\1\u010a\1\u010b",
             "\1\u010c\1\u010d",
-            "\1\u010e\1\u010f",
             "\1\u009c",
+            "\1\u010e",
+            "\1\u010f",
             "\1\u0110",
             "\1\u0111",
-            "\1\u0112",
-            "\1\u0113",
-            "\1\u0115\113\uffff\1\u0114",
+            "\1\u0113\113\uffff\1\u0112",
             "\1\111\127\uffff\1\107\1\110",
-            "\1\u0116\1\u0117",
-            "\1\u00a6\42\uffff\1\u00a5",
-            "\1\u0118",
-            "\1\u00a6",
+            "\1\u0114\1\u0115",
+            "\1\u00a5\42\uffff\1\u00a4",
+            "\1\u0116",
+            "\1\u00a5",
             "\1\121\127\uffff\1\117\1\120",
-            "\1\u00d7\57\uffff\1\u00d6",
-            "\1\u00d7\57\uffff\1\u00d6",
+            "\1\u00d5\57\uffff\1\u00d4",
+            "\1\u00d5\57\uffff\1\u00d4",
+            "\1\u00d5",
+            "\1\u00d5",
             "\1\u00d7",
-            "\1\u00d7",
-            "\1\u00d9",
-            "\1\u00e0\117\uffff\1\u00db\1\u00dc\1\u00dd\1\u00de\1\u00df",
-            "\1\u00e0\120\uffff\1\u00dc\1\u00dd\1\u00de\1\u00df",
-            "\1\u00e0\121\uffff\1\u00dd\1\u00de\1\u00df",
-            "\1\u00e0\122\uffff\1\u00de\1\u00df",
-            "\1\u00e0\123\uffff\1\u00df",
-            "\1\u00e0",
-            "\1\u00e3\57\uffff\1\u00e2",
-            "\1\u00e3\57\uffff\1\u00e2",
-            "\1\u00e3",
-            "\1\u00e3",
+            "\1\u00de\117\uffff\1\u00d9\1\u00da\1\u00db\1\u00dc\1\u00dd",
+            "\1\u00de\120\uffff\1\u00da\1\u00db\1\u00dc\1\u00dd",
+            "\1\u00de\121\uffff\1\u00db\1\u00dc\1\u00dd",
+            "\1\u00de\122\uffff\1\u00dc\1\u00dd",
+            "\1\u00de\123\uffff\1\u00dd",
+            "\1\u00de",
+            "\1\u00e1\57\uffff\1\u00e0",
+            "\1\u00e1\57\uffff\1\u00e0",
+            "\1\u00e1",
+            "\1\u00e1",
+            "\1\u0117",
+            "\1\u0118",
             "\1\u0119",
             "\1\u011a",
             "\1\u011b",
+            "\1\126\37\uffff\1\125",
+            "\1\u00e9\57\uffff\1\u00e8",
+            "\1\u00e9\57\uffff\1\u00e8",
+            "\1\u00e9",
+            "\1\u00e9",
             "\1\u011c",
             "\1\u011d",
-            "\1\126\37\uffff\1\125",
-            "\1\u00eb\57\uffff\1\u00ea",
-            "\1\u00eb\57\uffff\1\u00ea",
-            "\1\u00eb",
-            "\1\u00eb",
             "\1\u011e",
             "\1\u011f",
             "\1\u0120",
-            "\1\u0121",
-            "\1\u0122",
             "\1\126",
+            "\1\u00f1",
+            "\1\u00f1",
             "\1\u00f3",
-            "\1\u00f3",
-            "\1\u00f5",
-            "\1\u0124\133\uffff\1\u0123",
+            "\1\u0122\133\uffff\1\u0121",
+            "\1\u0123",
+            "\1\u0124",
             "\1\u0125",
             "\1\u0126",
-            "\1\u0127",
-            "\1\u0128",
-            "\1\u012a\133\uffff\1\u0129",
+            "\1\u0128\133\uffff\1\u0127",
+            "\1\u0129",
+            "\1\u012a",
             "\1\u012b",
             "\1\u012c",
-            "\1\u012d",
-            "\1\u012e",
-            "\1\u012f\1\u0130",
-            "\1\u00e8\126\uffff\1\u00e5\1\u00e6\1\u00e7",
+            "\1\u012d\1\u012e",
+            "\1\u00e6\126\uffff\1\u00e3\1\u00e4\1\u00e5",
+            "\1\u012f",
+            "\1\u0130",
             "\1\u0131",
-            "\1\u0132",
-            "\1\u0133\1\u0134",
-            "\1\u0135\1\u0138\41\uffff\1\u0136\1\u0137",
-            "\1\u0139\1\u013a",
-            "\1\u00f0\126\uffff\1\u00ed\1\u00ee\1\u00ef",
-            "\1\u013b",
-            "\1\u013c",
-            "\1\u013d\1\u013e",
-            "\1\u0140\11\uffff\1\u013f",
-            "\1\u0124",
-            "\1\u0124",
-            "\1\u0141",
-            "\1\u0142",
-            "\1\u0144\142\uffff\1\u0143",
-            "\1\u0144\142\uffff\1\u0143",
-            "\1\u0145\1\u0146",
-            "\1\u0147",
-            "\1\u0148",
-            "\1\u010b",
-            "\1\u012a",
-            "\1\u012a",
-            "\1\u0149",
-            "\1\u014a",
-            "\1\u014c\142\uffff\1\u014b",
-            "\1\u014c\142\uffff\1\u014b",
-            "\1\u014d\1\u014e",
-            "\1\u0115",
-            "\1\u014f",
-            "\1\u00e8\130\uffff\1\u00e7",
-            "\1\u0150\1\u0151",
-            "\1\u00e8",
-            "\1\u0138\41\uffff\1\u0136\1\u0137",
-            "\1\u0138\41\uffff\1\u0136\1\u0137",
-            "\1\u0152",
-            "\1\u0153",
-            "\1\u0154",
-            "\1\u00f0\130\uffff\1\u00ef",
-            "\1\u0155\1\u0156",
-            "\1\u00f0",
-            "\1\u0140",
-            "\1\u0140",
-            "\1\u0157",
-            "\1\u0144",
-            "\1\u0144",
-            "\1\u0159\144\uffff\1\u0158",
-            "\1\u015b\141\uffff\1\u015a",
-            "\1\u015c",
-            "\1\u014c",
-            "\1\u014c",
-            "\1\u00e8\127\uffff\1\u00e6\1\u00e7",
-            "\1\u015d\1\u015e",
-            "\1\u0138\42\uffff\1\u0137",
-            "\1\u015f",
+            "\1\u0132\1\u0135\41\uffff\1\u0133\1\u0134",
+            "\1\u0136\1\u0137",
+            "\1\u00ee\126\uffff\1\u00eb\1\u00ec\1\u00ed",
             "\1\u0138",
-            "\1\u00f0\127\uffff\1\u00ee\1\u00ef",
-            "\1\u0159",
-            "\1\u0159",
-            "\1\u015b"
+            "\1\u0139",
+            "\1\u013a",
+            "\1\u013c\11\uffff\1\u013b",
+            "\1\u0122",
+            "\1\u0122",
+            "\1\u013d",
+            "\1\u013e",
+            "\1\u0140\142\uffff\1\u013f",
+            "\1\u0141\1\u0142",
+            "\1\u0143",
+            "\1\u0144",
+            "\1\u0109",
+            "\1\u0128",
+            "\1\u0128",
+            "\1\u0145",
+            "\1\u0146",
+            "\1\u0148\142\uffff\1\u0147",
+            "\1\u0149\1\u014a",
+            "\1\u0113",
+            "\1\u014b",
+            "\1\u00e6\130\uffff\1\u00e5",
+            "\1\u014c\1\u014d",
+            "\1\u00e6",
+            "\1\u0135\41\uffff\1\u0133\1\u0134",
+            "\1\u0135\41\uffff\1\u0133\1\u0134",
+            "\1\u014e",
+            "\1\u014f",
+            "\1\u0150",
+            "\1\u00ee\130\uffff\1\u00ed",
+            "\1\u0151\1\u0152",
+            "\1\u00ee",
+            "\1\u013c",
+            "\1\u013c",
+            "\1\u0153",
+            "\1\u0140",
+            "\1\u0140",
+            "\1\u0155\144\uffff\1\u0154",
+            "\1\u0157\141\uffff\1\u0156",
+            "\1\u0158",
+            "\1\u0148",
+            "\1\u0148",
+            "\1\u00e6\127\uffff\1\u00e4\1\u00e5",
+            "\1\u0159\1\u015a",
+            "\1\u0135\42\uffff\1\u0134",
+            "\1\u015b",
+            "\1\u0135",
+            "\1\u00ee\127\uffff\1\u00ec\1\u00ed",
+            "\1\u0155",
+            "\1\u0155",
+            "\1\u0157"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
@@ -53248,93 +53241,93 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000060L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000001B80000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000480000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000005080000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000030080000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000780080000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004280000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000003700000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000900000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000000000A100000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000060100000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000F00100000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000008500000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000FE0000080000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0001FC0000100000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x000E004000080000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0060000000080000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0080000000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0200000000000000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0100000000040000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0xFE00000100080000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x001C008000100000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x00C0000000100000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0100000000000000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000000L,0x0400000000000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0200000000080000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0xFC00000200100000L,0x0000000000000003L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x1000000000000000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L});
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000080000L,0x000000000000000CL});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000080000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000080000L,0x00000000000001C0L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000080000L,0x0000000000000C00L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000080000L,0x000000000001E000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000000000L,0x00000000000C0000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000080000L,0x0000000000300000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000080000L,0x0000000001800000L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000020000080000L,0x000000000C000000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000380L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000100000L,0x0000000000001800L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000100000L,0x000000000003C000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000000L,0x0000000000180000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000100000L,0x0000000000600000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000100000L,0x0000000003000000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000040000100000L,0x0000000018000000L});
     public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000020000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000000000L,0x0000010000000000L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000200080000L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000020000040000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000080000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0400000000000000L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000020080000L});
-    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000000080000L,0x000000FC00000000L});
-    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000000080000L,0x00001E0000000000L});
-    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
-    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000040000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000000L,0x0000020000000000L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000400100000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000040000080000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000100000L,0x0000000100000000L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000040100000L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000000100000L,0x000001F800000000L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000000100000L,0x00003C0000000000L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
     public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x00600000000C0000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000080000L,0x0000800000000000L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x00C0000000180000L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000100000L,0x0001000000000000L});
     public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
-    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000080000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000080000L,0x0100000000000000L});
-    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000080000L,0x0020000000000000L});
-    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L});
+    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000100000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000000100000L,0x0200000000000000L});
+    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000000000100000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0200000000000000L});
     public static final BitSet FOLLOW_90 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
     public static final BitSet FOLLOW_91 = new BitSet(new long[]{0x0000000000000000L,0x8000000000000000L});
     public static final BitSet FOLLOW_92 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
@@ -53344,6 +53337,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_96 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
     public static final BitSet FOLLOW_97 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
     public static final BitSet FOLLOW_98 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_99 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_99 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_100 = new BitSet(new long[]{0x0000000000180000L});
 
 }

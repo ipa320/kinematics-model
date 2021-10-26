@@ -825,7 +825,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTypeEStringParserRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
+		private final RuleCall cTypeJOINTTYPETerminalRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
 		private final Keyword cParentKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cParentAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final CrossReference cParentLinkCrossReference_7_0 = (CrossReference)cParentAssignment_7.eContents().get(0);
@@ -868,7 +868,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    'Joint'
 		//    '{'
 		//        'name' name=EString
-		//        'type' type=EString
+		//        'type' type=JOINTTYPE
 		//        'parent' parent=[urdf::Link|EString]
 		//        'child' child=[urdf::Link|EString]
 		//        ('origin' origin=Pose)?
@@ -884,7 +884,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'Joint'
 		//'{'
 		//    'name' name=EString
-		//    'type' type=EString
+		//    'type' type=JOINTTYPE
 		//    'parent' parent=[urdf::Link|EString]
 		//    'child' child=[urdf::Link|EString]
 		//    ('origin' origin=Pose)?
@@ -915,11 +915,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'type'
 		public Keyword getTypeKeyword_4() { return cTypeKeyword_4; }
 		
-		//type=EString
+		//type=JOINTTYPE
 		public Assignment getTypeAssignment_5() { return cTypeAssignment_5; }
 		
-		//EString
-		public RuleCall getTypeEStringParserRuleCall_5_0() { return cTypeEStringParserRuleCall_5_0; }
+		//JOINTTYPE
+		public RuleCall getTypeJOINTTYPETerminalRuleCall_5_0() { return cTypeJOINTTYPETerminalRuleCall_5_0; }
 		
 		//'parent'
 		public Keyword getParentKeyword_6() { return cParentKeyword_6; }
@@ -3047,7 +3047,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cFilenameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cFilenameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFilenameEStringParserRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
+		private final RuleCall cFilenameAnyURIParserRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cScaleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cScaleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -3057,14 +3057,14 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Mesh returns urdf::Mesh:
 		//    'Mesh'
 		//    '{'
-		//        'filename' filename=EString
+		//        'filename' filename=AnyURI
 		//        ('scale' scale=EString)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Mesh'
 		//'{'
-		//    'filename' filename=EString
+		//    'filename' filename=AnyURI
 		//    ('scale' scale=EString)?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -3078,11 +3078,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'filename'
 		public Keyword getFilenameKeyword_2() { return cFilenameKeyword_2; }
 		
-		//filename=EString
+		//filename=AnyURI
 		public Assignment getFilenameAssignment_3() { return cFilenameAssignment_3; }
 		
-		//EString
-		public RuleCall getFilenameEStringParserRuleCall_3_0() { return cFilenameEStringParserRuleCall_3_0; }
+		//AnyURI
+		public RuleCall getFilenameAnyURIParserRuleCall_3_0() { return cFilenameAnyURIParserRuleCall_3_0; }
 		
 		//('scale' scale=EString)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -3693,6 +3693,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final TerminalRule tBOOLEAN;
 	private final TerminalRule tDOUBLE;
 	private final TerminalRule tDECINT;
+	private final TerminalRule tJOINTTYPE;
 	private final Double0Elements pDouble0;
 	private final Integer0Elements pInteger0;
 	
@@ -3747,6 +3748,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.BOOLEAN");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.DOUBLE");
 		this.tDECINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.DECINT");
+		this.tJOINTTYPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.JOINTTYPE");
 		this.pDouble0 = new Double0Elements();
 		this.pInteger0 = new Integer0Elements();
 	}
@@ -3889,7 +3891,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'Joint'
 	//    '{'
 	//        'name' name=EString
-	//        'type' type=EString
+	//        'type' type=JOINTTYPE
 	//        'parent' parent=[urdf::Link|EString]
 	//        'child' child=[urdf::Link|EString]
 	//        ('origin' origin=Pose)?
@@ -4229,7 +4231,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Mesh returns urdf::Mesh:
 	//    'Mesh'
 	//    '{'
-	//        'filename' filename=EString
+	//        'filename' filename=AnyURI
 	//        ('scale' scale=EString)?
 	//    '}';
 	public MeshElements getMeshAccess() {
@@ -4389,6 +4391,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
 	public TerminalRule getDECINTRule() {
 		return tDECINT;
+	}
+	
+	//terminal JOINTTYPE: 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar';
+	public TerminalRule getJOINTTYPERule() {
+		return tJOINTTYPE;
 	}
 	
 	//Double0 returns type::Double:

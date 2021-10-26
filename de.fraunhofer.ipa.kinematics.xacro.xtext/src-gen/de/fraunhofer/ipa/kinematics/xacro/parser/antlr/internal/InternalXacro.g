@@ -1167,20 +1167,19 @@ ruleJoint returns [EObject current=null]
 		}
 		(
 			(
+				lv_type_5_0=RULE_JOINTTYPE
 				{
-					newCompositeNode(grammarAccess.getJointAccess().getTypeEStringParserRuleCall_5_0());
+					newLeafNode(lv_type_5_0, grammarAccess.getJointAccess().getTypeJOINTTYPETerminalRuleCall_5_0());
 				}
-				lv_type_5_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getJointRule());
+						$current = createModelElement(grammarAccess.getJointRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"type",
 						lv_type_5_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.JOINTTYPE");
 				}
 			)
 		)
@@ -4117,9 +4116,9 @@ ruleMesh returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0());
 				}
-				lv_filename_3_0=ruleEString
+				lv_filename_3_0=ruleAnyURI
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMeshRule());
@@ -4128,7 +4127,7 @@ ruleMesh returns [EObject current=null]
 						$current,
 						"filename",
 						lv_filename_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.AnyURI");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4938,6 +4937,8 @@ RULE_BOOLEAN : ('true'|'false');
 RULE_DOUBLE : RULE_DECINT ('.' RULE_DIGIT*|('.' RULE_DIGIT*)? ('E'|'e') ('-'|'+')? RULE_DECINT);
 
 RULE_DECINT : ('0'|'1'..'9' RULE_DIGIT*|'-' '0'..'9' RULE_DIGIT*);
+
+RULE_JOINTTYPE : ('revolute'|'continuous'|'prismatic'|'fixed'|'floating'|'planar');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
