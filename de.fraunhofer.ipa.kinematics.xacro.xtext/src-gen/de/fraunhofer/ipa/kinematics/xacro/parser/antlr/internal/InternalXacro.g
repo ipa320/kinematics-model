@@ -198,45 +198,20 @@ ruleRobot returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_13='body'
+			otherlv_13='macroCall'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getRobotAccess().getBodyKeyword_7_0());
+				newLeafNode(otherlv_13, grammarAccess.getRobotAccess().getMacroCallKeyword_7_0());
+			}
+			otherlv_14='{'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_7_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getBodyBodyParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_7_2_0());
 					}
-					lv_body_14_0=ruleBody
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getRobotRule());
-						}
-						set(
-							$current,
-							"body",
-							lv_body_14_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Body");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_15='macroCall'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getRobotAccess().getMacroCallKeyword_8_0());
-			}
-			otherlv_16='{'
-			{
-				newLeafNode(otherlv_16, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_8_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_2_0());
-					}
-					lv_macroCall_17_0=ruleMacroCall
+					lv_macroCall_15_0=ruleMacroCall
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -244,23 +219,23 @@ ruleRobot returns [EObject current=null]
 						add(
 							$current,
 							"macroCall",
-							lv_macroCall_17_0,
+							lv_macroCall_15_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.MacroCall");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_18=','
+				otherlv_16=','
 				{
-					newLeafNode(otherlv_18, grammarAccess.getRobotAccess().getCommaKeyword_8_3_0());
+					newLeafNode(otherlv_16, grammarAccess.getRobotAccess().getCommaKeyword_7_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_3_1_0());
+							newCompositeNode(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_7_3_1_0());
 						}
-						lv_macroCall_19_0=ruleMacroCall
+						lv_macroCall_17_0=ruleMacroCall
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRobotRule());
@@ -268,17 +243,42 @@ ruleRobot returns [EObject current=null]
 							add(
 								$current,
 								"macroCall",
-								lv_macroCall_19_0,
+								lv_macroCall_17_0,
 								"de.fraunhofer.ipa.kinematics.xacro.Xacro.MacroCall");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_20='}'
+			otherlv_18='}'
 			{
-				newLeafNode(otherlv_20, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8_4());
+				newLeafNode(otherlv_18, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7_4());
 			}
+		)?
+		(
+			otherlv_19='body'
+			{
+				newLeafNode(otherlv_19, grammarAccess.getRobotAccess().getBodyKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRobotAccess().getBodyBodyParserRuleCall_8_1_0());
+					}
+					lv_body_20_0=ruleBody
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
+						}
+						set(
+							$current,
+							"body",
+							lv_body_20_0,
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Body");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)?
 		otherlv_21='}'
 		{

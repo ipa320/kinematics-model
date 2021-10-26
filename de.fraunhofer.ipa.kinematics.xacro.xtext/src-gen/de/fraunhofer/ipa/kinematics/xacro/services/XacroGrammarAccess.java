@@ -48,19 +48,19 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cMacroMacroParserRuleCall_6_3_1_0 = (RuleCall)cMacroAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cBodyKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cBodyAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cBodyBodyParserRuleCall_7_1_0 = (RuleCall)cBodyAssignment_7_1.eContents().get(0);
+		private final Keyword cMacroCallKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cMacroCallAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cMacroCallMacroCallParserRuleCall_7_2_0 = (RuleCall)cMacroCallAssignment_7_2.eContents().get(0);
+		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
+		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
+		private final Assignment cMacroCallAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
+		private final RuleCall cMacroCallMacroCallParserRuleCall_7_3_1_0 = (RuleCall)cMacroCallAssignment_7_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cMacroCallKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
-		private final Assignment cMacroCallAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cMacroCallMacroCallParserRuleCall_8_2_0 = (RuleCall)cMacroCallAssignment_8_2.eContents().get(0);
-		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
-		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
-		private final Assignment cMacroCallAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
-		private final RuleCall cMacroCallMacroCallParserRuleCall_8_3_1_0 = (RuleCall)cMacroCallAssignment_8_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
+		private final Keyword cBodyKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cBodyAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cBodyBodyParserRuleCall_8_1_0 = (RuleCall)cBodyAssignment_8_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Robot returns Robot:
@@ -70,8 +70,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//        'name' name=EString
 		//        ('version' version=EString)?
 		//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
-		//        ('body' body=Body)?
 		//        ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
+		//        ('body' body=Body)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -81,8 +81,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    'name' name=EString
 		//    ('version' version=EString)?
 		//    ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
-		//    ('body' body=Body)?
 		//    ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
+		//    ('body' body=Body)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -146,47 +146,47 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
 		
-		//('body' body=Body)?
+		//('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'body'
-		public Keyword getBodyKeyword_7_0() { return cBodyKeyword_7_0; }
-		
-		//body=Body
-		public Assignment getBodyAssignment_7_1() { return cBodyAssignment_7_1; }
-		
-		//Body
-		public RuleCall getBodyBodyParserRuleCall_7_1_0() { return cBodyBodyParserRuleCall_7_1_0; }
-		
-		//('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
-		public Group getGroup_8() { return cGroup_8; }
-		
 		//'macroCall'
-		public Keyword getMacroCallKeyword_8_0() { return cMacroCallKeyword_8_0; }
+		public Keyword getMacroCallKeyword_7_0() { return cMacroCallKeyword_7_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_8_1() { return cLeftCurlyBracketKeyword_8_1; }
+		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
 		
 		//macroCall+=MacroCall
-		public Assignment getMacroCallAssignment_8_2() { return cMacroCallAssignment_8_2; }
+		public Assignment getMacroCallAssignment_7_2() { return cMacroCallAssignment_7_2; }
 		
 		//MacroCall
-		public RuleCall getMacroCallMacroCallParserRuleCall_8_2_0() { return cMacroCallMacroCallParserRuleCall_8_2_0; }
+		public RuleCall getMacroCallMacroCallParserRuleCall_7_2_0() { return cMacroCallMacroCallParserRuleCall_7_2_0; }
 		
 		//( "," macroCall+=MacroCall)*
-		public Group getGroup_8_3() { return cGroup_8_3; }
+		public Group getGroup_7_3() { return cGroup_7_3; }
 		
 		//","
-		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
+		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 		
 		//macroCall+=MacroCall
-		public Assignment getMacroCallAssignment_8_3_1() { return cMacroCallAssignment_8_3_1; }
+		public Assignment getMacroCallAssignment_7_3_1() { return cMacroCallAssignment_7_3_1; }
 		
 		//MacroCall
-		public RuleCall getMacroCallMacroCallParserRuleCall_8_3_1_0() { return cMacroCallMacroCallParserRuleCall_8_3_1_0; }
+		public RuleCall getMacroCallMacroCallParserRuleCall_7_3_1_0() { return cMacroCallMacroCallParserRuleCall_7_3_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8_4() { return cRightCurlyBracketKeyword_8_4; }
+		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		
+		//('body' body=Body)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'body'
+		public Keyword getBodyKeyword_8_0() { return cBodyKeyword_8_0; }
+		
+		//body=Body
+		public Assignment getBodyAssignment_8_1() { return cBodyAssignment_8_1; }
+		
+		//Body
+		public RuleCall getBodyBodyParserRuleCall_8_1_0() { return cBodyBodyParserRuleCall_8_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -3785,8 +3785,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//        'name' name=EString
 	//        ('version' version=EString)?
 	//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
-	//        ('body' body=Body)?
 	//        ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
+	//        ('body' body=Body)?
 	//    '}';
 	public RobotElements getRobotAccess() {
 		return pRobot;

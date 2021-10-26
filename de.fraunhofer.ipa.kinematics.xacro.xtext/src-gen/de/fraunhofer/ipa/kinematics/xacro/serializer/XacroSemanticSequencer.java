@@ -634,7 +634,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=EString version=EString? (macro+=Macro macro+=Macro*)? body=Body? (macroCall+=MacroCall macroCall+=MacroCall*)?)
+	 *     (name=EString version=EString? (macro+=Macro macro+=Macro*)? (macroCall+=MacroCall macroCall+=MacroCall*)? body=Body?)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -40,7 +40,7 @@
 'actuator'=63
 'axis'=41
 'b'=126
-'body'=22
+'body'=23
 'box'=104
 'calibration'=42
 'child'=39
@@ -77,7 +77,7 @@
 'link'=30
 'lower'=77
 'macro'=19
-'macroCall'=23
+'macroCall'=22
 'mass'=89
 'material'=32
 'mechanicalReduction'=55

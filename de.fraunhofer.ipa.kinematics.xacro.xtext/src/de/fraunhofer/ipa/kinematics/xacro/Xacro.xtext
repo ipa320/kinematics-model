@@ -13,8 +13,8 @@ Robot returns Robot:
 		'name' name=EString
 		('version' version=EString)?
 		('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
-		('body' body=Body)?
 		('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
+		('body' body=Body)?
 	'}';
 
 EString returns ecore::EString:

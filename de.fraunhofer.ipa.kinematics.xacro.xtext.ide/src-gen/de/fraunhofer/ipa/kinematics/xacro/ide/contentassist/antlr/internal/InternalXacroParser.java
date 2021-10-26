@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DOUBLE", "RULE_STRING", "RULE_ID", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AnyURI'", "'Robot'", "'{'", "'name'", "'}'", "'version'", "'macro'", "','", "'body'", "'macroCall'", "'Macro'", "'parameter'", "'Parameter'", "'default'", "'value'", "'Body'", "'link'", "'joint'", "'material'", "'transmission'", "'MacroCall'", "'ParameterCall'", "'Joint'", "'type'", "'parent'", "'child'", "'origin'", "'axis'", "'calibration'", "'dynamics'", "'limit'", "'safetyController'", "'mimic'", "'Link'", "'inertial'", "'visual'", "'collision'", "'MaterialGlobal'", "'color'", "'texture'", "'Transmission'", "'mechanicalReduction'", "'leftActuator'", "'rightActuator'", "'flexJoint'", "'rollJoint'", "'gapJoint'", "'passiveJoint'", "'useSimulatedGripperJoint'", "'actuator'", "'Pose'", "'rpy'", "'xyz'", "'Axis'", "'Calibration'", "'falling'", "'referencePosition'", "'rising'", "'Dynamics'", "'damping'", "'friction'", "'Limit'", "'effort'", "'lower'", "'upper'", "'velocity'", "'SafetyController'", "'kVelocity'", "'kPosition'", "'softLowerLimit'", "'softUpperLimit'", "'Mimic'", "'multiplier'", "'offset'", "'Inertial'", "'mass'", "'inertia'", "'Visual'", "'geometry'", "'Collision'", "'verbose'", "'Mass'", "'Inertia'", "'ixx'", "'ixy'", "'ixz'", "'iyy'", "'iyz'", "'izz'", "'Geometry'", "'box'", "'cylinder'", "'sphere'", "'mesh'", "'Material'", "'Box'", "'size'", "'Cylinder'", "'length'", "'radius'", "'Sphere'", "'Mesh'", "'filename'", "'scale'", "'Color'", "'rgba'", "'Texture'", "'Verbose'", "'ActuatorTransmission'", "'GapJointTransmission'", "'a'", "'b'", "'gearRatio'", "'h'", "'l0'", "'phi0'", "'r'", "'screwReduction'", "'t0'", "'theta0'", "'PassiveJointTransmission'", "'UseSimulatedGripperJointType'", "'Name'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DOUBLE", "RULE_STRING", "RULE_ID", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AnyURI'", "'Robot'", "'{'", "'name'", "'}'", "'version'", "'macro'", "','", "'macroCall'", "'body'", "'Macro'", "'parameter'", "'Parameter'", "'default'", "'value'", "'Body'", "'link'", "'joint'", "'material'", "'transmission'", "'MacroCall'", "'ParameterCall'", "'Joint'", "'type'", "'parent'", "'child'", "'origin'", "'axis'", "'calibration'", "'dynamics'", "'limit'", "'safetyController'", "'mimic'", "'Link'", "'inertial'", "'visual'", "'collision'", "'MaterialGlobal'", "'color'", "'texture'", "'Transmission'", "'mechanicalReduction'", "'leftActuator'", "'rightActuator'", "'flexJoint'", "'rollJoint'", "'gapJoint'", "'passiveJoint'", "'useSimulatedGripperJoint'", "'actuator'", "'Pose'", "'rpy'", "'xyz'", "'Axis'", "'Calibration'", "'falling'", "'referencePosition'", "'rising'", "'Dynamics'", "'damping'", "'friction'", "'Limit'", "'effort'", "'lower'", "'upper'", "'velocity'", "'SafetyController'", "'kVelocity'", "'kPosition'", "'softLowerLimit'", "'softUpperLimit'", "'Mimic'", "'multiplier'", "'offset'", "'Inertial'", "'mass'", "'inertia'", "'Visual'", "'geometry'", "'Collision'", "'verbose'", "'Mass'", "'Inertia'", "'ixx'", "'ixy'", "'ixz'", "'iyy'", "'iyz'", "'izz'", "'Geometry'", "'box'", "'cylinder'", "'sphere'", "'mesh'", "'Material'", "'Box'", "'size'", "'Cylinder'", "'length'", "'radius'", "'Sphere'", "'Mesh'", "'filename'", "'scale'", "'Color'", "'rgba'", "'Texture'", "'Verbose'", "'ActuatorTransmission'", "'GapJointTransmission'", "'a'", "'b'", "'gearRatio'", "'h'", "'l0'", "'phi0'", "'r'", "'screwReduction'", "'t0'", "'theta0'", "'PassiveJointTransmission'", "'UseSimulatedGripperJointType'", "'Name'"
     };
     public static final int T__50=50;
     public static final int T__59=59;
@@ -4816,7 +4816,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:1565:1: ( rule__Robot__Group_7__0__Impl rule__Robot__Group_7__1 )
             // InternalXacro.g:1566:2: rule__Robot__Group_7__0__Impl rule__Robot__Group_7__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_4);
             rule__Robot__Group_7__0__Impl();
 
             state._fsp--;
@@ -4845,21 +4845,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__Group_7__0__Impl"
-    // InternalXacro.g:1573:1: rule__Robot__Group_7__0__Impl : ( 'body' ) ;
+    // InternalXacro.g:1573:1: rule__Robot__Group_7__0__Impl : ( 'macroCall' ) ;
     public final void rule__Robot__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:1577:1: ( ( 'body' ) )
-            // InternalXacro.g:1578:1: ( 'body' )
+            // InternalXacro.g:1577:1: ( ( 'macroCall' ) )
+            // InternalXacro.g:1578:1: ( 'macroCall' )
             {
-            // InternalXacro.g:1578:1: ( 'body' )
-            // InternalXacro.g:1579:2: 'body'
+            // InternalXacro.g:1578:1: ( 'macroCall' )
+            // InternalXacro.g:1579:2: 'macroCall'
             {
-             before(grammarAccess.getRobotAccess().getBodyKeyword_7_0()); 
+             before(grammarAccess.getRobotAccess().getMacroCallKeyword_7_0()); 
             match(input,23,FOLLOW_2); 
-             after(grammarAccess.getRobotAccess().getBodyKeyword_7_0()); 
+             after(grammarAccess.getRobotAccess().getMacroCallKeyword_7_0()); 
 
             }
 
@@ -4882,17 +4882,22 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__Group_7__1"
-    // InternalXacro.g:1588:1: rule__Robot__Group_7__1 : rule__Robot__Group_7__1__Impl ;
+    // InternalXacro.g:1588:1: rule__Robot__Group_7__1 : rule__Robot__Group_7__1__Impl rule__Robot__Group_7__2 ;
     public final void rule__Robot__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:1592:1: ( rule__Robot__Group_7__1__Impl )
-            // InternalXacro.g:1593:2: rule__Robot__Group_7__1__Impl
+            // InternalXacro.g:1592:1: ( rule__Robot__Group_7__1__Impl rule__Robot__Group_7__2 )
+            // InternalXacro.g:1593:2: rule__Robot__Group_7__1__Impl rule__Robot__Group_7__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_11);
             rule__Robot__Group_7__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Robot__Group_7__2();
 
             state._fsp--;
 
@@ -4915,31 +4920,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__Group_7__1__Impl"
-    // InternalXacro.g:1599:1: rule__Robot__Group_7__1__Impl : ( ( rule__Robot__BodyAssignment_7_1 ) ) ;
+    // InternalXacro.g:1600:1: rule__Robot__Group_7__1__Impl : ( '{' ) ;
     public final void rule__Robot__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:1603:1: ( ( ( rule__Robot__BodyAssignment_7_1 ) ) )
-            // InternalXacro.g:1604:1: ( ( rule__Robot__BodyAssignment_7_1 ) )
+            // InternalXacro.g:1604:1: ( ( '{' ) )
+            // InternalXacro.g:1605:1: ( '{' )
             {
-            // InternalXacro.g:1604:1: ( ( rule__Robot__BodyAssignment_7_1 ) )
-            // InternalXacro.g:1605:2: ( rule__Robot__BodyAssignment_7_1 )
+            // InternalXacro.g:1605:1: ( '{' )
+            // InternalXacro.g:1606:2: '{'
             {
-             before(grammarAccess.getRobotAccess().getBodyAssignment_7_1()); 
-            // InternalXacro.g:1606:2: ( rule__Robot__BodyAssignment_7_1 )
-            // InternalXacro.g:1606:3: rule__Robot__BodyAssignment_7_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Robot__BodyAssignment_7_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRobotAccess().getBodyAssignment_7_1()); 
+             before(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_7_1()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_7_1()); 
 
             }
 
@@ -4961,17 +4956,430 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Robot__Group_7__1__Impl"
 
 
+    // $ANTLR start "rule__Robot__Group_7__2"
+    // InternalXacro.g:1615:1: rule__Robot__Group_7__2 : rule__Robot__Group_7__2__Impl rule__Robot__Group_7__3 ;
+    public final void rule__Robot__Group_7__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1619:1: ( rule__Robot__Group_7__2__Impl rule__Robot__Group_7__3 )
+            // InternalXacro.g:1620:2: rule__Robot__Group_7__2__Impl rule__Robot__Group_7__3
+            {
+            pushFollow(FOLLOW_9);
+            rule__Robot__Group_7__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Robot__Group_7__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7__2"
+
+
+    // $ANTLR start "rule__Robot__Group_7__2__Impl"
+    // InternalXacro.g:1627:1: rule__Robot__Group_7__2__Impl : ( ( rule__Robot__MacroCallAssignment_7_2 ) ) ;
+    public final void rule__Robot__Group_7__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1631:1: ( ( ( rule__Robot__MacroCallAssignment_7_2 ) ) )
+            // InternalXacro.g:1632:1: ( ( rule__Robot__MacroCallAssignment_7_2 ) )
+            {
+            // InternalXacro.g:1632:1: ( ( rule__Robot__MacroCallAssignment_7_2 ) )
+            // InternalXacro.g:1633:2: ( rule__Robot__MacroCallAssignment_7_2 )
+            {
+             before(grammarAccess.getRobotAccess().getMacroCallAssignment_7_2()); 
+            // InternalXacro.g:1634:2: ( rule__Robot__MacroCallAssignment_7_2 )
+            // InternalXacro.g:1634:3: rule__Robot__MacroCallAssignment_7_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__Robot__MacroCallAssignment_7_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRobotAccess().getMacroCallAssignment_7_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7__2__Impl"
+
+
+    // $ANTLR start "rule__Robot__Group_7__3"
+    // InternalXacro.g:1642:1: rule__Robot__Group_7__3 : rule__Robot__Group_7__3__Impl rule__Robot__Group_7__4 ;
+    public final void rule__Robot__Group_7__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1646:1: ( rule__Robot__Group_7__3__Impl rule__Robot__Group_7__4 )
+            // InternalXacro.g:1647:2: rule__Robot__Group_7__3__Impl rule__Robot__Group_7__4
+            {
+            pushFollow(FOLLOW_9);
+            rule__Robot__Group_7__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Robot__Group_7__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7__3"
+
+
+    // $ANTLR start "rule__Robot__Group_7__3__Impl"
+    // InternalXacro.g:1654:1: rule__Robot__Group_7__3__Impl : ( ( rule__Robot__Group_7_3__0 )* ) ;
+    public final void rule__Robot__Group_7__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1658:1: ( ( ( rule__Robot__Group_7_3__0 )* ) )
+            // InternalXacro.g:1659:1: ( ( rule__Robot__Group_7_3__0 )* )
+            {
+            // InternalXacro.g:1659:1: ( ( rule__Robot__Group_7_3__0 )* )
+            // InternalXacro.g:1660:2: ( rule__Robot__Group_7_3__0 )*
+            {
+             before(grammarAccess.getRobotAccess().getGroup_7_3()); 
+            // InternalXacro.g:1661:2: ( rule__Robot__Group_7_3__0 )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==22) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalXacro.g:1661:3: rule__Robot__Group_7_3__0
+            	    {
+            	    pushFollow(FOLLOW_10);
+            	    rule__Robot__Group_7_3__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+             after(grammarAccess.getRobotAccess().getGroup_7_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7__3__Impl"
+
+
+    // $ANTLR start "rule__Robot__Group_7__4"
+    // InternalXacro.g:1669:1: rule__Robot__Group_7__4 : rule__Robot__Group_7__4__Impl ;
+    public final void rule__Robot__Group_7__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1673:1: ( rule__Robot__Group_7__4__Impl )
+            // InternalXacro.g:1674:2: rule__Robot__Group_7__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Robot__Group_7__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7__4"
+
+
+    // $ANTLR start "rule__Robot__Group_7__4__Impl"
+    // InternalXacro.g:1680:1: rule__Robot__Group_7__4__Impl : ( '}' ) ;
+    public final void rule__Robot__Group_7__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1684:1: ( ( '}' ) )
+            // InternalXacro.g:1685:1: ( '}' )
+            {
+            // InternalXacro.g:1685:1: ( '}' )
+            // InternalXacro.g:1686:2: '}'
+            {
+             before(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7_4()); 
+            match(input,19,FOLLOW_2); 
+             after(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_7_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7__4__Impl"
+
+
+    // $ANTLR start "rule__Robot__Group_7_3__0"
+    // InternalXacro.g:1696:1: rule__Robot__Group_7_3__0 : rule__Robot__Group_7_3__0__Impl rule__Robot__Group_7_3__1 ;
+    public final void rule__Robot__Group_7_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1700:1: ( rule__Robot__Group_7_3__0__Impl rule__Robot__Group_7_3__1 )
+            // InternalXacro.g:1701:2: rule__Robot__Group_7_3__0__Impl rule__Robot__Group_7_3__1
+            {
+            pushFollow(FOLLOW_11);
+            rule__Robot__Group_7_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Robot__Group_7_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7_3__0"
+
+
+    // $ANTLR start "rule__Robot__Group_7_3__0__Impl"
+    // InternalXacro.g:1708:1: rule__Robot__Group_7_3__0__Impl : ( ',' ) ;
+    public final void rule__Robot__Group_7_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1712:1: ( ( ',' ) )
+            // InternalXacro.g:1713:1: ( ',' )
+            {
+            // InternalXacro.g:1713:1: ( ',' )
+            // InternalXacro.g:1714:2: ','
+            {
+             before(grammarAccess.getRobotAccess().getCommaKeyword_7_3_0()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getRobotAccess().getCommaKeyword_7_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7_3__0__Impl"
+
+
+    // $ANTLR start "rule__Robot__Group_7_3__1"
+    // InternalXacro.g:1723:1: rule__Robot__Group_7_3__1 : rule__Robot__Group_7_3__1__Impl ;
+    public final void rule__Robot__Group_7_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1727:1: ( rule__Robot__Group_7_3__1__Impl )
+            // InternalXacro.g:1728:2: rule__Robot__Group_7_3__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Robot__Group_7_3__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7_3__1"
+
+
+    // $ANTLR start "rule__Robot__Group_7_3__1__Impl"
+    // InternalXacro.g:1734:1: rule__Robot__Group_7_3__1__Impl : ( ( rule__Robot__MacroCallAssignment_7_3_1 ) ) ;
+    public final void rule__Robot__Group_7_3__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalXacro.g:1738:1: ( ( ( rule__Robot__MacroCallAssignment_7_3_1 ) ) )
+            // InternalXacro.g:1739:1: ( ( rule__Robot__MacroCallAssignment_7_3_1 ) )
+            {
+            // InternalXacro.g:1739:1: ( ( rule__Robot__MacroCallAssignment_7_3_1 ) )
+            // InternalXacro.g:1740:2: ( rule__Robot__MacroCallAssignment_7_3_1 )
+            {
+             before(grammarAccess.getRobotAccess().getMacroCallAssignment_7_3_1()); 
+            // InternalXacro.g:1741:2: ( rule__Robot__MacroCallAssignment_7_3_1 )
+            // InternalXacro.g:1741:3: rule__Robot__MacroCallAssignment_7_3_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Robot__MacroCallAssignment_7_3_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRobotAccess().getMacroCallAssignment_7_3_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Robot__Group_7_3__1__Impl"
+
+
     // $ANTLR start "rule__Robot__Group_8__0"
-    // InternalXacro.g:1615:1: rule__Robot__Group_8__0 : rule__Robot__Group_8__0__Impl rule__Robot__Group_8__1 ;
+    // InternalXacro.g:1750:1: rule__Robot__Group_8__0 : rule__Robot__Group_8__0__Impl rule__Robot__Group_8__1 ;
     public final void rule__Robot__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:1619:1: ( rule__Robot__Group_8__0__Impl rule__Robot__Group_8__1 )
-            // InternalXacro.g:1620:2: rule__Robot__Group_8__0__Impl rule__Robot__Group_8__1
+            // InternalXacro.g:1754:1: ( rule__Robot__Group_8__0__Impl rule__Robot__Group_8__1 )
+            // InternalXacro.g:1755:2: rule__Robot__Group_8__0__Impl rule__Robot__Group_8__1
             {
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_12);
             rule__Robot__Group_8__0__Impl();
 
             state._fsp--;
@@ -5000,21 +5408,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__Group_8__0__Impl"
-    // InternalXacro.g:1627:1: rule__Robot__Group_8__0__Impl : ( 'macroCall' ) ;
+    // InternalXacro.g:1762:1: rule__Robot__Group_8__0__Impl : ( 'body' ) ;
     public final void rule__Robot__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:1631:1: ( ( 'macroCall' ) )
-            // InternalXacro.g:1632:1: ( 'macroCall' )
+            // InternalXacro.g:1766:1: ( ( 'body' ) )
+            // InternalXacro.g:1767:1: ( 'body' )
             {
-            // InternalXacro.g:1632:1: ( 'macroCall' )
-            // InternalXacro.g:1633:2: 'macroCall'
+            // InternalXacro.g:1767:1: ( 'body' )
+            // InternalXacro.g:1768:2: 'body'
             {
-             before(grammarAccess.getRobotAccess().getMacroCallKeyword_8_0()); 
+             before(grammarAccess.getRobotAccess().getBodyKeyword_8_0()); 
             match(input,24,FOLLOW_2); 
-             after(grammarAccess.getRobotAccess().getMacroCallKeyword_8_0()); 
+             after(grammarAccess.getRobotAccess().getBodyKeyword_8_0()); 
 
             }
 
@@ -5037,22 +5445,17 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__Group_8__1"
-    // InternalXacro.g:1642:1: rule__Robot__Group_8__1 : rule__Robot__Group_8__1__Impl rule__Robot__Group_8__2 ;
+    // InternalXacro.g:1777:1: rule__Robot__Group_8__1 : rule__Robot__Group_8__1__Impl ;
     public final void rule__Robot__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:1646:1: ( rule__Robot__Group_8__1__Impl rule__Robot__Group_8__2 )
-            // InternalXacro.g:1647:2: rule__Robot__Group_8__1__Impl rule__Robot__Group_8__2
+            // InternalXacro.g:1781:1: ( rule__Robot__Group_8__1__Impl )
+            // InternalXacro.g:1782:2: rule__Robot__Group_8__1__Impl
             {
-            pushFollow(FOLLOW_12);
-            rule__Robot__Group_8__1__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Robot__Group_8__2();
+            rule__Robot__Group_8__1__Impl();
 
             state._fsp--;
 
@@ -5075,21 +5478,31 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__Group_8__1__Impl"
-    // InternalXacro.g:1654:1: rule__Robot__Group_8__1__Impl : ( '{' ) ;
+    // InternalXacro.g:1788:1: rule__Robot__Group_8__1__Impl : ( ( rule__Robot__BodyAssignment_8_1 ) ) ;
     public final void rule__Robot__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:1658:1: ( ( '{' ) )
-            // InternalXacro.g:1659:1: ( '{' )
+            // InternalXacro.g:1792:1: ( ( ( rule__Robot__BodyAssignment_8_1 ) ) )
+            // InternalXacro.g:1793:1: ( ( rule__Robot__BodyAssignment_8_1 ) )
             {
-            // InternalXacro.g:1659:1: ( '{' )
-            // InternalXacro.g:1660:2: '{'
+            // InternalXacro.g:1793:1: ( ( rule__Robot__BodyAssignment_8_1 ) )
+            // InternalXacro.g:1794:2: ( rule__Robot__BodyAssignment_8_1 )
             {
-             before(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_8_1()); 
-            match(input,17,FOLLOW_2); 
-             after(grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_8_1()); 
+             before(grammarAccess.getRobotAccess().getBodyAssignment_8_1()); 
+            // InternalXacro.g:1795:2: ( rule__Robot__BodyAssignment_8_1 )
+            // InternalXacro.g:1795:3: rule__Robot__BodyAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Robot__BodyAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRobotAccess().getBodyAssignment_8_1()); 
 
             }
 
@@ -5109,419 +5522,6 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "rule__Robot__Group_8__1__Impl"
-
-
-    // $ANTLR start "rule__Robot__Group_8__2"
-    // InternalXacro.g:1669:1: rule__Robot__Group_8__2 : rule__Robot__Group_8__2__Impl rule__Robot__Group_8__3 ;
-    public final void rule__Robot__Group_8__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1673:1: ( rule__Robot__Group_8__2__Impl rule__Robot__Group_8__3 )
-            // InternalXacro.g:1674:2: rule__Robot__Group_8__2__Impl rule__Robot__Group_8__3
-            {
-            pushFollow(FOLLOW_9);
-            rule__Robot__Group_8__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Robot__Group_8__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8__2"
-
-
-    // $ANTLR start "rule__Robot__Group_8__2__Impl"
-    // InternalXacro.g:1681:1: rule__Robot__Group_8__2__Impl : ( ( rule__Robot__MacroCallAssignment_8_2 ) ) ;
-    public final void rule__Robot__Group_8__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1685:1: ( ( ( rule__Robot__MacroCallAssignment_8_2 ) ) )
-            // InternalXacro.g:1686:1: ( ( rule__Robot__MacroCallAssignment_8_2 ) )
-            {
-            // InternalXacro.g:1686:1: ( ( rule__Robot__MacroCallAssignment_8_2 ) )
-            // InternalXacro.g:1687:2: ( rule__Robot__MacroCallAssignment_8_2 )
-            {
-             before(grammarAccess.getRobotAccess().getMacroCallAssignment_8_2()); 
-            // InternalXacro.g:1688:2: ( rule__Robot__MacroCallAssignment_8_2 )
-            // InternalXacro.g:1688:3: rule__Robot__MacroCallAssignment_8_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Robot__MacroCallAssignment_8_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRobotAccess().getMacroCallAssignment_8_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8__2__Impl"
-
-
-    // $ANTLR start "rule__Robot__Group_8__3"
-    // InternalXacro.g:1696:1: rule__Robot__Group_8__3 : rule__Robot__Group_8__3__Impl rule__Robot__Group_8__4 ;
-    public final void rule__Robot__Group_8__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1700:1: ( rule__Robot__Group_8__3__Impl rule__Robot__Group_8__4 )
-            // InternalXacro.g:1701:2: rule__Robot__Group_8__3__Impl rule__Robot__Group_8__4
-            {
-            pushFollow(FOLLOW_9);
-            rule__Robot__Group_8__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Robot__Group_8__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8__3"
-
-
-    // $ANTLR start "rule__Robot__Group_8__3__Impl"
-    // InternalXacro.g:1708:1: rule__Robot__Group_8__3__Impl : ( ( rule__Robot__Group_8_3__0 )* ) ;
-    public final void rule__Robot__Group_8__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1712:1: ( ( ( rule__Robot__Group_8_3__0 )* ) )
-            // InternalXacro.g:1713:1: ( ( rule__Robot__Group_8_3__0 )* )
-            {
-            // InternalXacro.g:1713:1: ( ( rule__Robot__Group_8_3__0 )* )
-            // InternalXacro.g:1714:2: ( rule__Robot__Group_8_3__0 )*
-            {
-             before(grammarAccess.getRobotAccess().getGroup_8_3()); 
-            // InternalXacro.g:1715:2: ( rule__Robot__Group_8_3__0 )*
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( (LA7_0==22) ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // InternalXacro.g:1715:3: rule__Robot__Group_8_3__0
-            	    {
-            	    pushFollow(FOLLOW_10);
-            	    rule__Robot__Group_8_3__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop7;
-                }
-            } while (true);
-
-             after(grammarAccess.getRobotAccess().getGroup_8_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8__3__Impl"
-
-
-    // $ANTLR start "rule__Robot__Group_8__4"
-    // InternalXacro.g:1723:1: rule__Robot__Group_8__4 : rule__Robot__Group_8__4__Impl ;
-    public final void rule__Robot__Group_8__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1727:1: ( rule__Robot__Group_8__4__Impl )
-            // InternalXacro.g:1728:2: rule__Robot__Group_8__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Robot__Group_8__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8__4"
-
-
-    // $ANTLR start "rule__Robot__Group_8__4__Impl"
-    // InternalXacro.g:1734:1: rule__Robot__Group_8__4__Impl : ( '}' ) ;
-    public final void rule__Robot__Group_8__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1738:1: ( ( '}' ) )
-            // InternalXacro.g:1739:1: ( '}' )
-            {
-            // InternalXacro.g:1739:1: ( '}' )
-            // InternalXacro.g:1740:2: '}'
-            {
-             before(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8_4()); 
-            match(input,19,FOLLOW_2); 
-             after(grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_8_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8__4__Impl"
-
-
-    // $ANTLR start "rule__Robot__Group_8_3__0"
-    // InternalXacro.g:1750:1: rule__Robot__Group_8_3__0 : rule__Robot__Group_8_3__0__Impl rule__Robot__Group_8_3__1 ;
-    public final void rule__Robot__Group_8_3__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1754:1: ( rule__Robot__Group_8_3__0__Impl rule__Robot__Group_8_3__1 )
-            // InternalXacro.g:1755:2: rule__Robot__Group_8_3__0__Impl rule__Robot__Group_8_3__1
-            {
-            pushFollow(FOLLOW_12);
-            rule__Robot__Group_8_3__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Robot__Group_8_3__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8_3__0"
-
-
-    // $ANTLR start "rule__Robot__Group_8_3__0__Impl"
-    // InternalXacro.g:1762:1: rule__Robot__Group_8_3__0__Impl : ( ',' ) ;
-    public final void rule__Robot__Group_8_3__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1766:1: ( ( ',' ) )
-            // InternalXacro.g:1767:1: ( ',' )
-            {
-            // InternalXacro.g:1767:1: ( ',' )
-            // InternalXacro.g:1768:2: ','
-            {
-             before(grammarAccess.getRobotAccess().getCommaKeyword_8_3_0()); 
-            match(input,22,FOLLOW_2); 
-             after(grammarAccess.getRobotAccess().getCommaKeyword_8_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8_3__0__Impl"
-
-
-    // $ANTLR start "rule__Robot__Group_8_3__1"
-    // InternalXacro.g:1777:1: rule__Robot__Group_8_3__1 : rule__Robot__Group_8_3__1__Impl ;
-    public final void rule__Robot__Group_8_3__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1781:1: ( rule__Robot__Group_8_3__1__Impl )
-            // InternalXacro.g:1782:2: rule__Robot__Group_8_3__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Robot__Group_8_3__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8_3__1"
-
-
-    // $ANTLR start "rule__Robot__Group_8_3__1__Impl"
-    // InternalXacro.g:1788:1: rule__Robot__Group_8_3__1__Impl : ( ( rule__Robot__MacroCallAssignment_8_3_1 ) ) ;
-    public final void rule__Robot__Group_8_3__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalXacro.g:1792:1: ( ( ( rule__Robot__MacroCallAssignment_8_3_1 ) ) )
-            // InternalXacro.g:1793:1: ( ( rule__Robot__MacroCallAssignment_8_3_1 ) )
-            {
-            // InternalXacro.g:1793:1: ( ( rule__Robot__MacroCallAssignment_8_3_1 ) )
-            // InternalXacro.g:1794:2: ( rule__Robot__MacroCallAssignment_8_3_1 )
-            {
-             before(grammarAccess.getRobotAccess().getMacroCallAssignment_8_3_1()); 
-            // InternalXacro.g:1795:2: ( rule__Robot__MacroCallAssignment_8_3_1 )
-            // InternalXacro.g:1795:3: rule__Robot__MacroCallAssignment_8_3_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Robot__MacroCallAssignment_8_3_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRobotAccess().getMacroCallAssignment_8_3_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Robot__Group_8_3__1__Impl"
 
 
     // $ANTLR start "rule__Macro__Group__0"
@@ -5986,7 +5986,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==23) ) {
+            if ( (LA9_0==24) ) {
                 alt9=1;
             }
             switch (alt9) {
@@ -6669,7 +6669,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2186:1: ( rule__Macro__Group_5__0__Impl rule__Macro__Group_5__1 )
             // InternalXacro.g:2187:2: rule__Macro__Group_5__0__Impl rule__Macro__Group_5__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__Macro__Group_5__0__Impl();
 
             state._fsp--;
@@ -6711,7 +6711,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2200:2: 'body'
             {
              before(grammarAccess.getMacroAccess().getBodyKeyword_5_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getMacroAccess().getBodyKeyword_5_0()); 
 
             }
@@ -7706,7 +7706,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:2537:1: ( rule__Body__Group__0__Impl rule__Body__Group__1 )
             // InternalXacro.g:2538:2: rule__Body__Group__0__Impl rule__Body__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__Body__Group__0__Impl();
 
             state._fsp--;
@@ -11292,7 +11292,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:3725:1: ( rule__MacroCall__Group__0__Impl rule__MacroCall__Group__1 )
             // InternalXacro.g:3726:2: rule__MacroCall__Group__0__Impl rule__MacroCall__Group__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_11);
             rule__MacroCall__Group__0__Impl();
 
             state._fsp--;
@@ -47282,26 +47282,26 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Robot__MacroAssignment_6_3_1"
 
 
-    // $ANTLR start "rule__Robot__BodyAssignment_7_1"
-    // InternalXacro.g:15823:1: rule__Robot__BodyAssignment_7_1 : ( ruleBody ) ;
-    public final void rule__Robot__BodyAssignment_7_1() throws RecognitionException {
+    // $ANTLR start "rule__Robot__MacroCallAssignment_7_2"
+    // InternalXacro.g:15823:1: rule__Robot__MacroCallAssignment_7_2 : ( ruleMacroCall ) ;
+    public final void rule__Robot__MacroCallAssignment_7_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:15827:1: ( ( ruleBody ) )
-            // InternalXacro.g:15828:2: ( ruleBody )
+            // InternalXacro.g:15827:1: ( ( ruleMacroCall ) )
+            // InternalXacro.g:15828:2: ( ruleMacroCall )
             {
-            // InternalXacro.g:15828:2: ( ruleBody )
-            // InternalXacro.g:15829:3: ruleBody
+            // InternalXacro.g:15828:2: ( ruleMacroCall )
+            // InternalXacro.g:15829:3: ruleMacroCall
             {
-             before(grammarAccess.getRobotAccess().getBodyBodyParserRuleCall_7_1_0()); 
+             before(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_7_2_0()); 
             pushFollow(FOLLOW_2);
-            ruleBody();
+            ruleMacroCall();
 
             state._fsp--;
 
-             after(grammarAccess.getRobotAccess().getBodyBodyParserRuleCall_7_1_0()); 
+             after(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_7_2_0()); 
 
             }
 
@@ -47320,12 +47320,12 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Robot__BodyAssignment_7_1"
+    // $ANTLR end "rule__Robot__MacroCallAssignment_7_2"
 
 
-    // $ANTLR start "rule__Robot__MacroCallAssignment_8_2"
-    // InternalXacro.g:15838:1: rule__Robot__MacroCallAssignment_8_2 : ( ruleMacroCall ) ;
-    public final void rule__Robot__MacroCallAssignment_8_2() throws RecognitionException {
+    // $ANTLR start "rule__Robot__MacroCallAssignment_7_3_1"
+    // InternalXacro.g:15838:1: rule__Robot__MacroCallAssignment_7_3_1 : ( ruleMacroCall ) ;
+    public final void rule__Robot__MacroCallAssignment_7_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -47336,13 +47336,13 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:15843:2: ( ruleMacroCall )
             // InternalXacro.g:15844:3: ruleMacroCall
             {
-             before(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_2_0()); 
+             before(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_7_3_1_0()); 
             pushFollow(FOLLOW_2);
             ruleMacroCall();
 
             state._fsp--;
 
-             after(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_2_0()); 
+             after(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_7_3_1_0()); 
 
             }
 
@@ -47361,29 +47361,29 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Robot__MacroCallAssignment_8_2"
+    // $ANTLR end "rule__Robot__MacroCallAssignment_7_3_1"
 
 
-    // $ANTLR start "rule__Robot__MacroCallAssignment_8_3_1"
-    // InternalXacro.g:15853:1: rule__Robot__MacroCallAssignment_8_3_1 : ( ruleMacroCall ) ;
-    public final void rule__Robot__MacroCallAssignment_8_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Robot__BodyAssignment_8_1"
+    // InternalXacro.g:15853:1: rule__Robot__BodyAssignment_8_1 : ( ruleBody ) ;
+    public final void rule__Robot__BodyAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:15857:1: ( ( ruleMacroCall ) )
-            // InternalXacro.g:15858:2: ( ruleMacroCall )
+            // InternalXacro.g:15857:1: ( ( ruleBody ) )
+            // InternalXacro.g:15858:2: ( ruleBody )
             {
-            // InternalXacro.g:15858:2: ( ruleMacroCall )
-            // InternalXacro.g:15859:3: ruleMacroCall
+            // InternalXacro.g:15858:2: ( ruleBody )
+            // InternalXacro.g:15859:3: ruleBody
             {
-             before(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_3_1_0()); 
+             before(grammarAccess.getRobotAccess().getBodyBodyParserRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMacroCall();
+            ruleBody();
 
             state._fsp--;
 
-             after(grammarAccess.getRobotAccess().getMacroCallMacroCallParserRuleCall_8_3_1_0()); 
+             after(grammarAccess.getRobotAccess().getBodyBodyParserRuleCall_8_1_0()); 
 
             }
 
@@ -47402,7 +47402,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Robot__MacroCallAssignment_8_3_1"
+    // $ANTLR end "rule__Robot__BodyAssignment_8_1"
 
 
     // $ANTLR start "rule__Macro__NameAssignment_3"
@@ -53256,9 +53256,9 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000480000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000004880000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000005080000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000030080000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000780080000L});
