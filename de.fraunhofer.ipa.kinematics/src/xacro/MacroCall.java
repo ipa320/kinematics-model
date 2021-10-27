@@ -25,16 +25,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface MacroCall extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Macro</b></em>' reference list.
-	 * The list contents are of type {@link xacro.Macro}.
+	 * Returns the value of the '<em><b>Macro</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Macro</em>' reference list.
+	 * @return the value of the '<em>Macro</em>' reference.
+	 * @see #setMacro(Macro)
 	 * @see xacro.XacroPackage#getMacroCall_Macro()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Macro> getMacro();
+	Macro getMacro();
+
+	/**
+	 * Sets the value of the '{@link xacro.MacroCall#getMacro <em>Macro</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Macro</em>' reference.
+	 * @see #getMacro()
+	 * @generated
+	 */
+	void setMacro(Macro value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Call</b></em>' containment reference list.

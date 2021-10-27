@@ -316,7 +316,7 @@ public interface XacroPackage extends EPackage {
 	int MACRO_CALL = 4;
 
 	/**
-	 * The feature id for the '<em><b>Macro</b></em>' reference list.
+	 * The feature id for the '<em><b>Macro</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -614,10 +614,10 @@ public interface XacroPackage extends EPackage {
 	EClass getMacroCall();
 
 	/**
-	 * Returns the meta object for the reference list '{@link xacro.MacroCall#getMacro <em>Macro</em>}'.
+	 * Returns the meta object for the reference '{@link xacro.MacroCall#getMacro <em>Macro</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Macro</em>'.
+	 * @return the meta object for the reference '<em>Macro</em>'.
 	 * @see xacro.MacroCall#getMacro()
 	 * @see #getMacroCall()
 	 * @generated
@@ -861,7 +861,7 @@ public interface XacroPackage extends EPackage {
 		EClass MACRO_CALL = eINSTANCE.getMacroCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Macro</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Macro</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
