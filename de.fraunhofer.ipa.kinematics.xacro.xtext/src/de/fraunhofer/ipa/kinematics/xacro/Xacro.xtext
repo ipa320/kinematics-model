@@ -52,7 +52,7 @@ MacroCall returns MacroCall:
 	{MacroCall}
 	'MacroCall'
 	'{'
-		('macro' macro+=[Macro|EString] ( "," macro+=[Macro|EString])* )?
+		'macro' macro=[Macro|EString]
 		('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 	'}';
 

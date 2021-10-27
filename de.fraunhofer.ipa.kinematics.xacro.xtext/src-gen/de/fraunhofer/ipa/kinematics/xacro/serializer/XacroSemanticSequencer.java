@@ -475,7 +475,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     MacroCall returns MacroCall
 	 *
 	 * Constraint:
-	 *     ((macro+=[Macro|EString] macro+=[Macro|EString]*)? (parameterCall+=ParameterCall parameterCall+=ParameterCall*)?)
+	 *     (macro=[Macro|EString] (parameterCall+=ParameterCall parameterCall+=ParameterCall*)?)
 	 */
 	protected void sequence_MacroCall(ISerializationContext context, MacroCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -33,8 +33,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MacroCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="macro" upperBound="-1"
-        eType="#//Macro"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="macro" lowerBound="1" eType="#//Macro"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCall" upperBound="-1"
         eType="#//ParameterCall" containment="true"/>
   </eClassifiers>

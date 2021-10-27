@@ -58,10 +58,8 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBodyAccess().getGroup_7(), "rule__Body__Group_7__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup_7_3(), "rule__Body__Group_7_3__0");
 			builder.put(grammarAccess.getMacroCallAccess().getGroup(), "rule__MacroCall__Group__0");
-			builder.put(grammarAccess.getMacroCallAccess().getGroup_3(), "rule__MacroCall__Group_3__0");
-			builder.put(grammarAccess.getMacroCallAccess().getGroup_3_2(), "rule__MacroCall__Group_3_2__0");
-			builder.put(grammarAccess.getMacroCallAccess().getGroup_4(), "rule__MacroCall__Group_4__0");
-			builder.put(grammarAccess.getMacroCallAccess().getGroup_4_3(), "rule__MacroCall__Group_4_3__0");
+			builder.put(grammarAccess.getMacroCallAccess().getGroup_5(), "rule__MacroCall__Group_5__0");
+			builder.put(grammarAccess.getMacroCallAccess().getGroup_5_3(), "rule__MacroCall__Group_5_3__0");
 			builder.put(grammarAccess.getParameterCallAccess().getGroup(), "rule__ParameterCall__Group__0");
 			builder.put(grammarAccess.getJointAccess().getGroup(), "rule__Joint__Group__0");
 			builder.put(grammarAccess.getJointAccess().getGroup_10(), "rule__Joint__Group_10__0");
@@ -195,10 +193,9 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBodyAccess().getMaterialAssignment_6_3_1(), "rule__Body__MaterialAssignment_6_3_1");
 			builder.put(grammarAccess.getBodyAccess().getTransmissionAssignment_7_2(), "rule__Body__TransmissionAssignment_7_2");
 			builder.put(grammarAccess.getBodyAccess().getTransmissionAssignment_7_3_1(), "rule__Body__TransmissionAssignment_7_3_1");
-			builder.put(grammarAccess.getMacroCallAccess().getMacroAssignment_3_1(), "rule__MacroCall__MacroAssignment_3_1");
-			builder.put(grammarAccess.getMacroCallAccess().getMacroAssignment_3_2_1(), "rule__MacroCall__MacroAssignment_3_2_1");
-			builder.put(grammarAccess.getMacroCallAccess().getParameterCallAssignment_4_2(), "rule__MacroCall__ParameterCallAssignment_4_2");
-			builder.put(grammarAccess.getMacroCallAccess().getParameterCallAssignment_4_3_1(), "rule__MacroCall__ParameterCallAssignment_4_3_1");
+			builder.put(grammarAccess.getMacroCallAccess().getMacroAssignment_4(), "rule__MacroCall__MacroAssignment_4");
+			builder.put(grammarAccess.getMacroCallAccess().getParameterCallAssignment_5_2(), "rule__MacroCall__ParameterCallAssignment_5_2");
+			builder.put(grammarAccess.getMacroCallAccess().getParameterCallAssignment_5_3_1(), "rule__MacroCall__ParameterCallAssignment_5_3_1");
 			builder.put(grammarAccess.getParameterCallAccess().getParameterAssignment_4(), "rule__ParameterCall__ParameterAssignment_4");
 			builder.put(grammarAccess.getParameterCallAccess().getValueAssignment_6(), "rule__ParameterCall__ValueAssignment_6");
 			builder.put(grammarAccess.getJointAccess().getNameAssignment_3(), "rule__Joint__NameAssignment_3");
