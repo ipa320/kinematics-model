@@ -7,7 +7,6 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Action;
-import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
@@ -32,11 +31,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cVersionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cVersionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cVersionEStringParserRuleCall_5_1_0 = (RuleCall)cVersionAssignment_5_1.eContents().get(0);
+		private final RuleCall cVersionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cVersionAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cMacroKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
@@ -67,8 +66,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    {Robot}
 		//    'Robot'
 		//    '{'
-		//        'name' name=EString
-		//        ('version' version=EString)?
+		//        'name' name=ID
+		//        ('version' version=STRING)?
 		//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 		//        ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 		//        ('body' body=Body)?
@@ -78,8 +77,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//{Robot}
 		//'Robot'
 		//'{'
-		//    'name' name=EString
-		//    ('version' version=EString)?
+		//    'name' name=ID
+		//    ('version' version=STRING)?
 		//    ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 		//    ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 		//    ('body' body=Body)?
@@ -98,23 +97,23 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 		
-		//('version' version=EString)?
+		//('version' version=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'version'
 		public Keyword getVersionKeyword_5_0() { return cVersionKeyword_5_0; }
 		
-		//version=EString
+		//version=STRING
 		public Assignment getVersionAssignment_5_1() { return cVersionAssignment_5_1; }
 		
-		//EString
-		public RuleCall getVersionEStringParserRuleCall_5_1_0() { return cVersionEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getVersionSTRINGTerminalRuleCall_5_1_0() { return cVersionSTRINGTerminalRuleCall_5_1_0; }
 		
 		//('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 		public Group getGroup_6() { return cGroup_6; }
@@ -191,25 +190,6 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
-	public class EStringElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//EString returns ecore::EString:
-		//    STRING | ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//STRING | ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
-	}
 	public class MacroElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Macro");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -217,7 +197,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cParameterKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
@@ -237,7 +217,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Macro returns Macro:
 		//    'Macro'
 		//    '{'
-		//        'name' name=EString
+		//        'name' name=ID
 		//        ('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
 		//        ('body' body=Body)?
 		//    '}';
@@ -245,7 +225,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Macro'
 		//'{'
-		//    'name' name=EString
+		//    'name' name=ID
 		//    ('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
 		//    ('body' body=Body)?
 		//'}'
@@ -260,11 +240,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
 		public Group getGroup_4() { return cGroup_4; }
@@ -317,34 +297,34 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cParameterKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cDefaultKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cDefaultAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cDefaultEStringParserRuleCall_4_1_0 = (RuleCall)cDefaultAssignment_4_1.eContents().get(0);
+		private final RuleCall cDefaultSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDefaultAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cValueKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cValueAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cValueEStringParserRuleCall_5_1_0 = (RuleCall)cValueAssignment_5_1.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cValueAssignment_5_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Parameter returns Parameter:
 		//    {Parameter}
 		//    'Parameter'
-		//    name=EString
+		//    name=ID
 		//    '{'
-		//        ('default' default=EString)?
-		//        ('value' value=EString)?
+		//        ('default' default=STRING)?
+		//        ('value' value=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Parameter}
 		//'Parameter'
-		//name=EString
+		//name=ID
 		//'{'
-		//    ('default' default=EString)?
-		//    ('value' value=EString)?
+		//    ('default' default=STRING)?
+		//    ('value' value=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -354,38 +334,38 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'Parameter'
 		public Keyword getParameterKeyword_1() { return cParameterKeyword_1; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('default' default=EString)?
+		//('default' default=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'default'
 		public Keyword getDefaultKeyword_4_0() { return cDefaultKeyword_4_0; }
 		
-		//default=EString
+		//default=STRING
 		public Assignment getDefaultAssignment_4_1() { return cDefaultAssignment_4_1; }
 		
-		//EString
-		public RuleCall getDefaultEStringParserRuleCall_4_1_0() { return cDefaultEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getDefaultSTRINGTerminalRuleCall_4_1_0() { return cDefaultSTRINGTerminalRuleCall_4_1_0; }
 		
-		//('value' value=EString)?
+		//('value' value=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'value'
 		public Keyword getValueKeyword_5_0() { return cValueKeyword_5_0; }
 		
-		//value=EString
+		//value=STRING
 		public Assignment getValueAssignment_5_1() { return cValueAssignment_5_1; }
 		
-		//EString
-		public RuleCall getValueEStringParserRuleCall_5_1_0() { return cValueEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_5_1_0() { return cValueSTRINGTerminalRuleCall_5_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -642,7 +622,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cMacroKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cMacroAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cMacroMacroCrossReference_4_0 = (CrossReference)cMacroAssignment_4.eContents().get(0);
-		private final RuleCall cMacroMacroEStringParserRuleCall_4_0_1 = (RuleCall)cMacroMacroCrossReference_4_0.eContents().get(1);
+		private final RuleCall cMacroMacroIDTerminalRuleCall_4_0_1 = (RuleCall)cMacroMacroCrossReference_4_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cParameterKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
@@ -659,7 +639,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    {MacroCall}
 		//    'MacroCall'
 		//    '{'
-		//        'macro' macro=[Macro|EString]
+		//        'macro' macro=[Macro]
 		//        ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
@@ -667,7 +647,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//{MacroCall}
 		//'MacroCall'
 		//'{'
-		//    'macro' macro=[Macro|EString]
+		//    'macro' macro=[Macro]
 		//    ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -684,14 +664,14 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'macro'
 		public Keyword getMacroKeyword_3() { return cMacroKeyword_3; }
 		
-		//macro=[Macro|EString]
+		//macro=[Macro]
 		public Assignment getMacroAssignment_4() { return cMacroAssignment_4; }
 		
-		//[Macro|EString]
+		//[Macro]
 		public CrossReference getMacroMacroCrossReference_4_0() { return cMacroMacroCrossReference_4_0; }
 		
-		//EString
-		public RuleCall getMacroMacroEStringParserRuleCall_4_0_1() { return cMacroMacroEStringParserRuleCall_4_0_1; }
+		//ID
+		public RuleCall getMacroMacroIDTerminalRuleCall_4_0_1() { return cMacroMacroIDTerminalRuleCall_4_0_1; }
 		
 		//('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 		public Group getGroup_5() { return cGroup_5; }
@@ -735,26 +715,26 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cParameterKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cParameterAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cParameterParameterCrossReference_4_0 = (CrossReference)cParameterAssignment_4.eContents().get(0);
-		private final RuleCall cParameterParameterEStringParserRuleCall_4_0_1 = (RuleCall)cParameterParameterCrossReference_4_0.eContents().get(1);
+		private final RuleCall cParameterParameterIDTerminalRuleCall_4_0_1 = (RuleCall)cParameterParameterCrossReference_4_0.eContents().get(1);
 		private final Keyword cValueKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cValueAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cValueEStringParserRuleCall_6_0 = (RuleCall)cValueAssignment_6.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_6_0 = (RuleCall)cValueAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ParameterCall returns ParameterCall:
 		//    {ParameterCall}
 		//    'ParameterCall'
 		//    '{'
-		//        'parameter' parameter=[Parameter|EString]
-		//        'value' value=EString
+		//        'parameter' parameter=[Parameter]
+		//        'value' value=STRING
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ParameterCall}
 		//'ParameterCall'
 		//'{'
-		//    'parameter' parameter=[Parameter|EString]
-		//    'value' value=EString
+		//    'parameter' parameter=[Parameter]
+		//    'value' value=STRING
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -770,23 +750,23 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'parameter'
 		public Keyword getParameterKeyword_3() { return cParameterKeyword_3; }
 		
-		//parameter=[Parameter|EString]
+		//parameter=[Parameter]
 		public Assignment getParameterAssignment_4() { return cParameterAssignment_4; }
 		
-		//[Parameter|EString]
+		//[Parameter]
 		public CrossReference getParameterParameterCrossReference_4_0() { return cParameterParameterCrossReference_4_0; }
 		
-		//EString
-		public RuleCall getParameterParameterEStringParserRuleCall_4_0_1() { return cParameterParameterEStringParserRuleCall_4_0_1; }
+		//ID
+		public RuleCall getParameterParameterIDTerminalRuleCall_4_0_1() { return cParameterParameterIDTerminalRuleCall_4_0_1; }
 		
 		//'value'
 		public Keyword getValueKeyword_5() { return cValueKeyword_5; }
 		
-		//value=EString
+		//value=STRING
 		public Assignment getValueAssignment_6() { return cValueAssignment_6; }
 		
-		//EString
-		public RuleCall getValueEStringParserRuleCall_6_0() { return cValueEStringParserRuleCall_6_0; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_6_0() { return cValueSTRINGTerminalRuleCall_6_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -798,18 +778,18 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cTypeJOINTTYPETerminalRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
 		private final Keyword cParentKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cParentAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final CrossReference cParentLinkCrossReference_7_0 = (CrossReference)cParentAssignment_7.eContents().get(0);
-		private final RuleCall cParentLinkEStringParserRuleCall_7_0_1 = (RuleCall)cParentLinkCrossReference_7_0.eContents().get(1);
+		private final RuleCall cParentLinkSTRINGTerminalRuleCall_7_0_1 = (RuleCall)cParentLinkCrossReference_7_0.eContents().get(1);
 		private final Keyword cChildKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cChildAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final CrossReference cChildLinkCrossReference_9_0 = (CrossReference)cChildAssignment_9.eContents().get(0);
-		private final RuleCall cChildLinkEStringParserRuleCall_9_0_1 = (RuleCall)cChildLinkCrossReference_9_0.eContents().get(1);
+		private final RuleCall cChildLinkSTRINGTerminalRuleCall_9_0_1 = (RuleCall)cChildLinkCrossReference_9_0.eContents().get(1);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cOriginKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cOriginAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -843,10 +823,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Joint returns urdf::Joint:
 		//    'Joint'
 		//    '{'
-		//        'name' name=EString
+		//        'name' name=ID
 		//        'type' type=JOINTTYPE
-		//        'parent' parent=[urdf::Link|EString]
-		//        'child' child=[urdf::Link|EString]
+		//        'parent' parent=[urdf::Link|STRING]
+		//        'child' child=[urdf::Link|STRING]
 		//        ('origin' origin=Pose)?
 		//        ('axis' axis=Axis)?
 		//        ('calibration' calibration=Calibration)?
@@ -859,10 +839,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Joint'
 		//'{'
-		//    'name' name=EString
+		//    'name' name=ID
 		//    'type' type=JOINTTYPE
-		//    'parent' parent=[urdf::Link|EString]
-		//    'child' child=[urdf::Link|EString]
+		//    'parent' parent=[urdf::Link|STRING]
+		//    'child' child=[urdf::Link|STRING]
 		//    ('origin' origin=Pose)?
 		//    ('axis' axis=Axis)?
 		//    ('calibration' calibration=Calibration)?
@@ -882,11 +862,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//'type'
 		public Keyword getTypeKeyword_4() { return cTypeKeyword_4; }
@@ -900,26 +880,26 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'parent'
 		public Keyword getParentKeyword_6() { return cParentKeyword_6; }
 		
-		//parent=[urdf::Link|EString]
+		//parent=[urdf::Link|STRING]
 		public Assignment getParentAssignment_7() { return cParentAssignment_7; }
 		
-		//[urdf::Link|EString]
+		//[urdf::Link|STRING]
 		public CrossReference getParentLinkCrossReference_7_0() { return cParentLinkCrossReference_7_0; }
 		
-		//EString
-		public RuleCall getParentLinkEStringParserRuleCall_7_0_1() { return cParentLinkEStringParserRuleCall_7_0_1; }
+		//STRING
+		public RuleCall getParentLinkSTRINGTerminalRuleCall_7_0_1() { return cParentLinkSTRINGTerminalRuleCall_7_0_1; }
 		
 		//'child'
 		public Keyword getChildKeyword_8() { return cChildKeyword_8; }
 		
-		//child=[urdf::Link|EString]
+		//child=[urdf::Link|STRING]
 		public Assignment getChildAssignment_9() { return cChildAssignment_9; }
 		
-		//[urdf::Link|EString]
+		//[urdf::Link|STRING]
 		public CrossReference getChildLinkCrossReference_9_0() { return cChildLinkCrossReference_9_0; }
 		
-		//EString
-		public RuleCall getChildLinkEStringParserRuleCall_9_0_1() { return cChildLinkEStringParserRuleCall_9_0_1; }
+		//STRING
+		public RuleCall getChildLinkSTRINGTerminalRuleCall_9_0_1() { return cChildLinkSTRINGTerminalRuleCall_9_0_1; }
 		
 		//('origin' origin=Pose)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -1015,11 +995,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cTypeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cTypeEStringParserRuleCall_4_1_0 = (RuleCall)cTypeAssignment_4_1.eContents().get(0);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cTypeAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cInertialKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cInertialAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -1037,8 +1017,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Link returns urdf::Link:
 		//    'Link'
 		//    '{'
-		//        'name' name=EString
-		//        ('type' type=EString)?
+		//        'name' name=ID
+		//        ('type' type=STRING)?
 		//        ('inertial' inertial=Inertial)?
 		//        ('visual' visual=Visual)?
 		//        ('collision' collision=Collision)?
@@ -1047,8 +1027,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Link'
 		//'{'
-		//    'name' name=EString
-		//    ('type' type=EString)?
+		//    'name' name=ID
+		//    ('type' type=STRING)?
 		//    ('inertial' inertial=Inertial)?
 		//    ('visual' visual=Visual)?
 		//    ('collision' collision=Collision)?
@@ -1064,23 +1044,23 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
-		//('type' type=EString)?
+		//('type' type=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'type'
 		public Keyword getTypeKeyword_4_0() { return cTypeKeyword_4_0; }
 		
-		//type=EString
+		//type=STRING
 		public Assignment getTypeAssignment_4_1() { return cTypeAssignment_4_1; }
 		
-		//EString
-		public RuleCall getTypeEStringParserRuleCall_4_1_0() { return cTypeEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getTypeSTRINGTerminalRuleCall_4_1_0() { return cTypeSTRINGTerminalRuleCall_4_1_0; }
 		
 		//('inertial' inertial=Inertial)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -1128,7 +1108,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cColorKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cColorAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -1142,7 +1122,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//MaterialGlobal returns urdf::MaterialGlobal:
 		//    'MaterialGlobal'
 		//    '{'
-		//        'name' name=EString
+		//        'name' name=ID
 		//        ('color' color=Color)?
 		//        ('texture' texture=Texture)?
 		//    '}';
@@ -1150,7 +1130,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'MaterialGlobal'
 		//'{'
-		//    'name' name=EString
+		//    'name' name=ID
 		//    ('color' color=Color)?
 		//    ('texture' texture=Texture)?
 		//'}'
@@ -1165,11 +1145,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//('color' color=Color)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -1215,10 +1195,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
 		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cTypeEStringParserRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cLeftActuatorKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
@@ -1315,8 +1295,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    'Transmission'
 		//    '{'
 		//        ('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
-		//        'name' name=EString
-		//        'type' type=EString
+		//        'name' name=ID
+		//        'type' type=STRING
 		//        ('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
 		//        ('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
 		//        ('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
@@ -1332,8 +1312,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'Transmission'
 		//'{'
 		//    ('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
-		//    'name' name=EString
-		//    'type' type=EString
+		//    'name' name=ID
+		//    'type' type=STRING
 		//    ('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
 		//    ('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
 		//    ('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
@@ -1385,20 +1365,20 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 		
 		//'type'
 		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
 		
-		//type=EString
+		//type=STRING
 		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
 		
-		//EString
-		public RuleCall getTypeEStringParserRuleCall_6_0() { return cTypeEStringParserRuleCall_6_0; }
+		//STRING
+		public RuleCall getTypeSTRINGTerminalRuleCall_6_0() { return cTypeSTRINGTerminalRuleCall_6_0; }
 		
 		//('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
 		public Group getGroup_7() { return cGroup_7; }
@@ -1682,27 +1662,27 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cRpyKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cRpyAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cRpyEStringParserRuleCall_3_1_0 = (RuleCall)cRpyAssignment_3_1.eContents().get(0);
+		private final RuleCall cRpySTRINGTerminalRuleCall_3_1_0 = (RuleCall)cRpyAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cXyzKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cXyzAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cXyzEStringParserRuleCall_4_1_0 = (RuleCall)cXyzAssignment_4_1.eContents().get(0);
+		private final RuleCall cXyzSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cXyzAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Pose returns urdf::Pose:
 		//    {urdf::Pose}
 		//    'Pose'
 		//    '{'
-		//        ('rpy' rpy=EString)?
-		//        ('xyz' xyz=EString)?
+		//        ('rpy' rpy=STRING)?
+		//        ('xyz' xyz=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Pose}
 		//'Pose'
 		//'{'
-		//    ('rpy' rpy=EString)?
-		//    ('xyz' xyz=EString)?
+		//    ('rpy' rpy=STRING)?
+		//    ('xyz' xyz=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1715,29 +1695,29 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('rpy' rpy=EString)?
+		//('rpy' rpy=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'rpy'
 		public Keyword getRpyKeyword_3_0() { return cRpyKeyword_3_0; }
 		
-		//rpy=EString
+		//rpy=STRING
 		public Assignment getRpyAssignment_3_1() { return cRpyAssignment_3_1; }
 		
-		//EString
-		public RuleCall getRpyEStringParserRuleCall_3_1_0() { return cRpyEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getRpySTRINGTerminalRuleCall_3_1_0() { return cRpySTRINGTerminalRuleCall_3_1_0; }
 		
-		//('xyz' xyz=EString)?
+		//('xyz' xyz=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'xyz'
 		public Keyword getXyzKeyword_4_0() { return cXyzKeyword_4_0; }
 		
-		//xyz=EString
+		//xyz=STRING
 		public Assignment getXyzAssignment_4_1() { return cXyzAssignment_4_1; }
 		
-		//EString
-		public RuleCall getXyzEStringParserRuleCall_4_1_0() { return cXyzEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getXyzSTRINGTerminalRuleCall_4_1_0() { return cXyzSTRINGTerminalRuleCall_4_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -1751,21 +1731,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cXyzKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cXyzAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cXyzEStringParserRuleCall_3_1_0 = (RuleCall)cXyzAssignment_3_1.eContents().get(0);
+		private final RuleCall cXyzSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cXyzAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Axis returns urdf::Axis:
 		//    {urdf::Axis}
 		//    'Axis'
 		//    '{'
-		//        ('xyz' xyz=EString)?
+		//        ('xyz' xyz=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Axis}
 		//'Axis'
 		//'{'
-		//    ('xyz' xyz=EString)?
+		//    ('xyz' xyz=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1778,17 +1758,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('xyz' xyz=EString)?
+		//('xyz' xyz=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'xyz'
 		public Keyword getXyzKeyword_3_0() { return cXyzKeyword_3_0; }
 		
-		//xyz=EString
+		//xyz=STRING
 		public Assignment getXyzAssignment_3_1() { return cXyzAssignment_3_1; }
 		
-		//EString
-		public RuleCall getXyzEStringParserRuleCall_3_1_0() { return cXyzEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getXyzSTRINGTerminalRuleCall_3_1_0() { return cXyzSTRINGTerminalRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -2156,7 +2136,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cJointKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cJointAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cJointEStringParserRuleCall_3_0 = (RuleCall)cJointAssignment_3.eContents().get(0);
+		private final RuleCall cJointSTRINGTerminalRuleCall_3_0 = (RuleCall)cJointAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cMultiplierKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cMultiplierAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -2170,7 +2150,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Mimic returns urdf::Mimic:
 		//    'Mimic'
 		//    '{'
-		//        'joint' joint=EString
+		//        'joint' joint=STRING
 		//        ('multiplier' multiplier=Double0)?
 		//        ('offset' offset=Double0)?
 		//    '}';
@@ -2178,7 +2158,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Mimic'
 		//'{'
-		//    'joint' joint=EString
+		//    'joint' joint=STRING
 		//    ('multiplier' multiplier=Double0)?
 		//    ('offset' offset=Double0)?
 		//'}'
@@ -2193,11 +2173,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'joint'
 		public Keyword getJointKeyword_2() { return cJointKeyword_2; }
 		
-		//joint=EString
+		//joint=STRING
 		public Assignment getJointAssignment_3() { return cJointAssignment_3; }
 		
-		//EString
-		public RuleCall getJointEStringParserRuleCall_3_0() { return cJointEStringParserRuleCall_3_0; }
+		//STRING
+		public RuleCall getJointSTRINGTerminalRuleCall_3_0() { return cJointSTRINGTerminalRuleCall_3_0; }
 		
 		//('multiplier' multiplier=Double0)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -2398,7 +2378,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cOriginKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cOriginAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -2415,7 +2395,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Collision returns urdf::Collision:
 		//    'Collision'
 		//    '{'
-		//        ('name' name=EString)?
+		//        ('name' name=ID)?
 		//        ('origin' origin=Pose)?
 		//        'geometry' geometry=Geometry
 		//        ('verbose' verbose=Verbose)?
@@ -2424,7 +2404,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Collision'
 		//'{'
-		//    ('name' name=EString)?
+		//    ('name' name=ID)?
 		//    ('origin' origin=Pose)?
 		//    'geometry' geometry=Geometry
 		//    ('verbose' verbose=Verbose)?
@@ -2437,17 +2417,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//('name' name=EString)?
+		//('name' name=ID)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'name'
 		public Keyword getNameKeyword_2_0() { return cNameKeyword_2_0; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_1_0() { return cNameEStringParserRuleCall_2_1_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_1_0() { return cNameIDTerminalRuleCall_2_1_0; }
 		
 		//('origin' origin=Pose)?
 		public Group getGroup_3() { return cGroup_3; }
@@ -2791,7 +2771,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cColorKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cColorAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -2806,7 +2786,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    {urdf::Material}
 		//    'Material'
 		//    '{'
-		//        ('name' name=EString)?
+		//        ('name' name=ID)?
 		//        ('color' color=Color)?
 		//        ('texture' texture=Texture)?
 		//    '}';
@@ -2815,7 +2795,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//{urdf::Material}
 		//'Material'
 		//'{'
-		//    ('name' name=EString)?
+		//    ('name' name=ID)?
 		//    ('color' color=Color)?
 		//    ('texture' texture=Texture)?
 		//'}'
@@ -2830,17 +2810,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('name' name=EString)?
+		//('name' name=ID)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'name'
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_1_0() { return cNameIDTerminalRuleCall_3_1_0; }
 		
 		//('color' color=Color)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -2878,21 +2858,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cSizeKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cSizeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSizeEStringParserRuleCall_3_1_0 = (RuleCall)cSizeAssignment_3_1.eContents().get(0);
+		private final RuleCall cSizeSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cSizeAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Box returns urdf::Box:
 		//    {urdf::Box}
 		//    'Box'
 		//    '{'
-		//        ('size' size=EString)?
+		//        ('size' size=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Box}
 		//'Box'
 		//'{'
-		//    ('size' size=EString)?
+		//    ('size' size=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -2905,17 +2885,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('size' size=EString)?
+		//('size' size=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'size'
 		public Keyword getSizeKeyword_3_0() { return cSizeKeyword_3_0; }
 		
-		//size=EString
+		//size=STRING
 		public Assignment getSizeAssignment_3_1() { return cSizeAssignment_3_1; }
 		
-		//EString
-		public RuleCall getSizeEStringParserRuleCall_3_1_0() { return cSizeEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getSizeSTRINGTerminalRuleCall_3_1_0() { return cSizeSTRINGTerminalRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -3027,21 +3007,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cScaleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cScaleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cScaleEStringParserRuleCall_4_1_0 = (RuleCall)cScaleAssignment_4_1.eContents().get(0);
+		private final RuleCall cScaleSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cScaleAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Mesh returns urdf::Mesh:
 		//    'Mesh'
 		//    '{'
 		//        'filename' filename=AnyURI
-		//        ('scale' scale=EString)?
+		//        ('scale' scale=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Mesh'
 		//'{'
 		//    'filename' filename=AnyURI
-		//    ('scale' scale=EString)?
+		//    ('scale' scale=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3060,17 +3040,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//AnyURI
 		public RuleCall getFilenameAnyURIParserRuleCall_3_0() { return cFilenameAnyURIParserRuleCall_3_0; }
 		
-		//('scale' scale=EString)?
+		//('scale' scale=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'scale'
 		public Keyword getScaleKeyword_4_0() { return cScaleKeyword_4_0; }
 		
-		//scale=EString
+		//scale=STRING
 		public Assignment getScaleAssignment_4_1() { return cScaleAssignment_4_1; }
 		
-		//EString
-		public RuleCall getScaleEStringParserRuleCall_4_1_0() { return cScaleEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getScaleSTRINGTerminalRuleCall_4_1_0() { return cScaleSTRINGTerminalRuleCall_4_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -3095,21 +3075,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cRgbaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cRgbaAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cRgbaEStringParserRuleCall_3_1_0 = (RuleCall)cRgbaAssignment_3_1.eContents().get(0);
+		private final RuleCall cRgbaSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cRgbaAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Color returns urdf::Color:
 		//    {urdf::Color}
 		//    'Color'
 		//    '{'
-		//        ('rgba' rgba=EString)?
+		//        ('rgba' rgba=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Color}
 		//'Color'
 		//'{'
-		//    ('rgba' rgba=EString)?
+		//    ('rgba' rgba=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3122,17 +3102,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('rgba' rgba=EString)?
+		//('rgba' rgba=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'rgba'
 		public Keyword getRgbaKeyword_3_0() { return cRgbaKeyword_3_0; }
 		
-		//rgba=EString
+		//rgba=STRING
 		public Assignment getRgbaAssignment_3_1() { return cRgbaAssignment_3_1; }
 		
-		//EString
-		public RuleCall getRgbaEStringParserRuleCall_3_1_0() { return cRgbaEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getRgbaSTRINGTerminalRuleCall_3_1_0() { return cRgbaSTRINGTerminalRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -3197,21 +3177,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cValueKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueEStringParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Verbose returns urdf::Verbose:
 		//    {urdf::Verbose}
 		//    'Verbose'
 		//    '{'
-		//        ('value' value=EString)?
+		//        ('value' value=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Verbose}
 		//'Verbose'
 		//'{'
-		//    ('value' value=EString)?
+		//    ('value' value=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3224,17 +3204,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('value' value=EString)?
+		//('value' value=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'value'
 		public Keyword getValueKeyword_3_0() { return cValueKeyword_3_0; }
 		
-		//value=EString
+		//value=STRING
 		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 		
-		//EString
-		public RuleCall getValueEStringParserRuleCall_3_1_0() { return cValueEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_3_1_0() { return cValueSTRINGTerminalRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -3249,21 +3229,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cMechanicalReductionDouble0ParserRuleCall_3_0 = (RuleCall)cMechanicalReductionAssignment_3.eContents().get(0);
 		private final Keyword cNameKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cNameEStringParserRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ActuatorTransmission returns urdf::ActuatorTransmission:
 		//    'ActuatorTransmission'
 		//    '{'
 		//        'mechanicalReduction' mechanicalReduction=Double0
-		//        'name' name=EString
+		//        'name' name=ID
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'ActuatorTransmission'
 		//'{'
 		//    'mechanicalReduction' mechanicalReduction=Double0
-		//    'name' name=EString
+		//    'name' name=ID
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3285,11 +3265,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_4() { return cNameKeyword_4; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_5_0() { return cNameEStringParserRuleCall_5_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_5_0() { return cNameIDTerminalRuleCall_5_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -3319,7 +3299,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cMechanicalReductionDouble0ParserRuleCall_13_0 = (RuleCall)cMechanicalReductionAssignment_13.eContents().get(0);
 		private final Keyword cNameKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		private final Assignment cNameAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cNameEStringParserRuleCall_15_0 = (RuleCall)cNameAssignment_15.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_15_0 = (RuleCall)cNameAssignment_15.eContents().get(0);
 		private final Keyword cPhi0Keyword_16 = (Keyword)cGroup.eContents().get(16);
 		private final Assignment cPhi0Assignment_17 = (Assignment)cGroup.eContents().get(17);
 		private final RuleCall cPhi0Double0ParserRuleCall_17_0 = (RuleCall)cPhi0Assignment_17.eContents().get(0);
@@ -3346,7 +3326,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//        'h' h=Double0
 		//        'l0' l0=Double0
 		//        'mechanicalReduction' mechanicalReduction=Double0
-		//        'name' name=EString
+		//        'name' name=ID
 		//        'phi0' phi0=Double0
 		//        'r' r=Double0
 		//        'screwReduction' screwReduction=Double0
@@ -3363,7 +3343,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    'h' h=Double0
 		//    'l0' l0=Double0
 		//    'mechanicalReduction' mechanicalReduction=Double0
-		//    'name' name=EString
+		//    'name' name=ID
 		//    'phi0' phi0=Double0
 		//    'r' r=Double0
 		//    'screwReduction' screwReduction=Double0
@@ -3435,11 +3415,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_14() { return cNameKeyword_14; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_15() { return cNameAssignment_15; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_15_0() { return cNameEStringParserRuleCall_15_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_15_0() { return cNameIDTerminalRuleCall_15_0; }
 		
 		//'phi0'
 		public Keyword getPhi0Keyword_16() { return cPhi0Keyword_16; }
@@ -3496,19 +3476,19 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//PassiveJointTransmission returns urdf::PassiveJointTransmission:
 		//    'PassiveJointTransmission'
 		//    '{'
-		//        'name' name=EString
+		//        'name' name=ID
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'PassiveJointTransmission'
 		//'{'
-		//    'name' name=EString
+		//    'name' name=ID
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3521,11 +3501,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -3561,21 +3541,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Name returns urdf::Name:
 		//    {urdf::Name}
 		//    'Name'
 		//    '{'
-		//        ('name' name=EString)?
+		//        ('name' name=ID)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Name}
 		//'Name'
 		//'{'
-		//    ('name' name=EString)?
+		//    ('name' name=ID)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3588,17 +3568,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('name' name=EString)?
+		//('name' name=ID)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'name'
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_1_0() { return cNameIDTerminalRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -3628,7 +3608,6 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	
 	private final RobotElements pRobot;
-	private final EStringElements pEString;
 	private final MacroElements pMacro;
 	private final ParameterElements pParameter;
 	private final BodyElements pBody;
@@ -3683,7 +3662,6 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pRobot = new RobotElements();
-		this.pEString = new EStringElements();
 		this.pMacro = new MacroElements();
 		this.pParameter = new ParameterElements();
 		this.pBody = new BodyElements();
@@ -3760,8 +3738,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {Robot}
 	//    'Robot'
 	//    '{'
-	//        'name' name=EString
-	//        ('version' version=EString)?
+	//        'name' name=ID
+	//        ('version' version=STRING)?
 	//        ('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 	//        ('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 	//        ('body' body=Body)?
@@ -3774,20 +3752,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getRobotAccess().getRule();
 	}
 	
-	//EString returns ecore::EString:
-	//    STRING | ID;
-	public EStringElements getEStringAccess() {
-		return pEString;
-	}
-	
-	public ParserRule getEStringRule() {
-		return getEStringAccess().getRule();
-	}
-	
 	//Macro returns Macro:
 	//    'Macro'
 	//    '{'
-	//        'name' name=EString
+	//        'name' name=ID
 	//        ('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
 	//        ('body' body=Body)?
 	//    '}';
@@ -3802,10 +3770,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Parameter returns Parameter:
 	//    {Parameter}
 	//    'Parameter'
-	//    name=EString
+	//    name=ID
 	//    '{'
-	//        ('default' default=EString)?
-	//        ('value' value=EString)?
+	//        ('default' default=STRING)?
+	//        ('value' value=STRING)?
 	//    '}';
 	public ParameterElements getParameterAccess() {
 		return pParameter;
@@ -3837,7 +3805,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {MacroCall}
 	//    'MacroCall'
 	//    '{'
-	//        'macro' macro=[Macro|EString]
+	//        'macro' macro=[Macro]
 	//        ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 	//    '}';
 	public MacroCallElements getMacroCallAccess() {
@@ -3852,8 +3820,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {ParameterCall}
 	//    'ParameterCall'
 	//    '{'
-	//        'parameter' parameter=[Parameter|EString]
-	//        'value' value=EString
+	//        'parameter' parameter=[Parameter]
+	//        'value' value=STRING
 	//    '}';
 	public ParameterCallElements getParameterCallAccess() {
 		return pParameterCall;
@@ -3866,10 +3834,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Joint returns urdf::Joint:
 	//    'Joint'
 	//    '{'
-	//        'name' name=EString
+	//        'name' name=ID
 	//        'type' type=JOINTTYPE
-	//        'parent' parent=[urdf::Link|EString]
-	//        'child' child=[urdf::Link|EString]
+	//        'parent' parent=[urdf::Link|STRING]
+	//        'child' child=[urdf::Link|STRING]
 	//        ('origin' origin=Pose)?
 	//        ('axis' axis=Axis)?
 	//        ('calibration' calibration=Calibration)?
@@ -3889,8 +3857,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Link returns urdf::Link:
 	//    'Link'
 	//    '{'
-	//        'name' name=EString
-	//        ('type' type=EString)?
+	//        'name' name=ID
+	//        ('type' type=STRING)?
 	//        ('inertial' inertial=Inertial)?
 	//        ('visual' visual=Visual)?
 	//        ('collision' collision=Collision)?
@@ -3906,7 +3874,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//MaterialGlobal returns urdf::MaterialGlobal:
 	//    'MaterialGlobal'
 	//    '{'
-	//        'name' name=EString
+	//        'name' name=ID
 	//        ('color' color=Color)?
 	//        ('texture' texture=Texture)?
 	//    '}';
@@ -3922,8 +3890,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'Transmission'
 	//    '{'
 	//        ('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
-	//        'name' name=EString
-	//        'type' type=EString
+	//        'name' name=ID
+	//        'type' type=STRING
 	//        ('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
 	//        ('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
 	//        ('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
@@ -3946,8 +3914,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {urdf::Pose}
 	//    'Pose'
 	//    '{'
-	//        ('rpy' rpy=EString)?
-	//        ('xyz' xyz=EString)?
+	//        ('rpy' rpy=STRING)?
+	//        ('xyz' xyz=STRING)?
 	//    '}';
 	public PoseElements getPoseAccess() {
 		return pPose;
@@ -3961,7 +3929,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {urdf::Axis}
 	//    'Axis'
 	//    '{'
-	//        ('xyz' xyz=EString)?
+	//        ('xyz' xyz=STRING)?
 	//    '}';
 	public AxisElements getAxisAccess() {
 		return pAxis;
@@ -4038,7 +4006,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Mimic returns urdf::Mimic:
 	//    'Mimic'
 	//    '{'
-	//        'joint' joint=EString
+	//        'joint' joint=STRING
 	//        ('multiplier' multiplier=Double0)?
 	//        ('offset' offset=Double0)?
 	//    '}';
@@ -4084,7 +4052,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Collision returns urdf::Collision:
 	//    'Collision'
 	//    '{'
-	//        ('name' name=EString)?
+	//        ('name' name=ID)?
 	//        ('origin' origin=Pose)?
 	//        'geometry' geometry=Geometry
 	//        ('verbose' verbose=Verbose)?
@@ -4151,7 +4119,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {urdf::Material}
 	//    'Material'
 	//    '{'
-	//        ('name' name=EString)?
+	//        ('name' name=ID)?
 	//        ('color' color=Color)?
 	//        ('texture' texture=Texture)?
 	//    '}';
@@ -4167,7 +4135,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {urdf::Box}
 	//    'Box'
 	//    '{'
-	//        ('size' size=EString)?
+	//        ('size' size=STRING)?
 	//    '}';
 	public BoxElements getBoxAccess() {
 		return pBox;
@@ -4208,7 +4176,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'Mesh'
 	//    '{'
 	//        'filename' filename=AnyURI
-	//        ('scale' scale=EString)?
+	//        ('scale' scale=STRING)?
 	//    '}';
 	public MeshElements getMeshAccess() {
 		return pMesh;
@@ -4232,7 +4200,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {urdf::Color}
 	//    'Color'
 	//    '{'
-	//        ('rgba' rgba=EString)?
+	//        ('rgba' rgba=STRING)?
 	//    '}';
 	public ColorElements getColorAccess() {
 		return pColor;
@@ -4260,7 +4228,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {urdf::Verbose}
 	//    'Verbose'
 	//    '{'
-	//        ('value' value=EString)?
+	//        ('value' value=STRING)?
 	//    '}';
 	public VerboseElements getVerboseAccess() {
 		return pVerbose;
@@ -4274,7 +4242,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'ActuatorTransmission'
 	//    '{'
 	//        'mechanicalReduction' mechanicalReduction=Double0
-	//        'name' name=EString
+	//        'name' name=ID
 	//    '}';
 	public ActuatorTransmissionElements getActuatorTransmissionAccess() {
 		return pActuatorTransmission;
@@ -4293,7 +4261,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//        'h' h=Double0
 	//        'l0' l0=Double0
 	//        'mechanicalReduction' mechanicalReduction=Double0
-	//        'name' name=EString
+	//        'name' name=ID
 	//        'phi0' phi0=Double0
 	//        'r' r=Double0
 	//        'screwReduction' screwReduction=Double0
@@ -4311,7 +4279,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//PassiveJointTransmission returns urdf::PassiveJointTransmission:
 	//    'PassiveJointTransmission'
 	//    '{'
-	//        'name' name=EString
+	//        'name' name=ID
 	//    '}';
 	public PassiveJointTransmissionElements getPassiveJointTransmissionAccess() {
 		return pPassiveJointTransmission;
@@ -4337,7 +4305,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {urdf::Name}
 	//    'Name'
 	//    '{'
-	//        ('name' name=EString)?
+	//        ('name' name=ID)?
 	//    '}';
 	public NameElements getNameAccess() {
 		return pName;

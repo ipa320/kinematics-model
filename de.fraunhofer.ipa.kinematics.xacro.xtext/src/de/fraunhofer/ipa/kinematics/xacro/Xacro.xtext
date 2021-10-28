@@ -10,20 +10,17 @@ Robot returns Robot:
 	{Robot}
 	'Robot'
 	'{'
-		'name' name=EString
-		('version' version=EString)?
+		'name' name=ID
+		('version' version=STRING)?
 		('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
 		('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 		('body' body=Body)?
 	'}';
 
-EString returns ecore::EString:
-	STRING | ID;
-
 Macro returns Macro:
 	'Macro'
 	'{'
-		'name' name=EString
+		'name' name=ID
 		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
 		('body' body=Body)?
 	'}';
@@ -31,10 +28,10 @@ Macro returns Macro:
 Parameter returns Parameter:
 	{Parameter}
 	'Parameter'
-	name=EString
+	name=ID
 	'{'
-		('default' default=EString)?
-		('value' value=EString)?
+		('default' default=STRING)?
+		('value' value=STRING)?
 	'}';
 
 Body returns Body:
@@ -52,7 +49,7 @@ MacroCall returns MacroCall:
 	{MacroCall}
 	'MacroCall'
 	'{'
-		'macro' macro=[Macro|EString]
+		'macro' macro=[Macro]
 		('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 	'}';
 
@@ -60,17 +57,17 @@ ParameterCall returns ParameterCall:
 	{ParameterCall}
 	'ParameterCall'
 	'{'
-		'parameter' parameter=[Parameter|EString]
-		'value' value=EString
+		'parameter' parameter=[Parameter]
+		'value' value=STRING
 	'}';
 
 Joint returns urdf::Joint:
 	'Joint'
 	'{'
-		'name' name=EString
+		'name' name=ID
 		'type' type=JOINTTYPE
-		'parent' parent=[urdf::Link|EString]
-		'child' child=[urdf::Link|EString]
+		'parent' parent=[urdf::Link|STRING]
+		'child' child=[urdf::Link|STRING]
 		('origin' origin=Pose)?
 		('axis' axis=Axis)?
 		('calibration' calibration=Calibration)?
@@ -83,8 +80,8 @@ Joint returns urdf::Joint:
 Link returns urdf::Link:
 	'Link'
 	'{'
-		'name' name=EString
-		('type' type=EString)?
+		'name' name=ID
+		('type' type=STRING)?
 		('inertial' inertial=Inertial)?
 		('visual' visual=Visual)?
 		('collision' collision=Collision)?
@@ -93,7 +90,7 @@ Link returns urdf::Link:
 MaterialGlobal returns urdf::MaterialGlobal:
 	'MaterialGlobal'
 	'{'
-		'name' name=EString
+		'name' name=ID
 		('color' color=Color)?
 		('texture' texture=Texture)?
 	'}';
@@ -102,8 +99,8 @@ Transmission returns urdf::Transmission:
 	'Transmission'
 	'{'
 		('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
-		'name' name=EString
-		'type' type=EString
+		'name' name=ID
+		'type' type=STRING
 		('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
 		('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
 		('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
@@ -119,15 +116,15 @@ Pose returns urdf::Pose:
 	{urdf::Pose}
 	'Pose'
 	'{'
-		('rpy' rpy=EString)?
-		('xyz' xyz=EString)?
+		('rpy' rpy=STRING)?
+		('xyz' xyz=STRING)?
 	'}';
 
 Axis returns urdf::Axis:
 	{urdf::Axis}
 	'Axis'
 	'{'
-		('xyz' xyz=EString)?
+		('xyz' xyz=STRING)?
 	'}';
 
 Calibration returns urdf::Calibration:
@@ -169,7 +166,7 @@ SafetyController returns urdf::SafetyController:
 Mimic returns urdf::Mimic:
 	'Mimic'
 	'{'
-		'joint' joint=EString
+		'joint' joint=STRING
 		('multiplier' multiplier=Double0)?
 		('offset' offset=Double0)?
 	'}';
@@ -194,7 +191,7 @@ Visual returns urdf::Visual:
 Collision returns urdf::Collision:
 	'Collision'
 	'{'
-		('name' name=EString)?
+		('name' name=ID)?
 		('origin' origin=Pose)?
 		'geometry' geometry=Geometry
 		('verbose' verbose=Verbose)?
@@ -233,7 +230,7 @@ Material returns urdf::Material:
 	{urdf::Material}
 	'Material'
 	'{'
-		('name' name=EString)?
+		('name' name=ID)?
 		('color' color=Color)?
 		('texture' texture=Texture)?
 	'}';
@@ -242,7 +239,7 @@ Box returns urdf::Box:
 	{urdf::Box}
 	'Box'
 	'{'
-		('size' size=EString)?
+		('size' size=STRING)?
 	'}';
 
 Cylinder returns urdf::Cylinder:
@@ -262,7 +259,7 @@ Mesh returns urdf::Mesh:
 	'Mesh'
 	'{'
 		'filename' filename=AnyURI
-		('scale' scale=EString)?
+		('scale' scale=STRING)?
 	'}';
 
 AnyURI returns type::AnyURI:
@@ -272,7 +269,7 @@ Color returns urdf::Color:
 	{urdf::Color}
 	'Color'
 	'{'
-		('rgba' rgba=EString)?
+		('rgba' rgba=STRING)?
 	'}';
 
 Texture returns urdf::Texture:
@@ -286,14 +283,14 @@ Verbose returns urdf::Verbose:
 	{urdf::Verbose}
 	'Verbose'
 	'{'
-		('value' value=EString)?
+		('value' value=STRING)?
 	'}';
 	
 ActuatorTransmission returns urdf::ActuatorTransmission:
 	'ActuatorTransmission'
 	'{'
 		'mechanicalReduction' mechanicalReduction=Double0
-		'name' name=EString
+		'name' name=ID
 	'}';
 
 GapJointTransmission returns urdf::GapJointTransmission:
@@ -305,7 +302,7 @@ GapJointTransmission returns urdf::GapJointTransmission:
 		'h' h=Double0
 		'l0' l0=Double0
 		'mechanicalReduction' mechanicalReduction=Double0
-		'name' name=EString
+		'name' name=ID
 		'phi0' phi0=Double0
 		'r' r=Double0
 		'screwReduction' screwReduction=Double0
@@ -316,7 +313,7 @@ GapJointTransmission returns urdf::GapJointTransmission:
 PassiveJointTransmission returns urdf::PassiveJointTransmission:
 	'PassiveJointTransmission'
 	'{'
-		'name' name=EString
+		'name' name=ID
 	'}';
 	
 UseSimulatedGripperJointType returns urdf::UseSimulatedGripperJointType:
@@ -328,7 +325,7 @@ Name returns urdf::Name:
 	{urdf::Name}
 	'Name'
 	'{'
-		('name' name=EString)?
+		('name' name=ID)?
 	'}';
 	
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307

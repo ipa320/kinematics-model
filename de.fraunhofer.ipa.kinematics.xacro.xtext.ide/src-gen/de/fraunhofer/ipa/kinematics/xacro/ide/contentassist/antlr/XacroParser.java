@@ -31,7 +31,6 @@ public class XacroParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, XacroGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getRobotAccess().getGroup(), "rule__Robot__Group__0");
 			builder.put(grammarAccess.getRobotAccess().getGroup_5(), "rule__Robot__Group_5__0");
 			builder.put(grammarAccess.getRobotAccess().getGroup_6(), "rule__Robot__Group_6__0");

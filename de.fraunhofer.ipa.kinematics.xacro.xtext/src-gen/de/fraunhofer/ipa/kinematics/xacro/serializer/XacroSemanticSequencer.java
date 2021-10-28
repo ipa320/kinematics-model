@@ -188,7 +188,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ActuatorTransmission returns ActuatorTransmission
 	 *
 	 * Constraint:
-	 *     (mechanicalReduction=Double0 name=EString)
+	 *     (mechanicalReduction=Double0 name=ID)
 	 */
 	protected void sequence_ActuatorTransmission(ISerializationContext context, ActuatorTransmission semanticObject) {
 		if (errorAcceptor != null) {
@@ -199,7 +199,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_3_0(), semanticObject.getMechanicalReduction());
-		feeder.accept(grammarAccess.getActuatorTransmissionAccess().getNameEStringParserRuleCall_5_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getActuatorTransmissionAccess().getNameIDTerminalRuleCall_5_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -209,7 +209,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Axis returns Axis
 	 *
 	 * Constraint:
-	 *     xyz=EString?
+	 *     xyz=STRING?
 	 */
 	protected void sequence_Axis(ISerializationContext context, Axis semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -239,7 +239,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Box returns Box
 	 *
 	 * Constraint:
-	 *     size=EString?
+	 *     size=STRING?
 	 */
 	protected void sequence_Box(ISerializationContext context, Box semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -263,7 +263,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Collision returns Collision
 	 *
 	 * Constraint:
-	 *     (name=EString? origin=Pose? geometry=Geometry verbose=Verbose?)
+	 *     (name=ID? origin=Pose? geometry=Geometry verbose=Verbose?)
 	 */
 	protected void sequence_Collision(ISerializationContext context, Collision semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -275,7 +275,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Color returns Color
 	 *
 	 * Constraint:
-	 *     rgba=EString?
+	 *     rgba=STRING?
 	 */
 	protected void sequence_Color(ISerializationContext context, Color semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -327,7 +327,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         h=Double0 
 	 *         l0=Double0 
 	 *         mechanicalReduction=Double0 
-	 *         name=EString 
+	 *         name=ID 
 	 *         phi0=Double0 
 	 *         r=Double0 
 	 *         screwReduction=Double0 
@@ -369,7 +369,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getHDouble0ParserRuleCall_9_0(), semanticObject.getH());
 		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getL0Double0ParserRuleCall_11_0(), semanticObject.getL0());
 		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_13_0(), semanticObject.getMechanicalReduction());
-		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getNameEStringParserRuleCall_15_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getNameIDTerminalRuleCall_15_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getPhi0Double0ParserRuleCall_17_0(), semanticObject.getPhi0());
 		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getRDouble0ParserRuleCall_19_0(), semanticObject.getR());
 		feeder.accept(grammarAccess.getGapJointTransmissionAccess().getScrewReductionDouble0ParserRuleCall_21_0(), semanticObject.getScrewReduction());
@@ -428,10 +428,10 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString 
+	 *         name=ID 
 	 *         type=JOINTTYPE 
-	 *         parent=[Link|EString] 
-	 *         child=[Link|EString] 
+	 *         parent=[Link|STRING] 
+	 *         child=[Link|STRING] 
 	 *         origin=Pose? 
 	 *         axis=Axis? 
 	 *         calibration=Calibration? 
@@ -463,7 +463,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Link returns Link
 	 *
 	 * Constraint:
-	 *     (name=EString type=EString? inertial=Inertial? visual=Visual? collision=Collision?)
+	 *     (name=ID type=STRING? inertial=Inertial? visual=Visual? collision=Collision?)
 	 */
 	protected void sequence_Link(ISerializationContext context, Link semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -475,7 +475,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     MacroCall returns MacroCall
 	 *
 	 * Constraint:
-	 *     (macro=[Macro|EString] (parameterCall+=ParameterCall parameterCall+=ParameterCall*)?)
+	 *     (macro=[Macro|ID] (parameterCall+=ParameterCall parameterCall+=ParameterCall*)?)
 	 */
 	protected void sequence_MacroCall(ISerializationContext context, MacroCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -487,7 +487,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Macro returns Macro
 	 *
 	 * Constraint:
-	 *     (name=EString (parameter+=Parameter parameter+=Parameter*)? body=Body?)
+	 *     (name=ID (parameter+=Parameter parameter+=Parameter*)? body=Body?)
 	 */
 	protected void sequence_Macro(ISerializationContext context, Macro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -511,7 +511,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     MaterialGlobal returns MaterialGlobal
 	 *
 	 * Constraint:
-	 *     (name=EString color=Color? texture=Texture?)
+	 *     (name=ID color=Color? texture=Texture?)
 	 */
 	protected void sequence_MaterialGlobal(ISerializationContext context, MaterialGlobal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -523,7 +523,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Material returns Material
 	 *
 	 * Constraint:
-	 *     (name=EString? color=Color? texture=Texture?)
+	 *     (name=ID? color=Color? texture=Texture?)
 	 */
 	protected void sequence_Material(ISerializationContext context, Material semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -535,7 +535,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Mesh returns Mesh
 	 *
 	 * Constraint:
-	 *     (filename=AnyURI scale=EString?)
+	 *     (filename=AnyURI scale=STRING?)
 	 */
 	protected void sequence_Mesh(ISerializationContext context, Mesh semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -547,7 +547,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Mimic returns Mimic
 	 *
 	 * Constraint:
-	 *     (joint=EString multiplier=Double0? offset=Double0?)
+	 *     (joint=STRING multiplier=Double0? offset=Double0?)
 	 */
 	protected void sequence_Mimic(ISerializationContext context, Mimic semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -559,7 +559,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Name returns Name
 	 *
 	 * Constraint:
-	 *     name=EString?
+	 *     name=ID?
 	 */
 	protected void sequence_Name(ISerializationContext context, Name semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -571,7 +571,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ParameterCall returns ParameterCall
 	 *
 	 * Constraint:
-	 *     (parameter=[Parameter|EString] value=EString)
+	 *     (parameter=[Parameter|ID] value=STRING)
 	 */
 	protected void sequence_ParameterCall(ISerializationContext context, ParameterCall semanticObject) {
 		if (errorAcceptor != null) {
@@ -581,8 +581,8 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.PARAMETER_CALL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParameterCallAccess().getParameterParameterEStringParserRuleCall_4_0_1(), semanticObject.eGet(XacroPackage.Literals.PARAMETER_CALL__PARAMETER, false));
-		feeder.accept(grammarAccess.getParameterCallAccess().getValueEStringParserRuleCall_6_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getParameterCallAccess().getParameterParameterIDTerminalRuleCall_4_0_1(), semanticObject.eGet(XacroPackage.Literals.PARAMETER_CALL__PARAMETER, false));
+		feeder.accept(grammarAccess.getParameterCallAccess().getValueSTRINGTerminalRuleCall_6_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -592,7 +592,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (name=EString default=EString? value=EString?)
+	 *     (name=ID default=STRING? value=STRING?)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, xacro.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -604,7 +604,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     PassiveJointTransmission returns PassiveJointTransmission
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     name=ID
 	 */
 	protected void sequence_PassiveJointTransmission(ISerializationContext context, PassiveJointTransmission semanticObject) {
 		if (errorAcceptor != null) {
@@ -612,7 +612,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.PASSIVE_JOINT_TRANSMISSION__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPassiveJointTransmissionAccess().getNameEStringParserRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPassiveJointTransmissionAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -622,7 +622,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Pose returns Pose
 	 *
 	 * Constraint:
-	 *     (rpy=EString? xyz=EString?)
+	 *     (rpy=STRING? xyz=STRING?)
 	 */
 	protected void sequence_Pose(ISerializationContext context, Pose semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -634,7 +634,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=EString version=EString? (macro+=Macro macro+=Macro*)? (macroCall+=MacroCall macroCall+=MacroCall*)? body=Body?)
+	 *     (name=ID version=STRING? (macro+=Macro macro+=Macro*)? (macroCall+=MacroCall macroCall+=MacroCall*)? body=Body?)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -690,8 +690,8 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Constraint:
 	 *     (
 	 *         (mechanicalReduction+=Double0 mechanicalReduction+=Double0*)? 
-	 *         name=EString 
-	 *         type=EString 
+	 *         name=ID 
+	 *         type=STRING 
 	 *         (leftActuator+=ActuatorTransmission leftActuator+=ActuatorTransmission*)? 
 	 *         (rightActuator+=ActuatorTransmission rightActuator+=ActuatorTransmission*)? 
 	 *         (flexJoint+=ActuatorTransmission flexJoint+=ActuatorTransmission*)? 
@@ -725,7 +725,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Verbose returns Verbose
 	 *
 	 * Constraint:
-	 *     value=EString?
+	 *     value=STRING?
 	 */
 	protected void sequence_Verbose(ISerializationContext context, Verbose semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

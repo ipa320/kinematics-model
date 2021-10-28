@@ -97,20 +97,19 @@ ruleRobot returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_4_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getRobotAccess().getNameEStringParserRuleCall_4_0());
+					newLeafNode(lv_name_4_0, grammarAccess.getRobotAccess().getNameIDTerminalRuleCall_4_0());
 				}
-				lv_name_4_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRobotRule());
+						$current = createModelElement(grammarAccess.getRobotRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_4_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -121,20 +120,19 @@ ruleRobot returns [EObject current=null]
 			}
 			(
 				(
+					lv_version_6_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getRobotAccess().getVersionEStringParserRuleCall_5_1_0());
+						newLeafNode(lv_version_6_0, grammarAccess.getRobotAccess().getVersionSTRINGTerminalRuleCall_5_1_0());
 					}
-					lv_version_6_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getRobotRule());
+							$current = createModelElement(grammarAccess.getRobotRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"version",
 							lv_version_6_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -287,40 +285,6 @@ ruleRobot returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleEString
-entryRuleEString returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEStringRule()); }
-	iv_ruleEString=ruleEString
-	{ $current=$iv_ruleEString.current.getText(); }
-	EOF;
-
-// Rule EString
-ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_STRING_0=RULE_STRING
-		{
-			$current.merge(this_STRING_0);
-		}
-		{
-			newLeafNode(this_STRING_0, grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0());
-		}
-		    |
-		this_ID_1=RULE_ID
-		{
-			$current.merge(this_ID_1);
-		}
-		{
-			newLeafNode(this_ID_1, grammarAccess.getEStringAccess().getIDTerminalRuleCall_1());
-		}
-	)
-;
-
 // Entry rule entryRuleMacro
 entryRuleMacro returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getMacroRule()); }
@@ -351,20 +315,19 @@ ruleMacro returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_3_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getMacroAccess().getNameEStringParserRuleCall_3_0());
+					newLeafNode(lv_name_3_0, grammarAccess.getMacroAccess().getNameIDTerminalRuleCall_3_0());
 				}
-				lv_name_3_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMacroRule());
+						$current = createModelElement(grammarAccess.getMacroRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -487,20 +450,19 @@ ruleParameter returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_2_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getParameterAccess().getNameEStringParserRuleCall_2_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_2_0());
 				}
-				lv_name_2_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getParameterRule());
+						$current = createModelElement(grammarAccess.getParameterRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_2_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -515,20 +477,19 @@ ruleParameter returns [EObject current=null]
 			}
 			(
 				(
+					lv_default_5_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getParameterAccess().getDefaultEStringParserRuleCall_4_1_0());
+						newLeafNode(lv_default_5_0, grammarAccess.getParameterAccess().getDefaultSTRINGTerminalRuleCall_4_1_0());
 					}
-					lv_default_5_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getParameterRule());
+							$current = createModelElement(grammarAccess.getParameterRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"default",
 							lv_default_5_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -540,20 +501,19 @@ ruleParameter returns [EObject current=null]
 			}
 			(
 				(
+					lv_value_7_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getParameterAccess().getValueEStringParserRuleCall_5_1_0());
+						newLeafNode(lv_value_7_0, grammarAccess.getParameterAccess().getValueSTRINGTerminalRuleCall_5_1_0());
 					}
-					lv_value_7_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getParameterRule());
+							$current = createModelElement(grammarAccess.getParameterRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"value",
 							lv_value_7_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -935,12 +895,9 @@ ruleMacroCall returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getMacroCallRule());
 					}
 				}
+				otherlv_4=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getMacroCallAccess().getMacroMacroCrossReference_4_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_4, grammarAccess.getMacroCallAccess().getMacroMacroCrossReference_4_0());
 				}
 			)
 		)
@@ -1051,12 +1008,9 @@ ruleParameterCall returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getParameterCallRule());
 					}
 				}
+				otherlv_4=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getParameterCallAccess().getParameterParameterCrossReference_4_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_4, grammarAccess.getParameterCallAccess().getParameterParameterCrossReference_4_0());
 				}
 			)
 		)
@@ -1066,20 +1020,19 @@ ruleParameterCall returns [EObject current=null]
 		}
 		(
 			(
+				lv_value_6_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getParameterCallAccess().getValueEStringParserRuleCall_6_0());
+					newLeafNode(lv_value_6_0, grammarAccess.getParameterCallAccess().getValueSTRINGTerminalRuleCall_6_0());
 				}
-				lv_value_6_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getParameterCallRule());
+						$current = createModelElement(grammarAccess.getParameterCallRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"value",
 						lv_value_6_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -1120,20 +1073,19 @@ ruleJoint returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_3_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getJointAccess().getNameEStringParserRuleCall_3_0());
+					newLeafNode(lv_name_3_0, grammarAccess.getJointAccess().getNameIDTerminalRuleCall_3_0());
 				}
-				lv_name_3_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getJointRule());
+						$current = createModelElement(grammarAccess.getJointRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -1170,12 +1122,9 @@ ruleJoint returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getJointRule());
 					}
 				}
+				otherlv_7=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getJointAccess().getParentLinkCrossReference_7_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_7, grammarAccess.getJointAccess().getParentLinkCrossReference_7_0());
 				}
 			)
 		)
@@ -1190,12 +1139,9 @@ ruleJoint returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getJointRule());
 					}
 				}
+				otherlv_9=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getJointAccess().getChildLinkCrossReference_9_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_9, grammarAccess.getJointAccess().getChildLinkCrossReference_9_0());
 				}
 			)
 		)
@@ -1411,20 +1357,19 @@ ruleLink returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_3_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getLinkAccess().getNameEStringParserRuleCall_3_0());
+					newLeafNode(lv_name_3_0, grammarAccess.getLinkAccess().getNameIDTerminalRuleCall_3_0());
 				}
-				lv_name_3_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getLinkRule());
+						$current = createModelElement(grammarAccess.getLinkRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -1435,20 +1380,19 @@ ruleLink returns [EObject current=null]
 			}
 			(
 				(
+					lv_type_5_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getLinkAccess().getTypeEStringParserRuleCall_4_1_0());
+						newLeafNode(lv_type_5_0, grammarAccess.getLinkAccess().getTypeSTRINGTerminalRuleCall_4_1_0());
 					}
-					lv_type_5_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getLinkRule());
+							$current = createModelElement(grammarAccess.getLinkRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"type",
 							lv_type_5_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -1565,20 +1509,19 @@ ruleMaterialGlobal returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_3_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getMaterialGlobalAccess().getNameEStringParserRuleCall_3_0());
+					newLeafNode(lv_name_3_0, grammarAccess.getMaterialGlobalAccess().getNameIDTerminalRuleCall_3_0());
 				}
-				lv_name_3_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMaterialGlobalRule());
+						$current = createModelElement(grammarAccess.getMaterialGlobalRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -1727,20 +1670,19 @@ ruleTransmission returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_9_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getTransmissionAccess().getNameEStringParserRuleCall_4_0());
+					newLeafNode(lv_name_9_0, grammarAccess.getTransmissionAccess().getNameIDTerminalRuleCall_4_0());
 				}
-				lv_name_9_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						$current = createModelElement(grammarAccess.getTransmissionRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_9_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -1750,20 +1692,19 @@ ruleTransmission returns [EObject current=null]
 		}
 		(
 			(
+				lv_type_11_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getTransmissionAccess().getTypeEStringParserRuleCall_6_0());
+					newLeafNode(lv_type_11_0, grammarAccess.getTransmissionAccess().getTypeSTRINGTerminalRuleCall_6_0());
 				}
-				lv_type_11_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTransmissionRule());
+						$current = createModelElement(grammarAccess.getTransmissionRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"type",
 						lv_type_11_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -2334,20 +2275,19 @@ rulePose returns [EObject current=null]
 			}
 			(
 				(
+					lv_rpy_4_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getPoseAccess().getRpyEStringParserRuleCall_3_1_0());
+						newLeafNode(lv_rpy_4_0, grammarAccess.getPoseAccess().getRpySTRINGTerminalRuleCall_3_1_0());
 					}
-					lv_rpy_4_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPoseRule());
+							$current = createModelElement(grammarAccess.getPoseRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"rpy",
 							lv_rpy_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -2359,20 +2299,19 @@ rulePose returns [EObject current=null]
 			}
 			(
 				(
+					lv_xyz_6_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getPoseAccess().getXyzEStringParserRuleCall_4_1_0());
+						newLeafNode(lv_xyz_6_0, grammarAccess.getPoseAccess().getXyzSTRINGTerminalRuleCall_4_1_0());
 					}
-					lv_xyz_6_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPoseRule());
+							$current = createModelElement(grammarAccess.getPoseRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"xyz",
 							lv_xyz_6_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -2422,20 +2361,19 @@ ruleAxis returns [EObject current=null]
 			}
 			(
 				(
+					lv_xyz_4_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getAxisAccess().getXyzEStringParserRuleCall_3_1_0());
+						newLeafNode(lv_xyz_4_0, grammarAccess.getAxisAccess().getXyzSTRINGTerminalRuleCall_3_1_0());
 					}
-					lv_xyz_4_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAxisRule());
+							$current = createModelElement(grammarAccess.getAxisRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"xyz",
 							lv_xyz_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -2945,20 +2883,19 @@ ruleMimic returns [EObject current=null]
 		}
 		(
 			(
+				lv_joint_3_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getMimicAccess().getJointEStringParserRuleCall_3_0());
+					newLeafNode(lv_joint_3_0, grammarAccess.getMimicAccess().getJointSTRINGTerminalRuleCall_3_0());
 				}
-				lv_joint_3_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMimicRule());
+						$current = createModelElement(grammarAccess.getMimicRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"joint",
 						lv_joint_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -3267,20 +3204,19 @@ ruleCollision returns [EObject current=null]
 			}
 			(
 				(
+					lv_name_3_0=RULE_ID
 					{
-						newCompositeNode(grammarAccess.getCollisionAccess().getNameEStringParserRuleCall_2_1_0());
+						newLeafNode(lv_name_3_0, grammarAccess.getCollisionAccess().getNameIDTerminalRuleCall_2_1_0());
 					}
-					lv_name_3_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCollisionRule());
+							$current = createModelElement(grammarAccess.getCollisionRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"name",
 							lv_name_3_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.ID");
 					}
 				)
 			)
@@ -3792,20 +3728,19 @@ ruleMaterial returns [EObject current=null]
 			}
 			(
 				(
+					lv_name_4_0=RULE_ID
 					{
-						newCompositeNode(grammarAccess.getMaterialAccess().getNameEStringParserRuleCall_3_1_0());
+						newLeafNode(lv_name_4_0, grammarAccess.getMaterialAccess().getNameIDTerminalRuleCall_3_1_0());
 					}
-					lv_name_4_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMaterialRule());
+							$current = createModelElement(grammarAccess.getMaterialRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"name",
 							lv_name_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.ID");
 					}
 				)
 			)
@@ -3905,20 +3840,19 @@ ruleBox returns [EObject current=null]
 			}
 			(
 				(
+					lv_size_4_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getBoxAccess().getSizeEStringParserRuleCall_3_1_0());
+						newLeafNode(lv_size_4_0, grammarAccess.getBoxAccess().getSizeSTRINGTerminalRuleCall_3_1_0());
 					}
-					lv_size_4_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getBoxRule());
+							$current = createModelElement(grammarAccess.getBoxRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"size",
 							lv_size_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -4115,20 +4049,19 @@ ruleMesh returns [EObject current=null]
 			}
 			(
 				(
+					lv_scale_5_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getMeshAccess().getScaleEStringParserRuleCall_4_1_0());
+						newLeafNode(lv_scale_5_0, grammarAccess.getMeshAccess().getScaleSTRINGTerminalRuleCall_4_1_0());
 					}
-					lv_scale_5_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMeshRule());
+							$current = createModelElement(grammarAccess.getMeshRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"scale",
 							lv_scale_5_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -4200,20 +4133,19 @@ ruleColor returns [EObject current=null]
 			}
 			(
 				(
+					lv_rgba_4_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getColorAccess().getRgbaEStringParserRuleCall_3_1_0());
+						newLeafNode(lv_rgba_4_0, grammarAccess.getColorAccess().getRgbaSTRINGTerminalRuleCall_3_1_0());
 					}
-					lv_rgba_4_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getColorRule());
+							$current = createModelElement(grammarAccess.getColorRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"rgba",
 							lv_rgba_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -4326,20 +4258,19 @@ ruleVerbose returns [EObject current=null]
 			}
 			(
 				(
+					lv_value_4_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getVerboseAccess().getValueEStringParserRuleCall_3_1_0());
+						newLeafNode(lv_value_4_0, grammarAccess.getVerboseAccess().getValueSTRINGTerminalRuleCall_3_1_0());
 					}
-					lv_value_4_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVerboseRule());
+							$current = createModelElement(grammarAccess.getVerboseRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"value",
 							lv_value_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -4404,20 +4335,19 @@ ruleActuatorTransmission returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_5_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getActuatorTransmissionAccess().getNameEStringParserRuleCall_5_0());
+					newLeafNode(lv_name_5_0, grammarAccess.getActuatorTransmissionAccess().getNameIDTerminalRuleCall_5_0());
 				}
-				lv_name_5_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getActuatorTransmissionRule());
+						$current = createModelElement(grammarAccess.getActuatorTransmissionRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_5_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -4596,20 +4526,19 @@ ruleGapJointTransmission returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_15_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getNameEStringParserRuleCall_15_0());
+					newLeafNode(lv_name_15_0, grammarAccess.getGapJointTransmissionAccess().getNameIDTerminalRuleCall_15_0());
 				}
-				lv_name_15_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
+						$current = createModelElement(grammarAccess.getGapJointTransmissionRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_15_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -4765,20 +4694,19 @@ rulePassiveJointTransmission returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_3_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getPassiveJointTransmissionAccess().getNameEStringParserRuleCall_3_0());
+					newLeafNode(lv_name_3_0, grammarAccess.getPassiveJointTransmissionAccess().getNameIDTerminalRuleCall_3_0());
 				}
-				lv_name_3_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPassiveJointTransmissionRule());
+						$current = createModelElement(grammarAccess.getPassiveJointTransmissionRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -4857,20 +4785,19 @@ ruleName returns [EObject current=null]
 			}
 			(
 				(
+					lv_name_4_0=RULE_ID
 					{
-						newCompositeNode(grammarAccess.getNameAccess().getNameEStringParserRuleCall_3_1_0());
+						newLeafNode(lv_name_4_0, grammarAccess.getNameAccess().getNameIDTerminalRuleCall_3_1_0());
 					}
-					lv_name_4_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getNameRule());
+							$current = createModelElement(grammarAccess.getNameRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"name",
 							lv_name_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.ID");
 					}
 				)
 			)
