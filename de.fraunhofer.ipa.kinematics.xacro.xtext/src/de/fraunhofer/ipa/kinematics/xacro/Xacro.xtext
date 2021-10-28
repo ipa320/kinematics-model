@@ -30,7 +30,6 @@ Parameter returns Parameter:
 	'Parameter'
 	name=ID
 	'{'
-		('default' default=STRING)?
 		('value' value=STRING)?
 	'}';
 

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link xacro.Parameter#getName <em>Name</em>}</li>
- *   <li>{@link xacro.Parameter#getDefault <em>Default</em>}</li>
  *   <li>{@link xacro.Parameter#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -44,28 +43,6 @@ public interface Parameter extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default</em>' attribute.
-	 * @see #setDefault(String)
-	 * @see xacro.XacroPackage#getParameter_Default()
-	 * @model
-	 * @generated
-	 */
-	String getDefault();
-
-	/**
-	 * Sets the value of the '{@link xacro.Parameter#getDefault <em>Default</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default</em>' attribute.
-	 * @see #getDefault()
-	 * @generated
-	 */
-	void setDefault(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

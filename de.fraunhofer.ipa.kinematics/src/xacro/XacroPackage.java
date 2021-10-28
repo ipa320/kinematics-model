@@ -149,22 +149,13 @@ public interface XacroPackage extends EPackage {
 	int PARAMETER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__DEFAULT = 1;
-
-	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__VALUE = 2;
+	int PARAMETER__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -173,7 +164,7 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 3;
+	int PARAMETER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -485,17 +476,6 @@ public interface XacroPackage extends EPackage {
 	EAttribute getParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link xacro.Parameter#getDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see xacro.Parameter#getDefault()
-	 * @see #getParameter()
-	 * @generated
-	 */
-	EAttribute getParameter_Default();
-
-	/**
 	 * Returns the meta object for the attribute '{@link xacro.Parameter#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -757,14 +737,6 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER__DEFAULT = eINSTANCE.getParameter_Default();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.

@@ -16,7 +16,6 @@
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/value"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Body">

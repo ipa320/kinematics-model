@@ -592,7 +592,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (name=ID default=STRING? value=STRING?)
+	 *     (name=ID value=STRING?)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, xacro.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

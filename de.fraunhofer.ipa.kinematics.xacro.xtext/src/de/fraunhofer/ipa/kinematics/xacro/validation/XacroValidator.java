@@ -61,7 +61,7 @@ public class XacroValidator extends AbstractXacroValidator {
 		EList<Parameter> macroParams = (((Macro) macro.eCrossReferences().get(0)).getParameter());
 		for (Iterator<Parameter> iterator = macroParams.iterator(); iterator.hasNext();) {
 			Parameter parameter = (Parameter) iterator.next();
-			if (parameter.getValue() == null && parameter.getDefault() == null) {
+			if (parameter.getValue() == null) {
 
 				boolean isSet = false;
 				for (Iterator<ParameterCall> iterator2 = macro.getParameterCall().iterator(); iterator2.hasNext();) {

@@ -44,7 +44,6 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMacroAccess().getGroup_5(), "rule__Macro__Group_5__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup_4(), "rule__Parameter__Group_4__0");
-			builder.put(grammarAccess.getParameterAccess().getGroup_5(), "rule__Parameter__Group_5__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup(), "rule__Body__Group__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup_3(), "rule__Body__Group_3__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup_3_3(), "rule__Body__Group_3_3__0");
@@ -180,8 +179,7 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMacroAccess().getParameterAssignment_4_3_1(), "rule__Macro__ParameterAssignment_4_3_1");
 			builder.put(grammarAccess.getMacroAccess().getBodyAssignment_5_1(), "rule__Macro__BodyAssignment_5_1");
 			builder.put(grammarAccess.getParameterAccess().getNameAssignment_2(), "rule__Parameter__NameAssignment_2");
-			builder.put(grammarAccess.getParameterAccess().getDefaultAssignment_4_1(), "rule__Parameter__DefaultAssignment_4_1");
-			builder.put(grammarAccess.getParameterAccess().getValueAssignment_5_1(), "rule__Parameter__ValueAssignment_5_1");
+			builder.put(grammarAccess.getParameterAccess().getValueAssignment_4_1(), "rule__Parameter__ValueAssignment_4_1");
 			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_3_2(), "rule__Body__LinkAssignment_3_2");
 			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_3_3_1(), "rule__Body__LinkAssignment_3_3_1");
 			builder.put(grammarAccess.getBodyAccess().getJointAssignment_4_2(), "rule__Body__JointAssignment_4_2");

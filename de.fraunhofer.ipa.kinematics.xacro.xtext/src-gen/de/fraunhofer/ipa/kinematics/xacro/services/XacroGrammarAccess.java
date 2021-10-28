@@ -300,21 +300,16 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cDefaultKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cDefaultAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cDefaultSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDefaultAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cValueKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cValueAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cValueAssignment_5_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cValueKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Parameter returns Parameter:
 		//    {Parameter}
 		//    'Parameter'
 		//    name=ID
 		//    '{'
-		//        ('default' default=STRING)?
 		//        ('value' value=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
@@ -323,7 +318,6 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'Parameter'
 		//name=ID
 		//'{'
-		//    ('default' default=STRING)?
 		//    ('value' value=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -343,32 +337,20 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('default' default=STRING)?
+		//('value' value=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'default'
-		public Keyword getDefaultKeyword_4_0() { return cDefaultKeyword_4_0; }
-		
-		//default=STRING
-		public Assignment getDefaultAssignment_4_1() { return cDefaultAssignment_4_1; }
-		
-		//STRING
-		public RuleCall getDefaultSTRINGTerminalRuleCall_4_1_0() { return cDefaultSTRINGTerminalRuleCall_4_1_0; }
-		
-		//('value' value=STRING)?
-		public Group getGroup_5() { return cGroup_5; }
-		
 		//'value'
-		public Keyword getValueKeyword_5_0() { return cValueKeyword_5_0; }
+		public Keyword getValueKeyword_4_0() { return cValueKeyword_4_0; }
 		
 		//value=STRING
-		public Assignment getValueAssignment_5_1() { return cValueAssignment_5_1; }
+		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_5_1_0() { return cValueSTRINGTerminalRuleCall_5_1_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_4_1_0() { return cValueSTRINGTerminalRuleCall_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class BodyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Body");
@@ -3772,7 +3754,6 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'Parameter'
 	//    name=ID
 	//    '{'
-	//        ('default' default=STRING)?
 	//        ('value' value=STRING)?
 	//    '}';
 	public ParameterElements getParameterAccess() {

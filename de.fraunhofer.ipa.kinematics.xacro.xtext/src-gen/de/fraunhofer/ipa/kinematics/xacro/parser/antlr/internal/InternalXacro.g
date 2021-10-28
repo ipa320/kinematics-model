@@ -471,39 +471,15 @@ ruleParameter returns [EObject current=null]
 			newLeafNode(otherlv_3, grammarAccess.getParameterAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
-			otherlv_4='default'
+			otherlv_4='value'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getParameterAccess().getDefaultKeyword_4_0());
+				newLeafNode(otherlv_4, grammarAccess.getParameterAccess().getValueKeyword_4_0());
 			}
 			(
 				(
-					lv_default_5_0=RULE_STRING
+					lv_value_5_0=RULE_STRING
 					{
-						newLeafNode(lv_default_5_0, grammarAccess.getParameterAccess().getDefaultSTRINGTerminalRuleCall_4_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getParameterRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"default",
-							lv_default_5_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-		)?
-		(
-			otherlv_6='value'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getParameterAccess().getValueKeyword_5_0());
-			}
-			(
-				(
-					lv_value_7_0=RULE_STRING
-					{
-						newLeafNode(lv_value_7_0, grammarAccess.getParameterAccess().getValueSTRINGTerminalRuleCall_5_1_0());
+						newLeafNode(lv_value_5_0, grammarAccess.getParameterAccess().getValueSTRINGTerminalRuleCall_4_1_0());
 					}
 					{
 						if ($current==null) {
@@ -512,15 +488,15 @@ ruleParameter returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"value",
-							lv_value_7_0,
+							lv_value_5_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
 		)?
-		otherlv_8='}'
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getParameterAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getParameterAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
