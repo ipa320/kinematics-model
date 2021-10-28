@@ -11,9 +11,6 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.validation.Check;
-
-import urdf.Joint;
 import urdf.Link;
 import xacro.Macro;
 import xacro.MacroCall;
