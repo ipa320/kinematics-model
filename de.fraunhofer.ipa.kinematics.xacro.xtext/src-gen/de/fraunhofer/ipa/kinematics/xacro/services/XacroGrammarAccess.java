@@ -303,7 +303,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cValueKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
+		private final RuleCall cValueParameterValueParserRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Parameter returns Parameter:
@@ -311,7 +311,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    'Parameter'
 		//    name=ID
 		//    '{'
-		//        ('value' value=STRING)?
+		//        ('value' value=ParameterValue)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -319,7 +319,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'Parameter'
 		//name=ID
 		//'{'
-		//    ('value' value=STRING)?
+		//    ('value' value=ParameterValue)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -338,17 +338,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('value' value=STRING)?
+		//('value' value=ParameterValue)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'value'
 		public Keyword getValueKeyword_4_0() { return cValueKeyword_4_0; }
 		
-		//value=STRING
+		//value=ParameterValue
 		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_4_1_0() { return cValueSTRINGTerminalRuleCall_4_1_0; }
+		//ParameterValue
+		public RuleCall getValueParameterValueParserRuleCall_4_1_0() { return cValueParameterValueParserRuleCall_4_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -356,18 +356,98 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class ParameterValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cParameterValueAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final RuleCall cEStringParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final RuleCall cPoseParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ParameterValue returns ParameterValue:
+		//    {ParameterValue} EString | Pose
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ParameterValue} EString | Pose
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{ParameterValue} EString
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{ParameterValue}
+		public Action getParameterValueAction_0_0() { return cParameterValueAction_0_0; }
+		
+		//EString
+		public RuleCall getEStringParserRuleCall_0_1() { return cEStringParserRuleCall_0_1; }
+		
+		//Pose
+		public RuleCall getPoseParserRuleCall_1() { return cPoseParserRuleCall_1; }
+	}
+	public class ParameterStringElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterString");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cParameterStringAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cRefAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cRefParameterCrossReference_0_1_0 = (CrossReference)cRefAssignment_0_1.eContents().get(0);
+		private final RuleCall cRefParameterSTRINGTerminalRuleCall_0_1_0_1 = (RuleCall)cRefParameterCrossReference_0_1_0.eContents().get(1);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Keyword cPlusSignKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final RuleCall cSTRINGTerminalRuleCall_0_2_1 = (RuleCall)cGroup_0_2.eContents().get(1);
+		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cValueIDTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//ParameterString returns ParameterString:
+		//    {ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{ParameterString} ref=([Parameter|STRING])?("+" STRING)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{ParameterString}
+		public Action getParameterStringAction_0_0() { return cParameterStringAction_0_0; }
+		
+		//ref=([Parameter|STRING])?
+		public Assignment getRefAssignment_0_1() { return cRefAssignment_0_1; }
+		
+		//([Parameter|STRING])
+		public CrossReference getRefParameterCrossReference_0_1_0() { return cRefParameterCrossReference_0_1_0; }
+		
+		//STRING
+		public RuleCall getRefParameterSTRINGTerminalRuleCall_0_1_0_1() { return cRefParameterSTRINGTerminalRuleCall_0_1_0_1; }
+		
+		//("+" STRING)?
+		public Group getGroup_0_2() { return cGroup_0_2; }
+		
+		//"+"
+		public Keyword getPlusSignKeyword_0_2_0() { return cPlusSignKeyword_0_2_0; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_0_2_1() { return cSTRINGTerminalRuleCall_0_2_1; }
+		
+		//value=ID
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//ID
+		public RuleCall getValueIDTerminalRuleCall_1_0() { return cValueIDTerminalRuleCall_1_0; }
+	}
+	public class ParameterPoseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterPose");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cRefAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final CrossReference cRefParameterCrossReference_0_0 = (CrossReference)cRefAssignment_0.eContents().get(0);
 		private final RuleCall cRefParameterSTRINGTerminalRuleCall_0_0_1 = (RuleCall)cRefParameterCrossReference_0_0.eContents().get(1);
 		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cValueIDTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValuePoseParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
-		//ParameterValue returns ParameterValue:
-		//    ref=[Parameter|STRING] | value=ID
+		//ParameterPose returns ParameterPose:
+		//    ref=[Parameter|STRING] | value=Pose
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ref=[Parameter|STRING] | value=ID
+		//ref=[Parameter|STRING] | value=Pose
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ref=[Parameter|STRING]
@@ -379,11 +459,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//STRING
 		public RuleCall getRefParameterSTRINGTerminalRuleCall_0_0_1() { return cRefParameterSTRINGTerminalRuleCall_0_0_1; }
 		
-		//value=ID
+		//value=Pose
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 		
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_1_0() { return cValueIDTerminalRuleCall_1_0; }
+		//Pose
+		public RuleCall getValuePoseParserRuleCall_1_0() { return cValuePoseParserRuleCall_1_0; }
 	}
 	public class BodyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Body");
@@ -604,26 +684,26 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cParameterKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cParameterAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cParameterParameterCrossReference_4_0 = (CrossReference)cParameterAssignment_4.eContents().get(0);
-		private final RuleCall cParameterParameterIDTerminalRuleCall_4_0_1 = (RuleCall)cParameterParameterCrossReference_4_0.eContents().get(1);
+		private final RuleCall cParameterParameterSTRINGTerminalRuleCall_4_0_1 = (RuleCall)cParameterParameterCrossReference_4_0.eContents().get(1);
 		private final Keyword cValueKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cValueAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cValueSTRINGTerminalRuleCall_6_0 = (RuleCall)cValueAssignment_6.eContents().get(0);
+		private final RuleCall cValueParameterValueParserRuleCall_6_0 = (RuleCall)cValueAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ParameterCall returns ParameterCall:
 		//    {ParameterCall}
 		//    'ParameterCall'
 		//    '{'
-		//        'parameter' parameter=[Parameter]
-		//        'value' value=STRING
+		//        'parameter' parameter=[Parameter|STRING]
+		//        'value' value=ParameterValue
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ParameterCall}
 		//'ParameterCall'
 		//'{'
-		//    'parameter' parameter=[Parameter]
-		//    'value' value=STRING
+		//    'parameter' parameter=[Parameter|STRING]
+		//    'value' value=ParameterValue
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -639,23 +719,23 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'parameter'
 		public Keyword getParameterKeyword_3() { return cParameterKeyword_3; }
 		
-		//parameter=[Parameter]
+		//parameter=[Parameter|STRING]
 		public Assignment getParameterAssignment_4() { return cParameterAssignment_4; }
 		
-		//[Parameter]
+		//[Parameter|STRING]
 		public CrossReference getParameterParameterCrossReference_4_0() { return cParameterParameterCrossReference_4_0; }
 		
-		//ID
-		public RuleCall getParameterParameterIDTerminalRuleCall_4_0_1() { return cParameterParameterIDTerminalRuleCall_4_0_1; }
+		//STRING
+		public RuleCall getParameterParameterSTRINGTerminalRuleCall_4_0_1() { return cParameterParameterSTRINGTerminalRuleCall_4_0_1; }
 		
 		//'value'
 		public Keyword getValueKeyword_5() { return cValueKeyword_5; }
 		
-		//value=STRING
+		//value=ParameterValue
 		public Assignment getValueAssignment_6() { return cValueAssignment_6; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_6_0() { return cValueSTRINGTerminalRuleCall_6_0; }
+		//ParameterValue
+		public RuleCall getValueParameterValueParserRuleCall_6_0() { return cValueParameterValueParserRuleCall_6_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -667,7 +747,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameParameterValueParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameParameterStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cTypeJOINTTYPETerminalRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
@@ -682,7 +762,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cOriginKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cOriginAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cOriginPoseParserRuleCall_10_1_0 = (RuleCall)cOriginAssignment_10_1.eContents().get(0);
+		private final RuleCall cOriginParameterPoseParserRuleCall_10_1_0 = (RuleCall)cOriginAssignment_10_1.eContents().get(0);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
 		private final Keyword cAxisKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
 		private final Assignment cAxisAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
@@ -696,11 +776,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Joint returns Joint:
 		//    'Joint'
 		//    '{'
-		//        'name' name=ParameterValue
+		//        'name' name=ParameterString
 		//        'type' type=JOINTTYPE
 		//        'parent' parent=[Link|STRING]
 		//        'child' child=[Link|STRING]
-		//        ('origin' origin=Pose)?
+		//        ('origin' origin=ParameterPose)?
 		//        ('axis' axis=Vector3)?
 		//        ('limit' limit=Limit)?
 		//    '}';
@@ -708,11 +788,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Joint'
 		//'{'
-		//    'name' name=ParameterValue
+		//    'name' name=ParameterString
 		//    'type' type=JOINTTYPE
 		//    'parent' parent=[Link|STRING]
 		//    'child' child=[Link|STRING]
-		//    ('origin' origin=Pose)?
+		//    ('origin' origin=ParameterPose)?
 		//    ('axis' axis=Vector3)?
 		//    ('limit' limit=Limit)?
 		//'}'
@@ -727,11 +807,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
-		//name=ParameterValue
+		//name=ParameterString
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//ParameterValue
-		public RuleCall getNameParameterValueParserRuleCall_3_0() { return cNameParameterValueParserRuleCall_3_0; }
+		//ParameterString
+		public RuleCall getNameParameterStringParserRuleCall_3_0() { return cNameParameterStringParserRuleCall_3_0; }
 		
 		//'type'
 		public Keyword getTypeKeyword_4() { return cTypeKeyword_4; }
@@ -766,17 +846,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//STRING
 		public RuleCall getChildLinkSTRINGTerminalRuleCall_9_0_1() { return cChildLinkSTRINGTerminalRuleCall_9_0_1; }
 		
-		//('origin' origin=Pose)?
+		//('origin' origin=ParameterPose)?
 		public Group getGroup_10() { return cGroup_10; }
 		
 		//'origin'
 		public Keyword getOriginKeyword_10_0() { return cOriginKeyword_10_0; }
 		
-		//origin=Pose
+		//origin=ParameterPose
 		public Assignment getOriginAssignment_10_1() { return cOriginAssignment_10_1; }
 		
-		//Pose
-		public RuleCall getOriginPoseParserRuleCall_10_1_0() { return cOriginPoseParserRuleCall_10_1_0; }
+		//ParameterPose
+		public RuleCall getOriginParameterPoseParserRuleCall_10_1_0() { return cOriginParameterPoseParserRuleCall_10_1_0; }
 		
 		//('axis' axis=Vector3)?
 		public Group getGroup_11() { return cGroup_11; }
@@ -812,7 +892,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameParameterValueParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameParameterStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cInertialKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cInertialAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -830,7 +910,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Link returns Link:
 		//    'Link'
 		//    '{'
-		//        'name' name=ParameterValue
+		//        'name' name=ParameterString
 		//        ('inertial' inertial=Inertial)?
 		//        ('visual' visual=Visual)?
 		//        ('collision' collision=Collision)?
@@ -839,7 +919,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Link'
 		//'{'
-		//    'name' name=ParameterValue
+		//    'name' name=ParameterString
 		//    ('inertial' inertial=Inertial)?
 		//    ('visual' visual=Visual)?
 		//    ('collision' collision=Collision)?
@@ -855,11 +935,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'name'
 		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
-		//name=ParameterValue
+		//name=ParameterString
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//ParameterValue
-		public RuleCall getNameParameterValueParserRuleCall_3_0() { return cNameParameterValueParserRuleCall_3_0; }
+		//ParameterString
+		public RuleCall getNameParameterStringParserRuleCall_3_0() { return cNameParameterStringParserRuleCall_3_0; }
 		
 		//('inertial' inertial=Inertial)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -909,27 +989,27 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cRpyKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cRpyAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cRpyParameterValueParserRuleCall_3_1_0 = (RuleCall)cRpyAssignment_3_1.eContents().get(0);
+		private final RuleCall cRpySTRINGTerminalRuleCall_3_1_0 = (RuleCall)cRpyAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cXyzKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cXyzAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cXyzParameterValueParserRuleCall_4_1_0 = (RuleCall)cXyzAssignment_4_1.eContents().get(0);
+		private final RuleCall cXyzSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cXyzAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Pose returns Pose:
 		//    {Pose}
 		//    'Pose'
 		//    '{'
-		//        ('rpy' rpy=ParameterValue)?
-		//        ('xyz' xyz=ParameterValue)?
+		//        ('rpy' rpy=STRING)?
+		//        ('xyz' xyz=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Pose}
 		//'Pose'
 		//'{'
-		//    ('rpy' rpy=ParameterValue)?
-		//    ('xyz' xyz=ParameterValue)?
+		//    ('rpy' rpy=STRING)?
+		//    ('xyz' xyz=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -942,29 +1022,29 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('rpy' rpy=ParameterValue)?
+		//('rpy' rpy=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'rpy'
 		public Keyword getRpyKeyword_3_0() { return cRpyKeyword_3_0; }
 		
-		//rpy=ParameterValue
+		//rpy=STRING
 		public Assignment getRpyAssignment_3_1() { return cRpyAssignment_3_1; }
 		
-		//ParameterValue
-		public RuleCall getRpyParameterValueParserRuleCall_3_1_0() { return cRpyParameterValueParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getRpySTRINGTerminalRuleCall_3_1_0() { return cRpySTRINGTerminalRuleCall_3_1_0; }
 		
-		//('xyz' xyz=ParameterValue)?
+		//('xyz' xyz=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'xyz'
 		public Keyword getXyzKeyword_4_0() { return cXyzKeyword_4_0; }
 		
-		//xyz=ParameterValue
+		//xyz=STRING
 		public Assignment getXyzAssignment_4_1() { return cXyzAssignment_4_1; }
 		
-		//ParameterValue
-		public RuleCall getXyzParameterValueParserRuleCall_4_1_0() { return cXyzParameterValueParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getXyzSTRINGTerminalRuleCall_4_1_0() { return cXyzSTRINGTerminalRuleCall_4_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -1636,21 +1716,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cSizeKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cSizeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSizeParameterValueParserRuleCall_3_1_0 = (RuleCall)cSizeAssignment_3_1.eContents().get(0);
+		private final RuleCall cSizeParameterStringParserRuleCall_3_1_0 = (RuleCall)cSizeAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Box returns Box:
 		//    {Box}
 		//    'Box'
 		//    '{'
-		//        ('size' size=ParameterValue)?
+		//        ('size' size=ParameterString)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Box}
 		//'Box'
 		//'{'
-		//    ('size' size=ParameterValue)?
+		//    ('size' size=ParameterString)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1663,17 +1743,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('size' size=ParameterValue)?
+		//('size' size=ParameterString)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'size'
 		public Keyword getSizeKeyword_3_0() { return cSizeKeyword_3_0; }
 		
-		//size=ParameterValue
+		//size=ParameterString
 		public Assignment getSizeAssignment_3_1() { return cSizeAssignment_3_1; }
 		
-		//ParameterValue
-		public RuleCall getSizeParameterValueParserRuleCall_3_1_0() { return cSizeParameterValueParserRuleCall_3_1_0; }
+		//ParameterString
+		public RuleCall getSizeParameterStringParserRuleCall_3_1_0() { return cSizeParameterStringParserRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -1844,6 +1924,18 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'AnyURI'
 		public Keyword getAnyURIKeyword() { return cAnyURIKeyword; }
 	}
+	public class EStringElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.EString");
+		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//EString returns ecore::EString:
+		//    STRING
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
+	}
 	public class Double0Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
 		private final RuleCall cDOUBLETerminalRuleCall = (RuleCall)rule.eContents().get(1);
@@ -1872,6 +1964,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final MacroElements pMacro;
 	private final ParameterElements pParameter;
 	private final ParameterValueElements pParameterValue;
+	private final ParameterStringElements pParameterString;
+	private final ParameterPoseElements pParameterPose;
 	private final BodyElements pBody;
 	private final MacroCallElements pMacroCall;
 	private final ParameterCallElements pParameterCall;
@@ -1891,6 +1985,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final SphereElements pSphere;
 	private final MeshElements pMesh;
 	private final AnyURIElements pAnyURI;
+	private final EStringElements pEString;
 	private final TerminalRule tDIGIT;
 	private final TerminalRule tBOOLEAN;
 	private final TerminalRule tDOUBLE;
@@ -1912,6 +2007,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pMacro = new MacroElements();
 		this.pParameter = new ParameterElements();
 		this.pParameterValue = new ParameterValueElements();
+		this.pParameterString = new ParameterStringElements();
+		this.pParameterPose = new ParameterPoseElements();
 		this.pBody = new BodyElements();
 		this.pMacroCall = new MacroCallElements();
 		this.pParameterCall = new ParameterCallElements();
@@ -1931,6 +2028,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pSphere = new SphereElements();
 		this.pMesh = new MeshElements();
 		this.pAnyURI = new AnyURIElements();
+		this.pEString = new EStringElements();
 		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.DIGIT");
 		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.BOOLEAN");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.DOUBLE");
@@ -2005,7 +2103,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'Parameter'
 	//    name=ID
 	//    '{'
-	//        ('value' value=STRING)?
+	//        ('value' value=ParameterValue)?
 	//    '}';
 	public ParameterElements getParameterAccess() {
 		return pParameter;
@@ -2016,7 +2114,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//ParameterValue returns ParameterValue:
-	//    ref=[Parameter|STRING] | value=ID
+	//    {ParameterValue} EString | Pose
 	//;
 	public ParameterValueElements getParameterValueAccess() {
 		return pParameterValue;
@@ -2024,6 +2122,28 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getParameterValueRule() {
 		return getParameterValueAccess().getRule();
+	}
+	
+	//ParameterString returns ParameterString:
+	//    {ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+	//;
+	public ParameterStringElements getParameterStringAccess() {
+		return pParameterString;
+	}
+	
+	public ParserRule getParameterStringRule() {
+		return getParameterStringAccess().getRule();
+	}
+	
+	//ParameterPose returns ParameterPose:
+	//    ref=[Parameter|STRING] | value=Pose
+	//;
+	public ParameterPoseElements getParameterPoseAccess() {
+		return pParameterPose;
+	}
+	
+	public ParserRule getParameterPoseRule() {
+		return getParameterPoseAccess().getRule();
 	}
 	
 	//Body returns Body:
@@ -2060,8 +2180,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {ParameterCall}
 	//    'ParameterCall'
 	//    '{'
-	//        'parameter' parameter=[Parameter]
-	//        'value' value=STRING
+	//        'parameter' parameter=[Parameter|STRING]
+	//        'value' value=ParameterValue
 	//    '}';
 	public ParameterCallElements getParameterCallAccess() {
 		return pParameterCall;
@@ -2074,11 +2194,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Joint returns Joint:
 	//    'Joint'
 	//    '{'
-	//        'name' name=ParameterValue
+	//        'name' name=ParameterString
 	//        'type' type=JOINTTYPE
 	//        'parent' parent=[Link|STRING]
 	//        'child' child=[Link|STRING]
-	//        ('origin' origin=Pose)?
+	//        ('origin' origin=ParameterPose)?
 	//        ('axis' axis=Vector3)?
 	//        ('limit' limit=Limit)?
 	//    '}';
@@ -2093,7 +2213,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Link returns Link:
 	//    'Link'
 	//    '{'
-	//        'name' name=ParameterValue
+	//        'name' name=ParameterString
 	//        ('inertial' inertial=Inertial)?
 	//        ('visual' visual=Visual)?
 	//        ('collision' collision=Collision)?
@@ -2110,8 +2230,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {Pose}
 	//    'Pose'
 	//    '{'
-	//        ('rpy' rpy=ParameterValue)?
-	//        ('xyz' xyz=ParameterValue)?
+	//        ('rpy' rpy=STRING)?
+	//        ('xyz' xyz=STRING)?
 	//    '}';
 	public PoseElements getPoseAccess() {
 		return pPose;
@@ -2250,7 +2370,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {Box}
 	//    'Box'
 	//    '{'
-	//        ('size' size=ParameterValue)?
+	//        ('size' size=ParameterString)?
 	//    '}';
 	public BoxElements getBoxAccess() {
 		return pBox;
@@ -2309,6 +2429,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getAnyURIRule() {
 		return getAnyURIAccess().getRule();
+	}
+	
+	//EString returns ecore::EString:
+	//    STRING
+	//;
+	public EStringElements getEStringAccess() {
+		return pEString;
+	}
+	
+	public ParserRule getEStringRule() {
+		return getEStringAccess().getRule();
 	}
 	
 	//// from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307

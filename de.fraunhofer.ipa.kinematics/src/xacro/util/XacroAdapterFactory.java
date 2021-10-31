@@ -91,8 +91,8 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 				return createParameterCallAdapter();
 			}
 			@Override
-			public Adapter caseParameterValue(ParameterValue object) {
-				return createParameterValueAdapter();
+			public Adapter caseParameterString(ParameterString object) {
+				return createParameterStringAdapter();
 			}
 			@Override
 			public Adapter caseLink(Link object) {
@@ -153,6 +153,14 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSphere(Sphere object) {
 				return createSphereAdapter();
+			}
+			@Override
+			public Adapter caseParameterPose(ParameterPose object) {
+				return createParameterPoseAdapter();
+			}
+			@Override
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -259,16 +267,16 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xacro.ParameterValue <em>Parameter Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterString <em>Parameter String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xacro.ParameterValue
+	 * @see xacro.ParameterString
 	 * @generated
 	 */
-	public Adapter createParameterValueAdapter() {
+	public Adapter createParameterStringAdapter() {
 		return null;
 	}
 
@@ -479,6 +487,34 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSphereAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterPose <em>Parameter Pose</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterPose
+	 * @generated
+	 */
+	public Adapter createParameterPoseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterValue
+	 * @generated
+	 */
+	public Adapter createParameterValueAdapter() {
 		return null;
 	}
 

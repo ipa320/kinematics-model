@@ -18,7 +18,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -60,8 +59,8 @@ public class ParameterCallItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 			addParameterPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,7 +82,7 @@ public class ParameterCallItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -129,10 +128,7 @@ public class ParameterCallItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParameterCall)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ParameterCall_type") :
-			getString("_UI_ParameterCall_type") + " " + label;
+		return getString("_UI_ParameterCall_type");
 	}
 
 

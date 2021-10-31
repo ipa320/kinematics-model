@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import xacro.Joint;
 import xacro.Limit;
 import xacro.Link;
-import xacro.ParameterValue;
-import xacro.Pose;
+import xacro.ParameterPose;
+import xacro.ParameterString;
 import xacro.Vector3;
 import xacro.XacroPackage;
 
@@ -47,7 +47,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterValue name;
+	protected ParameterString name;
 
 	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
@@ -77,7 +77,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * @generated
 	 * @ordered
 	 */
-	protected Pose origin;
+	protected ParameterPose origin;
 
 	/**
 	 * The cached value of the '{@link #getAxis() <em>Axis</em>}' containment reference.
@@ -143,7 +143,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterValue getName() {
+	public ParameterString getName() {
 		return name;
 	}
 
@@ -152,8 +152,8 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetName(ParameterValue newName, NotificationChain msgs) {
-		ParameterValue oldName = name;
+	public NotificationChain basicSetName(ParameterString newName, NotificationChain msgs) {
+		ParameterString oldName = name;
 		name = newName;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__NAME, oldName, newName);
@@ -167,7 +167,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(ParameterValue newName) {
+	public void setName(ParameterString newName) {
 		if (newName != name) {
 			NotificationChain msgs = null;
 			if (name != null)
@@ -262,7 +262,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Pose getOrigin() {
+	public ParameterPose getOrigin() {
 		return origin;
 	}
 
@@ -271,8 +271,8 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrigin(Pose newOrigin, NotificationChain msgs) {
-		Pose oldOrigin = origin;
+	public NotificationChain basicSetOrigin(ParameterPose newOrigin, NotificationChain msgs) {
+		ParameterPose oldOrigin = origin;
 		origin = newOrigin;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__ORIGIN, oldOrigin, newOrigin);
@@ -286,7 +286,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrigin(Pose newOrigin) {
+	public void setOrigin(ParameterPose newOrigin) {
 		if (newOrigin != origin) {
 			NotificationChain msgs = null;
 			if (origin != null)
@@ -464,7 +464,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case XacroPackage.JOINT__NAME:
-				setName((ParameterValue)newValue);
+				setName((ParameterString)newValue);
 				return;
 			case XacroPackage.JOINT__PARENT:
 				setParent((Link)newValue);
@@ -473,7 +473,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 				setChild((Link)newValue);
 				return;
 			case XacroPackage.JOINT__ORIGIN:
-				setOrigin((Pose)newValue);
+				setOrigin((ParameterPose)newValue);
 				return;
 			case XacroPackage.JOINT__AXIS:
 				setAxis((Vector3)newValue);
@@ -497,7 +497,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case XacroPackage.JOINT__NAME:
-				setName((ParameterValue)null);
+				setName((ParameterString)null);
 				return;
 			case XacroPackage.JOINT__PARENT:
 				setParent((Link)null);
@@ -506,7 +506,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 				setChild((Link)null);
 				return;
 			case XacroPackage.JOINT__ORIGIN:
-				setOrigin((Pose)null);
+				setOrigin((ParameterPose)null);
 				return;
 			case XacroPackage.JOINT__AXIS:
 				setAxis((Vector3)null);

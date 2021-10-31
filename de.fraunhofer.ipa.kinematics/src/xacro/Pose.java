@@ -2,8 +2,6 @@
  */
 package xacro;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pose</b></em>'.
@@ -13,57 +11,57 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link xacro.Pose#getXyz <em>Xyz</em>}</li>
  *   <li>{@link xacro.Pose#getRpy <em>Rpy</em>}</li>
+ *   <li>{@link xacro.Pose#getXyz <em>Xyz</em>}</li>
  * </ul>
  *
  * @see xacro.XacroPackage#getPose()
  * @model
  * @generated
  */
-public interface Pose extends EObject {
+public interface Pose extends ParameterValue {
 	/**
-	 * Returns the value of the '<em><b>Xyz</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Xyz</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xyz</em>' containment reference.
-	 * @see #setXyz(ParameterValue)
+	 * @return the value of the '<em>Xyz</em>' attribute.
+	 * @see #setXyz(String)
 	 * @see xacro.XacroPackage#getPose_Xyz()
-	 * @model containment="true" required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 * @generated
 	 */
-	ParameterValue getXyz();
+	String getXyz();
 
 	/**
-	 * Sets the value of the '{@link xacro.Pose#getXyz <em>Xyz</em>}' containment reference.
+	 * Sets the value of the '{@link xacro.Pose#getXyz <em>Xyz</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xyz</em>' containment reference.
+	 * @param value the new value of the '<em>Xyz</em>' attribute.
 	 * @see #getXyz()
 	 * @generated
 	 */
-	void setXyz(ParameterValue value);
+	void setXyz(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Rpy</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rpy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rpy</em>' containment reference.
-	 * @see #setRpy(ParameterValue)
+	 * @return the value of the '<em>Rpy</em>' attribute.
+	 * @see #setRpy(String)
 	 * @see xacro.XacroPackage#getPose_Rpy()
-	 * @model containment="true" required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 * @generated
 	 */
-	ParameterValue getRpy();
+	String getRpy();
 
 	/**
-	 * Sets the value of the '{@link xacro.Pose#getRpy <em>Rpy</em>}' containment reference.
+	 * Sets the value of the '{@link xacro.Pose#getRpy <em>Rpy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rpy</em>' containment reference.
+	 * @param value the new value of the '<em>Rpy</em>' attribute.
 	 * @see #getRpy()
 	 * @generated
 	 */
-	void setRpy(ParameterValue value);
+	void setRpy(String value);
 
 } // Pose

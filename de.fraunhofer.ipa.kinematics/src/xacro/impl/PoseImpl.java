@@ -3,15 +3,8 @@
 package xacro.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import xacro.ParameterValue;
 import xacro.Pose;
 import xacro.XacroPackage;
 
@@ -23,32 +16,52 @@ import xacro.XacroPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xacro.impl.PoseImpl#getXyz <em>Xyz</em>}</li>
  *   <li>{@link xacro.impl.PoseImpl#getRpy <em>Rpy</em>}</li>
+ *   <li>{@link xacro.impl.PoseImpl#getXyz <em>Xyz</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
+public class PoseImpl extends ParameterValueImpl implements Pose {
 	/**
-	 * The cached value of the '{@link #getXyz() <em>Xyz</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getXyz()
-	 * @generated
-	 * @ordered
-	 */
-	protected ParameterValue xyz;
-
-	/**
-	 * The cached value of the '{@link #getRpy() <em>Rpy</em>}' containment reference.
+	 * The default value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRpy()
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterValue rpy;
+	protected static final String RPY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRpy()
+	 * @generated
+	 * @ordered
+	 */
+	protected String rpy = RPY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXyz()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String XYZ_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXyz()
+	 * @generated
+	 * @ordered
+	 */
+	protected String xyz = XYZ_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +87,7 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterValue getXyz() {
+	public String getXyz() {
 		return xyz;
 	}
 
@@ -83,14 +96,11 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetXyz(ParameterValue newXyz, NotificationChain msgs) {
-		ParameterValue oldXyz = xyz;
+	public void setXyz(String newXyz) {
+		String oldXyz = xyz;
 		xyz = newXyz;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__XYZ, oldXyz, newXyz);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__XYZ, oldXyz, xyz));
 	}
 
 	/**
@@ -98,26 +108,7 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setXyz(ParameterValue newXyz) {
-		if (newXyz != xyz) {
-			NotificationChain msgs = null;
-			if (xyz != null)
-				msgs = ((InternalEObject)xyz).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.POSE__XYZ, null, msgs);
-			if (newXyz != null)
-				msgs = ((InternalEObject)newXyz).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.POSE__XYZ, null, msgs);
-			msgs = basicSetXyz(newXyz, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__XYZ, newXyz, newXyz));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParameterValue getRpy() {
+	public String getRpy() {
 		return rpy;
 	}
 
@@ -126,49 +117,11 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRpy(ParameterValue newRpy, NotificationChain msgs) {
-		ParameterValue oldRpy = rpy;
+	public void setRpy(String newRpy) {
+		String oldRpy = rpy;
 		rpy = newRpy;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__RPY, oldRpy, newRpy);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRpy(ParameterValue newRpy) {
-		if (newRpy != rpy) {
-			NotificationChain msgs = null;
-			if (rpy != null)
-				msgs = ((InternalEObject)rpy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.POSE__RPY, null, msgs);
-			if (newRpy != null)
-				msgs = ((InternalEObject)newRpy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.POSE__RPY, null, msgs);
-			msgs = basicSetRpy(newRpy, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__RPY, newRpy, newRpy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case XacroPackage.POSE__XYZ:
-				return basicSetXyz(null, msgs);
-			case XacroPackage.POSE__RPY:
-				return basicSetRpy(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__RPY, oldRpy, rpy));
 	}
 
 	/**
@@ -179,10 +132,10 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XacroPackage.POSE__XYZ:
-				return getXyz();
 			case XacroPackage.POSE__RPY:
 				return getRpy();
+			case XacroPackage.POSE__XYZ:
+				return getXyz();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,11 +148,11 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XacroPackage.POSE__XYZ:
-				setXyz((ParameterValue)newValue);
-				return;
 			case XacroPackage.POSE__RPY:
-				setRpy((ParameterValue)newValue);
+				setRpy((String)newValue);
+				return;
+			case XacroPackage.POSE__XYZ:
+				setXyz((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -213,11 +166,11 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XacroPackage.POSE__XYZ:
-				setXyz((ParameterValue)null);
-				return;
 			case XacroPackage.POSE__RPY:
-				setRpy((ParameterValue)null);
+				setRpy(RPY_EDEFAULT);
+				return;
+			case XacroPackage.POSE__XYZ:
+				setXyz(XYZ_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -231,12 +184,30 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XacroPackage.POSE__XYZ:
-				return xyz != null;
 			case XacroPackage.POSE__RPY:
-				return rpy != null;
+				return RPY_EDEFAULT == null ? rpy != null : !RPY_EDEFAULT.equals(rpy);
+			case XacroPackage.POSE__XYZ:
+				return XYZ_EDEFAULT == null ? xyz != null : !XYZ_EDEFAULT.equals(xyz);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (rpy: ");
+		result.append(rpy);
+		result.append(", xyz: ");
+		result.append(xyz);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PoseImpl

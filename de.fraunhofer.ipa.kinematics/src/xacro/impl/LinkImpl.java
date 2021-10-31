@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import xacro.Collision;
 import xacro.Inertial;
 import xacro.Link;
-import xacro.ParameterValue;
+import xacro.ParameterString;
 import xacro.Visual;
 import xacro.XacroPackage;
 
@@ -43,7 +43,7 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterValue name;
+	protected ParameterString name;
 
 	/**
 	 * The cached value of the '{@link #getVisual() <em>Visual</em>}' containment reference.
@@ -99,7 +99,7 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterValue getName() {
+	public ParameterString getName() {
 		return name;
 	}
 
@@ -108,8 +108,8 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetName(ParameterValue newName, NotificationChain msgs) {
-		ParameterValue oldName = name;
+	public NotificationChain basicSetName(ParameterString newName, NotificationChain msgs) {
+		ParameterString oldName = name;
 		name = newName;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.LINK__NAME, oldName, newName);
@@ -123,7 +123,7 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(ParameterValue newName) {
+	public void setName(ParameterString newName) {
 		if (newName != name) {
 			NotificationChain msgs = null;
 			if (name != null)
@@ -315,7 +315,7 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case XacroPackage.LINK__NAME:
-				setName((ParameterValue)newValue);
+				setName((ParameterString)newValue);
 				return;
 			case XacroPackage.LINK__VISUAL:
 				setVisual((Visual)newValue);
@@ -339,7 +339,7 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case XacroPackage.LINK__NAME:
-				setName((ParameterValue)null);
+				setName((ParameterString)null);
 				return;
 			case XacroPackage.LINK__VISUAL:
 				setVisual((Visual)null);

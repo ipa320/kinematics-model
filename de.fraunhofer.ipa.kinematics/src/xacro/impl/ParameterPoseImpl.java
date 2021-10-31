@@ -3,52 +3,42 @@
 package xacro.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import xacro.Parameter;
-import xacro.ParameterValue;
+import xacro.ParameterPose;
+import xacro.Pose;
 import xacro.XacroPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Parameter Pose</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xacro.impl.ParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link xacro.impl.ParameterImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link xacro.impl.ParameterPoseImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link xacro.impl.ParameterPoseImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter {
+public class ParameterPoseImpl extends MinimalEObjectImpl.Container implements ParameterPose {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected Parameter ref;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -58,14 +48,14 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterValue value;
+	protected Pose value;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterImpl() {
+	protected ParameterPoseImpl() {
 		super();
 	}
 
@@ -76,7 +66,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return XacroPackage.Literals.PARAMETER;
+		return XacroPackage.Literals.PARAMETER_POSE;
 	}
 
 	/**
@@ -84,8 +74,16 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public Parameter getRef() {
+		if (ref != null && ref.eIsProxy()) {
+			InternalEObject oldRef = (InternalEObject)ref;
+			ref = (Parameter)eResolveProxy(oldRef);
+			if (ref != oldRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XacroPackage.PARAMETER_POSE__REF, oldRef, ref));
+			}
+		}
+		return ref;
 	}
 
 	/**
@@ -93,11 +91,20 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public Parameter basicGetRef() {
+		return ref;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRef(Parameter newRef) {
+		Parameter oldRef = ref;
+		ref = newRef;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_POSE__REF, oldRef, ref));
 	}
 
 	/**
@@ -105,7 +112,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterValue getValue() {
+	public Pose getValue() {
 		return value;
 	}
 
@@ -114,11 +121,11 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValue(ParameterValue newValue, NotificationChain msgs) {
-		ParameterValue oldValue = value;
+	public NotificationChain basicSetValue(Pose newValue, NotificationChain msgs) {
+		Pose oldValue = value;
 		value = newValue;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__VALUE, oldValue, newValue);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_POSE__VALUE, oldValue, newValue);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -129,18 +136,18 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(ParameterValue newValue) {
+	public void setValue(Pose newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;
 			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER__VALUE, null, msgs);
+				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER_POSE__VALUE, null, msgs);
 			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER__VALUE, null, msgs);
+				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER_POSE__VALUE, null, msgs);
 			msgs = basicSetValue(newValue, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__VALUE, newValue, newValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_POSE__VALUE, newValue, newValue));
 	}
 
 	/**
@@ -151,7 +158,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER__VALUE:
+			case XacroPackage.PARAMETER_POSE__VALUE:
 				return basicSetValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -165,9 +172,10 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER__NAME:
-				return getName();
-			case XacroPackage.PARAMETER__VALUE:
+			case XacroPackage.PARAMETER_POSE__REF:
+				if (resolve) return getRef();
+				return basicGetRef();
+			case XacroPackage.PARAMETER_POSE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -181,11 +189,11 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER__NAME:
-				setName((String)newValue);
+			case XacroPackage.PARAMETER_POSE__REF:
+				setRef((Parameter)newValue);
 				return;
-			case XacroPackage.PARAMETER__VALUE:
-				setValue((ParameterValue)newValue);
+			case XacroPackage.PARAMETER_POSE__VALUE:
+				setValue((Pose)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -199,11 +207,11 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER__NAME:
-				setName(NAME_EDEFAULT);
+			case XacroPackage.PARAMETER_POSE__REF:
+				setRef((Parameter)null);
 				return;
-			case XacroPackage.PARAMETER__VALUE:
-				setValue((ParameterValue)null);
+			case XacroPackage.PARAMETER_POSE__VALUE:
+				setValue((Pose)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -217,28 +225,12 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case XacroPackage.PARAMETER__VALUE:
+			case XacroPackage.PARAMETER_POSE__REF:
+				return ref != null;
+			case XacroPackage.PARAMETER_POSE__VALUE:
 				return value != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
-
-} //ParameterImpl
+} //ParameterPoseImpl

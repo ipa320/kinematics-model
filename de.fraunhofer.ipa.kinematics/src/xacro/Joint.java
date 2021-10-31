@@ -32,12 +32,12 @@ public interface Joint extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
-	 * @see #setName(ParameterValue)
+	 * @see #setName(ParameterString)
 	 * @see xacro.XacroPackage#getJoint_Name()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	ParameterValue getName();
+	ParameterString getName();
 
 	/**
 	 * Sets the value of the '{@link xacro.Joint#getName <em>Name</em>}' containment reference.
@@ -47,7 +47,7 @@ public interface Joint extends EObject {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(ParameterValue value);
+	void setName(ParameterString value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference.
@@ -98,12 +98,12 @@ public interface Joint extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Origin</em>' containment reference.
-	 * @see #setOrigin(Pose)
+	 * @see #setOrigin(ParameterPose)
 	 * @see xacro.XacroPackage#getJoint_Origin()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Pose getOrigin();
+	ParameterPose getOrigin();
 
 	/**
 	 * Sets the value of the '{@link xacro.Joint#getOrigin <em>Origin</em>}' containment reference.
@@ -113,7 +113,7 @@ public interface Joint extends EObject {
 	 * @see #getOrigin()
 	 * @generated
 	 */
-	void setOrigin(Pose value);
+	void setOrigin(ParameterPose value);
 
 	/**
 	 * Returns the value of the '<em><b>Axis</b></em>' containment reference.

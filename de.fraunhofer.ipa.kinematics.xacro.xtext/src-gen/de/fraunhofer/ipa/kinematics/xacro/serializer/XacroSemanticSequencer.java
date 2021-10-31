@@ -30,6 +30,8 @@ import xacro.MacroCall;
 import xacro.Mass;
 import xacro.Mesh;
 import xacro.ParameterCall;
+import xacro.ParameterPose;
+import xacro.ParameterString;
 import xacro.ParameterValue;
 import xacro.Pose;
 import xacro.Robot;
@@ -100,6 +102,12 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case XacroPackage.PARAMETER_CALL:
 				sequence_ParameterCall(context, (ParameterCall) semanticObject); 
 				return; 
+			case XacroPackage.PARAMETER_POSE:
+				sequence_ParameterPose(context, (ParameterPose) semanticObject); 
+				return; 
+			case XacroPackage.PARAMETER_STRING:
+				sequence_ParameterString(context, (ParameterString) semanticObject); 
+				return; 
 			case XacroPackage.PARAMETER_VALUE:
 				sequence_ParameterValue(context, (ParameterValue) semanticObject); 
 				return; 
@@ -140,7 +148,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Box returns Box
 	 *
 	 * Constraint:
-	 *     size=ParameterValue?
+	 *     size=ParameterString?
 	 */
 	protected void sequence_Box(ISerializationContext context, Box semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -229,11 +237,11 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=ParameterValue 
+	 *         name=ParameterString 
 	 *         type=JOINTTYPE 
 	 *         parent=[Link|STRING] 
 	 *         child=[Link|STRING] 
-	 *         origin=Pose? 
+	 *         origin=ParameterPose? 
 	 *         axis=Vector3? 
 	 *         limit=Limit?
 	 *     )
@@ -260,7 +268,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Link returns Link
 	 *
 	 * Constraint:
-	 *     (name=ParameterValue inertial=Inertial? visual=Visual? collision=Collision?)
+	 *     (name=ParameterString inertial=Inertial? visual=Visual? collision=Collision?)
 	 */
 	protected void sequence_Link(ISerializationContext context, Link semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -320,7 +328,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ParameterCall returns ParameterCall
 	 *
 	 * Constraint:
-	 *     (parameter=[Parameter|ID] value=STRING)
+	 *     (parameter=[Parameter|STRING] value=ParameterValue)
 	 */
 	protected void sequence_ParameterCall(ISerializationContext context, ParameterCall semanticObject) {
 		if (errorAcceptor != null) {
@@ -330,9 +338,33 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.PARAMETER_CALL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParameterCallAccess().getParameterParameterIDTerminalRuleCall_4_0_1(), semanticObject.eGet(XacroPackage.Literals.PARAMETER_CALL__PARAMETER, false));
-		feeder.accept(grammarAccess.getParameterCallAccess().getValueSTRINGTerminalRuleCall_6_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getParameterCallAccess().getParameterParameterSTRINGTerminalRuleCall_4_0_1(), semanticObject.eGet(XacroPackage.Literals.PARAMETER_CALL__PARAMETER, false));
+		feeder.accept(grammarAccess.getParameterCallAccess().getValueParameterValueParserRuleCall_6_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ParameterPose returns ParameterPose
+	 *
+	 * Constraint:
+	 *     (ref=[Parameter|STRING] | value=Pose)
+	 */
+	protected void sequence_ParameterPose(ISerializationContext context, ParameterPose semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ParameterString returns ParameterString
+	 *
+	 * Constraint:
+	 *     (ref=[Parameter|STRING] | value=ID)?
+	 */
+	protected void sequence_ParameterString(ISerializationContext context, ParameterString semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -341,7 +373,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ParameterValue returns ParameterValue
 	 *
 	 * Constraint:
-	 *     (ref=[Parameter|STRING] | value=ID)
+	 *     {ParameterValue}
 	 */
 	protected void sequence_ParameterValue(ISerializationContext context, ParameterValue semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -353,7 +385,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING?)
+	 *     (name=ID value=ParameterValue?)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, xacro.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -362,10 +394,11 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ParameterValue returns Pose
 	 *     Pose returns Pose
 	 *
 	 * Constraint:
-	 *     (rpy=ParameterValue? xyz=ParameterValue?)
+	 *     (rpy=STRING? xyz=STRING?)
 	 */
 	protected void sequence_Pose(ISerializationContext context, Pose semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

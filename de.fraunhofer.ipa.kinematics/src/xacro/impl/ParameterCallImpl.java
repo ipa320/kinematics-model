@@ -4,6 +4,7 @@ package xacro.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -12,6 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import xacro.Parameter;
 import xacro.ParameterCall;
+import xacro.ParameterValue;
 import xacro.XacroPackage;
 
 /**
@@ -22,33 +24,13 @@ import xacro.XacroPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xacro.impl.ParameterCallImpl#getValue <em>Value</em>}</li>
  *   <li>{@link xacro.impl.ParameterCallImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link xacro.impl.ParameterCallImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ParameterCallImpl extends MinimalEObjectImpl.Container implements ParameterCall {
-	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String value = VALUE_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -58,6 +40,16 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	 * @ordered
 	 */
 	protected Parameter parameter;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterValue value;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,7 +75,7 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public ParameterValue getValue() {
 		return value;
 	}
 
@@ -92,11 +84,47 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
+	public NotificationChain basicSetValue(ParameterValue newValue, NotificationChain msgs) {
+		ParameterValue oldValue = value;
 		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_CALL__VALUE, oldValue, value));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_CALL__VALUE, oldValue, newValue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(ParameterValue newValue) {
+		if (newValue != value) {
+			NotificationChain msgs = null;
+			if (value != null)
+				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER_CALL__VALUE, null, msgs);
+			if (newValue != null)
+				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER_CALL__VALUE, null, msgs);
+			msgs = basicSetValue(newValue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_CALL__VALUE, newValue, newValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case XacroPackage.PARAMETER_CALL__VALUE:
+				return basicSetValue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -145,11 +173,11 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER_CALL__VALUE:
-				return getValue();
 			case XacroPackage.PARAMETER_CALL__PARAMETER:
 				if (resolve) return getParameter();
 				return basicGetParameter();
+			case XacroPackage.PARAMETER_CALL__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,11 +190,11 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER_CALL__VALUE:
-				setValue((String)newValue);
-				return;
 			case XacroPackage.PARAMETER_CALL__PARAMETER:
 				setParameter((Parameter)newValue);
+				return;
+			case XacroPackage.PARAMETER_CALL__VALUE:
+				setValue((ParameterValue)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,11 +208,11 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER_CALL__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
 			case XacroPackage.PARAMETER_CALL__PARAMETER:
 				setParameter((Parameter)null);
+				return;
+			case XacroPackage.PARAMETER_CALL__VALUE:
+				setValue((ParameterValue)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,28 +226,12 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XacroPackage.PARAMETER_CALL__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case XacroPackage.PARAMETER_CALL__PARAMETER:
 				return parameter != null;
+			case XacroPackage.PARAMETER_CALL__VALUE:
+				return value != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ParameterCallImpl

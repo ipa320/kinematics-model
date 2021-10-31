@@ -234,12 +234,12 @@ public class JointItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(XacroPackage.Literals.JOINT__NAME,
-				 XacroFactory.eINSTANCE.createParameterValue()));
+				 XacroFactory.eINSTANCE.createParameterString()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(XacroPackage.Literals.JOINT__ORIGIN,
-				 XacroFactory.eINSTANCE.createPose()));
+				 XacroFactory.eINSTANCE.createParameterPose()));
 
 		newChildDescriptors.add
 			(createChildParameter

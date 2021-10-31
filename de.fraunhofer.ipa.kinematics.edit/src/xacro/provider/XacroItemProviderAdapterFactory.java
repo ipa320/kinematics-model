@@ -210,26 +210,26 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterValue} instances.
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterString} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterValueItemProvider parameterValueItemProvider;
+	protected ParameterStringItemProvider parameterStringItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link xacro.ParameterValue}.
+	 * This creates an adapter for a {@link xacro.ParameterString}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterValueAdapter() {
-		if (parameterValueItemProvider == null) {
-			parameterValueItemProvider = new ParameterValueItemProvider(this);
+	public Adapter createParameterStringAdapter() {
+		if (parameterStringItemProvider == null) {
+			parameterStringItemProvider = new ParameterStringItemProvider(this);
 		}
 
-		return parameterValueItemProvider;
+		return parameterStringItemProvider;
 	}
 
 	/**
@@ -578,6 +578,52 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterPose} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterPoseItemProvider parameterPoseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterPose}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterPoseAdapter() {
+		if (parameterPoseItemProvider == null) {
+			parameterPoseItemProvider = new ParameterPoseItemProvider(this);
+		}
+
+		return parameterPoseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterValueItemProvider parameterValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterValueAdapter() {
+		if (parameterValueItemProvider == null) {
+			parameterValueItemProvider = new ParameterValueItemProvider(this);
+		}
+
+		return parameterValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -682,7 +728,7 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 		if (macroItemProvider != null) macroItemProvider.dispose();
 		if (macroCallItemProvider != null) macroCallItemProvider.dispose();
 		if (parameterCallItemProvider != null) parameterCallItemProvider.dispose();
-		if (parameterValueItemProvider != null) parameterValueItemProvider.dispose();
+		if (parameterStringItemProvider != null) parameterStringItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
 		if (jointItemProvider != null) jointItemProvider.dispose();
 		if (poseItemProvider != null) poseItemProvider.dispose();
@@ -698,6 +744,8 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 		if (inertiaItemProvider != null) inertiaItemProvider.dispose();
 		if (meshItemProvider != null) meshItemProvider.dispose();
 		if (sphereItemProvider != null) sphereItemProvider.dispose();
+		if (parameterPoseItemProvider != null) parameterPoseItemProvider.dispose();
+		if (parameterValueItemProvider != null) parameterValueItemProvider.dispose();
 	}
 
 }

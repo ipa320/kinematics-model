@@ -29,12 +29,21 @@ Parameter returns Parameter:
 	'Parameter'
 	name=ID
 	'{'
-		('value' value=STRING)?
+		('value' value=ParameterValue)?
 	'}';
 
 ParameterValue returns ParameterValue:
-	ref=[Parameter|STRING] | value=ID
+	{ParameterValue} EString | Pose
 ;
+
+ParameterString returns ParameterString:
+	{ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+;
+
+ParameterPose returns ParameterPose:
+	ref=[Parameter|STRING] | value=Pose 
+;
+
 
 Body returns Body:
 	{Body}
@@ -56,18 +65,18 @@ ParameterCall returns ParameterCall:
 	{ParameterCall}
 	'ParameterCall'
 	'{'
-		'parameter' parameter=[Parameter]
-		'value' value=STRING
+		'parameter' parameter=[Parameter|STRING]
+		'value' value=ParameterValue
 	'}';
 
 Joint returns Joint:
 	'Joint'
 	'{'
-		'name' name=ParameterValue
+		'name' name=ParameterString
 		'type' type=JOINTTYPE
 		'parent' parent=[Link|STRING] 
 		'child' child=[Link|STRING]
-		('origin' origin=Pose)?
+		('origin' origin=ParameterPose)?
 		('axis' axis=Vector3)?
 		('limit' limit=Limit)?
 	'}';
@@ -75,7 +84,7 @@ Joint returns Joint:
 Link returns Link:
 	'Link'
 	'{'
-		'name' name=ParameterValue
+		'name' name=ParameterString
 		('inertial' inertial=Inertial)?
 		('visual' visual=Visual)?
 		('collision' collision=Collision)?
@@ -85,8 +94,8 @@ Pose returns Pose:
 	{Pose}
 	'Pose'
 	'{'
-		('rpy' rpy=ParameterValue)?
-		('xyz' xyz=ParameterValue)?
+		('rpy' rpy=STRING)?
+		('xyz' xyz=STRING)?
 	'}';
 
 Vector3 returns Vector3:
@@ -162,7 +171,7 @@ Box returns Box:
 	{Box}
 	'Box'
 	'{'
-		('size' size=ParameterValue)?
+		('size' size=ParameterString)?
 	'}';
 
 Cylinder returns Cylinder:
@@ -188,6 +197,10 @@ Mesh returns Mesh:
 AnyURI returns type::AnyURI:
 	'AnyURI' /* TODO: implement this rule and an appropriate IValueConverter */;
 
+
+EString returns ecore::EString:
+	STRING
+;
 	
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307
 terminal fragment DIGIT: '0'..'9';

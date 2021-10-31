@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -20,19 +18,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import xacro.Link;
-import xacro.XacroFactory;
-import xacro.XacroPackage;
 
 /**
- * This is the item provider adapter for a {@link xacro.Link} object.
+ * This is the item provider adapter for a {@link xacro.LinkParameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LinkItemProvider 
+public class LinkParameterItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +39,7 @@ public class LinkItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LinkItemProvider(AdapterFactory adapterFactory) {
+	public LinkParameterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,47 +59,14 @@ public class LinkItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(XacroPackage.Literals.LINK__NAME);
-			childrenFeatures.add(XacroPackage.Literals.LINK__VISUAL);
-			childrenFeatures.add(XacroPackage.Literals.LINK__COLLISION);
-			childrenFeatures.add(XacroPackage.Literals.LINK__INERTIAL);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Link.gif.
+	 * This returns LinkParameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Link"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LinkParameter"));
 	}
 
 	/**
@@ -117,7 +77,7 @@ public class LinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Link_type");
+		return getString("_UI_LinkParameter_type");
 	}
 
 
@@ -131,15 +91,6 @@ public class LinkItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Link.class)) {
-			case XacroPackage.LINK__NAME:
-			case XacroPackage.LINK__VISUAL:
-			case XacroPackage.LINK__COLLISION:
-			case XacroPackage.LINK__INERTIAL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -153,26 +104,6 @@ public class LinkItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.LINK__NAME,
-				 XacroFactory.eINSTANCE.createParameterString()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.LINK__VISUAL,
-				 XacroFactory.eINSTANCE.createVisual()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.LINK__COLLISION,
-				 XacroFactory.eINSTANCE.createCollision()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.LINK__INERTIAL,
-				 XacroFactory.eINSTANCE.createInertial()));
 	}
 
 	/**

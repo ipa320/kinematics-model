@@ -29,6 +29,8 @@ import xacro.Mass;
 import xacro.Mesh;
 import xacro.Parameter;
 import xacro.ParameterCall;
+import xacro.ParameterPose;
+import xacro.ParameterString;
 import xacro.ParameterValue;
 import xacro.Pose;
 import xacro.Robot;
@@ -92,7 +94,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterValueEClass = null;
+	private EClass parameterStringEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,6 +200,20 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * @generated
 	 */
 	private EClass sphereEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterPoseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -342,8 +358,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Value() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+	public EReference getParameter_Value() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -450,16 +466,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterCall_Value() {
-		return (EAttribute)parameterCallEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getParameterCall_Parameter() {
+	public EReference getParameterCall_Value() {
 		return (EReference)parameterCallEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -468,8 +475,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameterValue() {
-		return parameterValueEClass;
+	public EReference getParameterCall_Parameter() {
+		return (EReference)parameterCallEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -477,8 +484,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterValue_Ref() {
-		return (EReference)parameterValueEClass.getEStructuralFeatures().get(0);
+	public EClass getParameterString() {
+		return parameterStringEClass;
 	}
 
 	/**
@@ -486,8 +493,17 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterValue_Value() {
-		return (EAttribute)parameterValueEClass.getEStructuralFeatures().get(1);
+	public EReference getParameterString_Ref() {
+		return (EReference)parameterStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameterString_Value() {
+		return (EAttribute)parameterStringEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -621,8 +637,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPose_Xyz() {
-		return (EReference)poseEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPose_Xyz() {
+		return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -630,8 +646,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPose_Rpy() {
-		return (EReference)poseEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPose_Rpy() {
+		return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1008,6 +1024,42 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getParameterPose() {
+		return parameterPoseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterPose_Ref() {
+		return (EReference)parameterPoseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterPose_Value() {
+		return (EReference)parameterPoseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterValue() {
+		return parameterValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XacroFactory getXacroFactory() {
 		return (XacroFactory)getEFactoryInstance();
 	}
@@ -1040,7 +1092,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
-		createEAttribute(parameterEClass, PARAMETER__VALUE);
+		createEReference(parameterEClass, PARAMETER__VALUE);
 
 		bodyEClass = createEClass(BODY);
 		createEReference(bodyEClass, BODY__JOINT);
@@ -1056,12 +1108,12 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		createEReference(macroCallEClass, MACRO_CALL__PARAMETER_CALL);
 
 		parameterCallEClass = createEClass(PARAMETER_CALL);
-		createEAttribute(parameterCallEClass, PARAMETER_CALL__VALUE);
 		createEReference(parameterCallEClass, PARAMETER_CALL__PARAMETER);
+		createEReference(parameterCallEClass, PARAMETER_CALL__VALUE);
 
-		parameterValueEClass = createEClass(PARAMETER_VALUE);
-		createEReference(parameterValueEClass, PARAMETER_VALUE__REF);
-		createEAttribute(parameterValueEClass, PARAMETER_VALUE__VALUE);
+		parameterStringEClass = createEClass(PARAMETER_STRING);
+		createEReference(parameterStringEClass, PARAMETER_STRING__REF);
+		createEAttribute(parameterStringEClass, PARAMETER_STRING__VALUE);
 
 		linkEClass = createEClass(LINK);
 		createEReference(linkEClass, LINK__NAME);
@@ -1079,8 +1131,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		createEAttribute(jointEClass, JOINT__TYPE);
 
 		poseEClass = createEClass(POSE);
-		createEReference(poseEClass, POSE__XYZ);
-		createEReference(poseEClass, POSE__RPY);
+		createEAttribute(poseEClass, POSE__RPY);
+		createEAttribute(poseEClass, POSE__XYZ);
 
 		visualEClass = createEClass(VISUAL);
 		createEReference(visualEClass, VISUAL__ORIGIN);
@@ -1134,6 +1186,12 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 
 		sphereEClass = createEClass(SPHERE);
 		createEAttribute(sphereEClass, SPHERE__RADIUS);
+
+		parameterPoseEClass = createEClass(PARAMETER_POSE);
+		createEReference(parameterPoseEClass, PARAMETER_POSE__REF);
+		createEReference(parameterPoseEClass, PARAMETER_POSE__VALUE);
+
+		parameterValueEClass = createEClass(PARAMETER_VALUE);
 	}
 
 	/**
@@ -1168,6 +1226,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		poseEClass.getESuperTypes().add(this.getParameterValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1179,7 +1238,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_Name(), theEcorePackage.getEString(), "name", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_Value(), this.getParameterValue(), null, "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBody_Joint(), this.getJoint(), null, "joint", null, 0, -1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1195,31 +1254,31 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		initEReference(getMacroCall_ParameterCall(), this.getParameterCall(), null, "parameterCall", null, 0, -1, MacroCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterCallEClass, ParameterCall.class, "ParameterCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameterCall_Value(), theXMLTypePackage.getString(), "value", null, 1, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameterCall_Parameter(), this.getParameter(), null, "parameter", null, 1, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterCall_Value(), this.getParameterValue(), null, "value", null, 0, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterValue_Ref(), this.getParameter(), null, "ref", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterValue_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameterStringEClass, ParameterString.class, "ParameterString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterString_Ref(), this.getParameter(), null, "ref", null, 0, 1, ParameterString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterString_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, ParameterString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLink_Name(), this.getParameterValue(), null, "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLink_Name(), this.getParameterString(), null, "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Visual(), this.getVisual(), null, "visual", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Collision(), this.getCollision(), null, "collision", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Inertial(), this.getInertial(), null, "inertial", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJoint_Name(), this.getParameterValue(), null, "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Name(), this.getParameterString(), null, "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Child(), this.getLink(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Origin(), this.getParameterPose(), null, "origin", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Axis(), this.getVector3(), null, "axis", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Limit(), this.getLimit(), null, "limit", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoint_Type(), theXMLTypePackage.getString(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPose_Xyz(), this.getParameterValue(), null, "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPose_Rpy(), this.getParameterValue(), null, "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPose_Rpy(), theXMLTypePackage.getString(), "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPose_Xyz(), theXMLTypePackage.getString(), "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(visualEClass, Visual.class, "Visual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVisual_Origin(), this.getPose(), null, "origin", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1236,7 +1295,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		initEReference(getGeometry_Sphere(), this.getSphere(), null, "sphere", null, 0, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBox_Size(), this.getParameterValue(), null, "size", null, 1, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBox_Size(), this.getParameterString(), null, "size", null, 1, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cylinderEClass, Cylinder.class, "Cylinder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCylinder_Length(), theXMLTypePackage.getDouble(), "length", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1273,6 +1332,12 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 
 		initEClass(sphereEClass, Sphere.class, "Sphere", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSphere_Radius(), theXMLTypePackage.getDouble(), "radius", null, 1, 1, Sphere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterPoseEClass, ParameterPose.class, "ParameterPose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterPose_Ref(), this.getParameter(), null, "ref", null, 0, 1, ParameterPose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterPose_Value(), this.getPose(), null, "value", null, 0, 1, ParameterPose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

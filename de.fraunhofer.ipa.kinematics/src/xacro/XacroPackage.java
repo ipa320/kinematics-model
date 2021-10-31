@@ -149,7 +149,7 @@ public interface XacroPackage extends EPackage {
 	int PARAMETER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -335,22 +335,22 @@ public interface XacroPackage extends EPackage {
 	int PARAMETER_CALL = 5;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_CALL__VALUE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CALL__PARAMETER = 1;
+	int PARAMETER_CALL__PARAMETER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CALL__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Call</em>' class.
@@ -379,7 +379,17 @@ public interface XacroPackage extends EPackage {
 	 * @see xacro.impl.XacroPackageImpl#getParameterValue()
 	 * @generated
 	 */
-	int PARAMETER_VALUE = 6;
+	int PARAMETER_VALUE = 23;
+
+	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterStringImpl <em>Parameter String</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterStringImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterString()
+	 * @generated
+	 */
+	int PARAMETER_STRING = 6;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -388,7 +398,7 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE__REF = 0;
+	int PARAMETER_STRING__REF = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -397,26 +407,25 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE__VALUE = 1;
+	int PARAMETER_STRING__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Parameter Value</em>' class.
+	 * The number of structural features of the '<em>Parameter String</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_FEATURE_COUNT = 2;
+	int PARAMETER_STRING_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Parameter Value</em>' class.
+	 * The number of operations of the '<em>Parameter String</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_OPERATION_COUNT = 0;
-
+	int PARAMETER_STRING_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link xacro.impl.LinkImpl <em>Link</em>}' class.
@@ -574,6 +583,24 @@ public interface XacroPackage extends EPackage {
 	int JOINT_OPERATION_COUNT = 0;
 
 	/**
+	 * The number of structural features of the '<em>Parameter Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link xacro.impl.PoseImpl <em>Pose</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,22 +611,22 @@ public interface XacroPackage extends EPackage {
 	int POSE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Xyz</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rpy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POSE__XYZ = 0;
+	int POSE__RPY = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Rpy</b></em>' containment reference.
+	 * The feature id for the '<em><b>Xyz</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POSE__RPY = 1;
+	int POSE__XYZ = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Pose</em>' class.
@@ -608,7 +635,7 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSE_FEATURE_COUNT = 2;
+	int POSE_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Pose</em>' class.
@@ -617,7 +644,7 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSE_OPERATION_COUNT = 0;
+	int POSE_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link xacro.impl.VisualImpl <em>Visual</em>}' class.
@@ -1217,6 +1244,52 @@ public interface XacroPackage extends EPackage {
 	int SPHERE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterPoseImpl <em>Parameter Pose</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterPoseImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterPose()
+	 * @generated
+	 */
+	int PARAMETER_POSE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_POSE__REF = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_POSE__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Pose</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_POSE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Parameter Pose</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_POSE_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link xacro.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1303,15 +1376,15 @@ public interface XacroPackage extends EPackage {
 	EAttribute getParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link xacro.Parameter#getValue <em>Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link xacro.Parameter#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @return the meta object for the containment reference '<em>Value</em>'.
 	 * @see xacro.Parameter#getValue()
 	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getParameter_Value();
+	EReference getParameter_Value();
 
 	/**
 	 * Returns the meta object for class '{@link xacro.Body <em>Body</em>}'.
@@ -1431,15 +1504,15 @@ public interface XacroPackage extends EPackage {
 	EClass getParameterCall();
 
 	/**
-	 * Returns the meta object for the attribute '{@link xacro.ParameterCall#getValue <em>Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link xacro.ParameterCall#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @return the meta object for the containment reference '<em>Value</em>'.
 	 * @see xacro.ParameterCall#getValue()
 	 * @see #getParameterCall()
 	 * @generated
 	 */
-	EAttribute getParameterCall_Value();
+	EReference getParameterCall_Value();
 
 	/**
 	 * Returns the meta object for the reference '{@link xacro.ParameterCall#getParameter <em>Parameter</em>}'.
@@ -1453,36 +1526,36 @@ public interface XacroPackage extends EPackage {
 	EReference getParameterCall_Parameter();
 
 	/**
-	 * Returns the meta object for class '{@link xacro.ParameterValue <em>Parameter Value</em>}'.
+	 * Returns the meta object for class '{@link xacro.ParameterString <em>Parameter String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter Value</em>'.
-	 * @see xacro.ParameterValue
+	 * @return the meta object for class '<em>Parameter String</em>'.
+	 * @see xacro.ParameterString
 	 * @generated
 	 */
-	EClass getParameterValue();
+	EClass getParameterString();
 
 	/**
-	 * Returns the meta object for the reference '{@link xacro.ParameterValue#getRef <em>Ref</em>}'.
+	 * Returns the meta object for the reference '{@link xacro.ParameterString#getRef <em>Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Ref</em>'.
-	 * @see xacro.ParameterValue#getRef()
-	 * @see #getParameterValue()
+	 * @see xacro.ParameterString#getRef()
+	 * @see #getParameterString()
 	 * @generated
 	 */
-	EReference getParameterValue_Ref();
+	EReference getParameterString_Ref();
 
 	/**
-	 * Returns the meta object for the attribute '{@link xacro.ParameterValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link xacro.ParameterString#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see xacro.ParameterValue#getValue()
-	 * @see #getParameterValue()
+	 * @see xacro.ParameterString#getValue()
+	 * @see #getParameterString()
 	 * @generated
 	 */
-	EAttribute getParameterValue_Value();
+	EAttribute getParameterString_Value();
 
 	/**
 	 * Returns the meta object for class '{@link xacro.Link <em>Link</em>}'.
@@ -1636,26 +1709,26 @@ public interface XacroPackage extends EPackage {
 	EClass getPose();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link xacro.Pose#getXyz <em>Xyz</em>}'.
+	 * Returns the meta object for the attribute '{@link xacro.Pose#getXyz <em>Xyz</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Xyz</em>'.
+	 * @return the meta object for the attribute '<em>Xyz</em>'.
 	 * @see xacro.Pose#getXyz()
 	 * @see #getPose()
 	 * @generated
 	 */
-	EReference getPose_Xyz();
+	EAttribute getPose_Xyz();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link xacro.Pose#getRpy <em>Rpy</em>}'.
+	 * Returns the meta object for the attribute '{@link xacro.Pose#getRpy <em>Rpy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rpy</em>'.
+	 * @return the meta object for the attribute '<em>Rpy</em>'.
 	 * @see xacro.Pose#getRpy()
 	 * @see #getPose()
 	 * @generated
 	 */
-	EReference getPose_Rpy();
+	EAttribute getPose_Rpy();
 
 	/**
 	 * Returns the meta object for class '{@link xacro.Visual <em>Visual</em>}'.
@@ -2097,6 +2170,48 @@ public interface XacroPackage extends EPackage {
 	EAttribute getSphere_Radius();
 
 	/**
+	 * Returns the meta object for class '{@link xacro.ParameterPose <em>Parameter Pose</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Pose</em>'.
+	 * @see xacro.ParameterPose
+	 * @generated
+	 */
+	EClass getParameterPose();
+
+	/**
+	 * Returns the meta object for the reference '{@link xacro.ParameterPose#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref</em>'.
+	 * @see xacro.ParameterPose#getRef()
+	 * @see #getParameterPose()
+	 * @generated
+	 */
+	EReference getParameterPose_Ref();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link xacro.ParameterPose#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see xacro.ParameterPose#getValue()
+	 * @see #getParameterPose()
+	 * @generated
+	 */
+	EReference getParameterPose_Value();
+
+	/**
+	 * Returns the meta object for class '{@link xacro.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Value</em>'.
+	 * @see xacro.ParameterValue
+	 * @generated
+	 */
+	EClass getParameterValue();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2188,12 +2303,12 @@ public interface XacroPackage extends EPackage {
 		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
+		EReference PARAMETER__VALUE = eINSTANCE.getParameter_Value();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.BodyImpl <em>Body</em>}' class.
@@ -2292,12 +2407,12 @@ public interface XacroPackage extends EPackage {
 		EClass PARAMETER_CALL = eINSTANCE.getParameterCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_CALL__VALUE = eINSTANCE.getParameterCall_Value();
+		EReference PARAMETER_CALL__VALUE = eINSTANCE.getParameterCall_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
@@ -2308,14 +2423,14 @@ public interface XacroPackage extends EPackage {
 		EReference PARAMETER_CALL__PARAMETER = eINSTANCE.getParameterCall_Parameter();
 
 		/**
-		 * The meta object literal for the '{@link xacro.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
+		 * The meta object literal for the '{@link xacro.impl.ParameterStringImpl <em>Parameter String</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see xacro.impl.ParameterValueImpl
-		 * @see xacro.impl.XacroPackageImpl#getParameterValue()
+		 * @see xacro.impl.ParameterStringImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterString()
 		 * @generated
 		 */
-		EClass PARAMETER_VALUE = eINSTANCE.getParameterValue();
+		EClass PARAMETER_STRING = eINSTANCE.getParameterString();
 
 		/**
 		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
@@ -2323,7 +2438,7 @@ public interface XacroPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_VALUE__REF = eINSTANCE.getParameterValue_Ref();
+		EReference PARAMETER_STRING__REF = eINSTANCE.getParameterString_Ref();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2331,7 +2446,7 @@ public interface XacroPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_VALUE__VALUE = eINSTANCE.getParameterValue_Value();
+		EAttribute PARAMETER_STRING__VALUE = eINSTANCE.getParameterString_Value();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.LinkImpl <em>Link</em>}' class.
@@ -2452,20 +2567,20 @@ public interface XacroPackage extends EPackage {
 		EClass POSE = eINSTANCE.getPose();
 
 		/**
-		 * The meta object literal for the '<em><b>Xyz</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Xyz</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference POSE__XYZ = eINSTANCE.getPose_Xyz();
+		EAttribute POSE__XYZ = eINSTANCE.getPose_Xyz();
 
 		/**
-		 * The meta object literal for the '<em><b>Rpy</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Rpy</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference POSE__RPY = eINSTANCE.getPose_Rpy();
+		EAttribute POSE__RPY = eINSTANCE.getPose_Rpy();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.VisualImpl <em>Visual</em>}' class.
@@ -2818,6 +2933,42 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPHERE__RADIUS = eINSTANCE.getSphere_Radius();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterPoseImpl <em>Parameter Pose</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterPoseImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterPose()
+		 * @generated
+		 */
+		EClass PARAMETER_POSE = eINSTANCE.getParameterPose();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_POSE__REF = eINSTANCE.getParameterPose_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_POSE__VALUE = eINSTANCE.getParameterPose_Value();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterValueImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterValue()
+		 * @generated
+		 */
+		EClass PARAMETER_VALUE = eINSTANCE.getParameterValue();
 
 	}
 

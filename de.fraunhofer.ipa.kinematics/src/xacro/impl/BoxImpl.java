@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import xacro.Box;
-import xacro.ParameterValue;
+import xacro.ParameterString;
 import xacro.XacroPackage;
 
 /**
@@ -37,7 +37,7 @@ public class BoxImpl extends MinimalEObjectImpl.Container implements Box {
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterValue size;
+	protected ParameterString size;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class BoxImpl extends MinimalEObjectImpl.Container implements Box {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterValue getSize() {
+	public ParameterString getSize() {
 		return size;
 	}
 
@@ -72,8 +72,8 @@ public class BoxImpl extends MinimalEObjectImpl.Container implements Box {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSize(ParameterValue newSize, NotificationChain msgs) {
-		ParameterValue oldSize = size;
+	public NotificationChain basicSetSize(ParameterString newSize, NotificationChain msgs) {
+		ParameterString oldSize = size;
 		size = newSize;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.BOX__SIZE, oldSize, newSize);
@@ -87,7 +87,7 @@ public class BoxImpl extends MinimalEObjectImpl.Container implements Box {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSize(ParameterValue newSize) {
+	public void setSize(ParameterString newSize) {
 		if (newSize != size) {
 			NotificationChain msgs = null;
 			if (size != null)
@@ -138,7 +138,7 @@ public class BoxImpl extends MinimalEObjectImpl.Container implements Box {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case XacroPackage.BOX__SIZE:
-				setSize((ParameterValue)newValue);
+				setSize((ParameterString)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,7 +153,7 @@ public class BoxImpl extends MinimalEObjectImpl.Container implements Box {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case XacroPackage.BOX__SIZE:
-				setSize((ParameterValue)null);
+				setSize((ParameterString)null);
 				return;
 		}
 		super.eUnset(featureID);

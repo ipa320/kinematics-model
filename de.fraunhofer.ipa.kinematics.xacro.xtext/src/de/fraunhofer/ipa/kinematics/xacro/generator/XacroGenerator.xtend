@@ -93,7 +93,7 @@ class XacroGenerator extends AbstractGenerator {
 	<parent link="«joint.parent.name»" />
 	<child link="«joint.child.name»" />
 	«IF joint.origin !== null»
-	<origin xyz="«joint.origin.xyz»" rpy="«joint.origin.rpy»"/>
+«««	<origin xyz="«joint.origin.xyz»" rpy="«joint.origin.rpy»"/>
 	«ENDIF»
 	«IF joint.axis !== null»
 	<axis xyz="«joint.axis.xyz»" />

@@ -151,7 +151,7 @@ public class BoxItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(XacroPackage.Literals.BOX__SIZE,
-				 XacroFactory.eINSTANCE.createParameterValue()));
+				 XacroFactory.eINSTANCE.createParameterString()));
 	}
 
 	/**

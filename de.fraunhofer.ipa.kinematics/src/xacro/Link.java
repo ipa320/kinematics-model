@@ -29,12 +29,12 @@ public interface Link extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
-	 * @see #setName(ParameterValue)
+	 * @see #setName(ParameterString)
 	 * @see xacro.XacroPackage#getLink_Name()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	ParameterValue getName();
+	ParameterString getName();
 
 	/**
 	 * Sets the value of the '{@link xacro.Link#getName <em>Name</em>}' containment reference.
@@ -44,7 +44,7 @@ public interface Link extends EObject {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(ParameterValue value);
+	void setName(ParameterString value);
 
 	/**
 	 * Returns the value of the '<em><b>Visual</b></em>' containment reference.

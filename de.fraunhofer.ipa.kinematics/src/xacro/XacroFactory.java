@@ -76,13 +76,13 @@ public interface XacroFactory extends EFactory {
 	ParameterCall createParameterCall();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Value</em>'.
+	 * Returns a new object of class '<em>Parameter String</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Value</em>'.
+	 * @return a new object of class '<em>Parameter String</em>'.
 	 * @generated
 	 */
-	ParameterValue createParameterValue();
+	ParameterString createParameterString();
 
 	/**
 	 * Returns a new object of class '<em>Link</em>'.
@@ -218,6 +218,24 @@ public interface XacroFactory extends EFactory {
 	 * @generated
 	 */
 	Sphere createSphere();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Pose</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Pose</em>'.
+	 * @generated
+	 */
+	ParameterPose createParameterPose();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Value</em>'.
+	 * @generated
+	 */
+	ParameterValue createParameterValue();
 
 	/**
 	 * Returns the package supported by this factory.

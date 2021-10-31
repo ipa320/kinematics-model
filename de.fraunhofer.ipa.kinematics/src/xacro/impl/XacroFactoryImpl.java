@@ -62,7 +62,7 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 			case XacroPackage.MACRO: return createMacro();
 			case XacroPackage.MACRO_CALL: return createMacroCall();
 			case XacroPackage.PARAMETER_CALL: return createParameterCall();
-			case XacroPackage.PARAMETER_VALUE: return createParameterValue();
+			case XacroPackage.PARAMETER_STRING: return createParameterString();
 			case XacroPackage.LINK: return createLink();
 			case XacroPackage.JOINT: return createJoint();
 			case XacroPackage.POSE: return createPose();
@@ -78,6 +78,8 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 			case XacroPackage.INERTIA: return createInertia();
 			case XacroPackage.MESH: return createMesh();
 			case XacroPackage.SPHERE: return createSphere();
+			case XacroPackage.PARAMETER_POSE: return createParameterPose();
+			case XacroPackage.PARAMETER_VALUE: return createParameterValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -148,9 +150,9 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterValue createParameterValue() {
-		ParameterValueImpl parameterValue = new ParameterValueImpl();
-		return parameterValue;
+	public ParameterString createParameterString() {
+		ParameterStringImpl parameterString = new ParameterStringImpl();
+		return parameterString;
 	}
 
 	/**
@@ -301,6 +303,26 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 	public Sphere createSphere() {
 		SphereImpl sphere = new SphereImpl();
 		return sphere;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterPose createParameterPose() {
+		ParameterPoseImpl parameterPose = new ParameterPoseImpl();
+		return parameterPose;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterValue createParameterValue() {
+		ParameterValueImpl parameterValue = new ParameterValueImpl();
+		return parameterValue;
 	}
 
 	/**

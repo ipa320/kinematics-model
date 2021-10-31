@@ -101,9 +101,9 @@ public class XacroSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XacroPackage.PARAMETER_VALUE: {
-				ParameterValue parameterValue = (ParameterValue)theEObject;
-				T result = caseParameterValue(parameterValue);
+			case XacroPackage.PARAMETER_STRING: {
+				ParameterString parameterString = (ParameterString)theEObject;
+				T result = caseParameterString(parameterString);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -122,6 +122,7 @@ public class XacroSwitch<T> extends Switch<T> {
 			case XacroPackage.POSE: {
 				Pose pose = (Pose)theEObject;
 				T result = casePose(pose);
+				if (result == null) result = caseParameterValue(pose);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,6 +195,18 @@ public class XacroSwitch<T> extends Switch<T> {
 			case XacroPackage.SPHERE: {
 				Sphere sphere = (Sphere)theEObject;
 				T result = caseSphere(sphere);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XacroPackage.PARAMETER_POSE: {
+				ParameterPose parameterPose = (ParameterPose)theEObject;
+				T result = caseParameterPose(parameterPose);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XacroPackage.PARAMETER_VALUE: {
+				ParameterValue parameterValue = (ParameterValue)theEObject;
+				T result = caseParameterValue(parameterValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -292,17 +305,17 @@ public class XacroSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter String</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter String</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameterValue(ParameterValue object) {
+	public T caseParameterString(ParameterString object) {
 		return null;
 	}
 
@@ -528,6 +541,36 @@ public class XacroSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSphere(Sphere object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Pose</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Pose</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterPose(ParameterPose object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterValue(ParameterValue object) {
 		return null;
 	}
 

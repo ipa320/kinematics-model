@@ -32,6 +32,8 @@ public class XacroParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, XacroGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getParameterValueAccess().getAlternatives(), "rule__ParameterValue__Alternatives");
+			builder.put(grammarAccess.getParameterStringAccess().getAlternatives(), "rule__ParameterString__Alternatives");
+			builder.put(grammarAccess.getParameterPoseAccess().getAlternatives(), "rule__ParameterPose__Alternatives");
 			builder.put(grammarAccess.getRobotAccess().getGroup(), "rule__Robot__Group__0");
 			builder.put(grammarAccess.getRobotAccess().getGroup_5(), "rule__Robot__Group_5__0");
 			builder.put(grammarAccess.getRobotAccess().getGroup_6(), "rule__Robot__Group_6__0");
@@ -45,6 +47,9 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMacroAccess().getGroup_5(), "rule__Macro__Group_5__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup_4(), "rule__Parameter__Group_4__0");
+			builder.put(grammarAccess.getParameterValueAccess().getGroup_0(), "rule__ParameterValue__Group_0__0");
+			builder.put(grammarAccess.getParameterStringAccess().getGroup_0(), "rule__ParameterString__Group_0__0");
+			builder.put(grammarAccess.getParameterStringAccess().getGroup_0_2(), "rule__ParameterString__Group_0_2__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup(), "rule__Body__Group__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup_3(), "rule__Body__Group_3__0");
 			builder.put(grammarAccess.getBodyAccess().getGroup_3_3(), "rule__Body__Group_3_3__0");
@@ -113,8 +118,10 @@ public class XacroParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMacroAccess().getBodyAssignment_5_1(), "rule__Macro__BodyAssignment_5_1");
 			builder.put(grammarAccess.getParameterAccess().getNameAssignment_2(), "rule__Parameter__NameAssignment_2");
 			builder.put(grammarAccess.getParameterAccess().getValueAssignment_4_1(), "rule__Parameter__ValueAssignment_4_1");
-			builder.put(grammarAccess.getParameterValueAccess().getRefAssignment_0(), "rule__ParameterValue__RefAssignment_0");
-			builder.put(grammarAccess.getParameterValueAccess().getValueAssignment_1(), "rule__ParameterValue__ValueAssignment_1");
+			builder.put(grammarAccess.getParameterStringAccess().getRefAssignment_0_1(), "rule__ParameterString__RefAssignment_0_1");
+			builder.put(grammarAccess.getParameterStringAccess().getValueAssignment_1(), "rule__ParameterString__ValueAssignment_1");
+			builder.put(grammarAccess.getParameterPoseAccess().getRefAssignment_0(), "rule__ParameterPose__RefAssignment_0");
+			builder.put(grammarAccess.getParameterPoseAccess().getValueAssignment_1(), "rule__ParameterPose__ValueAssignment_1");
 			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_3_2(), "rule__Body__LinkAssignment_3_2");
 			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_3_3_1(), "rule__Body__LinkAssignment_3_3_1");
 			builder.put(grammarAccess.getBodyAccess().getJointAssignment_4_2(), "rule__Body__JointAssignment_4_2");

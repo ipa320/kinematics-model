@@ -26,12 +26,12 @@ public interface Box extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Size</em>' containment reference.
-	 * @see #setSize(ParameterValue)
+	 * @see #setSize(ParameterString)
 	 * @see xacro.XacroPackage#getBox_Size()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	ParameterValue getSize();
+	ParameterString getSize();
 
 	/**
 	 * Sets the value of the '{@link xacro.Box#getSize <em>Size</em>}' containment reference.
@@ -41,6 +41,6 @@ public interface Box extends EObject {
 	 * @see #getSize()
 	 * @generated
 	 */
-	void setSize(ParameterValue value);
+	void setSize(ParameterString value);
 
 } // Box

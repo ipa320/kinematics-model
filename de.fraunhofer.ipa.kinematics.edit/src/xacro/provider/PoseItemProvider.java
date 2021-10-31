@@ -8,22 +8,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import xacro.Pose;
-import xacro.XacroFactory;
 import xacro.XacroPackage;
 
 /**
@@ -33,13 +22,7 @@ import xacro.XacroPackage;
  * @generated
  */
 public class PoseItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -77,8 +60,8 @@ public class PoseItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(XacroPackage.Literals.POSE__XYZ);
 			childrenFeatures.add(XacroPackage.Literals.POSE__RPY);
+			childrenFeatures.add(XacroPackage.Literals.POSE__XYZ);
 		}
 		return childrenFeatures;
 	}
@@ -115,7 +98,10 @@ public class PoseItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Pose_type");
+		String label = ((Pose)object).getRpy();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Pose_type") :
+			getString("_UI_Pose_type") + " " + label;
 	}
 
 
@@ -132,8 +118,10 @@ public class PoseItemProvider
 
 		switch (notification.getFeatureID(Pose.class)) {
 			case XacroPackage.POSE__XYZ:
-			case XacroPackage.POSE__RPY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+			case XacroPackage.POSE__RPY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -152,47 +140,13 @@ public class PoseItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(XacroPackage.Literals.POSE__XYZ,
-				 XacroFactory.eINSTANCE.createParameterValue()));
+				(XacroPackage.Literals.POSE__RPY,
+				 ""));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(XacroPackage.Literals.POSE__RPY,
-				 XacroFactory.eINSTANCE.createParameterValue()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == XacroPackage.Literals.POSE__XYZ ||
-			childFeature == XacroPackage.Literals.POSE__RPY;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return XacroEditPlugin.INSTANCE;
+				(XacroPackage.Literals.POSE__XYZ,
+				 ""));
 	}
 
 }
