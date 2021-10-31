@@ -501,6 +501,57 @@ ruleParameter returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleParameterValue
+entryRuleParameterValue returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterValueRule()); }
+	iv_ruleParameterValue=ruleParameterValue
+	{ $current=$iv_ruleParameterValue.current; }
+	EOF;
+
+// Rule ParameterValue
+ruleParameterValue returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterValueRule());
+					}
+				}
+				otherlv_0=RULE_STRING
+				{
+					newLeafNode(otherlv_0, grammarAccess.getParameterValueAccess().getRefParameterCrossReference_0_0());
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_value_1_0=RULE_ID
+				{
+					newLeafNode(lv_value_1_0, grammarAccess.getParameterValueAccess().getValueIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterValueRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"value",
+						lv_value_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleBody
 entryRuleBody returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getBodyRule()); }
@@ -648,183 +699,9 @@ ruleBody returns [EObject current=null]
 				newLeafNode(otherlv_14, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_4_4());
 			}
 		)?
-		(
-			otherlv_15='link'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getBodyAccess().getLinkKeyword_5_0());
-			}
-			otherlv_16='{'
-			{
-				newLeafNode(otherlv_16, grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_5_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getBodyAccess().getLinkLinkParserRuleCall_5_2_0());
-					}
-					lv_link_17_0=ruleLink
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getBodyRule());
-						}
-						add(
-							$current,
-							"link",
-							lv_link_17_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Link");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_18=','
-				{
-					newLeafNode(otherlv_18, grammarAccess.getBodyAccess().getCommaKeyword_5_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getBodyAccess().getLinkLinkParserRuleCall_5_3_1_0());
-						}
-						lv_link_19_0=ruleLink
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getBodyRule());
-							}
-							add(
-								$current,
-								"link",
-								lv_link_19_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Link");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_20='}'
-			{
-				newLeafNode(otherlv_20, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_5_4());
-			}
-		)?
-		(
-			otherlv_21='material'
-			{
-				newLeafNode(otherlv_21, grammarAccess.getBodyAccess().getMaterialKeyword_6_0());
-			}
-			otherlv_22='{'
-			{
-				newLeafNode(otherlv_22, grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_6_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getBodyAccess().getMaterialMaterialGlobalParserRuleCall_6_2_0());
-					}
-					lv_material_23_0=ruleMaterialGlobal
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getBodyRule());
-						}
-						add(
-							$current,
-							"material",
-							lv_material_23_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.MaterialGlobal");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_24=','
-				{
-					newLeafNode(otherlv_24, grammarAccess.getBodyAccess().getCommaKeyword_6_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getBodyAccess().getMaterialMaterialGlobalParserRuleCall_6_3_1_0());
-						}
-						lv_material_25_0=ruleMaterialGlobal
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getBodyRule());
-							}
-							add(
-								$current,
-								"material",
-								lv_material_25_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.MaterialGlobal");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_26='}'
-			{
-				newLeafNode(otherlv_26, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_6_4());
-			}
-		)?
-		(
-			otherlv_27='transmission'
-			{
-				newLeafNode(otherlv_27, grammarAccess.getBodyAccess().getTransmissionKeyword_7_0());
-			}
-			otherlv_28='{'
-			{
-				newLeafNode(otherlv_28, grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_7_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_7_2_0());
-					}
-					lv_transmission_29_0=ruleTransmission
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getBodyRule());
-						}
-						add(
-							$current,
-							"transmission",
-							lv_transmission_29_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_30=','
-				{
-					newLeafNode(otherlv_30, grammarAccess.getBodyAccess().getCommaKeyword_7_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getBodyAccess().getTransmissionTransmissionParserRuleCall_7_3_1_0());
-						}
-						lv_transmission_31_0=ruleTransmission
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getBodyRule());
-							}
-							add(
-								$current,
-								"transmission",
-								lv_transmission_31_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Transmission");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_32='}'
-			{
-				newLeafNode(otherlv_32, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_7_4());
-			}
-		)?
-		otherlv_33='}'
+		otherlv_15='}'
 		{
-			newLeafNode(otherlv_33, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_15, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -1049,19 +926,20 @@ ruleJoint returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_3_0=RULE_ID
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getJointAccess().getNameIDTerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getJointAccess().getNameParameterValueParserRuleCall_3_0());
 				}
+				lv_name_3_0=ruleParameterValue
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getJointRule());
+						$current = createModelElementForParent(grammarAccess.getJointRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_3_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1154,9 +1032,9 @@ ruleJoint returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJointAccess().getAxisAxisParserRuleCall_11_1_0());
+						newCompositeNode(grammarAccess.getJointAccess().getAxisVector3ParserRuleCall_11_1_0());
 					}
-					lv_axis_13_0=ruleAxis
+					lv_axis_13_0=ruleVector3
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJointRule());
@@ -1165,73 +1043,23 @@ ruleJoint returns [EObject current=null]
 							$current,
 							"axis",
 							lv_axis_13_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Axis");
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Vector3");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
 		(
-			otherlv_14='calibration'
+			otherlv_14='limit'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getJointAccess().getCalibrationKeyword_12_0());
+				newLeafNode(otherlv_14, grammarAccess.getJointAccess().getLimitKeyword_12_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getJointAccess().getCalibrationCalibrationParserRuleCall_12_1_0());
+						newCompositeNode(grammarAccess.getJointAccess().getLimitLimitParserRuleCall_12_1_0());
 					}
-					lv_calibration_15_0=ruleCalibration
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getJointRule());
-						}
-						set(
-							$current,
-							"calibration",
-							lv_calibration_15_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Calibration");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_16='dynamics'
-			{
-				newLeafNode(otherlv_16, grammarAccess.getJointAccess().getDynamicsKeyword_13_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getJointAccess().getDynamicsDynamicsParserRuleCall_13_1_0());
-					}
-					lv_dynamics_17_0=ruleDynamics
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getJointRule());
-						}
-						set(
-							$current,
-							"dynamics",
-							lv_dynamics_17_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Dynamics");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_18='limit'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getJointAccess().getLimitKeyword_14_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getJointAccess().getLimitLimitParserRuleCall_14_1_0());
-					}
-					lv_limit_19_0=ruleLimit
+					lv_limit_15_0=ruleLimit
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getJointRule());
@@ -1239,66 +1067,16 @@ ruleJoint returns [EObject current=null]
 						set(
 							$current,
 							"limit",
-							lv_limit_19_0,
+							lv_limit_15_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Limit");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		(
-			otherlv_20='safetyController'
-			{
-				newLeafNode(otherlv_20, grammarAccess.getJointAccess().getSafetyControllerKeyword_15_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getJointAccess().getSafetyControllerSafetyControllerParserRuleCall_15_1_0());
-					}
-					lv_safetyController_21_0=ruleSafetyController
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getJointRule());
-						}
-						set(
-							$current,
-							"safetyController",
-							lv_safetyController_21_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.SafetyController");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_22='mimic'
-			{
-				newLeafNode(otherlv_22, grammarAccess.getJointAccess().getMimicKeyword_16_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getJointAccess().getMimicMimicParserRuleCall_16_1_0());
-					}
-					lv_mimic_23_0=ruleMimic
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getJointRule());
-						}
-						set(
-							$current,
-							"mimic",
-							lv_mimic_23_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Mimic");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_24='}'
+		otherlv_16='}'
 		{
-			newLeafNode(otherlv_24, grammarAccess.getJointAccess().getRightCurlyBracketKeyword_17());
+			newLeafNode(otherlv_16, grammarAccess.getJointAccess().getRightCurlyBracketKeyword_13());
 		}
 	)
 ;
@@ -1333,57 +1111,34 @@ ruleLink returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_3_0=RULE_ID
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getLinkAccess().getNameIDTerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getLinkAccess().getNameParameterValueParserRuleCall_3_0());
 				}
+				lv_name_3_0=ruleParameterValue
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getLinkRule());
+						$current = createModelElementForParent(grammarAccess.getLinkRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_3_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_4='type'
+			otherlv_4='inertial'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getLinkAccess().getTypeKeyword_4_0());
-			}
-			(
-				(
-					lv_type_5_0=RULE_STRING
-					{
-						newLeafNode(lv_type_5_0, grammarAccess.getLinkAccess().getTypeSTRINGTerminalRuleCall_4_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getLinkRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"type",
-							lv_type_5_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-		)?
-		(
-			otherlv_6='inertial'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getLinkAccess().getInertialKeyword_5_0());
+				newLeafNode(otherlv_4, grammarAccess.getLinkAccess().getInertialKeyword_4_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLinkAccess().getInertialInertialParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getLinkAccess().getInertialInertialParserRuleCall_4_1_0());
 					}
-					lv_inertial_7_0=ruleInertial
+					lv_inertial_5_0=ruleInertial
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLinkRule());
@@ -1391,7 +1146,7 @@ ruleLink returns [EObject current=null]
 						set(
 							$current,
 							"inertial",
-							lv_inertial_7_0,
+							lv_inertial_5_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Inertial");
 						afterParserOrEnumRuleCall();
 					}
@@ -1399,16 +1154,16 @@ ruleLink returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_8='visual'
+			otherlv_6='visual'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getLinkAccess().getVisualKeyword_6_0());
+				newLeafNode(otherlv_6, grammarAccess.getLinkAccess().getVisualKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLinkAccess().getVisualVisualParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getLinkAccess().getVisualVisualParserRuleCall_5_1_0());
 					}
-					lv_visual_9_0=ruleVisual
+					lv_visual_7_0=ruleVisual
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLinkRule());
@@ -1416,7 +1171,7 @@ ruleLink returns [EObject current=null]
 						set(
 							$current,
 							"visual",
-							lv_visual_9_0,
+							lv_visual_7_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Visual");
 						afterParserOrEnumRuleCall();
 					}
@@ -1424,16 +1179,16 @@ ruleLink returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_10='collision'
+			otherlv_8='collision'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getLinkAccess().getCollisionKeyword_7_0());
+				newLeafNode(otherlv_8, grammarAccess.getLinkAccess().getCollisionKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLinkAccess().getCollisionCollisionParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getLinkAccess().getCollisionCollisionParserRuleCall_6_1_0());
 					}
-					lv_collision_11_0=ruleCollision
+					lv_collision_9_0=ruleCollision
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLinkRule());
@@ -1441,774 +1196,16 @@ ruleLink returns [EObject current=null]
 						set(
 							$current,
 							"collision",
-							lv_collision_11_0,
+							lv_collision_9_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Collision");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_12='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getLinkAccess().getRightCurlyBracketKeyword_8());
-		}
-	)
-;
-
-// Entry rule entryRuleMaterialGlobal
-entryRuleMaterialGlobal returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMaterialGlobalRule()); }
-	iv_ruleMaterialGlobal=ruleMaterialGlobal
-	{ $current=$iv_ruleMaterialGlobal.current; }
-	EOF;
-
-// Rule MaterialGlobal
-ruleMaterialGlobal returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='MaterialGlobal'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getMaterialGlobalAccess().getMaterialGlobalKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getMaterialGlobalAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='name'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getMaterialGlobalAccess().getNameKeyword_2());
-		}
-		(
-			(
-				lv_name_3_0=RULE_ID
-				{
-					newLeafNode(lv_name_3_0, grammarAccess.getMaterialGlobalAccess().getNameIDTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMaterialGlobalRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_3_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			otherlv_4='color'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getMaterialGlobalAccess().getColorKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMaterialGlobalAccess().getColorColorParserRuleCall_4_1_0());
-					}
-					lv_color_5_0=ruleColor
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMaterialGlobalRule());
-						}
-						set(
-							$current,
-							"color",
-							lv_color_5_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Color");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_6='texture'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getMaterialGlobalAccess().getTextureKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMaterialGlobalAccess().getTextureTextureParserRuleCall_5_1_0());
-					}
-					lv_texture_7_0=ruleTexture
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMaterialGlobalRule());
-						}
-						set(
-							$current,
-							"texture",
-							lv_texture_7_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Texture");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_8='}'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getMaterialGlobalAccess().getRightCurlyBracketKeyword_6());
-		}
-	)
-;
-
-// Entry rule entryRuleTransmission
-entryRuleTransmission returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTransmissionRule()); }
-	iv_ruleTransmission=ruleTransmission
-	{ $current=$iv_ruleTransmission.current; }
-	EOF;
-
-// Rule Transmission
-ruleTransmission returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Transmission'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTransmissionAccess().getTransmissionKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_1());
-		}
-		(
-			otherlv_2='mechanicalReduction'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getTransmissionAccess().getMechanicalReductionKeyword_2_0());
-			}
-			otherlv_3='{'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_2_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_2_2_0());
-					}
-					lv_mechanicalReduction_4_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"mechanicalReduction",
-							lv_mechanicalReduction_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_5=','
-				{
-					newLeafNode(otherlv_5, grammarAccess.getTransmissionAccess().getCommaKeyword_2_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_2_3_1_0());
-						}
-						lv_mechanicalReduction_6_0=ruleDouble0
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"mechanicalReduction",
-								lv_mechanicalReduction_6_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_7='}'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_2_4());
-			}
-		)?
-		otherlv_8='name'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getTransmissionAccess().getNameKeyword_3());
-		}
-		(
-			(
-				lv_name_9_0=RULE_ID
-				{
-					newLeafNode(lv_name_9_0, grammarAccess.getTransmissionAccess().getNameIDTerminalRuleCall_4_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTransmissionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_9_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_10='type'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getTransmissionAccess().getTypeKeyword_5());
-		}
-		(
-			(
-				lv_type_11_0=RULE_STRING
-				{
-					newLeafNode(lv_type_11_0, grammarAccess.getTransmissionAccess().getTypeSTRINGTerminalRuleCall_6_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTransmissionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"type",
-						lv_type_11_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		(
-			otherlv_12='leftActuator'
-			{
-				newLeafNode(otherlv_12, grammarAccess.getTransmissionAccess().getLeftActuatorKeyword_7_0());
-			}
-			otherlv_13='{'
-			{
-				newLeafNode(otherlv_13, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_7_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getLeftActuatorActuatorTransmissionParserRuleCall_7_2_0());
-					}
-					lv_leftActuator_14_0=ruleActuatorTransmission
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"leftActuator",
-							lv_leftActuator_14_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_15=','
-				{
-					newLeafNode(otherlv_15, grammarAccess.getTransmissionAccess().getCommaKeyword_7_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getLeftActuatorActuatorTransmissionParserRuleCall_7_3_1_0());
-						}
-						lv_leftActuator_16_0=ruleActuatorTransmission
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"leftActuator",
-								lv_leftActuator_16_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_17='}'
-			{
-				newLeafNode(otherlv_17, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_7_4());
-			}
-		)?
-		(
-			otherlv_18='rightActuator'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getTransmissionAccess().getRightActuatorKeyword_8_0());
-			}
-			otherlv_19='{'
-			{
-				newLeafNode(otherlv_19, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_8_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getRightActuatorActuatorTransmissionParserRuleCall_8_2_0());
-					}
-					lv_rightActuator_20_0=ruleActuatorTransmission
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"rightActuator",
-							lv_rightActuator_20_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_21=','
-				{
-					newLeafNode(otherlv_21, grammarAccess.getTransmissionAccess().getCommaKeyword_8_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getRightActuatorActuatorTransmissionParserRuleCall_8_3_1_0());
-						}
-						lv_rightActuator_22_0=ruleActuatorTransmission
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"rightActuator",
-								lv_rightActuator_22_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_23='}'
-			{
-				newLeafNode(otherlv_23, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_8_4());
-			}
-		)?
-		(
-			otherlv_24='flexJoint'
-			{
-				newLeafNode(otherlv_24, grammarAccess.getTransmissionAccess().getFlexJointKeyword_9_0());
-			}
-			otherlv_25='{'
-			{
-				newLeafNode(otherlv_25, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_9_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getFlexJointActuatorTransmissionParserRuleCall_9_2_0());
-					}
-					lv_flexJoint_26_0=ruleActuatorTransmission
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"flexJoint",
-							lv_flexJoint_26_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_27=','
-				{
-					newLeafNode(otherlv_27, grammarAccess.getTransmissionAccess().getCommaKeyword_9_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getFlexJointActuatorTransmissionParserRuleCall_9_3_1_0());
-						}
-						lv_flexJoint_28_0=ruleActuatorTransmission
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"flexJoint",
-								lv_flexJoint_28_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_29='}'
-			{
-				newLeafNode(otherlv_29, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_9_4());
-			}
-		)?
-		(
-			otherlv_30='rollJoint'
-			{
-				newLeafNode(otherlv_30, grammarAccess.getTransmissionAccess().getRollJointKeyword_10_0());
-			}
-			otherlv_31='{'
-			{
-				newLeafNode(otherlv_31, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_10_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getRollJointActuatorTransmissionParserRuleCall_10_2_0());
-					}
-					lv_rollJoint_32_0=ruleActuatorTransmission
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"rollJoint",
-							lv_rollJoint_32_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_33=','
-				{
-					newLeafNode(otherlv_33, grammarAccess.getTransmissionAccess().getCommaKeyword_10_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getRollJointActuatorTransmissionParserRuleCall_10_3_1_0());
-						}
-						lv_rollJoint_34_0=ruleActuatorTransmission
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"rollJoint",
-								lv_rollJoint_34_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.ActuatorTransmission");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_35='}'
-			{
-				newLeafNode(otherlv_35, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_10_4());
-			}
-		)?
-		(
-			otherlv_36='gapJoint'
-			{
-				newLeafNode(otherlv_36, grammarAccess.getTransmissionAccess().getGapJointKeyword_11_0());
-			}
-			otherlv_37='{'
-			{
-				newLeafNode(otherlv_37, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_11_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getGapJointGapJointTransmissionParserRuleCall_11_2_0());
-					}
-					lv_gapJoint_38_0=ruleGapJointTransmission
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"gapJoint",
-							lv_gapJoint_38_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.GapJointTransmission");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_39=','
-				{
-					newLeafNode(otherlv_39, grammarAccess.getTransmissionAccess().getCommaKeyword_11_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getGapJointGapJointTransmissionParserRuleCall_11_3_1_0());
-						}
-						lv_gapJoint_40_0=ruleGapJointTransmission
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"gapJoint",
-								lv_gapJoint_40_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.GapJointTransmission");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_41='}'
-			{
-				newLeafNode(otherlv_41, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_11_4());
-			}
-		)?
-		(
-			otherlv_42='passiveJoint'
-			{
-				newLeafNode(otherlv_42, grammarAccess.getTransmissionAccess().getPassiveJointKeyword_12_0());
-			}
-			otherlv_43='{'
-			{
-				newLeafNode(otherlv_43, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_12_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getPassiveJointPassiveJointTransmissionParserRuleCall_12_2_0());
-					}
-					lv_passiveJoint_44_0=rulePassiveJointTransmission
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"passiveJoint",
-							lv_passiveJoint_44_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.PassiveJointTransmission");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_45=','
-				{
-					newLeafNode(otherlv_45, grammarAccess.getTransmissionAccess().getCommaKeyword_12_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getPassiveJointPassiveJointTransmissionParserRuleCall_12_3_1_0());
-						}
-						lv_passiveJoint_46_0=rulePassiveJointTransmission
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"passiveJoint",
-								lv_passiveJoint_46_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.PassiveJointTransmission");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_47='}'
-			{
-				newLeafNode(otherlv_47, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_12_4());
-			}
-		)?
-		(
-			otherlv_48='useSimulatedGripperJoint'
-			{
-				newLeafNode(otherlv_48, grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointKeyword_13_0());
-			}
-			otherlv_49='{'
-			{
-				newLeafNode(otherlv_49, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_13_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_2_0());
-					}
-					lv_useSimulatedGripperJoint_50_0=ruleUseSimulatedGripperJointType
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"useSimulatedGripperJoint",
-							lv_useSimulatedGripperJoint_50_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.UseSimulatedGripperJointType");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_51=','
-				{
-					newLeafNode(otherlv_51, grammarAccess.getTransmissionAccess().getCommaKeyword_13_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getUseSimulatedGripperJointUseSimulatedGripperJointTypeParserRuleCall_13_3_1_0());
-						}
-						lv_useSimulatedGripperJoint_52_0=ruleUseSimulatedGripperJointType
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"useSimulatedGripperJoint",
-								lv_useSimulatedGripperJoint_52_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.UseSimulatedGripperJointType");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_53='}'
-			{
-				newLeafNode(otherlv_53, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_13_4());
-			}
-		)?
-		(
-			otherlv_54='actuator'
-			{
-				newLeafNode(otherlv_54, grammarAccess.getTransmissionAccess().getActuatorKeyword_14_0());
-			}
-			otherlv_55='{'
-			{
-				newLeafNode(otherlv_55, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_14_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getActuatorNameParserRuleCall_14_2_0());
-					}
-					lv_actuator_56_0=ruleName
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"actuator",
-							lv_actuator_56_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_57=','
-				{
-					newLeafNode(otherlv_57, grammarAccess.getTransmissionAccess().getCommaKeyword_14_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getActuatorNameParserRuleCall_14_3_1_0());
-						}
-						lv_actuator_58_0=ruleName
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"actuator",
-								lv_actuator_58_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_59='}'
-			{
-				newLeafNode(otherlv_59, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_14_4());
-			}
-		)?
-		(
-			otherlv_60='joint'
-			{
-				newLeafNode(otherlv_60, grammarAccess.getTransmissionAccess().getJointKeyword_15_0());
-			}
-			otherlv_61='{'
-			{
-				newLeafNode(otherlv_61, grammarAccess.getTransmissionAccess().getLeftCurlyBracketKeyword_15_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTransmissionAccess().getJointNameParserRuleCall_15_2_0());
-					}
-					lv_joint_62_0=ruleName
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-						}
-						add(
-							$current,
-							"joint",
-							lv_joint_62_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_63=','
-				{
-					newLeafNode(otherlv_63, grammarAccess.getTransmissionAccess().getCommaKeyword_15_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getTransmissionAccess().getJointNameParserRuleCall_15_3_1_0());
-						}
-						lv_joint_64_0=ruleName
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getTransmissionRule());
-							}
-							add(
-								$current,
-								"joint",
-								lv_joint_64_0,
-								"de.fraunhofer.ipa.kinematics.xacro.Xacro.Name");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_65='}'
-			{
-				newLeafNode(otherlv_65, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_15_4());
-			}
-		)?
-		otherlv_66='}'
-		{
-			newLeafNode(otherlv_66, grammarAccess.getTransmissionAccess().getRightCurlyBracketKeyword_16());
+			newLeafNode(otherlv_10, grammarAccess.getLinkAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -2251,19 +1248,20 @@ rulePose returns [EObject current=null]
 			}
 			(
 				(
-					lv_rpy_4_0=RULE_STRING
 					{
-						newLeafNode(lv_rpy_4_0, grammarAccess.getPoseAccess().getRpySTRINGTerminalRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getPoseAccess().getRpyParameterValueParserRuleCall_3_1_0());
 					}
+					lv_rpy_4_0=ruleParameterValue
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getPoseRule());
+							$current = createModelElementForParent(grammarAccess.getPoseRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"rpy",
 							lv_rpy_4_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -2275,19 +1273,20 @@ rulePose returns [EObject current=null]
 			}
 			(
 				(
-					lv_xyz_6_0=RULE_STRING
 					{
-						newLeafNode(lv_xyz_6_0, grammarAccess.getPoseAccess().getXyzSTRINGTerminalRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getPoseAccess().getXyzParameterValueParserRuleCall_4_1_0());
 					}
+					lv_xyz_6_0=ruleParameterValue
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getPoseRule());
+							$current = createModelElementForParent(grammarAccess.getPoseRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"xyz",
 							lv_xyz_6_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -2299,15 +1298,15 @@ rulePose returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleAxis
-entryRuleAxis returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAxisRule()); }
-	iv_ruleAxis=ruleAxis
-	{ $current=$iv_ruleAxis.current; }
+// Entry rule entryRuleVector3
+entryRuleVector3 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getVector3Rule()); }
+	iv_ruleVector3=ruleVector3
+	{ $current=$iv_ruleVector3.current; }
 	EOF;
 
-// Rule Axis
-ruleAxis returns [EObject current=null]
+// Rule Vector3
+ruleVector3 returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -2318,32 +1317,32 @@ ruleAxis returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getAxisAccess().getAxisAction_0(),
+					grammarAccess.getVector3Access().getVector3Action_0(),
 					$current);
 			}
 		)
-		otherlv_1='Axis'
+		otherlv_1='Vector3'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getAxisAccess().getAxisKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getVector3Access().getVector3Keyword_1());
 		}
 		otherlv_2='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAxisAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getVector3Access().getLeftCurlyBracketKeyword_2());
 		}
 		(
 			otherlv_3='xyz'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getAxisAccess().getXyzKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getVector3Access().getXyzKeyword_3_0());
 			}
 			(
 				(
 					lv_xyz_4_0=RULE_STRING
 					{
-						newLeafNode(lv_xyz_4_0, grammarAccess.getAxisAccess().getXyzSTRINGTerminalRuleCall_3_1_0());
+						newLeafNode(lv_xyz_4_0, grammarAccess.getVector3Access().getXyzSTRINGTerminalRuleCall_3_1_0());
 					}
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAxisRule());
+							$current = createModelElement(grammarAccess.getVector3Rule());
 						}
 						setWithLastConsumed(
 							$current,
@@ -2356,208 +1355,7 @@ ruleAxis returns [EObject current=null]
 		)?
 		otherlv_5='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getAxisAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleCalibration
-entryRuleCalibration returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCalibrationRule()); }
-	iv_ruleCalibration=ruleCalibration
-	{ $current=$iv_ruleCalibration.current; }
-	EOF;
-
-// Rule Calibration
-ruleCalibration returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getCalibrationAccess().getCalibrationAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Calibration'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getCalibrationAccess().getCalibrationKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getCalibrationAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='falling'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getCalibrationAccess().getFallingKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getFallingDouble0ParserRuleCall_3_1_0());
-					}
-					lv_falling_4_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
-						}
-						set(
-							$current,
-							"falling",
-							lv_falling_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_5='referencePosition'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getCalibrationAccess().getReferencePositionKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getReferencePositionDouble0ParserRuleCall_4_1_0());
-					}
-					lv_referencePosition_6_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
-						}
-						set(
-							$current,
-							"referencePosition",
-							lv_referencePosition_6_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_7='rising'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getCalibrationAccess().getRisingKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCalibrationAccess().getRisingDouble0ParserRuleCall_5_1_0());
-					}
-					lv_rising_8_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCalibrationRule());
-						}
-						set(
-							$current,
-							"rising",
-							lv_rising_8_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_9='}'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getCalibrationAccess().getRightCurlyBracketKeyword_6());
-		}
-	)
-;
-
-// Entry rule entryRuleDynamics
-entryRuleDynamics returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDynamicsRule()); }
-	iv_ruleDynamics=ruleDynamics
-	{ $current=$iv_ruleDynamics.current; }
-	EOF;
-
-// Rule Dynamics
-ruleDynamics returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getDynamicsAccess().getDynamicsAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Dynamics'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getDynamicsAccess().getDynamicsKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getDynamicsAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='damping'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getDynamicsAccess().getDampingKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDynamicsAccess().getDampingDouble0ParserRuleCall_3_1_0());
-					}
-					lv_damping_4_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDynamicsRule());
-						}
-						set(
-							$current,
-							"damping",
-							lv_damping_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_5='friction'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getDynamicsAccess().getFrictionKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDynamicsAccess().getFrictionDouble0ParserRuleCall_4_1_0());
-					}
-					lv_friction_6_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDynamicsRule());
-						}
-						set(
-							$current,
-							"friction",
-							lv_friction_6_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getDynamicsAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getVector3Access().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;
@@ -2696,238 +1494,6 @@ ruleLimit returns [EObject current=null]
 		otherlv_11='}'
 		{
 			newLeafNode(otherlv_11, grammarAccess.getLimitAccess().getRightCurlyBracketKeyword_7());
-		}
-	)
-;
-
-// Entry rule entryRuleSafetyController
-entryRuleSafetyController returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSafetyControllerRule()); }
-	iv_ruleSafetyController=ruleSafetyController
-	{ $current=$iv_ruleSafetyController.current; }
-	EOF;
-
-// Rule SafetyController
-ruleSafetyController returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='SafetyController'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSafetyControllerAccess().getSafetyControllerKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSafetyControllerAccess().getLeftCurlyBracketKeyword_1());
-		}
-		(
-			otherlv_2='kPosition'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getSafetyControllerAccess().getKPositionKeyword_2_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getKPositionDouble0ParserRuleCall_2_1_0());
-					}
-					lv_kPosition_3_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
-						}
-						set(
-							$current,
-							"kPosition",
-							lv_kPosition_3_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_4='kVelocity'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getSafetyControllerAccess().getKVelocityKeyword_3());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSafetyControllerAccess().getKVelocityDouble0ParserRuleCall_4_0());
-				}
-				lv_kVelocity_5_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
-					}
-					set(
-						$current,
-						"kVelocity",
-						lv_kVelocity_5_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_6='softLowerLimit'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getSafetyControllerAccess().getSoftLowerLimitKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftLowerLimitDouble0ParserRuleCall_5_1_0());
-					}
-					lv_softLowerLimit_7_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
-						}
-						set(
-							$current,
-							"softLowerLimit",
-							lv_softLowerLimit_7_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_8='softUpperLimit'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getSafetyControllerAccess().getSoftUpperLimitKeyword_6_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSafetyControllerAccess().getSoftUpperLimitDouble0ParserRuleCall_6_1_0());
-					}
-					lv_softUpperLimit_9_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSafetyControllerRule());
-						}
-						set(
-							$current,
-							"softUpperLimit",
-							lv_softUpperLimit_9_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_10='}'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getSafetyControllerAccess().getRightCurlyBracketKeyword_7());
-		}
-	)
-;
-
-// Entry rule entryRuleMimic
-entryRuleMimic returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMimicRule()); }
-	iv_ruleMimic=ruleMimic
-	{ $current=$iv_ruleMimic.current; }
-	EOF;
-
-// Rule Mimic
-ruleMimic returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Mimic'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getMimicAccess().getMimicKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getMimicAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='joint'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getMimicAccess().getJointKeyword_2());
-		}
-		(
-			(
-				lv_joint_3_0=RULE_STRING
-				{
-					newLeafNode(lv_joint_3_0, grammarAccess.getMimicAccess().getJointSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMimicRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"joint",
-						lv_joint_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		(
-			otherlv_4='multiplier'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getMimicAccess().getMultiplierKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMimicAccess().getMultiplierDouble0ParserRuleCall_4_1_0());
-					}
-					lv_multiplier_5_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMimicRule());
-						}
-						set(
-							$current,
-							"multiplier",
-							lv_multiplier_5_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_6='offset'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getMimicAccess().getOffsetKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMimicAccess().getOffsetDouble0ParserRuleCall_5_1_0());
-					}
-					lv_offset_7_0=ruleDouble0
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMimicRule());
-						}
-						set(
-							$current,
-							"offset",
-							lv_offset_7_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_8='}'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getMimicAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -3117,34 +1683,9 @@ ruleVisual returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_6='material'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getVisualAccess().getMaterialKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getVisualAccess().getMaterialMaterialParserRuleCall_5_1_0());
-					}
-					lv_material_7_0=ruleMaterial
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVisualRule());
-						}
-						set(
-							$current,
-							"material",
-							lv_material_7_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Material");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_8='}'
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getVisualAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getVisualAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -3174,40 +1715,16 @@ ruleCollision returns [EObject current=null]
 			newLeafNode(otherlv_1, grammarAccess.getCollisionAccess().getLeftCurlyBracketKeyword_1());
 		}
 		(
-			otherlv_2='name'
+			otherlv_2='origin'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getCollisionAccess().getNameKeyword_2_0());
-			}
-			(
-				(
-					lv_name_3_0=RULE_ID
-					{
-						newLeafNode(lv_name_3_0, grammarAccess.getCollisionAccess().getNameIDTerminalRuleCall_2_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCollisionRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"name",
-							lv_name_3_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-		)?
-		(
-			otherlv_4='origin'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getCollisionAccess().getOriginKeyword_3_0());
+				newLeafNode(otherlv_2, grammarAccess.getCollisionAccess().getOriginKeyword_2_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getCollisionAccess().getOriginPoseParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getCollisionAccess().getOriginPoseParserRuleCall_2_1_0());
 					}
-					lv_origin_5_0=rulePose
+					lv_origin_3_0=rulePose
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getCollisionRule());
@@ -3215,23 +1732,23 @@ ruleCollision returns [EObject current=null]
 						set(
 							$current,
 							"origin",
-							lv_origin_5_0,
+							lv_origin_3_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Pose");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_6='geometry'
+		otherlv_4='geometry'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getCollisionAccess().getGeometryKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getCollisionAccess().getGeometryKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCollisionAccess().getGeometryGeometryParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getCollisionAccess().getGeometryGeometryParserRuleCall_4_0());
 				}
-				lv_geometry_7_0=ruleGeometry
+				lv_geometry_5_0=ruleGeometry
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCollisionRule());
@@ -3239,40 +1756,15 @@ ruleCollision returns [EObject current=null]
 					set(
 						$current,
 						"geometry",
-						lv_geometry_7_0,
+						lv_geometry_5_0,
 						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Geometry");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		(
-			otherlv_8='verbose'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getCollisionAccess().getVerboseKeyword_6_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCollisionAccess().getVerboseVerboseParserRuleCall_6_1_0());
-					}
-					lv_verbose_9_0=ruleVerbose
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCollisionRule());
-						}
-						set(
-							$current,
-							"verbose",
-							lv_verbose_9_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Verbose");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_10='}'
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getCollisionAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_6, grammarAccess.getCollisionAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -3666,118 +2158,6 @@ ruleGeometry returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleMaterial
-entryRuleMaterial returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMaterialRule()); }
-	iv_ruleMaterial=ruleMaterial
-	{ $current=$iv_ruleMaterial.current; }
-	EOF;
-
-// Rule Material
-ruleMaterial returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getMaterialAccess().getMaterialAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Material'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getMaterialAccess().getMaterialKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getMaterialAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='name'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getMaterialAccess().getNameKeyword_3_0());
-			}
-			(
-				(
-					lv_name_4_0=RULE_ID
-					{
-						newLeafNode(lv_name_4_0, grammarAccess.getMaterialAccess().getNameIDTerminalRuleCall_3_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getMaterialRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"name",
-							lv_name_4_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-		)?
-		(
-			otherlv_5='color'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getMaterialAccess().getColorKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMaterialAccess().getColorColorParserRuleCall_4_1_0());
-					}
-					lv_color_6_0=ruleColor
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMaterialRule());
-						}
-						set(
-							$current,
-							"color",
-							lv_color_6_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Color");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_7='texture'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getMaterialAccess().getTextureKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMaterialAccess().getTextureTextureParserRuleCall_5_1_0());
-					}
-					lv_texture_8_0=ruleTexture
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMaterialRule());
-						}
-						set(
-							$current,
-							"texture",
-							lv_texture_8_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Texture");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_9='}'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getMaterialAccess().getRightCurlyBracketKeyword_6());
-		}
-	)
-;
-
 // Entry rule entryRuleBox
 entryRuleBox returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getBoxRule()); }
@@ -3816,19 +2196,20 @@ ruleBox returns [EObject current=null]
 			}
 			(
 				(
-					lv_size_4_0=RULE_STRING
 					{
-						newLeafNode(lv_size_4_0, grammarAccess.getBoxAccess().getSizeSTRINGTerminalRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getBoxAccess().getSizeParameterValueParserRuleCall_3_1_0());
 					}
+					lv_size_4_0=ruleParameterValue
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getBoxRule());
+							$current = createModelElementForParent(grammarAccess.getBoxRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"size",
 							lv_size_4_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -4025,19 +2406,20 @@ ruleMesh returns [EObject current=null]
 			}
 			(
 				(
-					lv_scale_5_0=RULE_STRING
 					{
-						newLeafNode(lv_scale_5_0, grammarAccess.getMeshAccess().getScaleSTRINGTerminalRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getMeshAccess().getScaleDouble0ParserRuleCall_4_1_0());
 					}
+					lv_scale_5_0=ruleDouble0
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getMeshRule());
+							$current = createModelElementForParent(grammarAccess.getMeshRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"scale",
 							lv_scale_5_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -4069,720 +2451,6 @@ ruleAnyURI returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		$current.merge(kw);
 		newLeafNode(kw, grammarAccess.getAnyURIAccess().getAnyURIKeyword());
 	}
-;
-
-// Entry rule entryRuleColor
-entryRuleColor returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getColorRule()); }
-	iv_ruleColor=ruleColor
-	{ $current=$iv_ruleColor.current; }
-	EOF;
-
-// Rule Color
-ruleColor returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getColorAccess().getColorAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Color'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getColorAccess().getColorKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getColorAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='rgba'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getColorAccess().getRgbaKeyword_3_0());
-			}
-			(
-				(
-					lv_rgba_4_0=RULE_STRING
-					{
-						newLeafNode(lv_rgba_4_0, grammarAccess.getColorAccess().getRgbaSTRINGTerminalRuleCall_3_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getColorRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"rgba",
-							lv_rgba_4_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-		)?
-		otherlv_5='}'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getColorAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleTexture
-entryRuleTexture returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTextureRule()); }
-	iv_ruleTexture=ruleTexture
-	{ $current=$iv_ruleTexture.current; }
-	EOF;
-
-// Rule Texture
-ruleTexture returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getTextureAccess().getTextureAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Texture'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getTextureAccess().getTextureKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getTextureAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='filename'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getTextureAccess().getFilenameKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTextureAccess().getFilenameAnyURIParserRuleCall_3_1_0());
-					}
-					lv_filename_4_0=ruleAnyURI
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTextureRule());
-						}
-						set(
-							$current,
-							"filename",
-							lv_filename_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.AnyURI");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_5='}'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getTextureAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleVerbose
-entryRuleVerbose returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getVerboseRule()); }
-	iv_ruleVerbose=ruleVerbose
-	{ $current=$iv_ruleVerbose.current; }
-	EOF;
-
-// Rule Verbose
-ruleVerbose returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getVerboseAccess().getVerboseAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Verbose'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getVerboseAccess().getVerboseKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getVerboseAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='value'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getVerboseAccess().getValueKeyword_3_0());
-			}
-			(
-				(
-					lv_value_4_0=RULE_STRING
-					{
-						newLeafNode(lv_value_4_0, grammarAccess.getVerboseAccess().getValueSTRINGTerminalRuleCall_3_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getVerboseRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"value",
-							lv_value_4_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-		)?
-		otherlv_5='}'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getVerboseAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleActuatorTransmission
-entryRuleActuatorTransmission returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getActuatorTransmissionRule()); }
-	iv_ruleActuatorTransmission=ruleActuatorTransmission
-	{ $current=$iv_ruleActuatorTransmission.current; }
-	EOF;
-
-// Rule ActuatorTransmission
-ruleActuatorTransmission returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='ActuatorTransmission'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getActuatorTransmissionAccess().getActuatorTransmissionKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getActuatorTransmissionAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='mechanicalReduction'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getActuatorTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_3_0());
-				}
-				lv_mechanicalReduction_3_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getActuatorTransmissionRule());
-					}
-					set(
-						$current,
-						"mechanicalReduction",
-						lv_mechanicalReduction_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='name'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getActuatorTransmissionAccess().getNameKeyword_4());
-		}
-		(
-			(
-				lv_name_5_0=RULE_ID
-				{
-					newLeafNode(lv_name_5_0, grammarAccess.getActuatorTransmissionAccess().getNameIDTerminalRuleCall_5_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getActuatorTransmissionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_5_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_6='}'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getActuatorTransmissionAccess().getRightCurlyBracketKeyword_6());
-		}
-	)
-;
-
-// Entry rule entryRuleGapJointTransmission
-entryRuleGapJointTransmission returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGapJointTransmissionRule()); }
-	iv_ruleGapJointTransmission=ruleGapJointTransmission
-	{ $current=$iv_ruleGapJointTransmission.current; }
-	EOF;
-
-// Rule GapJointTransmission
-ruleGapJointTransmission returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='GapJointTransmission'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getGapJointTransmissionAccess().getGapJointTransmissionKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getGapJointTransmissionAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='a'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getGapJointTransmissionAccess().getAKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getADouble0ParserRuleCall_3_0());
-				}
-				lv_a_3_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"a",
-						lv_a_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='b'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getGapJointTransmissionAccess().getBKeyword_4());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getBDouble0ParserRuleCall_5_0());
-				}
-				lv_b_5_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"b",
-						lv_b_5_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_6='gearRatio'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getGapJointTransmissionAccess().getGearRatioKeyword_6());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getGearRatioDouble0ParserRuleCall_7_0());
-				}
-				lv_gearRatio_7_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"gearRatio",
-						lv_gearRatio_7_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_8='h'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getGapJointTransmissionAccess().getHKeyword_8());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getHDouble0ParserRuleCall_9_0());
-				}
-				lv_h_9_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"h",
-						lv_h_9_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_10='l0'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getGapJointTransmissionAccess().getL0Keyword_10());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getL0Double0ParserRuleCall_11_0());
-				}
-				lv_l0_11_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"l0",
-						lv_l0_11_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_12='mechanicalReduction'
-		{
-			newLeafNode(otherlv_12, grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionKeyword_12());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getMechanicalReductionDouble0ParserRuleCall_13_0());
-				}
-				lv_mechanicalReduction_13_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"mechanicalReduction",
-						lv_mechanicalReduction_13_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_14='name'
-		{
-			newLeafNode(otherlv_14, grammarAccess.getGapJointTransmissionAccess().getNameKeyword_14());
-		}
-		(
-			(
-				lv_name_15_0=RULE_ID
-				{
-					newLeafNode(lv_name_15_0, grammarAccess.getGapJointTransmissionAccess().getNameIDTerminalRuleCall_15_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGapJointTransmissionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_15_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_16='phi0'
-		{
-			newLeafNode(otherlv_16, grammarAccess.getGapJointTransmissionAccess().getPhi0Keyword_16());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getPhi0Double0ParserRuleCall_17_0());
-				}
-				lv_phi0_17_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"phi0",
-						lv_phi0_17_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_18='r'
-		{
-			newLeafNode(otherlv_18, grammarAccess.getGapJointTransmissionAccess().getRKeyword_18());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getRDouble0ParserRuleCall_19_0());
-				}
-				lv_r_19_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"r",
-						lv_r_19_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_20='screwReduction'
-		{
-			newLeafNode(otherlv_20, grammarAccess.getGapJointTransmissionAccess().getScrewReductionKeyword_20());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getScrewReductionDouble0ParserRuleCall_21_0());
-				}
-				lv_screwReduction_21_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"screwReduction",
-						lv_screwReduction_21_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_22='t0'
-		{
-			newLeafNode(otherlv_22, grammarAccess.getGapJointTransmissionAccess().getT0Keyword_22());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getT0Double0ParserRuleCall_23_0());
-				}
-				lv_t0_23_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"t0",
-						lv_t0_23_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_24='theta0'
-		{
-			newLeafNode(otherlv_24, grammarAccess.getGapJointTransmissionAccess().getTheta0Keyword_24());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGapJointTransmissionAccess().getTheta0Double0ParserRuleCall_25_0());
-				}
-				lv_theta0_25_0=ruleDouble0
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGapJointTransmissionRule());
-					}
-					set(
-						$current,
-						"theta0",
-						lv_theta0_25_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_26='}'
-		{
-			newLeafNode(otherlv_26, grammarAccess.getGapJointTransmissionAccess().getRightCurlyBracketKeyword_26());
-		}
-	)
-;
-
-// Entry rule entryRulePassiveJointTransmission
-entryRulePassiveJointTransmission returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPassiveJointTransmissionRule()); }
-	iv_rulePassiveJointTransmission=rulePassiveJointTransmission
-	{ $current=$iv_rulePassiveJointTransmission.current; }
-	EOF;
-
-// Rule PassiveJointTransmission
-rulePassiveJointTransmission returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='PassiveJointTransmission'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getPassiveJointTransmissionAccess().getPassiveJointTransmissionKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getPassiveJointTransmissionAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='name'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getPassiveJointTransmissionAccess().getNameKeyword_2());
-		}
-		(
-			(
-				lv_name_3_0=RULE_ID
-				{
-					newLeafNode(lv_name_3_0, grammarAccess.getPassiveJointTransmissionAccess().getNameIDTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPassiveJointTransmissionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_3_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_4='}'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getPassiveJointTransmissionAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleUseSimulatedGripperJointType
-entryRuleUseSimulatedGripperJointType returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getUseSimulatedGripperJointTypeRule()); }
-	iv_ruleUseSimulatedGripperJointType=ruleUseSimulatedGripperJointType
-	{ $current=$iv_ruleUseSimulatedGripperJointType.current; }
-	EOF;
-
-// Rule UseSimulatedGripperJointType
-ruleUseSimulatedGripperJointType returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getUseSimulatedGripperJointTypeAccess().getUseSimulatedGripperJointTypeAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='UseSimulatedGripperJointType'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getUseSimulatedGripperJointTypeAccess().getUseSimulatedGripperJointTypeKeyword_1());
-		}
-	)
-;
-
-// Entry rule entryRuleName
-entryRuleName returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNameRule()); }
-	iv_ruleName=ruleName
-	{ $current=$iv_ruleName.current; }
-	EOF;
-
-// Rule Name
-ruleName returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getNameAccess().getNameAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='Name'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getNameAccess().getNameKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getNameAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='name'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getNameAccess().getNameKeyword_3_0());
-			}
-			(
-				(
-					lv_name_4_0=RULE_ID
-					{
-						newLeafNode(lv_name_4_0, grammarAccess.getNameAccess().getNameIDTerminalRuleCall_3_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getNameRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"name",
-							lv_name_4_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-		)?
-		otherlv_5='}'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getNameAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
 ;
 
 // Entry rule entryRuleDouble0

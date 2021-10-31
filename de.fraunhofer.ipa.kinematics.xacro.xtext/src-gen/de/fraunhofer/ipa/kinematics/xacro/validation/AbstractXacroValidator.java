@@ -14,7 +14,6 @@ public abstract class AbstractXacroValidator extends AbstractDeclarativeValidato
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.ipa.fraunhofer.de/xacro"));
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.ipa.fraunhofer.de/urdf"));
 		return result;
 	}
 }

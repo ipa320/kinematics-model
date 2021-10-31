@@ -7,8 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import urdf.Joint
-import urdf.Link
+import xacro.Joint
+import xacro.Link
 import xacro.Body
 import xacro.Robot
 import xacro.Macro
@@ -112,7 +112,9 @@ class XacroGenerator extends AbstractGenerator {
 
 	private def compile_macro(Macro macro) '''
 	<xacro:macro name="«macro.name»" params="«FOR param : macro.parameter»«param.name» «ENDFOR»">
+		«IF macro.body !== null»
 		«compile_body(macro.body)»
+		«ENDIF»
 	</xacro:macro>
 	'''
 
@@ -132,8 +134,9 @@ class XacroGenerator extends AbstractGenerator {
 		«compile_macroCall(macroCall)»
 		«ENDFOR»
 
+		«IF robot.body !== null»
 		«compile_body(robot.body)»
-
+		«ENDIF»
 	</robot>
 	'''
 }

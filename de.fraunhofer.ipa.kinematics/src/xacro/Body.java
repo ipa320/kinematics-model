@@ -5,10 +5,6 @@ package xacro;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-import urdf.Joint;
-import urdf.Link;
-import urdf.MaterialGlobal;
-import urdf.Transmission;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,8 +17,6 @@ import urdf.Transmission;
  * <ul>
  *   <li>{@link xacro.Body#getJoint <em>Joint</em>}</li>
  *   <li>{@link xacro.Body#getLink <em>Link</em>}</li>
- *   <li>{@link xacro.Body#getMaterial <em>Material</em>}</li>
- *   <li>{@link xacro.Body#getTransmission <em>Transmission</em>}</li>
  * </ul>
  *
  * @see xacro.XacroPackage#getBody()
@@ -32,7 +26,7 @@ import urdf.Transmission;
 public interface Body extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Joint</b></em>' containment reference list.
-	 * The list contents are of type {@link urdf.Joint}.
+	 * The list contents are of type {@link xacro.Joint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Joint</em>' containment reference list.
@@ -44,7 +38,7 @@ public interface Body extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Link</b></em>' containment reference list.
-	 * The list contents are of type {@link urdf.Link}.
+	 * The list contents are of type {@link xacro.Link}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Link</em>' containment reference list.
@@ -53,29 +47,5 @@ public interface Body extends EObject {
 	 * @generated
 	 */
 	EList<Link> getLink();
-
-	/**
-	 * Returns the value of the '<em><b>Material</b></em>' containment reference list.
-	 * The list contents are of type {@link urdf.MaterialGlobal}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Material</em>' containment reference list.
-	 * @see xacro.XacroPackage#getBody_Material()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<MaterialGlobal> getMaterial();
-
-	/**
-	 * Returns the value of the '<em><b>Transmission</b></em>' containment reference list.
-	 * The list contents are of type {@link urdf.Transmission}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transmission</em>' containment reference list.
-	 * @see xacro.XacroPackage#getBody_Transmission()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Transmission> getTransmission();
 
 } // Body

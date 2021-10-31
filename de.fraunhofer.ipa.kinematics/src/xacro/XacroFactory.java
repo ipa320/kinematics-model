@@ -76,6 +76,150 @@ public interface XacroFactory extends EFactory {
 	ParameterCall createParameterCall();
 
 	/**
+	 * Returns a new object of class '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Value</em>'.
+	 * @generated
+	 */
+	ParameterValue createParameterValue();
+
+	/**
+	 * Returns a new object of class '<em>Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link</em>'.
+	 * @generated
+	 */
+	Link createLink();
+
+	/**
+	 * Returns a new object of class '<em>Joint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Joint</em>'.
+	 * @generated
+	 */
+	Joint createJoint();
+
+	/**
+	 * Returns a new object of class '<em>Pose</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pose</em>'.
+	 * @generated
+	 */
+	Pose createPose();
+
+	/**
+	 * Returns a new object of class '<em>Visual</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Visual</em>'.
+	 * @generated
+	 */
+	Visual createVisual();
+
+	/**
+	 * Returns a new object of class '<em>Collision</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Collision</em>'.
+	 * @generated
+	 */
+	Collision createCollision();
+
+	/**
+	 * Returns a new object of class '<em>Geometry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Geometry</em>'.
+	 * @generated
+	 */
+	Geometry createGeometry();
+
+	/**
+	 * Returns a new object of class '<em>Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Box</em>'.
+	 * @generated
+	 */
+	Box createBox();
+
+	/**
+	 * Returns a new object of class '<em>Cylinder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cylinder</em>'.
+	 * @generated
+	 */
+	Cylinder createCylinder();
+
+	/**
+	 * Returns a new object of class '<em>Vector3</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Vector3</em>'.
+	 * @generated
+	 */
+	Vector3 createVector3();
+
+	/**
+	 * Returns a new object of class '<em>Limit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Limit</em>'.
+	 * @generated
+	 */
+	Limit createLimit();
+
+	/**
+	 * Returns a new object of class '<em>Mass</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mass</em>'.
+	 * @generated
+	 */
+	Mass createMass();
+
+	/**
+	 * Returns a new object of class '<em>Inertial</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Inertial</em>'.
+	 * @generated
+	 */
+	Inertial createInertial();
+
+	/**
+	 * Returns a new object of class '<em>Inertia</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Inertia</em>'.
+	 * @generated
+	 */
+	Inertia createInertia();
+
+	/**
+	 * Returns a new object of class '<em>Mesh</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mesh</em>'.
+	 * @generated
+	 */
+	Mesh createMesh();
+
+	/**
+	 * Returns a new object of class '<em>Sphere</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sphere</em>'.
+	 * @generated
+	 */
+	Sphere createSphere();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

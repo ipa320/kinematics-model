@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
 import xacro.*;
 
 /**
@@ -90,6 +89,70 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameterCall(ParameterCall object) {
 				return createParameterCallAdapter();
+			}
+			@Override
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
+			}
+			@Override
+			public Adapter caseLink(Link object) {
+				return createLinkAdapter();
+			}
+			@Override
+			public Adapter caseJoint(Joint object) {
+				return createJointAdapter();
+			}
+			@Override
+			public Adapter casePose(Pose object) {
+				return createPoseAdapter();
+			}
+			@Override
+			public Adapter caseVisual(Visual object) {
+				return createVisualAdapter();
+			}
+			@Override
+			public Adapter caseCollision(Collision object) {
+				return createCollisionAdapter();
+			}
+			@Override
+			public Adapter caseGeometry(Geometry object) {
+				return createGeometryAdapter();
+			}
+			@Override
+			public Adapter caseBox(Box object) {
+				return createBoxAdapter();
+			}
+			@Override
+			public Adapter caseCylinder(Cylinder object) {
+				return createCylinderAdapter();
+			}
+			@Override
+			public Adapter caseVector3(Vector3 object) {
+				return createVector3Adapter();
+			}
+			@Override
+			public Adapter caseLimit(Limit object) {
+				return createLimitAdapter();
+			}
+			@Override
+			public Adapter caseMass(Mass object) {
+				return createMassAdapter();
+			}
+			@Override
+			public Adapter caseInertial(Inertial object) {
+				return createInertialAdapter();
+			}
+			@Override
+			public Adapter caseInertia(Inertia object) {
+				return createInertiaAdapter();
+			}
+			@Override
+			public Adapter caseMesh(Mesh object) {
+				return createMeshAdapter();
+			}
+			@Override
+			public Adapter caseSphere(Sphere object) {
+				return createSphereAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -192,6 +255,230 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterValue
+	 * @generated
+	 */
+	public Adapter createParameterValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Link <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Link
+	 * @generated
+	 */
+	public Adapter createLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Joint <em>Joint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Joint
+	 * @generated
+	 */
+	public Adapter createJointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Pose <em>Pose</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Pose
+	 * @generated
+	 */
+	public Adapter createPoseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Visual <em>Visual</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Visual
+	 * @generated
+	 */
+	public Adapter createVisualAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Collision <em>Collision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Collision
+	 * @generated
+	 */
+	public Adapter createCollisionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Geometry <em>Geometry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Geometry
+	 * @generated
+	 */
+	public Adapter createGeometryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Box <em>Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Box
+	 * @generated
+	 */
+	public Adapter createBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Cylinder <em>Cylinder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Cylinder
+	 * @generated
+	 */
+	public Adapter createCylinderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Vector3 <em>Vector3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Vector3
+	 * @generated
+	 */
+	public Adapter createVector3Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Limit <em>Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Limit
+	 * @generated
+	 */
+	public Adapter createLimitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Mass <em>Mass</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Mass
+	 * @generated
+	 */
+	public Adapter createMassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Inertial <em>Inertial</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Inertial
+	 * @generated
+	 */
+	public Adapter createInertialAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Inertia <em>Inertia</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Inertia
+	 * @generated
+	 */
+	public Adapter createInertiaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Mesh <em>Mesh</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Mesh
+	 * @generated
+	 */
+	public Adapter createMeshAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.Sphere <em>Sphere</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.Sphere
+	 * @generated
+	 */
+	public Adapter createSphereAdapter() {
 		return null;
 	}
 

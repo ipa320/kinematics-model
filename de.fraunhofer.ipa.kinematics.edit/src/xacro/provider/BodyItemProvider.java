@@ -21,10 +21,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import urdf.UrdfFactory;
-
 import xacro.Body;
+import xacro.XacroFactory;
 import xacro.XacroPackage;
 
 /**
@@ -80,8 +78,6 @@ public class BodyItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(XacroPackage.Literals.BODY__JOINT);
 			childrenFeatures.add(XacroPackage.Literals.BODY__LINK);
-			childrenFeatures.add(XacroPackage.Literals.BODY__MATERIAL);
-			childrenFeatures.add(XacroPackage.Literals.BODY__TRANSMISSION);
 		}
 		return childrenFeatures;
 	}
@@ -136,8 +132,6 @@ public class BodyItemProvider
 		switch (notification.getFeatureID(Body.class)) {
 			case XacroPackage.BODY__JOINT:
 			case XacroPackage.BODY__LINK:
-			case XacroPackage.BODY__MATERIAL:
-			case XacroPackage.BODY__TRANSMISSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -158,22 +152,12 @@ public class BodyItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(XacroPackage.Literals.BODY__JOINT,
-				 UrdfFactory.eINSTANCE.createJoint()));
+				 XacroFactory.eINSTANCE.createJoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(XacroPackage.Literals.BODY__LINK,
-				 UrdfFactory.eINSTANCE.createLink()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.BODY__MATERIAL,
-				 UrdfFactory.eINSTANCE.createMaterialGlobal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(XacroPackage.Literals.BODY__TRANSMISSION,
-				 UrdfFactory.eINSTANCE.createTransmission()));
+				 XacroFactory.eINSTANCE.createLink()));
 	}
 
 	/**

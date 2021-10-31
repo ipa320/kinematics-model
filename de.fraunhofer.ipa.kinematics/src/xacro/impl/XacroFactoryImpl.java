@@ -62,6 +62,22 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 			case XacroPackage.MACRO: return createMacro();
 			case XacroPackage.MACRO_CALL: return createMacroCall();
 			case XacroPackage.PARAMETER_CALL: return createParameterCall();
+			case XacroPackage.PARAMETER_VALUE: return createParameterValue();
+			case XacroPackage.LINK: return createLink();
+			case XacroPackage.JOINT: return createJoint();
+			case XacroPackage.POSE: return createPose();
+			case XacroPackage.VISUAL: return createVisual();
+			case XacroPackage.COLLISION: return createCollision();
+			case XacroPackage.GEOMETRY: return createGeometry();
+			case XacroPackage.BOX: return createBox();
+			case XacroPackage.CYLINDER: return createCylinder();
+			case XacroPackage.VECTOR3: return createVector3();
+			case XacroPackage.LIMIT: return createLimit();
+			case XacroPackage.MASS: return createMass();
+			case XacroPackage.INERTIAL: return createInertial();
+			case XacroPackage.INERTIA: return createInertia();
+			case XacroPackage.MESH: return createMesh();
+			case XacroPackage.SPHERE: return createSphere();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +141,166 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 	public ParameterCall createParameterCall() {
 		ParameterCallImpl parameterCall = new ParameterCallImpl();
 		return parameterCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterValue createParameterValue() {
+		ParameterValueImpl parameterValue = new ParameterValueImpl();
+		return parameterValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Link createLink() {
+		LinkImpl link = new LinkImpl();
+		return link;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Joint createJoint() {
+		JointImpl joint = new JointImpl();
+		return joint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Pose createPose() {
+		PoseImpl pose = new PoseImpl();
+		return pose;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Visual createVisual() {
+		VisualImpl visual = new VisualImpl();
+		return visual;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Collision createCollision() {
+		CollisionImpl collision = new CollisionImpl();
+		return collision;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Geometry createGeometry() {
+		GeometryImpl geometry = new GeometryImpl();
+		return geometry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Box createBox() {
+		BoxImpl box = new BoxImpl();
+		return box;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cylinder createCylinder() {
+		CylinderImpl cylinder = new CylinderImpl();
+		return cylinder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Vector3 createVector3() {
+		Vector3Impl vector3 = new Vector3Impl();
+		return vector3;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Limit createLimit() {
+		LimitImpl limit = new LimitImpl();
+		return limit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Mass createMass() {
+		MassImpl mass = new MassImpl();
+		return mass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Inertial createInertial() {
+		InertialImpl inertial = new InertialImpl();
+		return inertial;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Inertia createInertia() {
+		InertiaImpl inertia = new InertiaImpl();
+		return inertia;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Mesh createMesh() {
+		MeshImpl mesh = new MeshImpl();
+		return mesh;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sphere createSphere() {
+		SphereImpl sphere = new SphereImpl();
+		return sphere;
 	}
 
 	/**
