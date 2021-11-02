@@ -1,0 +1,65 @@
+Robot { name axia80_adapter_plates
+	macro {
+		Macro { name axia80_adapter_robotside_flange
+			parameter {
+				Parameter parent_link { },
+				Parameter origin_joint { } }
+			body Body {
+				link {
+					Link { name axia80_adapter_robotside_flange },
+					Link { name axia80_adapter_robotside_changer } }
+				joint {
+					Joint { name axia80_adapter_robotside_flange_joint
+						type fixed
+						parent parent_link
+						child "axia80_adapter_robotside_flange" 
+						origin "origin_joint" },
+					Joint { name axia80_adapter_robotside_changer_joint
+						type fixed
+						parent "axia80_adapter_robotside_flange"
+						child "axia80_adapter_robotside_changer"
+						origin Pose { rpy "0 0 0" xyz "0 0 0.01" } } } } },
+		Macro { name axia80_adapter_robotside_sensor
+			parameter {
+				Parameter parent_link {},
+				Parameter origin_joint {} }
+			body Body {
+				link {
+					Link { name axia80_adapter_robotside_changer_sensor
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh {
+									filename "package://schrauber_description/mesh/Aufnahme_FT_Sensor_origin.STL" } } } },
+					Link { name axia80_adapter_robotside_sensor } }
+				joint {
+					Joint { name axia80_adapter_robotside_changer_sensor_joint
+						type fixed
+						parent parent_link
+						child "axia80_adapter_robotside_changer_sensor"
+						origin "origin_joint" },
+					Joint { name axia80_adapter_robotside_sensor_joint
+						type fixed
+						parent "axia80_adapter_robotside_changer_sensor"
+						child "axia80_adapter_robotside_sensor"
+						origin Pose { rpy "0 0 0" xyz "0 0 0.01" } } } } },
+		Macro { name axia80_adapter_toolside_sensor
+			parameter {
+				Parameter parent_link {},
+				Parameter origin_joint {} }
+			body Body {
+				link {
+					Link { name axia80_adapter_toolside_sensor },
+					Link { name axia80_adapter_toolside_changer_sensor } }
+				joint {
+					Joint { name axia80_adapter_toolside_sensor_joint
+						type fixed
+						parent parent_link
+						child "axia80_adapter_toolside_changer_sensor"
+						origin "origin_joint" },
+					Joint { name axia80_adapter_toolside_sensor_changer_joint
+						type fixed
+						parent "axia80_adapter_toolside_sensor"
+						child "axia80_adapter_robotside_changer_sensor"
+						origin Pose { rpy "0 0 0" xyz "0 0 0.01" } } } } } }
+}

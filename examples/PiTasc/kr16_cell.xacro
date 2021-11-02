@@ -1,0 +1,46 @@
+Robot { name kr16
+	macroCall {
+		MacroCall { macro "axia80_adapter_plates.axia80_adapter_robotside_flange"
+			parameter {
+				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_robotside_flange.origin_joint"
+					value Pose { rpy "0 0 0" xyz "0 0 ${pi/2}" } },
+				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_robotside_flange.parent_link" 
+					value "tool0" } } },
+		MacroCall { macro "axia80_adapter_plates.axia80_adapter_robotside_sensor" 
+			parameter {
+				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_robotside_sensor.origin_joint"
+					value Pose { rpy "0 0 0" xyz "0 0 0" } },
+				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_robotside_sensor.parent_link"
+					value "axia80_adapter_robotside_changer" } } },
+		MacroCall { macro "ati_axia80.ati_axia80"
+			parameter {
+				ParameterCall { parameter "ati_axia80.ati_axia80.parent_link"
+					value "axia80_adapter_robotside_sensor" },
+				ParameterCall { parameter "ati_axia80.ati_axia80.prefix"
+					value ati_axia80_},
+				ParameterCall { parameter "ati_axia80.ati_axia80.origin_joint"
+					value Pose { rpy "0 0 0" xyz "0 0 0" } } } },
+		MacroCall { macro "axia80_adapter_plates.axia80_adapter_toolside_sensor"
+			parameter {
+				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_toolside_sensor.parent_link"
+					value "prefix+toolside" },
+				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_toolside_sensor.origin_joint"
+					value Pose { rpy "0 0 0" xyz "0 0 0" } } } } }
+	body Body {
+		link {
+			Link { name table_big },
+			Link { name base_link },
+			Link { name weldingtable },
+			Link { name tool0 } }
+		joint {
+			Joint { name table_joint
+				type fixed
+				parent "table_big"
+				child "base_link"
+				origin Pose { rpy "0 0 ${-3/4*pi}" xyz "0.858 0.863 -0.405" } },
+			Joint { name weldingtable_joint
+				type fixed
+				parent "table_big"
+				child "weldingtable"
+				origin Pose { rpy "0 0 ${1/2*pi}" xyz "-0.0254 0.07 0.035" } } } }
+}

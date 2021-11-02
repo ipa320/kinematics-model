@@ -1,0 +1,34 @@
+Robot { name ati_axia80 
+	macro {
+		Macro { name ati_axia80
+			parameter {
+				Parameter parent_link {},
+				Parameter prefix {},
+				Parameter origin_joint {} }
+			body Body {
+				link {
+					Link { name "prefix"+"robotside"
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 ${pi} 0" }
+							geometry Geometry {
+								mesh Mesh {
+									filename "package://ati_force_sensor/urdf/mesh/ATI-9105-Axia80-M20.stl" } } } },
+					Link { name "prefix"+"toolside" },
+					Link { name "prefix"+"force_sensor_frame" } }
+				joint {
+					Joint { name "prefix"+"robotside_joint"
+						type fixed
+						parent parent_link
+						child "prefix+robotside"
+						origin "origin_joint" },
+					Joint { name "prefix"+"toolside_joint"
+						type fixed
+						parent "prefix+robotside"
+						child "prefix+toolside"
+						origin Pose { rpy "0 0 0.0254" xyz "0 0 0" } },
+					Joint { name "prefix"+"measurement_joint"
+						type fixed
+						parent"prefix+toolside"
+						child "prefix+force_sensor_frame"
+						origin Pose { rpy "0 0 0" xyz "0 0 0" } } } } } }
+}
