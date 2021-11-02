@@ -13,6 +13,15 @@ import xacro.Body
 import xacro.Robot
 import xacro.Macro
 import xacro.MacroCall
+import xacro.Parameter
+import xacro.ParameterLink
+import xacro.ParameterPose
+import xacro.ParameterString
+import xacro.ParameterCall
+import xacro.Pose
+import org.eclipse.emf.common.util.EList
+import xacro.LinkRef
+import xacro.ParameterValue
 
 /**
  * Generates code from your model files on save.
@@ -27,9 +36,20 @@ class XacroGenerator extends AbstractGenerator {
 		}
 	}
 
+	private def get_prefix(Parameter param) {
+		var prefix = "";
+		if (param !== null) {
+			prefix = "${" + param.name + "}"
+		}
+		return prefix;
+	}
+
+	private def compile_parameter_string(ParameterString paramStr) {
+		return get_prefix(paramStr.ref) + paramStr.value;
+	}
 
 	private def compile_link(Link link)'''
-<link name="«link.name»" >
+<link name="«compile_parameter_string(link.name)»" >
 	«IF link.visual !== null»
 	<visual>
 		«IF link.visual.origin !== null»
@@ -88,6 +108,29 @@ class XacroGenerator extends AbstractGenerator {
 </link>
 	'''
 
+	private def get_link_name(ParameterLink paramLink) {
+		var link_name = "";
+		if (paramLink.param !== null) {
+			var param = paramLink.param as Parameter
+			link_name = "${" + param.name + "}";
+		} else if (paramLink.link !== null) {
+			var link = paramLink.link as Link
+			link_name = compile_parameter_string(link.name);
+		}
+		return link_name;
+	}
+
+	private def compile_origin(ParameterPose pose) {
+		var originStr = "";
+		if (pose.value !== null) {
+			originStr = "<origin xyz=\"" + pose.value.xyz + "\" rpy=\"" + pose.value.rpy + "\" />"; 
+		} else if (pose.ref !== null) {
+			var param = pose.ref as Parameter;
+			originStr = "<xacro:insert_block name=\"" + param.name + "\"/>"
+		}
+		return originStr;
+	}
+
 	private def compile_joint(Joint joint)'''
 <joint name="«joint.name»" type="«joint.type»">
 	<parent link="«joint.parent.name»" />
@@ -118,14 +161,33 @@ class XacroGenerator extends AbstractGenerator {
 	</xacro:macro>
 	'''
 
+	private def get_params(EList<ParameterCall> params) {
+		var paramStr = "";
+		for(param : params) {
+			if(!(param.value instanceof Pose) && !(param.value instanceof LinkRef)) {
+				paramStr += " " + param.parameter.name + "=\"" + param.value.value + "\"";
+			} else if(param.value instanceof LinkRef) {
+				paramStr += " " + param.parameter.name + "=\"" + compile_parameter_string(((param.value as LinkRef).ref as Link).name) + "\"";
+			}
+		}
+		paramStr += ">";
+		for(param : params) {
+			if(param.value instanceof Pose) {
+				var pose = param.value as Pose;
+				paramStr += "\n\t" + "<origin xyz=\"" + pose.xyz + "\" rpy=\"" + pose.rpy + "\" />";
+			}
+		}
+		return paramStr;
+	}
+
 	private def compile_macroCall(MacroCall macroCall)'''
-	<xacro:«macroCall.macro.name» «FOR param : macroCall.parameterCall»«param.parameter.name»="«param.value»" «ENDFOR»/>
+	<xacro:«macroCall.macro.name» «get_params(macroCall.parameterCall)»
+	</xacro:«macroCall.macro.name»>
 	'''
 
 	private def compile(Robot robot) '''
 	<?xml version="«robot.version»"?>
-	<robot xmlns:xacro="http://wiki.ros.org/xacro"
-		name="«robot.name»" >
+	<robot xmlns:xacro="http://wiki.ros.org/xacro" name="«robot.name»" >
 
 		«FOR macro : robot.macro»
 		«compile_macro(macro)»
