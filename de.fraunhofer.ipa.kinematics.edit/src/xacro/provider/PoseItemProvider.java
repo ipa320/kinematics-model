@@ -98,7 +98,7 @@ public class PoseItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Pose)object).getRpy();
+		String label = ((Pose)object).getValue();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Pose_type") :
 			getString("_UI_Pose_type") + " " + label;
@@ -117,11 +117,9 @@ public class PoseItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Pose.class)) {
+			case XacroPackage.POSE__RPY:
 			case XacroPackage.POSE__XYZ:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-			case XacroPackage.POSE__RPY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);

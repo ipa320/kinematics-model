@@ -583,13 +583,22 @@ public interface XacroPackage extends EPackage {
 	int JOINT_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__VALUE = 0;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_FEATURE_COUNT = 0;
+	int PARAMETER_VALUE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
@@ -609,6 +618,15 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 */
 	int POSE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSE__VALUE = PARAMETER_VALUE__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Rpy</b></em>' attribute.
@@ -1344,6 +1362,15 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 */
 	int LINK_REF = 25;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_REF__VALUE = PARAMETER_VALUE__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -2295,6 +2322,17 @@ public interface XacroPackage extends EPackage {
 	EClass getParameterValue();
 
 	/**
+	 * Returns the meta object for the attribute '{@link xacro.ParameterValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see xacro.ParameterValue#getValue()
+	 * @see #getParameterValue()
+	 * @generated
+	 */
+	EAttribute getParameterValue_Value();
+
+	/**
 	 * Returns the meta object for class '{@link xacro.ParameterLink <em>Parameter Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3105,6 +3143,14 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETER_VALUE = eINSTANCE.getParameterValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_VALUE__VALUE = eINSTANCE.getParameterValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.ParameterLinkImpl <em>Parameter Link</em>}' class.

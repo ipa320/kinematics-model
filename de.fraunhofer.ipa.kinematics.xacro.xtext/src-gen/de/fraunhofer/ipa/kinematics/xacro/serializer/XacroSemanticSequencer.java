@@ -400,7 +400,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ParameterString returns ParameterString
 	 *
 	 * Constraint:
-	 *     (ref=[Parameter|STRING] | value=STRING)?
+	 *     (ref=[Parameter|STRING]? value=ID?)
 	 */
 	protected void sequence_ParameterString(ISerializationContext context, ParameterString semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -412,10 +412,16 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ParameterValue returns ParameterValue
 	 *
 	 * Constraint:
-	 *     {ParameterValue}
+	 *     value=ID
 	 */
 	protected void sequence_ParameterValue(ISerializationContext context, ParameterValue semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, XacroPackage.Literals.PARAMETER_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.PARAMETER_VALUE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterValueAccess().getValueIDTerminalRuleCall_0_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

@@ -143,7 +143,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Pose"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterLink">
     <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="#//Parameter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link"/>

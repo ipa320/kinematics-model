@@ -33,7 +33,7 @@ Parameter returns Parameter:
 	'}';
 
 ParameterValue returns ParameterValue:
-	{ParameterValue} ID | Pose | LinkRef
+	value=ID | Pose | LinkRef
 ;
 
 LinkRef returns LinkRef:
@@ -41,7 +41,7 @@ LinkRef returns LinkRef:
 ;
 
 ParameterString returns ParameterString:
-	{ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+	{ParameterString} ref=([Parameter|STRING])? (value=ID)?
 ;
 
 ParameterPose returns ParameterPose:

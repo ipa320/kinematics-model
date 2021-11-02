@@ -520,33 +520,38 @@ ruleParameterValue returns [EObject current=null]
 	(
 		(
 			(
+				lv_value_0_0=RULE_ID
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getParameterValueAccess().getParameterValueAction_0_0(),
-						$current);
+					newLeafNode(lv_value_0_0, grammarAccess.getParameterValueAccess().getValueIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterValueRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"value",
+						lv_value_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
-			this_ID_1=RULE_ID
-			{
-				newLeafNode(this_ID_1, grammarAccess.getParameterValueAccess().getIDTerminalRuleCall_0_1());
-			}
 		)
 		    |
 		{
 			newCompositeNode(grammarAccess.getParameterValueAccess().getPoseParserRuleCall_1());
 		}
-		this_Pose_2=rulePose
+		this_Pose_1=rulePose
 		{
-			$current = $this_Pose_2.current;
+			$current = $this_Pose_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
 			newCompositeNode(grammarAccess.getParameterValueAccess().getLinkRefParserRuleCall_2());
 		}
-		this_LinkRef_3=ruleLinkRef
+		this_LinkRef_2=ruleLinkRef
 		{
-			$current = $this_LinkRef_3.current;
+			$current = $this_LinkRef_2.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -599,43 +604,30 @@ ruleParameterString returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getParameterStringAccess().getParameterStringAction_0_0(),
-						$current);
-				}
-			)
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getParameterStringRule());
-						}
-					}
-					otherlv_1=RULE_STRING
-					{
-						newLeafNode(otherlv_1, grammarAccess.getParameterStringAccess().getRefParameterCrossReference_0_1_0());
-					}
-				)
-			)?
-			(
-				otherlv_2='+'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getParameterStringAccess().getPlusSignKeyword_0_2_0());
-				}
-				this_STRING_3=RULE_STRING
-				{
-					newLeafNode(this_STRING_3, grammarAccess.getParameterStringAccess().getSTRINGTerminalRuleCall_0_2_1());
-				}
-			)?
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getParameterStringAccess().getParameterStringAction_0(),
+					$current);
+			}
 		)
-		    |
 		(
 			(
-				lv_value_4_0=RULE_STRING
 				{
-					newLeafNode(lv_value_4_0, grammarAccess.getParameterStringAccess().getValueSTRINGTerminalRuleCall_1_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterStringRule());
+					}
+				}
+				otherlv_1=RULE_STRING
+				{
+					newLeafNode(otherlv_1, grammarAccess.getParameterStringAccess().getRefParameterCrossReference_1_0());
+				}
+			)
+		)?
+		(
+			(
+				lv_value_2_0=RULE_ID
+				{
+					newLeafNode(lv_value_2_0, grammarAccess.getParameterStringAccess().getValueIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -644,11 +636,11 @@ ruleParameterString returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"value",
-						lv_value_4_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						lv_value_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
-		)
+		)?
 	)
 ;
 

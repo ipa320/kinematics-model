@@ -115,7 +115,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterPose/ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterPose/value"/>
     </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//ParameterValue"/>
+    <genClasses ecoreClass="xacro.ecore#//ParameterValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//ParameterValue/value"/>
+    </genClasses>
     <genClasses ecoreClass="xacro.ecore#//ParameterLink">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterLink/param"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterLink/link"/>

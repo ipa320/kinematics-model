@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import xacro.LinkRef;
 import xacro.XacroPackage;
 
 /**
@@ -88,7 +89,10 @@ public class LinkRefItemProvider extends ParameterValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_LinkRef_type");
+		String label = ((LinkRef)object).getValue();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LinkRef_type") :
+			getString("_UI_LinkRef_type") + " " + label;
 	}
 
 

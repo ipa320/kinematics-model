@@ -1076,6 +1076,15 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParameterValue_Value() {
+		return (EAttribute)parameterValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParameterLink() {
 		return parameterLinkEClass;
 	}
@@ -1253,6 +1262,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		createEReference(parameterPoseEClass, PARAMETER_POSE__VALUE);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
+		createEAttribute(parameterValueEClass, PARAMETER_VALUE__VALUE);
 
 		parameterLinkEClass = createEClass(PARAMETER_LINK);
 		createEReference(parameterLinkEClass, PARAMETER_LINK__PARAM);
@@ -1407,6 +1417,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		initEReference(getParameterPose_Value(), this.getPose(), null, "value", null, 0, 1, ParameterPose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterValue_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterLinkEClass, ParameterLink.class, "ParameterLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterLink_Param(), this.getParameter(), null, "param", null, 0, 1, ParameterLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
