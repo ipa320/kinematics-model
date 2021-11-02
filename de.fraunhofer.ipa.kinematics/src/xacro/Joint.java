@@ -50,48 +50,48 @@ public interface Joint extends EObject {
 	void setName(ParameterString value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * Returns the value of the '<em><b>Parent</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
-	 * @see #setParent(Link)
+	 * @return the value of the '<em>Parent</em>' containment reference.
+	 * @see #setParent(ParameterLink)
 	 * @see xacro.XacroPackage#getJoint_Parent()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Link getParent();
+	ParameterLink getParent();
 
 	/**
-	 * Sets the value of the '{@link xacro.Joint#getParent <em>Parent</em>}' reference.
+	 * Sets the value of the '{@link xacro.Joint#getParent <em>Parent</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' reference.
+	 * @param value the new value of the '<em>Parent</em>' containment reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-	void setParent(Link value);
+	void setParent(ParameterLink value);
 
 	/**
-	 * Returns the value of the '<em><b>Child</b></em>' reference.
+	 * Returns the value of the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child</em>' reference.
-	 * @see #setChild(Link)
+	 * @return the value of the '<em>Child</em>' containment reference.
+	 * @see #setChild(ParameterLink)
 	 * @see xacro.XacroPackage#getJoint_Child()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Link getChild();
+	ParameterLink getChild();
 
 	/**
-	 * Sets the value of the '{@link xacro.Joint#getChild <em>Child</em>}' reference.
+	 * Sets the value of the '{@link xacro.Joint#getChild <em>Child</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Child</em>' reference.
+	 * @param value the new value of the '<em>Child</em>' containment reference.
 	 * @see #getChild()
 	 * @generated
 	 */
-	void setChild(Link value);
+	void setChild(ParameterLink value);
 
 	/**
 	 * Returns the value of the '<em><b>Origin</b></em>' containment reference.

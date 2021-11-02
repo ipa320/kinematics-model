@@ -238,6 +238,24 @@ public interface XacroFactory extends EFactory {
 	ParameterValue createParameterValue();
 
 	/**
+	 * Returns a new object of class '<em>Parameter Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Link</em>'.
+	 * @generated
+	 */
+	ParameterLink createParameterLink();
+
+	/**
+	 * Returns a new object of class '<em>Link Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link Ref</em>'.
+	 * @generated
+	 */
+	LinkRef createLinkRef();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

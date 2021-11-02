@@ -80,6 +80,8 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 			case XacroPackage.SPHERE: return createSphere();
 			case XacroPackage.PARAMETER_POSE: return createParameterPose();
 			case XacroPackage.PARAMETER_VALUE: return createParameterValue();
+			case XacroPackage.PARAMETER_LINK: return createParameterLink();
+			case XacroPackage.LINK_REF: return createLinkRef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -323,6 +325,26 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 	public ParameterValue createParameterValue() {
 		ParameterValueImpl parameterValue = new ParameterValueImpl();
 		return parameterValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterLink createParameterLink() {
+		ParameterLinkImpl parameterLink = new ParameterLinkImpl();
+		return parameterLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LinkRef createLinkRef() {
+		LinkRefImpl linkRef = new LinkRefImpl();
+		return linkRef;
 	}
 
 	/**

@@ -526,12 +526,9 @@ ruleParameterValue returns [EObject current=null]
 						$current);
 				}
 			)
+			this_ID_1=RULE_ID
 			{
-				newCompositeNode(grammarAccess.getParameterValueAccess().getEStringParserRuleCall_0_1());
-			}
-			ruleEString
-			{
-				afterParserOrEnumRuleCall();
+				newLeafNode(this_ID_1, grammarAccess.getParameterValueAccess().getIDTerminalRuleCall_0_1());
 			}
 		)
 		    |
@@ -543,6 +540,45 @@ ruleParameterValue returns [EObject current=null]
 			$current = $this_Pose_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getParameterValueAccess().getLinkRefParserRuleCall_2());
+		}
+		this_LinkRef_3=ruleLinkRef
+		{
+			$current = $this_LinkRef_3.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleLinkRef
+entryRuleLinkRef returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLinkRefRule()); }
+	iv_ruleLinkRef=ruleLinkRef
+	{ $current=$iv_ruleLinkRef.current; }
+	EOF;
+
+// Rule LinkRef
+ruleLinkRef returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getLinkRefRule());
+				}
+			}
+			otherlv_0=RULE_STRING
+			{
+				newLeafNode(otherlv_0, grammarAccess.getLinkRefAccess().getRefLinkCrossReference_0());
+			}
+		)
 	)
 ;
 
@@ -597,9 +633,9 @@ ruleParameterString returns [EObject current=null]
 		    |
 		(
 			(
-				lv_value_4_0=RULE_ID
+				lv_value_4_0=RULE_STRING
 				{
-					newLeafNode(lv_value_4_0, grammarAccess.getParameterStringAccess().getValueIDTerminalRuleCall_1_0());
+					newLeafNode(lv_value_4_0, grammarAccess.getParameterStringAccess().getValueSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -609,7 +645,7 @@ ruleParameterString returns [EObject current=null]
 						$current,
 						"value",
 						lv_value_4_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -662,6 +698,52 @@ ruleParameterPose returns [EObject current=null]
 						lv_value_1_0,
 						"de.fraunhofer.ipa.kinematics.xacro.Xacro.Pose");
 					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleParameterLink
+entryRuleParameterLink returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterLinkRule()); }
+	iv_ruleParameterLink=ruleParameterLink
+	{ $current=$iv_ruleParameterLink.current; }
+	EOF;
+
+// Rule ParameterLink
+ruleParameterLink returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterLinkRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getParameterLinkAccess().getParamParameterCrossReference_0_0());
+				}
+			)
+		)
+		    |
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterLinkRule());
+					}
+				}
+				otherlv_1=RULE_STRING
+				{
+					newLeafNode(otherlv_1, grammarAccess.getParameterLinkAccess().getLinkLinkCrossReference_1_0());
 				}
 			)
 		)
@@ -864,7 +946,7 @@ ruleMacroCall returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getMacroCallRule());
 					}
 				}
-				otherlv_4=RULE_ID
+				otherlv_4=RULE_STRING
 				{
 					newLeafNode(otherlv_4, grammarAccess.getMacroCallAccess().getMacroMacroCrossReference_4_0());
 				}
@@ -1089,13 +1171,19 @@ ruleJoint returns [EObject current=null]
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getJointRule());
-					}
+					newCompositeNode(grammarAccess.getJointAccess().getParentParameterLinkParserRuleCall_7_0());
 				}
-				otherlv_7=RULE_STRING
+				lv_parent_7_0=ruleParameterLink
 				{
-					newLeafNode(otherlv_7, grammarAccess.getJointAccess().getParentLinkCrossReference_7_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getJointRule());
+					}
+					set(
+						$current,
+						"parent",
+						lv_parent_7_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterLink");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1106,13 +1194,19 @@ ruleJoint returns [EObject current=null]
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getJointRule());
-					}
+					newCompositeNode(grammarAccess.getJointAccess().getChildParameterLinkParserRuleCall_9_0());
 				}
-				otherlv_9=RULE_STRING
+				lv_child_9_0=ruleParameterLink
 				{
-					newLeafNode(otherlv_9, grammarAccess.getJointAccess().getChildLinkCrossReference_9_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getJointRule());
+					}
+					set(
+						$current,
+						"child",
+						lv_child_9_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterLink");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -2497,20 +2591,19 @@ ruleMesh returns [EObject current=null]
 		}
 		(
 			(
+				lv_filename_3_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getMeshAccess().getFilenameAnyURIParserRuleCall_3_0());
+					newLeafNode(lv_filename_3_0, grammarAccess.getMeshAccess().getFilenameSTRINGTerminalRuleCall_3_0());
 				}
-				lv_filename_3_0=ruleAnyURI
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMeshRule());
+						$current = createModelElement(grammarAccess.getMeshRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"filename",
 						lv_filename_3_0,
-						"de.fraunhofer.ipa.kinematics.xacro.Xacro.AnyURI");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -2544,52 +2637,6 @@ ruleMesh returns [EObject current=null]
 			newLeafNode(otherlv_6, grammarAccess.getMeshAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
-;
-
-// Entry rule entryRuleAnyURI
-entryRuleAnyURI returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getAnyURIRule()); }
-	iv_ruleAnyURI=ruleAnyURI
-	{ $current=$iv_ruleAnyURI.current.getText(); }
-	EOF;
-
-// Rule AnyURI
-ruleAnyURI returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	kw='AnyURI'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getAnyURIAccess().getAnyURIKeyword());
-	}
-;
-
-// Entry rule entryRuleEString
-entryRuleEString returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEStringRule()); }
-	iv_ruleEString=ruleEString
-	{ $current=$iv_ruleEString.current.getText(); }
-	EOF;
-
-// Rule EString
-ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	this_STRING_0=RULE_STRING
-	{
-		$current.merge(this_STRING_0);
-	}
-	{
-		newLeafNode(this_STRING_0, grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall());
-	}
 ;
 
 // Entry rule entryRuleDouble0

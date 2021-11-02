@@ -33,7 +33,11 @@ Parameter returns Parameter:
 	'}';
 
 ParameterValue returns ParameterValue:
-	{ParameterValue} EString | Pose
+	{ParameterValue} ID | Pose | LinkRef
+;
+
+LinkRef returns LinkRef:
+	ref=[Link|STRING]
 ;
 
 ParameterString returns ParameterString:
@@ -44,6 +48,9 @@ ParameterPose returns ParameterPose:
 	ref=[Parameter|STRING] | value=Pose 
 ;
 
+ParameterLink returns ParameterLink:
+	param=[Parameter] | link=[Link|STRING]
+;
 
 Body returns Body:
 	{Body}
@@ -52,12 +59,12 @@ Body returns Body:
 		('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
 	'}';
-	
+
 MacroCall returns MacroCall:
 	{MacroCall}
 	'MacroCall'
 	'{'
-		'macro' macro=[Macro]
+		'macro' macro=[Macro|STRING]
 		('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 	'}';
 
@@ -74,8 +81,8 @@ Joint returns Joint:
 	'{'
 		'name' name=ParameterString
 		'type' type=JOINTTYPE
-		'parent' parent=[Link|STRING] 
-		'child' child=[Link|STRING]
+		'parent' parent=ParameterLink 
+		'child' child=ParameterLink
 		('origin' origin=ParameterPose)?
 		('axis' axis=Vector3)?
 		('limit' limit=Limit)?
@@ -89,7 +96,7 @@ Link returns Link:
 		('visual' visual=Visual)?
 		('collision' collision=Collision)?
 	'}';
-	
+
 Pose returns Pose:
 	{Pose}
 	'Pose'
@@ -190,18 +197,17 @@ Sphere returns Sphere:
 Mesh returns Mesh:
 	'Mesh'
 	'{'
-		'filename' filename=AnyURI
+		'filename' filename=STRING
 		('scale' scale=Double0)?
 	'}';
 
 AnyURI returns type::AnyURI:
 	'AnyURI' /* TODO: implement this rule and an appropriate IValueConverter */;
 
-
 EString returns ecore::EString:
 	STRING
 ;
-	
+
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307
 terminal fragment DIGIT: '0'..'9';
 terminal BOOLEAN: 'true'|'false';

@@ -31,22 +31,20 @@ public class XacroSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getEStringRule())
-			return getEStringToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getIDRule())
+			return getIDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
 			return getSTRINGToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * EString returns ecore::EString:
-	 * 	STRING
-	 * ;
+	 * terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 	 */
-	protected String getEStringToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "\"\"";
+		return "";
 	}
 	
 	/**

@@ -511,7 +511,7 @@ public interface XacroPackage extends EPackage {
 	int JOINT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * The feature id for the '<em><b>Parent</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -520,7 +520,7 @@ public interface XacroPackage extends EPackage {
 	int JOINT__PARENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' reference.
+	 * The feature id for the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1290,6 +1290,89 @@ public interface XacroPackage extends EPackage {
 	int PARAMETER_POSE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterLinkImpl <em>Parameter Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterLinkImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterLink()
+	 * @generated
+	 */
+	int PARAMETER_LINK = 24;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LINK__PARAM = 0;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LINK__LINK = 1;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LINK_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Parameter Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LINK_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link xacro.impl.LinkRefImpl <em>Link Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.LinkRefImpl
+	 * @see xacro.impl.XacroPackageImpl#getLinkRef()
+	 * @generated
+	 */
+	int LINK_REF = 25;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_REF__REF = PARAMETER_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Link Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_REF_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Link Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_REF_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link xacro.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1633,10 +1716,10 @@ public interface XacroPackage extends EPackage {
 	EReference getJoint_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link xacro.Joint#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the containment reference '{@link xacro.Joint#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @return the meta object for the containment reference '<em>Parent</em>'.
 	 * @see xacro.Joint#getParent()
 	 * @see #getJoint()
 	 * @generated
@@ -1644,10 +1727,10 @@ public interface XacroPackage extends EPackage {
 	EReference getJoint_Parent();
 
 	/**
-	 * Returns the meta object for the reference '{@link xacro.Joint#getChild <em>Child</em>}'.
+	 * Returns the meta object for the containment reference '{@link xacro.Joint#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Child</em>'.
+	 * @return the meta object for the containment reference '<em>Child</em>'.
 	 * @see xacro.Joint#getChild()
 	 * @see #getJoint()
 	 * @generated
@@ -2212,6 +2295,59 @@ public interface XacroPackage extends EPackage {
 	EClass getParameterValue();
 
 	/**
+	 * Returns the meta object for class '{@link xacro.ParameterLink <em>Parameter Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Link</em>'.
+	 * @see xacro.ParameterLink
+	 * @generated
+	 */
+	EClass getParameterLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link xacro.ParameterLink#getParam <em>Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Param</em>'.
+	 * @see xacro.ParameterLink#getParam()
+	 * @see #getParameterLink()
+	 * @generated
+	 */
+	EReference getParameterLink_Param();
+
+	/**
+	 * Returns the meta object for the reference '{@link xacro.ParameterLink#getLink <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Link</em>'.
+	 * @see xacro.ParameterLink#getLink()
+	 * @see #getParameterLink()
+	 * @generated
+	 */
+	EReference getParameterLink_Link();
+
+	/**
+	 * Returns the meta object for class '{@link xacro.LinkRef <em>Link Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Link Ref</em>'.
+	 * @see xacro.LinkRef
+	 * @generated
+	 */
+	EClass getLinkRef();
+
+	/**
+	 * Returns the meta object for the reference '{@link xacro.LinkRef#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref</em>'.
+	 * @see xacro.LinkRef#getRef()
+	 * @see #getLinkRef()
+	 * @generated
+	 */
+	EReference getLinkRef_Ref();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2509,7 +2645,7 @@ public interface XacroPackage extends EPackage {
 		EReference JOINT__NAME = eINSTANCE.getJoint_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parent</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2517,7 +2653,7 @@ public interface XacroPackage extends EPackage {
 		EReference JOINT__PARENT = eINSTANCE.getJoint_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2969,6 +3105,50 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETER_VALUE = eINSTANCE.getParameterValue();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterLinkImpl <em>Parameter Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterLinkImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterLink()
+		 * @generated
+		 */
+		EClass PARAMETER_LINK = eINSTANCE.getParameterLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_LINK__PARAM = eINSTANCE.getParameterLink_Param();
+
+		/**
+		 * The meta object literal for the '<em><b>Link</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_LINK__LINK = eINSTANCE.getParameterLink_Link();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.LinkRefImpl <em>Link Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.LinkRefImpl
+		 * @see xacro.impl.XacroPackageImpl#getLinkRef()
+		 * @generated
+		 */
+		EClass LINK_REF = eINSTANCE.getLinkRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINK_REF__REF = eINSTANCE.getLinkRef_Ref();
 
 	}
 

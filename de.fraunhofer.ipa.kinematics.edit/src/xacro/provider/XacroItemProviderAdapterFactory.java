@@ -624,6 +624,52 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterLinkItemProvider parameterLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterLinkAdapter() {
+		if (parameterLinkItemProvider == null) {
+			parameterLinkItemProvider = new ParameterLinkItemProvider(this);
+		}
+
+		return parameterLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.LinkRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkRefItemProvider linkRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.LinkRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkRefAdapter() {
+		if (linkRefItemProvider == null) {
+			linkRefItemProvider = new LinkRefItemProvider(this);
+		}
+
+		return linkRefItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -746,6 +792,8 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 		if (sphereItemProvider != null) sphereItemProvider.dispose();
 		if (parameterPoseItemProvider != null) parameterPoseItemProvider.dispose();
 		if (parameterValueItemProvider != null) parameterValueItemProvider.dispose();
+		if (parameterLinkItemProvider != null) parameterLinkItemProvider.dispose();
+		if (linkRefItemProvider != null) linkRefItemProvider.dispose();
 	}
 
 }

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import xacro.Joint;
 import xacro.Limit;
-import xacro.Link;
+import xacro.ParameterLink;
 import xacro.ParameterPose;
 import xacro.ParameterString;
 import xacro.Vector3;
@@ -50,24 +50,24 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	protected ParameterString name;
 
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-	protected Link parent;
+	protected ParameterLink parent;
 
 	/**
-	 * The cached value of the '{@link #getChild() <em>Child</em>}' reference.
+	 * The cached value of the '{@link #getChild() <em>Child</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getChild()
 	 * @generated
 	 * @ordered
 	 */
-	protected Link child;
+	protected ParameterLink child;
 
 	/**
 	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference.
@@ -186,15 +186,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (Link)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XacroPackage.JOINT__PARENT, oldParent, parent));
-			}
-		}
+	public ParameterLink getParent() {
 		return parent;
 	}
 
@@ -203,36 +195,41 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link basicGetParent() {
-		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Link newParent) {
-		Link oldParent = parent;
+	public NotificationChain basicSetParent(ParameterLink newParent, NotificationChain msgs) {
+		ParameterLink oldParent = parent;
 		parent = newParent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__PARENT, oldParent, parent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Link getChild() {
-		if (child != null && child.eIsProxy()) {
-			InternalEObject oldChild = (InternalEObject)child;
-			child = (Link)eResolveProxy(oldChild);
-			if (child != oldChild) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XacroPackage.JOINT__CHILD, oldChild, child));
-			}
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__PARENT, oldParent, newParent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(ParameterLink newParent) {
+		if (newParent != parent) {
+			NotificationChain msgs = null;
+			if (parent != null)
+				msgs = ((InternalEObject)parent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.JOINT__PARENT, null, msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.JOINT__PARENT, null, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__PARENT, newParent, newParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterLink getChild() {
 		return child;
 	}
 
@@ -241,20 +238,33 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link basicGetChild() {
-		return child;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChild(Link newChild) {
-		Link oldChild = child;
+	public NotificationChain basicSetChild(ParameterLink newChild, NotificationChain msgs) {
+		ParameterLink oldChild = child;
 		child = newChild;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__CHILD, oldChild, child));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__CHILD, oldChild, newChild);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChild(ParameterLink newChild) {
+		if (newChild != child) {
+			NotificationChain msgs = null;
+			if (child != null)
+				msgs = ((InternalEObject)child).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.JOINT__CHILD, null, msgs);
+			if (newChild != null)
+				msgs = ((InternalEObject)newChild).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.JOINT__CHILD, null, msgs);
+			msgs = basicSetChild(newChild, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.JOINT__CHILD, newChild, newChild));
 	}
 
 	/**
@@ -417,6 +427,10 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 		switch (featureID) {
 			case XacroPackage.JOINT__NAME:
 				return basicSetName(null, msgs);
+			case XacroPackage.JOINT__PARENT:
+				return basicSetParent(null, msgs);
+			case XacroPackage.JOINT__CHILD:
+				return basicSetChild(null, msgs);
 			case XacroPackage.JOINT__ORIGIN:
 				return basicSetOrigin(null, msgs);
 			case XacroPackage.JOINT__AXIS:
@@ -438,11 +452,9 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 			case XacroPackage.JOINT__NAME:
 				return getName();
 			case XacroPackage.JOINT__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
+				return getParent();
 			case XacroPackage.JOINT__CHILD:
-				if (resolve) return getChild();
-				return basicGetChild();
+				return getChild();
 			case XacroPackage.JOINT__ORIGIN:
 				return getOrigin();
 			case XacroPackage.JOINT__AXIS:
@@ -467,10 +479,10 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 				setName((ParameterString)newValue);
 				return;
 			case XacroPackage.JOINT__PARENT:
-				setParent((Link)newValue);
+				setParent((ParameterLink)newValue);
 				return;
 			case XacroPackage.JOINT__CHILD:
-				setChild((Link)newValue);
+				setChild((ParameterLink)newValue);
 				return;
 			case XacroPackage.JOINT__ORIGIN:
 				setOrigin((ParameterPose)newValue);
@@ -500,10 +512,10 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 				setName((ParameterString)null);
 				return;
 			case XacroPackage.JOINT__PARENT:
-				setParent((Link)null);
+				setParent((ParameterLink)null);
 				return;
 			case XacroPackage.JOINT__CHILD:
-				setChild((Link)null);
+				setChild((ParameterLink)null);
 				return;
 			case XacroPackage.JOINT__ORIGIN:
 				setOrigin((ParameterPose)null);

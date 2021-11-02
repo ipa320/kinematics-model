@@ -358,28 +358,52 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cParameterValueAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final RuleCall cEStringParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
 		private final RuleCall cPoseParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLinkRefParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//ParameterValue returns ParameterValue:
-		//    {ParameterValue} EString | Pose
+		//    {ParameterValue} ID | Pose | LinkRef
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ParameterValue} EString | Pose
+		//{ParameterValue} ID | Pose | LinkRef
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{ParameterValue} EString
+		//{ParameterValue} ID
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{ParameterValue}
 		public Action getParameterValueAction_0_0() { return cParameterValueAction_0_0; }
 		
-		//EString
-		public RuleCall getEStringParserRuleCall_0_1() { return cEStringParserRuleCall_0_1; }
+		//ID
+		public RuleCall getIDTerminalRuleCall_0_1() { return cIDTerminalRuleCall_0_1; }
 		
 		//Pose
 		public RuleCall getPoseParserRuleCall_1() { return cPoseParserRuleCall_1; }
+		
+		//LinkRef
+		public RuleCall getLinkRefParserRuleCall_2() { return cLinkRefParserRuleCall_2; }
+	}
+	public class LinkRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.LinkRef");
+		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cRefLinkCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
+		private final RuleCall cRefLinkSTRINGTerminalRuleCall_0_1 = (RuleCall)cRefLinkCrossReference_0.eContents().get(1);
+		
+		//LinkRef returns LinkRef:
+		//    ref=[Link|STRING]
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ref=[Link|STRING]
+		public Assignment getRefAssignment() { return cRefAssignment; }
+		
+		//[Link|STRING]
+		public CrossReference getRefLinkCrossReference_0() { return cRefLinkCrossReference_0; }
+		
+		//STRING
+		public RuleCall getRefLinkSTRINGTerminalRuleCall_0_1() { return cRefLinkSTRINGTerminalRuleCall_0_1; }
 	}
 	public class ParameterStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterString");
@@ -393,14 +417,14 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cPlusSignKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
 		private final RuleCall cSTRINGTerminalRuleCall_0_2_1 = (RuleCall)cGroup_0_2.eContents().get(1);
 		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cValueIDTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//ParameterString returns ParameterString:
-		//    {ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+		//    {ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=STRING
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+		//{ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=STRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{ParameterString} ref=([Parameter|STRING])?("+" STRING)?
@@ -427,11 +451,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_0_2_1() { return cSTRINGTerminalRuleCall_0_2_1; }
 		
-		//value=ID
+		//value=STRING
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 		
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_1_0() { return cValueIDTerminalRuleCall_1_0; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
 	}
 	public class ParameterPoseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterPose");
@@ -464,6 +488,42 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//Pose
 		public RuleCall getValuePoseParserRuleCall_1_0() { return cValuePoseParserRuleCall_1_0; }
+	}
+	public class ParameterLinkElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterLink");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cParamAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final CrossReference cParamParameterCrossReference_0_0 = (CrossReference)cParamAssignment_0.eContents().get(0);
+		private final RuleCall cParamParameterIDTerminalRuleCall_0_0_1 = (RuleCall)cParamParameterCrossReference_0_0.eContents().get(1);
+		private final Assignment cLinkAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final CrossReference cLinkLinkCrossReference_1_0 = (CrossReference)cLinkAssignment_1.eContents().get(0);
+		private final RuleCall cLinkLinkSTRINGTerminalRuleCall_1_0_1 = (RuleCall)cLinkLinkCrossReference_1_0.eContents().get(1);
+		
+		//ParameterLink returns ParameterLink:
+		//    param=[Parameter] | link=[Link|STRING]
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//param=[Parameter] | link=[Link|STRING]
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//param=[Parameter]
+		public Assignment getParamAssignment_0() { return cParamAssignment_0; }
+		
+		//[Parameter]
+		public CrossReference getParamParameterCrossReference_0_0() { return cParamParameterCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getParamParameterIDTerminalRuleCall_0_0_1() { return cParamParameterIDTerminalRuleCall_0_0_1; }
+		
+		//link=[Link|STRING]
+		public Assignment getLinkAssignment_1() { return cLinkAssignment_1; }
+		
+		//[Link|STRING]
+		public CrossReference getLinkLinkCrossReference_1_0() { return cLinkLinkCrossReference_1_0; }
+		
+		//STRING
+		public RuleCall getLinkLinkSTRINGTerminalRuleCall_1_0_1() { return cLinkLinkSTRINGTerminalRuleCall_1_0_1; }
 	}
 	public class BodyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Body");
@@ -591,7 +651,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cMacroKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cMacroAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cMacroMacroCrossReference_4_0 = (CrossReference)cMacroAssignment_4.eContents().get(0);
-		private final RuleCall cMacroMacroIDTerminalRuleCall_4_0_1 = (RuleCall)cMacroMacroCrossReference_4_0.eContents().get(1);
+		private final RuleCall cMacroMacroSTRINGTerminalRuleCall_4_0_1 = (RuleCall)cMacroMacroCrossReference_4_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cParameterKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
@@ -608,7 +668,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    {MacroCall}
 		//    'MacroCall'
 		//    '{'
-		//        'macro' macro=[Macro]
+		//        'macro' macro=[Macro|STRING]
 		//        ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
@@ -616,7 +676,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//{MacroCall}
 		//'MacroCall'
 		//'{'
-		//    'macro' macro=[Macro]
+		//    'macro' macro=[Macro|STRING]
 		//    ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -633,14 +693,14 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'macro'
 		public Keyword getMacroKeyword_3() { return cMacroKeyword_3; }
 		
-		//macro=[Macro]
+		//macro=[Macro|STRING]
 		public Assignment getMacroAssignment_4() { return cMacroAssignment_4; }
 		
-		//[Macro]
+		//[Macro|STRING]
 		public CrossReference getMacroMacroCrossReference_4_0() { return cMacroMacroCrossReference_4_0; }
 		
-		//ID
-		public RuleCall getMacroMacroIDTerminalRuleCall_4_0_1() { return cMacroMacroIDTerminalRuleCall_4_0_1; }
+		//STRING
+		public RuleCall getMacroMacroSTRINGTerminalRuleCall_4_0_1() { return cMacroMacroSTRINGTerminalRuleCall_4_0_1; }
 		
 		//('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 		public Group getGroup_5() { return cGroup_5; }
@@ -753,12 +813,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cTypeJOINTTYPETerminalRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
 		private final Keyword cParentKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cParentAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cParentLinkCrossReference_7_0 = (CrossReference)cParentAssignment_7.eContents().get(0);
-		private final RuleCall cParentLinkSTRINGTerminalRuleCall_7_0_1 = (RuleCall)cParentLinkCrossReference_7_0.eContents().get(1);
+		private final RuleCall cParentParameterLinkParserRuleCall_7_0 = (RuleCall)cParentAssignment_7.eContents().get(0);
 		private final Keyword cChildKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cChildAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cChildLinkCrossReference_9_0 = (CrossReference)cChildAssignment_9.eContents().get(0);
-		private final RuleCall cChildLinkSTRINGTerminalRuleCall_9_0_1 = (RuleCall)cChildLinkCrossReference_9_0.eContents().get(1);
+		private final RuleCall cChildParameterLinkParserRuleCall_9_0 = (RuleCall)cChildAssignment_9.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cOriginKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cOriginAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -778,8 +836,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    '{'
 		//        'name' name=ParameterString
 		//        'type' type=JOINTTYPE
-		//        'parent' parent=[Link|STRING]
-		//        'child' child=[Link|STRING]
+		//        'parent' parent=ParameterLink
+		//        'child' child=ParameterLink
 		//        ('origin' origin=ParameterPose)?
 		//        ('axis' axis=Vector3)?
 		//        ('limit' limit=Limit)?
@@ -790,8 +848,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		//    'name' name=ParameterString
 		//    'type' type=JOINTTYPE
-		//    'parent' parent=[Link|STRING]
-		//    'child' child=[Link|STRING]
+		//    'parent' parent=ParameterLink
+		//    'child' child=ParameterLink
 		//    ('origin' origin=ParameterPose)?
 		//    ('axis' axis=Vector3)?
 		//    ('limit' limit=Limit)?
@@ -825,26 +883,20 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'parent'
 		public Keyword getParentKeyword_6() { return cParentKeyword_6; }
 		
-		//parent=[Link|STRING]
+		//parent=ParameterLink
 		public Assignment getParentAssignment_7() { return cParentAssignment_7; }
 		
-		//[Link|STRING]
-		public CrossReference getParentLinkCrossReference_7_0() { return cParentLinkCrossReference_7_0; }
-		
-		//STRING
-		public RuleCall getParentLinkSTRINGTerminalRuleCall_7_0_1() { return cParentLinkSTRINGTerminalRuleCall_7_0_1; }
+		//ParameterLink
+		public RuleCall getParentParameterLinkParserRuleCall_7_0() { return cParentParameterLinkParserRuleCall_7_0; }
 		
 		//'child'
 		public Keyword getChildKeyword_8() { return cChildKeyword_8; }
 		
-		//child=[Link|STRING]
+		//child=ParameterLink
 		public Assignment getChildAssignment_9() { return cChildAssignment_9; }
 		
-		//[Link|STRING]
-		public CrossReference getChildLinkCrossReference_9_0() { return cChildLinkCrossReference_9_0; }
-		
-		//STRING
-		public RuleCall getChildLinkSTRINGTerminalRuleCall_9_0_1() { return cChildLinkSTRINGTerminalRuleCall_9_0_1; }
+		//ParameterLink
+		public RuleCall getChildParameterLinkParserRuleCall_9_0() { return cChildParameterLinkParserRuleCall_9_0; }
 		
 		//('origin' origin=ParameterPose)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -1861,7 +1913,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cFilenameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cFilenameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFilenameAnyURIParserRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
+		private final RuleCall cFilenameSTRINGTerminalRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cScaleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cScaleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -1871,14 +1923,14 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Mesh returns Mesh:
 		//    'Mesh'
 		//    '{'
-		//        'filename' filename=AnyURI
+		//        'filename' filename=STRING
 		//        ('scale' scale=Double0)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Mesh'
 		//'{'
-		//    'filename' filename=AnyURI
+		//    'filename' filename=STRING
 		//    ('scale' scale=Double0)?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -1892,11 +1944,11 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'filename'
 		public Keyword getFilenameKeyword_2() { return cFilenameKeyword_2; }
 		
-		//filename=AnyURI
+		//filename=STRING
 		public Assignment getFilenameAssignment_3() { return cFilenameAssignment_3; }
 		
-		//AnyURI
-		public RuleCall getFilenameAnyURIParserRuleCall_3_0() { return cFilenameAnyURIParserRuleCall_3_0; }
+		//STRING
+		public RuleCall getFilenameSTRINGTerminalRuleCall_3_0() { return cFilenameSTRINGTerminalRuleCall_3_0; }
 		
 		//('scale' scale=Double0)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -1964,8 +2016,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final MacroElements pMacro;
 	private final ParameterElements pParameter;
 	private final ParameterValueElements pParameterValue;
+	private final LinkRefElements pLinkRef;
 	private final ParameterStringElements pParameterString;
 	private final ParameterPoseElements pParameterPose;
+	private final ParameterLinkElements pParameterLink;
 	private final BodyElements pBody;
 	private final MacroCallElements pMacroCall;
 	private final ParameterCallElements pParameterCall;
@@ -2007,8 +2061,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pMacro = new MacroElements();
 		this.pParameter = new ParameterElements();
 		this.pParameterValue = new ParameterValueElements();
+		this.pLinkRef = new LinkRefElements();
 		this.pParameterString = new ParameterStringElements();
 		this.pParameterPose = new ParameterPoseElements();
+		this.pParameterLink = new ParameterLinkElements();
 		this.pBody = new BodyElements();
 		this.pMacroCall = new MacroCallElements();
 		this.pParameterCall = new ParameterCallElements();
@@ -2114,7 +2170,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//ParameterValue returns ParameterValue:
-	//    {ParameterValue} EString | Pose
+	//    {ParameterValue} ID | Pose | LinkRef
 	//;
 	public ParameterValueElements getParameterValueAccess() {
 		return pParameterValue;
@@ -2124,8 +2180,19 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getParameterValueAccess().getRule();
 	}
 	
+	//LinkRef returns LinkRef:
+	//    ref=[Link|STRING]
+	//;
+	public LinkRefElements getLinkRefAccess() {
+		return pLinkRef;
+	}
+	
+	public ParserRule getLinkRefRule() {
+		return getLinkRefAccess().getRule();
+	}
+	
 	//ParameterString returns ParameterString:
-	//    {ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=ID
+	//    {ParameterString} ref=([Parameter|STRING])?("+" STRING)? | value=STRING
 	//;
 	public ParameterStringElements getParameterStringAccess() {
 		return pParameterString;
@@ -2144,6 +2211,17 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getParameterPoseRule() {
 		return getParameterPoseAccess().getRule();
+	}
+	
+	//ParameterLink returns ParameterLink:
+	//    param=[Parameter] | link=[Link|STRING]
+	//;
+	public ParameterLinkElements getParameterLinkAccess() {
+		return pParameterLink;
+	}
+	
+	public ParserRule getParameterLinkRule() {
+		return getParameterLinkAccess().getRule();
 	}
 	
 	//Body returns Body:
@@ -2165,7 +2243,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {MacroCall}
 	//    'MacroCall'
 	//    '{'
-	//        'macro' macro=[Macro]
+	//        'macro' macro=[Macro|STRING]
 	//        ('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
 	//    '}';
 	public MacroCallElements getMacroCallAccess() {
@@ -2196,8 +2274,8 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    '{'
 	//        'name' name=ParameterString
 	//        'type' type=JOINTTYPE
-	//        'parent' parent=[Link|STRING]
-	//        'child' child=[Link|STRING]
+	//        'parent' parent=ParameterLink
+	//        'child' child=ParameterLink
 	//        ('origin' origin=ParameterPose)?
 	//        ('axis' axis=Vector3)?
 	//        ('limit' limit=Limit)?
@@ -2410,7 +2488,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Mesh returns Mesh:
 	//    'Mesh'
 	//    '{'
-	//        'filename' filename=AnyURI
+	//        'filename' filename=STRING
 	//        ('scale' scale=Double0)?
 	//    '}';
 	public MeshElements getMeshAccess() {
