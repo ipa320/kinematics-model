@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ati_axia80" >
+
+
+	<xacro:macro name="ati_axia80" params="parent_link prefix origin_joint ">
+		<link name="${prefix}robotside" >
+			<visual>
+				<geometry>
+					<mesh filename="package://ati_force_sensor/urdf/mesh/ATI-9105-Axia80-M20.stl" />
+				</geometry>
+			</visual>
+		</link>
+		<link name="${prefix}toolside" >
+		</link>
+		<link name="${prefix}force_sensor_frame" >
+		</link>
+		<joint name="${prefix}robotside_joint" type="fixed">
+			<parent link="${parent_link}" />
+			<child link="${prefix}robotside" />
+			<xacro:insert_block name="origin_joint"/>
+		</joint>
+		<joint name="${prefix}toolside_joint" type="fixed">
+			<parent link="${prefix}robotside" />
+			<child link="${prefix}toolside" />
+			<origin xyz="0 0 0" rpy="0 0 0.0254" />
+		</joint>
+		<joint name="${prefix}measurement_joint" type="fixed">
+			<parent link="${prefix}toolside" />
+			<child link="${prefix}force_sensor_frame" />
+			<origin xyz="0 0 0" rpy="0 0 0" />
+		</joint>
+	</xacro:macro>
+
+</robot>

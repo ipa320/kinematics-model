@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="axia80_adapter_plates" >
+
+
+	<xacro:macro name="axia80_adapter_robotside_flange" params="parent_link origin_joint ">
+		<link name="axia80_adapter_robotside_flange" >
+		</link>
+		<link name="axia80_adapter_robotside_changer" >
+		</link>
+		<joint name="axia80_adapter_robotside_flange_joint" type="fixed">
+			<parent link="${parent_link}" />
+			<child link="axia80_adapter_robotside_flange" />
+			<xacro:insert_block name="origin_joint"/>
+		</joint>
+		<joint name="axia80_adapter_robotside_changer_joint" type="fixed">
+			<parent link="axia80_adapter_robotside_flange" />
+			<child link="axia80_adapter_robotside_changer" />
+			<origin xyz="0 0 0.01" rpy="0 0 0" />
+		</joint>
+	</xacro:macro>
+	<xacro:macro name="axia80_adapter_robotside_sensor" params="parent_link origin_joint ">
+		<link name="axia80_adapter_robotside_changer_sensor" >
+			<visual>
+				<geometry>
+					<mesh filename="package://schrauber_description/mesh/Aufnahme_FT_Sensor_origin.STL" />
+				</geometry>
+			</visual>
+		</link>
+		<link name="axia80_adapter_robotside_sensor" >
+		</link>
+		<joint name="axia80_adapter_robotside_changer_sensor_joint" type="fixed">
+			<parent link="${parent_link}" />
+			<child link="axia80_adapter_robotside_changer_sensor" />
+			<xacro:insert_block name="origin_joint"/>
+		</joint>
+		<joint name="axia80_adapter_robotside_sensor_joint" type="fixed">
+			<parent link="axia80_adapter_robotside_changer_sensor" />
+			<child link="axia80_adapter_robotside_sensor" />
+			<origin xyz="0 0 0.01" rpy="0 0 0" />
+		</joint>
+	</xacro:macro>
+	<xacro:macro name="axia80_adapter_toolside_sensor" params="parent_link origin_joint ">
+		<link name="axia80_adapter_toolside_sensor" >
+		</link>
+		<link name="axia80_adapter_toolside_changer_sensor" >
+		</link>
+		<joint name="axia80_adapter_toolside_sensor_joint" type="fixed">
+			<parent link="${parent_link}" />
+			<child link="axia80_adapter_toolside_changer_sensor" />
+			<xacro:insert_block name="origin_joint"/>
+		</joint>
+		<joint name="axia80_adapter_toolside_sensor_changer_joint" type="fixed">
+			<parent link="axia80_adapter_toolside_sensor" />
+			<child link="axia80_adapter_robotside_changer_sensor" />
+			<origin xyz="0 0 0.01" rpy="0 0 0" />
+		</joint>
+	</xacro:macro>
+
+</robot>
