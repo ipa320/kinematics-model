@@ -1,11 +1,13 @@
 Robot { name kr16
 	macroCall {
+		MacroCall { macro "kr16_2_macro.kuka_kr16_2"
+			parameter { ParameterCall { parameter "kr16_2_macro.kuka_kr16_2.prefix" value kr16_ } } },
 		MacroCall { macro "axia80_adapter_plates.axia80_adapter_robotside_flange"
 			parameter {
 				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_robotside_flange.origin_joint"
-					value Pose { rpy "0 0 0" xyz "0 0 ${pi/2}" } },
+					value Pose { rpy "0 0 ${pi/2}" xyz "0 0 0" } },
 				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_robotside_flange.parent_link" 
-					value "tool0" } } },
+					value "prefixtool0" } } },
 		MacroCall { macro "axia80_adapter_plates.axia80_adapter_robotside_sensor" 
 			parameter {
 				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_robotside_sensor.origin_joint"
@@ -23,20 +25,18 @@ Robot { name kr16
 		MacroCall { macro "axia80_adapter_plates.axia80_adapter_toolside_sensor"
 			parameter {
 				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_toolside_sensor.parent_link"
-					value "prefix+toolside" },
+					value "prefixtoolside" },
 				ParameterCall { parameter "axia80_adapter_plates.axia80_adapter_toolside_sensor.origin_joint"
 					value Pose { rpy "0 0 0" xyz "0 0 0" } } } } }
 	body Body {
 		link {
 			Link { name table_big },
-			Link { name base_link },
-			Link { name weldingtable },
-			Link { name tool0 } }
+			Link { name weldingtable } }
 		joint {
 			Joint { name table_joint
 				type fixed
 				parent "table_big"
-				child "base_link"
+				child "prefixbase_link"
 				origin Pose { rpy "0 0 ${-3/4*pi}" xyz "0.858 0.863 -0.405" } },
 			Joint { name weldingtable_joint
 				type fixed
