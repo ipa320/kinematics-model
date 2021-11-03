@@ -32,8 +32,11 @@ import xacro.Mass;
 import xacro.Mesh;
 import xacro.ParameterCall;
 import xacro.ParameterLink;
+import xacro.ParameterLinkRefType;
 import xacro.ParameterPose;
+import xacro.ParameterPoseType;
 import xacro.ParameterString;
+import xacro.ParameterStringType;
 import xacro.ParameterValue;
 import xacro.Pose;
 import xacro.Robot;
@@ -110,11 +113,20 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case XacroPackage.PARAMETER_LINK:
 				sequence_ParameterLink(context, (ParameterLink) semanticObject); 
 				return; 
+			case XacroPackage.PARAMETER_LINK_REF_TYPE:
+				sequence_ParameterLinkRefType(context, (ParameterLinkRefType) semanticObject); 
+				return; 
 			case XacroPackage.PARAMETER_POSE:
 				sequence_ParameterPose(context, (ParameterPose) semanticObject); 
 				return; 
+			case XacroPackage.PARAMETER_POSE_TYPE:
+				sequence_ParameterPoseType(context, (ParameterPoseType) semanticObject); 
+				return; 
 			case XacroPackage.PARAMETER_STRING:
 				sequence_ParameterString(context, (ParameterString) semanticObject); 
+				return; 
+			case XacroPackage.PARAMETER_STRING_TYPE:
+				sequence_ParameterStringType(context, (ParameterStringType) semanticObject); 
 				return; 
 			case XacroPackage.PARAMETER_VALUE:
 				sequence_ParameterValue(context, (ParameterValue) semanticObject); 
@@ -373,6 +385,19 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ParameterType returns ParameterLinkRefType
+	 *     ParameterLinkRefType returns ParameterLinkRefType
+	 *
+	 * Constraint:
+	 *     {ParameterLinkRefType}
+	 */
+	protected void sequence_ParameterLinkRefType(ISerializationContext context, ParameterLinkRefType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ParameterLink returns ParameterLink
 	 *
 	 * Constraint:
@@ -385,12 +410,38 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ParameterType returns ParameterPoseType
+	 *     ParameterPoseType returns ParameterPoseType
+	 *
+	 * Constraint:
+	 *     {ParameterPoseType}
+	 */
+	protected void sequence_ParameterPoseType(ISerializationContext context, ParameterPoseType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ParameterPose returns ParameterPose
 	 *
 	 * Constraint:
 	 *     (ref=[Parameter|STRING] | value=Pose)
 	 */
 	protected void sequence_ParameterPose(ISerializationContext context, ParameterPose semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ParameterType returns ParameterStringType
+	 *     ParameterStringType returns ParameterStringType
+	 *
+	 * Constraint:
+	 *     {ParameterStringType}
+	 */
+	protected void sequence_ParameterStringType(ISerializationContext context, ParameterStringType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -430,7 +481,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (name=ID value=ParameterValue?)
+	 *     (name=ID type=ParameterType value=ParameterValue?)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, xacro.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

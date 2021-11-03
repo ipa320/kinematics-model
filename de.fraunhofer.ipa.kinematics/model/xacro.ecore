@@ -15,6 +15,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ParameterValue"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//ParameterType"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Body">
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
@@ -154,4 +156,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="LinkRef" eSuperTypes="#//ParameterValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Link"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterPoseType" eSuperTypes="#//ParameterType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterStringType" eSuperTypes="#//ParameterType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterLinkRefType" eSuperTypes="#//ParameterType"/>
 </ecore:EPackage>

@@ -670,6 +670,98 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterTypeItemProvider parameterTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterTypeAdapter() {
+		if (parameterTypeItemProvider == null) {
+			parameterTypeItemProvider = new ParameterTypeItemProvider(this);
+		}
+
+		return parameterTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterPoseType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterPoseTypeItemProvider parameterPoseTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterPoseType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterPoseTypeAdapter() {
+		if (parameterPoseTypeItemProvider == null) {
+			parameterPoseTypeItemProvider = new ParameterPoseTypeItemProvider(this);
+		}
+
+		return parameterPoseTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterStringType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterStringTypeItemProvider parameterStringTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterStringType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterStringTypeAdapter() {
+		if (parameterStringTypeItemProvider == null) {
+			parameterStringTypeItemProvider = new ParameterStringTypeItemProvider(this);
+		}
+
+		return parameterStringTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ParameterLinkRefType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterLinkRefTypeItemProvider parameterLinkRefTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ParameterLinkRefType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterLinkRefTypeAdapter() {
+		if (parameterLinkRefTypeItemProvider == null) {
+			parameterLinkRefTypeItemProvider = new ParameterLinkRefTypeItemProvider(this);
+		}
+
+		return parameterLinkRefTypeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -794,6 +886,10 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 		if (parameterValueItemProvider != null) parameterValueItemProvider.dispose();
 		if (parameterLinkItemProvider != null) parameterLinkItemProvider.dispose();
 		if (linkRefItemProvider != null) linkRefItemProvider.dispose();
+		if (parameterTypeItemProvider != null) parameterTypeItemProvider.dispose();
+		if (parameterPoseTypeItemProvider != null) parameterPoseTypeItemProvider.dispose();
+		if (parameterStringTypeItemProvider != null) parameterStringTypeItemProvider.dispose();
+		if (parameterLinkRefTypeItemProvider != null) parameterLinkRefTypeItemProvider.dispose();
 	}
 
 }

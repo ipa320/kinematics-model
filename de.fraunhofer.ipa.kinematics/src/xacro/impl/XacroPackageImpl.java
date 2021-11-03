@@ -31,8 +31,12 @@ import xacro.Mesh;
 import xacro.Parameter;
 import xacro.ParameterCall;
 import xacro.ParameterLink;
+import xacro.ParameterLinkRefType;
 import xacro.ParameterPose;
+import xacro.ParameterPoseType;
 import xacro.ParameterString;
+import xacro.ParameterStringType;
+import xacro.ParameterType;
 import xacro.ParameterValue;
 import xacro.Pose;
 import xacro.Robot;
@@ -232,6 +236,34 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	private EClass linkRefEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterPoseTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterStringTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterLinkRefTypeEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -376,6 +408,15 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 */
 	public EReference getParameter_Value() {
 		return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameter_Type() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1139,6 +1180,42 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getParameterType() {
+		return parameterTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterPoseType() {
+		return parameterPoseTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterStringType() {
+		return parameterStringTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterLinkRefType() {
+		return parameterLinkRefTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XacroFactory getXacroFactory() {
 		return (XacroFactory)getEFactoryInstance();
 	}
@@ -1172,6 +1249,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
 		createEReference(parameterEClass, PARAMETER__VALUE);
+		createEReference(parameterEClass, PARAMETER__TYPE);
 
 		bodyEClass = createEClass(BODY);
 		createEReference(bodyEClass, BODY__JOINT);
@@ -1280,6 +1358,14 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 
 		linkRefEClass = createEClass(LINK_REF);
 		createEReference(linkRefEClass, LINK_REF__REF);
+
+		parameterTypeEClass = createEClass(PARAMETER_TYPE);
+
+		parameterPoseTypeEClass = createEClass(PARAMETER_POSE_TYPE);
+
+		parameterStringTypeEClass = createEClass(PARAMETER_STRING_TYPE);
+
+		parameterLinkRefTypeEClass = createEClass(PARAMETER_LINK_REF_TYPE);
 	}
 
 	/**
@@ -1316,6 +1402,9 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		// Add supertypes to classes
 		poseEClass.getESuperTypes().add(this.getParameterValue());
 		linkRefEClass.getESuperTypes().add(this.getParameterValue());
+		parameterPoseTypeEClass.getESuperTypes().add(this.getParameterType());
+		parameterStringTypeEClass.getESuperTypes().add(this.getParameterType());
+		parameterLinkRefTypeEClass.getESuperTypes().add(this.getParameterType());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1328,6 +1417,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_Name(), theEcorePackage.getEString(), "name", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_Value(), this.getParameterValue(), null, "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_Type(), this.getParameterType(), null, "type", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBody_Joint(), this.getJoint(), null, "joint", null, 0, -1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1436,6 +1526,14 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 
 		initEClass(linkRefEClass, LinkRef.class, "LinkRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLinkRef_Ref(), this.getLink(), null, "ref", null, 0, 1, LinkRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterTypeEClass, ParameterType.class, "ParameterType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(parameterPoseTypeEClass, ParameterPoseType.class, "ParameterPoseType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(parameterStringTypeEClass, ParameterStringType.class, "ParameterStringType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(parameterLinkRefTypeEClass, ParameterLinkRefType.class, "ParameterLinkRefType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

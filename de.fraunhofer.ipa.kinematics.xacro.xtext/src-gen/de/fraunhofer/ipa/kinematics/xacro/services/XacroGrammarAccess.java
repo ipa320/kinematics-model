@@ -300,17 +300,21 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cValueKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cValueParameterValueParserRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTypeParameterTypeParserRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cValueKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cValueAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cValueParameterValueParserRuleCall_6_1_0 = (RuleCall)cValueAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Parameter returns Parameter:
 		//    {Parameter}
 		//    'Parameter'
 		//    name=ID
 		//    '{'
+		//        'type' type=ParameterType
 		//        ('value' value=ParameterValue)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
@@ -319,6 +323,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'Parameter'
 		//name=ID
 		//'{'
+		//    'type' type=ParameterType
 		//    ('value' value=ParameterValue)?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -338,20 +343,29 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
+		//'type'
+		public Keyword getTypeKeyword_4() { return cTypeKeyword_4; }
+		
+		//type=ParameterType
+		public Assignment getTypeAssignment_5() { return cTypeAssignment_5; }
+		
+		//ParameterType
+		public RuleCall getTypeParameterTypeParserRuleCall_5_0() { return cTypeParameterTypeParserRuleCall_5_0; }
+		
 		//('value' value=ParameterValue)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//'value'
-		public Keyword getValueKeyword_4_0() { return cValueKeyword_4_0; }
+		public Keyword getValueKeyword_6_0() { return cValueKeyword_6_0; }
 		
 		//value=ParameterValue
-		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
+		public Assignment getValueAssignment_6_1() { return cValueAssignment_6_1; }
 		
 		//ParameterValue
-		public RuleCall getValueParameterValueParserRuleCall_4_1_0() { return cValueParameterValueParserRuleCall_4_1_0; }
+		public RuleCall getValueParameterValueParserRuleCall_6_1_0() { return cValueParameterValueParserRuleCall_6_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class ParameterValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
@@ -504,6 +518,96 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//STRING
 		public RuleCall getLinkLinkSTRINGTerminalRuleCall_1_0_1() { return cLinkLinkSTRINGTerminalRuleCall_1_0_1; }
+	}
+	public class ParameterTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cParameterStringTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cParameterLinkRefTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cParameterPoseTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//ParameterType returns ParameterType:
+		//    ParameterStringType | ParameterLinkRefType | ParameterPoseType
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ParameterStringType | ParameterLinkRefType | ParameterPoseType
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ParameterStringType
+		public RuleCall getParameterStringTypeParserRuleCall_0() { return cParameterStringTypeParserRuleCall_0; }
+		
+		//ParameterLinkRefType
+		public RuleCall getParameterLinkRefTypeParserRuleCall_1() { return cParameterLinkRefTypeParserRuleCall_1; }
+		
+		//ParameterPoseType
+		public RuleCall getParameterPoseTypeParserRuleCall_2() { return cParameterPoseTypeParserRuleCall_2; }
+	}
+	public class ParameterStringTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterStringType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterStringTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cStringKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ParameterStringType returns ParameterStringType:
+		//    {ParameterStringType}
+		//    'String'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ParameterStringType}
+		//'String'
+		public Group getGroup() { return cGroup; }
+		
+		//{ParameterStringType}
+		public Action getParameterStringTypeAction_0() { return cParameterStringTypeAction_0; }
+		
+		//'String'
+		public Keyword getStringKeyword_1() { return cStringKeyword_1; }
+	}
+	public class ParameterLinkRefTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterLinkRefType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterLinkRefTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLinkRefKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ParameterLinkRefType returns ParameterLinkRefType:
+		//    {ParameterLinkRefType}
+		//    'LinkRef'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ParameterLinkRefType}
+		//'LinkRef'
+		public Group getGroup() { return cGroup; }
+		
+		//{ParameterLinkRefType}
+		public Action getParameterLinkRefTypeAction_0() { return cParameterLinkRefTypeAction_0; }
+		
+		//'LinkRef'
+		public Keyword getLinkRefKeyword_1() { return cLinkRefKeyword_1; }
+	}
+	public class ParameterPoseTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterPoseType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterPoseTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cPoseKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ParameterPoseType returns ParameterPoseType:
+		//    {ParameterPoseType}
+		//    'Pose'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ParameterPoseType}
+		//'Pose'
+		public Group getGroup() { return cGroup; }
+		
+		//{ParameterPoseType}
+		public Action getParameterPoseTypeAction_0() { return cParameterPoseTypeAction_0; }
+		
+		//'Pose'
+		public Keyword getPoseKeyword_1() { return cPoseKeyword_1; }
 	}
 	public class BodyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.xacro.Xacro.Body");
@@ -2000,6 +2104,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ParameterStringElements pParameterString;
 	private final ParameterPoseElements pParameterPose;
 	private final ParameterLinkElements pParameterLink;
+	private final ParameterTypeElements pParameterType;
+	private final ParameterStringTypeElements pParameterStringType;
+	private final ParameterLinkRefTypeElements pParameterLinkRefType;
+	private final ParameterPoseTypeElements pParameterPoseType;
 	private final BodyElements pBody;
 	private final MacroCallElements pMacroCall;
 	private final ParameterCallElements pParameterCall;
@@ -2045,6 +2153,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pParameterString = new ParameterStringElements();
 		this.pParameterPose = new ParameterPoseElements();
 		this.pParameterLink = new ParameterLinkElements();
+		this.pParameterType = new ParameterTypeElements();
+		this.pParameterStringType = new ParameterStringTypeElements();
+		this.pParameterLinkRefType = new ParameterLinkRefTypeElements();
+		this.pParameterPoseType = new ParameterPoseTypeElements();
 		this.pBody = new BodyElements();
 		this.pMacroCall = new MacroCallElements();
 		this.pParameterCall = new ParameterCallElements();
@@ -2139,6 +2251,7 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'Parameter'
 	//    name=ID
 	//    '{'
+	//        'type' type=ParameterType
 	//        ('value' value=ParameterValue)?
 	//    '}';
 	public ParameterElements getParameterAccess() {
@@ -2202,6 +2315,53 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getParameterLinkRule() {
 		return getParameterLinkAccess().getRule();
+	}
+	
+	//ParameterType returns ParameterType:
+	//    ParameterStringType | ParameterLinkRefType | ParameterPoseType
+	//;
+	public ParameterTypeElements getParameterTypeAccess() {
+		return pParameterType;
+	}
+	
+	public ParserRule getParameterTypeRule() {
+		return getParameterTypeAccess().getRule();
+	}
+	
+	//ParameterStringType returns ParameterStringType:
+	//    {ParameterStringType}
+	//    'String'
+	//;
+	public ParameterStringTypeElements getParameterStringTypeAccess() {
+		return pParameterStringType;
+	}
+	
+	public ParserRule getParameterStringTypeRule() {
+		return getParameterStringTypeAccess().getRule();
+	}
+	
+	//ParameterLinkRefType returns ParameterLinkRefType:
+	//    {ParameterLinkRefType}
+	//    'LinkRef'
+	//;
+	public ParameterLinkRefTypeElements getParameterLinkRefTypeAccess() {
+		return pParameterLinkRefType;
+	}
+	
+	public ParserRule getParameterLinkRefTypeRule() {
+		return getParameterLinkRefTypeAccess().getRule();
+	}
+	
+	//ParameterPoseType returns ParameterPoseType:
+	//    {ParameterPoseType}
+	//    'Pose'
+	//;
+	public ParameterPoseTypeElements getParameterPoseTypeAccess() {
+		return pParameterPoseType;
+	}
+	
+	public ParserRule getParameterPoseTypeRule() {
+		return getParameterPoseTypeAccess().getRule();
 	}
 	
 	//Body returns Body:

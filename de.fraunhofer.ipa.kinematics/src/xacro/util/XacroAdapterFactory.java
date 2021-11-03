@@ -171,6 +171,22 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 				return createLinkRefAdapter();
 			}
 			@Override
+			public Adapter caseParameterType(ParameterType object) {
+				return createParameterTypeAdapter();
+			}
+			@Override
+			public Adapter caseParameterPoseType(ParameterPoseType object) {
+				return createParameterPoseTypeAdapter();
+			}
+			@Override
+			public Adapter caseParameterStringType(ParameterStringType object) {
+				return createParameterStringTypeAdapter();
+			}
+			@Override
+			public Adapter caseParameterLinkRefType(ParameterLinkRefType object) {
+				return createParameterLinkRefTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -551,6 +567,62 @@ public class XacroAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLinkRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterType <em>Parameter Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterType
+	 * @generated
+	 */
+	public Adapter createParameterTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterPoseType <em>Parameter Pose Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterPoseType
+	 * @generated
+	 */
+	public Adapter createParameterPoseTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterStringType <em>Parameter String Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterStringType
+	 * @generated
+	 */
+	public Adapter createParameterStringTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xacro.ParameterLinkRefType <em>Parameter Link Ref Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xacro.ParameterLinkRefType
+	 * @generated
+	 */
+	public Adapter createParameterLinkRefTypeAdapter() {
 		return null;
 	}
 

@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="axia80_adapter_plates" >
 
 
-	<xacro:macro name="axia80_adapter_robotside_flange" params="parent_link origin_joint ">
+	<xacro:macro name="axia80_adapter_robotside_flange" params="parent_link *origin_joint ">
 		<link name="axia80_adapter_robotside_flange" >
 		</link>
 		<link name="axia80_adapter_robotside_changer" >
@@ -18,7 +18,7 @@
 			<origin xyz="0 0 0.01" rpy="0 0 0" />
 		</joint>
 	</xacro:macro>
-	<xacro:macro name="axia80_adapter_robotside_sensor" params="parent_link origin_joint ">
+	<xacro:macro name="axia80_adapter_robotside_sensor" params="parent_link *origin_joint ">
 		<link name="axia80_adapter_robotside_changer_sensor" >
 			<visual>
 				<geometry>
@@ -39,7 +39,7 @@
 			<origin xyz="0 0 0.01" rpy="0 0 0" />
 		</joint>
 	</xacro:macro>
-	<xacro:macro name="axia80_adapter_toolside_sensor" params="parent_link origin_joint ">
+	<xacro:macro name="axia80_adapter_toolside_sensor" params="parent_link *origin_joint ">
 		<link name="axia80_adapter_toolside_sensor" >
 		</link>
 		<link name="axia80_adapter_toolside_changer_sensor" >

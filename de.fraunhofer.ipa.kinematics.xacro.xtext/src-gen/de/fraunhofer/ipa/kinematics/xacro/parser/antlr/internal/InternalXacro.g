@@ -470,17 +470,40 @@ ruleParameter returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getParameterAccess().getLeftCurlyBracketKeyword_3());
 		}
+		otherlv_4='type'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getParameterAccess().getTypeKeyword_4());
+		}
 		(
-			otherlv_4='value'
+			(
+				{
+					newCompositeNode(grammarAccess.getParameterAccess().getTypeParameterTypeParserRuleCall_5_0());
+				}
+				lv_type_5_0=ruleParameterType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParameterRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_5_0,
+						"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_6='value'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getParameterAccess().getValueKeyword_4_0());
+				newLeafNode(otherlv_6, grammarAccess.getParameterAccess().getValueKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getParameterAccess().getValueParameterValueParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getParameterAccess().getValueParameterValueParserRuleCall_6_1_0());
 					}
-					lv_value_5_0=ruleParameterValue
+					lv_value_7_0=ruleParameterValue
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getParameterRule());
@@ -488,16 +511,16 @@ ruleParameter returns [EObject current=null]
 						set(
 							$current,
 							"value",
-							lv_value_5_0,
+							lv_value_7_0,
 							"de.fraunhofer.ipa.kinematics.xacro.Xacro.ParameterValue");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_6='}'
+		otherlv_8='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getParameterAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_8, grammarAccess.getParameterAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -739,6 +762,141 @@ ruleParameterLink returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleParameterType
+entryRuleParameterType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterTypeRule()); }
+	iv_ruleParameterType=ruleParameterType
+	{ $current=$iv_ruleParameterType.current; }
+	EOF;
+
+// Rule ParameterType
+ruleParameterType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getParameterTypeAccess().getParameterStringTypeParserRuleCall_0());
+		}
+		this_ParameterStringType_0=ruleParameterStringType
+		{
+			$current = $this_ParameterStringType_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getParameterTypeAccess().getParameterLinkRefTypeParserRuleCall_1());
+		}
+		this_ParameterLinkRefType_1=ruleParameterLinkRefType
+		{
+			$current = $this_ParameterLinkRefType_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getParameterTypeAccess().getParameterPoseTypeParserRuleCall_2());
+		}
+		this_ParameterPoseType_2=ruleParameterPoseType
+		{
+			$current = $this_ParameterPoseType_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleParameterStringType
+entryRuleParameterStringType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterStringTypeRule()); }
+	iv_ruleParameterStringType=ruleParameterStringType
+	{ $current=$iv_ruleParameterStringType.current; }
+	EOF;
+
+// Rule ParameterStringType
+ruleParameterStringType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getParameterStringTypeAccess().getParameterStringTypeAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='String'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getParameterStringTypeAccess().getStringKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleParameterLinkRefType
+entryRuleParameterLinkRefType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterLinkRefTypeRule()); }
+	iv_ruleParameterLinkRefType=ruleParameterLinkRefType
+	{ $current=$iv_ruleParameterLinkRefType.current; }
+	EOF;
+
+// Rule ParameterLinkRefType
+ruleParameterLinkRefType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getParameterLinkRefTypeAccess().getParameterLinkRefTypeAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='LinkRef'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getParameterLinkRefTypeAccess().getLinkRefKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleParameterPoseType
+entryRuleParameterPoseType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterPoseTypeRule()); }
+	iv_ruleParameterPoseType=ruleParameterPoseType
+	{ $current=$iv_ruleParameterPoseType.current; }
+	EOF;
+
+// Rule ParameterPoseType
+ruleParameterPoseType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getParameterPoseTypeAccess().getParameterPoseTypeAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='Pose'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getParameterPoseTypeAccess().getPoseKeyword_1());
+		}
 	)
 ;
 

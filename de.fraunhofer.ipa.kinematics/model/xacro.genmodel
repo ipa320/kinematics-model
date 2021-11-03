@@ -17,6 +17,7 @@
     <genClasses ecoreClass="xacro.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EReference xacro.ecore#//Parameter/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Parameter/type"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Body">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/joint"/>
@@ -126,5 +127,9 @@
     <genClasses ecoreClass="xacro.ecore#//LinkRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//LinkRef/ref"/>
     </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//ParameterType"/>
+    <genClasses ecoreClass="xacro.ecore#//ParameterPoseType"/>
+    <genClasses ecoreClass="xacro.ecore#//ParameterStringType"/>
+    <genClasses ecoreClass="xacro.ecore#//ParameterLinkRefType"/>
   </genPackages>
 </genmodel:GenModel>

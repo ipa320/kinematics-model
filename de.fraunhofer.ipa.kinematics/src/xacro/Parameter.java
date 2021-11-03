@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link xacro.Parameter#getName <em>Name</em>}</li>
  *   <li>{@link xacro.Parameter#getValue <em>Value</em>}</li>
+ *   <li>{@link xacro.Parameter#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see xacro.XacroPackage#getParameter()
@@ -65,5 +66,27 @@ public interface Parameter extends EObject {
 	 * @generated
 	 */
 	void setValue(ParameterValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(ParameterType)
+	 * @see xacro.XacroPackage#getParameter_Type()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	ParameterType getType();
+
+	/**
+	 * Sets the value of the '{@link xacro.Parameter#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(ParameterType value);
 
 } // Parameter

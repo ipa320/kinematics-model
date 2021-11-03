@@ -2,9 +2,9 @@ Robot { name ati_axia80
 	macro {
 		Macro { name ati_axia80
 			parameter {
-				Parameter parent_link {},
-				Parameter prefix {},
-				Parameter origin_joint {} }
+				Parameter parent_link { type LinkRef},
+				Parameter prefix { type String },
+				Parameter origin_joint { type Pose } }
 			body Body {
 				link {
 					Link { name "prefix"robotside

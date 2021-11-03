@@ -2,7 +2,7 @@ Robot { name kr16_2_macro
 	macro {
 		Macro { name kuka_kr16_2
 			parameter {
-				Parameter prefix {} }
+				Parameter prefix { type String } }
 			body Body {
 				link {
 					Link { name "prefix"base_link

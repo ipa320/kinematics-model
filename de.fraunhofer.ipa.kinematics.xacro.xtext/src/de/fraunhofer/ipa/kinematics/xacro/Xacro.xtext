@@ -29,6 +29,7 @@ Parameter returns Parameter:
 	'Parameter'
 	name=ID
 	'{'
+		'type' type=ParameterType
 		('value' value=ParameterValue)?
 	'}';
 
@@ -51,6 +52,26 @@ ParameterPose returns ParameterPose:
 ParameterLink returns ParameterLink:
 	param=[Parameter] | link=[Link|STRING]
 ;
+
+ParameterType returns ParameterType:
+	ParameterStringType | ParameterLinkRefType | ParameterPoseType
+;
+
+ParameterStringType returns ParameterStringType:
+	{ParameterStringType}
+	'String'
+;
+
+ParameterLinkRefType returns ParameterLinkRefType:
+	{ParameterLinkRefType}
+	'LinkRef'
+;
+
+ParameterPoseType returns ParameterPoseType:
+	{ParameterPoseType}
+	'Pose'
+;
+
 
 Body returns Body:
 	{Body}

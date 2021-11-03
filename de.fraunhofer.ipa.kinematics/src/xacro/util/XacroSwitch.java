@@ -223,6 +223,33 @@ public class XacroSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case XacroPackage.PARAMETER_TYPE: {
+				ParameterType parameterType = (ParameterType)theEObject;
+				T result = caseParameterType(parameterType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XacroPackage.PARAMETER_POSE_TYPE: {
+				ParameterPoseType parameterPoseType = (ParameterPoseType)theEObject;
+				T result = caseParameterPoseType(parameterPoseType);
+				if (result == null) result = caseParameterType(parameterPoseType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XacroPackage.PARAMETER_STRING_TYPE: {
+				ParameterStringType parameterStringType = (ParameterStringType)theEObject;
+				T result = caseParameterStringType(parameterStringType);
+				if (result == null) result = caseParameterType(parameterStringType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XacroPackage.PARAMETER_LINK_REF_TYPE: {
+				ParameterLinkRefType parameterLinkRefType = (ParameterLinkRefType)theEObject;
+				T result = caseParameterLinkRefType(parameterLinkRefType);
+				if (result == null) result = caseParameterType(parameterLinkRefType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -614,6 +641,66 @@ public class XacroSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLinkRef(LinkRef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterType(ParameterType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Pose Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Pose Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterPoseType(ParameterPoseType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter String Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter String Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterStringType(ParameterStringType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Link Ref Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Link Ref Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterLinkRefType(ParameterLinkRefType object) {
 		return null;
 	}
 

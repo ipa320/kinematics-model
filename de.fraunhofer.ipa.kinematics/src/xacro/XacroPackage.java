@@ -158,13 +158,22 @@ public interface XacroPackage extends EPackage {
 	int PARAMETER__VALUE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__TYPE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 2;
+	int PARAMETER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -1409,6 +1418,118 @@ public interface XacroPackage extends EPackage {
 	int LINK_REF_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterTypeImpl <em>Parameter Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterTypeImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterType()
+	 * @generated
+	 */
+	int PARAMETER_TYPE = 26;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_TYPE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_TYPE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterPoseTypeImpl <em>Parameter Pose Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterPoseTypeImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterPoseType()
+	 * @generated
+	 */
+	int PARAMETER_POSE_TYPE = 27;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Pose Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_POSE_TYPE_FEATURE_COUNT = PARAMETER_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter Pose Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_POSE_TYPE_OPERATION_COUNT = PARAMETER_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterStringTypeImpl <em>Parameter String Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterStringTypeImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterStringType()
+	 * @generated
+	 */
+	int PARAMETER_STRING_TYPE = 28;
+
+	/**
+	 * The number of structural features of the '<em>Parameter String Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_STRING_TYPE_FEATURE_COUNT = PARAMETER_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter String Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_STRING_TYPE_OPERATION_COUNT = PARAMETER_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link xacro.impl.ParameterLinkRefTypeImpl <em>Parameter Link Ref Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see xacro.impl.ParameterLinkRefTypeImpl
+	 * @see xacro.impl.XacroPackageImpl#getParameterLinkRefType()
+	 * @generated
+	 */
+	int PARAMETER_LINK_REF_TYPE = 29;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Link Ref Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LINK_REF_TYPE_FEATURE_COUNT = PARAMETER_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter Link Ref Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LINK_REF_TYPE_OPERATION_COUNT = PARAMETER_TYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link xacro.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1504,6 +1625,17 @@ public interface XacroPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParameter_Value();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link xacro.Parameter#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type</em>'.
+	 * @see xacro.Parameter#getType()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_Type();
 
 	/**
 	 * Returns the meta object for class '{@link xacro.Body <em>Body</em>}'.
@@ -2406,6 +2538,46 @@ public interface XacroPackage extends EPackage {
 	EReference getLinkRef_Ref();
 
 	/**
+	 * Returns the meta object for class '{@link xacro.ParameterType <em>Parameter Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Type</em>'.
+	 * @see xacro.ParameterType
+	 * @generated
+	 */
+	EClass getParameterType();
+
+	/**
+	 * Returns the meta object for class '{@link xacro.ParameterPoseType <em>Parameter Pose Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Pose Type</em>'.
+	 * @see xacro.ParameterPoseType
+	 * @generated
+	 */
+	EClass getParameterPoseType();
+
+	/**
+	 * Returns the meta object for class '{@link xacro.ParameterStringType <em>Parameter String Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter String Type</em>'.
+	 * @see xacro.ParameterStringType
+	 * @generated
+	 */
+	EClass getParameterStringType();
+
+	/**
+	 * Returns the meta object for class '{@link xacro.ParameterLinkRefType <em>Parameter Link Ref Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Link Ref Type</em>'.
+	 * @see xacro.ParameterLinkRefType
+	 * @generated
+	 */
+	EClass getParameterLinkRefType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2503,6 +2675,14 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETER__VALUE = eINSTANCE.getParameter_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.BodyImpl <em>Body</em>}' class.
@@ -3223,6 +3403,46 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LINK_REF__REF = eINSTANCE.getLinkRef_Ref();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterTypeImpl <em>Parameter Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterTypeImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterType()
+		 * @generated
+		 */
+		EClass PARAMETER_TYPE = eINSTANCE.getParameterType();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterPoseTypeImpl <em>Parameter Pose Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterPoseTypeImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterPoseType()
+		 * @generated
+		 */
+		EClass PARAMETER_POSE_TYPE = eINSTANCE.getParameterPoseType();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterStringTypeImpl <em>Parameter String Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterStringTypeImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterStringType()
+		 * @generated
+		 */
+		EClass PARAMETER_STRING_TYPE = eINSTANCE.getParameterStringType();
+
+		/**
+		 * The meta object literal for the '{@link xacro.impl.ParameterLinkRefTypeImpl <em>Parameter Link Ref Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see xacro.impl.ParameterLinkRefTypeImpl
+		 * @see xacro.impl.XacroPackageImpl#getParameterLinkRefType()
+		 * @generated
+		 */
+		EClass PARAMETER_LINK_REF_TYPE = eINSTANCE.getParameterLinkRefType();
 
 	}
 

@@ -23,6 +23,7 @@ import xacro.Pose
 import xacro.Robot
 import java.util.ArrayList
 import java.util.HashMap
+import xacro.ParameterPoseType
 
 /**
  * Generates code from your model files on save.
@@ -161,7 +162,7 @@ class XacroGenerator extends AbstractGenerator {
 	'''
 
 	private def compile_macro(Macro macro) '''
-	<xacro:macro name="«macro.name»" params="«FOR param : macro.parameter»«param.name» «ENDFOR»">
+	<xacro:macro name="«macro.name»" params="«FOR param : macro.parameter»«IF param.type instanceof ParameterPoseType»*«ENDIF»«param.name» «ENDFOR»">
 		«IF macro.body !== null»
 		«compile_body(macro.body)»
 		«ENDIF»
@@ -175,7 +176,6 @@ class XacroGenerator extends AbstractGenerator {
 				paramStr += " " + param.parameter.name + "=\"" + param.value.value + "\"";
 			} else if(param.value instanceof LinkRef) {
 				paramStr += " " + param.parameter.name + "=\"" + ((param.value as LinkRef).ref as Link).resolved + "\"";
-				println("resolved: " + ((param.value as LinkRef).ref as Link).resolved);
 			}
 		}
 		paramStr += ">";

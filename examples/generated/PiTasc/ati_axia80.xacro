@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="ati_axia80" >
 
 
-	<xacro:macro name="ati_axia80" params="parent_link prefix origin_joint ">
+	<xacro:macro name="ati_axia80" params="parent_link prefix *origin_joint ">
 		<link name="${prefix}robotside" >
 			<visual>
 				<geometry>
@@ -16,17 +16,17 @@
 		</link>
 		<joint name="${prefix}robotside_joint" type="fixed">
 			<parent link="${parent_link}" />
-			<child link="ati_axia80_robotside" />
+			<child link="${prefix}robotside" />
 			<xacro:insert_block name="origin_joint"/>
 		</joint>
 		<joint name="${prefix}toolside_joint" type="fixed">
-			<parent link="ati_axia80_robotside" />
-			<child link="ati_axia80_toolside" />
+			<parent link="${prefix}robotside" />
+			<child link="${prefix}toolside" />
 			<origin xyz="0 0 0" rpy="0 0 0.0254" />
 		</joint>
 		<joint name="${prefix}measurement_joint" type="fixed">
-			<parent link="ati_axia80_toolside" />
-			<child link="ati_axia80_force_sensor_frame" />
+			<parent link="${prefix}toolside" />
+			<child link="${prefix}force_sensor_frame" />
 			<origin xyz="0 0 0" rpy="0 0 0" />
 		</joint>
 	</xacro:macro>

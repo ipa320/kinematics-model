@@ -82,6 +82,10 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 			case XacroPackage.PARAMETER_VALUE: return createParameterValue();
 			case XacroPackage.PARAMETER_LINK: return createParameterLink();
 			case XacroPackage.LINK_REF: return createLinkRef();
+			case XacroPackage.PARAMETER_TYPE: return createParameterType();
+			case XacroPackage.PARAMETER_POSE_TYPE: return createParameterPoseType();
+			case XacroPackage.PARAMETER_STRING_TYPE: return createParameterStringType();
+			case XacroPackage.PARAMETER_LINK_REF_TYPE: return createParameterLinkRefType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -345,6 +349,46 @@ public class XacroFactoryImpl extends EFactoryImpl implements XacroFactory {
 	public LinkRef createLinkRef() {
 		LinkRefImpl linkRef = new LinkRefImpl();
 		return linkRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterType createParameterType() {
+		ParameterTypeImpl parameterType = new ParameterTypeImpl();
+		return parameterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterPoseType createParameterPoseType() {
+		ParameterPoseTypeImpl parameterPoseType = new ParameterPoseTypeImpl();
+		return parameterPoseType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterStringType createParameterStringType() {
+		ParameterStringTypeImpl parameterStringType = new ParameterStringTypeImpl();
+		return parameterStringType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterLinkRefType createParameterLinkRefType() {
+		ParameterLinkRefTypeImpl parameterLinkRefType = new ParameterLinkRefTypeImpl();
+		return parameterLinkRefType;
 	}
 
 	/**

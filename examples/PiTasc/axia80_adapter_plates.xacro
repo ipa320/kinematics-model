@@ -2,8 +2,8 @@ Robot { name axia80_adapter_plates
 	macro {
 		Macro { name axia80_adapter_robotside_flange
 			parameter {
-				Parameter parent_link { },
-				Parameter origin_joint { } }
+				Parameter parent_link { type LinkRef },
+				Parameter origin_joint { type Pose } }
 			body Body {
 				link {
 					Link { name axia80_adapter_robotside_flange },
@@ -21,8 +21,8 @@ Robot { name axia80_adapter_plates
 						origin Pose { rpy "0 0 0" xyz "0 0 0.01" } } } } },
 		Macro { name axia80_adapter_robotside_sensor
 			parameter {
-				Parameter parent_link {},
-				Parameter origin_joint {} }
+				Parameter parent_link { type LinkRef },
+				Parameter origin_joint {type Pose } }
 			body Body {
 				link {
 					Link { name axia80_adapter_robotside_changer_sensor
@@ -45,8 +45,8 @@ Robot { name axia80_adapter_plates
 						origin Pose { rpy "0 0 0" xyz "0 0 0.01" } } } } },
 		Macro { name axia80_adapter_toolside_sensor
 			parameter {
-				Parameter parent_link {},
-				Parameter origin_joint {} }
+				Parameter parent_link { type LinkRef },
+				Parameter origin_joint { type Pose } }
 			body Body {
 				link {
 					Link { name axia80_adapter_toolside_sensor },
