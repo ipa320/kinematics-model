@@ -164,7 +164,7 @@ class XacroGenerator extends AbstractGenerator {
 	private def get_params(EList<ParameterCall> params) {
 		var paramStr = "";
 		for(param : params) {
-			if(!(param.value instanceof Pose) && !(param.value instanceof LinkRef)) {
+			if(param.value.value !== null) {
 				paramStr += " " + param.parameter.name + "=\"" + param.value.value + "\"";
 			} else if(param.value instanceof LinkRef) {
 				paramStr += " " + param.parameter.name + "=\"" + compile_parameter_string(((param.value as LinkRef).ref as Link).name) + "\"";
