@@ -16,17 +16,17 @@
 		</link>
 		<joint name="${prefix}robotside_joint" type="fixed">
 			<parent link="${parent_link}" />
-			<child link="${prefix}robotside" />
+			<child link="ati_axia80_robotside" />
 			<xacro:insert_block name="origin_joint"/>
 		</joint>
 		<joint name="${prefix}toolside_joint" type="fixed">
-			<parent link="${prefix}robotside" />
-			<child link="${prefix}toolside" />
+			<parent link="ati_axia80_robotside" />
+			<child link="ati_axia80_toolside" />
 			<origin xyz="0 0 0" rpy="0 0 0.0254" />
 		</joint>
 		<joint name="${prefix}measurement_joint" type="fixed">
-			<parent link="${prefix}toolside" />
-			<child link="${prefix}force_sensor_frame" />
+			<parent link="ati_axia80_toolside" />
+			<child link="ati_axia80_force_sensor_frame" />
 			<origin xyz="0 0 0" rpy="0 0 0" />
 		</joint>
 	</xacro:macro>

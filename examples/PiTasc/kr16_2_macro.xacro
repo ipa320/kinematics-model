@@ -105,36 +105,42 @@ Robot { name kr16_2_macro
 						parent "prefixbase_link"
 						child "prefixlink_1"
 						origin Pose { rpy "0 0 0" xyz "0 0 0.675" }
-						axis Vector3 { xyz "0 0 -1" } },
+						axis Vector3 { xyz "0 0 -1" }
+						limit Limit { effort "0" lower "${radians(-185)}" upper "${radians(185)}" velocity "${radians(156)}" } },
 					 Joint { name "prefix"joint_a2
 						type revolute
 						parent "prefixlink_1"
 						child "prefixlink_2"
 						origin Pose { rpy "0 0 0" xyz "0.26 0 0" }
-						axis Vector3 { xyz "0 1 0" } },
+						axis Vector3 { xyz "0 1 0" }
+						limit Limit { effort "0" lower "${radians(-155)}" upper "${radians(35)}" velocity "${radians(156)}" } },
 					Joint { name "prefix"joint_a3
 						type revolute
 						parent "prefixlink_2"
 						child "prefixlink_3"
 						origin Pose { rpy "0 0 0" xyz "0.68 0 0" }
-						axis Vector3 { xyz "0 1 0" } },
+						axis Vector3 { xyz "0 1 0" }
+						limit Limit { effort "0" lower "${radians(-130)}" upper "${radians(154)}" velocity "${radians(156)}" } },
 					Joint { name "prefix"joint_a4
 						type revolute
 						parent "prefixlink_3"
 						child "prefixlink_4"
 						origin Pose { rpy "0 0 0" xyz "0.67 0 -0.035" }
-						axis Vector3 { xyz "-1 0 0" } },
+						axis Vector3 { xyz "-1 0 0" }
+						limit Limit { effort "0" lower "${radians(-350)}" upper "${radians(350)}" velocity "${radians(330)}" } },
 					Joint { name "prefix"joint_a5
 						type revolute
 						parent "prefixlink_4"
 						child "prefixlink_5"
 						origin Pose { rpy "0 0 0" xyz "0 0 0" }
-						axis Vector3 { xyz "0 1 0" } },
+						axis Vector3 { xyz "0 1 0" }
+						limit Limit { effort "0" lower "${radians(-130)}" upper "${radians(130)}" velocity "${radians(330)}" } },
 					Joint { name "prefix"joint_a6
 						type revolute
 						parent "prefixlink_5"
 						child "prefixlink_6"
-						origin Pose { rpy "0 0 0" xyz "0 0 0.675" } },
+						origin Pose { rpy "0 0 0" xyz "0 0 0.675" }
+						limit Limit { effort "0" lower "${radians(-350)}" upper "${radians(350)}" velocity "${radians(615)}" } },
 					Joint { name "prefix"joint_a6_flange
 						type revolute
 						parent "prefixlink_6"
