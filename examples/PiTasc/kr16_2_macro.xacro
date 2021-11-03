@@ -1,0 +1,154 @@
+Robot { name kr16_2_macro
+	macro {
+		Macro { name kuka_kr16_2
+			parameter {
+				Parameter prefix {} }
+			body Body {
+				link {
+					Link { name "prefix"base_link
+						inertial Inertial {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							mass Mass { value 2.0 }
+							inertia Inertia { ixx 0.01 ixy 0.0 ixz 0.0 iyy 0.01 iyz 0.0 izz 0.01 } }
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/visual/base_link.dae" } } }
+						collision Collision {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/collision/base_link.stl" } } } },
+					Link { name "prefix"link_1
+						inertial Inertial {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							mass Mass { value 2.0 }
+							inertia Inertia { ixx 0.01 ixy 0.0 ixz 0.0 iyy 0.01 iyz 0.0 izz 0.01 } }
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/visual/link_1.dae" } } }
+						collision Collision {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/collision/link_1.stl" } } } },
+					Link { name "prefix"link_2
+						inertial Inertial {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							mass Mass { value 2.0 }
+							inertia Inertia { ixx 0.01 ixy 0.0 ixz 0.0 iyy 0.01 iyz 0.0 izz 0.01 } }
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/visual/link_2.dae" } } }
+						collision Collision {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/collision/link_2.stl" } } } },
+					Link { name "prefix"link_3
+						inertial Inertial {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							mass Mass { value 2.0 }
+							inertia Inertia { ixx 0.01 ixy 0.0 ixz 0.0 iyy 0.01 iyz 0.0 izz 0.01 } }
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/visual/link_3.dae" } } }
+						collision Collision {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/collision/link_3.stl" } } } },
+					Link { name "prefix"link_4
+						inertial Inertial {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							mass Mass { value 2.0 }
+							inertia Inertia { ixx 0.01 ixy 0.0 ixz 0.0 iyy 0.01 iyz 0.0 izz 0.01 } }
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/visual/link_4.dae" } } }
+						collision Collision {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/collision/link_4.stl" } } } },
+					Link { name "prefix"link_5
+						inertial Inertial {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							mass Mass { value 2.0 }
+							inertia Inertia { ixx 0.01 ixy 0.0 ixz 0.0 iyy 0.01 iyz 0.0 izz 0.01 } }
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/visual/link_5.dae" } } }
+						collision Collision {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/collision/link_5.stl" } } } },
+					Link { name "prefix"link_6
+						inertial Inertial {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							mass Mass { value 2.0 }
+							inertia Inertia { ixx 0.01 ixy 0.0 ixz 0.0 iyy 0.01 iyz 0.0 izz 0.01 } }
+						visual Visual {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/visual/link_6.dae" } } }
+						collision Collision {
+							origin Pose { rpy "0 0 0" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh { filename "package://kuka_kr16_support/meshes/kr16_2/collision/link_6.stl" } } } },
+					Link { name "prefix"flange },
+					Link { name "prefix"base },
+					Link { name "prefix"tool0 } }
+				joint {
+					Joint { name "prefix"joint_a1
+						type revolute
+						parent "prefixbase_link"
+						child "prefixlink_1"
+						origin Pose { rpy "0 0 0" xyz "0 0 0.675" }
+						axis Vector3 { xyz "0 0 -1" } },
+					 Joint { name "prefix"joint_a2
+						type revolute
+						parent "prefixlink_1"
+						child "prefixlink_2"
+						origin Pose { rpy "0 0 0" xyz "0.26 0 0" }
+						axis Vector3 { xyz "0 1 0" } },
+					Joint { name "prefix"joint_a3
+						type revolute
+						parent "prefixlink_2"
+						child "prefixlink_3"
+						origin Pose { rpy "0 0 0" xyz "0.68 0 0" }
+						axis Vector3 { xyz "0 1 0" } },
+					Joint { name "prefix"joint_a4
+						type revolute
+						parent "prefixlink_3"
+						child "prefixlink_4"
+						origin Pose { rpy "0 0 0" xyz "0.67 0 -0.035" }
+						axis Vector3 { xyz "-1 0 0" } },
+					Joint { name "prefix"joint_a5
+						type revolute
+						parent "prefixlink_4"
+						child "prefixlink_5"
+						origin Pose { rpy "0 0 0" xyz "0 0 0" }
+						axis Vector3 { xyz "0 1 0" } },
+					Joint { name "prefix"joint_a6
+						type revolute
+						parent "prefixlink_5"
+						child "prefixlink_6"
+						origin Pose { rpy "0 0 0" xyz "0 0 0.675" } },
+					Joint { name "prefix"joint_a6_flange
+						type revolute
+						parent "prefixlink_6"
+						child "prefixflange"
+						origin Pose { rpy "0 0 0" xyz "0.158 0 0" }
+						axis Vector3 { xyz "-1 0 0" } },
+					Joint { name "prefix"base_link_base
+						type revolute
+						parent "prefixbase_link"
+						child "prefixbase"
+						origin Pose { rpy "0 0 0" xyz "0 0 0.675" } },
+					Joint { name "prefix"flange_tool0
+						type revolute
+						parent "prefixflange"
+						child "prefixtool0"
+						origin Pose { rpy "0 ${radians(90)} 0" xyz "0 0 0" } } } } } }
+}
