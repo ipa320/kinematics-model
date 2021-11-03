@@ -16093,7 +16093,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5355:1: ( rule__Limit__Group_3__0__Impl rule__Limit__Group_3__1 )
             // InternalXacro.g:5356:2: rule__Limit__Group_3__0__Impl rule__Limit__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_8);
             rule__Limit__Group_3__0__Impl();
 
             state._fsp--;
@@ -16248,7 +16248,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5409:1: ( rule__Limit__Group_4__0__Impl rule__Limit__Group_4__1 )
             // InternalXacro.g:5410:2: rule__Limit__Group_4__0__Impl rule__Limit__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_8);
             rule__Limit__Group_4__0__Impl();
 
             state._fsp--;
@@ -16403,7 +16403,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5463:1: ( rule__Limit__Group_5__0__Impl rule__Limit__Group_5__1 )
             // InternalXacro.g:5464:2: rule__Limit__Group_5__0__Impl rule__Limit__Group_5__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_8);
             rule__Limit__Group_5__0__Impl();
 
             state._fsp--;
@@ -16558,7 +16558,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5517:1: ( rule__Limit__Group_6__0__Impl rule__Limit__Group_6__1 )
             // InternalXacro.g:5518:2: rule__Limit__Group_6__0__Impl rule__Limit__Group_6__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_8);
             rule__Limit__Group_6__0__Impl();
 
             state._fsp--;
@@ -16863,7 +16863,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5625:1: ( rule__Inertial__Group__2__Impl rule__Inertial__Group__3 )
             // InternalXacro.g:5626:2: rule__Inertial__Group__2__Impl rule__Inertial__Group__3
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__Inertial__Group__2__Impl();
 
             state._fsp--;
@@ -16938,7 +16938,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5652:1: ( rule__Inertial__Group__3__Impl rule__Inertial__Group__4 )
             // InternalXacro.g:5653:2: rule__Inertial__Group__3__Impl rule__Inertial__Group__4
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__Inertial__Group__3__Impl();
 
             state._fsp--;
@@ -17034,7 +17034,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5679:1: ( rule__Inertial__Group__4__Impl rule__Inertial__Group__5 )
             // InternalXacro.g:5680:2: rule__Inertial__Group__4__Impl rule__Inertial__Group__5
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__Inertial__Group__4__Impl();
 
             state._fsp--;
@@ -17130,7 +17130,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5706:1: ( rule__Inertial__Group__5__Impl rule__Inertial__Group__6 )
             // InternalXacro.g:5707:2: rule__Inertial__Group__5__Impl rule__Inertial__Group__6
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__Inertial__Group__5__Impl();
 
             state._fsp--;
@@ -17451,7 +17451,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5814:1: ( rule__Inertial__Group_4__0__Impl rule__Inertial__Group_4__1 )
             // InternalXacro.g:5815:2: rule__Inertial__Group_4__0__Impl rule__Inertial__Group_4__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__Inertial__Group_4__0__Impl();
 
             state._fsp--;
@@ -17606,7 +17606,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5868:1: ( rule__Inertial__Group_5__0__Impl rule__Inertial__Group_5__1 )
             // InternalXacro.g:5869:2: rule__Inertial__Group_5__0__Impl rule__Inertial__Group_5__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__Inertial__Group_5__0__Impl();
 
             state._fsp--;
@@ -17836,7 +17836,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5949:1: ( rule__Visual__Group__1__Impl rule__Visual__Group__2 )
             // InternalXacro.g:5950:2: rule__Visual__Group__1__Impl rule__Visual__Group__2
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__Visual__Group__1__Impl();
 
             state._fsp--;
@@ -17911,7 +17911,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:5976:1: ( rule__Visual__Group__2__Impl rule__Visual__Group__3 )
             // InternalXacro.g:5977:2: rule__Visual__Group__2__Impl rule__Visual__Group__3
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__Visual__Group__2__Impl();
 
             state._fsp--;
@@ -18007,7 +18007,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6003:1: ( rule__Visual__Group__3__Impl rule__Visual__Group__4 )
             // InternalXacro.g:6004:2: rule__Visual__Group__3__Impl rule__Visual__Group__4
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__Visual__Group__3__Impl();
 
             state._fsp--;
@@ -18467,7 +18467,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6165:1: ( rule__Collision__Group__1__Impl rule__Collision__Group__2 )
             // InternalXacro.g:6166:2: rule__Collision__Group__1__Impl rule__Collision__Group__2
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__Collision__Group__1__Impl();
 
             state._fsp--;
@@ -18542,7 +18542,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6192:1: ( rule__Collision__Group__2__Impl rule__Collision__Group__3 )
             // InternalXacro.g:6193:2: rule__Collision__Group__2__Impl rule__Collision__Group__3
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__Collision__Group__2__Impl();
 
             state._fsp--;
@@ -18638,7 +18638,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6219:1: ( rule__Collision__Group__3__Impl rule__Collision__Group__4 )
             // InternalXacro.g:6220:2: rule__Collision__Group__3__Impl rule__Collision__Group__4
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__Collision__Group__3__Impl();
 
             state._fsp--;
@@ -19023,7 +19023,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6354:1: ( rule__Mass__Group__0__Impl rule__Mass__Group__1 )
             // InternalXacro.g:6355:2: rule__Mass__Group__0__Impl rule__Mass__Group__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__Mass__Group__0__Impl();
 
             state._fsp--;
@@ -19414,7 +19414,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6489:1: ( rule__Mass__Group_3__0__Impl rule__Mass__Group_3__1 )
             // InternalXacro.g:6490:2: rule__Mass__Group_3__0__Impl rule__Mass__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Mass__Group_3__0__Impl();
 
             state._fsp--;
@@ -19569,7 +19569,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6543:1: ( rule__Inertia__Group__0__Impl rule__Inertia__Group__1 )
             // InternalXacro.g:6544:2: rule__Inertia__Group__0__Impl rule__Inertia__Group__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__Inertia__Group__0__Impl();
 
             state._fsp--;
@@ -20440,7 +20440,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6813:1: ( rule__Inertia__Group_3__0__Impl rule__Inertia__Group_3__1 )
             // InternalXacro.g:6814:2: rule__Inertia__Group_3__0__Impl rule__Inertia__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Inertia__Group_3__0__Impl();
 
             state._fsp--;
@@ -20595,7 +20595,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6867:1: ( rule__Inertia__Group_4__0__Impl rule__Inertia__Group_4__1 )
             // InternalXacro.g:6868:2: rule__Inertia__Group_4__0__Impl rule__Inertia__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Inertia__Group_4__0__Impl();
 
             state._fsp--;
@@ -20750,7 +20750,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6921:1: ( rule__Inertia__Group_5__0__Impl rule__Inertia__Group_5__1 )
             // InternalXacro.g:6922:2: rule__Inertia__Group_5__0__Impl rule__Inertia__Group_5__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Inertia__Group_5__0__Impl();
 
             state._fsp--;
@@ -20905,7 +20905,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:6975:1: ( rule__Inertia__Group_6__0__Impl rule__Inertia__Group_6__1 )
             // InternalXacro.g:6976:2: rule__Inertia__Group_6__0__Impl rule__Inertia__Group_6__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Inertia__Group_6__0__Impl();
 
             state._fsp--;
@@ -21060,7 +21060,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7029:1: ( rule__Inertia__Group_7__0__Impl rule__Inertia__Group_7__1 )
             // InternalXacro.g:7030:2: rule__Inertia__Group_7__0__Impl rule__Inertia__Group_7__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Inertia__Group_7__0__Impl();
 
             state._fsp--;
@@ -21215,7 +21215,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7083:1: ( rule__Inertia__Group_8__0__Impl rule__Inertia__Group_8__1 )
             // InternalXacro.g:7084:2: rule__Inertia__Group_8__0__Impl rule__Inertia__Group_8__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Inertia__Group_8__0__Impl();
 
             state._fsp--;
@@ -21370,7 +21370,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7137:1: ( rule__Geometry__Group__0__Impl rule__Geometry__Group__1 )
             // InternalXacro.g:7138:2: rule__Geometry__Group__0__Impl rule__Geometry__Group__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__Geometry__Group__0__Impl();
 
             state._fsp--;
@@ -23365,7 +23365,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7812:1: ( rule__Cylinder__Group__2__Impl rule__Cylinder__Group__3 )
             // InternalXacro.g:7813:2: rule__Cylinder__Group__2__Impl rule__Cylinder__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Cylinder__Group__2__Impl();
 
             state._fsp--;
@@ -23525,7 +23525,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:7866:1: ( rule__Cylinder__Group__4__Impl rule__Cylinder__Group__5 )
             // InternalXacro.g:7867:2: rule__Cylinder__Group__4__Impl rule__Cylinder__Group__5
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Cylinder__Group__4__Impl();
 
             state._fsp--;
@@ -23905,7 +23905,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8001:1: ( rule__Sphere__Group__2__Impl rule__Sphere__Group__3 )
             // InternalXacro.g:8002:2: rule__Sphere__Group__2__Impl rule__Sphere__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Sphere__Group__2__Impl();
 
             state._fsp--;
@@ -24611,7 +24611,7 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
             // InternalXacro.g:8244:1: ( rule__Mesh__Group_4__0__Impl rule__Mesh__Group_4__1 )
             // InternalXacro.g:8245:2: rule__Mesh__Group_4__0__Impl rule__Mesh__Group_4__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_52);
             rule__Mesh__Group_4__0__Impl();
 
             state._fsp--;
@@ -26590,25 +26590,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Limit__EffortAssignment_3_1"
-    // InternalXacro.g:8997:1: rule__Limit__EffortAssignment_3_1 : ( ruleDouble0 ) ;
+    // InternalXacro.g:8997:1: rule__Limit__EffortAssignment_3_1 : ( RULE_STRING ) ;
     public final void rule__Limit__EffortAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:9001:1: ( ( ruleDouble0 ) )
-            // InternalXacro.g:9002:2: ( ruleDouble0 )
+            // InternalXacro.g:9001:1: ( ( RULE_STRING ) )
+            // InternalXacro.g:9002:2: ( RULE_STRING )
             {
-            // InternalXacro.g:9002:2: ( ruleDouble0 )
-            // InternalXacro.g:9003:3: ruleDouble0
+            // InternalXacro.g:9002:2: ( RULE_STRING )
+            // InternalXacro.g:9003:3: RULE_STRING
             {
-             before(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleDouble0();
-
-            state._fsp--;
-
-             after(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0()); 
+             before(grammarAccess.getLimitAccess().getEffortSTRINGTerminalRuleCall_3_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getLimitAccess().getEffortSTRINGTerminalRuleCall_3_1_0()); 
 
             }
 
@@ -26631,25 +26627,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Limit__LowerAssignment_4_1"
-    // InternalXacro.g:9012:1: rule__Limit__LowerAssignment_4_1 : ( ruleDouble0 ) ;
+    // InternalXacro.g:9012:1: rule__Limit__LowerAssignment_4_1 : ( RULE_STRING ) ;
     public final void rule__Limit__LowerAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:9016:1: ( ( ruleDouble0 ) )
-            // InternalXacro.g:9017:2: ( ruleDouble0 )
+            // InternalXacro.g:9016:1: ( ( RULE_STRING ) )
+            // InternalXacro.g:9017:2: ( RULE_STRING )
             {
-            // InternalXacro.g:9017:2: ( ruleDouble0 )
-            // InternalXacro.g:9018:3: ruleDouble0
+            // InternalXacro.g:9017:2: ( RULE_STRING )
+            // InternalXacro.g:9018:3: RULE_STRING
             {
-             before(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleDouble0();
-
-            state._fsp--;
-
-             after(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0()); 
+             before(grammarAccess.getLimitAccess().getLowerSTRINGTerminalRuleCall_4_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getLimitAccess().getLowerSTRINGTerminalRuleCall_4_1_0()); 
 
             }
 
@@ -26672,25 +26664,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Limit__UpperAssignment_5_1"
-    // InternalXacro.g:9027:1: rule__Limit__UpperAssignment_5_1 : ( ruleDouble0 ) ;
+    // InternalXacro.g:9027:1: rule__Limit__UpperAssignment_5_1 : ( RULE_STRING ) ;
     public final void rule__Limit__UpperAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:9031:1: ( ( ruleDouble0 ) )
-            // InternalXacro.g:9032:2: ( ruleDouble0 )
+            // InternalXacro.g:9031:1: ( ( RULE_STRING ) )
+            // InternalXacro.g:9032:2: ( RULE_STRING )
             {
-            // InternalXacro.g:9032:2: ( ruleDouble0 )
-            // InternalXacro.g:9033:3: ruleDouble0
+            // InternalXacro.g:9032:2: ( RULE_STRING )
+            // InternalXacro.g:9033:3: RULE_STRING
             {
-             before(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleDouble0();
-
-            state._fsp--;
-
-             after(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0()); 
+             before(grammarAccess.getLimitAccess().getUpperSTRINGTerminalRuleCall_5_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getLimitAccess().getUpperSTRINGTerminalRuleCall_5_1_0()); 
 
             }
 
@@ -26713,25 +26701,21 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Limit__VelocityAssignment_6_1"
-    // InternalXacro.g:9042:1: rule__Limit__VelocityAssignment_6_1 : ( ruleDouble0 ) ;
+    // InternalXacro.g:9042:1: rule__Limit__VelocityAssignment_6_1 : ( RULE_STRING ) ;
     public final void rule__Limit__VelocityAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalXacro.g:9046:1: ( ( ruleDouble0 ) )
-            // InternalXacro.g:9047:2: ( ruleDouble0 )
+            // InternalXacro.g:9046:1: ( ( RULE_STRING ) )
+            // InternalXacro.g:9047:2: ( RULE_STRING )
             {
-            // InternalXacro.g:9047:2: ( ruleDouble0 )
-            // InternalXacro.g:9048:3: ruleDouble0
+            // InternalXacro.g:9047:2: ( RULE_STRING )
+            // InternalXacro.g:9048:3: RULE_STRING
             {
-             before(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleDouble0();
-
-            state._fsp--;
-
-             after(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0()); 
+             before(grammarAccess.getLimitAccess().getVelocitySTRINGTerminalRuleCall_6_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getLimitAccess().getVelocitySTRINGTerminalRuleCall_6_1_0()); 
 
             }
 
@@ -27783,12 +27767,12 @@ public class InternalXacroParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0003000000080000L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0002000000080000L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x00F0000000080000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0600020000080000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x1000020000000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0600020000080000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x1000020000000000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000080000L,0x000000000000003FL});
     public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000080000L,0x0000000000000780L});
     public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});

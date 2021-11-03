@@ -149,6 +149,9 @@ class XacroGenerator extends AbstractGenerator {
 	«IF joint.axis !== null»
 	<axis xyz="«joint.axis.xyz»" />
 	«ENDIF»
+	«IF joint.limit !== null»
+	<limit effort="«joint.limit.effort»" lower="«joint.limit.lower»" upper="«joint.limit.upper»" velocity="«joint.limit.velocity»" />
+	«ENDIF»
 </joint>
 	'''
 

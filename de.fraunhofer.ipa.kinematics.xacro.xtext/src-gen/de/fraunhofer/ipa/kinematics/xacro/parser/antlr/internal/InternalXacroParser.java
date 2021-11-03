@@ -4148,35 +4148,31 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLimit"
-    // InternalXacro.g:1730:1: ruleLimit returns [EObject current=null] : ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' ) ;
+    // InternalXacro.g:1730:1: ruleLimit returns [EObject current=null] : ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= RULE_STRING ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= RULE_STRING ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= RULE_STRING ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= RULE_STRING ) ) )? otherlv_11= '}' ) ;
     public final EObject ruleLimit() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
+        Token lv_effort_4_0=null;
         Token otherlv_5=null;
+        Token lv_lower_6_0=null;
         Token otherlv_7=null;
+        Token lv_upper_8_0=null;
         Token otherlv_9=null;
+        Token lv_velocity_10_0=null;
         Token otherlv_11=null;
-        AntlrDatatypeRuleToken lv_effort_4_0 = null;
-
-        AntlrDatatypeRuleToken lv_lower_6_0 = null;
-
-        AntlrDatatypeRuleToken lv_upper_8_0 = null;
-
-        AntlrDatatypeRuleToken lv_velocity_10_0 = null;
-
 
 
         	enterRule();
 
         try {
-            // InternalXacro.g:1736:2: ( ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' ) )
-            // InternalXacro.g:1737:2: ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' )
+            // InternalXacro.g:1736:2: ( ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= RULE_STRING ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= RULE_STRING ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= RULE_STRING ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= RULE_STRING ) ) )? otherlv_11= '}' ) )
+            // InternalXacro.g:1737:2: ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= RULE_STRING ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= RULE_STRING ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= RULE_STRING ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= RULE_STRING ) ) )? otherlv_11= '}' )
             {
-            // InternalXacro.g:1737:2: ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' )
-            // InternalXacro.g:1738:3: () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}'
+            // InternalXacro.g:1737:2: ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= RULE_STRING ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= RULE_STRING ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= RULE_STRING ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= RULE_STRING ) ) )? otherlv_11= '}' )
+            // InternalXacro.g:1738:3: () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= RULE_STRING ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= RULE_STRING ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= RULE_STRING ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= RULE_STRING ) ) )? otherlv_11= '}'
             {
             // InternalXacro.g:1738:3: ()
             // InternalXacro.g:1739:4: 
@@ -4197,7 +4193,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getLimitAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalXacro.g:1753:3: (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:1753:3: (otherlv_3= 'effort' ( (lv_effort_4_0= RULE_STRING ) ) )?
             int alt32=2;
             int LA32_0 = input.LA(1);
 
@@ -4206,36 +4202,31 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt32) {
                 case 1 :
-                    // InternalXacro.g:1754:4: otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) )
+                    // InternalXacro.g:1754:4: otherlv_3= 'effort' ( (lv_effort_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,52,FOLLOW_53); 
+                    otherlv_3=(Token)match(input,52,FOLLOW_7); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getLimitAccess().getEffortKeyword_3_0());
                     			
-                    // InternalXacro.g:1758:4: ( (lv_effort_4_0= ruleDouble0 ) )
-                    // InternalXacro.g:1759:5: (lv_effort_4_0= ruleDouble0 )
+                    // InternalXacro.g:1758:4: ( (lv_effort_4_0= RULE_STRING ) )
+                    // InternalXacro.g:1759:5: (lv_effort_4_0= RULE_STRING )
                     {
-                    // InternalXacro.g:1759:5: (lv_effort_4_0= ruleDouble0 )
-                    // InternalXacro.g:1760:6: lv_effort_4_0= ruleDouble0
+                    // InternalXacro.g:1759:5: (lv_effort_4_0= RULE_STRING )
+                    // InternalXacro.g:1760:6: lv_effort_4_0= RULE_STRING
                     {
+                    lv_effort_4_0=(Token)match(input,RULE_STRING,FOLLOW_53); 
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0());
+                    						newLeafNode(lv_effort_4_0, grammarAccess.getLimitAccess().getEffortSTRINGTerminalRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_54);
-                    lv_effort_4_0=ruleDouble0();
-
-                    state._fsp--;
-
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getLimitRule());
+                    							current = createModelElement(grammarAccess.getLimitRule());
                     						}
-                    						set(
+                    						setWithLastConsumed(
                     							current,
                     							"effort",
                     							lv_effort_4_0,
-                    							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-                    						afterParserOrEnumRuleCall();
+                    							"org.eclipse.xtext.common.Terminals.STRING");
                     					
 
                     }
@@ -4249,7 +4240,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:1778:3: (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:1777:3: (otherlv_5= 'lower' ( (lv_lower_6_0= RULE_STRING ) ) )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
@@ -4258,36 +4249,31 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt33) {
                 case 1 :
-                    // InternalXacro.g:1779:4: otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) )
+                    // InternalXacro.g:1778:4: otherlv_5= 'lower' ( (lv_lower_6_0= RULE_STRING ) )
                     {
-                    otherlv_5=(Token)match(input,53,FOLLOW_53); 
+                    otherlv_5=(Token)match(input,53,FOLLOW_7); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getLimitAccess().getLowerKeyword_4_0());
                     			
-                    // InternalXacro.g:1783:4: ( (lv_lower_6_0= ruleDouble0 ) )
-                    // InternalXacro.g:1784:5: (lv_lower_6_0= ruleDouble0 )
+                    // InternalXacro.g:1782:4: ( (lv_lower_6_0= RULE_STRING ) )
+                    // InternalXacro.g:1783:5: (lv_lower_6_0= RULE_STRING )
                     {
-                    // InternalXacro.g:1784:5: (lv_lower_6_0= ruleDouble0 )
-                    // InternalXacro.g:1785:6: lv_lower_6_0= ruleDouble0
+                    // InternalXacro.g:1783:5: (lv_lower_6_0= RULE_STRING )
+                    // InternalXacro.g:1784:6: lv_lower_6_0= RULE_STRING
                     {
+                    lv_lower_6_0=(Token)match(input,RULE_STRING,FOLLOW_54); 
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0());
+                    						newLeafNode(lv_lower_6_0, grammarAccess.getLimitAccess().getLowerSTRINGTerminalRuleCall_4_1_0());
                     					
-                    pushFollow(FOLLOW_55);
-                    lv_lower_6_0=ruleDouble0();
-
-                    state._fsp--;
-
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getLimitRule());
+                    							current = createModelElement(grammarAccess.getLimitRule());
                     						}
-                    						set(
+                    						setWithLastConsumed(
                     							current,
                     							"lower",
                     							lv_lower_6_0,
-                    							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-                    						afterParserOrEnumRuleCall();
+                    							"org.eclipse.xtext.common.Terminals.STRING");
                     					
 
                     }
@@ -4301,7 +4287,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:1803:3: (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:1801:3: (otherlv_7= 'upper' ( (lv_upper_8_0= RULE_STRING ) ) )?
             int alt34=2;
             int LA34_0 = input.LA(1);
 
@@ -4310,36 +4296,31 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt34) {
                 case 1 :
-                    // InternalXacro.g:1804:4: otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) )
+                    // InternalXacro.g:1802:4: otherlv_7= 'upper' ( (lv_upper_8_0= RULE_STRING ) )
                     {
-                    otherlv_7=(Token)match(input,54,FOLLOW_53); 
+                    otherlv_7=(Token)match(input,54,FOLLOW_7); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getLimitAccess().getUpperKeyword_5_0());
                     			
-                    // InternalXacro.g:1808:4: ( (lv_upper_8_0= ruleDouble0 ) )
-                    // InternalXacro.g:1809:5: (lv_upper_8_0= ruleDouble0 )
+                    // InternalXacro.g:1806:4: ( (lv_upper_8_0= RULE_STRING ) )
+                    // InternalXacro.g:1807:5: (lv_upper_8_0= RULE_STRING )
                     {
-                    // InternalXacro.g:1809:5: (lv_upper_8_0= ruleDouble0 )
-                    // InternalXacro.g:1810:6: lv_upper_8_0= ruleDouble0
+                    // InternalXacro.g:1807:5: (lv_upper_8_0= RULE_STRING )
+                    // InternalXacro.g:1808:6: lv_upper_8_0= RULE_STRING
                     {
+                    lv_upper_8_0=(Token)match(input,RULE_STRING,FOLLOW_55); 
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0());
+                    						newLeafNode(lv_upper_8_0, grammarAccess.getLimitAccess().getUpperSTRINGTerminalRuleCall_5_1_0());
                     					
-                    pushFollow(FOLLOW_56);
-                    lv_upper_8_0=ruleDouble0();
-
-                    state._fsp--;
-
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getLimitRule());
+                    							current = createModelElement(grammarAccess.getLimitRule());
                     						}
-                    						set(
+                    						setWithLastConsumed(
                     							current,
                     							"upper",
                     							lv_upper_8_0,
-                    							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-                    						afterParserOrEnumRuleCall();
+                    							"org.eclipse.xtext.common.Terminals.STRING");
                     					
 
                     }
@@ -4353,7 +4334,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:1828:3: (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:1825:3: (otherlv_9= 'velocity' ( (lv_velocity_10_0= RULE_STRING ) ) )?
             int alt35=2;
             int LA35_0 = input.LA(1);
 
@@ -4362,36 +4343,31 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt35) {
                 case 1 :
-                    // InternalXacro.g:1829:4: otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) )
+                    // InternalXacro.g:1826:4: otherlv_9= 'velocity' ( (lv_velocity_10_0= RULE_STRING ) )
                     {
-                    otherlv_9=(Token)match(input,55,FOLLOW_53); 
+                    otherlv_9=(Token)match(input,55,FOLLOW_7); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getLimitAccess().getVelocityKeyword_6_0());
                     			
-                    // InternalXacro.g:1833:4: ( (lv_velocity_10_0= ruleDouble0 ) )
-                    // InternalXacro.g:1834:5: (lv_velocity_10_0= ruleDouble0 )
+                    // InternalXacro.g:1830:4: ( (lv_velocity_10_0= RULE_STRING ) )
+                    // InternalXacro.g:1831:5: (lv_velocity_10_0= RULE_STRING )
                     {
-                    // InternalXacro.g:1834:5: (lv_velocity_10_0= ruleDouble0 )
-                    // InternalXacro.g:1835:6: lv_velocity_10_0= ruleDouble0
+                    // InternalXacro.g:1831:5: (lv_velocity_10_0= RULE_STRING )
+                    // InternalXacro.g:1832:6: lv_velocity_10_0= RULE_STRING
                     {
+                    lv_velocity_10_0=(Token)match(input,RULE_STRING,FOLLOW_15); 
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0());
+                    						newLeafNode(lv_velocity_10_0, grammarAccess.getLimitAccess().getVelocitySTRINGTerminalRuleCall_6_1_0());
                     					
-                    pushFollow(FOLLOW_15);
-                    lv_velocity_10_0=ruleDouble0();
-
-                    state._fsp--;
-
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getLimitRule());
+                    							current = createModelElement(grammarAccess.getLimitRule());
                     						}
-                    						set(
+                    						setWithLastConsumed(
                     							current,
                     							"velocity",
                     							lv_velocity_10_0,
-                    							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-                    						afterParserOrEnumRuleCall();
+                    							"org.eclipse.xtext.common.Terminals.STRING");
                     					
 
                     }
@@ -4432,7 +4408,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInertial"
-    // InternalXacro.g:1861:1: entryRuleInertial returns [EObject current=null] : iv_ruleInertial= ruleInertial EOF ;
+    // InternalXacro.g:1857:1: entryRuleInertial returns [EObject current=null] : iv_ruleInertial= ruleInertial EOF ;
     public final EObject entryRuleInertial() throws RecognitionException {
         EObject current = null;
 
@@ -4440,8 +4416,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:1861:49: (iv_ruleInertial= ruleInertial EOF )
-            // InternalXacro.g:1862:2: iv_ruleInertial= ruleInertial EOF
+            // InternalXacro.g:1857:49: (iv_ruleInertial= ruleInertial EOF )
+            // InternalXacro.g:1858:2: iv_ruleInertial= ruleInertial EOF
             {
              newCompositeNode(grammarAccess.getInertialRule()); 
             pushFollow(FOLLOW_1);
@@ -4468,7 +4444,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInertial"
-    // InternalXacro.g:1868:1: ruleInertial returns [EObject current=null] : ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' ) ;
+    // InternalXacro.g:1864:1: ruleInertial returns [EObject current=null] : ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' ) ;
     public final EObject ruleInertial() throws RecognitionException {
         EObject current = null;
 
@@ -4489,14 +4465,14 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:1874:2: ( ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' ) )
-            // InternalXacro.g:1875:2: ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' )
+            // InternalXacro.g:1870:2: ( ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' ) )
+            // InternalXacro.g:1871:2: ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' )
             {
-            // InternalXacro.g:1875:2: ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' )
-            // InternalXacro.g:1876:3: () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}'
+            // InternalXacro.g:1871:2: ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' )
+            // InternalXacro.g:1872:3: () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}'
             {
-            // InternalXacro.g:1876:3: ()
-            // InternalXacro.g:1877:4: 
+            // InternalXacro.g:1872:3: ()
+            // InternalXacro.g:1873:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4510,11 +4486,11 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getInertialAccess().getInertialKeyword_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_57); 
+            otherlv_2=(Token)match(input,17,FOLLOW_56); 
 
             			newLeafNode(otherlv_2, grammarAccess.getInertialAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalXacro.g:1891:3: (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )?
+            // InternalXacro.g:1887:3: (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )?
             int alt36=2;
             int LA36_0 = input.LA(1);
 
@@ -4523,22 +4499,22 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt36) {
                 case 1 :
-                    // InternalXacro.g:1892:4: otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) )
+                    // InternalXacro.g:1888:4: otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) )
                     {
-                    otherlv_3=(Token)match(input,41,FOLLOW_58); 
+                    otherlv_3=(Token)match(input,41,FOLLOW_57); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getInertialAccess().getOriginKeyword_3_0());
                     			
-                    // InternalXacro.g:1896:4: ( (lv_origin_4_0= rulePose ) )
-                    // InternalXacro.g:1897:5: (lv_origin_4_0= rulePose )
+                    // InternalXacro.g:1892:4: ( (lv_origin_4_0= rulePose ) )
+                    // InternalXacro.g:1893:5: (lv_origin_4_0= rulePose )
                     {
-                    // InternalXacro.g:1897:5: (lv_origin_4_0= rulePose )
-                    // InternalXacro.g:1898:6: lv_origin_4_0= rulePose
+                    // InternalXacro.g:1893:5: (lv_origin_4_0= rulePose )
+                    // InternalXacro.g:1894:6: lv_origin_4_0= rulePose
                     {
 
                     						newCompositeNode(grammarAccess.getInertialAccess().getOriginPoseParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_59);
+                    pushFollow(FOLLOW_58);
                     lv_origin_4_0=rulePose();
 
                     state._fsp--;
@@ -4566,7 +4542,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:1916:3: (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )?
+            // InternalXacro.g:1912:3: (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
@@ -4575,22 +4551,22 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt37) {
                 case 1 :
-                    // InternalXacro.g:1917:4: otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) )
+                    // InternalXacro.g:1913:4: otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) )
                     {
-                    otherlv_5=(Token)match(input,57,FOLLOW_60); 
+                    otherlv_5=(Token)match(input,57,FOLLOW_59); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getInertialAccess().getMassKeyword_4_0());
                     			
-                    // InternalXacro.g:1921:4: ( (lv_mass_6_0= ruleMass ) )
-                    // InternalXacro.g:1922:5: (lv_mass_6_0= ruleMass )
+                    // InternalXacro.g:1917:4: ( (lv_mass_6_0= ruleMass ) )
+                    // InternalXacro.g:1918:5: (lv_mass_6_0= ruleMass )
                     {
-                    // InternalXacro.g:1922:5: (lv_mass_6_0= ruleMass )
-                    // InternalXacro.g:1923:6: lv_mass_6_0= ruleMass
+                    // InternalXacro.g:1918:5: (lv_mass_6_0= ruleMass )
+                    // InternalXacro.g:1919:6: lv_mass_6_0= ruleMass
                     {
 
                     						newCompositeNode(grammarAccess.getInertialAccess().getMassMassParserRuleCall_4_1_0());
                     					
-                    pushFollow(FOLLOW_61);
+                    pushFollow(FOLLOW_60);
                     lv_mass_6_0=ruleMass();
 
                     state._fsp--;
@@ -4618,7 +4594,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:1941:3: (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )?
+            // InternalXacro.g:1937:3: (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )?
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -4627,17 +4603,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt38) {
                 case 1 :
-                    // InternalXacro.g:1942:4: otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) )
+                    // InternalXacro.g:1938:4: otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) )
                     {
-                    otherlv_7=(Token)match(input,58,FOLLOW_62); 
+                    otherlv_7=(Token)match(input,58,FOLLOW_61); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getInertialAccess().getInertiaKeyword_5_0());
                     			
-                    // InternalXacro.g:1946:4: ( (lv_inertia_8_0= ruleInertia ) )
-                    // InternalXacro.g:1947:5: (lv_inertia_8_0= ruleInertia )
+                    // InternalXacro.g:1942:4: ( (lv_inertia_8_0= ruleInertia ) )
+                    // InternalXacro.g:1943:5: (lv_inertia_8_0= ruleInertia )
                     {
-                    // InternalXacro.g:1947:5: (lv_inertia_8_0= ruleInertia )
-                    // InternalXacro.g:1948:6: lv_inertia_8_0= ruleInertia
+                    // InternalXacro.g:1943:5: (lv_inertia_8_0= ruleInertia )
+                    // InternalXacro.g:1944:6: lv_inertia_8_0= ruleInertia
                     {
 
                     						newCompositeNode(grammarAccess.getInertialAccess().getInertiaInertiaParserRuleCall_5_1_0());
@@ -4697,7 +4673,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVisual"
-    // InternalXacro.g:1974:1: entryRuleVisual returns [EObject current=null] : iv_ruleVisual= ruleVisual EOF ;
+    // InternalXacro.g:1970:1: entryRuleVisual returns [EObject current=null] : iv_ruleVisual= ruleVisual EOF ;
     public final EObject entryRuleVisual() throws RecognitionException {
         EObject current = null;
 
@@ -4705,8 +4681,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:1974:47: (iv_ruleVisual= ruleVisual EOF )
-            // InternalXacro.g:1975:2: iv_ruleVisual= ruleVisual EOF
+            // InternalXacro.g:1970:47: (iv_ruleVisual= ruleVisual EOF )
+            // InternalXacro.g:1971:2: iv_ruleVisual= ruleVisual EOF
             {
              newCompositeNode(grammarAccess.getVisualRule()); 
             pushFollow(FOLLOW_1);
@@ -4733,7 +4709,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVisual"
-    // InternalXacro.g:1981:1: ruleVisual returns [EObject current=null] : (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) ;
+    // InternalXacro.g:1977:1: ruleVisual returns [EObject current=null] : (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) ;
     public final EObject ruleVisual() throws RecognitionException {
         EObject current = null;
 
@@ -4751,21 +4727,21 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:1987:2: ( (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) )
-            // InternalXacro.g:1988:2: (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
+            // InternalXacro.g:1983:2: ( (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) )
+            // InternalXacro.g:1984:2: (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
             {
-            // InternalXacro.g:1988:2: (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
-            // InternalXacro.g:1989:3: otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}'
+            // InternalXacro.g:1984:2: (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
+            // InternalXacro.g:1985:3: otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}'
             {
             otherlv_0=(Token)match(input,59,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getVisualAccess().getVisualKeyword_0());
             		
-            otherlv_1=(Token)match(input,17,FOLLOW_63); 
+            otherlv_1=(Token)match(input,17,FOLLOW_62); 
 
             			newLeafNode(otherlv_1, grammarAccess.getVisualAccess().getLeftCurlyBracketKeyword_1());
             		
-            // InternalXacro.g:1997:3: (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )?
+            // InternalXacro.g:1993:3: (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -4774,22 +4750,22 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt39) {
                 case 1 :
-                    // InternalXacro.g:1998:4: otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) )
+                    // InternalXacro.g:1994:4: otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) )
                     {
-                    otherlv_2=(Token)match(input,41,FOLLOW_58); 
+                    otherlv_2=(Token)match(input,41,FOLLOW_57); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getVisualAccess().getOriginKeyword_2_0());
                     			
-                    // InternalXacro.g:2002:4: ( (lv_origin_3_0= rulePose ) )
-                    // InternalXacro.g:2003:5: (lv_origin_3_0= rulePose )
+                    // InternalXacro.g:1998:4: ( (lv_origin_3_0= rulePose ) )
+                    // InternalXacro.g:1999:5: (lv_origin_3_0= rulePose )
                     {
-                    // InternalXacro.g:2003:5: (lv_origin_3_0= rulePose )
-                    // InternalXacro.g:2004:6: lv_origin_3_0= rulePose
+                    // InternalXacro.g:1999:5: (lv_origin_3_0= rulePose )
+                    // InternalXacro.g:2000:6: lv_origin_3_0= rulePose
                     {
 
                     						newCompositeNode(grammarAccess.getVisualAccess().getOriginPoseParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_64);
+                    pushFollow(FOLLOW_63);
                     lv_origin_3_0=rulePose();
 
                     state._fsp--;
@@ -4817,15 +4793,15 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,60,FOLLOW_65); 
+            otherlv_4=(Token)match(input,60,FOLLOW_64); 
 
             			newLeafNode(otherlv_4, grammarAccess.getVisualAccess().getGeometryKeyword_3());
             		
-            // InternalXacro.g:2026:3: ( (lv_geometry_5_0= ruleGeometry ) )
-            // InternalXacro.g:2027:4: (lv_geometry_5_0= ruleGeometry )
+            // InternalXacro.g:2022:3: ( (lv_geometry_5_0= ruleGeometry ) )
+            // InternalXacro.g:2023:4: (lv_geometry_5_0= ruleGeometry )
             {
-            // InternalXacro.g:2027:4: (lv_geometry_5_0= ruleGeometry )
-            // InternalXacro.g:2028:5: lv_geometry_5_0= ruleGeometry
+            // InternalXacro.g:2023:4: (lv_geometry_5_0= ruleGeometry )
+            // InternalXacro.g:2024:5: lv_geometry_5_0= ruleGeometry
             {
 
             					newCompositeNode(grammarAccess.getVisualAccess().getGeometryGeometryParserRuleCall_4_0());
@@ -4879,7 +4855,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCollision"
-    // InternalXacro.g:2053:1: entryRuleCollision returns [EObject current=null] : iv_ruleCollision= ruleCollision EOF ;
+    // InternalXacro.g:2049:1: entryRuleCollision returns [EObject current=null] : iv_ruleCollision= ruleCollision EOF ;
     public final EObject entryRuleCollision() throws RecognitionException {
         EObject current = null;
 
@@ -4887,8 +4863,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2053:50: (iv_ruleCollision= ruleCollision EOF )
-            // InternalXacro.g:2054:2: iv_ruleCollision= ruleCollision EOF
+            // InternalXacro.g:2049:50: (iv_ruleCollision= ruleCollision EOF )
+            // InternalXacro.g:2050:2: iv_ruleCollision= ruleCollision EOF
             {
              newCompositeNode(grammarAccess.getCollisionRule()); 
             pushFollow(FOLLOW_1);
@@ -4915,7 +4891,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCollision"
-    // InternalXacro.g:2060:1: ruleCollision returns [EObject current=null] : (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) ;
+    // InternalXacro.g:2056:1: ruleCollision returns [EObject current=null] : (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) ;
     public final EObject ruleCollision() throws RecognitionException {
         EObject current = null;
 
@@ -4933,21 +4909,21 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2066:2: ( (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) )
-            // InternalXacro.g:2067:2: (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
+            // InternalXacro.g:2062:2: ( (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) )
+            // InternalXacro.g:2063:2: (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
             {
-            // InternalXacro.g:2067:2: (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
-            // InternalXacro.g:2068:3: otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}'
+            // InternalXacro.g:2063:2: (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
+            // InternalXacro.g:2064:3: otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}'
             {
             otherlv_0=(Token)match(input,61,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCollisionAccess().getCollisionKeyword_0());
             		
-            otherlv_1=(Token)match(input,17,FOLLOW_63); 
+            otherlv_1=(Token)match(input,17,FOLLOW_62); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCollisionAccess().getLeftCurlyBracketKeyword_1());
             		
-            // InternalXacro.g:2076:3: (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )?
+            // InternalXacro.g:2072:3: (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )?
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -4956,22 +4932,22 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt40) {
                 case 1 :
-                    // InternalXacro.g:2077:4: otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) )
+                    // InternalXacro.g:2073:4: otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) )
                     {
-                    otherlv_2=(Token)match(input,41,FOLLOW_58); 
+                    otherlv_2=(Token)match(input,41,FOLLOW_57); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getCollisionAccess().getOriginKeyword_2_0());
                     			
-                    // InternalXacro.g:2081:4: ( (lv_origin_3_0= rulePose ) )
-                    // InternalXacro.g:2082:5: (lv_origin_3_0= rulePose )
+                    // InternalXacro.g:2077:4: ( (lv_origin_3_0= rulePose ) )
+                    // InternalXacro.g:2078:5: (lv_origin_3_0= rulePose )
                     {
-                    // InternalXacro.g:2082:5: (lv_origin_3_0= rulePose )
-                    // InternalXacro.g:2083:6: lv_origin_3_0= rulePose
+                    // InternalXacro.g:2078:5: (lv_origin_3_0= rulePose )
+                    // InternalXacro.g:2079:6: lv_origin_3_0= rulePose
                     {
 
                     						newCompositeNode(grammarAccess.getCollisionAccess().getOriginPoseParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_64);
+                    pushFollow(FOLLOW_63);
                     lv_origin_3_0=rulePose();
 
                     state._fsp--;
@@ -4999,15 +4975,15 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,60,FOLLOW_65); 
+            otherlv_4=(Token)match(input,60,FOLLOW_64); 
 
             			newLeafNode(otherlv_4, grammarAccess.getCollisionAccess().getGeometryKeyword_3());
             		
-            // InternalXacro.g:2105:3: ( (lv_geometry_5_0= ruleGeometry ) )
-            // InternalXacro.g:2106:4: (lv_geometry_5_0= ruleGeometry )
+            // InternalXacro.g:2101:3: ( (lv_geometry_5_0= ruleGeometry ) )
+            // InternalXacro.g:2102:4: (lv_geometry_5_0= ruleGeometry )
             {
-            // InternalXacro.g:2106:4: (lv_geometry_5_0= ruleGeometry )
-            // InternalXacro.g:2107:5: lv_geometry_5_0= ruleGeometry
+            // InternalXacro.g:2102:4: (lv_geometry_5_0= ruleGeometry )
+            // InternalXacro.g:2103:5: lv_geometry_5_0= ruleGeometry
             {
 
             					newCompositeNode(grammarAccess.getCollisionAccess().getGeometryGeometryParserRuleCall_4_0());
@@ -5061,7 +5037,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMass"
-    // InternalXacro.g:2132:1: entryRuleMass returns [EObject current=null] : iv_ruleMass= ruleMass EOF ;
+    // InternalXacro.g:2128:1: entryRuleMass returns [EObject current=null] : iv_ruleMass= ruleMass EOF ;
     public final EObject entryRuleMass() throws RecognitionException {
         EObject current = null;
 
@@ -5069,8 +5045,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2132:45: (iv_ruleMass= ruleMass EOF )
-            // InternalXacro.g:2133:2: iv_ruleMass= ruleMass EOF
+            // InternalXacro.g:2128:45: (iv_ruleMass= ruleMass EOF )
+            // InternalXacro.g:2129:2: iv_ruleMass= ruleMass EOF
             {
              newCompositeNode(grammarAccess.getMassRule()); 
             pushFollow(FOLLOW_1);
@@ -5097,7 +5073,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMass"
-    // InternalXacro.g:2139:1: ruleMass returns [EObject current=null] : ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' ) ;
+    // InternalXacro.g:2135:1: ruleMass returns [EObject current=null] : ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' ) ;
     public final EObject ruleMass() throws RecognitionException {
         EObject current = null;
 
@@ -5112,14 +5088,14 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2145:2: ( ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' ) )
-            // InternalXacro.g:2146:2: ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' )
+            // InternalXacro.g:2141:2: ( ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' ) )
+            // InternalXacro.g:2142:2: ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' )
             {
-            // InternalXacro.g:2146:2: ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' )
-            // InternalXacro.g:2147:3: () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}'
+            // InternalXacro.g:2142:2: ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' )
+            // InternalXacro.g:2143:3: () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}'
             {
-            // InternalXacro.g:2147:3: ()
-            // InternalXacro.g:2148:4: 
+            // InternalXacro.g:2143:3: ()
+            // InternalXacro.g:2144:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5137,7 +5113,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getMassAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalXacro.g:2162:3: (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2158:3: (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
@@ -5146,17 +5122,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt41) {
                 case 1 :
-                    // InternalXacro.g:2163:4: otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) )
+                    // InternalXacro.g:2159:4: otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) )
                     {
-                    otherlv_3=(Token)match(input,29,FOLLOW_53); 
+                    otherlv_3=(Token)match(input,29,FOLLOW_65); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getMassAccess().getValueKeyword_3_0());
                     			
-                    // InternalXacro.g:2167:4: ( (lv_value_4_0= ruleDouble0 ) )
-                    // InternalXacro.g:2168:5: (lv_value_4_0= ruleDouble0 )
+                    // InternalXacro.g:2163:4: ( (lv_value_4_0= ruleDouble0 ) )
+                    // InternalXacro.g:2164:5: (lv_value_4_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2168:5: (lv_value_4_0= ruleDouble0 )
-                    // InternalXacro.g:2169:6: lv_value_4_0= ruleDouble0
+                    // InternalXacro.g:2164:5: (lv_value_4_0= ruleDouble0 )
+                    // InternalXacro.g:2165:6: lv_value_4_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getMassAccess().getValueDouble0ParserRuleCall_3_1_0());
@@ -5216,7 +5192,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInertia"
-    // InternalXacro.g:2195:1: entryRuleInertia returns [EObject current=null] : iv_ruleInertia= ruleInertia EOF ;
+    // InternalXacro.g:2191:1: entryRuleInertia returns [EObject current=null] : iv_ruleInertia= ruleInertia EOF ;
     public final EObject entryRuleInertia() throws RecognitionException {
         EObject current = null;
 
@@ -5224,8 +5200,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2195:48: (iv_ruleInertia= ruleInertia EOF )
-            // InternalXacro.g:2196:2: iv_ruleInertia= ruleInertia EOF
+            // InternalXacro.g:2191:48: (iv_ruleInertia= ruleInertia EOF )
+            // InternalXacro.g:2192:2: iv_ruleInertia= ruleInertia EOF
             {
              newCompositeNode(grammarAccess.getInertiaRule()); 
             pushFollow(FOLLOW_1);
@@ -5252,7 +5228,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInertia"
-    // InternalXacro.g:2202:1: ruleInertia returns [EObject current=null] : ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' ) ;
+    // InternalXacro.g:2198:1: ruleInertia returns [EObject current=null] : ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' ) ;
     public final EObject ruleInertia() throws RecognitionException {
         EObject current = null;
 
@@ -5282,14 +5258,14 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2208:2: ( ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' ) )
-            // InternalXacro.g:2209:2: ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' )
+            // InternalXacro.g:2204:2: ( ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' ) )
+            // InternalXacro.g:2205:2: ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' )
             {
-            // InternalXacro.g:2209:2: ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' )
-            // InternalXacro.g:2210:3: () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}'
+            // InternalXacro.g:2205:2: ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' )
+            // InternalXacro.g:2206:3: () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}'
             {
-            // InternalXacro.g:2210:3: ()
-            // InternalXacro.g:2211:4: 
+            // InternalXacro.g:2206:3: ()
+            // InternalXacro.g:2207:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5307,7 +5283,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getInertiaAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalXacro.g:2225:3: (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2221:3: (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )?
             int alt42=2;
             int LA42_0 = input.LA(1);
 
@@ -5316,17 +5292,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt42) {
                 case 1 :
-                    // InternalXacro.g:2226:4: otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) )
+                    // InternalXacro.g:2222:4: otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) )
                     {
-                    otherlv_3=(Token)match(input,64,FOLLOW_53); 
+                    otherlv_3=(Token)match(input,64,FOLLOW_65); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getInertiaAccess().getIxxKeyword_3_0());
                     			
-                    // InternalXacro.g:2230:4: ( (lv_ixx_4_0= ruleDouble0 ) )
-                    // InternalXacro.g:2231:5: (lv_ixx_4_0= ruleDouble0 )
+                    // InternalXacro.g:2226:4: ( (lv_ixx_4_0= ruleDouble0 ) )
+                    // InternalXacro.g:2227:5: (lv_ixx_4_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2231:5: (lv_ixx_4_0= ruleDouble0 )
-                    // InternalXacro.g:2232:6: lv_ixx_4_0= ruleDouble0
+                    // InternalXacro.g:2227:5: (lv_ixx_4_0= ruleDouble0 )
+                    // InternalXacro.g:2228:6: lv_ixx_4_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getInertiaAccess().getIxxDouble0ParserRuleCall_3_1_0());
@@ -5359,7 +5335,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2250:3: (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2246:3: (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )?
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -5368,17 +5344,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt43) {
                 case 1 :
-                    // InternalXacro.g:2251:4: otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) )
+                    // InternalXacro.g:2247:4: otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) )
                     {
-                    otherlv_5=(Token)match(input,65,FOLLOW_53); 
+                    otherlv_5=(Token)match(input,65,FOLLOW_65); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getInertiaAccess().getIxyKeyword_4_0());
                     			
-                    // InternalXacro.g:2255:4: ( (lv_ixy_6_0= ruleDouble0 ) )
-                    // InternalXacro.g:2256:5: (lv_ixy_6_0= ruleDouble0 )
+                    // InternalXacro.g:2251:4: ( (lv_ixy_6_0= ruleDouble0 ) )
+                    // InternalXacro.g:2252:5: (lv_ixy_6_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2256:5: (lv_ixy_6_0= ruleDouble0 )
-                    // InternalXacro.g:2257:6: lv_ixy_6_0= ruleDouble0
+                    // InternalXacro.g:2252:5: (lv_ixy_6_0= ruleDouble0 )
+                    // InternalXacro.g:2253:6: lv_ixy_6_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getInertiaAccess().getIxyDouble0ParserRuleCall_4_1_0());
@@ -5411,7 +5387,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2275:3: (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2271:3: (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )?
             int alt44=2;
             int LA44_0 = input.LA(1);
 
@@ -5420,17 +5396,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt44) {
                 case 1 :
-                    // InternalXacro.g:2276:4: otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) )
+                    // InternalXacro.g:2272:4: otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) )
                     {
-                    otherlv_7=(Token)match(input,66,FOLLOW_53); 
+                    otherlv_7=(Token)match(input,66,FOLLOW_65); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getInertiaAccess().getIxzKeyword_5_0());
                     			
-                    // InternalXacro.g:2280:4: ( (lv_ixz_8_0= ruleDouble0 ) )
-                    // InternalXacro.g:2281:5: (lv_ixz_8_0= ruleDouble0 )
+                    // InternalXacro.g:2276:4: ( (lv_ixz_8_0= ruleDouble0 ) )
+                    // InternalXacro.g:2277:5: (lv_ixz_8_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2281:5: (lv_ixz_8_0= ruleDouble0 )
-                    // InternalXacro.g:2282:6: lv_ixz_8_0= ruleDouble0
+                    // InternalXacro.g:2277:5: (lv_ixz_8_0= ruleDouble0 )
+                    // InternalXacro.g:2278:6: lv_ixz_8_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getInertiaAccess().getIxzDouble0ParserRuleCall_5_1_0());
@@ -5463,7 +5439,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2300:3: (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2296:3: (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )?
             int alt45=2;
             int LA45_0 = input.LA(1);
 
@@ -5472,17 +5448,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt45) {
                 case 1 :
-                    // InternalXacro.g:2301:4: otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) )
+                    // InternalXacro.g:2297:4: otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) )
                     {
-                    otherlv_9=(Token)match(input,67,FOLLOW_53); 
+                    otherlv_9=(Token)match(input,67,FOLLOW_65); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getInertiaAccess().getIyyKeyword_6_0());
                     			
-                    // InternalXacro.g:2305:4: ( (lv_iyy_10_0= ruleDouble0 ) )
-                    // InternalXacro.g:2306:5: (lv_iyy_10_0= ruleDouble0 )
+                    // InternalXacro.g:2301:4: ( (lv_iyy_10_0= ruleDouble0 ) )
+                    // InternalXacro.g:2302:5: (lv_iyy_10_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2306:5: (lv_iyy_10_0= ruleDouble0 )
-                    // InternalXacro.g:2307:6: lv_iyy_10_0= ruleDouble0
+                    // InternalXacro.g:2302:5: (lv_iyy_10_0= ruleDouble0 )
+                    // InternalXacro.g:2303:6: lv_iyy_10_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getInertiaAccess().getIyyDouble0ParserRuleCall_6_1_0());
@@ -5515,7 +5491,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2325:3: (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2321:3: (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )?
             int alt46=2;
             int LA46_0 = input.LA(1);
 
@@ -5524,17 +5500,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt46) {
                 case 1 :
-                    // InternalXacro.g:2326:4: otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) )
+                    // InternalXacro.g:2322:4: otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) )
                     {
-                    otherlv_11=(Token)match(input,68,FOLLOW_53); 
+                    otherlv_11=(Token)match(input,68,FOLLOW_65); 
 
                     				newLeafNode(otherlv_11, grammarAccess.getInertiaAccess().getIyzKeyword_7_0());
                     			
-                    // InternalXacro.g:2330:4: ( (lv_iyz_12_0= ruleDouble0 ) )
-                    // InternalXacro.g:2331:5: (lv_iyz_12_0= ruleDouble0 )
+                    // InternalXacro.g:2326:4: ( (lv_iyz_12_0= ruleDouble0 ) )
+                    // InternalXacro.g:2327:5: (lv_iyz_12_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2331:5: (lv_iyz_12_0= ruleDouble0 )
-                    // InternalXacro.g:2332:6: lv_iyz_12_0= ruleDouble0
+                    // InternalXacro.g:2327:5: (lv_iyz_12_0= ruleDouble0 )
+                    // InternalXacro.g:2328:6: lv_iyz_12_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getInertiaAccess().getIyzDouble0ParserRuleCall_7_1_0());
@@ -5567,7 +5543,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2350:3: (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2346:3: (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )?
             int alt47=2;
             int LA47_0 = input.LA(1);
 
@@ -5576,17 +5552,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt47) {
                 case 1 :
-                    // InternalXacro.g:2351:4: otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) )
+                    // InternalXacro.g:2347:4: otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) )
                     {
-                    otherlv_13=(Token)match(input,69,FOLLOW_53); 
+                    otherlv_13=(Token)match(input,69,FOLLOW_65); 
 
                     				newLeafNode(otherlv_13, grammarAccess.getInertiaAccess().getIzzKeyword_8_0());
                     			
-                    // InternalXacro.g:2355:4: ( (lv_izz_14_0= ruleDouble0 ) )
-                    // InternalXacro.g:2356:5: (lv_izz_14_0= ruleDouble0 )
+                    // InternalXacro.g:2351:4: ( (lv_izz_14_0= ruleDouble0 ) )
+                    // InternalXacro.g:2352:5: (lv_izz_14_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2356:5: (lv_izz_14_0= ruleDouble0 )
-                    // InternalXacro.g:2357:6: lv_izz_14_0= ruleDouble0
+                    // InternalXacro.g:2352:5: (lv_izz_14_0= ruleDouble0 )
+                    // InternalXacro.g:2353:6: lv_izz_14_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getInertiaAccess().getIzzDouble0ParserRuleCall_8_1_0());
@@ -5646,7 +5622,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGeometry"
-    // InternalXacro.g:2383:1: entryRuleGeometry returns [EObject current=null] : iv_ruleGeometry= ruleGeometry EOF ;
+    // InternalXacro.g:2379:1: entryRuleGeometry returns [EObject current=null] : iv_ruleGeometry= ruleGeometry EOF ;
     public final EObject entryRuleGeometry() throws RecognitionException {
         EObject current = null;
 
@@ -5654,8 +5630,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2383:49: (iv_ruleGeometry= ruleGeometry EOF )
-            // InternalXacro.g:2384:2: iv_ruleGeometry= ruleGeometry EOF
+            // InternalXacro.g:2379:49: (iv_ruleGeometry= ruleGeometry EOF )
+            // InternalXacro.g:2380:2: iv_ruleGeometry= ruleGeometry EOF
             {
              newCompositeNode(grammarAccess.getGeometryRule()); 
             pushFollow(FOLLOW_1);
@@ -5682,7 +5658,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGeometry"
-    // InternalXacro.g:2390:1: ruleGeometry returns [EObject current=null] : ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' ) ;
+    // InternalXacro.g:2386:1: ruleGeometry returns [EObject current=null] : ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' ) ;
     public final EObject ruleGeometry() throws RecognitionException {
         EObject current = null;
 
@@ -5706,14 +5682,14 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2396:2: ( ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' ) )
-            // InternalXacro.g:2397:2: ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' )
+            // InternalXacro.g:2392:2: ( ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' ) )
+            // InternalXacro.g:2393:2: ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' )
             {
-            // InternalXacro.g:2397:2: ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' )
-            // InternalXacro.g:2398:3: () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}'
+            // InternalXacro.g:2393:2: ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' )
+            // InternalXacro.g:2394:3: () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}'
             {
-            // InternalXacro.g:2398:3: ()
-            // InternalXacro.g:2399:4: 
+            // InternalXacro.g:2394:3: ()
+            // InternalXacro.g:2395:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5731,7 +5707,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getGeometryAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalXacro.g:2413:3: (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )?
+            // InternalXacro.g:2409:3: (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )?
             int alt48=2;
             int LA48_0 = input.LA(1);
 
@@ -5740,17 +5716,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt48) {
                 case 1 :
-                    // InternalXacro.g:2414:4: otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) )
+                    // InternalXacro.g:2410:4: otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) )
                     {
                     otherlv_3=(Token)match(input,71,FOLLOW_73); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getGeometryAccess().getBoxKeyword_3_0());
                     			
-                    // InternalXacro.g:2418:4: ( (lv_box_4_0= ruleBox ) )
-                    // InternalXacro.g:2419:5: (lv_box_4_0= ruleBox )
+                    // InternalXacro.g:2414:4: ( (lv_box_4_0= ruleBox ) )
+                    // InternalXacro.g:2415:5: (lv_box_4_0= ruleBox )
                     {
-                    // InternalXacro.g:2419:5: (lv_box_4_0= ruleBox )
-                    // InternalXacro.g:2420:6: lv_box_4_0= ruleBox
+                    // InternalXacro.g:2415:5: (lv_box_4_0= ruleBox )
+                    // InternalXacro.g:2416:6: lv_box_4_0= ruleBox
                     {
 
                     						newCompositeNode(grammarAccess.getGeometryAccess().getBoxBoxParserRuleCall_3_1_0());
@@ -5783,7 +5759,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2438:3: (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )?
+            // InternalXacro.g:2434:3: (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )?
             int alt49=2;
             int LA49_0 = input.LA(1);
 
@@ -5792,17 +5768,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt49) {
                 case 1 :
-                    // InternalXacro.g:2439:4: otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) )
+                    // InternalXacro.g:2435:4: otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) )
                     {
                     otherlv_5=(Token)match(input,72,FOLLOW_75); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getGeometryAccess().getCylinderKeyword_4_0());
                     			
-                    // InternalXacro.g:2443:4: ( (lv_cylinder_6_0= ruleCylinder ) )
-                    // InternalXacro.g:2444:5: (lv_cylinder_6_0= ruleCylinder )
+                    // InternalXacro.g:2439:4: ( (lv_cylinder_6_0= ruleCylinder ) )
+                    // InternalXacro.g:2440:5: (lv_cylinder_6_0= ruleCylinder )
                     {
-                    // InternalXacro.g:2444:5: (lv_cylinder_6_0= ruleCylinder )
-                    // InternalXacro.g:2445:6: lv_cylinder_6_0= ruleCylinder
+                    // InternalXacro.g:2440:5: (lv_cylinder_6_0= ruleCylinder )
+                    // InternalXacro.g:2441:6: lv_cylinder_6_0= ruleCylinder
                     {
 
                     						newCompositeNode(grammarAccess.getGeometryAccess().getCylinderCylinderParserRuleCall_4_1_0());
@@ -5835,7 +5811,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2463:3: (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )?
+            // InternalXacro.g:2459:3: (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )?
             int alt50=2;
             int LA50_0 = input.LA(1);
 
@@ -5844,17 +5820,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt50) {
                 case 1 :
-                    // InternalXacro.g:2464:4: otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) )
+                    // InternalXacro.g:2460:4: otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) )
                     {
                     otherlv_7=(Token)match(input,73,FOLLOW_77); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getGeometryAccess().getSphereKeyword_5_0());
                     			
-                    // InternalXacro.g:2468:4: ( (lv_sphere_8_0= ruleSphere ) )
-                    // InternalXacro.g:2469:5: (lv_sphere_8_0= ruleSphere )
+                    // InternalXacro.g:2464:4: ( (lv_sphere_8_0= ruleSphere ) )
+                    // InternalXacro.g:2465:5: (lv_sphere_8_0= ruleSphere )
                     {
-                    // InternalXacro.g:2469:5: (lv_sphere_8_0= ruleSphere )
-                    // InternalXacro.g:2470:6: lv_sphere_8_0= ruleSphere
+                    // InternalXacro.g:2465:5: (lv_sphere_8_0= ruleSphere )
+                    // InternalXacro.g:2466:6: lv_sphere_8_0= ruleSphere
                     {
 
                     						newCompositeNode(grammarAccess.getGeometryAccess().getSphereSphereParserRuleCall_5_1_0());
@@ -5887,7 +5863,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2488:3: (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )?
+            // InternalXacro.g:2484:3: (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )?
             int alt51=2;
             int LA51_0 = input.LA(1);
 
@@ -5896,17 +5872,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt51) {
                 case 1 :
-                    // InternalXacro.g:2489:4: otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) )
+                    // InternalXacro.g:2485:4: otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) )
                     {
                     otherlv_9=(Token)match(input,74,FOLLOW_79); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getGeometryAccess().getMeshKeyword_6_0());
                     			
-                    // InternalXacro.g:2493:4: ( (lv_mesh_10_0= ruleMesh ) )
-                    // InternalXacro.g:2494:5: (lv_mesh_10_0= ruleMesh )
+                    // InternalXacro.g:2489:4: ( (lv_mesh_10_0= ruleMesh ) )
+                    // InternalXacro.g:2490:5: (lv_mesh_10_0= ruleMesh )
                     {
-                    // InternalXacro.g:2494:5: (lv_mesh_10_0= ruleMesh )
-                    // InternalXacro.g:2495:6: lv_mesh_10_0= ruleMesh
+                    // InternalXacro.g:2490:5: (lv_mesh_10_0= ruleMesh )
+                    // InternalXacro.g:2491:6: lv_mesh_10_0= ruleMesh
                     {
 
                     						newCompositeNode(grammarAccess.getGeometryAccess().getMeshMeshParserRuleCall_6_1_0());
@@ -5966,7 +5942,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBox"
-    // InternalXacro.g:2521:1: entryRuleBox returns [EObject current=null] : iv_ruleBox= ruleBox EOF ;
+    // InternalXacro.g:2517:1: entryRuleBox returns [EObject current=null] : iv_ruleBox= ruleBox EOF ;
     public final EObject entryRuleBox() throws RecognitionException {
         EObject current = null;
 
@@ -5974,8 +5950,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2521:44: (iv_ruleBox= ruleBox EOF )
-            // InternalXacro.g:2522:2: iv_ruleBox= ruleBox EOF
+            // InternalXacro.g:2517:44: (iv_ruleBox= ruleBox EOF )
+            // InternalXacro.g:2518:2: iv_ruleBox= ruleBox EOF
             {
              newCompositeNode(grammarAccess.getBoxRule()); 
             pushFollow(FOLLOW_1);
@@ -6002,7 +5978,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBox"
-    // InternalXacro.g:2528:1: ruleBox returns [EObject current=null] : ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' ) ;
+    // InternalXacro.g:2524:1: ruleBox returns [EObject current=null] : ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' ) ;
     public final EObject ruleBox() throws RecognitionException {
         EObject current = null;
 
@@ -6017,14 +5993,14 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2534:2: ( ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' ) )
-            // InternalXacro.g:2535:2: ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' )
+            // InternalXacro.g:2530:2: ( ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' ) )
+            // InternalXacro.g:2531:2: ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' )
             {
-            // InternalXacro.g:2535:2: ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' )
-            // InternalXacro.g:2536:3: () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}'
+            // InternalXacro.g:2531:2: ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}' )
+            // InternalXacro.g:2532:3: () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )? otherlv_5= '}'
             {
-            // InternalXacro.g:2536:3: ()
-            // InternalXacro.g:2537:4: 
+            // InternalXacro.g:2532:3: ()
+            // InternalXacro.g:2533:4: 
             {
 
             				current = forceCreateModelElement(
@@ -6042,7 +6018,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getBoxAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalXacro.g:2551:3: (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )?
+            // InternalXacro.g:2547:3: (otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) ) )?
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -6051,17 +6027,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt52) {
                 case 1 :
-                    // InternalXacro.g:2552:4: otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) )
+                    // InternalXacro.g:2548:4: otherlv_3= 'size' ( (lv_size_4_0= ruleParameterString ) )
                     {
                     otherlv_3=(Token)match(input,76,FOLLOW_81); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getBoxAccess().getSizeKeyword_3_0());
                     			
-                    // InternalXacro.g:2556:4: ( (lv_size_4_0= ruleParameterString ) )
-                    // InternalXacro.g:2557:5: (lv_size_4_0= ruleParameterString )
+                    // InternalXacro.g:2552:4: ( (lv_size_4_0= ruleParameterString ) )
+                    // InternalXacro.g:2553:5: (lv_size_4_0= ruleParameterString )
                     {
-                    // InternalXacro.g:2557:5: (lv_size_4_0= ruleParameterString )
-                    // InternalXacro.g:2558:6: lv_size_4_0= ruleParameterString
+                    // InternalXacro.g:2553:5: (lv_size_4_0= ruleParameterString )
+                    // InternalXacro.g:2554:6: lv_size_4_0= ruleParameterString
                     {
 
                     						newCompositeNode(grammarAccess.getBoxAccess().getSizeParameterStringParserRuleCall_3_1_0());
@@ -6121,7 +6097,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCylinder"
-    // InternalXacro.g:2584:1: entryRuleCylinder returns [EObject current=null] : iv_ruleCylinder= ruleCylinder EOF ;
+    // InternalXacro.g:2580:1: entryRuleCylinder returns [EObject current=null] : iv_ruleCylinder= ruleCylinder EOF ;
     public final EObject entryRuleCylinder() throws RecognitionException {
         EObject current = null;
 
@@ -6129,8 +6105,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2584:49: (iv_ruleCylinder= ruleCylinder EOF )
-            // InternalXacro.g:2585:2: iv_ruleCylinder= ruleCylinder EOF
+            // InternalXacro.g:2580:49: (iv_ruleCylinder= ruleCylinder EOF )
+            // InternalXacro.g:2581:2: iv_ruleCylinder= ruleCylinder EOF
             {
              newCompositeNode(grammarAccess.getCylinderRule()); 
             pushFollow(FOLLOW_1);
@@ -6157,7 +6133,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCylinder"
-    // InternalXacro.g:2591:1: ruleCylinder returns [EObject current=null] : (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' ) ;
+    // InternalXacro.g:2587:1: ruleCylinder returns [EObject current=null] : (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' ) ;
     public final EObject ruleCylinder() throws RecognitionException {
         EObject current = null;
 
@@ -6175,11 +6151,11 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2597:2: ( (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' ) )
-            // InternalXacro.g:2598:2: (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' )
+            // InternalXacro.g:2593:2: ( (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' ) )
+            // InternalXacro.g:2594:2: (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' )
             {
-            // InternalXacro.g:2598:2: (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' )
-            // InternalXacro.g:2599:3: otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}'
+            // InternalXacro.g:2594:2: (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' )
+            // InternalXacro.g:2595:3: otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}'
             {
             otherlv_0=(Token)match(input,77,FOLLOW_3); 
 
@@ -6189,15 +6165,15 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getCylinderAccess().getLeftCurlyBracketKeyword_1());
             		
-            otherlv_2=(Token)match(input,78,FOLLOW_53); 
+            otherlv_2=(Token)match(input,78,FOLLOW_65); 
 
             			newLeafNode(otherlv_2, grammarAccess.getCylinderAccess().getLengthKeyword_2());
             		
-            // InternalXacro.g:2611:3: ( (lv_length_3_0= ruleDouble0 ) )
-            // InternalXacro.g:2612:4: (lv_length_3_0= ruleDouble0 )
+            // InternalXacro.g:2607:3: ( (lv_length_3_0= ruleDouble0 ) )
+            // InternalXacro.g:2608:4: (lv_length_3_0= ruleDouble0 )
             {
-            // InternalXacro.g:2612:4: (lv_length_3_0= ruleDouble0 )
-            // InternalXacro.g:2613:5: lv_length_3_0= ruleDouble0
+            // InternalXacro.g:2608:4: (lv_length_3_0= ruleDouble0 )
+            // InternalXacro.g:2609:5: lv_length_3_0= ruleDouble0
             {
 
             					newCompositeNode(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_3_0());
@@ -6224,15 +6200,15 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,79,FOLLOW_53); 
+            otherlv_4=(Token)match(input,79,FOLLOW_65); 
 
             			newLeafNode(otherlv_4, grammarAccess.getCylinderAccess().getRadiusKeyword_4());
             		
-            // InternalXacro.g:2634:3: ( (lv_radius_5_0= ruleDouble0 ) )
-            // InternalXacro.g:2635:4: (lv_radius_5_0= ruleDouble0 )
+            // InternalXacro.g:2630:3: ( (lv_radius_5_0= ruleDouble0 ) )
+            // InternalXacro.g:2631:4: (lv_radius_5_0= ruleDouble0 )
             {
-            // InternalXacro.g:2635:4: (lv_radius_5_0= ruleDouble0 )
-            // InternalXacro.g:2636:5: lv_radius_5_0= ruleDouble0
+            // InternalXacro.g:2631:4: (lv_radius_5_0= ruleDouble0 )
+            // InternalXacro.g:2632:5: lv_radius_5_0= ruleDouble0
             {
 
             					newCompositeNode(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_5_0());
@@ -6286,7 +6262,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSphere"
-    // InternalXacro.g:2661:1: entryRuleSphere returns [EObject current=null] : iv_ruleSphere= ruleSphere EOF ;
+    // InternalXacro.g:2657:1: entryRuleSphere returns [EObject current=null] : iv_ruleSphere= ruleSphere EOF ;
     public final EObject entryRuleSphere() throws RecognitionException {
         EObject current = null;
 
@@ -6294,8 +6270,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2661:47: (iv_ruleSphere= ruleSphere EOF )
-            // InternalXacro.g:2662:2: iv_ruleSphere= ruleSphere EOF
+            // InternalXacro.g:2657:47: (iv_ruleSphere= ruleSphere EOF )
+            // InternalXacro.g:2658:2: iv_ruleSphere= ruleSphere EOF
             {
              newCompositeNode(grammarAccess.getSphereRule()); 
             pushFollow(FOLLOW_1);
@@ -6322,7 +6298,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSphere"
-    // InternalXacro.g:2668:1: ruleSphere returns [EObject current=null] : (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' ) ;
+    // InternalXacro.g:2664:1: ruleSphere returns [EObject current=null] : (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' ) ;
     public final EObject ruleSphere() throws RecognitionException {
         EObject current = null;
 
@@ -6337,11 +6313,11 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2674:2: ( (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' ) )
-            // InternalXacro.g:2675:2: (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' )
+            // InternalXacro.g:2670:2: ( (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' ) )
+            // InternalXacro.g:2671:2: (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' )
             {
-            // InternalXacro.g:2675:2: (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' )
-            // InternalXacro.g:2676:3: otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}'
+            // InternalXacro.g:2671:2: (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' )
+            // InternalXacro.g:2672:3: otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}'
             {
             otherlv_0=(Token)match(input,80,FOLLOW_3); 
 
@@ -6351,15 +6327,15 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getSphereAccess().getLeftCurlyBracketKeyword_1());
             		
-            otherlv_2=(Token)match(input,79,FOLLOW_53); 
+            otherlv_2=(Token)match(input,79,FOLLOW_65); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSphereAccess().getRadiusKeyword_2());
             		
-            // InternalXacro.g:2688:3: ( (lv_radius_3_0= ruleDouble0 ) )
-            // InternalXacro.g:2689:4: (lv_radius_3_0= ruleDouble0 )
+            // InternalXacro.g:2684:3: ( (lv_radius_3_0= ruleDouble0 ) )
+            // InternalXacro.g:2685:4: (lv_radius_3_0= ruleDouble0 )
             {
-            // InternalXacro.g:2689:4: (lv_radius_3_0= ruleDouble0 )
-            // InternalXacro.g:2690:5: lv_radius_3_0= ruleDouble0
+            // InternalXacro.g:2685:4: (lv_radius_3_0= ruleDouble0 )
+            // InternalXacro.g:2686:5: lv_radius_3_0= ruleDouble0
             {
 
             					newCompositeNode(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_3_0());
@@ -6413,7 +6389,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMesh"
-    // InternalXacro.g:2715:1: entryRuleMesh returns [EObject current=null] : iv_ruleMesh= ruleMesh EOF ;
+    // InternalXacro.g:2711:1: entryRuleMesh returns [EObject current=null] : iv_ruleMesh= ruleMesh EOF ;
     public final EObject entryRuleMesh() throws RecognitionException {
         EObject current = null;
 
@@ -6421,8 +6397,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2715:45: (iv_ruleMesh= ruleMesh EOF )
-            // InternalXacro.g:2716:2: iv_ruleMesh= ruleMesh EOF
+            // InternalXacro.g:2711:45: (iv_ruleMesh= ruleMesh EOF )
+            // InternalXacro.g:2712:2: iv_ruleMesh= ruleMesh EOF
             {
              newCompositeNode(grammarAccess.getMeshRule()); 
             pushFollow(FOLLOW_1);
@@ -6449,7 +6425,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMesh"
-    // InternalXacro.g:2722:1: ruleMesh returns [EObject current=null] : (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' ) ;
+    // InternalXacro.g:2718:1: ruleMesh returns [EObject current=null] : (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' ) ;
     public final EObject ruleMesh() throws RecognitionException {
         EObject current = null;
 
@@ -6466,11 +6442,11 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2728:2: ( (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' ) )
-            // InternalXacro.g:2729:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' )
+            // InternalXacro.g:2724:2: ( (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' ) )
+            // InternalXacro.g:2725:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' )
             {
-            // InternalXacro.g:2729:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' )
-            // InternalXacro.g:2730:3: otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}'
+            // InternalXacro.g:2725:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}' )
+            // InternalXacro.g:2726:3: otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )? otherlv_6= '}'
             {
             otherlv_0=(Token)match(input,81,FOLLOW_3); 
 
@@ -6484,11 +6460,11 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getMeshAccess().getFilenameKeyword_2());
             		
-            // InternalXacro.g:2742:3: ( (lv_filename_3_0= RULE_STRING ) )
-            // InternalXacro.g:2743:4: (lv_filename_3_0= RULE_STRING )
+            // InternalXacro.g:2738:3: ( (lv_filename_3_0= RULE_STRING ) )
+            // InternalXacro.g:2739:4: (lv_filename_3_0= RULE_STRING )
             {
-            // InternalXacro.g:2743:4: (lv_filename_3_0= RULE_STRING )
-            // InternalXacro.g:2744:5: lv_filename_3_0= RULE_STRING
+            // InternalXacro.g:2739:4: (lv_filename_3_0= RULE_STRING )
+            // InternalXacro.g:2740:5: lv_filename_3_0= RULE_STRING
             {
             lv_filename_3_0=(Token)match(input,RULE_STRING,FOLLOW_85); 
 
@@ -6510,7 +6486,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalXacro.g:2760:3: (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )?
+            // InternalXacro.g:2756:3: (otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) ) )?
             int alt53=2;
             int LA53_0 = input.LA(1);
 
@@ -6519,17 +6495,17 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
             }
             switch (alt53) {
                 case 1 :
-                    // InternalXacro.g:2761:4: otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) )
+                    // InternalXacro.g:2757:4: otherlv_4= 'scale' ( (lv_scale_5_0= ruleDouble0 ) )
                     {
-                    otherlv_4=(Token)match(input,83,FOLLOW_53); 
+                    otherlv_4=(Token)match(input,83,FOLLOW_65); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getMeshAccess().getScaleKeyword_4_0());
                     			
-                    // InternalXacro.g:2765:4: ( (lv_scale_5_0= ruleDouble0 ) )
-                    // InternalXacro.g:2766:5: (lv_scale_5_0= ruleDouble0 )
+                    // InternalXacro.g:2761:4: ( (lv_scale_5_0= ruleDouble0 ) )
+                    // InternalXacro.g:2762:5: (lv_scale_5_0= ruleDouble0 )
                     {
-                    // InternalXacro.g:2766:5: (lv_scale_5_0= ruleDouble0 )
-                    // InternalXacro.g:2767:6: lv_scale_5_0= ruleDouble0
+                    // InternalXacro.g:2762:5: (lv_scale_5_0= ruleDouble0 )
+                    // InternalXacro.g:2763:6: lv_scale_5_0= ruleDouble0
                     {
 
                     						newCompositeNode(grammarAccess.getMeshAccess().getScaleDouble0ParserRuleCall_4_1_0());
@@ -6589,7 +6565,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDouble0"
-    // InternalXacro.g:2793:1: entryRuleDouble0 returns [String current=null] : iv_ruleDouble0= ruleDouble0 EOF ;
+    // InternalXacro.g:2789:1: entryRuleDouble0 returns [String current=null] : iv_ruleDouble0= ruleDouble0 EOF ;
     public final String entryRuleDouble0() throws RecognitionException {
         String current = null;
 
@@ -6597,8 +6573,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXacro.g:2793:47: (iv_ruleDouble0= ruleDouble0 EOF )
-            // InternalXacro.g:2794:2: iv_ruleDouble0= ruleDouble0 EOF
+            // InternalXacro.g:2789:47: (iv_ruleDouble0= ruleDouble0 EOF )
+            // InternalXacro.g:2790:2: iv_ruleDouble0= ruleDouble0 EOF
             {
              newCompositeNode(grammarAccess.getDouble0Rule()); 
             pushFollow(FOLLOW_1);
@@ -6625,7 +6601,7 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDouble0"
-    // InternalXacro.g:2800:1: ruleDouble0 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_DOUBLE_0= RULE_DOUBLE ;
+    // InternalXacro.g:2796:1: ruleDouble0 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_DOUBLE_0= RULE_DOUBLE ;
     public final AntlrDatatypeRuleToken ruleDouble0() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6635,8 +6611,8 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalXacro.g:2806:2: (this_DOUBLE_0= RULE_DOUBLE )
-            // InternalXacro.g:2807:2: this_DOUBLE_0= RULE_DOUBLE
+            // InternalXacro.g:2802:2: (this_DOUBLE_0= RULE_DOUBLE )
+            // InternalXacro.g:2803:2: this_DOUBLE_0= RULE_DOUBLE
             {
             this_DOUBLE_0=(Token)match(input,RULE_DOUBLE,FOLLOW_2); 
 
@@ -6720,19 +6696,19 @@ public class InternalXacroParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0003000000400000L});
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0002000000400000L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x00F0000000400000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x00E0000000400000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x00C0000000400000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0080000000400000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0600020000400000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0600000000400000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0400000000400000L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x1000020000000000L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x00E0000000400000L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x00C0000000400000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0080000000400000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0600020000400000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0600000000400000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0400000000400000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x1000020000000000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000400000L,0x000000000000003FL});
     public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000400000L,0x000000000000003EL});
     public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000400000L,0x000000000000003CL});

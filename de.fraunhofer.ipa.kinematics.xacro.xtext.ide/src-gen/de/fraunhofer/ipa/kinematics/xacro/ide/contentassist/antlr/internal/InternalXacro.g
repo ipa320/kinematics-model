@@ -9000,9 +9000,9 @@ rule__Limit__EffortAssignment_3_1
 	}
 :
 	(
-		{ before(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0()); }
-		ruleDouble0
-		{ after(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0()); }
+		{ before(grammarAccess.getLimitAccess().getEffortSTRINGTerminalRuleCall_3_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getLimitAccess().getEffortSTRINGTerminalRuleCall_3_1_0()); }
 	)
 ;
 finally {
@@ -9015,9 +9015,9 @@ rule__Limit__LowerAssignment_4_1
 	}
 :
 	(
-		{ before(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0()); }
-		ruleDouble0
-		{ after(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0()); }
+		{ before(grammarAccess.getLimitAccess().getLowerSTRINGTerminalRuleCall_4_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getLimitAccess().getLowerSTRINGTerminalRuleCall_4_1_0()); }
 	)
 ;
 finally {
@@ -9030,9 +9030,9 @@ rule__Limit__UpperAssignment_5_1
 	}
 :
 	(
-		{ before(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0()); }
-		ruleDouble0
-		{ after(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0()); }
+		{ before(grammarAccess.getLimitAccess().getUpperSTRINGTerminalRuleCall_5_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getLimitAccess().getUpperSTRINGTerminalRuleCall_5_1_0()); }
 	)
 ;
 finally {
@@ -9045,9 +9045,9 @@ rule__Limit__VelocityAssignment_6_1
 	}
 :
 	(
-		{ before(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0()); }
-		ruleDouble0
-		{ after(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0()); }
+		{ before(grammarAccess.getLimitAccess().getVelocitySTRINGTerminalRuleCall_6_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getLimitAccess().getVelocitySTRINGTerminalRuleCall_6_1_0()); }
 	)
 ;
 finally {

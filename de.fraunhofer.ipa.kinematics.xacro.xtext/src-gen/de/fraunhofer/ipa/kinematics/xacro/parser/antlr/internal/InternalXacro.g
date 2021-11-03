@@ -1757,20 +1757,19 @@ ruleLimit returns [EObject current=null]
 			}
 			(
 				(
+					lv_effort_4_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0());
+						newLeafNode(lv_effort_4_0, grammarAccess.getLimitAccess().getEffortSTRINGTerminalRuleCall_3_1_0());
 					}
-					lv_effort_4_0=ruleDouble0
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getLimitRule());
+							$current = createModelElement(grammarAccess.getLimitRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"effort",
 							lv_effort_4_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -1782,20 +1781,19 @@ ruleLimit returns [EObject current=null]
 			}
 			(
 				(
+					lv_lower_6_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0());
+						newLeafNode(lv_lower_6_0, grammarAccess.getLimitAccess().getLowerSTRINGTerminalRuleCall_4_1_0());
 					}
-					lv_lower_6_0=ruleDouble0
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getLimitRule());
+							$current = createModelElement(grammarAccess.getLimitRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"lower",
 							lv_lower_6_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -1807,20 +1805,19 @@ ruleLimit returns [EObject current=null]
 			}
 			(
 				(
+					lv_upper_8_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0());
+						newLeafNode(lv_upper_8_0, grammarAccess.getLimitAccess().getUpperSTRINGTerminalRuleCall_5_1_0());
 					}
-					lv_upper_8_0=ruleDouble0
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getLimitRule());
+							$current = createModelElement(grammarAccess.getLimitRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"upper",
 							lv_upper_8_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
@@ -1832,20 +1829,19 @@ ruleLimit returns [EObject current=null]
 			}
 			(
 				(
+					lv_velocity_10_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0());
+						newLeafNode(lv_velocity_10_0, grammarAccess.getLimitAccess().getVelocitySTRINGTerminalRuleCall_6_1_0());
 					}
-					lv_velocity_10_0=ruleDouble0
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getLimitRule());
+							$current = createModelElement(grammarAccess.getLimitRule());
 						}
-						set(
+						setWithLastConsumed(
 							$current,
 							"velocity",
 							lv_velocity_10_0,
-							"de.fraunhofer.ipa.kinematics.xacro.Xacro.Double0");
-						afterParserOrEnumRuleCall();
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)

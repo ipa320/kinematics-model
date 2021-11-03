@@ -276,7 +276,7 @@ public class XacroSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Limit returns Limit
 	 *
 	 * Constraint:
-	 *     (effort=Double0? lower=Double0? upper=Double0? velocity=Double0?)
+	 *     (effort=STRING? lower=STRING? upper=STRING? velocity=STRING?)
 	 */
 	protected void sequence_Limit(ISerializationContext context, Limit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -29,12 +29,12 @@ public interface Limit extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Lower</em>' attribute.
-	 * @see #setLower(double)
+	 * @see #setLower(String)
 	 * @see xacro.XacroPackage#getLimit_Lower()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	double getLower();
+	String getLower();
 
 	/**
 	 * Sets the value of the '{@link xacro.Limit#getLower <em>Lower</em>}' attribute.
@@ -44,19 +44,19 @@ public interface Limit extends EObject {
 	 * @see #getLower()
 	 * @generated
 	 */
-	void setLower(double value);
+	void setLower(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Upper</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Upper</em>' attribute.
-	 * @see #setUpper(double)
+	 * @see #setUpper(String)
 	 * @see xacro.XacroPackage#getLimit_Upper()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	double getUpper();
+	String getUpper();
 
 	/**
 	 * Sets the value of the '{@link xacro.Limit#getUpper <em>Upper</em>}' attribute.
@@ -66,19 +66,19 @@ public interface Limit extends EObject {
 	 * @see #getUpper()
 	 * @generated
 	 */
-	void setUpper(double value);
+	void setUpper(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Effort</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Effort</em>' attribute.
-	 * @see #setEffort(double)
+	 * @see #setEffort(String)
 	 * @see xacro.XacroPackage#getLimit_Effort()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	double getEffort();
+	String getEffort();
 
 	/**
 	 * Sets the value of the '{@link xacro.Limit#getEffort <em>Effort</em>}' attribute.
@@ -88,19 +88,19 @@ public interface Limit extends EObject {
 	 * @see #getEffort()
 	 * @generated
 	 */
-	void setEffort(double value);
+	void setEffort(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Velocity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Velocity</em>' attribute.
-	 * @see #setVelocity(double)
+	 * @see #setVelocity(String)
 	 * @see xacro.XacroPackage#getLimit_Velocity()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	double getVelocity();
+	String getVelocity();
 
 	/**
 	 * Sets the value of the '{@link xacro.Limit#getVelocity <em>Velocity</em>}' attribute.
@@ -110,6 +110,6 @@ public interface Limit extends EObject {
 	 * @see #getVelocity()
 	 * @generated
 	 */
-	void setVelocity(double value);
+	void setVelocity(String value);
 
 } // Limit

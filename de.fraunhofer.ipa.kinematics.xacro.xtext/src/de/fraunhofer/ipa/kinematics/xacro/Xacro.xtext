@@ -137,10 +137,10 @@ Limit returns Limit:
 	{Limit}
 	'Limit'
 	'{'
-		('effort' effort=Double0)?
-		('lower' lower=Double0)?
-		('upper' upper=Double0)?
-		('velocity' velocity=Double0)?
+		('effort' effort=STRING)?
+		('lower' lower=STRING)?
+		('upper' upper=STRING)?
+		('velocity' velocity=STRING)?
 	'}';
 
 Inertial returns Inertial:

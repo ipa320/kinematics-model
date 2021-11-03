@@ -85,7 +85,7 @@ public class LimitItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -107,7 +107,7 @@ public class LimitItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -129,7 +129,7 @@ public class LimitItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -151,7 +151,7 @@ public class LimitItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -175,8 +175,10 @@ public class LimitItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Limit limit = (Limit)object;
-		return getString("_UI_Limit_type") + " " + limit.getLower();
+		String label = ((Limit)object).getLower();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Limit_type") :
+			getString("_UI_Limit_type") + " " + label;
 	}
 
 

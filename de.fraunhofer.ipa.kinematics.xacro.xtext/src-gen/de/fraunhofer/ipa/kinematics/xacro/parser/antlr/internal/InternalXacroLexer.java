@@ -1535,8 +1535,8 @@ public class InternalXacroLexer extends Lexer {
     // $ANTLR start "RULE_DIGIT"
     public final void mRULE_DIGIT() throws RecognitionException {
         try {
-            // InternalXacro.g:2816:21: ( '0' .. '9' )
-            // InternalXacro.g:2816:23: '0' .. '9'
+            // InternalXacro.g:2812:21: ( '0' .. '9' )
+            // InternalXacro.g:2812:23: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -1553,10 +1553,10 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_BOOLEAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2818:14: ( ( 'true' | 'false' ) )
-            // InternalXacro.g:2818:16: ( 'true' | 'false' )
+            // InternalXacro.g:2814:14: ( ( 'true' | 'false' ) )
+            // InternalXacro.g:2814:16: ( 'true' | 'false' )
             {
-            // InternalXacro.g:2818:16: ( 'true' | 'false' )
+            // InternalXacro.g:2814:16: ( 'true' | 'false' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1574,7 +1574,7 @@ public class InternalXacroLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalXacro.g:2818:17: 'true'
+                    // InternalXacro.g:2814:17: 'true'
                     {
                     match("true"); 
 
@@ -1582,7 +1582,7 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalXacro.g:2818:24: 'false'
+                    // InternalXacro.g:2814:24: 'false'
                     {
                     match("false"); 
 
@@ -1608,19 +1608,19 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_DOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2820:13: ( RULE_DECINT ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT ) )
-            // InternalXacro.g:2820:15: RULE_DECINT ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT )
+            // InternalXacro.g:2816:13: ( RULE_DECINT ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT ) )
+            // InternalXacro.g:2816:15: RULE_DECINT ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT )
             {
             mRULE_DECINT(); 
-            // InternalXacro.g:2820:27: ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT )
+            // InternalXacro.g:2816:27: ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT )
             int alt6=2;
             alt6 = dfa6.predict(input);
             switch (alt6) {
                 case 1 :
-                    // InternalXacro.g:2820:28: '.' ( RULE_DIGIT )*
+                    // InternalXacro.g:2816:28: '.' ( RULE_DIGIT )*
                     {
                     match('.'); 
-                    // InternalXacro.g:2820:32: ( RULE_DIGIT )*
+                    // InternalXacro.g:2816:32: ( RULE_DIGIT )*
                     loop2:
                     do {
                         int alt2=2;
@@ -1633,7 +1633,7 @@ public class InternalXacroLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // InternalXacro.g:2820:32: RULE_DIGIT
+                    	    // InternalXacro.g:2816:32: RULE_DIGIT
                     	    {
                     	    mRULE_DIGIT(); 
 
@@ -1649,9 +1649,9 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalXacro.g:2820:44: ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT
+                    // InternalXacro.g:2816:44: ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT
                     {
-                    // InternalXacro.g:2820:44: ( '.' ( RULE_DIGIT )* )?
+                    // InternalXacro.g:2816:44: ( '.' ( RULE_DIGIT )* )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
@@ -1660,10 +1660,10 @@ public class InternalXacroLexer extends Lexer {
                     }
                     switch (alt4) {
                         case 1 :
-                            // InternalXacro.g:2820:45: '.' ( RULE_DIGIT )*
+                            // InternalXacro.g:2816:45: '.' ( RULE_DIGIT )*
                             {
                             match('.'); 
-                            // InternalXacro.g:2820:49: ( RULE_DIGIT )*
+                            // InternalXacro.g:2816:49: ( RULE_DIGIT )*
                             loop3:
                             do {
                                 int alt3=2;
@@ -1676,7 +1676,7 @@ public class InternalXacroLexer extends Lexer {
 
                                 switch (alt3) {
                             	case 1 :
-                            	    // InternalXacro.g:2820:49: RULE_DIGIT
+                            	    // InternalXacro.g:2816:49: RULE_DIGIT
                             	    {
                             	    mRULE_DIGIT(); 
 
@@ -1703,7 +1703,7 @@ public class InternalXacroLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // InternalXacro.g:2820:73: ( '-' | '+' )?
+                    // InternalXacro.g:2816:73: ( '-' | '+' )?
                     int alt5=2;
                     int LA5_0 = input.LA(1);
 
@@ -1762,10 +1762,10 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_DECINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2822:13: ( ( '0' | '1' .. '9' ( RULE_DIGIT )* | '-' '0' .. '9' ( RULE_DIGIT )* ) )
-            // InternalXacro.g:2822:15: ( '0' | '1' .. '9' ( RULE_DIGIT )* | '-' '0' .. '9' ( RULE_DIGIT )* )
+            // InternalXacro.g:2818:13: ( ( '0' | '1' .. '9' ( RULE_DIGIT )* | '-' '0' .. '9' ( RULE_DIGIT )* ) )
+            // InternalXacro.g:2818:15: ( '0' | '1' .. '9' ( RULE_DIGIT )* | '-' '0' .. '9' ( RULE_DIGIT )* )
             {
-            // InternalXacro.g:2822:15: ( '0' | '1' .. '9' ( RULE_DIGIT )* | '-' '0' .. '9' ( RULE_DIGIT )* )
+            // InternalXacro.g:2818:15: ( '0' | '1' .. '9' ( RULE_DIGIT )* | '-' '0' .. '9' ( RULE_DIGIT )* )
             int alt9=3;
             switch ( input.LA(1) ) {
             case '0':
@@ -1800,17 +1800,17 @@ public class InternalXacroLexer extends Lexer {
 
             switch (alt9) {
                 case 1 :
-                    // InternalXacro.g:2822:16: '0'
+                    // InternalXacro.g:2818:16: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // InternalXacro.g:2822:20: '1' .. '9' ( RULE_DIGIT )*
+                    // InternalXacro.g:2818:20: '1' .. '9' ( RULE_DIGIT )*
                     {
                     matchRange('1','9'); 
-                    // InternalXacro.g:2822:29: ( RULE_DIGIT )*
+                    // InternalXacro.g:2818:29: ( RULE_DIGIT )*
                     loop7:
                     do {
                         int alt7=2;
@@ -1823,7 +1823,7 @@ public class InternalXacroLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalXacro.g:2822:29: RULE_DIGIT
+                    	    // InternalXacro.g:2818:29: RULE_DIGIT
                     	    {
                     	    mRULE_DIGIT(); 
 
@@ -1839,11 +1839,11 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalXacro.g:2822:41: '-' '0' .. '9' ( RULE_DIGIT )*
+                    // InternalXacro.g:2818:41: '-' '0' .. '9' ( RULE_DIGIT )*
                     {
                     match('-'); 
                     matchRange('0','9'); 
-                    // InternalXacro.g:2822:54: ( RULE_DIGIT )*
+                    // InternalXacro.g:2818:54: ( RULE_DIGIT )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1856,7 +1856,7 @@ public class InternalXacroLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalXacro.g:2822:54: RULE_DIGIT
+                    	    // InternalXacro.g:2818:54: RULE_DIGIT
                     	    {
                     	    mRULE_DIGIT(); 
 
@@ -1890,10 +1890,10 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_JOINTTYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2824:16: ( ( 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar' ) )
-            // InternalXacro.g:2824:18: ( 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar' )
+            // InternalXacro.g:2820:16: ( ( 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar' ) )
+            // InternalXacro.g:2820:18: ( 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar' )
             {
-            // InternalXacro.g:2824:18: ( 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar' )
+            // InternalXacro.g:2820:18: ( 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar' )
             int alt10=6;
             switch ( input.LA(1) ) {
             case 'r':
@@ -1951,7 +1951,7 @@ public class InternalXacroLexer extends Lexer {
 
             switch (alt10) {
                 case 1 :
-                    // InternalXacro.g:2824:19: 'revolute'
+                    // InternalXacro.g:2820:19: 'revolute'
                     {
                     match("revolute"); 
 
@@ -1959,7 +1959,7 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalXacro.g:2824:30: 'continuous'
+                    // InternalXacro.g:2820:30: 'continuous'
                     {
                     match("continuous"); 
 
@@ -1967,7 +1967,7 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalXacro.g:2824:43: 'prismatic'
+                    // InternalXacro.g:2820:43: 'prismatic'
                     {
                     match("prismatic"); 
 
@@ -1975,7 +1975,7 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalXacro.g:2824:55: 'fixed'
+                    // InternalXacro.g:2820:55: 'fixed'
                     {
                     match("fixed"); 
 
@@ -1983,7 +1983,7 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalXacro.g:2824:63: 'floating'
+                    // InternalXacro.g:2820:63: 'floating'
                     {
                     match("floating"); 
 
@@ -1991,7 +1991,7 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // InternalXacro.g:2824:74: 'planar'
+                    // InternalXacro.g:2820:74: 'planar'
                     {
                     match("planar"); 
 
@@ -2017,10 +2017,10 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2826:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalXacro.g:2826:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalXacro.g:2822:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalXacro.g:2822:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalXacro.g:2826:11: ( '^' )?
+            // InternalXacro.g:2822:11: ( '^' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2029,7 +2029,7 @@ public class InternalXacroLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalXacro.g:2826:11: '^'
+                    // InternalXacro.g:2822:11: '^'
                     {
                     match('^'); 
 
@@ -2047,7 +2047,7 @@ public class InternalXacroLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalXacro.g:2826:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalXacro.g:2822:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop12:
             do {
                 int alt12=2;
@@ -2096,10 +2096,10 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2828:10: ( ( '0' .. '9' )+ )
-            // InternalXacro.g:2828:12: ( '0' .. '9' )+
+            // InternalXacro.g:2824:10: ( ( '0' .. '9' )+ )
+            // InternalXacro.g:2824:12: ( '0' .. '9' )+
             {
-            // InternalXacro.g:2828:12: ( '0' .. '9' )+
+            // InternalXacro.g:2824:12: ( '0' .. '9' )+
             int cnt13=0;
             loop13:
             do {
@@ -2113,7 +2113,7 @@ public class InternalXacroLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // InternalXacro.g:2828:13: '0' .. '9'
+            	    // InternalXacro.g:2824:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2145,10 +2145,10 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2830:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalXacro.g:2830:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalXacro.g:2826:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalXacro.g:2826:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalXacro.g:2830:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalXacro.g:2826:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -2166,10 +2166,10 @@ public class InternalXacroLexer extends Lexer {
             }
             switch (alt16) {
                 case 1 :
-                    // InternalXacro.g:2830:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalXacro.g:2826:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalXacro.g:2830:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalXacro.g:2826:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop14:
                     do {
                         int alt14=3;
@@ -2185,7 +2185,7 @@ public class InternalXacroLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // InternalXacro.g:2830:21: '\\\\' .
+                    	    // InternalXacro.g:2826:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2193,7 +2193,7 @@ public class InternalXacroLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalXacro.g:2830:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalXacro.g:2826:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2218,10 +2218,10 @@ public class InternalXacroLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalXacro.g:2830:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalXacro.g:2826:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalXacro.g:2830:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalXacro.g:2826:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop15:
                     do {
                         int alt15=3;
@@ -2237,7 +2237,7 @@ public class InternalXacroLexer extends Lexer {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // InternalXacro.g:2830:54: '\\\\' .
+                    	    // InternalXacro.g:2826:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2245,7 +2245,7 @@ public class InternalXacroLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalXacro.g:2830:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalXacro.g:2826:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2288,12 +2288,12 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2832:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalXacro.g:2832:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalXacro.g:2828:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalXacro.g:2828:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalXacro.g:2832:24: ( options {greedy=false; } : . )*
+            // InternalXacro.g:2828:24: ( options {greedy=false; } : . )*
             loop17:
             do {
                 int alt17=2;
@@ -2318,7 +2318,7 @@ public class InternalXacroLexer extends Lexer {
 
                 switch (alt17) {
             	case 1 :
-            	    // InternalXacro.g:2832:52: .
+            	    // InternalXacro.g:2828:52: .
             	    {
             	    matchAny(); 
 
@@ -2348,12 +2348,12 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2834:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalXacro.g:2834:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalXacro.g:2830:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalXacro.g:2830:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalXacro.g:2834:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalXacro.g:2830:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop18:
             do {
                 int alt18=2;
@@ -2366,7 +2366,7 @@ public class InternalXacroLexer extends Lexer {
 
                 switch (alt18) {
             	case 1 :
-            	    // InternalXacro.g:2834:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalXacro.g:2830:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2386,7 +2386,7 @@ public class InternalXacroLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalXacro.g:2834:40: ( ( '\\r' )? '\\n' )?
+            // InternalXacro.g:2830:40: ( ( '\\r' )? '\\n' )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -2395,9 +2395,9 @@ public class InternalXacroLexer extends Lexer {
             }
             switch (alt20) {
                 case 1 :
-                    // InternalXacro.g:2834:41: ( '\\r' )? '\\n'
+                    // InternalXacro.g:2830:41: ( '\\r' )? '\\n'
                     {
-                    // InternalXacro.g:2834:41: ( '\\r' )?
+                    // InternalXacro.g:2830:41: ( '\\r' )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -2406,7 +2406,7 @@ public class InternalXacroLexer extends Lexer {
                     }
                     switch (alt19) {
                         case 1 :
-                            // InternalXacro.g:2834:41: '\\r'
+                            // InternalXacro.g:2830:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2438,10 +2438,10 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2836:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalXacro.g:2836:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalXacro.g:2832:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalXacro.g:2832:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalXacro.g:2836:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalXacro.g:2832:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt21=0;
             loop21:
             do {
@@ -2495,8 +2495,8 @@ public class InternalXacroLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalXacro.g:2838:16: ( . )
-            // InternalXacro.g:2838:18: .
+            // InternalXacro.g:2834:16: ( . )
+            // InternalXacro.g:2834:18: .
             {
             matchAny(); 
 
@@ -3126,7 +3126,7 @@ public class InternalXacroLexer extends Lexer {
             this.transition = DFA6_transition;
         }
         public String getDescription() {
-            return "2820:27: ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT )";
+            return "2816:27: ( '.' ( RULE_DIGIT )* | ( '.' ( RULE_DIGIT )* )? ( 'E' | 'e' ) ( '-' | '+' )? RULE_DECINT )";
         }
     }
     static final String DFA22_eotS =

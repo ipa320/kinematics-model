@@ -1245,39 +1245,39 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cEffortKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cEffortAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cEffortDouble0ParserRuleCall_3_1_0 = (RuleCall)cEffortAssignment_3_1.eContents().get(0);
+		private final RuleCall cEffortSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cEffortAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cLowerKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cLowerAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cLowerDouble0ParserRuleCall_4_1_0 = (RuleCall)cLowerAssignment_4_1.eContents().get(0);
+		private final RuleCall cLowerSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cLowerAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cUpperKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cUpperAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cUpperDouble0ParserRuleCall_5_1_0 = (RuleCall)cUpperAssignment_5_1.eContents().get(0);
+		private final RuleCall cUpperSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cUpperAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cVelocityKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cVelocityAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cVelocityDouble0ParserRuleCall_6_1_0 = (RuleCall)cVelocityAssignment_6_1.eContents().get(0);
+		private final RuleCall cVelocitySTRINGTerminalRuleCall_6_1_0 = (RuleCall)cVelocityAssignment_6_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Limit returns Limit:
 		//    {Limit}
 		//    'Limit'
 		//    '{'
-		//        ('effort' effort=Double0)?
-		//        ('lower' lower=Double0)?
-		//        ('upper' upper=Double0)?
-		//        ('velocity' velocity=Double0)?
+		//        ('effort' effort=STRING)?
+		//        ('lower' lower=STRING)?
+		//        ('upper' upper=STRING)?
+		//        ('velocity' velocity=STRING)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Limit}
 		//'Limit'
 		//'{'
-		//    ('effort' effort=Double0)?
-		//    ('lower' lower=Double0)?
-		//    ('upper' upper=Double0)?
-		//    ('velocity' velocity=Double0)?
+		//    ('effort' effort=STRING)?
+		//    ('lower' lower=STRING)?
+		//    ('upper' upper=STRING)?
+		//    ('velocity' velocity=STRING)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1290,53 +1290,53 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('effort' effort=Double0)?
+		//('effort' effort=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'effort'
 		public Keyword getEffortKeyword_3_0() { return cEffortKeyword_3_0; }
 		
-		//effort=Double0
+		//effort=STRING
 		public Assignment getEffortAssignment_3_1() { return cEffortAssignment_3_1; }
 		
-		//Double0
-		public RuleCall getEffortDouble0ParserRuleCall_3_1_0() { return cEffortDouble0ParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getEffortSTRINGTerminalRuleCall_3_1_0() { return cEffortSTRINGTerminalRuleCall_3_1_0; }
 		
-		//('lower' lower=Double0)?
+		//('lower' lower=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'lower'
 		public Keyword getLowerKeyword_4_0() { return cLowerKeyword_4_0; }
 		
-		//lower=Double0
+		//lower=STRING
 		public Assignment getLowerAssignment_4_1() { return cLowerAssignment_4_1; }
 		
-		//Double0
-		public RuleCall getLowerDouble0ParserRuleCall_4_1_0() { return cLowerDouble0ParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getLowerSTRINGTerminalRuleCall_4_1_0() { return cLowerSTRINGTerminalRuleCall_4_1_0; }
 		
-		//('upper' upper=Double0)?
+		//('upper' upper=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'upper'
 		public Keyword getUpperKeyword_5_0() { return cUpperKeyword_5_0; }
 		
-		//upper=Double0
+		//upper=STRING
 		public Assignment getUpperAssignment_5_1() { return cUpperAssignment_5_1; }
 		
-		//Double0
-		public RuleCall getUpperDouble0ParserRuleCall_5_1_0() { return cUpperDouble0ParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getUpperSTRINGTerminalRuleCall_5_1_0() { return cUpperSTRINGTerminalRuleCall_5_1_0; }
 		
-		//('velocity' velocity=Double0)?
+		//('velocity' velocity=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'velocity'
 		public Keyword getVelocityKeyword_6_0() { return cVelocityKeyword_6_0; }
 		
-		//velocity=Double0
+		//velocity=STRING
 		public Assignment getVelocityAssignment_6_1() { return cVelocityAssignment_6_1; }
 		
-		//Double0
-		public RuleCall getVelocityDouble0ParserRuleCall_6_1_0() { return cVelocityDouble0ParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getVelocitySTRINGTerminalRuleCall_6_1_0() { return cVelocitySTRINGTerminalRuleCall_6_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -2477,10 +2477,10 @@ public class XacroGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    {Limit}
 	//    'Limit'
 	//    '{'
-	//        ('effort' effort=Double0)?
-	//        ('lower' lower=Double0)?
-	//        ('upper' upper=Double0)?
-	//        ('velocity' velocity=Double0)?
+	//        ('effort' effort=STRING)?
+	//        ('lower' lower=STRING)?
+	//        ('upper' upper=STRING)?
+	//        ('velocity' velocity=STRING)?
 	//    '}';
 	public LimitElements getLimitAccess() {
 		return pLimit;

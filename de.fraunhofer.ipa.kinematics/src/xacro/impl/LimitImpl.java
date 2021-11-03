@@ -37,7 +37,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double LOWER_EDEFAULT = 0.0;
+	protected static final String LOWER_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLower() <em>Lower</em>}' attribute.
@@ -47,7 +47,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected double lower = LOWER_EDEFAULT;
+	protected String lower = LOWER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUpper() <em>Upper</em>}' attribute.
@@ -57,7 +57,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double UPPER_EDEFAULT = 0.0;
+	protected static final String UPPER_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUpper() <em>Upper</em>}' attribute.
@@ -67,7 +67,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected double upper = UPPER_EDEFAULT;
+	protected String upper = UPPER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getEffort() <em>Effort</em>}' attribute.
@@ -77,7 +77,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double EFFORT_EDEFAULT = 0.0;
+	protected static final String EFFORT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getEffort() <em>Effort</em>}' attribute.
@@ -87,7 +87,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected double effort = EFFORT_EDEFAULT;
+	protected String effort = EFFORT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getVelocity() <em>Velocity</em>}' attribute.
@@ -97,7 +97,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double VELOCITY_EDEFAULT = 0.0;
+	protected static final String VELOCITY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getVelocity() <em>Velocity</em>}' attribute.
@@ -107,7 +107,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * @generated
 	 * @ordered
 	 */
-	protected double velocity = VELOCITY_EDEFAULT;
+	protected String velocity = VELOCITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +133,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getLower() {
+	public String getLower() {
 		return lower;
 	}
 
@@ -142,8 +142,8 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLower(double newLower) {
-		double oldLower = lower;
+	public void setLower(String newLower) {
+		String oldLower = lower;
 		lower = newLower;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.LIMIT__LOWER, oldLower, lower));
@@ -154,7 +154,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getUpper() {
+	public String getUpper() {
 		return upper;
 	}
 
@@ -163,8 +163,8 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpper(double newUpper) {
-		double oldUpper = upper;
+	public void setUpper(String newUpper) {
+		String oldUpper = upper;
 		upper = newUpper;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.LIMIT__UPPER, oldUpper, upper));
@@ -175,7 +175,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getEffort() {
+	public String getEffort() {
 		return effort;
 	}
 
@@ -184,8 +184,8 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEffort(double newEffort) {
-		double oldEffort = effort;
+	public void setEffort(String newEffort) {
+		String oldEffort = effort;
 		effort = newEffort;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.LIMIT__EFFORT, oldEffort, effort));
@@ -196,7 +196,7 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getVelocity() {
+	public String getVelocity() {
 		return velocity;
 	}
 
@@ -205,8 +205,8 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVelocity(double newVelocity) {
-		double oldVelocity = velocity;
+	public void setVelocity(String newVelocity) {
+		String oldVelocity = velocity;
 		velocity = newVelocity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.LIMIT__VELOCITY, oldVelocity, velocity));
@@ -241,16 +241,16 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case XacroPackage.LIMIT__LOWER:
-				setLower((Double)newValue);
+				setLower((String)newValue);
 				return;
 			case XacroPackage.LIMIT__UPPER:
-				setUpper((Double)newValue);
+				setUpper((String)newValue);
 				return;
 			case XacroPackage.LIMIT__EFFORT:
-				setEffort((Double)newValue);
+				setEffort((String)newValue);
 				return;
 			case XacroPackage.LIMIT__VELOCITY:
-				setVelocity((Double)newValue);
+				setVelocity((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -289,13 +289,13 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case XacroPackage.LIMIT__LOWER:
-				return lower != LOWER_EDEFAULT;
+				return LOWER_EDEFAULT == null ? lower != null : !LOWER_EDEFAULT.equals(lower);
 			case XacroPackage.LIMIT__UPPER:
-				return upper != UPPER_EDEFAULT;
+				return UPPER_EDEFAULT == null ? upper != null : !UPPER_EDEFAULT.equals(upper);
 			case XacroPackage.LIMIT__EFFORT:
-				return effort != EFFORT_EDEFAULT;
+				return EFFORT_EDEFAULT == null ? effort != null : !EFFORT_EDEFAULT.equals(effort);
 			case XacroPackage.LIMIT__VELOCITY:
-				return velocity != VELOCITY_EDEFAULT;
+				return VELOCITY_EDEFAULT == null ? velocity != null : !VELOCITY_EDEFAULT.equals(velocity);
 		}
 		return super.eIsSet(featureID);
 	}
