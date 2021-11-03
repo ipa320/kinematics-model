@@ -3,25 +3,25 @@
  */
 package de.fraunhofer.ipa.kinematics.xacro.generator
 
+import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import xacro.Body
 import xacro.Joint
 import xacro.Link
-import xacro.Body
-import xacro.Robot
+import xacro.LinkRef
 import xacro.Macro
 import xacro.MacroCall
 import xacro.Parameter
+import xacro.ParameterCall
 import xacro.ParameterLink
 import xacro.ParameterPose
 import xacro.ParameterString
-import xacro.ParameterCall
 import xacro.Pose
-import org.eclipse.emf.common.util.EList
-import xacro.LinkRef
-import xacro.ParameterValue
+import xacro.Robot
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -185,9 +185,25 @@ class XacroGenerator extends AbstractGenerator {
 	</xacro:«macroCall.macro.name»>
 	'''
 
+	private def get_include_robots(Robot robot) {
+		var rNames = new ArrayList<String>();
+		for (macroCall : robot.macroCall) {
+			var rName = (macroCall.macro.eContainer() as Robot).name
+			if (!rNames.contains(rName)) {
+				rNames.add(rName);
+			}
+		}
+		return rNames;
+	}
+
 	private def compile(Robot robot) '''
 	<?xml version="«robot.version»"?>
 	<robot xmlns:xacro="http://wiki.ros.org/xacro" name="«robot.name»" >
+
+	«val includes = get_include_robots(robot)»
+		«FOR include : includes»
+		<xacro:include filename="$(find «robot.name»_description)/urdf/«include».xacro" />
+		«ENDFOR»
 
 		«FOR macro : robot.macro»
 		«compile_macro(macro)»
