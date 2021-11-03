@@ -22,6 +22,7 @@ import xacro.ParameterString
 import xacro.Pose
 import xacro.Robot
 import java.util.ArrayList
+import java.util.HashMap
 
 /**
  * Generates code from your model files on save.
@@ -44,12 +45,12 @@ class XacroGenerator extends AbstractGenerator {
 		return prefix;
 	}
 
-	private def compile_parameter_string(ParameterString paramStr) {
+	private def compile_parameter_string(ParameterString paramStr, boolean resolveParam) {
 		return get_prefix(paramStr.ref) + paramStr.value;
 	}
 
 	private def compile_link(Link link)'''
-<link name="«compile_parameter_string(link.name)»" >
+<link name="«compile_parameter_string(link.name, false)»" >
 	«IF link.visual !== null»
 	<visual>
 		«IF link.visual.origin !== null»
@@ -115,7 +116,7 @@ class XacroGenerator extends AbstractGenerator {
 			link_name = "${" + param.name + "}";
 		} else if (paramLink.link !== null) {
 			var link = paramLink.link as Link
-			link_name = compile_parameter_string(link.name);
+			link_name = compile_parameter_string(link.name, false);
 		}
 		return link_name;
 	}
@@ -167,7 +168,7 @@ class XacroGenerator extends AbstractGenerator {
 			if(param.value.value !== null) {
 				paramStr += " " + param.parameter.name + "=\"" + param.value.value + "\"";
 			} else if(param.value instanceof LinkRef) {
-				paramStr += " " + param.parameter.name + "=\"" + compile_parameter_string(((param.value as LinkRef).ref as Link).name) + "\"";
+				paramStr += " " + param.parameter.name + "=\"" + compile_parameter_string(((param.value as LinkRef).ref as Link).name, false) + "\"";
 			}
 		}
 		paramStr += ">";
@@ -180,8 +181,28 @@ class XacroGenerator extends AbstractGenerator {
 		return paramStr;
 	}
 
+	private def resolve_body_elements(MacroCall macroCall) {
+		if (macroCall.macro.body === null) {
+			return;
+		}
+		var paramStrings = new HashMap<String, String>();
+		for (param : macroCall.parameterCall) {
+			if (param.value.value !== null) {
+				paramStrings.put(param.parameter.name, param.value.value);
+			}
+		}
+		for (link : macroCall.macro.body.link) {
+			if (link.name.ref !== null) {
+				var p = link.name.ref;
+				link.name.value = paramStrings.get(p.name) + link.name.value;
+				link.name.ref = null;
+			}
+		}
+	}
+
 	private def compile_macroCall(MacroCall macroCall)'''
 	<xacro:«macroCall.macro.name» «get_params(macroCall.parameterCall)»
+	«resolve_body_elements(macroCall)»
 	</xacro:«macroCall.macro.name»>
 	'''
 
