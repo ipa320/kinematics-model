@@ -44,6 +44,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Link/visual"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Link/collision"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Link/inertial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Link/resolved"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Joint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Joint/name"/>

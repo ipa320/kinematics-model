@@ -474,13 +474,22 @@ public interface XacroPackage extends EPackage {
 	int LINK__INERTIAL = 3;
 
 	/**
+	 * The feature id for the '<em><b>Resolved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__RESOLVED = 4;
+
+	/**
 	 * The number of structural features of the '<em>Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = 4;
+	int LINK_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Link</em>' class.
@@ -1722,6 +1731,17 @@ public interface XacroPackage extends EPackage {
 	EReference getLink_Inertial();
 
 	/**
+	 * Returns the meta object for the attribute '{@link xacro.Link#getResolved <em>Resolved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolved</em>'.
+	 * @see xacro.Link#getResolved()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EAttribute getLink_Resolved();
+
+	/**
 	 * Returns the meta object for class '{@link xacro.Joint <em>Joint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2663,6 +2683,14 @@ public interface XacroPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LINK__INERTIAL = eINSTANCE.getLink_Inertial();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolved</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__RESOLVED = eINSTANCE.getLink_Resolved();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.JointImpl <em>Joint</em>}' class.

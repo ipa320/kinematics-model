@@ -52,6 +52,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inertial" eType="#//Inertial"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolved" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Joint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" lowerBound="1" eType="#//ParameterString"

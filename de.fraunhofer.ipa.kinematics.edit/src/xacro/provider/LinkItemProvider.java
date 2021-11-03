@@ -13,12 +13,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -61,8 +63,31 @@ public class LinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addResolvedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Resolved feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResolvedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Link_resolved_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Link_resolved_feature", "_UI_Link_type"),
+				 XacroPackage.Literals.LINK__RESOLVED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -117,7 +142,10 @@ public class LinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Link_type");
+		String label = ((Link)object).getResolved();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Link_type") :
+			getString("_UI_Link_type") + " " + label;
 	}
 
 
@@ -133,6 +161,9 @@ public class LinkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Link.class)) {
+			case XacroPackage.LINK__RESOLVED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case XacroPackage.LINK__NAME:
 			case XacroPackage.LINK__VISUAL:
 			case XacroPackage.LINK__COLLISION:

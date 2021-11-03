@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link xacro.Link#getVisual <em>Visual</em>}</li>
  *   <li>{@link xacro.Link#getCollision <em>Collision</em>}</li>
  *   <li>{@link xacro.Link#getInertial <em>Inertial</em>}</li>
+ *   <li>{@link xacro.Link#getResolved <em>Resolved</em>}</li>
  * </ul>
  *
  * @see xacro.XacroPackage#getLink()
@@ -111,5 +112,27 @@ public interface Link extends EObject {
 	 * @generated
 	 */
 	void setInertial(Inertial value);
+
+	/**
+	 * Returns the value of the '<em><b>Resolved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resolved</em>' attribute.
+	 * @see #setResolved(String)
+	 * @see xacro.XacroPackage#getLink_Resolved()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String getResolved();
+
+	/**
+	 * Sets the value of the '{@link xacro.Link#getResolved <em>Resolved</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resolved</em>' attribute.
+	 * @see #getResolved()
+	 * @generated
+	 */
+	void setResolved(String value);
 
 } // Link

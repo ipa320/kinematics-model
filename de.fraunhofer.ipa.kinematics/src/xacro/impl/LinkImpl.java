@@ -30,6 +30,7 @@ import xacro.XacroPackage;
  *   <li>{@link xacro.impl.LinkImpl#getVisual <em>Visual</em>}</li>
  *   <li>{@link xacro.impl.LinkImpl#getCollision <em>Collision</em>}</li>
  *   <li>{@link xacro.impl.LinkImpl#getInertial <em>Inertial</em>}</li>
+ *   <li>{@link xacro.impl.LinkImpl#getResolved <em>Resolved</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +75,26 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * @ordered
 	 */
 	protected Inertial inertial;
+
+	/**
+	 * The default value of the '{@link #getResolved() <em>Resolved</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolved()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RESOLVED_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getResolved() <em>Resolved</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolved()
+	 * @generated
+	 * @ordered
+	 */
+	protected String resolved = RESOLVED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -271,6 +292,27 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getResolved() {
+		return resolved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResolved(String newResolved) {
+		String oldResolved = resolved;
+		resolved = newResolved;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.LINK__RESOLVED, oldResolved, resolved));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -302,6 +344,8 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 				return getCollision();
 			case XacroPackage.LINK__INERTIAL:
 				return getInertial();
+			case XacroPackage.LINK__RESOLVED:
+				return getResolved();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -325,6 +369,9 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 				return;
 			case XacroPackage.LINK__INERTIAL:
 				setInertial((Inertial)newValue);
+				return;
+			case XacroPackage.LINK__RESOLVED:
+				setResolved((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -350,6 +397,9 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 			case XacroPackage.LINK__INERTIAL:
 				setInertial((Inertial)null);
 				return;
+			case XacroPackage.LINK__RESOLVED:
+				setResolved(RESOLVED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,8 +420,26 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 				return collision != null;
 			case XacroPackage.LINK__INERTIAL:
 				return inertial != null;
+			case XacroPackage.LINK__RESOLVED:
+				return RESOLVED_EDEFAULT == null ? resolved != null : !RESOLVED_EDEFAULT.equals(resolved);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (resolved: ");
+		result.append(resolved);
+		result.append(')');
+		return result.toString();
 	}
 
 } //LinkImpl
