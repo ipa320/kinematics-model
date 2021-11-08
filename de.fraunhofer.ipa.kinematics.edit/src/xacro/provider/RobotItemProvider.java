@@ -126,6 +126,7 @@ public class RobotItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(XacroPackage.Literals.ROBOT__MACRO);
 			childrenFeatures.add(XacroPackage.Literals.ROBOT__BODY);
+			childrenFeatures.add(XacroPackage.Literals.ROBOT__MACRO_CALL);
 		}
 		return childrenFeatures;
 	}
@@ -187,6 +188,7 @@ public class RobotItemProvider
 				return;
 			case XacroPackage.ROBOT__MACRO:
 			case XacroPackage.ROBOT__BODY:
+			case XacroPackage.ROBOT__MACRO_CALL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -213,6 +215,11 @@ public class RobotItemProvider
 			(createChildParameter
 				(XacroPackage.Literals.ROBOT__BODY,
 				 XacroFactory.eINSTANCE.createBody()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(XacroPackage.Literals.ROBOT__MACRO_CALL,
+				 XacroFactory.eINSTANCE.createMacroCall()));
 	}
 
 	/**

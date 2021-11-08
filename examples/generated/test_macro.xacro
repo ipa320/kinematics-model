@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+	name="test_macro" >
+
+	<xacro:macro name="link_wheel" params="link_name ">
+		<link name="link_name" >
+			<visual>
+				<geometry>
+				</geometry>
+			</visual>	
+			<collision>
+				<geometry>
+				</geometry>
+			</collision>
+			<inertial>
+				<origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 1.5707" />
+			</inertial>
+		</link>
+	</xacro:macro>
+	<xacro:macro name="joint_wheel" params="link_name child_ origin_xyz ">
+		<joint name="link_name" type="continuous">
+			<parent link="link_name" />
+			<child link="link_name" />
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<axis xyz="0.0 1.0 0.0">
+		</joint>
+	</xacro:macro>
+	<xacro:macro name="dummy_macro" params="">
+		<link name="dummy_link" >
+		</link>
+	</xacro:macro>
+	<xacro:link_wheel link_name="hello" />
+	<xacro:joint_wheel link_name="world" child_="world" origin_xyz="world" />
+
+	<link name="world" >
+	</link>
+	<joint name="world_joint" type="fixed">
+		<parent link="link_name" />
+		<child link="link_name" />
+	</joint>
+
+</robot>

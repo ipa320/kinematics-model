@@ -4,25 +4,22 @@ grammar de.fraunhofer.ipa.kinematics.xacro.Xacro with org.eclipse.xtext.common.T
 import "http://www.ipa.fraunhofer.de/xacro" 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.eclipse.org/emf/2003/XMLType" as type
-import "http://www.ipa.fraunhofer.de/urdf" as urdf
 
 Robot returns Robot:
 	{Robot}
 	'Robot'
 	'{'
-		'name' name=EString
-		('version' version=EString)?
+		'name' name=ID
+		('version' version=STRING)?
 		('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
+		('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
 		('body' body=Body)?
 	'}';
-
-EString returns ecore::EString:
-	STRING | ID;
 
 Macro returns Macro:
 	'Macro'
 	'{'
-		'name' name=EString
+		'name' name=ID
 		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
 		('body' body=Body)?
 	'}';
@@ -30,11 +27,51 @@ Macro returns Macro:
 Parameter returns Parameter:
 	{Parameter}
 	'Parameter'
-	name=EString
+	name=ID
 	'{'
-		('default' default=EString)?
-		('value' value=EString)?
+		'type' type=ParameterType
+		('value' value=ParameterValue)?
 	'}';
+
+ParameterValue returns ParameterValue:
+	value=ID | Pose | LinkRef
+;
+
+LinkRef returns LinkRef:
+	ref=[Link|STRING]
+;
+
+ParameterString returns ParameterString:
+	{ParameterString} ref=([Parameter|STRING])? (value=ID)?
+;
+
+ParameterPose returns ParameterPose:
+	ref=[Parameter|STRING] | value=Pose 
+;
+
+ParameterLink returns ParameterLink:
+	param=[Parameter] | link=[Link|STRING]
+;
+
+ParameterType returns ParameterType:
+	ParameterStringType | ParameterLinkRefType | ParameterPoseType
+;
+
+ParameterStringType returns ParameterStringType:
+	{ParameterStringType}
+	'String'
+;
+
+ParameterLinkRefType returns ParameterLinkRefType:
+	{ParameterLinkRefType}
+	'LinkRef'
+;
+
+ParameterPoseType returns ParameterPoseType:
+	{ParameterPoseType}
+	'Pose'
+;
+
 
 Body returns Body:
 	{Body}
@@ -42,122 +79,72 @@ Body returns Body:
 	'{'
 		('link' '{' link+=Link ( "," link+=Link)* '}' )?
 		('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
-		('material' '{' material+=MaterialGlobal ( "," material+=MaterialGlobal)* '}' )?
-		('transmission' '{' transmission+=Transmission ( "," transmission+=Transmission)* '}' )?
 	'}';
 
-Joint returns urdf::Joint:
+MacroCall returns MacroCall:
+	{MacroCall}
+	'MacroCall'
+	'{'
+		'macro' macro=[Macro|STRING]
+		('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
+	'}';
+
+ParameterCall returns ParameterCall:
+	{ParameterCall}
+	'ParameterCall'
+	'{'
+		'parameter' parameter=[Parameter|STRING]
+		'value' value=ParameterValue
+	'}';
+
+Joint returns Joint:
 	'Joint'
 	'{'
-		'name' name=EString
+		'name' name=ParameterString
 		'type' type=JOINTTYPE
-		'parent' parent=[urdf::Link|EString]
-		'child' child=[urdf::Link|EString]
-		('origin' origin=Pose)?
-		('axis' axis=Axis)?
-		('calibration' calibration=Calibration)?
-		('dynamics' dynamics=Dynamics)?
+		'parent' parent=ParameterLink 
+		'child' child=ParameterLink
+		('origin' origin=ParameterPose)?
+		('axis' axis=Vector3)?
 		('limit' limit=Limit)?
-		('safetyController' safetyController=SafetyController)?
-		('mimic' mimic=Mimic)?
 	'}';
 
-Link returns urdf::Link:
+Link returns Link:
 	'Link'
 	'{'
-		'name' name=EString
-		('type' type=EString)?
+		'name' name=ParameterString
 		('inertial' inertial=Inertial)?
 		('visual' visual=Visual)?
 		('collision' collision=Collision)?
 	'}';
 
-MaterialGlobal returns urdf::MaterialGlobal:
-	'MaterialGlobal'
-	'{'
-		'name' name=EString
-		('color' color=Color)?
-		('texture' texture=Texture)?
-	'}';
-	
-Transmission returns urdf::Transmission:
-	'Transmission'
-	'{'
-		('mechanicalReduction' '{' mechanicalReduction+=Double0 ( "," mechanicalReduction+=Double0)* '}' )?
-		'name' name=EString
-		'type' type=EString
-		('leftActuator' '{' leftActuator+=ActuatorTransmission ( "," leftActuator+=ActuatorTransmission)* '}' )?
-		('rightActuator' '{' rightActuator+=ActuatorTransmission ( "," rightActuator+=ActuatorTransmission)* '}' )?
-		('flexJoint' '{' flexJoint+=ActuatorTransmission ( "," flexJoint+=ActuatorTransmission)* '}' )?
-		('rollJoint' '{' rollJoint+=ActuatorTransmission ( "," rollJoint+=ActuatorTransmission)* '}' )?
-		('gapJoint' '{' gapJoint+=GapJointTransmission ( "," gapJoint+=GapJointTransmission)* '}' )?
-		('passiveJoint' '{' passiveJoint+=PassiveJointTransmission ( "," passiveJoint+=PassiveJointTransmission)* '}' )?
-		('useSimulatedGripperJoint' '{' useSimulatedGripperJoint+=UseSimulatedGripperJointType ( "," useSimulatedGripperJoint+=UseSimulatedGripperJointType)* '}' )?
-		('actuator' '{' actuator+=Name ( "," actuator+=Name)* '}' )?
-		('joint' '{' joint+=Name ( "," joint+=Name)* '}' )?
-	'}';
-
-Pose returns urdf::Pose:
-	{urdf::Pose}
+Pose returns Pose:
+	{Pose}
 	'Pose'
 	'{'
-		('rpy' rpy=EString)?
-		('xyz' xyz=EString)?
+		('rpy' rpy=STRING)?
+		('xyz' xyz=STRING)?
 	'}';
 
-Axis returns urdf::Axis:
-	{urdf::Axis}
-	'Axis'
+Vector3 returns Vector3:
+	{Vector3}
+	'Vector3'
 	'{'
-		('xyz' xyz=EString)?
+		('xyz' xyz=STRING)?
 	'}';
 
-Calibration returns urdf::Calibration:
-	{urdf::Calibration}
-	'Calibration'
-	'{'
-		('falling' falling=Double0)?
-		('referencePosition' referencePosition=Double0)?
-		('rising' rising=Double0)?
-	'}';
-
-Dynamics returns urdf::Dynamics:
-	{urdf::Dynamics}
-	'Dynamics'
-	'{'
-		('damping' damping=Double0)?
-		('friction' friction=Double0)?
-	'}';
-
-Limit returns urdf::Limit:
-	{urdf::Limit}
+Limit returns Limit:
+	{Limit}
 	'Limit'
 	'{'
-		('effort' effort=Double0)?
-		('lower' lower=Double0)?
-		('upper' upper=Double0)?
-		('velocity' velocity=Double0)?
+		('effort' effort=STRING)?
+		('lower' lower=STRING)?
+		('upper' upper=STRING)?
+		('velocity' velocity=STRING)?
 	'}';
 
-SafetyController returns urdf::SafetyController:
-	'SafetyController'
-	'{'
-		('kPosition' kPosition=Double0)?
-		'kVelocity' kVelocity=Double0
-		('softLowerLimit' softLowerLimit=Double0)?
-		('softUpperLimit' softUpperLimit=Double0)?
-	'}';
-
-Mimic returns urdf::Mimic:
-	'Mimic'
-	'{'
-		'joint' joint=EString
-		('multiplier' multiplier=Double0)?
-		('offset' offset=Double0)?
-	'}';
-
-Inertial returns urdf::Inertial:
-	{urdf::Inertial}
+Inertial returns Inertial:
+	{Inertial}
 	'Inertial'
 	'{'
 		('origin' origin=Pose)?
@@ -165,32 +152,29 @@ Inertial returns urdf::Inertial:
 		('inertia' inertia=Inertia)?
 	'}';
 
-Visual returns urdf::Visual:
+Visual returns Visual:
 	'Visual'
 	'{'
 		('origin' origin=Pose)?
 		'geometry' geometry=Geometry
-		('material' material=Material)?
 	'}';
 
-Collision returns urdf::Collision:
+Collision returns Collision:
 	'Collision'
 	'{'
-		('name' name=EString)?
 		('origin' origin=Pose)?
 		'geometry' geometry=Geometry
-		('verbose' verbose=Verbose)?
 	'}';
 
-Mass returns urdf::Mass:
-	{urdf::Mass}
+Mass returns Mass:
+	{Mass}
 	'Mass'
 	'{'
 		('value' value=Double0)?
 	'}';
 
-Inertia returns urdf::Inertia:
-	{urdf::Inertia}
+Inertia returns Inertia:
+	{Inertia}
 	'Inertia'
 	'{'
 		('ixx' ixx=Double0)?
@@ -201,8 +185,8 @@ Inertia returns urdf::Inertia:
 		('izz' izz=Double0)?
 	'}';
 
-Geometry returns urdf::Geometry:
-	{urdf::Geometry}
+Geometry returns Geometry:
+	{Geometry}
 	'Geometry'
 	'{'
 		('box' box=Box)?
@@ -211,107 +195,39 @@ Geometry returns urdf::Geometry:
 		('mesh' mesh=Mesh)?
 	'}';
 
-Material returns urdf::Material:
-	{urdf::Material}
-	'Material'
-	'{'
-		('name' name=EString)?
-		('color' color=Color)?
-		('texture' texture=Texture)?
-	'}';
-
-Box returns urdf::Box:
-	{urdf::Box}
+Box returns Box:
+	{Box}
 	'Box'
 	'{'
-		('size' size=EString)?
+		('size' size=ParameterString)?
 	'}';
 
-Cylinder returns urdf::Cylinder:
+Cylinder returns Cylinder:
 	'Cylinder'
 	'{'
 		'length' length=Double0
 		'radius' radius=Double0
 	'}';
 
-Sphere returns urdf::Sphere:
+Sphere returns Sphere:
 	'Sphere'
 	'{'
 		'radius' radius=Double0
 	'}';
 
-Mesh returns urdf::Mesh:
+Mesh returns Mesh:
 	'Mesh'
 	'{'
-		'filename' filename=EString
-		('scale' scale=EString)?
+		'filename' filename=STRING
+		('scale' scale=Double0)?
 	'}';
 
 AnyURI returns type::AnyURI:
 	'AnyURI' /* TODO: implement this rule and an appropriate IValueConverter */;
 
-Color returns urdf::Color:
-	{urdf::Color}
-	'Color'
-	'{'
-		('rgba' rgba=EString)?
-	'}';
-
-Texture returns urdf::Texture:
-	{urdf::Texture}
-	'Texture'
-	'{'
-		('filename' filename=AnyURI)?
-	'}';
-
-Verbose returns urdf::Verbose:
-	{urdf::Verbose}
-	'Verbose'
-	'{'
-		('value' value=EString)?
-	'}';
-	
-ActuatorTransmission returns urdf::ActuatorTransmission:
-	'ActuatorTransmission'
-	'{'
-		'mechanicalReduction' mechanicalReduction=Double0
-		'name' name=EString
-	'}';
-
-GapJointTransmission returns urdf::GapJointTransmission:
-	'GapJointTransmission'
-	'{'
-		'a' a=Double0
-		'b' b=Double0
-		'gearRatio' gearRatio=Double0
-		'h' h=Double0
-		'l0' l0=Double0
-		'mechanicalReduction' mechanicalReduction=Double0
-		'name' name=EString
-		'phi0' phi0=Double0
-		'r' r=Double0
-		'screwReduction' screwReduction=Double0
-		't0' t0=Double0
-		'theta0' theta0=Double0
-	'}';
-
-PassiveJointTransmission returns urdf::PassiveJointTransmission:
-	'PassiveJointTransmission'
-	'{'
-		'name' name=EString
-	'}';
-	
-UseSimulatedGripperJointType returns urdf::UseSimulatedGripperJointType:
-	{urdf::UseSimulatedGripperJointType}
-	'UseSimulatedGripperJointType'
-	;
-	
-Name returns urdf::Name:
-	{urdf::Name}
-	'Name'
-	'{'
-		('name' name=EString)?
-	'}';
+EString returns ecore::EString:
+	STRING
+;
 
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307
 terminal fragment DIGIT: '0'..'9';

@@ -19,6 +19,10 @@ class XacroFormatter extends AbstractFormatter2 {
 		for (macro : robot.macro) {
 			macro.format
 		}
+		for (macroCall : robot.macroCall) {
+			macroCall.format
+		}
+		robot.body.format
 	}
 
 	def dispatch void format(Macro macro, extension IFormattableDocument document) {
@@ -29,5 +33,5 @@ class XacroFormatter extends AbstractFormatter2 {
 		macro.body.format
 	}
 	
-	// TODO: implement for Body, Joint, Link, MaterialGlobal, Inertial, Visual, Collision, Geometry, Material
+	// TODO: implement for Parameter, ParameterPose, Body, MacroCall, ParameterCall, Joint, Link, Inertial, Visual, Collision, Geometry, Box
 }
