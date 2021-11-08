@@ -49,17 +49,22 @@ Robot { name axia80_adapter_plates
 				Parameter origin_joint { type Pose } }
 			body Body {
 				link {
-					Link { name axia80_adapter_toolside_sensor },
+					Link { name axia80_adapter_toolside_sensor
+						visual Visual {
+							origin Pose { rpy "${pi} 0 ${pi}" xyz "0 0 0" }
+							geometry Geometry {
+								mesh Mesh {
+									filename "package://schrauber_description/mesh/Aufnahme_FT_Sensor_Werkzeugseite_origin.STL" } } } },
 					Link { name axia80_adapter_toolside_changer_sensor } }
 				joint {
 					Joint { name axia80_adapter_toolside_sensor_joint
 						type fixed
 						parent parent_link
-						child "axia80_adapter_toolside_changer_sensor"
+						child "axia80_adapter_toolside_sensor"
 						origin "origin_joint" },
 					Joint { name axia80_adapter_toolside_sensor_changer_joint
 						type fixed
 						parent "axia80_adapter_toolside_sensor"
-						child "axia80_adapter_robotside_changer_sensor"
+						child "axia80_adapter_toolside_changer_sensor"
 						origin Pose { rpy "0 0 0" xyz "0 0 0.01" } } } } } }
 }

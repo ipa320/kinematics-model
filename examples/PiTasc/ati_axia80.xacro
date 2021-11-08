@@ -9,7 +9,7 @@ Robot { name ati_axia80
 				link {
 					Link { name "prefix"robotside
 						visual Visual {
-							origin Pose { rpy "0 0 0" xyz "0 ${pi} 0" }
+							origin Pose { rpy "0 ${pi} 0" xyz "0 0 0" }
 							geometry Geometry {
 								mesh Mesh {
 									filename "package://ati_force_sensor/urdf/mesh/ATI-9105-Axia80-M20.stl" } } } },
@@ -25,7 +25,7 @@ Robot { name ati_axia80
 						type fixed
 						parent "prefixrobotside"
 						child "prefixtoolside"
-						origin Pose { rpy "0 0 0.0254" xyz "0 0 0" } },
+						origin Pose { rpy "0 0 0" xyz "0 0 0.0254" } },
 					Joint { name "prefix"measurement_joint
 						type fixed
 						parent"prefixtoolside"
