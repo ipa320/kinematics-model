@@ -140,7 +140,7 @@ class XacroGenerator extends AbstractGenerator {
 	«ELSE»
 	<parent link="«get_link_name(joint.parent)»" />
 	«ENDIF»
-	«IF joint.child.link.resolved !== null»
+	«IF joint.child.link !== null &&  joint.child.link.resolved !== null»
 	<child link="«joint.child.link.resolved»" />
 	«ELSE»
 	<child link="«get_link_name(joint.child)»" />
