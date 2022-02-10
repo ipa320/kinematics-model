@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: de.fraunhofer.ipa.kinematics.xtext
+Bundle-ManifestVersion: 2
+Bundle-Name: de.fraunhofer.ipa.kinematics.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.fraunhofer.ipa.kinematics.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.fraunhofer.ipa.kinematics,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: de.fraunhofer.ipa.kinematics.formatting2,
+ de.fraunhofer.ipa.kinematics.validation,
+ de.fraunhofer.ipa.kinematics.parser.antlr.internal,
+ de.fraunhofer.ipa.kinematics.generator,
+ de.fraunhofer.ipa.kinematics,
+ de.fraunhofer.ipa.kinematics.services,
+ de.fraunhofer.ipa.kinematics.parser.antlr,
+ de.fraunhofer.ipa.kinematics.scoping,
+ de.fraunhofer.ipa.kinematics.serializer
+Import-Package: org.apache.log4j
