@@ -3,21 +3,6 @@
  */
 package de.fraunhofer.ipa.kinematics.validation;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.validation.Check;
-
-import xacro.Joint;
-import xacro.Link;
-import xacro.Macro;
-import xacro.MacroCall;
-import xacro.Parameter;
-import xacro.ParameterCall;
-import xacro.Robot;
 
 /**
  * This class contains custom validation rules. 
@@ -26,98 +11,15 @@ import xacro.Robot;
  */
 public class KinematicsValidator extends AbstractKinematicsValidator {
 	
-	public static final String INVALID_TYPE = "invalidType";
-
-	@Check
-	public void checkJointType(Joint joint) {
-		List<String> joint_types = Arrays.asList("revolute","continuous","prismatic","fixed","floating","planar");
-		if (!joint_types.contains(joint.getType())) {
-			error("Joint has an invalid type, only the following types are allowed: "+joint_types.toString(), null, INVALID_TYPE);
-		}
-	}
+//	public static final String INVALID_NAME = "invalidName";
+//
+//	@Check
+//	public void checkGreetingStartsWithCapital(Greeting greeting) {
+//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
+//			warning("Name should start with a capital",
+//					KinematicsPackage.Literals.GREETING__NAME,
+//					INVALID_NAME);
+//		}
+//	}
 	
-	// Checks if the parameter being set belongs to the corresponding macro
-	@Check
-	public void checkParameterCallParentMacro(ParameterCall parameter) {
-		Macro mCall = (Macro) parameter.eContainer().eCrossReferences().get(0);
-
-		if(parameter.eCrossReferences().size() > 0) {
-			EObject macroParam = parameter.eCrossReferences().get(0);
-			if (macroParam instanceof Parameter) {
-				Macro m = (Macro) macroParam.eContainer();
-
-				if (m != mCall) {
-					error("Parameter belongs to " + m.getName() + " macro", null);
-				}
-			}
-		}
-	}
-
-	// checks if all the parameters defined in the macro have nonnull values during instantiation
-	@Check
-	public void checkAllParametersSet(MacroCall macro) {
-		EList<Parameter> macroParams = (((Macro) macro.eCrossReferences().get(0)).getParameter());
-		for (Iterator<Parameter> iterator = macroParams.iterator(); iterator.hasNext();) {
-			Parameter parameter = (Parameter) iterator.next();
-			if (parameter.getValue() == null) {
-
-				boolean isSet = false;
-				for (Iterator<ParameterCall> iterator2 = macro.getParameterCall().iterator(); iterator2.hasNext();) {
-					EList<EObject> ref = iterator2.next().eCrossReferences();
-					if (ref.size() > 0) {
-						Parameter p = (Parameter) ref.get(0);
-						if (p == parameter) {
-							isSet = true;
-							break;
-						}
-					}
-				}
-				if (!isSet) {
-					error("Parameter " + parameter.getName() + " is not set.", null);
-				}
-			}
-		}
-	}
-
-	boolean checkMacroInstantiated(Link link) {
-		EObject obj = link.eContainer().eContainer();
-		if (obj instanceof Macro) {
-			EList<MacroCall> macroCalls = ((Robot)obj.eContainer()).getMacroCall();
-
-			boolean isInstantiated = false;
-			for (Iterator<MacroCall> iterator = macroCalls.iterator(); iterator.hasNext();) {
-				MacroCall macroCall = (MacroCall) iterator.next();
-				if (macroCall.eCrossReferences().size() > 0 ) {
-					Macro m = (Macro) macroCall.eCrossReferences().get(0);
-					if (m == obj) {
-						isInstantiated = true;
-						break;
-					}
-				}
-			}
-			return isInstantiated;
-		}
-		return true;
-	}
-
-	// check if link is defined in macro, that the macro is instantiated
-	@Check
-	public void checkLinkInstantiated(Joint joint) {
-		for (Iterator<?> iterator = joint.eCrossReferences().iterator(); iterator.hasNext();) {
-			EObject obj = (EObject) iterator.next();
-			if (obj instanceof Link) {
-				if (joint.eCrossReferences().size() > 1) {
-					Link parent = (Link) joint.eCrossReferences().get(0);
-					Link child = (Link) joint.eCrossReferences().get(1);
-
-					if (!checkMacroInstantiated(parent)) {
-						error("Parent link " + parent.getName() + " belongs to an uninstantiated macro", null);
-					}
-					if (!checkMacroInstantiated(child)) {
-						error("Child link " + child.getName() + " belongs to an uninstantiated macro", null);
-					}
-				}
-			}
-		}
-	}
 }

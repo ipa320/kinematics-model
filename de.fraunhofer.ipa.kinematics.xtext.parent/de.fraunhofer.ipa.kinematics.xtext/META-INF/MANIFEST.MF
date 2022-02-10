@@ -22,6 +22,5 @@ Export-Package: de.fraunhofer.ipa.kinematics.formatting2,
  de.fraunhofer.ipa.kinematics.services,
  de.fraunhofer.ipa.kinematics.parser.antlr,
  de.fraunhofer.ipa.kinematics.scoping,
- de.fraunhofer.ipa.kinematics.serializer,
- de.fraunhofer.ipa.kinematics.parser.antlr.lexer
+ de.fraunhofer.ipa.kinematics.serializer
 Import-Package: org.apache.log4j

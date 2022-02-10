@@ -3,14 +3,9 @@
  */
 package de.fraunhofer.ipa.kinematics.ide;
 
-import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider;
 
 /**
  * Use this class to register ide components.
  */
 public class KinematicsIdeModule extends AbstractKinematicsIdeModule {
-
-	public Class<? extends IdeContentProposalProvider> bindIdeContentProposalProvider() {
-		return KinematicsContentProposalProvider.class;
-	}
 }

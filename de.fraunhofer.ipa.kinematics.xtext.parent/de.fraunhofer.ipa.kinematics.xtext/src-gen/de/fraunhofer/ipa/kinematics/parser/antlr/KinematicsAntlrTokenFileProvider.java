@@ -11,6 +11,6 @@ public class KinematicsAntlrTokenFileProvider implements IAntlrTokenFileProvider
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-		return classLoader.getResourceAsStream("de/fraunhofer/ipa/kinematics/parser/antlr/internal/InternalKinematicsParser.tokens");
+		return classLoader.getResourceAsStream("de/fraunhofer/ipa/kinematics/parser/antlr/internal/InternalKinematics.tokens");
 	}
 }

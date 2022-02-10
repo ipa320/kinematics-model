@@ -156,7 +156,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Body returns Body
 	 *
 	 * Constraint:
-	 *     (link+=Link* joint+=Joint*)
+	 *     ((link+=Link link+=Link*)? (joint+=Joint joint+=Joint*)?)
 	 */
 	protected void sequence_Body(ISerializationContext context, Body semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -168,16 +168,10 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Box returns Box
 	 *
 	 * Constraint:
-	 *     size=ParameterString
+	 *     size=ParameterString?
 	 */
 	protected void sequence_Box(ISerializationContext context, Box semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, XacroPackage.Literals.BOX__SIZE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.BOX__SIZE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBoxAccess().getSizeParameterStringParserRuleCall_3_0(), semanticObject.getSize());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -208,8 +202,8 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.CYLINDER__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_2_0(), semanticObject.getLength());
-		feeder.accept(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_4_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_3_0(), semanticObject.getLength());
+		feeder.accept(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_5_0(), semanticObject.getRadius());
 		feeder.finish();
 	}
 	
@@ -267,7 +261,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         type=JOINTTYPE 
 	 *         parent=ParameterLink 
 	 *         child=ParameterLink 
-	 *         origin=ParameterPose 
+	 *         origin=ParameterPose? 
 	 *         axis=Vector3? 
 	 *         limit=Limit?
 	 *     )
@@ -325,7 +319,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     MacroCall returns MacroCall
 	 *
 	 * Constraint:
-	 *     (macro=[Macro|STRING] parameterCall+=ParameterCall*)
+	 *     (macro=[Macro|STRING] (parameterCall+=ParameterCall parameterCall+=ParameterCall*)?)
 	 */
 	protected void sequence_MacroCall(ISerializationContext context, MacroCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -337,7 +331,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Macro returns Macro
 	 *
 	 * Constraint:
-	 *     (name=ID parameter+=Parameter* body=Body?)
+	 *     (name=ID (parameter+=Parameter parameter+=Parameter*)? body=Body?)
 	 */
 	protected void sequence_Macro(ISerializationContext context, Macro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -349,16 +343,10 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Mass returns Mass
 	 *
 	 * Constraint:
-	 *     value=Double0
+	 *     value=Double0?
 	 */
 	protected void sequence_Mass(ISerializationContext context, Mass semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, XacroPackage.Literals.MASS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.MASS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMassAccess().getValueDouble0ParserRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -389,7 +377,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.PARAMETER_CALL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParameterCallAccess().getParameterParameterSTRINGTerminalRuleCall_2_0_1(), semanticObject.eGet(XacroPackage.Literals.PARAMETER_CALL__PARAMETER, false));
+		feeder.accept(grammarAccess.getParameterCallAccess().getParameterParameterSTRINGTerminalRuleCall_4_0_1(), semanticObject.eGet(XacroPackage.Literals.PARAMETER_CALL__PARAMETER, false));
 		feeder.accept(grammarAccess.getParameterCallAccess().getValueParameterValueParserRuleCall_6_0(), semanticObject.getValue());
 		feeder.finish();
 	}
@@ -438,7 +426,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ParameterPose returns ParameterPose
 	 *
 	 * Constraint:
-	 *     (ref=[Parameter|ID] | value=Pose)
+	 *     (ref=[Parameter|STRING] | value=Pose)
 	 */
 	protected void sequence_ParameterPose(ISerializationContext context, ParameterPose semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -518,7 +506,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=ID version=STRING? macro+=Macro* macroCall+=MacroCall* body=Body?)
+	 *     (name=ID version=STRING? (macro+=Macro macro+=Macro*)? (macroCall+=MacroCall macroCall+=MacroCall*)? body=Body?)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -538,7 +526,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.SPHERE__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_2_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_3_0(), semanticObject.getRadius());
 		feeder.finish();
 	}
 	
