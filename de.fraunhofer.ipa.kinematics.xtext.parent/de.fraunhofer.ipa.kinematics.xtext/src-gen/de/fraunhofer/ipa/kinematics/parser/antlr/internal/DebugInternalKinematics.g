@@ -5,66 +5,76 @@ grammar DebugInternalKinematics;
 
 // Rule Robot
 ruleRobot:
-	'robot:'
-	RULE_BEGIN
-	'name:'
+	'Robot'
+	'{'
+	'name'
 	RULE_ID
 	(
-		'version:'
+		'version'
 		RULE_STRING
 	)?
 	(
-		'macros:'
+		'macro'
+		'{'
 		ruleMacro
-		*
+		(
+			','
+			ruleMacro
+		)*
+		'}'
 	)?
 	(
-		'macroCalls:'
+		'macroCall'
+		'{'
 		ruleMacroCall
-		*
+		(
+			','
+			ruleMacroCall
+		)*
+		'}'
 	)?
 	(
-		'body:'
-		RULE_BEGIN
+		'body'
 		ruleBody
-		RULE_END
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Macro
 ruleMacro:
-	'-'
+	'Macro'
+	'{'
+	'name'
 	RULE_ID
-	':'
-	RULE_BEGIN
 	(
-		'parameters:'
+		'parameter'
+		'{'
 		ruleParameter
-		*
+		(
+			','
+			ruleParameter
+		)*
+		'}'
 	)?
 	(
-		'body:'
-		RULE_BEGIN
+		'body'
 		ruleBody
-		RULE_END
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Parameter
 ruleParameter:
-	'-'
+	'Parameter'
 	RULE_ID
-	':'
-	RULE_BEGIN
-	'type:'
+	'{'
+	'type'
 	ruleParameterType
 	(
-		'default'
+		'value'
 		ruleParameterValue
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule ParameterValue
@@ -94,7 +104,7 @@ ruleParameterString:
 // Rule ParameterPose
 ruleParameterPose:
 	(
-		RULE_ID
+		RULE_STRING
 		    |
 		rulePose
 	)
@@ -137,269 +147,310 @@ ruleParameterPoseType:
 
 // Rule Body
 ruleBody:
+	'Body'
+	'{'
 	(
-		'links:'
+		'link'
+		'{'
 		ruleLink
-		*
+		(
+			','
+			ruleLink
+		)*
+		'}'
 	)?
 	(
-		'joints:'
+		'joint'
+		'{'
 		ruleJoint
-		*
+		(
+			','
+			ruleJoint
+		)*
+		'}'
 	)?
+	'}'
 ;
 
 // Rule MacroCall
 ruleMacroCall:
-	'-'
+	'MacroCall'
+	'{'
+	'macro'
 	RULE_STRING
-	':'
-	RULE_BEGIN
-	ruleParameterCall
-	*
-	RULE_END
+	(
+		'parameter'
+		'{'
+		ruleParameterCall
+		(
+			','
+			ruleParameterCall
+		)*
+		'}'
+	)?
+	'}'
 ;
 
 // Rule ParameterCall
 ruleParameterCall:
-	'-'
+	'ParameterCall'
+	'{'
+	'parameter'
 	RULE_STRING
-	':'
-	RULE_BEGIN
 	'value'
 	ruleParameterValue
-	RULE_END
+	'}'
 ;
 
 // Rule Joint
 ruleJoint:
-	'-'
+	'Joint'
+	'{'
+	'name'
 	ruleParameterString
-	':'
-	RULE_BEGIN
-	'type:'
+	'type'
 	RULE_JOINTTYPE
-	'parent:'
+	'parent'
 	ruleParameterLink
-	'child:'
+	'child'
 	ruleParameterLink
-	'origin:'
-	ruleParameterPose
 	(
-		'axis:'
+		'origin'
+		ruleParameterPose
+	)?
+	(
+		'axis'
 		ruleVector3
 	)?
 	(
-		'limit:'
+		'limit'
 		ruleLimit
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Link
 ruleLink:
-	'-'
+	'Link'
+	'{'
+	'name'
 	ruleParameterString
 	(
-		':'
-		RULE_BEGIN
-		(
-			'inertial:'
-			ruleInertial
-		)?
-		(
-			'visual:'
-			ruleVisual
-		)?
-		(
-			'collision:'
-			ruleCollision
-		)?
-		RULE_END
+		'inertial'
+		ruleInertial
 	)?
+	(
+		'visual'
+		ruleVisual
+	)?
+	(
+		'collision'
+		ruleCollision
+	)?
+	'}'
 ;
 
 // Rule Pose
 rulePose:
-	RULE_BEGIN
+	'Pose'
+	'{'
 	(
-		'rpy:'
+		'rpy'
 		RULE_STRING
 	)?
 	(
-		'xyz:'
+		'xyz'
 		RULE_STRING
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Vector3
 ruleVector3:
-	RULE_BEGIN
+	'Vector3'
+	'{'
 	(
-		'xyz:'
+		'xyz'
 		RULE_STRING
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Limit
 ruleLimit:
-	RULE_BEGIN
+	'Limit'
+	'{'
 	(
-		'effort:'
+		'effort'
 		RULE_STRING
 	)?
 	(
-		'lower:'
+		'lower'
 		RULE_STRING
 	)?
 	(
-		'upper:'
+		'upper'
 		RULE_STRING
 	)?
 	(
-		'velocity:'
+		'velocity'
 		RULE_STRING
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Inertial
 ruleInertial:
-	RULE_BEGIN
+	'Inertial'
+	'{'
 	(
-		'origin:'
+		'origin'
 		rulePose
 	)?
 	(
-		'mass:'
+		'mass'
 		ruleMass
 	)?
 	(
-		'inertia:'
+		'inertia'
 		ruleInertia
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Visual
 ruleVisual:
-	RULE_BEGIN
+	'Visual'
+	'{'
 	(
-		'origin:'
+		'origin'
 		rulePose
 	)?
-	'geometry:'
+	'geometry'
 	ruleGeometry
-	RULE_END
+	'}'
 ;
 
 // Rule Collision
 ruleCollision:
-	RULE_BEGIN
+	'Collision'
+	'{'
 	(
-		'origin:'
+		'origin'
 		rulePose
 	)?
-	'geometry:'
+	'geometry'
 	ruleGeometry
-	RULE_END
+	'}'
 ;
 
 // Rule Mass
 ruleMass:
-	ruleDouble0
+	'Mass'
+	'{'
+	(
+		'value'
+		ruleDouble0
+	)?
+	'}'
 ;
 
 // Rule Inertia
 ruleInertia:
-	RULE_BEGIN
+	'Inertia'
+	'{'
 	(
-		'ixx:'
+		'ixx'
 		ruleDouble0
 	)?
 	(
-		'ixy:'
+		'ixy'
 		ruleDouble0
 	)?
 	(
-		'ixz:'
+		'ixz'
 		ruleDouble0
 	)?
 	(
-		'iyy:'
+		'iyy'
 		ruleDouble0
 	)?
 	(
-		'iyz:'
+		'iyz'
 		ruleDouble0
 	)?
 	(
-		'izz:'
+		'izz'
 		ruleDouble0
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Geometry
 ruleGeometry:
-	RULE_BEGIN
+	'Geometry'
+	'{'
 	(
-		'box:'
+		'box'
 		ruleBox
 	)?
 	(
-		'cylinder:'
+		'cylinder'
 		ruleCylinder
 	)?
 	(
-		'sphere:'
+		'sphere'
 		ruleSphere
 	)?
 	(
-		'mesh:'
+		'mesh'
 		ruleMesh
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Box
 ruleBox:
-	RULE_BEGIN
-	'size'
-	ruleParameterString
-	RULE_END
+	'Box'
+	'{'
+	(
+		'size'
+		ruleParameterString
+	)?
+	'}'
 ;
 
 // Rule Cylinder
 ruleCylinder:
-	RULE_BEGIN
-	'length:'
+	'Cylinder'
+	'{'
+	'length'
 	ruleDouble0
-	'radius:'
+	'radius'
 	ruleDouble0
-	RULE_END
+	'}'
 ;
 
 // Rule Sphere
 ruleSphere:
-	RULE_BEGIN
-	'radius:'
+	'Sphere'
+	'{'
+	'radius'
 	ruleDouble0
-	RULE_END
+	'}'
 ;
 
 // Rule Mesh
 ruleMesh:
-	RULE_BEGIN
-	'filename:'
+	'Mesh'
+	'{'
+	'filename'
 	RULE_STRING
 	(
-		'scale:'
+		'scale'
 		ruleDouble0
 	)?
-	RULE_END
+	'}'
 ;
 
 // Rule Double0
@@ -417,12 +468,6 @@ RULE_DECINT : ('0'|'1'..'9' RULE_DIGIT*|'-' '0'..'9' RULE_DIGIT*);
 
 RULE_JOINTTYPE : ('revolute'|'continuous'|'prismatic'|'fixed'|'floating'|'planar');
 
-fragment RULE_BEGIN : ;
-
-fragment RULE_END : ;
-
-RULE_SL_COMMENT : '#' ~(('\n'|'\r'))* {skip();};
-
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
@@ -430,6 +475,8 @@ RULE_INT : ('0'..'9')+;
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/' {skip();};
+
+RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')? {skip();};
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+ {skip();};
 
