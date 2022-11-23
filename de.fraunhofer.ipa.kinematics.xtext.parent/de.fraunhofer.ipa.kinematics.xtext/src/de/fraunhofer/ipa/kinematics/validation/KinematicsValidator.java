@@ -11,8 +11,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 
-import urdf.Joint;
-import urdf.Link;
+import xacro.Joint;
+import xacro.Link;
 import xacro.Macro;
 import xacro.MacroCall;
 import xacro.Parameter;

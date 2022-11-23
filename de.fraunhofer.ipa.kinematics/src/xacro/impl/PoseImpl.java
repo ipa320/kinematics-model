@@ -3,8 +3,11 @@
 package xacro.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import xacro.Pose;
 import xacro.XacroPackage;
 
@@ -87,27 +90,6 @@ public class PoseImpl extends ParameterValueImpl implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getXyz() {
-		return xyz;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setXyz(String newXyz) {
-		String oldXyz = xyz;
-		xyz = newXyz;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__XYZ, oldXyz, xyz));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getRpy() {
 		return rpy;
 	}
@@ -122,6 +104,27 @@ public class PoseImpl extends ParameterValueImpl implements Pose {
 		rpy = newRpy;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__RPY, oldRpy, rpy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getXyz() {
+		return xyz;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setXyz(String newXyz) {
+		String oldXyz = xyz;
+		xyz = newXyz;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.POSE__XYZ, oldXyz, xyz));
 	}
 
 	/**

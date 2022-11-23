@@ -3,11 +3,11 @@
 package xacro.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -75,6 +75,44 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Parameter getParameter() {
+		if (parameter != null && parameter.eIsProxy()) {
+			InternalEObject oldParameter = (InternalEObject)parameter;
+			parameter = (Parameter)eResolveProxy(oldParameter);
+			if (parameter != oldParameter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XacroPackage.PARAMETER_CALL__PARAMETER, oldParameter, parameter));
+			}
+		}
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter basicGetParameter() {
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameter(Parameter newParameter) {
+		Parameter oldParameter = parameter;
+		parameter = newParameter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_CALL__PARAMETER, oldParameter, parameter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ParameterValue getValue() {
 		return value;
 	}
@@ -125,44 +163,6 @@ public class ParameterCallImpl extends MinimalEObjectImpl.Container implements P
 				return basicSetValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parameter getParameter() {
-		if (parameter != null && parameter.eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject)parameter;
-			parameter = (Parameter)eResolveProxy(oldParameter);
-			if (parameter != oldParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XacroPackage.PARAMETER_CALL__PARAMETER, oldParameter, parameter));
-			}
-		}
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parameter basicGetParameter() {
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParameter(Parameter newParameter) {
-		Parameter oldParameter = parameter;
-		parameter = newParameter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER_CALL__PARAMETER, oldParameter, parameter));
 	}
 
 	/**

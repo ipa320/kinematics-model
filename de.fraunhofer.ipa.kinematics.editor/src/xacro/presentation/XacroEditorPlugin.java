@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
-import urdf.provider.UrdfEditPlugin;
 
 /**
  * This is the central singleton for the Xacro editor plugin.
@@ -45,7 +44,6 @@ public final class XacroEditorPlugin extends EMFPlugin {
 		super
 			(new ResourceLocator [] {
 				EcoreEditPlugin.INSTANCE,
-				UrdfEditPlugin.INSTANCE,
 			});
 	}
 

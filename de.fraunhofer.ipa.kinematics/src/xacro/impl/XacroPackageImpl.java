@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-import urdf.UrdfPackage;
+
 
 import xacro.Body;
 import xacro.Box;
@@ -312,7 +312,6 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 
 		// Initialize simple dependencies
 		EcorePackage.eINSTANCE.eClass();
-		UrdfPackage.eINSTANCE.eClass();
 		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -523,8 +522,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterCall_Value() {
-		return (EReference)parameterCallEClass.getEStructuralFeatures().get(1);
+	public EReference getParameterCall_Parameter() {
+		return (EReference)parameterCallEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -532,8 +531,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterCall_Parameter() {
-		return (EReference)parameterCallEClass.getEStructuralFeatures().get(0);
+	public EReference getParameterCall_Value() {
+		return (EReference)parameterCallEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -703,8 +702,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPose_Xyz() {
-		return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPose_Rpy() {
+		return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -712,8 +711,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPose_Rpy() {
-		return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPose_Xyz() {
+		return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
