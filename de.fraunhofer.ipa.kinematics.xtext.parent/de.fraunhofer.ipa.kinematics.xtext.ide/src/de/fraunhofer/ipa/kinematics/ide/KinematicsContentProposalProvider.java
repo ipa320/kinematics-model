@@ -8,16 +8,12 @@ import org.eclipse.xtext.ide.editor.contentassist.IIdeContentProposalAcceptor;
 import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 
 import de.fraunhofer.ipa.kinematics.services.KinematicsGrammarAccess;
 import xacro.XacroPackage;
-import xacro.impl.ParameterImpl;
-import xacro.impl.ParameterLinkRefTypeImpl;
-import xacro.impl.ParameterStringTypeImpl;
 
 public class KinematicsContentProposalProvider extends IdeContentProposalProvider {
 
@@ -44,7 +40,7 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 	protected void _createProposals(Assignment assignment, ContentAssistContext context,
 			IIdeContentProposalAcceptor acceptor) {
 		
-		if (assignment == kinematicsGrammarAccess.getParameterCallAccess().getParameterAssignment_2()) {
+		if (assignment == kinematicsGrammarAccess.getParameterCallAccess().getParameterAssignment_4()) {
 			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
 					XacroPackage.Literals.PARAMETER_CALL__PARAMETER);
 
@@ -54,7 +50,7 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 				ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
 				acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
 			}
-		} else if (assignment == kinematicsGrammarAccess.getMacroCallAccess().getMacroAssignment_2()) {
+		} else if (assignment == kinematicsGrammarAccess.getMacroCallAccess().getMacroAssignment_4()) {
 			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
 					XacroPackage.Literals.MACRO_CALL__MACRO);
 
@@ -63,19 +59,6 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 				String proposalString = "\"" + description.getName().toString() + "\"";
 				ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
 				acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
-			}
-		} else if (assignment == kinematicsGrammarAccess.getParameterValueAccess().getValueAssignment_0()) {
-			ParameterImpl ref = (ParameterImpl) context.getCurrentModel().eCrossReferences().get(0);
-
-			if (ref.getType() instanceof ParameterLinkRefTypeImpl) {
-				IScope scope = getScopeProvider().getScope(context.getCurrentModel(), XacroPackage.Literals.BODY__LINK);
-
-				for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
-						it -> XacroPackage.Literals.LINK.equals(it.getEClass()))) {
-					String proposalString = "\"" + description.getName().toString() + "\"";
-					ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
-					acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
-				}
 			}
 		}
 
