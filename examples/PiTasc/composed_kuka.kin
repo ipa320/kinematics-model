@@ -1,3 +1,0 @@
-Robot { name kr16
-	macroCall {
-		MacroCall { macro "dummy.kuka_kr16_2_test" } } }
