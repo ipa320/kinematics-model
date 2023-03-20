@@ -1,0 +1,40 @@
+Robot { name dummy
+  macro {
+    Macro { name ur5e_mobdi_robot
+      body Body {
+        link {
+          Link { name base_footprint
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://mobdi_description/meshes/cube_base.STL" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://mobdi_description/meshes/cube_base.STL" } } } },
+          Link { name gripper_mounting_link
+            visual Visual {
+              origin Pose { rpy "-1.57 -1.57 0.0" xyz "-0.14 -0.057 0.0" }
+              geometry Geometry {
+                mesh Mesh { filename "package://mobdi_description/meshes/gripper.STL" } } }
+            collision Collision {
+              origin Pose { rpy "-1.57 -1.57 0.0" xyz "-0.14 -0.057 0.0" }
+              geometry Geometry {
+                mesh Mesh { filename "package://mobdi_description/meshes/gripper.STL" } } } },
+          Link { name gripper
+            visual Visual { }
+            collision Collision { } } }
+        joint {
+          Joint { name arm_base_mounting_joint type fixed
+            parent "base_footprint"
+            child "base_link"
+            origin Pose { rpy "0.0 0.0 1.57" xyz "0.24 0.0 0.44" } },
+          Joint { name gripper_mounting_joint type fixed
+            parent "tool0"
+            child "gripper_mounting_link"
+            origin Pose { rpy "0 0 1.57" xyz "0 0 0" } },
+          Joint { name gripper_to_tcp type fixed
+            parent "tool0"
+            child "gripper"
+            origin Pose { rpy "3.1415 -1.57 1.57" xyz "-0.0385 -0.188 0.254368" } } } } } } }
+
+// TODO:
+// geometry for gripper link

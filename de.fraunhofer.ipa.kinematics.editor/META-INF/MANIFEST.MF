@@ -9,8 +9,7 @@ Bundle-Activator: xacro.presentation.XacroEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: urdf.presentation,
- xacro.presentation
+Export-Package: xacro.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.fraunhofer.ipa.kinematics.edit;visibility:=reexport,

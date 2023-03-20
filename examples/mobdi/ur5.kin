@@ -1,0 +1,95 @@
+Robot { name dummy
+  macro {
+    Macro { name ur5_robot
+      parameter {
+        Parameter prefix { type String } }
+      body Body {
+        link {
+          Link { name "prefix"base_link
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/visual/base.dae" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/collision/base.stl" } } } },
+          Link { name "prefix"shoulder_link
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/visual/shoulder.dae" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/collision/shoulder.stl" } } } },
+          Link { name "prefix"upper_arm_link
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/visual/upperarm.dae" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/collision/upperarm.stl" } } } },
+          Link { name "prefix"forearm_link
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/visual/forearm.dae" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/collision/forearm.stl" } } } },
+          Link { name "prefix"wrist_1_link
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/visual/wrist1.dae" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/collision/wrist1.stl" } } } },
+          Link { name "prefix"wrist_2_link
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/visual/wrist2.dae" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/collision/wrist2.stl" } } } },
+          Link { name "prefix"wrist_3_link
+            visual Visual {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/visual/wrist3.dae" } } }
+            collision Collision {
+              geometry Geometry {
+                mesh Mesh { filename "package://ur_description/meshes/ur5/collision/wrist3.stl" } } } },
+          Link { name "prefix"ee_link
+            collision Collision {
+              origin Pose { rpy "0 0 0" xyz "-0.01 0 0" }
+              geometry Geometry { } } } }
+        joint {
+          Joint { name "prefix"shoulder_pan_joint type revolute
+            parent "prefixbase_link"
+            child "prefixshoulder_link"
+            origin Pose { rpy "0.0 0.0 0.0" xyz "0.0 0.0 0.089159" }
+            axis Vector3 { xyz "0 0 1" } },
+          Joint { name "prefix"shoulder_lift_joint type revolute
+            parent "prefixshoulder_link"
+            child "prefixupper_arm_link"
+            origin Pose { rpy "0.0 1.5707963267948966 0.0" xyz "0.0 0.13585 0.0" }
+            axis Vector3 { xyz "0 1 0" } },
+          Joint { name "prefix"elbow_joint type revolute
+            parent "prefixupper_arm_link"
+            child "prefixforearm_link"
+            origin Pose { rpy "0.0 0.0 0.0" xyz "0.0 -0.1197 0.425" }
+            axis Vector3 { xyz "0 1 0" } },
+          Joint { name "prefix"wrist_1_joint type revolute
+            parent "prefixforearm_link"
+            child "prefixwrist_1_link"
+            origin Pose { rpy "0.0 1.5707963267948966 0.0" xyz "0.0 0.0 0.39225" }
+            axis Vector3 { xyz "0 1 0" } },
+          Joint { name "prefix"wrist_2_joint type revolute
+            parent "prefixwrist_1_link"
+            child "prefixwrist_2_link"
+            origin Pose { rpy "0.0 0.0 0.0" xyz "0.0 0.093 0.0" }
+            axis Vector3 { xyz "0 0 1" } },
+          Joint { name "prefix"wrist_3_joint type revolute
+            parent "prefixwrist_2_link"
+            child "prefixwrist_3_link"
+            origin Pose { rpy "0.0 0.0 0.0" xyz "0.0 0.0 0.09465" }
+            axis Vector3 { xyz "0 1 0" } },
+          Joint { name "prefix"ee_fixed_joint type fixed
+            parent "prefixwrist_3_link"
+            child "prefixee_link"
+            origin Pose { rpy "0.0 0.0 1.5707963267948966" xyz "0.0 0.0823 0.0" } } } } } } }

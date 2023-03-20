@@ -2,6 +2,7 @@
  */
 package xacro;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pose</b></em>'.
@@ -20,28 +21,6 @@ package xacro;
  * @generated
  */
 public interface Pose extends ParameterValue {
-	/**
-	 * Returns the value of the '<em><b>Xyz</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xyz</em>' attribute.
-	 * @see #setXyz(String)
-	 * @see xacro.XacroPackage#getPose_Xyz()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 * @generated
-	 */
-	String getXyz();
-
-	/**
-	 * Sets the value of the '{@link xacro.Pose#getXyz <em>Xyz</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xyz</em>' attribute.
-	 * @see #getXyz()
-	 * @generated
-	 */
-	void setXyz(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Rpy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,5 +42,27 @@ public interface Pose extends ParameterValue {
 	 * @generated
 	 */
 	void setRpy(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Xyz</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xyz</em>' attribute.
+	 * @see #setXyz(String)
+	 * @see xacro.XacroPackage#getPose_Xyz()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @generated
+	 */
+	String getXyz();
+
+	/**
+	 * Sets the value of the '{@link xacro.Pose#getXyz <em>Xyz</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xyz</em>' attribute.
+	 * @see #getXyz()
+	 * @generated
+	 */
+	void setXyz(String value);
 
 } // Pose
