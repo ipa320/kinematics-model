@@ -7,31 +7,44 @@ import "http://www.eclipse.org/emf/2003/XMLType" as type
 
 Robot returns Robot:
 	{Robot}
-	'Robot'
-	'{'
-		'name' name=ID
-		('version' version=STRING)?
-		('macro' '{' macro+=Macro ( "," macro+=Macro)* '}' )?
-		('macroCall' '{' macroCall+=MacroCall ( "," macroCall+=MacroCall)* '}' )?
-		('body' body=Body)?
-	'}';
+	'robot:'
+	BEGIN
+		'name:' name=ID
+		('version:' version=STRING)?
+		('macros:'
+			macro+=Macro*
+		)?
+		('macroCalls:'
+			macroCall+=MacroCall*
+		)?
+
+		('body:'
+			BEGIN
+			body=Body
+			END
+		)?
+	END;	
 
 Macro returns Macro:
-	'Macro'
-	'{'
-		'name' name=ID
-		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
-		('body' body=Body)?
-	'}';
+	'-' name=ID ':'
+	BEGIN
+		('parameters:'
+			parameter+=Parameter*
+		)?
+		('body:'
+			BEGIN
+			body=Body
+			END
+		)?
+	END;
 
 Parameter returns Parameter:
 	{Parameter}
-	'Parameter'
-	name=ID
-	'{'
-		'type' type=ParameterType
-		('value' value=ParameterValue)?
-	'}';
+	'-' name=ID ':'
+	BEGIN
+		'type:' type=ParameterType
+		('default' value=ParameterValue)?
+	END;
 
 ParameterValue returns ParameterValue:
 	value=ID | Pose | LinkRef
@@ -75,152 +88,130 @@ ParameterPoseType returns ParameterPoseType:
 
 Body returns Body:
 	{Body}
-	'Body'
-	'{'
-		('link' '{' link+=Link ( "," link+=Link)* '}' )?
-		('joint' '{' joint+=Joint ( "," joint+=Joint)* '}' )?
-	'}';
+	('links:' link+=Link*)?
+	('joints:' joint+=Joint* )?;
 
 MacroCall returns MacroCall:
 	{MacroCall}
-	'MacroCall'
-	'{'
-		'macro' macro=[Macro|STRING]
-		('parameter' '{' parameterCall+=ParameterCall ( "," parameterCall+=ParameterCall)* '}' )?
-	'}';
+	'-' macro=[Macro|STRING] ':'
+	BEGIN
+		parameterCall+=ParameterCall*
+	END;
 
 ParameterCall returns ParameterCall:
 	{ParameterCall}
-	'ParameterCall'
-	'{'
-		'parameter' parameter=[Parameter|STRING]
+	'-' parameter=[Parameter|STRING] ':'
+	BEGIN
 		'value' value=ParameterValue
-	'}';
+	END;
 
 Joint returns Joint:
-	'Joint'
-	'{'
-		'name' name=ParameterString
-		'type' type=JOINTTYPE
-		'parent' parent=ParameterLink 
-		'child' child=ParameterLink
-		('origin' origin=ParameterPose)?
-		('axis' axis=Vector3)?
-		('limit' limit=Limit)?
-	'}';
+	'-' name=ParameterString ':'
+	BEGIN
+		'type:' type=JOINTTYPE
+		'parent:' parent=ParameterLink 
+		'child:' child=ParameterLink
+		'origin:' origin=ParameterPose
+		('axis:' axis=Vector3)?
+		('limit:' limit=Limit)?
+	END;
 
 Link returns Link:
-	'Link'
-	'{'
-		'name' name=ParameterString
-		('inertial' inertial=Inertial)?
-		('visual' visual=Visual)?
-		('collision' collision=Collision)?
-	'}';
+	'-' name=ParameterString
+	(':' BEGIN
+		('inertial:' inertial=Inertial)?
+		('visual:' visual=Visual)?
+		('collision:' collision=Collision)?
+	END)?;
 
 Pose returns Pose:
 	{Pose}
-	'Pose'
-	'{'
-		('rpy' rpy=STRING)?
-		('xyz' xyz=STRING)?
-	'}';
+	BEGIN
+		('rpy:' rpy=STRING)?
+		('xyz:' xyz=STRING)?
+	END;
 
 Vector3 returns Vector3:
 	{Vector3}
-	'Vector3'
-	'{'
-		('xyz' xyz=STRING)?
-	'}';
+	BEGIN
+		('xyz:' xyz=STRING)?
+	END;
 
 Limit returns Limit:
 	{Limit}
-	'Limit'
-	'{'
-		('effort' effort=STRING)?
-		('lower' lower=STRING)?
-		('upper' upper=STRING)?
-		('velocity' velocity=STRING)?
-	'}';
+	BEGIN
+		('effort:' effort=STRING)?
+		('lower:' lower=STRING)?
+		('upper:' upper=STRING)?
+		('velocity:' velocity=STRING)?
+	END;
 
 Inertial returns Inertial:
 	{Inertial}
-	'Inertial'
-	'{'
-		('origin' origin=Pose)?
-		('mass' mass=Mass)?
-		('inertia' inertia=Inertia)?
-	'}';
+	BEGIN
+		('origin:' origin=Pose)?
+		('mass:' mass=Mass)?
+		('inertia:' inertia=Inertia)?
+	END;
 
 Visual returns Visual:
-	'Visual'
-	'{'
-		('origin' origin=Pose)?
-		'geometry' geometry=Geometry
-	'}';
+	BEGIN
+		('origin:' origin=Pose)?
+		'geometry:' geometry=Geometry
+	END;
 
 Collision returns Collision:
-	'Collision'
-	'{'
-		('origin' origin=Pose)?
-		'geometry' geometry=Geometry
-	'}';
+	BEGIN
+		('origin:' origin=Pose)?
+		'geometry:' geometry=Geometry
+	END;
 
 Mass returns Mass:
 	{Mass}
-	'Mass'
-	'{'
-		('value' value=Double0)?
-	'}';
+	value=Double0;
 
 Inertia returns Inertia:
 	{Inertia}
-	'Inertia'
-	'{'
-		('ixx' ixx=Double0)?
-		('ixy' ixy=Double0)?
-		('ixz' ixz=Double0)?
-		('iyy' iyy=Double0)?
-		('iyz' iyz=Double0)?
-		('izz' izz=Double0)?
-	'}';
+	BEGIN
+		('ixx:' ixx=Double0)?
+		('ixy:' ixy=Double0)?
+		('ixz:' ixz=Double0)?
+		('iyy:' iyy=Double0)?
+		('iyz:' iyz=Double0)?
+		('izz:' izz=Double0)?
+	END;
 
 Geometry returns Geometry:
 	{Geometry}
-	'Geometry'
-	'{'
-		('box' box=Box)?
-		('cylinder' cylinder=Cylinder)?
-		('sphere' sphere=Sphere)?
-		('mesh' mesh=Mesh)?
-	'}';
+	BEGIN
+		('box:' box=Box)?
+		('cylinder:' cylinder=Cylinder)?
+		('sphere:' sphere=Sphere)?
+		('mesh:' mesh=Mesh)?
+	END;
 
 Box returns Box:
 	{Box}
-	'Box'
-	'{'
-		('size' size=ParameterString)?
-	'}';
+	BEGIN
+		'size' size=ParameterString
+	END;
 
 Cylinder returns Cylinder:
-	'Cylinder'
-	'{'
-		'length' length=Double0
-		'radius' radius=Double0
-	'}';
+	BEGIN
+		'length:' length=Double0
+		'radius:' radius=Double0
+	END;
 
 Sphere returns Sphere:
-	'Sphere'
-	'{'
-		'radius' radius=Double0
-	'}';
+	BEGIN
+		'radius:' radius=Double0
+	END;
 
 Mesh returns Mesh:
-	'Mesh'
-	'{'
-		'filename' filename=STRING
-		('scale' scale=Double0)?
-	'}';
+	BEGIN
+		'filename:' filename=STRING
+		('scale:' scale=Double0)?
+	END;
 
 AnyURI returns type::AnyURI:
 	'AnyURI' /* TODO: implement this rule and an appropriate IValueConverter */;
@@ -235,6 +226,16 @@ terminal BOOLEAN: 'true'|'false';
 terminal DOUBLE returns ecore::EDouble: DECINT (('.' DIGIT*) | (('.' DIGIT*)? ('E'|'e') ('-'|'+')? DECINT));  // Use terminal to avoid 'e' turning into a keyword
 terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
 terminal JOINTTYPE: 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar';
+
+///////////////////
+// YAML format
+///////////////////
+terminal BEGIN: 'synthetic:BEGIN';
+terminal END: 'synthetic:END';
+
+@Override 
+terminal SL_COMMENT: '#' !('\n'|'\r')*;
+
 
 Double0 returns type::Double:
 	DOUBLE;
