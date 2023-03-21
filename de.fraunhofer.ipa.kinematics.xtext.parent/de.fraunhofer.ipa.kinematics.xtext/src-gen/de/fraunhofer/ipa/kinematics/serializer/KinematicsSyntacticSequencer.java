@@ -89,7 +89,7 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'links:'? (ambiguity) (rule start)
-	 *     link+=Link (ambiguity) (rule end)
+	 *     links+=Link (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */
@@ -103,7 +103,7 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'links:'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'joints:' joint+=Joint
+	 *     (rule start) (ambiguity) 'joints:' joints+=Joint
 	 *     (rule start) (ambiguity) 'joints:'? (rule start)
 	 
 	 * </pre>

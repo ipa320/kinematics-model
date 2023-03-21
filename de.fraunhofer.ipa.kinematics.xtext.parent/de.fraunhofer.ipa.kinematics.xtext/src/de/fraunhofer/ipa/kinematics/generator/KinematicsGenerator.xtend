@@ -156,10 +156,10 @@ class KinematicsGenerator extends AbstractGenerator {
 	'''
 
 	private def compile_body(Body body)'''
-	«FOR link : body.link»
+	«FOR link : body.links»
 	«compile_link(link)»
 	«ENDFOR»
-	«FOR joint : body.joint»
+	«FOR joint : body.joints»
 	«compile_joint(joint)»
 	«ENDFOR»
 	'''
@@ -201,7 +201,7 @@ class KinematicsGenerator extends AbstractGenerator {
 				paramStrings.put(param.parameter.name, param.value.value);
 			}
 		}
-		for (link : macroCall.macro.body.link) {
+		for (link : macroCall.macro.body.links) {
 			if (link.name.ref !== null) {
 				var p = link.name.ref;
 				link.resolved = paramStrings.get(p.name) + link.name.value;

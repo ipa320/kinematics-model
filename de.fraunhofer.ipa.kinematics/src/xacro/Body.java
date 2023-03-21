@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link xacro.Body#getJoint <em>Joint</em>}</li>
- *   <li>{@link xacro.Body#getLink <em>Link</em>}</li>
+ *   <li>{@link xacro.Body#getJoints <em>Joints</em>}</li>
+ *   <li>{@link xacro.Body#getLinks <em>Links</em>}</li>
  * </ul>
  *
  * @see xacro.XacroPackage#getBody()
@@ -25,27 +25,27 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Body extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Joint</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Joints</b></em>' containment reference list.
 	 * The list contents are of type {@link xacro.Joint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Joint</em>' containment reference list.
-	 * @see xacro.XacroPackage#getBody_Joint()
-	 * @model containment="true"
+	 * @return the value of the '<em>Joints</em>' containment reference list.
+	 * @see xacro.XacroPackage#getBody_Joints()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Joint> getJoint();
+	EList<Joint> getJoints();
 
 	/**
-	 * Returns the value of the '<em><b>Link</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Links</b></em>' containment reference list.
 	 * The list contents are of type {@link xacro.Link}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Link</em>' containment reference list.
-	 * @see xacro.XacroPackage#getBody_Link()
-	 * @model containment="true"
+	 * @return the value of the '<em>Links</em>' containment reference list.
+	 * @see xacro.XacroPackage#getBody_Links()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Link> getLink();
+	EList<Link> getLinks();
 
 } // Body

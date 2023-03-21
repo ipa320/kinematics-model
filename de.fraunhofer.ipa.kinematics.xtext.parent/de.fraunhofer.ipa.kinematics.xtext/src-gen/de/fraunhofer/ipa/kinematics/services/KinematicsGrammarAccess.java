@@ -601,50 +601,50 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Action cBodyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cLinksKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cLinkAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cLinkLinkParserRuleCall_1_1_0 = (RuleCall)cLinkAssignment_1_1.eContents().get(0);
+		private final Assignment cLinksAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cLinksLinkParserRuleCall_1_1_0 = (RuleCall)cLinksAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cJointsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cJointAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cJointJointParserRuleCall_2_1_0 = (RuleCall)cJointAssignment_2_1.eContents().get(0);
+		private final Assignment cJointsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cJointsJointParserRuleCall_2_1_0 = (RuleCall)cJointsAssignment_2_1.eContents().get(0);
 		
 		//Body returns Body:
 		//    {Body}
-		//    ('links:' link+=Link*)?
-		//    ('joints:' joint+=Joint* )?;
+		//    ('links:' links+=Link*)?
+		//    ('joints:' joints+=Joint* )?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Body}
-		//('links:' link+=Link*)?
-		//('joints:' joint+=Joint* )?
+		//('links:' links+=Link*)?
+		//('joints:' joints+=Joint* )?
 		public Group getGroup() { return cGroup; }
 		
 		//{Body}
 		public Action getBodyAction_0() { return cBodyAction_0; }
 		
-		//('links:' link+=Link*)?
+		//('links:' links+=Link*)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'links:'
 		public Keyword getLinksKeyword_1_0() { return cLinksKeyword_1_0; }
 		
-		//link+=Link*
-		public Assignment getLinkAssignment_1_1() { return cLinkAssignment_1_1; }
+		//links+=Link*
+		public Assignment getLinksAssignment_1_1() { return cLinksAssignment_1_1; }
 		
 		//Link
-		public RuleCall getLinkLinkParserRuleCall_1_1_0() { return cLinkLinkParserRuleCall_1_1_0; }
+		public RuleCall getLinksLinkParserRuleCall_1_1_0() { return cLinksLinkParserRuleCall_1_1_0; }
 		
-		//('joints:' joint+=Joint* )?
+		//('joints:' joints+=Joint* )?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'joints:'
 		public Keyword getJointsKeyword_2_0() { return cJointsKeyword_2_0; }
 		
-		//joint+=Joint*
-		public Assignment getJointAssignment_2_1() { return cJointAssignment_2_1; }
+		//joints+=Joint*
+		public Assignment getJointsAssignment_2_1() { return cJointsAssignment_2_1; }
 		
 		//Joint
-		public RuleCall getJointJointParserRuleCall_2_1_0() { return cJointJointParserRuleCall_2_1_0; }
+		public RuleCall getJointsJointParserRuleCall_2_1_0() { return cJointsJointParserRuleCall_2_1_0; }
 	}
 	public class MacroCallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.MacroCall");
@@ -2166,8 +2166,8 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Body returns Body:
 	//    {Body}
-	//    ('links:' link+=Link*)?
-	//    ('joints:' joint+=Joint* )?;
+	//    ('links:' links+=Link*)?
+	//    ('joints:' joints+=Joint* )?;
 	public BodyElements getBodyAccess() {
 		return pBody;
 	}

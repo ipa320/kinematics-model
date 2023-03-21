@@ -434,7 +434,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBody_Joint() {
+	public EReference getBody_Joints() {
 		return (EReference)bodyEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -443,7 +443,7 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBody_Link() {
+	public EReference getBody_Links() {
 		return (EReference)bodyEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1253,8 +1253,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		createEReference(parameterEClass, PARAMETER__TYPE);
 
 		bodyEClass = createEClass(BODY);
-		createEReference(bodyEClass, BODY__JOINT);
-		createEReference(bodyEClass, BODY__LINK);
+		createEReference(bodyEClass, BODY__JOINTS);
+		createEReference(bodyEClass, BODY__LINKS);
 
 		macroEClass = createEClass(MACRO);
 		createEReference(macroEClass, MACRO__PARAMETER);
@@ -1421,8 +1421,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		initEReference(getParameter_Type(), this.getParameterType(), null, "type", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBody_Joint(), this.getJoint(), null, "joint", null, 0, -1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBody_Link(), this.getLink(), null, "link", null, 0, -1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBody_Joints(), this.getJoint(), null, "joints", null, 1, -1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBody_Links(), this.getLink(), null, "links", null, 1, -1, Body.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(macroEClass, Macro.class, "Macro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMacro_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Macro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

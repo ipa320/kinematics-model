@@ -846,17 +846,17 @@ ruleBody returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getBodyAccess().getLinkLinkParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getBodyAccess().getLinksLinkParserRuleCall_1_1_0());
 					}
-					lv_link_2_0=ruleLink
+					lv_links_2_0=ruleLink
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getBodyRule());
 						}
 						add(
 							$current,
-							"link",
-							lv_link_2_0,
+							"links",
+							lv_links_2_0,
 							"de.fraunhofer.ipa.kinematics.Kinematics.Link");
 						afterParserOrEnumRuleCall();
 					}
@@ -871,17 +871,17 @@ ruleBody returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getBodyAccess().getJointJointParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getBodyAccess().getJointsJointParserRuleCall_2_1_0());
 					}
-					lv_joint_4_0=ruleJoint
+					lv_joints_4_0=ruleJoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getBodyRule());
 						}
 						add(
 							$current,
-							"joint",
-							lv_joint_4_0,
+							"joints",
+							lv_joints_4_0,
 							"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
 						afterParserOrEnumRuleCall();
 					}

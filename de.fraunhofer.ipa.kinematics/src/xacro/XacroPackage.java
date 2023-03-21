@@ -195,22 +195,22 @@ public interface XacroPackage extends EPackage {
 	int BODY = 2;
 
 	/**
-	 * The feature id for the '<em><b>Joint</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Joints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BODY__JOINT = 0;
+	int BODY__JOINTS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Link</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BODY__LINK = 1;
+	int BODY__LINKS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Body</em>' class.
@@ -1646,26 +1646,26 @@ public interface XacroPackage extends EPackage {
 	EClass getBody();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link xacro.Body#getJoint <em>Joint</em>}'.
+	 * Returns the meta object for the containment reference list '{@link xacro.Body#getJoints <em>Joints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Joint</em>'.
-	 * @see xacro.Body#getJoint()
+	 * @return the meta object for the containment reference list '<em>Joints</em>'.
+	 * @see xacro.Body#getJoints()
 	 * @see #getBody()
 	 * @generated
 	 */
-	EReference getBody_Joint();
+	EReference getBody_Joints();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link xacro.Body#getLink <em>Link</em>}'.
+	 * Returns the meta object for the containment reference list '{@link xacro.Body#getLinks <em>Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Link</em>'.
-	 * @see xacro.Body#getLink()
+	 * @return the meta object for the containment reference list '<em>Links</em>'.
+	 * @see xacro.Body#getLinks()
 	 * @see #getBody()
 	 * @generated
 	 */
-	EReference getBody_Link();
+	EReference getBody_Links();
 
 	/**
 	 * Returns the meta object for class '{@link xacro.Macro <em>Macro</em>}'.
@@ -2693,20 +2693,20 @@ public interface XacroPackage extends EPackage {
 		EClass BODY = eINSTANCE.getBody();
 
 		/**
-		 * The meta object literal for the '<em><b>Joint</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Joints</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BODY__JOINT = eINSTANCE.getBody_Joint();
+		EReference BODY__JOINTS = eINSTANCE.getBody_Joints();
 
 		/**
-		 * The meta object literal for the '<em><b>Link</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BODY__LINK = eINSTANCE.getBody_Link();
+		EReference BODY__LINKS = eINSTANCE.getBody_Links();
 
 		/**
 		 * The meta object literal for the '{@link xacro.impl.MacroImpl <em>Macro</em>}' class.

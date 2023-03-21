@@ -119,8 +119,8 @@ public class KinematicsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getParameterPoseAccess().getValueAssignment_1(), "rule__ParameterPose__ValueAssignment_1");
 			builder.put(grammarAccess.getParameterLinkAccess().getParamAssignment_0(), "rule__ParameterLink__ParamAssignment_0");
 			builder.put(grammarAccess.getParameterLinkAccess().getLinkAssignment_1(), "rule__ParameterLink__LinkAssignment_1");
-			builder.put(grammarAccess.getBodyAccess().getLinkAssignment_1_1(), "rule__Body__LinkAssignment_1_1");
-			builder.put(grammarAccess.getBodyAccess().getJointAssignment_2_1(), "rule__Body__JointAssignment_2_1");
+			builder.put(grammarAccess.getBodyAccess().getLinksAssignment_1_1(), "rule__Body__LinksAssignment_1_1");
+			builder.put(grammarAccess.getBodyAccess().getJointsAssignment_2_1(), "rule__Body__JointsAssignment_2_1");
 			builder.put(grammarAccess.getMacroCallAccess().getMacroAssignment_2(), "rule__MacroCall__MacroAssignment_2");
 			builder.put(grammarAccess.getMacroCallAccess().getParameterCallAssignment_5(), "rule__MacroCall__ParameterCallAssignment_5");
 			builder.put(grammarAccess.getParameterCallAccess().getParameterAssignment_2(), "rule__ParameterCall__ParameterAssignment_2");

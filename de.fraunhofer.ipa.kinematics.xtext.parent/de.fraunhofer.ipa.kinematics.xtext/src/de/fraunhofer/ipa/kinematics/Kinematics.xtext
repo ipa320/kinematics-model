@@ -88,8 +88,8 @@ ParameterPoseType returns ParameterPoseType:
 
 Body returns Body:
 	{Body}
-	('links:' link+=Link*)?
-	('joints:' joint+=Joint* )?;
+	('links:' links+=Link*)?
+	('joints:' joints+=Joint* )?;
 
 MacroCall returns MacroCall:
 	{MacroCall}

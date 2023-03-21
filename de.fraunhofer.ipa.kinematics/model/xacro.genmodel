@@ -20,8 +20,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Parameter/type"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Body">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/joint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/link"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/joints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/links"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Macro">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/parameter"/>

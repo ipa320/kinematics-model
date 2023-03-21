@@ -19,10 +19,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Body">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
-        eType="#//Joint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joints" lowerBound="1"
+        upperBound="-1" eType="#//Joint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" lowerBound="1" upperBound="-1"
+        eType="#//Link" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Macro">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"

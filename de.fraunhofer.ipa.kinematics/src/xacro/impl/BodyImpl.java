@@ -29,32 +29,32 @@ import xacro.XacroPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xacro.impl.BodyImpl#getJoint <em>Joint</em>}</li>
- *   <li>{@link xacro.impl.BodyImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link xacro.impl.BodyImpl#getJoints <em>Joints</em>}</li>
+ *   <li>{@link xacro.impl.BodyImpl#getLinks <em>Links</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	/**
-	 * The cached value of the '{@link #getJoint() <em>Joint</em>}' containment reference list.
+	 * The cached value of the '{@link #getJoints() <em>Joints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJoint()
+	 * @see #getJoints()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Joint> joint;
+	protected EList<Joint> joints;
 
 	/**
-	 * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference list.
+	 * The cached value of the '{@link #getLinks() <em>Links</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLink()
+	 * @see #getLinks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Link> link;
+	protected EList<Link> links;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,11 +80,11 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Joint> getJoint() {
-		if (joint == null) {
-			joint = new EObjectContainmentEList<Joint>(Joint.class, this, XacroPackage.BODY__JOINT);
+	public EList<Joint> getJoints() {
+		if (joints == null) {
+			joints = new EObjectContainmentEList<Joint>(Joint.class, this, XacroPackage.BODY__JOINTS);
 		}
-		return joint;
+		return joints;
 	}
 
 	/**
@@ -92,11 +92,11 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Link> getLink() {
-		if (link == null) {
-			link = new EObjectContainmentEList<Link>(Link.class, this, XacroPackage.BODY__LINK);
+	public EList<Link> getLinks() {
+		if (links == null) {
+			links = new EObjectContainmentEList<Link>(Link.class, this, XacroPackage.BODY__LINKS);
 		}
-		return link;
+		return links;
 	}
 
 	/**
@@ -107,10 +107,10 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XacroPackage.BODY__JOINT:
-				return ((InternalEList<?>)getJoint()).basicRemove(otherEnd, msgs);
-			case XacroPackage.BODY__LINK:
-				return ((InternalEList<?>)getLink()).basicRemove(otherEnd, msgs);
+			case XacroPackage.BODY__JOINTS:
+				return ((InternalEList<?>)getJoints()).basicRemove(otherEnd, msgs);
+			case XacroPackage.BODY__LINKS:
+				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,10 +123,10 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XacroPackage.BODY__JOINT:
-				return getJoint();
-			case XacroPackage.BODY__LINK:
-				return getLink();
+			case XacroPackage.BODY__JOINTS:
+				return getJoints();
+			case XacroPackage.BODY__LINKS:
+				return getLinks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -140,13 +140,13 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XacroPackage.BODY__JOINT:
-				getJoint().clear();
-				getJoint().addAll((Collection<? extends Joint>)newValue);
+			case XacroPackage.BODY__JOINTS:
+				getJoints().clear();
+				getJoints().addAll((Collection<? extends Joint>)newValue);
 				return;
-			case XacroPackage.BODY__LINK:
-				getLink().clear();
-				getLink().addAll((Collection<? extends Link>)newValue);
+			case XacroPackage.BODY__LINKS:
+				getLinks().clear();
+				getLinks().addAll((Collection<? extends Link>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,11 +160,11 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XacroPackage.BODY__JOINT:
-				getJoint().clear();
+			case XacroPackage.BODY__JOINTS:
+				getJoints().clear();
 				return;
-			case XacroPackage.BODY__LINK:
-				getLink().clear();
+			case XacroPackage.BODY__LINKS:
+				getLinks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,10 +178,10 @@ public class BodyImpl extends MinimalEObjectImpl.Container implements Body {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XacroPackage.BODY__JOINT:
-				return joint != null && !joint.isEmpty();
-			case XacroPackage.BODY__LINK:
-				return link != null && !link.isEmpty();
+			case XacroPackage.BODY__JOINTS:
+				return joints != null && !joints.isEmpty();
+			case XacroPackage.BODY__LINKS:
+				return links != null && !links.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

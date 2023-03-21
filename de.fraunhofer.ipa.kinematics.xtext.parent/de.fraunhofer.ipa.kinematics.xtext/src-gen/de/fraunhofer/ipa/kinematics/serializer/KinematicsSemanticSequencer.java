@@ -157,7 +157,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Body returns Body
 	 *
 	 * Constraint:
-	 *     (link+=Link* joint+=Joint*)
+	 *     (links+=Link* joints+=Joint*)
 	 * </pre>
 	 */
 	protected void sequence_Body(ISerializationContext context, Body semanticObject) {

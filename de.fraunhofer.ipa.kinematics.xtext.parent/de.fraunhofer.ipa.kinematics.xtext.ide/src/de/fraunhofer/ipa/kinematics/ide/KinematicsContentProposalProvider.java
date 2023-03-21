@@ -29,7 +29,7 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 			IIdeContentProposalAcceptor acceptor) {
 
 		if (ruleCall.getRule() == kinematicsGrammarAccess.getParameterLinkRule()) {
-			IScope scope = getScopeProvider().getScope(context.getCurrentModel(), XacroPackage.Literals.BODY__LINK);
+			IScope scope = getScopeProvider().getScope(context.getCurrentModel(), XacroPackage.Literals.BODY__LINKS);
 
 			for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
 					it -> XacroPackage.Literals.LINK.equals(it.getEClass()))) {
@@ -68,7 +68,7 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 			ParameterImpl ref = (ParameterImpl) context.getCurrentModel().eCrossReferences().get(0);
 
 			if (ref.getType() instanceof ParameterLinkRefTypeImpl) {
-				IScope scope = getScopeProvider().getScope(context.getCurrentModel(), XacroPackage.Literals.BODY__LINK);
+				IScope scope = getScopeProvider().getScope(context.getCurrentModel(), XacroPackage.Literals.BODY__LINKS);
 
 				for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
 						it -> XacroPackage.Literals.LINK.equals(it.getEClass()))) {

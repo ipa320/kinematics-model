@@ -77,8 +77,8 @@ public class BodyItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(XacroPackage.Literals.BODY__JOINT);
-			childrenFeatures.add(XacroPackage.Literals.BODY__LINK);
+			childrenFeatures.add(XacroPackage.Literals.BODY__JOINTS);
+			childrenFeatures.add(XacroPackage.Literals.BODY__LINKS);
 		}
 		return childrenFeatures;
 	}
@@ -131,8 +131,8 @@ public class BodyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Body.class)) {
-			case XacroPackage.BODY__JOINT:
-			case XacroPackage.BODY__LINK:
+			case XacroPackage.BODY__JOINTS:
+			case XacroPackage.BODY__LINKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,12 +152,12 @@ public class BodyItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(XacroPackage.Literals.BODY__JOINT,
+				(XacroPackage.Literals.BODY__JOINTS,
 				 XacroFactory.eINSTANCE.createJoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(XacroPackage.Literals.BODY__LINK,
+				(XacroPackage.Literals.BODY__LINKS,
 				 XacroFactory.eINSTANCE.createLink()));
 	}
 
