@@ -44,40 +44,40 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 	protected void _createProposals(Assignment assignment, ContentAssistContext context,
 			IIdeContentProposalAcceptor acceptor) {
 		
-		if (assignment == kinematicsGrammarAccess.getParameterCallAccess().getParameterAssignment_4()) {
-			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
-					XacroPackage.Literals.PARAMETER_CALL__PARAMETER);
-
-			for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
-					it -> XacroPackage.Literals.PARAMETER.equals(it.getEClass()))) {
-				String proposalString = "\"" + description.getName().toString() + "\"";
-				ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
-				acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
-			}
-		} else if (assignment == kinematicsGrammarAccess.getMacroCallAccess().getMacroAssignment_4()) {
-			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
-					XacroPackage.Literals.MACRO_CALL__MACRO);
-
-			for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
-					it -> XacroPackage.Literals.MACRO.equals(it.getEClass()))) {
-				String proposalString = "\"" + description.getName().toString() + "\"";
-				ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
-				acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
-			}
-		} else if (assignment == kinematicsGrammarAccess.getParameterValueAccess().getValueAssignment_0()) {
-			ParameterImpl ref = (ParameterImpl) context.getCurrentModel().eCrossReferences().get(0);
-
-			if (ref.getType() instanceof ParameterLinkRefTypeImpl) {
-				IScope scope = getScopeProvider().getScope(context.getCurrentModel(), XacroPackage.Literals.BODY__LINK);
-
-				for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
-						it -> XacroPackage.Literals.LINK.equals(it.getEClass()))) {
-					String proposalString = "\"" + description.getName().toString() + "\"";
-					ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
-					acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
-				}
-			}
-		}
+//		if (assignment == kinematicsGrammarAccess.getParameterCallAccess().getParameterAssignment_4()) {
+//			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
+//					XacroPackage.Literals.PARAMETER_CALL__PARAMETER);
+//
+//			for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
+//					it -> XacroPackage.Literals.PARAMETER.equals(it.getEClass()))) {
+//				String proposalString = "\"" + description.getName().toString() + "\"";
+//				ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
+//				acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
+//			}
+//		} else if (assignment == kinematicsGrammarAccess.getMacroCallAccess().getMacroAssignment_4()) {
+//			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
+//					XacroPackage.Literals.MACRO_CALL__MACRO);
+//
+//			for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
+//					it -> XacroPackage.Literals.MACRO.equals(it.getEClass()))) {
+//				String proposalString = "\"" + description.getName().toString() + "\"";
+//				ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
+//				acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
+//			}
+//		} else if (assignment == kinematicsGrammarAccess.getParameterValueAccess().getValueAssignment_0()) {
+//			ParameterImpl ref = (ParameterImpl) context.getCurrentModel().eCrossReferences().get(0);
+//
+//			if (ref.getType() instanceof ParameterLinkRefTypeImpl) {
+//				IScope scope = getScopeProvider().getScope(context.getCurrentModel(), XacroPackage.Literals.BODY__LINK);
+//
+//				for (IEObjectDescription description : Iterables.filter(scope.getAllElements(),
+//						it -> XacroPackage.Literals.LINK.equals(it.getEClass()))) {
+//					String proposalString = "\"" + description.getName().toString() + "\"";
+//					ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
+//					acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
+//				}
+//			}
+//		}
 
 	}
 }
