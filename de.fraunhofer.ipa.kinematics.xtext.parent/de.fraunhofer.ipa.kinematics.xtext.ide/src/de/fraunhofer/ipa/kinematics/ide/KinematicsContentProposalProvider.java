@@ -44,7 +44,7 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 	protected void _createProposals(Assignment assignment, ContentAssistContext context,
 			IIdeContentProposalAcceptor acceptor) {
 		
-		if (assignment == kinematicsGrammarAccess.getParameterCallAccess().getParameterAssignment_4()) {
+		if (assignment == kinematicsGrammarAccess.getParameterCallAccess().getParameterAssignment_2()) {
 			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
 					XacroPackage.Literals.PARAMETER_CALL__PARAMETER);
 
@@ -54,7 +54,7 @@ public class KinematicsContentProposalProvider extends IdeContentProposalProvide
 				ContentAssistEntry entry = getProposalCreator().createProposal(proposalString, context);
 				acceptor.accept(entry, getProposalPriorities().getDefaultPriority(entry));
 			}
-		} else if (assignment == kinematicsGrammarAccess.getMacroCallAccess().getMacroAssignment_4()) {
+		} else if (assignment == kinematicsGrammarAccess.getMacroCallAccess().getMacroAssignment_2()) {
 			IScope scope = getScopeProvider().getScope(context.getCurrentModel(),
 					XacroPackage.Literals.MACRO_CALL__MACRO);
 
