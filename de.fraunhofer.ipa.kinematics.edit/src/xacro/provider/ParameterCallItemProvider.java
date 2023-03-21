@@ -66,28 +66,6 @@ public class ParameterCallItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ParameterCall_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterCall_value_feature", "_UI_ParameterCall_type"),
-				 XacroPackage.Literals.PARAMETER_CALL__VALUE,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Parameter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,6 +82,28 @@ public class ParameterCallItemProvider
 				 true,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterCall_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterCall_value_feature", "_UI_ParameterCall_type"),
+				 XacroPackage.Literals.PARAMETER_CALL__VALUE,
+				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));
