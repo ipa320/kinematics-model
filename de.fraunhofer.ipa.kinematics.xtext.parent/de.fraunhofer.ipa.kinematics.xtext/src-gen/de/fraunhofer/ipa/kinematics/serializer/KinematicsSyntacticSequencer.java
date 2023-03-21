@@ -151,8 +151,8 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     macro+=Macro (ambiguity) END (rule end)
 	 *     name=ID 'macros:'? (ambiguity) 'body:' BEGIN body=Body
 	 *     name=ID 'macros:'? (ambiguity) END (rule end)
-	 *     version=STRING 'macros:'? (ambiguity) 'body:' BEGIN body=Body
-	 *     version=STRING 'macros:'? (ambiguity) END (rule end)
+	 *     version=Double0 'macros:'? (ambiguity) 'body:' BEGIN body=Body
+	 *     version=Double0 'macros:'? (ambiguity) END (rule end)
 	 
 	 * </pre>
 	 */
@@ -169,9 +169,9 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     name=ID (ambiguity) 'macroCalls:' macroCall+=MacroCall
 	 *     name=ID (ambiguity) 'macroCalls:'? 'body:' BEGIN body=Body
 	 *     name=ID (ambiguity) 'macroCalls:'? END (rule end)
-	 *     version=STRING (ambiguity) 'macroCalls:' macroCall+=MacroCall
-	 *     version=STRING (ambiguity) 'macroCalls:'? 'body:' BEGIN body=Body
-	 *     version=STRING (ambiguity) 'macroCalls:'? END (rule end)
+	 *     version=Double0 (ambiguity) 'macroCalls:' macroCall+=MacroCall
+	 *     version=Double0 (ambiguity) 'macroCalls:'? 'body:' BEGIN body=Body
+	 *     version=Double0 (ambiguity) 'macroCalls:'? END (rule end)
 	 
 	 * </pre>
 	 */

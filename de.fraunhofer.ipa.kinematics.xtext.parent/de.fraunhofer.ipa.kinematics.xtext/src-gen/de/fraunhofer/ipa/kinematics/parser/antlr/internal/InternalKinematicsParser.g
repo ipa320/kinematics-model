@@ -113,19 +113,20 @@ ruleRobot returns [EObject current=null]
 			}
 			(
 				(
-					lv_version_6_0=RULE_STRING
 					{
-						newLeafNode(lv_version_6_0, grammarAccess.getRobotAccess().getVersionSTRINGTerminalRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getRobotAccess().getVersionDouble0ParserRuleCall_5_1_0());
 					}
+					lv_version_6_0=ruleDouble0
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getRobotRule());
+							$current = createModelElementForParent(grammarAccess.getRobotRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"version",
 							lv_version_6_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)

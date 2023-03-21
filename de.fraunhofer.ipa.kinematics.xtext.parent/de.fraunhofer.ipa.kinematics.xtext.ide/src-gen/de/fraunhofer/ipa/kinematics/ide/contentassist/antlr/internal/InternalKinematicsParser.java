@@ -7914,7 +7914,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:2626:1: ( rule__MacroCall__Group__1__Impl rule__MacroCall__Group__2 )
             // InternalKinematicsParser.g:2627:2: rule__MacroCall__Group__1__Impl rule__MacroCall__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__MacroCall__Group__1__Impl();
 
             state._fsp--;
@@ -8149,7 +8149,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:2707:1: ( rule__MacroCall__Group__4__Impl rule__MacroCall__Group__5 )
             // InternalKinematicsParser.g:2708:2: rule__MacroCall__Group__4__Impl rule__MacroCall__Group__5
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_23);
             rule__MacroCall__Group__4__Impl();
 
             state._fsp--;
@@ -8224,7 +8224,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:2734:1: ( rule__MacroCall__Group__5__Impl rule__MacroCall__Group__6 )
             // InternalKinematicsParser.g:2735:2: rule__MacroCall__Group__5__Impl rule__MacroCall__Group__6
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_23);
             rule__MacroCall__Group__5__Impl();
 
             state._fsp--;
@@ -8472,7 +8472,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:2815:1: ( rule__ParameterCall__Group__1__Impl rule__ParameterCall__Group__2 )
             // InternalKinematicsParser.g:2816:2: rule__ParameterCall__Group__1__Impl rule__ParameterCall__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__ParameterCall__Group__1__Impl();
 
             state._fsp--;
@@ -8707,7 +8707,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:2896:1: ( rule__ParameterCall__Group__4__Impl rule__ParameterCall__Group__5 )
             // InternalKinematicsParser.g:2897:2: rule__ParameterCall__Group__4__Impl rule__ParameterCall__Group__5
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_24);
             rule__ParameterCall__Group__4__Impl();
 
             state._fsp--;
@@ -9322,7 +9322,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3112:1: ( rule__Joint__Group__4__Impl rule__Joint__Group__5 )
             // InternalKinematicsParser.g:3113:2: rule__Joint__Group__4__Impl rule__Joint__Group__5
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_25);
             rule__Joint__Group__4__Impl();
 
             state._fsp--;
@@ -9397,7 +9397,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3139:1: ( rule__Joint__Group__5__Impl rule__Joint__Group__6 )
             // InternalKinematicsParser.g:3140:2: rule__Joint__Group__5__Impl rule__Joint__Group__6
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_26);
             rule__Joint__Group__5__Impl();
 
             state._fsp--;
@@ -9557,7 +9557,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3193:1: ( rule__Joint__Group__7__Impl rule__Joint__Group__8 )
             // InternalKinematicsParser.g:3194:2: rule__Joint__Group__7__Impl rule__Joint__Group__8
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_27);
             rule__Joint__Group__7__Impl();
 
             state._fsp--;
@@ -9717,7 +9717,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3247:1: ( rule__Joint__Group__9__Impl rule__Joint__Group__10 )
             // InternalKinematicsParser.g:3248:2: rule__Joint__Group__9__Impl rule__Joint__Group__10
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_28);
             rule__Joint__Group__9__Impl();
 
             state._fsp--;
@@ -9802,7 +9802,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3274:1: ( rule__Joint__Group__10__Impl rule__Joint__Group__11 )
             // InternalKinematicsParser.g:3275:2: rule__Joint__Group__10__Impl rule__Joint__Group__11
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__Joint__Group__10__Impl();
 
             state._fsp--;
@@ -9877,7 +9877,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3301:1: ( rule__Joint__Group__11__Impl rule__Joint__Group__12 )
             // InternalKinematicsParser.g:3302:2: rule__Joint__Group__11__Impl rule__Joint__Group__12
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__Joint__Group__11__Impl();
 
             state._fsp--;
@@ -9962,7 +9962,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3328:1: ( rule__Joint__Group__12__Impl rule__Joint__Group__13 )
             // InternalKinematicsParser.g:3329:2: rule__Joint__Group__12__Impl rule__Joint__Group__13
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__Joint__Group__12__Impl();
 
             state._fsp--;
@@ -10058,7 +10058,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3355:1: ( rule__Joint__Group__13__Impl rule__Joint__Group__14 )
             // InternalKinematicsParser.g:3356:2: rule__Joint__Group__13__Impl rule__Joint__Group__14
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__Joint__Group__13__Impl();
 
             state._fsp--;
@@ -10860,7 +10860,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3625:1: ( rule__Link__Group_2__1__Impl rule__Link__Group_2__2 )
             // InternalKinematicsParser.g:3626:2: rule__Link__Group_2__1__Impl rule__Link__Group_2__2
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Link__Group_2__1__Impl();
 
             state._fsp--;
@@ -10935,7 +10935,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3652:1: ( rule__Link__Group_2__2__Impl rule__Link__Group_2__3 )
             // InternalKinematicsParser.g:3653:2: rule__Link__Group_2__2__Impl rule__Link__Group_2__3
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Link__Group_2__2__Impl();
 
             state._fsp--;
@@ -11031,7 +11031,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3679:1: ( rule__Link__Group_2__3__Impl rule__Link__Group_2__4 )
             // InternalKinematicsParser.g:3680:2: rule__Link__Group_2__3__Impl rule__Link__Group_2__4
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Link__Group_2__3__Impl();
 
             state._fsp--;
@@ -11127,7 +11127,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3706:1: ( rule__Link__Group_2__4__Impl rule__Link__Group_2__5 )
             // InternalKinematicsParser.g:3707:2: rule__Link__Group_2__4__Impl rule__Link__Group_2__5
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Link__Group_2__4__Impl();
 
             state._fsp--;
@@ -11833,7 +11833,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3949:1: ( rule__Pose__Group__1__Impl rule__Pose__Group__2 )
             // InternalKinematicsParser.g:3950:2: rule__Pose__Group__1__Impl rule__Pose__Group__2
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Pose__Group__1__Impl();
 
             state._fsp--;
@@ -11908,7 +11908,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:3976:1: ( rule__Pose__Group__2__Impl rule__Pose__Group__3 )
             // InternalKinematicsParser.g:3977:2: rule__Pose__Group__2__Impl rule__Pose__Group__3
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Pose__Group__2__Impl();
 
             state._fsp--;
@@ -12004,7 +12004,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4003:1: ( rule__Pose__Group__3__Impl rule__Pose__Group__4 )
             // InternalKinematicsParser.g:4004:2: rule__Pose__Group__3__Impl rule__Pose__Group__4
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_32);
             rule__Pose__Group__3__Impl();
 
             state._fsp--;
@@ -12170,7 +12170,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4057:1: ( rule__Pose__Group_2__0__Impl rule__Pose__Group_2__1 )
             // InternalKinematicsParser.g:4058:2: rule__Pose__Group_2__0__Impl rule__Pose__Group_2__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Pose__Group_2__0__Impl();
 
             state._fsp--;
@@ -12325,7 +12325,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4111:1: ( rule__Pose__Group_3__0__Impl rule__Pose__Group_3__1 )
             // InternalKinematicsParser.g:4112:2: rule__Pose__Group_3__0__Impl rule__Pose__Group_3__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Pose__Group_3__0__Impl();
 
             state._fsp--;
@@ -12555,7 +12555,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4192:1: ( rule__Vector3__Group__1__Impl rule__Vector3__Group__2 )
             // InternalKinematicsParser.g:4193:2: rule__Vector3__Group__1__Impl rule__Vector3__Group__2
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__Vector3__Group__1__Impl();
 
             state._fsp--;
@@ -12630,7 +12630,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4219:1: ( rule__Vector3__Group__2__Impl rule__Vector3__Group__3 )
             // InternalKinematicsParser.g:4220:2: rule__Vector3__Group__2__Impl rule__Vector3__Group__3
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__Vector3__Group__2__Impl();
 
             state._fsp--;
@@ -12796,7 +12796,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4273:1: ( rule__Vector3__Group_2__0__Impl rule__Vector3__Group_2__1 )
             // InternalKinematicsParser.g:4274:2: rule__Vector3__Group_2__0__Impl rule__Vector3__Group_2__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Vector3__Group_2__0__Impl();
 
             state._fsp--;
@@ -13026,7 +13026,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4354:1: ( rule__Limit__Group__1__Impl rule__Limit__Group__2 )
             // InternalKinematicsParser.g:4355:2: rule__Limit__Group__1__Impl rule__Limit__Group__2
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Limit__Group__1__Impl();
 
             state._fsp--;
@@ -13101,7 +13101,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4381:1: ( rule__Limit__Group__2__Impl rule__Limit__Group__3 )
             // InternalKinematicsParser.g:4382:2: rule__Limit__Group__2__Impl rule__Limit__Group__3
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Limit__Group__2__Impl();
 
             state._fsp--;
@@ -13197,7 +13197,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4408:1: ( rule__Limit__Group__3__Impl rule__Limit__Group__4 )
             // InternalKinematicsParser.g:4409:2: rule__Limit__Group__3__Impl rule__Limit__Group__4
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Limit__Group__3__Impl();
 
             state._fsp--;
@@ -13293,7 +13293,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4435:1: ( rule__Limit__Group__4__Impl rule__Limit__Group__5 )
             // InternalKinematicsParser.g:4436:2: rule__Limit__Group__4__Impl rule__Limit__Group__5
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Limit__Group__4__Impl();
 
             state._fsp--;
@@ -13389,7 +13389,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4462:1: ( rule__Limit__Group__5__Impl rule__Limit__Group__6 )
             // InternalKinematicsParser.g:4463:2: rule__Limit__Group__5__Impl rule__Limit__Group__6
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Limit__Group__5__Impl();
 
             state._fsp--;
@@ -13555,7 +13555,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4516:1: ( rule__Limit__Group_2__0__Impl rule__Limit__Group_2__1 )
             // InternalKinematicsParser.g:4517:2: rule__Limit__Group_2__0__Impl rule__Limit__Group_2__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Limit__Group_2__0__Impl();
 
             state._fsp--;
@@ -13710,7 +13710,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4570:1: ( rule__Limit__Group_3__0__Impl rule__Limit__Group_3__1 )
             // InternalKinematicsParser.g:4571:2: rule__Limit__Group_3__0__Impl rule__Limit__Group_3__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Limit__Group_3__0__Impl();
 
             state._fsp--;
@@ -13865,7 +13865,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4624:1: ( rule__Limit__Group_4__0__Impl rule__Limit__Group_4__1 )
             // InternalKinematicsParser.g:4625:2: rule__Limit__Group_4__0__Impl rule__Limit__Group_4__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Limit__Group_4__0__Impl();
 
             state._fsp--;
@@ -14020,7 +14020,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4678:1: ( rule__Limit__Group_5__0__Impl rule__Limit__Group_5__1 )
             // InternalKinematicsParser.g:4679:2: rule__Limit__Group_5__0__Impl rule__Limit__Group_5__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Limit__Group_5__0__Impl();
 
             state._fsp--;
@@ -14250,7 +14250,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4759:1: ( rule__Inertial__Group__1__Impl rule__Inertial__Group__2 )
             // InternalKinematicsParser.g:4760:2: rule__Inertial__Group__1__Impl rule__Inertial__Group__2
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_35);
             rule__Inertial__Group__1__Impl();
 
             state._fsp--;
@@ -14325,7 +14325,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4786:1: ( rule__Inertial__Group__2__Impl rule__Inertial__Group__3 )
             // InternalKinematicsParser.g:4787:2: rule__Inertial__Group__2__Impl rule__Inertial__Group__3
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_35);
             rule__Inertial__Group__2__Impl();
 
             state._fsp--;
@@ -14421,7 +14421,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4813:1: ( rule__Inertial__Group__3__Impl rule__Inertial__Group__4 )
             // InternalKinematicsParser.g:4814:2: rule__Inertial__Group__3__Impl rule__Inertial__Group__4
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_35);
             rule__Inertial__Group__3__Impl();
 
             state._fsp--;
@@ -14517,7 +14517,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4840:1: ( rule__Inertial__Group__4__Impl rule__Inertial__Group__5 )
             // InternalKinematicsParser.g:4841:2: rule__Inertial__Group__4__Impl rule__Inertial__Group__5
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_35);
             rule__Inertial__Group__4__Impl();
 
             state._fsp--;
@@ -14838,7 +14838,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:4948:1: ( rule__Inertial__Group_3__0__Impl rule__Inertial__Group_3__1 )
             // InternalKinematicsParser.g:4949:2: rule__Inertial__Group_3__0__Impl rule__Inertial__Group_3__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Inertial__Group_3__0__Impl();
 
             state._fsp--;
@@ -16260,7 +16260,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:5434:1: ( rule__Mass__Group__0__Impl rule__Mass__Group__1 )
             // InternalKinematicsParser.g:5435:2: rule__Mass__Group__0__Impl rule__Mass__Group__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Mass__Group__0__Impl();
 
             state._fsp--;
@@ -17211,7 +17211,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:5731:1: ( rule__Inertia__Group_2__0__Impl rule__Inertia__Group_2__1 )
             // InternalKinematicsParser.g:5732:2: rule__Inertia__Group_2__0__Impl rule__Inertia__Group_2__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Inertia__Group_2__0__Impl();
 
             state._fsp--;
@@ -17366,7 +17366,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:5785:1: ( rule__Inertia__Group_3__0__Impl rule__Inertia__Group_3__1 )
             // InternalKinematicsParser.g:5786:2: rule__Inertia__Group_3__0__Impl rule__Inertia__Group_3__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Inertia__Group_3__0__Impl();
 
             state._fsp--;
@@ -17521,7 +17521,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:5839:1: ( rule__Inertia__Group_4__0__Impl rule__Inertia__Group_4__1 )
             // InternalKinematicsParser.g:5840:2: rule__Inertia__Group_4__0__Impl rule__Inertia__Group_4__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Inertia__Group_4__0__Impl();
 
             state._fsp--;
@@ -17676,7 +17676,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:5893:1: ( rule__Inertia__Group_5__0__Impl rule__Inertia__Group_5__1 )
             // InternalKinematicsParser.g:5894:2: rule__Inertia__Group_5__0__Impl rule__Inertia__Group_5__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Inertia__Group_5__0__Impl();
 
             state._fsp--;
@@ -17831,7 +17831,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:5947:1: ( rule__Inertia__Group_6__0__Impl rule__Inertia__Group_6__1 )
             // InternalKinematicsParser.g:5948:2: rule__Inertia__Group_6__0__Impl rule__Inertia__Group_6__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Inertia__Group_6__0__Impl();
 
             state._fsp--;
@@ -17986,7 +17986,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:6001:1: ( rule__Inertia__Group_7__0__Impl rule__Inertia__Group_7__1 )
             // InternalKinematicsParser.g:6002:2: rule__Inertia__Group_7__0__Impl rule__Inertia__Group_7__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Inertia__Group_7__0__Impl();
 
             state._fsp--;
@@ -19820,7 +19820,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:6622:1: ( rule__Cylinder__Group__1__Impl rule__Cylinder__Group__2 )
             // InternalKinematicsParser.g:6623:2: rule__Cylinder__Group__1__Impl rule__Cylinder__Group__2
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Cylinder__Group__1__Impl();
 
             state._fsp--;
@@ -19980,7 +19980,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:6676:1: ( rule__Cylinder__Group__3__Impl rule__Cylinder__Group__4 )
             // InternalKinematicsParser.g:6677:2: rule__Cylinder__Group__3__Impl rule__Cylinder__Group__4
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Cylinder__Group__3__Impl();
 
             state._fsp--;
@@ -20285,7 +20285,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:6784:1: ( rule__Sphere__Group__1__Impl rule__Sphere__Group__2 )
             // InternalKinematicsParser.g:6785:2: rule__Sphere__Group__1__Impl rule__Sphere__Group__2
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Sphere__Group__1__Impl();
 
             state._fsp--;
@@ -20590,7 +20590,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:6892:1: ( rule__Mesh__Group__1__Impl rule__Mesh__Group__2 )
             // InternalKinematicsParser.g:6893:2: rule__Mesh__Group__1__Impl rule__Mesh__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_22);
             rule__Mesh__Group__1__Impl();
 
             state._fsp--;
@@ -20916,7 +20916,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             // InternalKinematicsParser.g:7000:1: ( rule__Mesh__Group_3__0__Impl rule__Mesh__Group_3__1 )
             // InternalKinematicsParser.g:7001:2: rule__Mesh__Group_3__0__Impl rule__Mesh__Group_3__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_8);
             rule__Mesh__Group_3__0__Impl();
 
             state._fsp--;
@@ -21099,21 +21099,25 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Robot__VersionAssignment_5_1"
-    // InternalKinematicsParser.g:7065:1: rule__Robot__VersionAssignment_5_1 : ( RULE_STRING ) ;
+    // InternalKinematicsParser.g:7065:1: rule__Robot__VersionAssignment_5_1 : ( ruleDouble0 ) ;
     public final void rule__Robot__VersionAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematicsParser.g:7069:1: ( ( RULE_STRING ) )
-            // InternalKinematicsParser.g:7070:2: ( RULE_STRING )
+            // InternalKinematicsParser.g:7069:1: ( ( ruleDouble0 ) )
+            // InternalKinematicsParser.g:7070:2: ( ruleDouble0 )
             {
-            // InternalKinematicsParser.g:7070:2: ( RULE_STRING )
-            // InternalKinematicsParser.g:7071:3: RULE_STRING
+            // InternalKinematicsParser.g:7070:2: ( ruleDouble0 )
+            // InternalKinematicsParser.g:7071:3: ruleDouble0
             {
-             before(grammarAccess.getRobotAccess().getVersionSTRINGTerminalRuleCall_5_1_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getRobotAccess().getVersionSTRINGTerminalRuleCall_5_1_0()); 
+             before(grammarAccess.getRobotAccess().getVersionDouble0ParserRuleCall_5_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleDouble0();
+
+            state._fsp--;
+
+             after(grammarAccess.getRobotAccess().getVersionDouble0ParserRuleCall_5_1_0()); 
 
             }
 
@@ -23787,7 +23791,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000004000000000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x4000000000000000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x1000000800082010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0200000000000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0010000000000000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0010000000000002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000020020000L});
@@ -23801,20 +23805,20 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x4000000000000000L,0x0000000000000001L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x1010000000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x4800000000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x1000000410000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x1000000001000440L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x100A000000000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x1008000000000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x1000000240010800L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x1000001000101000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x1010000000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x4800000000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x1000000410000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x1000000001000440L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x100A000000000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x1008000000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x1000000240010800L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x1000001000101000L});
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000100200L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x1001F80000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x1000042000800080L});

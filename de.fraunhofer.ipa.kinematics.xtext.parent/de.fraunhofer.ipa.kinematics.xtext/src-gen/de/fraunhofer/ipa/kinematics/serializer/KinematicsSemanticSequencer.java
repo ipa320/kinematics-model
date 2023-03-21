@@ -569,7 +569,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=ID version=STRING? macro+=Macro* macroCall+=MacroCall* body=Body?)
+	 *     (name=ID version=Double0? macro+=Macro* macroCall+=MacroCall* body=Body?)
 	 * </pre>
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {

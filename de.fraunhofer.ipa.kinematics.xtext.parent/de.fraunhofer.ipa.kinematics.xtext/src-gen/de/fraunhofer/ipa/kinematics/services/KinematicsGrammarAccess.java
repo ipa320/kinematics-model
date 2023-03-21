@@ -36,7 +36,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cVersionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cVersionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cVersionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cVersionAssignment_5_1.eContents().get(0);
+		private final RuleCall cVersionDouble0ParserRuleCall_5_1_0 = (RuleCall)cVersionAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cMacrosKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cMacroAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
@@ -58,7 +58,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//    'robot:'
 		//    BEGIN
 		//        'name:' name=ID
-		//        ('version:' version=STRING)?
+		//        ('version:' version=Double0)?
 		//        ('macros:'
 		//            macro+=Macro*
 		//        )?
@@ -77,7 +77,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'robot:'
 		//BEGIN
 		//    'name:' name=ID
-		//    ('version:' version=STRING)?
+		//    ('version:' version=Double0)?
 		//    ('macros:'
 		//        macro+=Macro*
 		//    )?
@@ -110,17 +110,17 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 		
-		//('version:' version=STRING)?
+		//('version:' version=Double0)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'version:'
 		public Keyword getVersionKeyword_5_0() { return cVersionKeyword_5_0; }
 		
-		//version=STRING
+		//version=Double0
 		public Assignment getVersionAssignment_5_1() { return cVersionAssignment_5_1; }
 		
-		//STRING
-		public RuleCall getVersionSTRINGTerminalRuleCall_5_1_0() { return cVersionSTRINGTerminalRuleCall_5_1_0; }
+		//Double0
+		public RuleCall getVersionDouble0ParserRuleCall_5_1_0() { return cVersionDouble0ParserRuleCall_5_1_0; }
 		
 		//('macros:'
 		//    macro+=Macro*
@@ -2006,7 +2006,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//    'robot:'
 	//    BEGIN
 	//        'name:' name=ID
-	//        ('version:' version=STRING)?
+	//        ('version:' version=Double0)?
 	//        ('macros:'
 	//            macro+=Macro*
 	//        )?

@@ -67,12 +67,12 @@ public interface Robot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
-	 * @see #setVersion(String)
+	 * @see #setVersion(double)
 	 * @see xacro.XacroPackage#getRobot_Version()
-	 * @model default="1.0" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model default="1.0" dataType="org.eclipse.emf.ecore.xml.type.Double"
 	 * @generated
 	 */
-	String getVersion();
+	double getVersion();
 
 	/**
 	 * Sets the value of the '{@link xacro.Robot#getVersion <em>Version</em>}' attribute.
@@ -82,7 +82,7 @@ public interface Robot extends EObject {
 	 * @see #getVersion()
 	 * @generated
 	 */
-	void setVersion(String value);
+	void setVersion(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Body</b></em>' containment reference.

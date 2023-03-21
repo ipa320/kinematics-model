@@ -7068,9 +7068,9 @@ rule__Robot__VersionAssignment_5_1
 	}
 :
 	(
-		{ before(grammarAccess.getRobotAccess().getVersionSTRINGTerminalRuleCall_5_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getRobotAccess().getVersionSTRINGTerminalRuleCall_5_1_0()); }
+		{ before(grammarAccess.getRobotAccess().getVersionDouble0ParserRuleCall_5_1_0()); }
+		ruleDouble0
+		{ after(grammarAccess.getRobotAccess().getVersionDouble0ParserRuleCall_5_1_0()); }
 	)
 ;
 finally {

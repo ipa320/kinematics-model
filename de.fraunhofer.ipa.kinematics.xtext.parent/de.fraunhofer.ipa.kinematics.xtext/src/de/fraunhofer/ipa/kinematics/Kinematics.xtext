@@ -10,7 +10,7 @@ Robot returns Robot:
 	'robot:'
 	BEGIN
 		'name:' name=ID
-		('version:' version=STRING)?
+		('version:' version=Double0)?
 		('macros:'
 			macro+=Macro*
 		)?

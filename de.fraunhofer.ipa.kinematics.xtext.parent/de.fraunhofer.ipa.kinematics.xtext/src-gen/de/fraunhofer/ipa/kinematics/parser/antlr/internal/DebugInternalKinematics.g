@@ -11,7 +11,7 @@ ruleRobot:
 	RULE_ID
 	(
 		'version:'
-		RULE_STRING
+		ruleDouble0
 	)?
 	(
 		'macros:'

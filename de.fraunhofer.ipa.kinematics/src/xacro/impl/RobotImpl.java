@@ -80,7 +80,7 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VERSION_EDEFAULT = "1.0";
+	protected static final double VERSION_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -90,7 +90,7 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @generated
 	 * @ordered
 	 */
-	protected String version = VERSION_EDEFAULT;
+	protected double version = VERSION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -169,7 +169,7 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVersion() {
+	public double getVersion() {
 		return version;
 	}
 
@@ -178,8 +178,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVersion(String newVersion) {
-		String oldVersion = version;
+	public void setVersion(double newVersion) {
+		double oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.ROBOT__VERSION, oldVersion, version));
@@ -297,7 +297,7 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				getMacro().addAll((Collection<? extends Macro>)newValue);
 				return;
 			case XacroPackage.ROBOT__VERSION:
-				setVersion((String)newValue);
+				setVersion((Double)newValue);
 				return;
 			case XacroPackage.ROBOT__BODY:
 				setBody((Body)newValue);
@@ -350,7 +350,7 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			case XacroPackage.ROBOT__MACRO:
 				return macro != null && !macro.isEmpty();
 			case XacroPackage.ROBOT__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+				return version != VERSION_EDEFAULT;
 			case XacroPackage.ROBOT__BODY:
 				return body != null;
 			case XacroPackage.ROBOT__MACRO_CALL:
