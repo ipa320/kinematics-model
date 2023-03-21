@@ -442,26 +442,26 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cRefAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final CrossReference cRefParameterCrossReference_0_0 = (CrossReference)cRefAssignment_0.eContents().get(0);
-		private final RuleCall cRefParameterSTRINGTerminalRuleCall_0_0_1 = (RuleCall)cRefParameterCrossReference_0_0.eContents().get(1);
+		private final RuleCall cRefParameterIDTerminalRuleCall_0_0_1 = (RuleCall)cRefParameterCrossReference_0_0.eContents().get(1);
 		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cValuePoseParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//ParameterPose returns ParameterPose:
-		//    ref=[Parameter|STRING] | value=Pose
+		//    ref=[Parameter] | value=Pose
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ref=[Parameter|STRING] | value=Pose
+		//ref=[Parameter] | value=Pose
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//ref=[Parameter|STRING]
+		//ref=[Parameter]
 		public Assignment getRefAssignment_0() { return cRefAssignment_0; }
 		
-		//[Parameter|STRING]
+		//[Parameter]
 		public CrossReference getRefParameterCrossReference_0_0() { return cRefParameterCrossReference_0_0; }
 		
-		//STRING
-		public RuleCall getRefParameterSTRINGTerminalRuleCall_0_0_1() { return cRefParameterSTRINGTerminalRuleCall_0_0_1; }
+		//ID
+		public RuleCall getRefParameterIDTerminalRuleCall_0_0_1() { return cRefParameterIDTerminalRuleCall_0_0_1; }
 		
 		//value=Pose
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -2096,7 +2096,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//ParameterPose returns ParameterPose:
-	//    ref=[Parameter|STRING] | value=Pose
+	//    ref=[Parameter] | value=Pose
 	//;
 	public ParameterPoseElements getParameterPoseAccess() {
 		return pParameterPose;

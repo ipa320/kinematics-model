@@ -1457,7 +1457,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParameterPose"
-    // InternalKinematicsParser.g:592:1: ruleParameterPose returns [EObject current=null] : ( ( (otherlv_0= RULE_STRING ) ) | ( (lv_value_1_0= rulePose ) ) ) ;
+    // InternalKinematicsParser.g:592:1: ruleParameterPose returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) | ( (lv_value_1_0= rulePose ) ) ) ;
     public final EObject ruleParameterPose() throws RecognitionException {
         EObject current = null;
 
@@ -1469,14 +1469,14 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKinematicsParser.g:598:2: ( ( ( (otherlv_0= RULE_STRING ) ) | ( (lv_value_1_0= rulePose ) ) ) )
-            // InternalKinematicsParser.g:599:2: ( ( (otherlv_0= RULE_STRING ) ) | ( (lv_value_1_0= rulePose ) ) )
+            // InternalKinematicsParser.g:598:2: ( ( ( (otherlv_0= RULE_ID ) ) | ( (lv_value_1_0= rulePose ) ) ) )
+            // InternalKinematicsParser.g:599:2: ( ( (otherlv_0= RULE_ID ) ) | ( (lv_value_1_0= rulePose ) ) )
             {
-            // InternalKinematicsParser.g:599:2: ( ( (otherlv_0= RULE_STRING ) ) | ( (lv_value_1_0= rulePose ) ) )
+            // InternalKinematicsParser.g:599:2: ( ( (otherlv_0= RULE_ID ) ) | ( (lv_value_1_0= rulePose ) ) )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_STRING) ) {
+            if ( (LA14_0==RULE_ID) ) {
                 alt14=1;
             }
             else if ( (LA14_0==RULE_BEGIN) ) {
@@ -1490,20 +1490,20 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalKinematicsParser.g:600:3: ( (otherlv_0= RULE_STRING ) )
+                    // InternalKinematicsParser.g:600:3: ( (otherlv_0= RULE_ID ) )
                     {
-                    // InternalKinematicsParser.g:600:3: ( (otherlv_0= RULE_STRING ) )
-                    // InternalKinematicsParser.g:601:4: (otherlv_0= RULE_STRING )
+                    // InternalKinematicsParser.g:600:3: ( (otherlv_0= RULE_ID ) )
+                    // InternalKinematicsParser.g:601:4: (otherlv_0= RULE_ID )
                     {
-                    // InternalKinematicsParser.g:601:4: (otherlv_0= RULE_STRING )
-                    // InternalKinematicsParser.g:602:5: otherlv_0= RULE_STRING
+                    // InternalKinematicsParser.g:601:4: (otherlv_0= RULE_ID )
+                    // InternalKinematicsParser.g:602:5: otherlv_0= RULE_ID
                     {
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getParameterPoseRule());
                     					}
                     				
-                    otherlv_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+                    otherlv_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
                     					newLeafNode(otherlv_0, grammarAccess.getParameterPoseAccess().getRefParameterCrossReference_0_0());
                     				
@@ -6207,7 +6207,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x4000000000000000L,0x0000000000000001L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x4800000000000000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x1000000410000000L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x1000000010000000L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0020000000000002L});

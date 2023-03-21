@@ -59,7 +59,7 @@ ParameterString returns ParameterString:
 ;
 
 ParameterPose returns ParameterPose:
-	ref=[Parameter|STRING] | value=Pose 
+	ref=[Parameter] | value=Pose
 ;
 
 ParameterLink returns ParameterLink:

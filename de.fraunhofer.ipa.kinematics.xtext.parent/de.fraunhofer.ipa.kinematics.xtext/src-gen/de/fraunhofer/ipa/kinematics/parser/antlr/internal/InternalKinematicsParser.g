@@ -604,7 +604,7 @@ ruleParameterPose returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getParameterPoseRule());
 					}
 				}
-				otherlv_0=RULE_STRING
+				otherlv_0=RULE_ID
 				{
 					newLeafNode(otherlv_0, grammarAccess.getParameterPoseAccess().getRefParameterCrossReference_0_0());
 				}

@@ -477,7 +477,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ParameterPose returns ParameterPose
 	 *
 	 * Constraint:
-	 *     (ref=[Parameter|STRING] | value=Pose)
+	 *     (ref=[Parameter|ID] | value=Pose)
 	 * </pre>
 	 */
 	protected void sequence_ParameterPose(ISerializationContext context, ParameterPose semanticObject) {

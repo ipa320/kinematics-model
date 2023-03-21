@@ -2685,7 +2685,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==RULE_STRING) ) {
+            if ( (LA2_0==RULE_ID) ) {
                 alt2=1;
             }
             else if ( (LA2_0==RULE_BEGIN) ) {
@@ -21661,25 +21661,25 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ParameterPose__RefAssignment_0"
-    // InternalKinematicsParser.g:7283:1: rule__ParameterPose__RefAssignment_0 : ( ( RULE_STRING ) ) ;
+    // InternalKinematicsParser.g:7283:1: rule__ParameterPose__RefAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__ParameterPose__RefAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKinematicsParser.g:7287:1: ( ( ( RULE_STRING ) ) )
-            // InternalKinematicsParser.g:7288:2: ( ( RULE_STRING ) )
+            // InternalKinematicsParser.g:7287:1: ( ( ( RULE_ID ) ) )
+            // InternalKinematicsParser.g:7288:2: ( ( RULE_ID ) )
             {
-            // InternalKinematicsParser.g:7288:2: ( ( RULE_STRING ) )
-            // InternalKinematicsParser.g:7289:3: ( RULE_STRING )
+            // InternalKinematicsParser.g:7288:2: ( ( RULE_ID ) )
+            // InternalKinematicsParser.g:7289:3: ( RULE_ID )
             {
              before(grammarAccess.getParameterPoseAccess().getRefParameterCrossReference_0_0()); 
-            // InternalKinematicsParser.g:7290:3: ( RULE_STRING )
-            // InternalKinematicsParser.g:7291:4: RULE_STRING
+            // InternalKinematicsParser.g:7290:3: ( RULE_ID )
+            // InternalKinematicsParser.g:7291:4: RULE_ID
             {
-             before(grammarAccess.getParameterPoseAccess().getRefParameterSTRINGTerminalRuleCall_0_0_1()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getParameterPoseAccess().getRefParameterSTRINGTerminalRuleCall_0_0_1()); 
+             before(grammarAccess.getParameterPoseAccess().getRefParameterIDTerminalRuleCall_0_0_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getParameterPoseAccess().getRefParameterIDTerminalRuleCall_0_0_1()); 
 
             }
 
@@ -23807,7 +23807,7 @@ public class InternalKinematicsParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x4800000000000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x1000000410000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x1000000001000440L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x100A000000000000L});

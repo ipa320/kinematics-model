@@ -94,7 +94,7 @@ ruleParameterString:
 // Rule ParameterPose
 ruleParameterPose:
 	(
-		RULE_STRING
+		RULE_ID
 		    |
 		rulePose
 	)

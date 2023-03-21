@@ -7288,9 +7288,9 @@ rule__ParameterPose__RefAssignment_0
 	(
 		{ before(grammarAccess.getParameterPoseAccess().getRefParameterCrossReference_0_0()); }
 		(
-			{ before(grammarAccess.getParameterPoseAccess().getRefParameterSTRINGTerminalRuleCall_0_0_1()); }
-			RULE_STRING
-			{ after(grammarAccess.getParameterPoseAccess().getRefParameterSTRINGTerminalRuleCall_0_0_1()); }
+			{ before(grammarAccess.getParameterPoseAccess().getRefParameterIDTerminalRuleCall_0_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getParameterPoseAccess().getRefParameterIDTerminalRuleCall_0_0_1()); }
 		)
 		{ after(grammarAccess.getParameterPoseAccess().getRefParameterCrossReference_0_0()); }
 	)
