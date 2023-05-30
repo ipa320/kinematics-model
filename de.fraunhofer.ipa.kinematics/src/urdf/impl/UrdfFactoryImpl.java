@@ -60,7 +60,6 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 			case UrdfPackage.AXIS: return createAxis();
 			case UrdfPackage.BOX: return createBox();
 			case UrdfPackage.CALIBRATION: return createCalibration();
-			case UrdfPackage.CHILD: return createChild();
 			case UrdfPackage.COLLISION: return createCollision();
 			case UrdfPackage.COLOR: return createColor();
 			case UrdfPackage.CYLINDER: return createCylinder();
@@ -79,7 +78,6 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 			case UrdfPackage.MESH: return createMesh();
 			case UrdfPackage.MIMIC: return createMimic();
 			case UrdfPackage.NAME: return createName();
-			case UrdfPackage.PARENT: return createParent();
 			case UrdfPackage.PASSIVE_JOINT_TRANSMISSION: return createPassiveJointTransmission();
 			case UrdfPackage.POSE: return createPose();
 			case UrdfPackage.ROBOT: return createRobot();
@@ -133,16 +131,6 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 	public Calibration createCalibration() {
 		CalibrationImpl calibration = new CalibrationImpl();
 		return calibration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Child createChild() {
-		ChildImpl child = new ChildImpl();
-		return child;
 	}
 
 	/**
@@ -323,16 +311,6 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 	public Name createName() {
 		NameImpl name = new NameImpl();
 		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parent createParent() {
-		ParentImpl parent = new ParentImpl();
-		return parent;
 	}
 
 	/**

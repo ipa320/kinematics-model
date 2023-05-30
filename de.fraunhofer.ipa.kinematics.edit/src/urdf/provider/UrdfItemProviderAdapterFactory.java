@@ -164,29 +164,6 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link urdf.Child} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChildItemProvider childItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link urdf.Child}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChildAdapter() {
-		if (childItemProvider == null) {
-			childItemProvider = new ChildItemProvider(this);
-		}
-
-		return childItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link urdf.Collision} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -601,29 +578,6 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link urdf.Parent} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParentItemProvider parentItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link urdf.Parent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParentAdapter() {
-		if (parentItemProvider == null) {
-			parentItemProvider = new ParentItemProvider(this);
-		}
-
-		return parentItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link urdf.PassiveJointTransmission} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -956,7 +910,6 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 		if (axisItemProvider != null) axisItemProvider.dispose();
 		if (boxItemProvider != null) boxItemProvider.dispose();
 		if (calibrationItemProvider != null) calibrationItemProvider.dispose();
-		if (childItemProvider != null) childItemProvider.dispose();
 		if (collisionItemProvider != null) collisionItemProvider.dispose();
 		if (colorItemProvider != null) colorItemProvider.dispose();
 		if (cylinderItemProvider != null) cylinderItemProvider.dispose();
@@ -975,7 +928,6 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 		if (meshItemProvider != null) meshItemProvider.dispose();
 		if (mimicItemProvider != null) mimicItemProvider.dispose();
 		if (nameItemProvider != null) nameItemProvider.dispose();
-		if (parentItemProvider != null) parentItemProvider.dispose();
 		if (passiveJointTransmissionItemProvider != null) passiveJointTransmissionItemProvider.dispose();
 		if (poseItemProvider != null) poseItemProvider.dispose();
 		if (robotItemProvider != null) robotItemProvider.dispose();

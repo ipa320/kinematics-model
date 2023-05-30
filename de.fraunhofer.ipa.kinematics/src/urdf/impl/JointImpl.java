@@ -13,12 +13,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import urdf.Axis;
 import urdf.Calibration;
-import urdf.Child;
 import urdf.Dynamics;
 import urdf.Joint;
 import urdf.Limit;
+import urdf.Link;
 import urdf.Mimic;
-import urdf.Parent;
 import urdf.Pose;
 import urdf.SafetyController;
 import urdf.UrdfPackage;
@@ -58,24 +57,24 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	protected Pose origin;
 
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference.
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parent parent;
+	protected Link parent;
 
 	/**
-	 * The cached value of the '{@link #getChild() <em>Child</em>}' containment reference.
+	 * The cached value of the '{@link #getChild() <em>Child</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getChild()
 	 * @generated
 	 * @ordered
 	 */
-	protected Child child;
+	protected Link child;
 
 	/**
 	 * The cached value of the '{@link #getAxis() <em>Axis</em>}' containment reference.
@@ -244,7 +243,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parent getParent() {
+	public Link getParent() {
 		return parent;
 	}
 
@@ -253,14 +252,11 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParent(Parent newParent, NotificationChain msgs) {
-		Parent oldParent = parent;
+	public void setParent(Link newParent) {
+		Link oldParent = parent;
 		parent = newParent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UrdfPackage.JOINT__PARENT, oldParent, newParent);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.JOINT__PARENT, oldParent, parent));
 	}
 
 	/**
@@ -268,26 +264,7 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParent(Parent newParent) {
-		if (newParent != parent) {
-			NotificationChain msgs = null;
-			if (parent != null)
-				msgs = ((InternalEObject)parent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UrdfPackage.JOINT__PARENT, null, msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UrdfPackage.JOINT__PARENT, null, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.JOINT__PARENT, newParent, newParent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Child getChild() {
+	public Link getChild() {
 		return child;
 	}
 
@@ -296,33 +273,11 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetChild(Child newChild, NotificationChain msgs) {
-		Child oldChild = child;
+	public void setChild(Link newChild) {
+		Link oldChild = child;
 		child = newChild;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UrdfPackage.JOINT__CHILD, oldChild, newChild);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChild(Child newChild) {
-		if (newChild != child) {
-			NotificationChain msgs = null;
-			if (child != null)
-				msgs = ((InternalEObject)child).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UrdfPackage.JOINT__CHILD, null, msgs);
-			if (newChild != null)
-				msgs = ((InternalEObject)newChild).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UrdfPackage.JOINT__CHILD, null, msgs);
-			msgs = basicSetChild(newChild, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.JOINT__CHILD, newChild, newChild));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.JOINT__CHILD, oldChild, child));
 	}
 
 	/**
@@ -635,10 +590,6 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 		switch (featureID) {
 			case UrdfPackage.JOINT__ORIGIN:
 				return basicSetOrigin(null, msgs);
-			case UrdfPackage.JOINT__PARENT:
-				return basicSetParent(null, msgs);
-			case UrdfPackage.JOINT__CHILD:
-				return basicSetChild(null, msgs);
 			case UrdfPackage.JOINT__AXIS:
 				return basicSetAxis(null, msgs);
 			case UrdfPackage.JOINT__CALIBRATION:
@@ -701,10 +652,10 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 				setOrigin((Pose)newValue);
 				return;
 			case UrdfPackage.JOINT__PARENT:
-				setParent((Parent)newValue);
+				setParent((Link)newValue);
 				return;
 			case UrdfPackage.JOINT__CHILD:
-				setChild((Child)newValue);
+				setChild((Link)newValue);
 				return;
 			case UrdfPackage.JOINT__AXIS:
 				setAxis((Axis)newValue);
@@ -746,10 +697,10 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
 				setOrigin((Pose)null);
 				return;
 			case UrdfPackage.JOINT__PARENT:
-				setParent((Parent)null);
+				setParent((Link)null);
 				return;
 			case UrdfPackage.JOINT__CHILD:
-				setChild((Child)null);
+				setChild((Link)null);
 				return;
 			case UrdfPackage.JOINT__AXIS:
 				setAxis((Axis)null);

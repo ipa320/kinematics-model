@@ -15,7 +15,6 @@ import urdf.ActuatorTransmission;
 import urdf.Axis;
 import urdf.Box;
 import urdf.Calibration;
-import urdf.Child;
 import urdf.Collision;
 import urdf.Color;
 import urdf.Cylinder;
@@ -34,7 +33,6 @@ import urdf.MaterialGlobal;
 import urdf.Mesh;
 import urdf.Mimic;
 import urdf.Name;
-import urdf.Parent;
 import urdf.PassiveJointTransmission;
 import urdf.Pose;
 import urdf.Robot;
@@ -82,13 +80,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	private EClass calibrationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass childEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,13 +206,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	private EClass nameEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass parentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -457,24 +441,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 */
 	public EAttribute getCalibration_Rising() {
 		return (EAttribute)calibrationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getChild() {
-		return childEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getChild_Link() {
-		return (EAttribute)childEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1283,24 +1249,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParent() {
-		return parentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParent_Link() {
-		return (EAttribute)parentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPassiveJointTransmission() {
 		return passiveJointTransmissionEClass;
 	}
@@ -1708,9 +1656,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEAttribute(calibrationEClass, CALIBRATION__REFERENCE_POSITION);
 		createEAttribute(calibrationEClass, CALIBRATION__RISING);
 
-		childEClass = createEClass(CHILD);
-		createEAttribute(childEClass, CHILD__LINK);
-
 		collisionEClass = createEClass(COLLISION);
 		createEReference(collisionEClass, COLLISION__ORIGIN);
 		createEReference(collisionEClass, COLLISION__GEOMETRY);
@@ -1818,9 +1763,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		nameEClass = createEClass(NAME);
 		createEAttribute(nameEClass, NAME__NAME);
 
-		parentEClass = createEClass(PARENT);
-		createEAttribute(parentEClass, PARENT__LINK);
-
 		passiveJointTransmissionEClass = createEClass(PASSIVE_JOINT_TRANSMISSION);
 		createEAttribute(passiveJointTransmissionEClass, PASSIVE_JOINT_TRANSMISSION__NAME);
 
@@ -1921,9 +1863,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEAttribute(getCalibration_ReferencePosition(), ecorePackage.getEDouble(), "referencePosition", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCalibration_Rising(), ecorePackage.getEDouble(), "rising", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChild_Link(), ecorePackage.getEString(), "link", null, 1, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(collisionEClass, Collision.class, "Collision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCollision_Origin(), this.getPose(), null, "origin", null, 0, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCollision_Geometry(), this.getGeometry(), null, "geometry", null, 1, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1982,8 +1921,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Parent(), this.getParent(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Child(), this.getChild(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Child(), this.getLink(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Axis(), this.getAxis(), null, "axis", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Calibration(), this.getCalibration(), null, "calibration", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Dynamics(), this.getDynamics(), null, "dynamics", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2030,9 +1969,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		initEClass(nameEClass, Name.class, "Name", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getName_Name(), ecorePackage.getEString(), "name", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(parentEClass, Parent.class, "Parent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParent_Link(), ecorePackage.getEString(), "link", null, 1, 1, Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(passiveJointTransmissionEClass, PassiveJointTransmission.class, "PassiveJointTransmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPassiveJointTransmission_Name(), ecorePackage.getEString(), "name", null, 1, 1, PassiveJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

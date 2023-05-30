@@ -227,12 +227,12 @@ public class JointItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UrdfPackage.Literals.JOINT__PARENT,
-				 UrdfFactory.eINSTANCE.createParent()));
+				 UrdfFactory.eINSTANCE.createLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(UrdfPackage.Literals.JOINT__CHILD,
-				 UrdfFactory.eINSTANCE.createChild()));
+				 UrdfFactory.eINSTANCE.createLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -263,6 +263,29 @@ public class JointItemProvider
 			(createChildParameter
 				(UrdfPackage.Literals.JOINT__MIMIC,
 				 UrdfFactory.eINSTANCE.createMimic()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == UrdfPackage.Literals.JOINT__PARENT ||
+			childFeature == UrdfPackage.Literals.JOINT__CHILD;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

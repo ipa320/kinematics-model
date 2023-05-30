@@ -90,12 +90,6 @@ public class UrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UrdfPackage.CHILD: {
-				Child child = (Child)theEObject;
-				T result = caseChild(child);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case UrdfPackage.COLLISION: {
 				Collision collision = (Collision)theEObject;
 				T result = caseCollision(collision);
@@ -201,12 +195,6 @@ public class UrdfSwitch<T> extends Switch<T> {
 			case UrdfPackage.NAME: {
 				Name name = (Name)theEObject;
 				T result = caseName(name);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UrdfPackage.PARENT: {
-				Parent parent = (Parent)theEObject;
-				T result = caseParent(parent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -331,21 +319,6 @@ public class UrdfSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCalibration(Calibration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Child</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Child</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseChild(Child object) {
 		return null;
 	}
 
@@ -616,21 +589,6 @@ public class UrdfSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseName(Name object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parent</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parent</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParent(Parent object) {
 		return null;
 	}
 

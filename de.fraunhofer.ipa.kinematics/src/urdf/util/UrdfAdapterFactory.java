@@ -84,10 +84,6 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 				return createCalibrationAdapter();
 			}
 			@Override
-			public Adapter caseChild(Child object) {
-				return createChildAdapter();
-			}
-			@Override
 			public Adapter caseCollision(Collision object) {
 				return createCollisionAdapter();
 			}
@@ -158,10 +154,6 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseName(Name object) {
 				return createNameAdapter();
-			}
-			@Override
-			public Adapter caseParent(Parent object) {
-				return createParentAdapter();
 			}
 			@Override
 			public Adapter casePassiveJointTransmission(PassiveJointTransmission object) {
@@ -276,20 +268,6 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCalibrationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link urdf.Child <em>Child</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see urdf.Child
-	 * @generated
-	 */
-	public Adapter createChildAdapter() {
 		return null;
 	}
 
@@ -542,20 +520,6 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNameAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link urdf.Parent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see urdf.Parent
-	 * @generated
-	 */
-	public Adapter createParentAdapter() {
 		return null;
 	}
 
