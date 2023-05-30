@@ -256,13 +256,13 @@ public interface UrdfFactory extends EFactory {
 	Pose createPose();
 
 	/**
-	 * Returns a new object of class '<em>Robot Type</em>'.
+	 * Returns a new object of class '<em>Robot</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Robot Type</em>'.
+	 * @return a new object of class '<em>Robot</em>'.
 	 * @generated
 	 */
-	RobotType createRobotType();
+	Robot createRobot();
 
 	/**
 	 * Returns a new object of class '<em>Safety Controller</em>'.

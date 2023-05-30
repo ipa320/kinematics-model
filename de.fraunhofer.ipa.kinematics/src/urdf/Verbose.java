@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getVerbose()
- * @model extendedMetaData="name='verbose' kind='empty'"
+ * @model
  * @generated
  */
 public interface Verbose extends EObject {
@@ -28,8 +28,7 @@ public interface Verbose extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see urdf.UrdfPackage#getVerbose_Value()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='value'"
+	 * @model
 	 * @generated
 	 */
 	String getValue();

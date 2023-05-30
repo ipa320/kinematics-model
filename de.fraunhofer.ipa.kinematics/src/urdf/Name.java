@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getName_()
- * @model extendedMetaData="name='name' kind='empty'"
+ * @model
  * @generated
  */
 public interface Name extends EObject {
@@ -28,8 +28,7 @@ public interface Name extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getName_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model
 	 * @generated
 	 */
 	String getName();

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getCylinder()
- * @model extendedMetaData="name='cylinder' kind='empty'"
+ * @model
  * @generated
  */
 public interface Cylinder extends EObject {
@@ -31,8 +31,7 @@ public interface Cylinder extends EObject {
 	 * @see #unsetLength()
 	 * @see #setLength(double)
 	 * @see urdf.UrdfPackage#getCylinder_Length()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='length'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getLength();
@@ -81,8 +80,7 @@ public interface Cylinder extends EObject {
 	 * @see #unsetRadius()
 	 * @see #setRadius(double)
 	 * @see urdf.UrdfPackage#getCylinder_Radius()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='radius'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getRadius();

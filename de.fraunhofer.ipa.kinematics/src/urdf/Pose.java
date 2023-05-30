@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getPose()
- * @model extendedMetaData="name='pose' kind='empty'"
+ * @model
  * @generated
  */
 public interface Pose extends EObject {
@@ -32,8 +32,7 @@ public interface Pose extends EObject {
 	 * @see #unsetRpy()
 	 * @see #setRpy(String)
 	 * @see urdf.UrdfPackage#getPose_Rpy()
-	 * @model default="0 0 0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='rpy'"
+	 * @model default="0 0 0" unsettable="true"
 	 * @generated
 	 */
 	String getRpy();
@@ -83,8 +82,7 @@ public interface Pose extends EObject {
 	 * @see #unsetXyz()
 	 * @see #setXyz(String)
 	 * @see urdf.UrdfPackage#getPose_Xyz()
-	 * @model default="0 0 0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='xyz'"
+	 * @model default="0 0 0" unsettable="true"
 	 * @generated
 	 */
 	String getXyz();

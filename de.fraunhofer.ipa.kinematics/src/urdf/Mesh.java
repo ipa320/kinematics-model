@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getMesh()
- * @model extendedMetaData="name='mesh' kind='empty'"
+ * @model
  * @generated
  */
 public interface Mesh extends EObject {
@@ -29,8 +29,7 @@ public interface Mesh extends EObject {
 	 * @return the value of the '<em>Filename</em>' attribute.
 	 * @see #setFilename(String)
 	 * @see urdf.UrdfPackage#getMesh_Filename()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI" required="true"
-	 *        extendedMetaData="kind='attribute' name='filename'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getFilename();
@@ -55,8 +54,7 @@ public interface Mesh extends EObject {
 	 * @see #unsetScale()
 	 * @see #setScale(String)
 	 * @see urdf.UrdfPackage#getMesh_Scale()
-	 * @model default="1 1 1" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='scale'"
+	 * @model default="1 1 1" unsettable="true"
 	 * @generated
 	 */
 	String getScale();

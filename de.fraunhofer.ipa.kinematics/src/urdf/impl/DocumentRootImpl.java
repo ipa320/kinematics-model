@@ -2,18 +2,13 @@
  */
 package urdf.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EMap;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
@@ -22,7 +17,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import urdf.DocumentRoot;
-import urdf.RobotType;
+import urdf.Robot;
 import urdf.UrdfPackage;
 
 /**
@@ -73,16 +68,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	protected EMap<String, String> xSISchemaLocation;
 
 	/**
-	 * The cached value of the '{@link #getRobot() <em>Robot</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRobot()
-	 * @generated
-	 * @ordered
-	 */
-	protected RobotType robot;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -120,7 +105,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if (xMLNSPrefixMap == null) {
-			xMLNSPrefixMap = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, UrdfPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+			xMLNSPrefixMap = new EcoreEMap<String,String>(ecore.EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, ecore.impl.EStringToStringMapEntryImpl.class, this, UrdfPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
 		}
 		return xMLNSPrefixMap;
 	}
@@ -132,7 +117,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public EMap<String, String> getXSISchemaLocation() {
 		if (xSISchemaLocation == null) {
-			xSISchemaLocation = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, UrdfPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+			xSISchemaLocation = new EcoreEMap<String,String>(ecore.EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, ecore.impl.EStringToStringMapEntryImpl.class, this, UrdfPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		}
 		return xSISchemaLocation;
 	}
@@ -142,8 +127,10 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RobotType getRobot() {
-		return robot;
+	public Robot getRobot() {
+		// TODO: implement this method to return the 'Robot' containment reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -151,14 +138,13 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRobot(RobotType newRobot, NotificationChain msgs) {
-		RobotType oldRobot = robot;
-		robot = newRobot;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UrdfPackage.DOCUMENT_ROOT__ROBOT, oldRobot, newRobot);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public NotificationChain basicSetRobot(Robot newRobot, NotificationChain msgs) {
+		// TODO: implement this method to set the contained 'Robot' containment reference
+		// -> this method is automatically invoked to keep the containment relationship in synch
+		// -> do not modify other features
+		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -166,18 +152,10 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRobot(RobotType newRobot) {
-		if (newRobot != robot) {
-			NotificationChain msgs = null;
-			if (robot != null)
-				msgs = ((InternalEObject)robot).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UrdfPackage.DOCUMENT_ROOT__ROBOT, null, msgs);
-			if (newRobot != null)
-				msgs = ((InternalEObject)newRobot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UrdfPackage.DOCUMENT_ROOT__ROBOT, null, msgs);
-			msgs = basicSetRobot(newRobot, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.DOCUMENT_ROOT__ROBOT, newRobot, newRobot));
+	public void setRobot(Robot newRobot) {
+		// TODO: implement this method to set the 'Robot' containment reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -241,7 +219,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				((EStructuralFeature.Setting)getXSISchemaLocation()).set(newValue);
 				return;
 			case UrdfPackage.DOCUMENT_ROOT__ROBOT:
-				setRobot((RobotType)newValue);
+				setRobot((Robot)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -265,7 +243,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				getXSISchemaLocation().clear();
 				return;
 			case UrdfPackage.DOCUMENT_ROOT__ROBOT:
-				setRobot((RobotType)null);
+				setRobot((Robot)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -286,7 +264,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case UrdfPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
 				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
 			case UrdfPackage.DOCUMENT_ROOT__ROBOT:
-				return robot != null;
+				return getRobot() != null;
 		}
 		return super.eIsSet(featureID);
 	}

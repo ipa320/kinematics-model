@@ -3,17 +3,14 @@
 package xacro.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import xacro.Parameter;
 import xacro.ParameterType;
-import xacro.ParameterValue;
 import xacro.XacroPackage;
 
 /**
@@ -25,8 +22,9 @@ import xacro.XacroPackage;
  * </p>
  * <ul>
  *   <li>{@link xacro.impl.ParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link xacro.impl.ParameterImpl#getValue <em>Value</em>}</li>
  *   <li>{@link xacro.impl.ParameterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link xacro.impl.ParameterImpl#getDefault <em>Default</em>}</li>
+ *   <li>{@link xacro.impl.ParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,24 +51,64 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected ParameterValue value;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterType type;
+	protected static final ParameterType TYPE_EDEFAULT = ParameterType.LINK;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterType type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDefault() <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEFAULT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDefault() <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected String default_ = DEFAULT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,49 +155,6 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterValue getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetValue(ParameterValue newValue, NotificationChain msgs) {
-		ParameterValue oldValue = value;
-		value = newValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__VALUE, oldValue, newValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(ParameterValue newValue) {
-		if (newValue != value) {
-			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER__VALUE, null, msgs);
-			msgs = basicSetValue(newValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__VALUE, newValue, newValue));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ParameterType getType() {
 		return type;
 	}
@@ -169,33 +164,11 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(ParameterType newType, NotificationChain msgs) {
-		ParameterType oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void setType(ParameterType newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XacroPackage.PARAMETER__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__TYPE, newType, newType));
+		ParameterType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__TYPE, oldType, type));
 	}
 
 	/**
@@ -203,15 +176,41 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case XacroPackage.PARAMETER__VALUE:
-				return basicSetValue(null, msgs);
-			case XacroPackage.PARAMETER__TYPE:
-				return basicSetType(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public String getDefault() {
+		return default_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefault(String newDefault) {
+		String oldDefault = default_;
+		default_ = newDefault;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__DEFAULT, oldDefault, default_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XacroPackage.PARAMETER__VALUE, oldValue, value));
 	}
 
 	/**
@@ -224,10 +223,12 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 		switch (featureID) {
 			case XacroPackage.PARAMETER__NAME:
 				return getName();
-			case XacroPackage.PARAMETER__VALUE:
-				return getValue();
 			case XacroPackage.PARAMETER__TYPE:
 				return getType();
+			case XacroPackage.PARAMETER__DEFAULT:
+				return getDefault();
+			case XacroPackage.PARAMETER__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,11 +244,14 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 			case XacroPackage.PARAMETER__NAME:
 				setName((String)newValue);
 				return;
-			case XacroPackage.PARAMETER__VALUE:
-				setValue((ParameterValue)newValue);
-				return;
 			case XacroPackage.PARAMETER__TYPE:
 				setType((ParameterType)newValue);
+				return;
+			case XacroPackage.PARAMETER__DEFAULT:
+				setDefault((String)newValue);
+				return;
+			case XacroPackage.PARAMETER__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -264,11 +268,14 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 			case XacroPackage.PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case XacroPackage.PARAMETER__VALUE:
-				setValue((ParameterValue)null);
-				return;
 			case XacroPackage.PARAMETER__TYPE:
-				setType((ParameterType)null);
+				setType(TYPE_EDEFAULT);
+				return;
+			case XacroPackage.PARAMETER__DEFAULT:
+				setDefault(DEFAULT_EDEFAULT);
+				return;
+			case XacroPackage.PARAMETER__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -284,10 +291,12 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 		switch (featureID) {
 			case XacroPackage.PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case XacroPackage.PARAMETER__VALUE:
-				return value != null;
 			case XacroPackage.PARAMETER__TYPE:
-				return type != null;
+				return type != TYPE_EDEFAULT;
+			case XacroPackage.PARAMETER__DEFAULT:
+				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
+			case XacroPackage.PARAMETER__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -304,6 +313,12 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", type: ");
+		result.append(type);
+		result.append(", default: ");
+		result.append(default_);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

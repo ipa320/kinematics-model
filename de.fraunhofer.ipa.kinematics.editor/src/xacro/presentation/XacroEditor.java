@@ -157,10 +157,10 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import xacro.provider.XacroItemProviderAdapterFactory;
 
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
-
+import ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import urdf.provider.UrdfItemProviderAdapterFactory;
 
 
 /**
@@ -704,6 +704,7 @@ public class XacroEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new XacroItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new UrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

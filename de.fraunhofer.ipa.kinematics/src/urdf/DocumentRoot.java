@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * </ul>
  *
  * @see urdf.UrdfPackage#getDocumentRoot()
- * @model extendedMetaData="name='' kind='mixed'"
+ * @model
  * @generated
  */
 public interface DocumentRoot extends EObject {
@@ -36,7 +36,6 @@ public interface DocumentRoot extends EObject {
 	 * @return the value of the '<em>Mixed</em>' attribute list.
 	 * @see urdf.UrdfPackage#getDocumentRoot_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
 	 * @generated
 	 */
 	FeatureMap getMixed();
@@ -49,8 +48,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see urdf.UrdfPackage#getDocumentRoot_XMLNSPrefixMap()
-	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
-	 *        extendedMetaData="kind='attribute' name='xmlns:prefix'"
+	 * @model mapType="ecore.EStringToStringMapEntry&lt;ecore.EString, ecore.EString&gt;" transient="true"
 	 * @generated
 	 */
 	EMap<String, String> getXMLNSPrefixMap();
@@ -63,8 +61,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see urdf.UrdfPackage#getDocumentRoot_XSISchemaLocation()
-	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
-	 *        extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
+	 * @model mapType="ecore.EStringToStringMapEntry&lt;ecore.EString, ecore.EString&gt;" transient="true"
 	 * @generated
 	 */
 	EMap<String, String> getXSISchemaLocation();
@@ -74,13 +71,12 @@ public interface DocumentRoot extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Robot</em>' containment reference.
-	 * @see #setRobot(RobotType)
+	 * @see #setRobot(Robot)
 	 * @see urdf.UrdfPackage#getDocumentRoot_Robot()
-	 * @model containment="true" upper="-2"
-	 *        extendedMetaData="kind='element' name='robot' namespace='##targetNamespace'"
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
-	RobotType getRobot();
+	Robot getRobot();
 
 	/**
 	 * Sets the value of the '{@link urdf.DocumentRoot#getRobot <em>Robot</em>}' containment reference.
@@ -90,6 +86,6 @@ public interface DocumentRoot extends EObject {
 	 * @see #getRobot()
 	 * @generated
 	 */
-	void setRobot(RobotType value);
+	void setRobot(Robot value);
 
 } // DocumentRoot

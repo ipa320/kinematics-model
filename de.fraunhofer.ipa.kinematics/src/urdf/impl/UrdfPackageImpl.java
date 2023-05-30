@@ -2,15 +2,14 @@
  */
 package urdf.impl;
 
+import ecore.EcorePackage;
+import ecore.impl.EcorePackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 import urdf.ActuatorTransmission;
 import urdf.Axis;
@@ -38,7 +37,7 @@ import urdf.Name;
 import urdf.Parent;
 import urdf.PassiveJointTransmission;
 import urdf.Pose;
-import urdf.RobotType;
+import urdf.Robot;
 import urdf.SafetyController;
 import urdf.Sphere;
 import urdf.Texture;
@@ -243,7 +242,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass robotTypeEClass = null;
+	private EClass robotEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -341,15 +340,17 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
-		XMLTypePackage.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(registeredPackage instanceof EcorePackageImpl ? registeredPackage : EcorePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theUrdfPackage.createPackageContents();
+		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theUrdfPackage.initializePackageContents();
+		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theUrdfPackage.freeze();
@@ -923,24 +924,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getJoint_Parent() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getJoint_Child() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getJoint_Axis() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -949,7 +932,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJoint_Calibration() {
+	public EReference getJoint_Child() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -958,7 +941,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJoint_Dynamics() {
+	public EReference getJoint_Axis() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -967,7 +950,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJoint_Limit() {
+	public EReference getJoint_Calibration() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -976,7 +959,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJoint_SafetyController() {
+	public EReference getJoint_Dynamics() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -985,7 +968,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJoint_Mimic() {
+	public EReference getJoint_Limit() {
 		return (EReference)jointEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -994,8 +977,26 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJoint_SafetyController() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoint_Mimic() {
+		return (EReference)jointEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getJoint_Name() {
-		return (EAttribute)jointEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)jointEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1004,7 +1005,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EAttribute getJoint_Type() {
-		return (EAttribute)jointEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)jointEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1291,8 +1292,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParent_Link() {
-		return (EReference)parentEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParent_Link() {
+		return (EAttribute)parentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1345,8 +1346,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRobotType() {
-		return robotTypeEClass;
+	public EClass getRobot() {
+		return robotEClass;
 	}
 
 	/**
@@ -1354,8 +1355,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRobotType_Group() {
-		return (EAttribute)robotTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getRobot_Joint() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1363,8 +1364,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRobotType_Joint() {
-		return (EReference)robotTypeEClass.getEStructuralFeatures().get(1);
+	public EReference getRobot_Link() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1372,8 +1373,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRobotType_Link() {
-		return (EReference)robotTypeEClass.getEStructuralFeatures().get(2);
+	public EReference getRobot_Material() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1381,8 +1382,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRobotType_Material() {
-		return (EReference)robotTypeEClass.getEStructuralFeatures().get(3);
+	public EReference getRobot_Transmission() {
+		return (EReference)robotEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1390,8 +1391,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRobotType_Transmission() {
-		return (EReference)robotTypeEClass.getEStructuralFeatures().get(4);
+	public EAttribute getRobot_Name() {
+		return (EAttribute)robotEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1399,17 +1400,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRobotType_Name() {
-		return (EAttribute)robotTypeEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRobotType_Version() {
-		return (EAttribute)robotTypeEClass.getEStructuralFeatures().get(6);
+	public EAttribute getRobot_Version() {
+		return (EAttribute)robotEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1507,17 +1499,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTransmission_Group() {
-		return (EAttribute)transmissionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getTransmission_LeftActuator() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(1);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1526,7 +1509,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_RightActuator() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(2);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1535,7 +1518,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_FlexJoint() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(3);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1544,7 +1527,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_RollJoint() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(4);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1553,7 +1536,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_GapJoint() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(5);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1562,7 +1545,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_PassiveJoint() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(6);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1571,7 +1554,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_UseSimulatedGripperJoint() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(7);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1580,7 +1563,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EAttribute getTransmission_MechanicalReduction() {
-		return (EAttribute)transmissionEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)transmissionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1589,7 +1572,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_Actuator() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(9);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1598,7 +1581,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EReference getTransmission_Joint() {
-		return (EReference)transmissionEClass.getEStructuralFeatures().get(10);
+		return (EReference)transmissionEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1607,7 +1590,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EAttribute getTransmission_Name() {
-		return (EAttribute)transmissionEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)transmissionEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1616,7 +1599,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	public EAttribute getTransmission_Type() {
-		return (EAttribute)transmissionEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)transmissionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1786,6 +1769,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		jointEClass = createEClass(JOINT);
 		createEReference(jointEClass, JOINT__ORIGIN);
+		createEReference(jointEClass, JOINT__PARENT);
+		createEReference(jointEClass, JOINT__CHILD);
 		createEReference(jointEClass, JOINT__AXIS);
 		createEReference(jointEClass, JOINT__CALIBRATION);
 		createEReference(jointEClass, JOINT__DYNAMICS);
@@ -1794,8 +1779,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEReference(jointEClass, JOINT__MIMIC);
 		createEAttribute(jointEClass, JOINT__NAME);
 		createEAttribute(jointEClass, JOINT__TYPE);
-		createEReference(jointEClass, JOINT__PARENT);
-		createEReference(jointEClass, JOINT__CHILD);
 
 		limitEClass = createEClass(LIMIT);
 		createEAttribute(limitEClass, LIMIT__EFFORT);
@@ -1836,7 +1819,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEAttribute(nameEClass, NAME__NAME);
 
 		parentEClass = createEClass(PARENT);
-		createEReference(parentEClass, PARENT__LINK);
+		createEAttribute(parentEClass, PARENT__LINK);
 
 		passiveJointTransmissionEClass = createEClass(PASSIVE_JOINT_TRANSMISSION);
 		createEAttribute(passiveJointTransmissionEClass, PASSIVE_JOINT_TRANSMISSION__NAME);
@@ -1845,14 +1828,13 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEAttribute(poseEClass, POSE__RPY);
 		createEAttribute(poseEClass, POSE__XYZ);
 
-		robotTypeEClass = createEClass(ROBOT_TYPE);
-		createEAttribute(robotTypeEClass, ROBOT_TYPE__GROUP);
-		createEReference(robotTypeEClass, ROBOT_TYPE__JOINT);
-		createEReference(robotTypeEClass, ROBOT_TYPE__LINK);
-		createEReference(robotTypeEClass, ROBOT_TYPE__MATERIAL);
-		createEReference(robotTypeEClass, ROBOT_TYPE__TRANSMISSION);
-		createEAttribute(robotTypeEClass, ROBOT_TYPE__NAME);
-		createEAttribute(robotTypeEClass, ROBOT_TYPE__VERSION);
+		robotEClass = createEClass(ROBOT);
+		createEReference(robotEClass, ROBOT__JOINT);
+		createEReference(robotEClass, ROBOT__LINK);
+		createEReference(robotEClass, ROBOT__MATERIAL);
+		createEReference(robotEClass, ROBOT__TRANSMISSION);
+		createEAttribute(robotEClass, ROBOT__NAME);
+		createEAttribute(robotEClass, ROBOT__VERSION);
 
 		safetyControllerEClass = createEClass(SAFETY_CONTROLLER);
 		createEAttribute(safetyControllerEClass, SAFETY_CONTROLLER__KPOSITION);
@@ -1867,7 +1849,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEAttribute(textureEClass, TEXTURE__FILENAME);
 
 		transmissionEClass = createEClass(TRANSMISSION);
-		createEAttribute(transmissionEClass, TRANSMISSION__GROUP);
 		createEReference(transmissionEClass, TRANSMISSION__LEFT_ACTUATOR);
 		createEReference(transmissionEClass, TRANSMISSION__RIGHT_ACTUATOR);
 		createEReference(transmissionEClass, TRANSMISSION__FLEX_JOINT);
@@ -1916,7 +1897,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
@@ -1927,59 +1907,59 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(actuatorTransmissionEClass, ActuatorTransmission.class, "ActuatorTransmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActuatorTransmission_MechanicalReduction(), theXMLTypePackage.getDouble(), "mechanicalReduction", null, 1, 1, ActuatorTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActuatorTransmission_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, ActuatorTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActuatorTransmission_MechanicalReduction(), ecorePackage.getEDouble(), "mechanicalReduction", null, 1, 1, ActuatorTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActuatorTransmission_Name(), ecorePackage.getEString(), "name", null, 1, 1, ActuatorTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(axisEClass, Axis.class, "Axis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAxis_Xyz(), theXMLTypePackage.getString(), "xyz", "1 0 0", 0, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAxis_Xyz(), ecorePackage.getEString(), "xyz", "1 0 0", 0, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBox_Size(), theXMLTypePackage.getString(), "size", "0 0 0", 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBox_Size(), ecorePackage.getEString(), "size", "0 0 0", 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(calibrationEClass, Calibration.class, "Calibration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCalibration_Falling(), theXMLTypePackage.getDouble(), "falling", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCalibration_ReferencePosition(), theXMLTypePackage.getDouble(), "referencePosition", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCalibration_Rising(), theXMLTypePackage.getDouble(), "rising", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCalibration_Falling(), ecorePackage.getEDouble(), "falling", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCalibration_ReferencePosition(), ecorePackage.getEDouble(), "referencePosition", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCalibration_Rising(), ecorePackage.getEDouble(), "rising", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChild_Link(), theXMLTypePackage.getString(), "link", null, 1, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChild_Link(), ecorePackage.getEString(), "link", null, 1, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(collisionEClass, Collision.class, "Collision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCollision_Origin(), this.getPose(), null, "origin", null, 0, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCollision_Geometry(), this.getGeometry(), null, "geometry", null, 1, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCollision_Verbose(), this.getVerbose(), null, "verbose", null, 0, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCollision_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCollision_Name(), ecorePackage.getEString(), "name", null, 0, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(colorEClass, Color.class, "Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColor_Rgba(), theXMLTypePackage.getString(), "rgba", "0 0 0 0", 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColor_Rgba(), ecorePackage.getEString(), "rgba", "0 0 0 0", 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cylinderEClass, Cylinder.class, "Cylinder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCylinder_Length(), theXMLTypePackage.getDouble(), "length", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCylinder_Radius(), theXMLTypePackage.getDouble(), "radius", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCylinder_Length(), ecorePackage.getEDouble(), "length", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCylinder_Radius(), ecorePackage.getEDouble(), "radius", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XMLNSPrefixMap(), theEcorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XSISchemaLocation(), theEcorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_Robot(), this.getRobotType(), null, "robot", null, 0, -2, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, DocumentRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_XMLNSPrefixMap(), theEcorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, DocumentRoot.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_XSISchemaLocation(), theEcorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, DocumentRoot.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_Robot(), this.getRobot(), null, "robot", null, 0, -2, DocumentRoot.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dynamicsEClass, Dynamics.class, "Dynamics", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDynamics_Damping(), theXMLTypePackage.getDouble(), "damping", "0", 0, 1, Dynamics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDynamics_Friction(), theXMLTypePackage.getDouble(), "friction", "0", 0, 1, Dynamics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDynamics_Damping(), ecorePackage.getEDouble(), "damping", "0", 0, 1, Dynamics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDynamics_Friction(), ecorePackage.getEDouble(), "friction", "0", 0, 1, Dynamics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gapJointTransmissionEClass, GapJointTransmission.class, "GapJointTransmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGapJointTransmission_A(), theXMLTypePackage.getDouble(), "a", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_B(), theXMLTypePackage.getDouble(), "b", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_GearRatio(), theXMLTypePackage.getDouble(), "gearRatio", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_H(), theXMLTypePackage.getDouble(), "h", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_L0(), theXMLTypePackage.getDouble(), "l0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_MechanicalReduction(), theXMLTypePackage.getDouble(), "mechanicalReduction", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_Phi0(), theXMLTypePackage.getDouble(), "phi0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_R(), theXMLTypePackage.getDouble(), "r", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_ScrewReduction(), theXMLTypePackage.getDouble(), "screwReduction", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_T0(), theXMLTypePackage.getDouble(), "t0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGapJointTransmission_Theta0(), theXMLTypePackage.getDouble(), "theta0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_A(), ecorePackage.getEDouble(), "a", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_B(), ecorePackage.getEDouble(), "b", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_GearRatio(), ecorePackage.getEDouble(), "gearRatio", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_H(), ecorePackage.getEDouble(), "h", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_L0(), ecorePackage.getEDouble(), "l0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_MechanicalReduction(), ecorePackage.getEDouble(), "mechanicalReduction", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_Name(), ecorePackage.getEString(), "name", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_Phi0(), ecorePackage.getEDouble(), "phi0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_R(), ecorePackage.getEDouble(), "r", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_ScrewReduction(), ecorePackage.getEDouble(), "screwReduction", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_T0(), ecorePackage.getEDouble(), "t0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGapJointTransmission_Theta0(), ecorePackage.getEDouble(), "theta0", null, 1, 1, GapJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(geometryEClass, Geometry.class, "Geometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeometry_Box(), this.getBox(), null, "box", null, 0, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1988,12 +1968,12 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEReference(getGeometry_Mesh(), this.getMesh(), null, "mesh", null, 0, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inertiaEClass, Inertia.class, "Inertia", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInertia_Ixx(), theXMLTypePackage.getDouble(), "ixx", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInertia_Ixy(), theXMLTypePackage.getDouble(), "ixy", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInertia_Ixz(), theXMLTypePackage.getDouble(), "ixz", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInertia_Iyy(), theXMLTypePackage.getDouble(), "iyy", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInertia_Iyz(), theXMLTypePackage.getDouble(), "iyz", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInertia_Izz(), theXMLTypePackage.getDouble(), "izz", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInertia_Ixx(), ecorePackage.getEDouble(), "ixx", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInertia_Ixy(), ecorePackage.getEDouble(), "ixy", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInertia_Ixz(), ecorePackage.getEDouble(), "ixz", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInertia_Iyy(), ecorePackage.getEDouble(), "iyy", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInertia_Iyz(), ecorePackage.getEDouble(), "iyz", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInertia_Izz(), ecorePackage.getEDouble(), "izz", "0", 0, 1, Inertia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inertialEClass, Inertial.class, "Inertial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInertial_Origin(), this.getPose(), null, "origin", null, 0, 1, Inertial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2002,105 +1982,103 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Parent(), this.getParent(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Child(), this.getChild(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Axis(), this.getAxis(), null, "axis", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Calibration(), this.getCalibration(), null, "calibration", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Dynamics(), this.getDynamics(), null, "dynamics", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Limit(), this.getLimit(), null, "limit", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_SafetyController(), this.getSafetyController(), null, "safetyController", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Mimic(), this.getMimic(), null, "mimic", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJoint_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJoint_Type(), theXMLTypePackage.getString(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Child(), this.getLink(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJoint_Type(), ecorePackage.getEString(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLimit_Effort(), theXMLTypePackage.getDouble(), "effort", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLimit_Lower(), theXMLTypePackage.getDouble(), "lower", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLimit_Upper(), theXMLTypePackage.getDouble(), "upper", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLimit_Velocity(), theXMLTypePackage.getDouble(), "velocity", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLimit_Effort(), ecorePackage.getEDouble(), "effort", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLimit_Lower(), ecorePackage.getEDouble(), "lower", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLimit_Upper(), ecorePackage.getEDouble(), "upper", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLimit_Velocity(), ecorePackage.getEDouble(), "velocity", "0", 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLink_Inertial(), this.getInertial(), null, "inertial", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Visual(), this.getVisual(), null, "visual", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_Collision(), this.getCollision(), null, "collision", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLink_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLink_Type(), theXMLTypePackage.getString(), "type", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLink_Name(), ecorePackage.getEString(), "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLink_Type(), ecorePackage.getEString(), "type", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(massEClass, Mass.class, "Mass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMass_Value(), theXMLTypePackage.getDouble(), "value", "0", 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMass_Value(), ecorePackage.getEDouble(), "value", "0", 0, 1, Mass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(materialEClass, Material.class, "Material", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMaterial_Color(), this.getColor(), null, "color", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMaterial_Texture(), this.getTexture(), null, "texture", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMaterial_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMaterial_Name(), ecorePackage.getEString(), "name", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(materialGlobalEClass, MaterialGlobal.class, "MaterialGlobal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMaterialGlobal_Color(), this.getColor(), null, "color", null, 0, 1, MaterialGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMaterialGlobal_Texture(), this.getTexture(), null, "texture", null, 0, 1, MaterialGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMaterialGlobal_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, MaterialGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMaterialGlobal_Name(), ecorePackage.getEString(), "name", null, 1, 1, MaterialGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(meshEClass, Mesh.class, "Mesh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMesh_Filename(), theXMLTypePackage.getAnyURI(), "filename", null, 1, 1, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMesh_Scale(), theXMLTypePackage.getString(), "scale", "1 1 1", 0, 1, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMesh_Filename(), ecorePackage.getEString(), "filename", null, 1, 1, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMesh_Scale(), ecorePackage.getEString(), "scale", "1 1 1", 0, 1, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mimicEClass, Mimic.class, "Mimic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMimic_Joint(), theXMLTypePackage.getString(), "joint", null, 1, 1, Mimic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMimic_Multiplier(), theXMLTypePackage.getDouble(), "multiplier", "1", 0, 1, Mimic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMimic_Offset(), theXMLTypePackage.getDouble(), "offset", "0", 0, 1, Mimic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMimic_Joint(), ecorePackage.getEString(), "joint", null, 1, 1, Mimic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMimic_Multiplier(), ecorePackage.getEDouble(), "multiplier", "1", 0, 1, Mimic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMimic_Offset(), ecorePackage.getEDouble(), "offset", "0", 0, 1, Mimic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nameEClass, Name.class, "Name", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getName_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getName_Name(), ecorePackage.getEString(), "name", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parentEClass, Parent.class, "Parent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParent_Link(), this.getLink(), null, "link", null, 1, 1, Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParent_Link(), ecorePackage.getEString(), "link", null, 1, 1, Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(passiveJointTransmissionEClass, PassiveJointTransmission.class, "PassiveJointTransmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPassiveJointTransmission_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, PassiveJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPassiveJointTransmission_Name(), ecorePackage.getEString(), "name", null, 1, 1, PassiveJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPose_Rpy(), theXMLTypePackage.getString(), "rpy", "0 0 0", 0, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPose_Xyz(), theXMLTypePackage.getString(), "xyz", "0 0 0", 0, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", "0 0 0", 0, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", "0 0 0", 0, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(robotTypeEClass, RobotType.class, "RobotType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRobotType_Group(), ecorePackage.getEFeatureMapEntry(), "group", null, 0, -1, RobotType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRobotType_Joint(), this.getJoint(), null, "joint", null, 0, -1, RobotType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRobotType_Link(), this.getLink(), null, "link", null, 0, -1, RobotType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRobotType_Material(), this.getMaterialGlobal(), null, "material", null, 0, -1, RobotType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRobotType_Transmission(), this.getTransmission(), null, "transmission", null, 0, -1, RobotType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRobotType_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, RobotType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRobotType_Version(), theXMLTypePackage.getString(), "version", "1.0", 0, 1, RobotType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRobot_Joint(), this.getJoint(), null, "joint", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_Link(), this.getLink(), null, "link", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_Material(), this.getMaterialGlobal(), null, "material", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_Transmission(), this.getTransmission(), null, "transmission", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", null, 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRobot_Version(), ecorePackage.getEString(), "version", "1.0", 0, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(safetyControllerEClass, SafetyController.class, "SafetyController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSafetyController_KPosition(), theXMLTypePackage.getDouble(), "kPosition", "0", 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSafetyController_KVelocity(), theXMLTypePackage.getDouble(), "kVelocity", null, 1, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSafetyController_SoftLowerLimit(), theXMLTypePackage.getDouble(), "softLowerLimit", "0", 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSafetyController_SoftUpperLimit(), theXMLTypePackage.getDouble(), "softUpperLimit", "0", 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSafetyController_KPosition(), ecorePackage.getEDouble(), "kPosition", "0", 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSafetyController_KVelocity(), ecorePackage.getEDouble(), "kVelocity", null, 1, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSafetyController_SoftLowerLimit(), ecorePackage.getEDouble(), "softLowerLimit", "0", 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSafetyController_SoftUpperLimit(), ecorePackage.getEDouble(), "softUpperLimit", "0", 0, 1, SafetyController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sphereEClass, Sphere.class, "Sphere", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSphere_Radius(), theXMLTypePackage.getDouble(), "radius", null, 1, 1, Sphere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSphere_Radius(), ecorePackage.getEDouble(), "radius", null, 1, 1, Sphere.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textureEClass, Texture.class, "Texture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTexture_Filename(), theXMLTypePackage.getAnyURI(), "filename", null, 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTexture_Filename(), ecorePackage.getEString(), "filename", null, 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transmissionEClass, Transmission.class, "Transmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTransmission_Group(), ecorePackage.getEFeatureMapEntry(), "group", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_LeftActuator(), this.getActuatorTransmission(), null, "leftActuator", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_RightActuator(), this.getActuatorTransmission(), null, "rightActuator", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_FlexJoint(), this.getActuatorTransmission(), null, "flexJoint", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_RollJoint(), this.getActuatorTransmission(), null, "rollJoint", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_GapJoint(), this.getGapJointTransmission(), null, "gapJoint", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_PassiveJoint(), this.getPassiveJointTransmission(), null, "passiveJoint", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_UseSimulatedGripperJoint(), this.getUseSimulatedGripperJointType(), null, "useSimulatedGripperJoint", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTransmission_MechanicalReduction(), theXMLTypePackage.getDouble(), "mechanicalReduction", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_Actuator(), this.getName_(), null, "actuator", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransmission_Joint(), this.getName_(), null, "joint", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTransmission_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTransmission_Type(), theXMLTypePackage.getString(), "type", null, 1, 1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_LeftActuator(), this.getActuatorTransmission(), null, "leftActuator", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_RightActuator(), this.getActuatorTransmission(), null, "rightActuator", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_FlexJoint(), this.getActuatorTransmission(), null, "flexJoint", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_RollJoint(), this.getActuatorTransmission(), null, "rollJoint", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_GapJoint(), this.getGapJointTransmission(), null, "gapJoint", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_PassiveJoint(), this.getPassiveJointTransmission(), null, "passiveJoint", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_UseSimulatedGripperJoint(), this.getUseSimulatedGripperJointType(), null, "useSimulatedGripperJoint", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransmission_MechanicalReduction(), ecorePackage.getEDouble(), "mechanicalReduction", null, 0, -1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_Actuator(), this.getName_(), null, "actuator", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTransmission_Joint(), this.getName_(), null, "joint", null, 0, -1, Transmission.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransmission_Name(), ecorePackage.getEString(), "name", null, 1, 1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransmission_Type(), ecorePackage.getEString(), "type", null, 1, 1, Transmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(useSimulatedGripperJointTypeEClass, UseSimulatedGripperJointType.class, "UseSimulatedGripperJointType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(verboseEClass, Verbose.class, "Verbose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVerbose_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, Verbose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVerbose_Value(), ecorePackage.getEString(), "value", null, 0, 1, Verbose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(visualEClass, Visual.class, "Visual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVisual_Origin(), this.getPose(), null, "origin", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2109,1084 +2087,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
-		createExtendedMetaDataAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
-		addAnnotation
-		  (actuatorTransmissionEClass,
-		   source,
-		   new String[] {
-			   "name", "actuator_transmission",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getActuatorTransmission_MechanicalReduction(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "mechanicalReduction"
-		   });
-		addAnnotation
-		  (getActuatorTransmission_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (axisEClass,
-		   source,
-		   new String[] {
-			   "name", "axis",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getAxis_Xyz(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "xyz"
-		   });
-		addAnnotation
-		  (boxEClass,
-		   source,
-		   new String[] {
-			   "name", "box",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getBox_Size(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "size"
-		   });
-		addAnnotation
-		  (calibrationEClass,
-		   source,
-		   new String[] {
-			   "name", "calibration",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getCalibration_Falling(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "falling"
-		   });
-		addAnnotation
-		  (getCalibration_ReferencePosition(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "reference_position"
-		   });
-		addAnnotation
-		  (getCalibration_Rising(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "rising"
-		   });
-		addAnnotation
-		  (childEClass,
-		   source,
-		   new String[] {
-			   "name", "child",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getChild_Link(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "link"
-		   });
-		addAnnotation
-		  (collisionEClass,
-		   source,
-		   new String[] {
-			   "name", "collision",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getCollision_Origin(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "origin",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getCollision_Geometry(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "geometry",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getCollision_Verbose(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "verbose",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getCollision_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (colorEClass,
-		   source,
-		   new String[] {
-			   "name", "color",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getColor_Rgba(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "rgba"
-		   });
-		addAnnotation
-		  (cylinderEClass,
-		   source,
-		   new String[] {
-			   "name", "cylinder",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getCylinder_Length(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "length"
-		   });
-		addAnnotation
-		  (getCylinder_Radius(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "radius"
-		   });
-		addAnnotation
-		  (documentRootEClass,
-		   source,
-		   new String[] {
-			   "name", "",
-			   "kind", "mixed"
-		   });
-		addAnnotation
-		  (getDocumentRoot_Mixed(),
-		   source,
-		   new String[] {
-			   "kind", "elementWildcard",
-			   "name", ":mixed"
-		   });
-		addAnnotation
-		  (getDocumentRoot_XMLNSPrefixMap(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "xmlns:prefix"
-		   });
-		addAnnotation
-		  (getDocumentRoot_XSISchemaLocation(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "xsi:schemaLocation"
-		   });
-		addAnnotation
-		  (getDocumentRoot_Robot(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "robot",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (dynamicsEClass,
-		   source,
-		   new String[] {
-			   "name", "dynamics",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getDynamics_Damping(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "damping"
-		   });
-		addAnnotation
-		  (getDynamics_Friction(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "friction"
-		   });
-		addAnnotation
-		  (gapJointTransmissionEClass,
-		   source,
-		   new String[] {
-			   "name", "gap_joint_transmission",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_A(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "a"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_B(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "b"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_GearRatio(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "gear_ratio"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_H(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "h"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_L0(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "L0"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_MechanicalReduction(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "mechanical_reduction"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_Phi0(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "phi0"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_R(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "r"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_ScrewReduction(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "screw_reduction"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_T0(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "t0"
-		   });
-		addAnnotation
-		  (getGapJointTransmission_Theta0(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "theta0"
-		   });
-		addAnnotation
-		  (geometryEClass,
-		   source,
-		   new String[] {
-			   "name", "geometry",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getGeometry_Box(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "box",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getGeometry_Cylinder(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "cylinder",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getGeometry_Sphere(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "sphere",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getGeometry_Mesh(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "mesh",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (inertiaEClass,
-		   source,
-		   new String[] {
-			   "name", "inertia",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getInertia_Ixx(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "ixx"
-		   });
-		addAnnotation
-		  (getInertia_Ixy(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "ixy"
-		   });
-		addAnnotation
-		  (getInertia_Ixz(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "ixz"
-		   });
-		addAnnotation
-		  (getInertia_Iyy(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "iyy"
-		   });
-		addAnnotation
-		  (getInertia_Iyz(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "iyz"
-		   });
-		addAnnotation
-		  (getInertia_Izz(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "izz"
-		   });
-		addAnnotation
-		  (inertialEClass,
-		   source,
-		   new String[] {
-			   "name", "inertial",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getInertial_Origin(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "origin",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getInertial_Mass(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "mass",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getInertial_Inertia(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "inertia",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (jointEClass,
-		   source,
-		   new String[] {
-			   "name", "joint",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getJoint_Origin(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "origin",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_Axis(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "axis",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_Calibration(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "calibration",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_Dynamics(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "dynamics",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_Limit(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "limit",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_SafetyController(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "safety_controller",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_Mimic(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "mimic",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getJoint_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (getJoint_Type(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "type"
-		   });
-		addAnnotation
-		  (limitEClass,
-		   source,
-		   new String[] {
-			   "name", "limit",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getLimit_Effort(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "effort"
-		   });
-		addAnnotation
-		  (getLimit_Lower(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "lower"
-		   });
-		addAnnotation
-		  (getLimit_Upper(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "upper"
-		   });
-		addAnnotation
-		  (getLimit_Velocity(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "velocity"
-		   });
-		addAnnotation
-		  (linkEClass,
-		   source,
-		   new String[] {
-			   "name", "link",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getLink_Inertial(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "inertial",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getLink_Visual(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "visual",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getLink_Collision(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "collision",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getLink_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (getLink_Type(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "type"
-		   });
-		addAnnotation
-		  (massEClass,
-		   source,
-		   new String[] {
-			   "name", "mass",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getMass_Value(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "value"
-		   });
-		addAnnotation
-		  (materialEClass,
-		   source,
-		   new String[] {
-			   "name", "material",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getMaterial_Color(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "color",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getMaterial_Texture(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "texture",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getMaterial_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (materialGlobalEClass,
-		   source,
-		   new String[] {
-			   "name", "material_global",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getMaterialGlobal_Color(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "color",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getMaterialGlobal_Texture(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "texture",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getMaterialGlobal_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (meshEClass,
-		   source,
-		   new String[] {
-			   "name", "mesh",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getMesh_Filename(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "filename"
-		   });
-		addAnnotation
-		  (getMesh_Scale(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "scale"
-		   });
-		addAnnotation
-		  (mimicEClass,
-		   source,
-		   new String[] {
-			   "name", "mimic",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getMimic_Joint(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "joint"
-		   });
-		addAnnotation
-		  (getMimic_Multiplier(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "multiplier"
-		   });
-		addAnnotation
-		  (getMimic_Offset(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "offset"
-		   });
-		addAnnotation
-		  (nameEClass,
-		   source,
-		   new String[] {
-			   "name", "name",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getName_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (parentEClass,
-		   source,
-		   new String[] {
-			   "name", "parent",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (passiveJointTransmissionEClass,
-		   source,
-		   new String[] {
-			   "name", "passive_joint_transmission",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getPassiveJointTransmission_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (poseEClass,
-		   source,
-		   new String[] {
-			   "name", "pose",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getPose_Rpy(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "rpy"
-		   });
-		addAnnotation
-		  (getPose_Xyz(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "xyz"
-		   });
-		addAnnotation
-		  (robotTypeEClass,
-		   source,
-		   new String[] {
-			   "name", "robot_._type",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getRobotType_Group(),
-		   source,
-		   new String[] {
-			   "kind", "group",
-			   "name", "group:0"
-		   });
-		addAnnotation
-		  (getRobotType_Joint(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "joint",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getRobotType_Link(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "link",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getRobotType_Material(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "material",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getRobotType_Transmission(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "transmission",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getRobotType_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (getRobotType_Version(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "version"
-		   });
-		addAnnotation
-		  (safetyControllerEClass,
-		   source,
-		   new String[] {
-			   "name", "safety_controller",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getSafetyController_KPosition(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "k_position"
-		   });
-		addAnnotation
-		  (getSafetyController_KVelocity(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "k_velocity"
-		   });
-		addAnnotation
-		  (getSafetyController_SoftLowerLimit(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "soft_lower_limit"
-		   });
-		addAnnotation
-		  (getSafetyController_SoftUpperLimit(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "soft_upper_limit"
-		   });
-		addAnnotation
-		  (sphereEClass,
-		   source,
-		   new String[] {
-			   "name", "sphere",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getSphere_Radius(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "radius"
-		   });
-		addAnnotation
-		  (textureEClass,
-		   source,
-		   new String[] {
-			   "name", "texture",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getTexture_Filename(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "filename"
-		   });
-		addAnnotation
-		  (transmissionEClass,
-		   source,
-		   new String[] {
-			   "name", "transmission",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getTransmission_Group(),
-		   source,
-		   new String[] {
-			   "kind", "group",
-			   "name", "group:0"
-		   });
-		addAnnotation
-		  (getTransmission_LeftActuator(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "leftActuator",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_RightActuator(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "rightActuator",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_FlexJoint(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "flexJoint",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_RollJoint(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "rollJoint",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_GapJoint(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "gap_joint",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_PassiveJoint(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "passive_joint",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_UseSimulatedGripperJoint(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "use_simulated_gripper_joint",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_MechanicalReduction(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "mechanicalReduction",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_Actuator(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "actuator",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_Joint(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "joint",
-			   "namespace", "##targetNamespace",
-			   "group", "#group:0"
-		   });
-		addAnnotation
-		  (getTransmission_Name(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "name"
-		   });
-		addAnnotation
-		  (getTransmission_Type(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "type"
-		   });
-		addAnnotation
-		  (useSimulatedGripperJointTypeEClass,
-		   source,
-		   new String[] {
-			   "name", "use_simulated_gripper_joint_._type",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (verboseEClass,
-		   source,
-		   new String[] {
-			   "name", "verbose",
-			   "kind", "empty"
-		   });
-		addAnnotation
-		  (getVerbose_Value(),
-		   source,
-		   new String[] {
-			   "kind", "attribute",
-			   "name", "value"
-		   });
-		addAnnotation
-		  (visualEClass,
-		   source,
-		   new String[] {
-			   "name", "visual",
-			   "kind", "elementOnly"
-		   });
-		addAnnotation
-		  (getVisual_Origin(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "origin",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getVisual_Geometry(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "geometry",
-			   "namespace", "##targetNamespace"
-		   });
-		addAnnotation
-		  (getVisual_Material(),
-		   source,
-		   new String[] {
-			   "kind", "element",
-			   "name", "material",
-			   "namespace", "##targetNamespace"
-		   });
 	}
 
 } //UrdfPackageImpl

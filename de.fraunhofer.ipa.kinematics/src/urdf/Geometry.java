@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getGeometry()
- * @model extendedMetaData="name='geometry' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface Geometry extends EObject {
@@ -32,7 +32,6 @@ public interface Geometry extends EObject {
 	 * @see #setBox(Box)
 	 * @see urdf.UrdfPackage#getGeometry_Box()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='box' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Box getBox();
@@ -55,7 +54,6 @@ public interface Geometry extends EObject {
 	 * @see #setCylinder(Cylinder)
 	 * @see urdf.UrdfPackage#getGeometry_Cylinder()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='cylinder' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Cylinder getCylinder();
@@ -78,7 +76,6 @@ public interface Geometry extends EObject {
 	 * @see #setSphere(Sphere)
 	 * @see urdf.UrdfPackage#getGeometry_Sphere()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='sphere' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Sphere getSphere();
@@ -101,7 +98,6 @@ public interface Geometry extends EObject {
 	 * @see #setMesh(Mesh)
 	 * @see urdf.UrdfPackage#getGeometry_Mesh()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='mesh' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Mesh getMesh();

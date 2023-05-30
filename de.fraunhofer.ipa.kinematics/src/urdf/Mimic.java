@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getMimic()
- * @model extendedMetaData="name='mimic' kind='empty'"
+ * @model
  * @generated
  */
 public interface Mimic extends EObject {
@@ -30,8 +30,7 @@ public interface Mimic extends EObject {
 	 * @return the value of the '<em>Joint</em>' attribute.
 	 * @see #setJoint(String)
 	 * @see urdf.UrdfPackage#getMimic_Joint()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='joint'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getJoint();
@@ -56,8 +55,7 @@ public interface Mimic extends EObject {
 	 * @see #unsetMultiplier()
 	 * @see #setMultiplier(double)
 	 * @see urdf.UrdfPackage#getMimic_Multiplier()
-	 * @model default="1" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='multiplier'"
+	 * @model default="1" unsettable="true"
 	 * @generated
 	 */
 	double getMultiplier();
@@ -107,8 +105,7 @@ public interface Mimic extends EObject {
 	 * @see #unsetOffset()
 	 * @see #setOffset(double)
 	 * @see urdf.UrdfPackage#getMimic_Offset()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='offset'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getOffset();

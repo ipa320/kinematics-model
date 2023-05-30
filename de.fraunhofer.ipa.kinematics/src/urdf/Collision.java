@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getCollision()
- * @model extendedMetaData="name='collision' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface Collision extends EObject {
@@ -32,7 +32,6 @@ public interface Collision extends EObject {
 	 * @see #setOrigin(Pose)
 	 * @see urdf.UrdfPackage#getCollision_Origin()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='origin' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Pose getOrigin();
@@ -55,7 +54,6 @@ public interface Collision extends EObject {
 	 * @see #setGeometry(Geometry)
 	 * @see urdf.UrdfPackage#getCollision_Geometry()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='geometry' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Geometry getGeometry();
@@ -78,7 +76,6 @@ public interface Collision extends EObject {
 	 * @see #setVerbose(Verbose)
 	 * @see urdf.UrdfPackage#getCollision_Verbose()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='verbose' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Verbose getVerbose();
@@ -100,8 +97,7 @@ public interface Collision extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getCollision_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model
 	 * @generated
 	 */
 	String getName();

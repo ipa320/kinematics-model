@@ -82,7 +82,7 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 			case UrdfPackage.PARENT: return createParent();
 			case UrdfPackage.PASSIVE_JOINT_TRANSMISSION: return createPassiveJointTransmission();
 			case UrdfPackage.POSE: return createPose();
-			case UrdfPackage.ROBOT_TYPE: return createRobotType();
+			case UrdfPackage.ROBOT: return createRobot();
 			case UrdfPackage.SAFETY_CONTROLLER: return createSafetyController();
 			case UrdfPackage.SPHERE: return createSphere();
 			case UrdfPackage.TEXTURE: return createTexture();
@@ -360,9 +360,9 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RobotType createRobotType() {
-		RobotTypeImpl robotType = new RobotTypeImpl();
-		return robotType;
+	public Robot createRobot() {
+		RobotImpl robot = new RobotImpl();
+		return robot;
 	}
 
 	/**

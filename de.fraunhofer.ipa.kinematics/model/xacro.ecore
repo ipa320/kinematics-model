@@ -1,163 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xacro" nsURI="http://www.ipa.fraunhofer.de/xacro" nsPrefix="xacro">
-  <eClassifiers xsi:type="ecore:EClass" name="Robot">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="macro" upperBound="-1"
-        eType="#//Macro" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
-        defaultValueLiteral="1.0"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="macroCall" upperBound="-1"
-        eType="#//MacroCall" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ParameterValue"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//ParameterType"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Body">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
-        eType="#//Joint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Macro">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuredMacros" upperBound="-1"
+        eType="#//ConfiguredMacro" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="ecore:EClass urdf.ecore#//Link"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
+        eType="ecore:EClass urdf.ecore#//Joint" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MacroCall">
+  <eClassifiers xsi:type="ecore:EClass" name="ConfiguredMacro">
     <eStructuralFeatures xsi:type="ecore:EReference" name="macro" lowerBound="1" eType="#//Macro"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCall" upperBound="-1"
-        eType="#//ParameterCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//ConfiguredParameter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterCall">
+  <eClassifiers xsi:type="ecore:EClass" name="ConfiguredParameter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
         eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ParameterValue"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterString">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ParameterType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Link">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" lowerBound="1" eType="#//ParameterString"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="visual" eType="#//Visual"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="collision" eType="#//Collision"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inertial" eType="#//Inertial"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolved" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParameterType">
+    <eLiterals name="Link"/>
+    <eLiterals name="String" value="1"/>
+    <eLiterals name="Pose" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Joint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" lowerBound="1" eType="#//ParameterString"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-        eType="#//ParameterLink" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1" eType="#//ParameterLink"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//ParameterPose"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="axis" eType="#//Vector3"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="limit" eType="#//Limit"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XacroRobot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="macros" upperBound="-1"
+        eType="#//Macro" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuredMacros" upperBound="-1"
+        eType="#//ConfiguredMacro" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pose" eSuperTypes="#//ParameterValue">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rpy" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xyz" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Visual">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//Pose"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Collision">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//Pose"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Geometry">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="box" eType="#//Box" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cylinder" eType="#//Cylinder"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mesh" eType="#//Mesh" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sphere" eType="#//Sphere"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Box">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="size" lowerBound="1" eType="#//ParameterString"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Cylinder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radius" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Vector3">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xyz" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Limit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upper" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effort" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocity" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mass">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Inertial">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mass" eType="#//Mass" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="#//Pose"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inertia" eType="#//Inertia"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Inertia">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ixx" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ixy" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ixz" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iyy" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iyz" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="izz" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mesh">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sphere">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radius" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterPose">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Pose"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterValue">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterLink">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkRef" eSuperTypes="#//ParameterValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Link"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterPoseType" eSuperTypes="#//ParameterType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterStringType" eSuperTypes="#//ParameterType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterLinkRefType" eSuperTypes="#//ParameterType"/>
 </ecore:EPackage>

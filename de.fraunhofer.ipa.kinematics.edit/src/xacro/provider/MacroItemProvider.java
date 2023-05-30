@@ -24,6 +24,8 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import urdf.UrdfFactory;
+
 import xacro.Macro;
 import xacro.XacroFactory;
 import xacro.XacroPackage;
@@ -102,8 +104,10 @@ public class MacroItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(XacroPackage.Literals.MACRO__PARAMETER);
-			childrenFeatures.add(XacroPackage.Literals.MACRO__BODY);
+			childrenFeatures.add(XacroPackage.Literals.MACRO__PARAMETERS);
+			childrenFeatures.add(XacroPackage.Literals.MACRO__CONFIGURED_MACROS);
+			childrenFeatures.add(XacroPackage.Literals.MACRO__LINK);
+			childrenFeatures.add(XacroPackage.Literals.MACRO__JOINT);
 		}
 		return childrenFeatures;
 	}
@@ -162,8 +166,10 @@ public class MacroItemProvider
 			case XacroPackage.MACRO__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case XacroPackage.MACRO__PARAMETER:
-			case XacroPackage.MACRO__BODY:
+			case XacroPackage.MACRO__PARAMETERS:
+			case XacroPackage.MACRO__CONFIGURED_MACROS:
+			case XacroPackage.MACRO__LINK:
+			case XacroPackage.MACRO__JOINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,13 +189,23 @@ public class MacroItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(XacroPackage.Literals.MACRO__PARAMETER,
+				(XacroPackage.Literals.MACRO__PARAMETERS,
 				 XacroFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(XacroPackage.Literals.MACRO__BODY,
-				 XacroFactory.eINSTANCE.createBody()));
+				(XacroPackage.Literals.MACRO__CONFIGURED_MACROS,
+				 XacroFactory.eINSTANCE.createConfiguredMacro()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(XacroPackage.Literals.MACRO__LINK,
+				 UrdfFactory.eINSTANCE.createLink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(XacroPackage.Literals.MACRO__JOINT,
+				 UrdfFactory.eINSTANCE.createJoint()));
 	}
 
 	/**

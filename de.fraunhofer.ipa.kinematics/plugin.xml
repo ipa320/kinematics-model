@@ -14,11 +14,12 @@
             genModel="model/urdf.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
+   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated urdf -->
-      <parser
-            type="urdf"
-            class="urdf.util.UrdfResourceFactoryImpl"/>
+      <package
+            uri="http://www.eclipse.org/emf/2002/Ecore"
+            class="ecore.EcorePackage"
+            genModel="model/urdf.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">

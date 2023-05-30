@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getInertial()
- * @model extendedMetaData="name='inertial' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface Inertial extends EObject {
@@ -31,7 +31,6 @@ public interface Inertial extends EObject {
 	 * @see #setOrigin(Pose)
 	 * @see urdf.UrdfPackage#getInertial_Origin()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='origin' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Pose getOrigin();
@@ -54,7 +53,6 @@ public interface Inertial extends EObject {
 	 * @see #setMass(Mass)
 	 * @see urdf.UrdfPackage#getInertial_Mass()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='mass' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Mass getMass();
@@ -77,7 +75,6 @@ public interface Inertial extends EObject {
 	 * @see #setInertia(Inertia)
 	 * @see urdf.UrdfPackage#getInertial_Inertia()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='inertia' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Inertia getInertia();

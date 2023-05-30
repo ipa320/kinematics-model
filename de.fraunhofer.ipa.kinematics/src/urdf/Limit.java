@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getLimit()
- * @model extendedMetaData="name='limit' kind='empty'"
+ * @model
  * @generated
  */
 public interface Limit extends EObject {
@@ -34,8 +34,7 @@ public interface Limit extends EObject {
 	 * @see #unsetEffort()
 	 * @see #setEffort(double)
 	 * @see urdf.UrdfPackage#getLimit_Effort()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='effort'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getEffort();
@@ -85,8 +84,7 @@ public interface Limit extends EObject {
 	 * @see #unsetLower()
 	 * @see #setLower(double)
 	 * @see urdf.UrdfPackage#getLimit_Lower()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='lower'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getLower();
@@ -136,8 +134,7 @@ public interface Limit extends EObject {
 	 * @see #unsetUpper()
 	 * @see #setUpper(double)
 	 * @see urdf.UrdfPackage#getLimit_Upper()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='upper'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getUpper();
@@ -187,8 +184,7 @@ public interface Limit extends EObject {
 	 * @see #unsetVelocity()
 	 * @see #setVelocity(double)
 	 * @see urdf.UrdfPackage#getLimit_Velocity()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='velocity'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getVelocity();

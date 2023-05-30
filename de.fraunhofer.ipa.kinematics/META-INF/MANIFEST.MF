@@ -8,10 +8,15 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: 
- xacro,
+Export-Package: xacro,
  xacro.impl,
- xacro.util
+ xacro.util,
+ ecore,
+ ecore.impl,
+ ecore.util,
+ urdf,
+ urdf.impl,
+ urdf.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  de.fraunhofer.ipa.kinematics;visibility:=reexport,

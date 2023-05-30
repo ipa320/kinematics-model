@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getSafetyController()
- * @model extendedMetaData="name='safety_controller' kind='empty'"
+ * @model
  * @generated
  */
 public interface SafetyController extends EObject {
@@ -34,8 +34,7 @@ public interface SafetyController extends EObject {
 	 * @see #unsetKPosition()
 	 * @see #setKPosition(double)
 	 * @see urdf.UrdfPackage#getSafetyController_KPosition()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='k_position'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getKPosition();
@@ -84,8 +83,7 @@ public interface SafetyController extends EObject {
 	 * @see #unsetKVelocity()
 	 * @see #setKVelocity(double)
 	 * @see urdf.UrdfPackage#getSafetyController_KVelocity()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='k_velocity'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getKVelocity();
@@ -135,8 +133,7 @@ public interface SafetyController extends EObject {
 	 * @see #unsetSoftLowerLimit()
 	 * @see #setSoftLowerLimit(double)
 	 * @see urdf.UrdfPackage#getSafetyController_SoftLowerLimit()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='soft_lower_limit'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getSoftLowerLimit();
@@ -186,8 +183,7 @@ public interface SafetyController extends EObject {
 	 * @see #unsetSoftUpperLimit()
 	 * @see #setSoftUpperLimit(double)
 	 * @see urdf.UrdfPackage#getSafetyController_SoftUpperLimit()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='soft_upper_limit'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getSoftUpperLimit();

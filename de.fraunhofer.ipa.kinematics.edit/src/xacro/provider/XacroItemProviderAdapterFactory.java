@@ -72,26 +72,72 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Robot} instances.
+	 * This keeps track of the one adapter used for all {@link xacro.Macro} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RobotItemProvider robotItemProvider;
+	protected MacroItemProvider macroItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link xacro.Robot}.
+	 * This creates an adapter for a {@link xacro.Macro}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRobotAdapter() {
-		if (robotItemProvider == null) {
-			robotItemProvider = new RobotItemProvider(this);
+	public Adapter createMacroAdapter() {
+		if (macroItemProvider == null) {
+			macroItemProvider = new MacroItemProvider(this);
 		}
 
-		return robotItemProvider;
+		return macroItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ConfiguredMacro} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfiguredMacroItemProvider configuredMacroItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ConfiguredMacro}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfiguredMacroAdapter() {
+		if (configuredMacroItemProvider == null) {
+			configuredMacroItemProvider = new ConfiguredMacroItemProvider(this);
+		}
+
+		return configuredMacroItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link xacro.ConfiguredParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfiguredParameterItemProvider configuredParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link xacro.ConfiguredParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfiguredParameterAdapter() {
+		if (configuredParameterItemProvider == null) {
+			configuredParameterItemProvider = new ConfiguredParameterItemProvider(this);
+		}
+
+		return configuredParameterItemProvider;
 	}
 
 	/**
@@ -118,647 +164,26 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Body} instances.
+	 * This keeps track of the one adapter used for all {@link xacro.XacroRobot} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BodyItemProvider bodyItemProvider;
+	protected XacroRobotItemProvider xacroRobotItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link xacro.Body}.
+	 * This creates an adapter for a {@link xacro.XacroRobot}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBodyAdapter() {
-		if (bodyItemProvider == null) {
-			bodyItemProvider = new BodyItemProvider(this);
+	public Adapter createXacroRobotAdapter() {
+		if (xacroRobotItemProvider == null) {
+			xacroRobotItemProvider = new XacroRobotItemProvider(this);
 		}
 
-		return bodyItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Macro} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MacroItemProvider macroItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Macro}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMacroAdapter() {
-		if (macroItemProvider == null) {
-			macroItemProvider = new MacroItemProvider(this);
-		}
-
-		return macroItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.MacroCall} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MacroCallItemProvider macroCallItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.MacroCall}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMacroCallAdapter() {
-		if (macroCallItemProvider == null) {
-			macroCallItemProvider = new MacroCallItemProvider(this);
-		}
-
-		return macroCallItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterCall} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterCallItemProvider parameterCallItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterCall}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterCallAdapter() {
-		if (parameterCallItemProvider == null) {
-			parameterCallItemProvider = new ParameterCallItemProvider(this);
-		}
-
-		return parameterCallItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterString} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterStringItemProvider parameterStringItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterString}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterStringAdapter() {
-		if (parameterStringItemProvider == null) {
-			parameterStringItemProvider = new ParameterStringItemProvider(this);
-		}
-
-		return parameterStringItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Link} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LinkItemProvider linkItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Link}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLinkAdapter() {
-		if (linkItemProvider == null) {
-			linkItemProvider = new LinkItemProvider(this);
-		}
-
-		return linkItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Joint} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JointItemProvider jointItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Joint}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createJointAdapter() {
-		if (jointItemProvider == null) {
-			jointItemProvider = new JointItemProvider(this);
-		}
-
-		return jointItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Pose} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PoseItemProvider poseItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Pose}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPoseAdapter() {
-		if (poseItemProvider == null) {
-			poseItemProvider = new PoseItemProvider(this);
-		}
-
-		return poseItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Visual} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VisualItemProvider visualItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Visual}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVisualAdapter() {
-		if (visualItemProvider == null) {
-			visualItemProvider = new VisualItemProvider(this);
-		}
-
-		return visualItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Collision} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CollisionItemProvider collisionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Collision}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCollisionAdapter() {
-		if (collisionItemProvider == null) {
-			collisionItemProvider = new CollisionItemProvider(this);
-		}
-
-		return collisionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Geometry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeometryItemProvider geometryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Geometry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeometryAdapter() {
-		if (geometryItemProvider == null) {
-			geometryItemProvider = new GeometryItemProvider(this);
-		}
-
-		return geometryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Box} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BoxItemProvider boxItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Box}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBoxAdapter() {
-		if (boxItemProvider == null) {
-			boxItemProvider = new BoxItemProvider(this);
-		}
-
-		return boxItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Cylinder} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CylinderItemProvider cylinderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Cylinder}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCylinderAdapter() {
-		if (cylinderItemProvider == null) {
-			cylinderItemProvider = new CylinderItemProvider(this);
-		}
-
-		return cylinderItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Vector3} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Vector3ItemProvider vector3ItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Vector3}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVector3Adapter() {
-		if (vector3ItemProvider == null) {
-			vector3ItemProvider = new Vector3ItemProvider(this);
-		}
-
-		return vector3ItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Limit} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LimitItemProvider limitItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Limit}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLimitAdapter() {
-		if (limitItemProvider == null) {
-			limitItemProvider = new LimitItemProvider(this);
-		}
-
-		return limitItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Mass} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MassItemProvider massItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Mass}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMassAdapter() {
-		if (massItemProvider == null) {
-			massItemProvider = new MassItemProvider(this);
-		}
-
-		return massItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Inertial} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InertialItemProvider inertialItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Inertial}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInertialAdapter() {
-		if (inertialItemProvider == null) {
-			inertialItemProvider = new InertialItemProvider(this);
-		}
-
-		return inertialItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Inertia} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InertiaItemProvider inertiaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Inertia}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInertiaAdapter() {
-		if (inertiaItemProvider == null) {
-			inertiaItemProvider = new InertiaItemProvider(this);
-		}
-
-		return inertiaItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Mesh} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MeshItemProvider meshItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Mesh}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMeshAdapter() {
-		if (meshItemProvider == null) {
-			meshItemProvider = new MeshItemProvider(this);
-		}
-
-		return meshItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.Sphere} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SphereItemProvider sphereItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.Sphere}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSphereAdapter() {
-		if (sphereItemProvider == null) {
-			sphereItemProvider = new SphereItemProvider(this);
-		}
-
-		return sphereItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterPose} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterPoseItemProvider parameterPoseItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterPose}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterPoseAdapter() {
-		if (parameterPoseItemProvider == null) {
-			parameterPoseItemProvider = new ParameterPoseItemProvider(this);
-		}
-
-		return parameterPoseItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterValueItemProvider parameterValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterValueAdapter() {
-		if (parameterValueItemProvider == null) {
-			parameterValueItemProvider = new ParameterValueItemProvider(this);
-		}
-
-		return parameterValueItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterLink} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterLinkItemProvider parameterLinkItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterLink}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterLinkAdapter() {
-		if (parameterLinkItemProvider == null) {
-			parameterLinkItemProvider = new ParameterLinkItemProvider(this);
-		}
-
-		return parameterLinkItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.LinkRef} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LinkRefItemProvider linkRefItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.LinkRef}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLinkRefAdapter() {
-		if (linkRefItemProvider == null) {
-			linkRefItemProvider = new LinkRefItemProvider(this);
-		}
-
-		return linkRefItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterTypeItemProvider parameterTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterTypeAdapter() {
-		if (parameterTypeItemProvider == null) {
-			parameterTypeItemProvider = new ParameterTypeItemProvider(this);
-		}
-
-		return parameterTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterPoseType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterPoseTypeItemProvider parameterPoseTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterPoseType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterPoseTypeAdapter() {
-		if (parameterPoseTypeItemProvider == null) {
-			parameterPoseTypeItemProvider = new ParameterPoseTypeItemProvider(this);
-		}
-
-		return parameterPoseTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterStringType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterStringTypeItemProvider parameterStringTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterStringType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterStringTypeAdapter() {
-		if (parameterStringTypeItemProvider == null) {
-			parameterStringTypeItemProvider = new ParameterStringTypeItemProvider(this);
-		}
-
-		return parameterStringTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link xacro.ParameterLinkRefType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterLinkRefTypeItemProvider parameterLinkRefTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link xacro.ParameterLinkRefType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterLinkRefTypeAdapter() {
-		if (parameterLinkRefTypeItemProvider == null) {
-			parameterLinkRefTypeItemProvider = new ParameterLinkRefTypeItemProvider(this);
-		}
-
-		return parameterLinkRefTypeItemProvider;
+		return xacroRobotItemProvider;
 	}
 
 	/**
@@ -860,36 +285,11 @@ public class XacroItemProviderAdapterFactory extends XacroAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
-		if (robotItemProvider != null) robotItemProvider.dispose();
-		if (parameterItemProvider != null) parameterItemProvider.dispose();
-		if (bodyItemProvider != null) bodyItemProvider.dispose();
 		if (macroItemProvider != null) macroItemProvider.dispose();
-		if (macroCallItemProvider != null) macroCallItemProvider.dispose();
-		if (parameterCallItemProvider != null) parameterCallItemProvider.dispose();
-		if (parameterStringItemProvider != null) parameterStringItemProvider.dispose();
-		if (linkItemProvider != null) linkItemProvider.dispose();
-		if (jointItemProvider != null) jointItemProvider.dispose();
-		if (poseItemProvider != null) poseItemProvider.dispose();
-		if (visualItemProvider != null) visualItemProvider.dispose();
-		if (collisionItemProvider != null) collisionItemProvider.dispose();
-		if (geometryItemProvider != null) geometryItemProvider.dispose();
-		if (boxItemProvider != null) boxItemProvider.dispose();
-		if (cylinderItemProvider != null) cylinderItemProvider.dispose();
-		if (vector3ItemProvider != null) vector3ItemProvider.dispose();
-		if (limitItemProvider != null) limitItemProvider.dispose();
-		if (massItemProvider != null) massItemProvider.dispose();
-		if (inertialItemProvider != null) inertialItemProvider.dispose();
-		if (inertiaItemProvider != null) inertiaItemProvider.dispose();
-		if (meshItemProvider != null) meshItemProvider.dispose();
-		if (sphereItemProvider != null) sphereItemProvider.dispose();
-		if (parameterPoseItemProvider != null) parameterPoseItemProvider.dispose();
-		if (parameterValueItemProvider != null) parameterValueItemProvider.dispose();
-		if (parameterLinkItemProvider != null) parameterLinkItemProvider.dispose();
-		if (linkRefItemProvider != null) linkRefItemProvider.dispose();
-		if (parameterTypeItemProvider != null) parameterTypeItemProvider.dispose();
-		if (parameterPoseTypeItemProvider != null) parameterPoseTypeItemProvider.dispose();
-		if (parameterStringTypeItemProvider != null) parameterStringTypeItemProvider.dispose();
-		if (parameterLinkRefTypeItemProvider != null) parameterLinkRefTypeItemProvider.dispose();
+		if (configuredMacroItemProvider != null) configuredMacroItemProvider.dispose();
+		if (configuredParameterItemProvider != null) configuredParameterItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (xacroRobotItemProvider != null) xacroRobotItemProvider.dispose();
 	}
 
 }

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getBox()
- * @model extendedMetaData="name='box' kind='empty'"
+ * @model
  * @generated
  */
 public interface Box extends EObject {
@@ -31,8 +31,7 @@ public interface Box extends EObject {
 	 * @see #unsetSize()
 	 * @see #setSize(String)
 	 * @see urdf.UrdfPackage#getBox_Size()
-	 * @model default="0 0 0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='size'"
+	 * @model default="0 0 0" unsettable="true"
 	 * @generated
 	 */
 	String getSize();

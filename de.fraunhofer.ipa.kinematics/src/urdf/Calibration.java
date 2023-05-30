@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getCalibration()
- * @model extendedMetaData="name='calibration' kind='empty'"
+ * @model
  * @generated
  */
 public interface Calibration extends EObject {
@@ -32,8 +32,7 @@ public interface Calibration extends EObject {
 	 * @see #unsetFalling()
 	 * @see #setFalling(double)
 	 * @see urdf.UrdfPackage#getCalibration_Falling()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='falling'"
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	double getFalling();
@@ -82,8 +81,7 @@ public interface Calibration extends EObject {
 	 * @see #unsetReferencePosition()
 	 * @see #setReferencePosition(double)
 	 * @see urdf.UrdfPackage#getCalibration_ReferencePosition()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='reference_position'"
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	double getReferencePosition();
@@ -132,8 +130,7 @@ public interface Calibration extends EObject {
 	 * @see #unsetRising()
 	 * @see #setRising(double)
 	 * @see urdf.UrdfPackage#getCalibration_Rising()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='rising'"
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	double getRising();

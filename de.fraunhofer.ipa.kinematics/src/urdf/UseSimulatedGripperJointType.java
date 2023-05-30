@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see urdf.UrdfPackage#getUseSimulatedGripperJointType()
- * @model extendedMetaData="name='use_simulated_gripper_joint_._type' kind='empty'"
+ * @model
  * @generated
  */
 public interface UseSimulatedGripperJointType extends EObject {

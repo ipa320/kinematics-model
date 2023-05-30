@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getVisual()
- * @model extendedMetaData="name='visual' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface Visual extends EObject {
@@ -31,7 +31,6 @@ public interface Visual extends EObject {
 	 * @see #setOrigin(Pose)
 	 * @see urdf.UrdfPackage#getVisual_Origin()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='origin' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Pose getOrigin();
@@ -54,7 +53,6 @@ public interface Visual extends EObject {
 	 * @see #setGeometry(Geometry)
 	 * @see urdf.UrdfPackage#getVisual_Geometry()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='geometry' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Geometry getGeometry();
@@ -77,7 +75,6 @@ public interface Visual extends EObject {
 	 * @see #setMaterial(Material)
 	 * @see urdf.UrdfPackage#getVisual_Material()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='material' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Material getMaterial();
