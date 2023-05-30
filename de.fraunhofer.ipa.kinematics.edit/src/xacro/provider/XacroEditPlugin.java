@@ -6,6 +6,8 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+
 import urdf.provider.UrdfEditPlugin;
 
 /**
@@ -40,6 +42,7 @@ public final class XacroEditPlugin extends EMFPlugin {
 	public XacroEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     EcoreEditPlugin.INSTANCE,
 		     UrdfEditPlugin.INSTANCE,
 		   });
 	}

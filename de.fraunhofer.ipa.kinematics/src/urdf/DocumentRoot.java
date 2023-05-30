@@ -48,7 +48,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see urdf.UrdfPackage#getDocumentRoot_XMLNSPrefixMap()
-	 * @model mapType="ecore.EStringToStringMapEntry&lt;ecore.EString, ecore.EString&gt;" transient="true"
+	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
 	 * @generated
 	 */
 	EMap<String, String> getXMLNSPrefixMap();
@@ -61,7 +61,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see urdf.UrdfPackage#getDocumentRoot_XSISchemaLocation()
-	 * @model mapType="ecore.EStringToStringMapEntry&lt;ecore.EString, ecore.EString&gt;" transient="true"
+	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
 	 * @generated
 	 */
 	EMap<String, String> getXSISchemaLocation();

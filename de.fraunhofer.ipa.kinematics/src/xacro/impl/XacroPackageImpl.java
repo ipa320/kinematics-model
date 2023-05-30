@@ -2,12 +2,12 @@
  */
 package xacro.impl;
 
-import ecore.EcorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -119,8 +119,8 @@ public class XacroPackageImpl extends EPackageImpl implements XacroPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		UrdfPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
+		UrdfPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theXacroPackage.createPackageContents();

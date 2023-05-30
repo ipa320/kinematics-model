@@ -15,14 +15,6 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated urdf -->
-      <package
-            uri="http://www.eclipse.org/emf/2002/Ecore"
-            class="ecore.EcorePackage"
-            genModel="model/urdf.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated xacro -->
       <package
             uri="http://www.ipa.fraunhofer.de/xacro"

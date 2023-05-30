@@ -3,8 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.ipa.kinematics/src" modelPluginID="de.fraunhofer.ipa.kinematics"
     modelName="Xacro" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="urdf.genmodel#//urdf urdf.genmodel#//ecore" operationReflection="true"
-    importOrganizing="true">
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore urdf.genmodel#//urdf"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>xacro.ecore</foreignModel>
   <genPackages prefix="Xacro" disposableProviderFactory="true" ecorePackage="xacro.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="xacro.ecore#//ParameterType">

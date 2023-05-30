@@ -157,7 +157,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import xacro.provider.XacroItemProviderAdapterFactory;
 
-import ecore.provider.EcoreItemProviderAdapterFactory;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import urdf.provider.UrdfItemProviderAdapterFactory;
@@ -704,8 +705,8 @@ public class XacroEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new XacroItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new UrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new UrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
