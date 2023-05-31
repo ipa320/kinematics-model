@@ -11,9 +11,6 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: xacro,
  xacro.impl,
  xacro.util,
- ecore,
- ecore.impl,
- ecore.util,
  urdf,
  urdf.impl,
  urdf.util

@@ -10,13 +10,13 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import xacro.Robot
+import xacro.XacroRobot
 
 @ExtendWith(InjectionExtension)
 @InjectWith(KinematicsInjectorProvider)
 class KinematicsParsingTest {
 	@Inject
-	ParseHelper<Robot> parseHelper
+	ParseHelper<XacroRobot> parseHelper
 	
 	@Test
 	def void loadModel() {
