@@ -10,7 +10,7 @@ import de.fraunhofer.ipa.kinematics.formatting2.KinematicsFormatter;
 import de.fraunhofer.ipa.kinematics.generator.KinematicsGenerator;
 import de.fraunhofer.ipa.kinematics.parser.antlr.KinematicsAntlrTokenFileProvider;
 import de.fraunhofer.ipa.kinematics.parser.antlr.KinematicsParser;
-import de.fraunhofer.ipa.kinematics.parser.antlr.internal.InternalKinematicsLexer;
+import de.fraunhofer.ipa.kinematics.parser.antlr.lexer.InternalKinematicsLexer;
 import de.fraunhofer.ipa.kinematics.scoping.KinematicsScopeProvider;
 import de.fraunhofer.ipa.kinematics.serializer.KinematicsSemanticSequencer;
 import de.fraunhofer.ipa.kinematics.serializer.KinematicsSyntacticSequencer;

@@ -7,8 +7,11 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -27,65 +30,138 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Robot");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cXacroRobotAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cRobotKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cXacrorobotKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameEStringParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cMacrosKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cMacrosAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cMacrosMacroParserRuleCall_5_1_0 = (RuleCall)cMacrosAssignment_5_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//Robot returns XacroRobot:
 		//    {XacroRobot}
-		//    'Robot'
-		//    '{'
-		//    '}';
+		//    'xacrorobot:'
+		//    BEGIN
+		//        'name:' name=EString
+		//        ('macros:'
+		//            macros+=Macro*
+		//        )?
+		////        ('configuredMacros:'
+		////            configuredMacros+=ConfiguredMacro*
+		////        )?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{XacroRobot}
-		//'Robot'
-		//'{'
-		//'}'
+		//    {XacroRobot}
+		//    'xacrorobot:'
+		//    BEGIN
+		//        'name:' name=EString
+		//        ('macros:'
+		//            macros+=Macro*
+		//        )?
+		////        ('configuredMacros:'
+		////            configuredMacros+=ConfiguredMacro*
+		////        )?
+		//    END
 		public Group getGroup() { return cGroup; }
 		
 		//{XacroRobot}
 		public Action getXacroRobotAction_0() { return cXacroRobotAction_0; }
 		
-		//'Robot'
-		public Keyword getRobotKeyword_1() { return cRobotKeyword_1; }
+		//'xacrorobot:'
+		public Keyword getXacrorobotKeyword_1() { return cXacrorobotKeyword_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_2() { return cBEGINTerminalRuleCall_2; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		//'name:'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//name=EString
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_4_0() { return cNameEStringParserRuleCall_4_0; }
+		
+		//('macros:'
+		//    macros+=Macro*
+		//)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'macros:'
+		public Keyword getMacrosKeyword_5_0() { return cMacrosKeyword_5_0; }
+		
+		//macros+=Macro*
+		public Assignment getMacrosAssignment_5_1() { return cMacrosAssignment_5_1; }
+		
+		//Macro
+		public RuleCall getMacrosMacroParserRuleCall_5_1_0() { return cMacrosMacroParserRuleCall_5_1_0; }
+		
+		////        ('configuredMacros:'
+		////            configuredMacros+=ConfiguredMacro*
+		////        )?
+		//    END
+		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
 	}
-	public class ParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Parameter");
+	public class MacroElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Macro");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cParameterKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cParametersKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cParametersAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cParametersParameterParserRuleCall_4_1_0 = (RuleCall)cParametersAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLinkKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLinkAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLinkLinkParserRuleCall_5_1_0 = (RuleCall)cLinkAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cJointKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cJointAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cJointJointParserRuleCall_6_1_0 = (RuleCall)cJointAssignment_6_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
-		//Parameter returns Parameter:
-		//    {Parameter}
-		//    'Parameter'
-		//    name=EString
-		//    '{'
-		//    '}';
+		//Macro returns Macro:
+		//    '-' 'name:' name=EString
+		//    BEGIN
+		//        ('parameters:'
+		//            parameters+=Parameter*
+		//        )?
+		//        ('link:'
+		//            link+=Link*
+		//        )?
+		//        ('joint:'
+		//            joint+=Joint*
+		//        )?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Parameter}
-		//'Parameter'
-		//name=EString
-		//'{'
-		//'}'
+		//'-' 'name:' name=EString
+		//BEGIN
+		//    ('parameters:'
+		//        parameters+=Parameter*
+		//    )?
+		//    ('link:'
+		//        link+=Link*
+		//    )?
+		//    ('joint:'
+		//        joint+=Joint*
+		//    )?
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//{Parameter}
-		public Action getParameterAction_0() { return cParameterAction_0; }
+		//'-'
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
 		
-		//'Parameter'
-		public Keyword getParameterKeyword_1() { return cParameterKeyword_1; }
+		//'name:'
+		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
 		
 		//name=EString
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -93,20 +169,157 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//EString
 		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		//('parameters:'
+		//    parameters+=Parameter*
+		//)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'parameters:'
+		public Keyword getParametersKeyword_4_0() { return cParametersKeyword_4_0; }
+		
+		//parameters+=Parameter*
+		public Assignment getParametersAssignment_4_1() { return cParametersAssignment_4_1; }
+		
+		//Parameter
+		public RuleCall getParametersParameterParserRuleCall_4_1_0() { return cParametersParameterParserRuleCall_4_1_0; }
+		
+		//('link:'
+		//    link+=Link*
+		//)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'link:'
+		public Keyword getLinkKeyword_5_0() { return cLinkKeyword_5_0; }
+		
+		//link+=Link*
+		public Assignment getLinkAssignment_5_1() { return cLinkAssignment_5_1; }
+		
+		//Link
+		public RuleCall getLinkLinkParserRuleCall_5_1_0() { return cLinkLinkParserRuleCall_5_1_0; }
+		
+		//('joint:'
+		//    joint+=Joint*
+		//)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'joint:'
+		public Keyword getJointKeyword_6_0() { return cJointKeyword_6_0; }
+		
+		//joint+=Joint*
+		public Assignment getJointAssignment_6_1() { return cJointAssignment_6_1; }
+		
+		//Joint
+		public RuleCall getJointJointParserRuleCall_6_1_0() { return cJointJointParserRuleCall_6_1_0; }
+		
+		//END
+		public RuleCall getENDTerminalRuleCall_7() { return cENDTerminalRuleCall_7; }
+	}
+	public class ParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Parameter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTypeParameterTypeEnumRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cDefaultKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cDefaultAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cDefaultEStringParserRuleCall_7_1_0 = (RuleCall)cDefaultAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cValueKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cValueAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cValueEStringParserRuleCall_8_1_0 = (RuleCall)cValueAssignment_8_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
+		
+		//Parameter returns Parameter:
+		//    {Parameter}
+		//    '-' 'name:' name=EString
+		//    BEGIN
+		//        'type:' type=ParameterType
+		//        ('default' default=EString)?
+		//        ('value' value=EString)?
+		//    END;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Parameter}
+		//'-' 'name:' name=EString
+		//BEGIN
+		//    'type:' type=ParameterType
+		//    ('default' default=EString)?
+		//    ('value' value=EString)?
+		//END
+		public Group getGroup() { return cGroup; }
+		
+		//{Parameter}
+		public Action getParameterAction_0() { return cParameterAction_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_1() { return cHyphenMinusKeyword_1; }
+		
+		//'name:'
+		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		
+		//name=EString
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_4() { return cBEGINTerminalRuleCall_4; }
+		
+		//'type:'
+		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
+		
+		//type=ParameterType
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
+		
+		//ParameterType
+		public RuleCall getTypeParameterTypeEnumRuleCall_6_0() { return cTypeParameterTypeEnumRuleCall_6_0; }
+		
+		//('default' default=EString)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'default'
+		public Keyword getDefaultKeyword_7_0() { return cDefaultKeyword_7_0; }
+		
+		//default=EString
+		public Assignment getDefaultAssignment_7_1() { return cDefaultAssignment_7_1; }
+		
+		//EString
+		public RuleCall getDefaultEStringParserRuleCall_7_1_0() { return cDefaultEStringParserRuleCall_7_1_0; }
+		
+		//('value' value=EString)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'value'
+		public Keyword getValueKeyword_8_0() { return cValueKeyword_8_0; }
+		
+		//value=EString
+		public Assignment getValueAssignment_8_1() { return cValueAssignment_8_1; }
+		
+		//EString
+		public RuleCall getValueEStringParserRuleCall_8_1_0() { return cValueEStringParserRuleCall_8_1_0; }
+		
+		//END
+		public RuleCall getENDTerminalRuleCall_9() { return cENDTerminalRuleCall_9; }
 	}
 	public class JointElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Joint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cJointKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Keyword cTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cTypeJOINTTYPETerminalRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
@@ -118,61 +331,58 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Assignment cChildAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final CrossReference cChildLinkCrossReference_9_0 = (CrossReference)cChildAssignment_9.eContents().get(0);
 		private final RuleCall cChildLinkIDTerminalRuleCall_9_0_1 = (RuleCall)cChildLinkCrossReference_9_0.eContents().get(1);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cOriginKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cOriginAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cOriginPoseParserRuleCall_10_1_0 = (RuleCall)cOriginAssignment_10_1.eContents().get(0);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cAxisKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cAxisAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final RuleCall cAxisAxisParserRuleCall_11_1_0 = (RuleCall)cAxisAssignment_11_1.eContents().get(0);
+		private final Keyword cOriginKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cOriginAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cOriginPoseParserRuleCall_11_0 = (RuleCall)cOriginAssignment_11.eContents().get(0);
 		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cLimitKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Assignment cLimitAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
-		private final RuleCall cLimitLimitParserRuleCall_12_1_0 = (RuleCall)cLimitAssignment_12_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cAxisKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cAxisAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cAxisVector3ParserRuleCall_12_1_0 = (RuleCall)cAxisAssignment_12_1.eContents().get(0);
+		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
+		private final Keyword cLimitKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
+		private final Assignment cLimitAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
+		private final RuleCall cLimitLimitParserRuleCall_13_1_0 = (RuleCall)cLimitAssignment_13_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_14 = (RuleCall)cGroup.eContents().get(14);
 		
 		//Joint returns urdf::Joint:
-		//    'Joint'
-		//    '{'
-		//        'name' name=EString
-		//        'type' type=JOINTTYPE
-		//        'parent' parent=[urdf::Link]
-		//        'child' child=[urdf::Link]
-		//        ('origin' origin=Pose)?
-		//        ('axis' axis=Axis)?
-		//        ('limit' limit=Limit)?
-		//    '}';
+		//    '-' 'name:' name=EString
+		//    BEGIN
+		//        'type:' type=JOINTTYPE
+		//        'parent:' parent=[urdf::Link]
+		//        'child:' child=[urdf::Link]
+		//        'origin:' origin=Pose
+		//        ('axis:' axis=Vector3)?
+		//        ('limit:' limit=Limit)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Joint'
-		//'{'
-		//    'name' name=EString
-		//    'type' type=JOINTTYPE
-		//    'parent' parent=[urdf::Link]
-		//    'child' child=[urdf::Link]
-		//    ('origin' origin=Pose)?
-		//    ('axis' axis=Axis)?
-		//    ('limit' limit=Limit)?
-		//'}'
+		//'-' 'name:' name=EString
+		//BEGIN
+		//    'type:' type=JOINTTYPE
+		//    'parent:' parent=[urdf::Link]
+		//    'child:' child=[urdf::Link]
+		//    'origin:' origin=Pose
+		//    ('axis:' axis=Vector3)?
+		//    ('limit:' limit=Limit)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//'Joint'
-		public Keyword getJointKeyword_0() { return cJointKeyword_0; }
+		//'-'
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'name'
-		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		//'name:'
+		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
 		
 		//name=EString
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
-		//'type'
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
+		
+		//'type:'
 		public Keyword getTypeKeyword_4() { return cTypeKeyword_4; }
 		
 		//type=JOINTTYPE
@@ -181,7 +391,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//JOINTTYPE
 		public RuleCall getTypeJOINTTYPETerminalRuleCall_5_0() { return cTypeJOINTTYPETerminalRuleCall_5_0; }
 		
-		//'parent'
+		//'parent:'
 		public Keyword getParentKeyword_6() { return cParentKeyword_6; }
 		
 		//parent=[urdf::Link]
@@ -193,7 +403,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getParentLinkIDTerminalRuleCall_7_0_1() { return cParentLinkIDTerminalRuleCall_7_0_1; }
 		
-		//'child'
+		//'child:'
 		public Keyword getChildKeyword_8() { return cChildKeyword_8; }
 		
 		//child=[urdf::Link]
@@ -205,180 +415,199 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getChildLinkIDTerminalRuleCall_9_0_1() { return cChildLinkIDTerminalRuleCall_9_0_1; }
 		
-		//('origin' origin=Pose)?
-		public Group getGroup_10() { return cGroup_10; }
-		
-		//'origin'
-		public Keyword getOriginKeyword_10_0() { return cOriginKeyword_10_0; }
+		//'origin:'
+		public Keyword getOriginKeyword_10() { return cOriginKeyword_10; }
 		
 		//origin=Pose
-		public Assignment getOriginAssignment_10_1() { return cOriginAssignment_10_1; }
+		public Assignment getOriginAssignment_11() { return cOriginAssignment_11; }
 		
 		//Pose
-		public RuleCall getOriginPoseParserRuleCall_10_1_0() { return cOriginPoseParserRuleCall_10_1_0; }
+		public RuleCall getOriginPoseParserRuleCall_11_0() { return cOriginPoseParserRuleCall_11_0; }
 		
-		//('axis' axis=Axis)?
-		public Group getGroup_11() { return cGroup_11; }
-		
-		//'axis'
-		public Keyword getAxisKeyword_11_0() { return cAxisKeyword_11_0; }
-		
-		//axis=Axis
-		public Assignment getAxisAssignment_11_1() { return cAxisAssignment_11_1; }
-		
-		//Axis
-		public RuleCall getAxisAxisParserRuleCall_11_1_0() { return cAxisAxisParserRuleCall_11_1_0; }
-		
-		//('limit' limit=Limit)?
+		//('axis:' axis=Vector3)?
 		public Group getGroup_12() { return cGroup_12; }
 		
-		//'limit'
-		public Keyword getLimitKeyword_12_0() { return cLimitKeyword_12_0; }
+		//'axis:'
+		public Keyword getAxisKeyword_12_0() { return cAxisKeyword_12_0; }
+		
+		//axis=Vector3
+		public Assignment getAxisAssignment_12_1() { return cAxisAssignment_12_1; }
+		
+		//Vector3
+		public RuleCall getAxisVector3ParserRuleCall_12_1_0() { return cAxisVector3ParserRuleCall_12_1_0; }
+		
+		//('limit:' limit=Limit)?
+		public Group getGroup_13() { return cGroup_13; }
+		
+		//'limit:'
+		public Keyword getLimitKeyword_13_0() { return cLimitKeyword_13_0; }
 		
 		//limit=Limit
-		public Assignment getLimitAssignment_12_1() { return cLimitAssignment_12_1; }
+		public Assignment getLimitAssignment_13_1() { return cLimitAssignment_13_1; }
 		
 		//Limit
-		public RuleCall getLimitLimitParserRuleCall_12_1_0() { return cLimitLimitParserRuleCall_12_1_0; }
+		public RuleCall getLimitLimitParserRuleCall_13_1_0() { return cLimitLimitParserRuleCall_13_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		//END
+		public RuleCall getENDTerminalRuleCall_14() { return cENDTerminalRuleCall_14; }
 	}
 	public class LinkElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Link");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLinkKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cInertialKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cInertialAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cInertialInertialParserRuleCall_4_1_0 = (RuleCall)cInertialAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cVisualKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cVisualAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cVisualVisualParserRuleCall_5_1_0 = (RuleCall)cVisualAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCollisionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cCollisionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cCollisionCollisionParserRuleCall_6_1_0 = (RuleCall)cCollisionAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cColonKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cInertialKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cInertialAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cInertialInertialParserRuleCall_3_2_1_0 = (RuleCall)cInertialAssignment_3_2_1.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cVisualKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cVisualAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cVisualVisualParserRuleCall_3_3_1_0 = (RuleCall)cVisualAssignment_3_3_1.eContents().get(0);
+		private final Group cGroup_3_4 = (Group)cGroup_3.eContents().get(4);
+		private final Keyword cCollisionKeyword_3_4_0 = (Keyword)cGroup_3_4.eContents().get(0);
+		private final Assignment cCollisionAssignment_3_4_1 = (Assignment)cGroup_3_4.eContents().get(1);
+		private final RuleCall cCollisionCollisionParserRuleCall_3_4_1_0 = (RuleCall)cCollisionAssignment_3_4_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_3_5 = (RuleCall)cGroup_3.eContents().get(5);
 		
 		//Link returns urdf::Link:
-		//    'Link'
-		//    '{'
-		//        'name' name=EString
-		//        ('inertial' inertial=Inertial)?
-		//        ('visual' visual=Visual)?
-		//        ('collision' collision=Collision)?
-		//    '}';
+		//    '-' 'name:' name=EString
+		//    (':' BEGIN
+		//        ('inertial:' inertial=Inertial)?
+		//        ('visual:' visual=Visual)?
+		//        ('collision:' collision=Collision)?
+		//    END)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Link'
-		//'{'
-		//    'name' name=EString
-		//    ('inertial' inertial=Inertial)?
-		//    ('visual' visual=Visual)?
-		//    ('collision' collision=Collision)?
-		//'}'
+		//'-' 'name:' name=EString
+		//(':' BEGIN
+		//    ('inertial:' inertial=Inertial)?
+		//    ('visual:' visual=Visual)?
+		//    ('collision:' collision=Collision)?
+		//END)?
 		public Group getGroup() { return cGroup; }
 		
-		//'Link'
-		public Keyword getLinkKeyword_0() { return cLinkKeyword_0; }
+		//'-'
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'name'
-		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		//'name:'
+		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
 		
 		//name=EString
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
-		//('inertial' inertial=Inertial)?
-		public Group getGroup_4() { return cGroup_4; }
+		//(':' BEGIN
+		//    ('inertial:' inertial=Inertial)?
+		//    ('visual:' visual=Visual)?
+		//    ('collision:' collision=Collision)?
+		//END)?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//'inertial'
-		public Keyword getInertialKeyword_4_0() { return cInertialKeyword_4_0; }
+		//':'
+		public Keyword getColonKeyword_3_0() { return cColonKeyword_3_0; }
+		
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_3_1() { return cBEGINTerminalRuleCall_3_1; }
+		
+		//('inertial:' inertial=Inertial)?
+		public Group getGroup_3_2() { return cGroup_3_2; }
+		
+		//'inertial:'
+		public Keyword getInertialKeyword_3_2_0() { return cInertialKeyword_3_2_0; }
 		
 		//inertial=Inertial
-		public Assignment getInertialAssignment_4_1() { return cInertialAssignment_4_1; }
+		public Assignment getInertialAssignment_3_2_1() { return cInertialAssignment_3_2_1; }
 		
 		//Inertial
-		public RuleCall getInertialInertialParserRuleCall_4_1_0() { return cInertialInertialParserRuleCall_4_1_0; }
+		public RuleCall getInertialInertialParserRuleCall_3_2_1_0() { return cInertialInertialParserRuleCall_3_2_1_0; }
 		
-		//('visual' visual=Visual)?
-		public Group getGroup_5() { return cGroup_5; }
+		//('visual:' visual=Visual)?
+		public Group getGroup_3_3() { return cGroup_3_3; }
 		
-		//'visual'
-		public Keyword getVisualKeyword_5_0() { return cVisualKeyword_5_0; }
+		//'visual:'
+		public Keyword getVisualKeyword_3_3_0() { return cVisualKeyword_3_3_0; }
 		
 		//visual=Visual
-		public Assignment getVisualAssignment_5_1() { return cVisualAssignment_5_1; }
+		public Assignment getVisualAssignment_3_3_1() { return cVisualAssignment_3_3_1; }
 		
 		//Visual
-		public RuleCall getVisualVisualParserRuleCall_5_1_0() { return cVisualVisualParserRuleCall_5_1_0; }
+		public RuleCall getVisualVisualParserRuleCall_3_3_1_0() { return cVisualVisualParserRuleCall_3_3_1_0; }
 		
-		//('collision' collision=Collision)?
-		public Group getGroup_6() { return cGroup_6; }
+		//('collision:' collision=Collision)?
+		public Group getGroup_3_4() { return cGroup_3_4; }
 		
-		//'collision'
-		public Keyword getCollisionKeyword_6_0() { return cCollisionKeyword_6_0; }
+		//'collision:'
+		public Keyword getCollisionKeyword_3_4_0() { return cCollisionKeyword_3_4_0; }
 		
 		//collision=Collision
-		public Assignment getCollisionAssignment_6_1() { return cCollisionAssignment_6_1; }
+		public Assignment getCollisionAssignment_3_4_1() { return cCollisionAssignment_3_4_1; }
 		
 		//Collision
-		public RuleCall getCollisionCollisionParserRuleCall_6_1_0() { return cCollisionCollisionParserRuleCall_6_1_0; }
+		public RuleCall getCollisionCollisionParserRuleCall_3_4_1_0() { return cCollisionCollisionParserRuleCall_3_4_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		//END
+		public RuleCall getENDTerminalRuleCall_3_5() { return cENDTerminalRuleCall_3_5; }
 	}
-	public class AxisElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Axis");
+	public class PoseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Pose");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAxisAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cAxisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Action cPoseAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cRpyKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cRpyAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cRpyEStringParserRuleCall_2_1_0 = (RuleCall)cRpyAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cXyzKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cXyzAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cXyzEStringParserRuleCall_3_1_0 = (RuleCall)cXyzAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cENDTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
-		//Axis returns urdf::Axis:
-		//    {urdf::Axis}
-		//    'Axis'
-		//    '{'
-		//        ('xyz' xyz=EString)?
-		//    '}';
+		//Pose returns urdf::Pose:
+		//    {urdf::Pose}
+		//    BEGIN
+		//        ('rpy:' rpy=EString)?
+		//        ('xyz:' xyz=EString)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{urdf::Axis}
-		//'Axis'
-		//'{'
-		//    ('xyz' xyz=EString)?
-		//'}'
+		//{urdf::Pose}
+		//BEGIN
+		//    ('rpy:' rpy=EString)?
+		//    ('xyz:' xyz=EString)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//{urdf::Axis}
-		public Action getAxisAction_0() { return cAxisAction_0; }
+		//{urdf::Pose}
+		public Action getPoseAction_0() { return cPoseAction_0; }
 		
-		//'Axis'
-		public Keyword getAxisKeyword_1() { return cAxisKeyword_1; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1() { return cBEGINTerminalRuleCall_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//('rpy:' rpy=EString)?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//('xyz' xyz=EString)?
+		//'rpy:'
+		public Keyword getRpyKeyword_2_0() { return cRpyKeyword_2_0; }
+		
+		//rpy=EString
+		public Assignment getRpyAssignment_2_1() { return cRpyAssignment_2_1; }
+		
+		//EString
+		public RuleCall getRpyEStringParserRuleCall_2_1_0() { return cRpyEStringParserRuleCall_2_1_0; }
+		
+		//('xyz:' xyz=EString)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'xyz'
+		//'xyz:'
 		public Keyword getXyzKeyword_3_0() { return cXyzKeyword_3_0; }
 		
 		//xyz=EString
@@ -387,890 +616,776 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//EString
 		public RuleCall getXyzEStringParserRuleCall_3_1_0() { return cXyzEStringParserRuleCall_3_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		//END
+		public RuleCall getENDTerminalRuleCall_4() { return cENDTerminalRuleCall_4; }
 	}
-	public class PoseElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Pose");
+	public class Vector3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Vector3");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPoseAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cPoseKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cRpyKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cRpyAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cRpyEStringParserRuleCall_3_1_0 = (RuleCall)cRpyAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cXyzKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cXyzAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cXyzEStringParserRuleCall_4_1_0 = (RuleCall)cXyzAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Action cAxisAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cXyzKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cXyzAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cXyzEStringParserRuleCall_2_1_0 = (RuleCall)cXyzAssignment_2_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//Pose returns urdf::Pose:
-		//    {urdf::Pose}
-		//    'Pose'
-		//    '{'
-		//        ('rpy' rpy=EString)?
-		//        ('xyz' xyz=EString)?
-		//    '}';
+		//Vector3 returns urdf::Axis:
+		//    {urdf::Axis}
+		//    BEGIN
+		//        ('xyz:' xyz=EString)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{urdf::Pose}
-		//'Pose'
-		//'{'
-		//    ('rpy' rpy=EString)?
-		//    ('xyz' xyz=EString)?
-		//'}'
+		//{urdf::Axis}
+		//BEGIN
+		//    ('xyz:' xyz=EString)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//{urdf::Pose}
-		public Action getPoseAction_0() { return cPoseAction_0; }
+		//{urdf::Axis}
+		public Action getAxisAction_0() { return cAxisAction_0; }
 		
-		//'Pose'
-		public Keyword getPoseKeyword_1() { return cPoseKeyword_1; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1() { return cBEGINTerminalRuleCall_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//('xyz:' xyz=EString)?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//('rpy' rpy=EString)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'rpy'
-		public Keyword getRpyKeyword_3_0() { return cRpyKeyword_3_0; }
-		
-		//rpy=EString
-		public Assignment getRpyAssignment_3_1() { return cRpyAssignment_3_1; }
-		
-		//EString
-		public RuleCall getRpyEStringParserRuleCall_3_1_0() { return cRpyEStringParserRuleCall_3_1_0; }
-		
-		//('xyz' xyz=EString)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'xyz'
-		public Keyword getXyzKeyword_4_0() { return cXyzKeyword_4_0; }
+		//'xyz:'
+		public Keyword getXyzKeyword_2_0() { return cXyzKeyword_2_0; }
 		
 		//xyz=EString
-		public Assignment getXyzAssignment_4_1() { return cXyzAssignment_4_1; }
+		public Assignment getXyzAssignment_2_1() { return cXyzAssignment_2_1; }
 		
 		//EString
-		public RuleCall getXyzEStringParserRuleCall_4_1_0() { return cXyzEStringParserRuleCall_4_1_0; }
+		public RuleCall getXyzEStringParserRuleCall_2_1_0() { return cXyzEStringParserRuleCall_2_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		//END
+		public RuleCall getENDTerminalRuleCall_3() { return cENDTerminalRuleCall_3; }
 	}
 	public class LimitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Limit");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cLimitAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLimitKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cEffortKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cEffortAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cEffortDouble0ParserRuleCall_2_1_0 = (RuleCall)cEffortAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cEffortKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cEffortAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cEffortDouble0ParserRuleCall_3_1_0 = (RuleCall)cEffortAssignment_3_1.eContents().get(0);
+		private final Keyword cLowerKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cLowerAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cLowerDouble0ParserRuleCall_3_1_0 = (RuleCall)cLowerAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cLowerKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cLowerAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cLowerDouble0ParserRuleCall_4_1_0 = (RuleCall)cLowerAssignment_4_1.eContents().get(0);
+		private final Keyword cUpperKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cUpperAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cUpperDouble0ParserRuleCall_4_1_0 = (RuleCall)cUpperAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cUpperKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cUpperAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cUpperDouble0ParserRuleCall_5_1_0 = (RuleCall)cUpperAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cVelocityKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cVelocityAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cVelocityDouble0ParserRuleCall_6_1_0 = (RuleCall)cVelocityAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cVelocityKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cVelocityAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cVelocityDouble0ParserRuleCall_5_1_0 = (RuleCall)cVelocityAssignment_5_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//Limit returns urdf::Limit:
 		//    {urdf::Limit}
-		//    'Limit'
-		//    '{'
-		//        ('effort' effort=Double0)?
-		//        ('lower' lower=Double0)?
-		//        ('upper' upper=Double0)?
-		//        ('velocity' velocity=Double0)?
-		//    '}';
+		//    BEGIN
+		//        ('effort:' effort=Double0)?
+		//        ('lower:' lower=Double0)?
+		//        ('upper:' upper=Double0)?
+		//        ('velocity:' velocity=Double0)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Limit}
-		//'Limit'
-		//'{'
-		//    ('effort' effort=Double0)?
-		//    ('lower' lower=Double0)?
-		//    ('upper' upper=Double0)?
-		//    ('velocity' velocity=Double0)?
-		//'}'
+		//BEGIN
+		//    ('effort:' effort=Double0)?
+		//    ('lower:' lower=Double0)?
+		//    ('upper:' upper=Double0)?
+		//    ('velocity:' velocity=Double0)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
 		//{urdf::Limit}
 		public Action getLimitAction_0() { return cLimitAction_0; }
 		
-		//'Limit'
-		public Keyword getLimitKeyword_1() { return cLimitKeyword_1; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1() { return cBEGINTerminalRuleCall_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//('effort:' effort=Double0)?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//('effort' effort=Double0)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'effort'
-		public Keyword getEffortKeyword_3_0() { return cEffortKeyword_3_0; }
+		//'effort:'
+		public Keyword getEffortKeyword_2_0() { return cEffortKeyword_2_0; }
 		
 		//effort=Double0
-		public Assignment getEffortAssignment_3_1() { return cEffortAssignment_3_1; }
+		public Assignment getEffortAssignment_2_1() { return cEffortAssignment_2_1; }
 		
 		//Double0
-		public RuleCall getEffortDouble0ParserRuleCall_3_1_0() { return cEffortDouble0ParserRuleCall_3_1_0; }
+		public RuleCall getEffortDouble0ParserRuleCall_2_1_0() { return cEffortDouble0ParserRuleCall_2_1_0; }
 		
-		//('lower' lower=Double0)?
-		public Group getGroup_4() { return cGroup_4; }
+		//('lower:' lower=Double0)?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//'lower'
-		public Keyword getLowerKeyword_4_0() { return cLowerKeyword_4_0; }
+		//'lower:'
+		public Keyword getLowerKeyword_3_0() { return cLowerKeyword_3_0; }
 		
 		//lower=Double0
-		public Assignment getLowerAssignment_4_1() { return cLowerAssignment_4_1; }
+		public Assignment getLowerAssignment_3_1() { return cLowerAssignment_3_1; }
 		
 		//Double0
-		public RuleCall getLowerDouble0ParserRuleCall_4_1_0() { return cLowerDouble0ParserRuleCall_4_1_0; }
+		public RuleCall getLowerDouble0ParserRuleCall_3_1_0() { return cLowerDouble0ParserRuleCall_3_1_0; }
 		
-		//('upper' upper=Double0)?
-		public Group getGroup_5() { return cGroup_5; }
+		//('upper:' upper=Double0)?
+		public Group getGroup_4() { return cGroup_4; }
 		
-		//'upper'
-		public Keyword getUpperKeyword_5_0() { return cUpperKeyword_5_0; }
+		//'upper:'
+		public Keyword getUpperKeyword_4_0() { return cUpperKeyword_4_0; }
 		
 		//upper=Double0
-		public Assignment getUpperAssignment_5_1() { return cUpperAssignment_5_1; }
+		public Assignment getUpperAssignment_4_1() { return cUpperAssignment_4_1; }
 		
 		//Double0
-		public RuleCall getUpperDouble0ParserRuleCall_5_1_0() { return cUpperDouble0ParserRuleCall_5_1_0; }
+		public RuleCall getUpperDouble0ParserRuleCall_4_1_0() { return cUpperDouble0ParserRuleCall_4_1_0; }
 		
-		//('velocity' velocity=Double0)?
-		public Group getGroup_6() { return cGroup_6; }
+		//('velocity:' velocity=Double0)?
+		public Group getGroup_5() { return cGroup_5; }
 		
-		//'velocity'
-		public Keyword getVelocityKeyword_6_0() { return cVelocityKeyword_6_0; }
+		//'velocity:'
+		public Keyword getVelocityKeyword_5_0() { return cVelocityKeyword_5_0; }
 		
 		//velocity=Double0
-		public Assignment getVelocityAssignment_6_1() { return cVelocityAssignment_6_1; }
+		public Assignment getVelocityAssignment_5_1() { return cVelocityAssignment_5_1; }
 		
 		//Double0
-		public RuleCall getVelocityDouble0ParserRuleCall_6_1_0() { return cVelocityDouble0ParserRuleCall_6_1_0; }
+		public RuleCall getVelocityDouble0ParserRuleCall_5_1_0() { return cVelocityDouble0ParserRuleCall_5_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		//END
+		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
 	}
 	public class InertialElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Inertial");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cInertialAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cInertialKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cOriginKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cOriginAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cOriginPoseParserRuleCall_2_1_0 = (RuleCall)cOriginAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cOriginKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cOriginAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cOriginPoseParserRuleCall_3_1_0 = (RuleCall)cOriginAssignment_3_1.eContents().get(0);
+		private final Keyword cMassKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMassAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMassMassParserRuleCall_3_1_0 = (RuleCall)cMassAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cMassKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cMassAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cMassMassParserRuleCall_4_1_0 = (RuleCall)cMassAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cInertiaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cInertiaAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cInertiaInertiaParserRuleCall_5_1_0 = (RuleCall)cInertiaAssignment_5_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cInertiaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cInertiaAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cInertiaInertiaParserRuleCall_4_1_0 = (RuleCall)cInertiaAssignment_4_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//Inertial returns urdf::Inertial:
 		//    {urdf::Inertial}
-		//    'Inertial'
-		//    '{'
-		//        ('origin' origin=Pose)?
-		//        ('mass' mass=Mass)?
-		//        ('inertia' inertia=Inertia)?
-		//    '}';
+		//    BEGIN
+		//        ('origin:' origin=Pose)?
+		//        ('mass:' mass=Mass)?
+		//        ('inertia:' inertia=Inertia)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Inertial}
-		//'Inertial'
-		//'{'
-		//    ('origin' origin=Pose)?
-		//    ('mass' mass=Mass)?
-		//    ('inertia' inertia=Inertia)?
-		//'}'
+		//BEGIN
+		//    ('origin:' origin=Pose)?
+		//    ('mass:' mass=Mass)?
+		//    ('inertia:' inertia=Inertia)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
 		//{urdf::Inertial}
 		public Action getInertialAction_0() { return cInertialAction_0; }
 		
-		//'Inertial'
-		public Keyword getInertialKeyword_1() { return cInertialKeyword_1; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1() { return cBEGINTerminalRuleCall_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//('origin:' origin=Pose)?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//('origin' origin=Pose)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'origin'
-		public Keyword getOriginKeyword_3_0() { return cOriginKeyword_3_0; }
+		//'origin:'
+		public Keyword getOriginKeyword_2_0() { return cOriginKeyword_2_0; }
 		
 		//origin=Pose
-		public Assignment getOriginAssignment_3_1() { return cOriginAssignment_3_1; }
+		public Assignment getOriginAssignment_2_1() { return cOriginAssignment_2_1; }
 		
 		//Pose
-		public RuleCall getOriginPoseParserRuleCall_3_1_0() { return cOriginPoseParserRuleCall_3_1_0; }
+		public RuleCall getOriginPoseParserRuleCall_2_1_0() { return cOriginPoseParserRuleCall_2_1_0; }
 		
-		//('mass' mass=Mass)?
-		public Group getGroup_4() { return cGroup_4; }
+		//('mass:' mass=Mass)?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//'mass'
-		public Keyword getMassKeyword_4_0() { return cMassKeyword_4_0; }
+		//'mass:'
+		public Keyword getMassKeyword_3_0() { return cMassKeyword_3_0; }
 		
 		//mass=Mass
-		public Assignment getMassAssignment_4_1() { return cMassAssignment_4_1; }
+		public Assignment getMassAssignment_3_1() { return cMassAssignment_3_1; }
 		
 		//Mass
-		public RuleCall getMassMassParserRuleCall_4_1_0() { return cMassMassParserRuleCall_4_1_0; }
+		public RuleCall getMassMassParserRuleCall_3_1_0() { return cMassMassParserRuleCall_3_1_0; }
 		
-		//('inertia' inertia=Inertia)?
-		public Group getGroup_5() { return cGroup_5; }
+		//('inertia:' inertia=Inertia)?
+		public Group getGroup_4() { return cGroup_4; }
 		
-		//'inertia'
-		public Keyword getInertiaKeyword_5_0() { return cInertiaKeyword_5_0; }
+		//'inertia:'
+		public Keyword getInertiaKeyword_4_0() { return cInertiaKeyword_4_0; }
 		
 		//inertia=Inertia
-		public Assignment getInertiaAssignment_5_1() { return cInertiaAssignment_5_1; }
+		public Assignment getInertiaAssignment_4_1() { return cInertiaAssignment_4_1; }
 		
 		//Inertia
-		public RuleCall getInertiaInertiaParserRuleCall_5_1_0() { return cInertiaInertiaParserRuleCall_5_1_0; }
+		public RuleCall getInertiaInertiaParserRuleCall_4_1_0() { return cInertiaInertiaParserRuleCall_4_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		//END
+		public RuleCall getENDTerminalRuleCall_5() { return cENDTerminalRuleCall_5; }
 	}
 	public class VisualElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Visual");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cVisualKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cOriginKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cOriginAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cOriginPoseParserRuleCall_2_1_0 = (RuleCall)cOriginAssignment_2_1.eContents().get(0);
-		private final Keyword cGeometryKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cGeometryAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cGeometryGeometryParserRuleCall_4_0 = (RuleCall)cGeometryAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cBEGINTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cOriginKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cOriginAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cOriginPoseParserRuleCall_1_1_0 = (RuleCall)cOriginAssignment_1_1.eContents().get(0);
+		private final Keyword cGeometryKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGeometryAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGeometryGeometryParserRuleCall_3_0 = (RuleCall)cGeometryAssignment_3.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//Visual returns urdf::Visual:
-		//    'Visual'
-		//    '{'
-		//        ('origin' origin=Pose)?
-		//        'geometry' geometry=Geometry
-		//    '}';
+		//    BEGIN
+		//        ('origin:' origin=Pose)?
+		//        'geometry:' geometry=Geometry
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Visual'
-		//'{'
-		//    ('origin' origin=Pose)?
-		//    'geometry' geometry=Geometry
-		//'}'
+		//BEGIN
+		//    ('origin:' origin=Pose)?
+		//    'geometry:' geometry=Geometry
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//'Visual'
-		public Keyword getVisualKeyword_0() { return cVisualKeyword_0; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_0() { return cBEGINTerminalRuleCall_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//('origin:' origin=Pose)?
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//('origin' origin=Pose)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'origin'
-		public Keyword getOriginKeyword_2_0() { return cOriginKeyword_2_0; }
+		//'origin:'
+		public Keyword getOriginKeyword_1_0() { return cOriginKeyword_1_0; }
 		
 		//origin=Pose
-		public Assignment getOriginAssignment_2_1() { return cOriginAssignment_2_1; }
+		public Assignment getOriginAssignment_1_1() { return cOriginAssignment_1_1; }
 		
 		//Pose
-		public RuleCall getOriginPoseParserRuleCall_2_1_0() { return cOriginPoseParserRuleCall_2_1_0; }
+		public RuleCall getOriginPoseParserRuleCall_1_1_0() { return cOriginPoseParserRuleCall_1_1_0; }
 		
-		//'geometry'
-		public Keyword getGeometryKeyword_3() { return cGeometryKeyword_3; }
+		//'geometry:'
+		public Keyword getGeometryKeyword_2() { return cGeometryKeyword_2; }
 		
 		//geometry=Geometry
-		public Assignment getGeometryAssignment_4() { return cGeometryAssignment_4; }
+		public Assignment getGeometryAssignment_3() { return cGeometryAssignment_3; }
 		
 		//Geometry
-		public RuleCall getGeometryGeometryParserRuleCall_4_0() { return cGeometryGeometryParserRuleCall_4_0; }
+		public RuleCall getGeometryGeometryParserRuleCall_3_0() { return cGeometryGeometryParserRuleCall_3_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		//END
+		public RuleCall getENDTerminalRuleCall_4() { return cENDTerminalRuleCall_4; }
 	}
 	public class CollisionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Collision");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCollisionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cOriginKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cOriginAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cOriginPoseParserRuleCall_2_1_0 = (RuleCall)cOriginAssignment_2_1.eContents().get(0);
-		private final Keyword cGeometryKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cGeometryAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cGeometryGeometryParserRuleCall_4_0 = (RuleCall)cGeometryAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cBEGINTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cOriginKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cOriginAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cOriginPoseParserRuleCall_1_1_0 = (RuleCall)cOriginAssignment_1_1.eContents().get(0);
+		private final Keyword cGeometryKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGeometryAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGeometryGeometryParserRuleCall_3_0 = (RuleCall)cGeometryAssignment_3.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//Collision returns urdf::Collision:
-		//    'Collision'
-		//    '{'
-		//        ('origin' origin=Pose)?
-		//        'geometry' geometry=Geometry
-		//    '}';
+		//    BEGIN
+		//        ('origin:' origin=Pose)?
+		//        'geometry:' geometry=Geometry
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Collision'
-		//'{'
-		//    ('origin' origin=Pose)?
-		//    'geometry' geometry=Geometry
-		//'}'
+		//BEGIN
+		//    ('origin:' origin=Pose)?
+		//    'geometry:' geometry=Geometry
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//'Collision'
-		public Keyword getCollisionKeyword_0() { return cCollisionKeyword_0; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_0() { return cBEGINTerminalRuleCall_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//('origin:' origin=Pose)?
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//('origin' origin=Pose)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'origin'
-		public Keyword getOriginKeyword_2_0() { return cOriginKeyword_2_0; }
+		//'origin:'
+		public Keyword getOriginKeyword_1_0() { return cOriginKeyword_1_0; }
 		
 		//origin=Pose
-		public Assignment getOriginAssignment_2_1() { return cOriginAssignment_2_1; }
+		public Assignment getOriginAssignment_1_1() { return cOriginAssignment_1_1; }
 		
 		//Pose
-		public RuleCall getOriginPoseParserRuleCall_2_1_0() { return cOriginPoseParserRuleCall_2_1_0; }
+		public RuleCall getOriginPoseParserRuleCall_1_1_0() { return cOriginPoseParserRuleCall_1_1_0; }
 		
-		//'geometry'
-		public Keyword getGeometryKeyword_3() { return cGeometryKeyword_3; }
+		//'geometry:'
+		public Keyword getGeometryKeyword_2() { return cGeometryKeyword_2; }
 		
 		//geometry=Geometry
-		public Assignment getGeometryAssignment_4() { return cGeometryAssignment_4; }
+		public Assignment getGeometryAssignment_3() { return cGeometryAssignment_3; }
 		
 		//Geometry
-		public RuleCall getGeometryGeometryParserRuleCall_4_0() { return cGeometryGeometryParserRuleCall_4_0; }
+		public RuleCall getGeometryGeometryParserRuleCall_3_0() { return cGeometryGeometryParserRuleCall_3_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		//END
+		public RuleCall getENDTerminalRuleCall_4() { return cENDTerminalRuleCall_4; }
 	}
 	public class MassElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Mass");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cMassAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMassKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cValueKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueDouble0ParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueDouble0ParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Mass returns urdf::Mass:
 		//    {urdf::Mass}
-		//    'Mass'
-		//    '{'
-		//        ('value' value=Double0)?
-		//    '}';
+		//    value=Double0;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Mass}
-		//'Mass'
-		//'{'
-		//    ('value' value=Double0)?
-		//'}'
+		//value=Double0
 		public Group getGroup() { return cGroup; }
 		
 		//{urdf::Mass}
 		public Action getMassAction_0() { return cMassAction_0; }
 		
-		//'Mass'
-		public Keyword getMassKeyword_1() { return cMassKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//('value' value=Double0)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'value'
-		public Keyword getValueKeyword_3_0() { return cValueKeyword_3_0; }
-		
 		//value=Double0
-		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 		
 		//Double0
-		public RuleCall getValueDouble0ParserRuleCall_3_1_0() { return cValueDouble0ParserRuleCall_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public RuleCall getValueDouble0ParserRuleCall_1_0() { return cValueDouble0ParserRuleCall_1_0; }
 	}
 	public class InertiaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Inertia");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cInertiaAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cInertiaKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cIxxKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cIxxAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cIxxDouble0ParserRuleCall_2_1_0 = (RuleCall)cIxxAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cIxxKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cIxxAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cIxxDouble0ParserRuleCall_3_1_0 = (RuleCall)cIxxAssignment_3_1.eContents().get(0);
+		private final Keyword cIxyKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cIxyAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cIxyDouble0ParserRuleCall_3_1_0 = (RuleCall)cIxyAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIxyKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cIxyAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cIxyDouble0ParserRuleCall_4_1_0 = (RuleCall)cIxyAssignment_4_1.eContents().get(0);
+		private final Keyword cIxzKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cIxzAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cIxzDouble0ParserRuleCall_4_1_0 = (RuleCall)cIxzAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cIxzKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cIxzAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cIxzDouble0ParserRuleCall_5_1_0 = (RuleCall)cIxzAssignment_5_1.eContents().get(0);
+		private final Keyword cIyyKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cIyyAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cIyyDouble0ParserRuleCall_5_1_0 = (RuleCall)cIyyAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cIyyKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cIyyAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cIyyDouble0ParserRuleCall_6_1_0 = (RuleCall)cIyyAssignment_6_1.eContents().get(0);
+		private final Keyword cIyzKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cIyzAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cIyzDouble0ParserRuleCall_6_1_0 = (RuleCall)cIyzAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cIyzKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cIyzAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cIyzDouble0ParserRuleCall_7_1_0 = (RuleCall)cIyzAssignment_7_1.eContents().get(0);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cIzzKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cIzzAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cIzzDouble0ParserRuleCall_8_1_0 = (RuleCall)cIzzAssignment_8_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cIzzKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cIzzAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cIzzDouble0ParserRuleCall_7_1_0 = (RuleCall)cIzzAssignment_7_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
 		
 		//Inertia returns urdf::Inertia:
 		//    {urdf::Inertia}
-		//    'Inertia'
-		//    '{'
-		//        ('ixx' ixx=Double0)?
-		//        ('ixy' ixy=Double0)?
-		//        ('ixz' ixz=Double0)?
-		//        ('iyy' iyy=Double0)?
-		//        ('iyz' iyz=Double0)?
-		//        ('izz' izz=Double0)?
-		//    '}';
+		//    BEGIN
+		//        ('ixx:' ixx=Double0)?
+		//        ('ixy:' ixy=Double0)?
+		//        ('ixz:' ixz=Double0)?
+		//        ('iyy:' iyy=Double0)?
+		//        ('iyz:' iyz=Double0)?
+		//        ('izz:' izz=Double0)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Inertia}
-		//'Inertia'
-		//'{'
-		//    ('ixx' ixx=Double0)?
-		//    ('ixy' ixy=Double0)?
-		//    ('ixz' ixz=Double0)?
-		//    ('iyy' iyy=Double0)?
-		//    ('iyz' iyz=Double0)?
-		//    ('izz' izz=Double0)?
-		//'}'
+		//BEGIN
+		//    ('ixx:' ixx=Double0)?
+		//    ('ixy:' ixy=Double0)?
+		//    ('ixz:' ixz=Double0)?
+		//    ('iyy:' iyy=Double0)?
+		//    ('iyz:' iyz=Double0)?
+		//    ('izz:' izz=Double0)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
 		//{urdf::Inertia}
 		public Action getInertiaAction_0() { return cInertiaAction_0; }
 		
-		//'Inertia'
-		public Keyword getInertiaKeyword_1() { return cInertiaKeyword_1; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1() { return cBEGINTerminalRuleCall_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//('ixx:' ixx=Double0)?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//('ixx' ixx=Double0)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'ixx'
-		public Keyword getIxxKeyword_3_0() { return cIxxKeyword_3_0; }
+		//'ixx:'
+		public Keyword getIxxKeyword_2_0() { return cIxxKeyword_2_0; }
 		
 		//ixx=Double0
-		public Assignment getIxxAssignment_3_1() { return cIxxAssignment_3_1; }
+		public Assignment getIxxAssignment_2_1() { return cIxxAssignment_2_1; }
 		
 		//Double0
-		public RuleCall getIxxDouble0ParserRuleCall_3_1_0() { return cIxxDouble0ParserRuleCall_3_1_0; }
+		public RuleCall getIxxDouble0ParserRuleCall_2_1_0() { return cIxxDouble0ParserRuleCall_2_1_0; }
 		
-		//('ixy' ixy=Double0)?
-		public Group getGroup_4() { return cGroup_4; }
+		//('ixy:' ixy=Double0)?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//'ixy'
-		public Keyword getIxyKeyword_4_0() { return cIxyKeyword_4_0; }
+		//'ixy:'
+		public Keyword getIxyKeyword_3_0() { return cIxyKeyword_3_0; }
 		
 		//ixy=Double0
-		public Assignment getIxyAssignment_4_1() { return cIxyAssignment_4_1; }
+		public Assignment getIxyAssignment_3_1() { return cIxyAssignment_3_1; }
 		
 		//Double0
-		public RuleCall getIxyDouble0ParserRuleCall_4_1_0() { return cIxyDouble0ParserRuleCall_4_1_0; }
+		public RuleCall getIxyDouble0ParserRuleCall_3_1_0() { return cIxyDouble0ParserRuleCall_3_1_0; }
 		
-		//('ixz' ixz=Double0)?
-		public Group getGroup_5() { return cGroup_5; }
+		//('ixz:' ixz=Double0)?
+		public Group getGroup_4() { return cGroup_4; }
 		
-		//'ixz'
-		public Keyword getIxzKeyword_5_0() { return cIxzKeyword_5_0; }
+		//'ixz:'
+		public Keyword getIxzKeyword_4_0() { return cIxzKeyword_4_0; }
 		
 		//ixz=Double0
-		public Assignment getIxzAssignment_5_1() { return cIxzAssignment_5_1; }
+		public Assignment getIxzAssignment_4_1() { return cIxzAssignment_4_1; }
 		
 		//Double0
-		public RuleCall getIxzDouble0ParserRuleCall_5_1_0() { return cIxzDouble0ParserRuleCall_5_1_0; }
+		public RuleCall getIxzDouble0ParserRuleCall_4_1_0() { return cIxzDouble0ParserRuleCall_4_1_0; }
 		
-		//('iyy' iyy=Double0)?
-		public Group getGroup_6() { return cGroup_6; }
+		//('iyy:' iyy=Double0)?
+		public Group getGroup_5() { return cGroup_5; }
 		
-		//'iyy'
-		public Keyword getIyyKeyword_6_0() { return cIyyKeyword_6_0; }
+		//'iyy:'
+		public Keyword getIyyKeyword_5_0() { return cIyyKeyword_5_0; }
 		
 		//iyy=Double0
-		public Assignment getIyyAssignment_6_1() { return cIyyAssignment_6_1; }
+		public Assignment getIyyAssignment_5_1() { return cIyyAssignment_5_1; }
 		
 		//Double0
-		public RuleCall getIyyDouble0ParserRuleCall_6_1_0() { return cIyyDouble0ParserRuleCall_6_1_0; }
+		public RuleCall getIyyDouble0ParserRuleCall_5_1_0() { return cIyyDouble0ParserRuleCall_5_1_0; }
 		
-		//('iyz' iyz=Double0)?
-		public Group getGroup_7() { return cGroup_7; }
+		//('iyz:' iyz=Double0)?
+		public Group getGroup_6() { return cGroup_6; }
 		
-		//'iyz'
-		public Keyword getIyzKeyword_7_0() { return cIyzKeyword_7_0; }
+		//'iyz:'
+		public Keyword getIyzKeyword_6_0() { return cIyzKeyword_6_0; }
 		
 		//iyz=Double0
-		public Assignment getIyzAssignment_7_1() { return cIyzAssignment_7_1; }
+		public Assignment getIyzAssignment_6_1() { return cIyzAssignment_6_1; }
 		
 		//Double0
-		public RuleCall getIyzDouble0ParserRuleCall_7_1_0() { return cIyzDouble0ParserRuleCall_7_1_0; }
+		public RuleCall getIyzDouble0ParserRuleCall_6_1_0() { return cIyzDouble0ParserRuleCall_6_1_0; }
 		
-		//('izz' izz=Double0)?
-		public Group getGroup_8() { return cGroup_8; }
+		//('izz:' izz=Double0)?
+		public Group getGroup_7() { return cGroup_7; }
 		
-		//'izz'
-		public Keyword getIzzKeyword_8_0() { return cIzzKeyword_8_0; }
+		//'izz:'
+		public Keyword getIzzKeyword_7_0() { return cIzzKeyword_7_0; }
 		
 		//izz=Double0
-		public Assignment getIzzAssignment_8_1() { return cIzzAssignment_8_1; }
+		public Assignment getIzzAssignment_7_1() { return cIzzAssignment_7_1; }
 		
 		//Double0
-		public RuleCall getIzzDouble0ParserRuleCall_8_1_0() { return cIzzDouble0ParserRuleCall_8_1_0; }
+		public RuleCall getIzzDouble0ParserRuleCall_7_1_0() { return cIzzDouble0ParserRuleCall_7_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		//END
+		public RuleCall getENDTerminalRuleCall_8() { return cENDTerminalRuleCall_8; }
 	}
 	public class GeometryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Geometry");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cGeometryAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cGeometryKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cBEGINTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cBoxKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cBoxAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cBoxBoxParserRuleCall_2_1_0 = (RuleCall)cBoxAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cBoxKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cBoxAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cBoxBoxParserRuleCall_3_1_0 = (RuleCall)cBoxAssignment_3_1.eContents().get(0);
+		private final Keyword cCylinderKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cCylinderAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cCylinderCylinderParserRuleCall_3_1_0 = (RuleCall)cCylinderAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cCylinderKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cCylinderAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cCylinderCylinderParserRuleCall_4_1_0 = (RuleCall)cCylinderAssignment_4_1.eContents().get(0);
+		private final Keyword cSphereKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSphereAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cSphereSphereParserRuleCall_4_1_0 = (RuleCall)cSphereAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cSphereKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cSphereAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cSphereSphereParserRuleCall_5_1_0 = (RuleCall)cSphereAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cMeshKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cMeshAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cMeshMeshParserRuleCall_6_1_0 = (RuleCall)cMeshAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cMeshKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cMeshAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cMeshMeshParserRuleCall_5_1_0 = (RuleCall)cMeshAssignment_5_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//Geometry returns urdf::Geometry:
 		//    {urdf::Geometry}
-		//    'Geometry'
-		//    '{'
-		//        ('box' box=Box)?
-		//        ('cylinder' cylinder=Cylinder)?
-		//        ('sphere' sphere=Sphere)?
-		//        ('mesh' mesh=Mesh)?
-		//    '}';
+		//    BEGIN
+		//        ('box:' box=Box)?
+		//        ('cylinder:' cylinder=Cylinder)?
+		//        ('sphere:' sphere=Sphere)?
+		//        ('mesh:' mesh=Mesh)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Geometry}
-		//'Geometry'
-		//'{'
-		//    ('box' box=Box)?
-		//    ('cylinder' cylinder=Cylinder)?
-		//    ('sphere' sphere=Sphere)?
-		//    ('mesh' mesh=Mesh)?
-		//'}'
+		//BEGIN
+		//    ('box:' box=Box)?
+		//    ('cylinder:' cylinder=Cylinder)?
+		//    ('sphere:' sphere=Sphere)?
+		//    ('mesh:' mesh=Mesh)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
 		//{urdf::Geometry}
 		public Action getGeometryAction_0() { return cGeometryAction_0; }
 		
-		//'Geometry'
-		public Keyword getGeometryKeyword_1() { return cGeometryKeyword_1; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1() { return cBEGINTerminalRuleCall_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//('box:' box=Box)?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//('box' box=Box)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'box'
-		public Keyword getBoxKeyword_3_0() { return cBoxKeyword_3_0; }
+		//'box:'
+		public Keyword getBoxKeyword_2_0() { return cBoxKeyword_2_0; }
 		
 		//box=Box
-		public Assignment getBoxAssignment_3_1() { return cBoxAssignment_3_1; }
+		public Assignment getBoxAssignment_2_1() { return cBoxAssignment_2_1; }
 		
 		//Box
-		public RuleCall getBoxBoxParserRuleCall_3_1_0() { return cBoxBoxParserRuleCall_3_1_0; }
+		public RuleCall getBoxBoxParserRuleCall_2_1_0() { return cBoxBoxParserRuleCall_2_1_0; }
 		
-		//('cylinder' cylinder=Cylinder)?
-		public Group getGroup_4() { return cGroup_4; }
+		//('cylinder:' cylinder=Cylinder)?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//'cylinder'
-		public Keyword getCylinderKeyword_4_0() { return cCylinderKeyword_4_0; }
+		//'cylinder:'
+		public Keyword getCylinderKeyword_3_0() { return cCylinderKeyword_3_0; }
 		
 		//cylinder=Cylinder
-		public Assignment getCylinderAssignment_4_1() { return cCylinderAssignment_4_1; }
+		public Assignment getCylinderAssignment_3_1() { return cCylinderAssignment_3_1; }
 		
 		//Cylinder
-		public RuleCall getCylinderCylinderParserRuleCall_4_1_0() { return cCylinderCylinderParserRuleCall_4_1_0; }
+		public RuleCall getCylinderCylinderParserRuleCall_3_1_0() { return cCylinderCylinderParserRuleCall_3_1_0; }
 		
-		//('sphere' sphere=Sphere)?
-		public Group getGroup_5() { return cGroup_5; }
+		//('sphere:' sphere=Sphere)?
+		public Group getGroup_4() { return cGroup_4; }
 		
-		//'sphere'
-		public Keyword getSphereKeyword_5_0() { return cSphereKeyword_5_0; }
+		//'sphere:'
+		public Keyword getSphereKeyword_4_0() { return cSphereKeyword_4_0; }
 		
 		//sphere=Sphere
-		public Assignment getSphereAssignment_5_1() { return cSphereAssignment_5_1; }
+		public Assignment getSphereAssignment_4_1() { return cSphereAssignment_4_1; }
 		
 		//Sphere
-		public RuleCall getSphereSphereParserRuleCall_5_1_0() { return cSphereSphereParserRuleCall_5_1_0; }
+		public RuleCall getSphereSphereParserRuleCall_4_1_0() { return cSphereSphereParserRuleCall_4_1_0; }
 		
-		//('mesh' mesh=Mesh)?
-		public Group getGroup_6() { return cGroup_6; }
+		//('mesh:' mesh=Mesh)?
+		public Group getGroup_5() { return cGroup_5; }
 		
-		//'mesh'
-		public Keyword getMeshKeyword_6_0() { return cMeshKeyword_6_0; }
+		//'mesh:'
+		public Keyword getMeshKeyword_5_0() { return cMeshKeyword_5_0; }
 		
 		//mesh=Mesh
-		public Assignment getMeshAssignment_6_1() { return cMeshAssignment_6_1; }
+		public Assignment getMeshAssignment_5_1() { return cMeshAssignment_5_1; }
 		
 		//Mesh
-		public RuleCall getMeshMeshParserRuleCall_6_1_0() { return cMeshMeshParserRuleCall_6_1_0; }
+		public RuleCall getMeshMeshParserRuleCall_5_1_0() { return cMeshMeshParserRuleCall_5_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		//END
+		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
 	}
 	public class BoxElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Box");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBoxAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cBoxKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cSizeKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSizeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSizeEStringParserRuleCall_3_1_0 = (RuleCall)cSizeAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cBEGINTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cSizeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSizeEStringParserRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//Box returns urdf::Box:
 		//    {urdf::Box}
-		//    'Box'
-		//    '{'
-		//        ('size' size=EString)?
-		//    '}';
+		//    BEGIN
+		//        'size' size=EString
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{urdf::Box}
-		//'Box'
-		//'{'
-		//    ('size' size=EString)?
-		//'}'
+		//BEGIN
+		//    'size' size=EString
+		//END
 		public Group getGroup() { return cGroup; }
 		
 		//{urdf::Box}
 		public Action getBoxAction_0() { return cBoxAction_0; }
 		
-		//'Box'
-		public Keyword getBoxKeyword_1() { return cBoxKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//('size' size=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_1() { return cBEGINTerminalRuleCall_1; }
 		
 		//'size'
-		public Keyword getSizeKeyword_3_0() { return cSizeKeyword_3_0; }
+		public Keyword getSizeKeyword_2() { return cSizeKeyword_2; }
 		
 		//size=EString
-		public Assignment getSizeAssignment_3_1() { return cSizeAssignment_3_1; }
+		public Assignment getSizeAssignment_3() { return cSizeAssignment_3; }
 		
 		//EString
-		public RuleCall getSizeEStringParserRuleCall_3_1_0() { return cSizeEStringParserRuleCall_3_1_0; }
+		public RuleCall getSizeEStringParserRuleCall_3_0() { return cSizeEStringParserRuleCall_3_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		//END
+		public RuleCall getENDTerminalRuleCall_4() { return cENDTerminalRuleCall_4; }
 	}
 	public class CylinderElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Cylinder");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCylinderKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLengthKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cLengthAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLengthDouble0ParserRuleCall_3_0 = (RuleCall)cLengthAssignment_3.eContents().get(0);
-		private final Keyword cRadiusKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cRadiusAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cRadiusDouble0ParserRuleCall_5_0 = (RuleCall)cRadiusAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final RuleCall cBEGINTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cLengthKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cLengthAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLengthDouble0ParserRuleCall_2_0 = (RuleCall)cLengthAssignment_2.eContents().get(0);
+		private final Keyword cRadiusKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cRadiusAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRadiusDouble0ParserRuleCall_4_0 = (RuleCall)cRadiusAssignment_4.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//Cylinder returns urdf::Cylinder:
-		//    'Cylinder'
-		//    '{'
-		//        'length' length=Double0
-		//        'radius' radius=Double0
-		//    '}';
+		//    BEGIN
+		//        'length:' length=Double0
+		//        'radius:' radius=Double0
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Cylinder'
-		//'{'
-		//    'length' length=Double0
-		//    'radius' radius=Double0
-		//'}'
+		//BEGIN
+		//    'length:' length=Double0
+		//    'radius:' radius=Double0
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//'Cylinder'
-		public Keyword getCylinderKeyword_0() { return cCylinderKeyword_0; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_0() { return cBEGINTerminalRuleCall_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'length'
-		public Keyword getLengthKeyword_2() { return cLengthKeyword_2; }
+		//'length:'
+		public Keyword getLengthKeyword_1() { return cLengthKeyword_1; }
 		
 		//length=Double0
-		public Assignment getLengthAssignment_3() { return cLengthAssignment_3; }
+		public Assignment getLengthAssignment_2() { return cLengthAssignment_2; }
 		
 		//Double0
-		public RuleCall getLengthDouble0ParserRuleCall_3_0() { return cLengthDouble0ParserRuleCall_3_0; }
+		public RuleCall getLengthDouble0ParserRuleCall_2_0() { return cLengthDouble0ParserRuleCall_2_0; }
 		
-		//'radius'
-		public Keyword getRadiusKeyword_4() { return cRadiusKeyword_4; }
+		//'radius:'
+		public Keyword getRadiusKeyword_3() { return cRadiusKeyword_3; }
 		
 		//radius=Double0
-		public Assignment getRadiusAssignment_5() { return cRadiusAssignment_5; }
+		public Assignment getRadiusAssignment_4() { return cRadiusAssignment_4; }
 		
 		//Double0
-		public RuleCall getRadiusDouble0ParserRuleCall_5_0() { return cRadiusDouble0ParserRuleCall_5_0; }
+		public RuleCall getRadiusDouble0ParserRuleCall_4_0() { return cRadiusDouble0ParserRuleCall_4_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		//END
+		public RuleCall getENDTerminalRuleCall_5() { return cENDTerminalRuleCall_5; }
 	}
 	public class SphereElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Sphere");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSphereKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRadiusKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cRadiusAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRadiusDouble0ParserRuleCall_3_0 = (RuleCall)cRadiusAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cBEGINTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cRadiusKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRadiusAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRadiusDouble0ParserRuleCall_2_0 = (RuleCall)cRadiusAssignment_2.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//Sphere returns urdf::Sphere:
-		//    'Sphere'
-		//    '{'
-		//        'radius' radius=Double0
-		//    '}';
+		//    BEGIN
+		//        'radius:' radius=Double0
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Sphere'
-		//'{'
-		//    'radius' radius=Double0
-		//'}'
+		//BEGIN
+		//    'radius:' radius=Double0
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//'Sphere'
-		public Keyword getSphereKeyword_0() { return cSphereKeyword_0; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_0() { return cBEGINTerminalRuleCall_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'radius'
-		public Keyword getRadiusKeyword_2() { return cRadiusKeyword_2; }
+		//'radius:'
+		public Keyword getRadiusKeyword_1() { return cRadiusKeyword_1; }
 		
 		//radius=Double0
-		public Assignment getRadiusAssignment_3() { return cRadiusAssignment_3; }
+		public Assignment getRadiusAssignment_2() { return cRadiusAssignment_2; }
 		
 		//Double0
-		public RuleCall getRadiusDouble0ParserRuleCall_3_0() { return cRadiusDouble0ParserRuleCall_3_0; }
+		public RuleCall getRadiusDouble0ParserRuleCall_2_0() { return cRadiusDouble0ParserRuleCall_2_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		//END
+		public RuleCall getENDTerminalRuleCall_3() { return cENDTerminalRuleCall_3; }
 	}
 	public class MeshElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.Mesh");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMeshKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cFilenameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cFilenameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFilenameSTRINGTerminalRuleCall_3_0 = (RuleCall)cFilenameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cScaleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cScaleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cScaleEStringParserRuleCall_4_1_0 = (RuleCall)cScaleAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cBEGINTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFilenameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFilenameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFilenameEStringParserRuleCall_2_0 = (RuleCall)cFilenameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cScaleKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cScaleAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cScaleEStringParserRuleCall_3_1_0 = (RuleCall)cScaleAssignment_3_1.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//Mesh returns urdf::Mesh:
-		//    'Mesh'
-		//    '{'
-		//        'filename' filename=STRING
-		//        ('scale' scale=EString)?
-		//    '}';
+		//    BEGIN
+		//        'filename:' filename=EString
+		//        ('scale:' scale=EString)?
+		//    END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Mesh'
-		//'{'
-		//    'filename' filename=STRING
-		//    ('scale' scale=EString)?
-		//'}'
+		//BEGIN
+		//    'filename:' filename=EString
+		//    ('scale:' scale=EString)?
+		//END
 		public Group getGroup() { return cGroup; }
 		
-		//'Mesh'
-		public Keyword getMeshKeyword_0() { return cMeshKeyword_0; }
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_0() { return cBEGINTerminalRuleCall_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//'filename:'
+		public Keyword getFilenameKeyword_1() { return cFilenameKeyword_1; }
 		
-		//'filename'
-		public Keyword getFilenameKeyword_2() { return cFilenameKeyword_2; }
-		
-		//filename=STRING
-		public Assignment getFilenameAssignment_3() { return cFilenameAssignment_3; }
-		
-		//STRING
-		public RuleCall getFilenameSTRINGTerminalRuleCall_3_0() { return cFilenameSTRINGTerminalRuleCall_3_0; }
-		
-		//('scale' scale=EString)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'scale'
-		public Keyword getScaleKeyword_4_0() { return cScaleKeyword_4_0; }
-		
-		//scale=EString
-		public Assignment getScaleAssignment_4_1() { return cScaleAssignment_4_1; }
+		//filename=EString
+		public Assignment getFilenameAssignment_2() { return cFilenameAssignment_2; }
 		
 		//EString
-		public RuleCall getScaleEStringParserRuleCall_4_1_0() { return cScaleEStringParserRuleCall_4_1_0; }
+		public RuleCall getFilenameEStringParserRuleCall_2_0() { return cFilenameEStringParserRuleCall_2_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		//('scale:' scale=EString)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'scale:'
+		public Keyword getScaleKeyword_3_0() { return cScaleKeyword_3_0; }
+		
+		//scale=EString
+		public Assignment getScaleAssignment_3_1() { return cScaleAssignment_3_1; }
+		
+		//EString
+		public RuleCall getScaleEStringParserRuleCall_3_1_0() { return cScaleEStringParserRuleCall_3_1_0; }
+		
+		//END
+		public RuleCall getENDTerminalRuleCall_4() { return cENDTerminalRuleCall_4; }
 	}
 	public class AnyURIElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.AnyURI");
@@ -1318,13 +1433,51 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		public RuleCall getDECINTTerminalRuleCall() { return cDECINTTerminalRuleCall; }
 	}
 	
+	public class ParameterTypeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.ParameterType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cLinkEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cLink0Keyword_0_0 = (Keyword)cLinkEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cStringEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cString1Keyword_1_0 = (Keyword)cStringEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cPoseEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cPose2Keyword_2_0 = (Keyword)cPoseEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum ParameterType:
+		//    Link='0' | String='1' | Pose='2'
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//Link='0' | String='1' | Pose='2'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Link='0'
+		public EnumLiteralDeclaration getLinkEnumLiteralDeclaration_0() { return cLinkEnumLiteralDeclaration_0; }
+		
+		//'0'
+		public Keyword getLink0Keyword_0_0() { return cLink0Keyword_0_0; }
+		
+		//String='1'
+		public EnumLiteralDeclaration getStringEnumLiteralDeclaration_1() { return cStringEnumLiteralDeclaration_1; }
+		
+		//'1'
+		public Keyword getString1Keyword_1_0() { return cString1Keyword_1_0; }
+		
+		//Pose='2'
+		public EnumLiteralDeclaration getPoseEnumLiteralDeclaration_2() { return cPoseEnumLiteralDeclaration_2; }
+		
+		//'2'
+		public Keyword getPose2Keyword_2_0() { return cPose2Keyword_2_0; }
+	}
 	
 	private final RobotElements pRobot;
+	private final MacroElements pMacro;
 	private final ParameterElements pParameter;
+	private final ParameterTypeElements eParameterType;
 	private final JointElements pJoint;
 	private final LinkElements pLink;
-	private final AxisElements pAxis;
 	private final PoseElements pPose;
+	private final Vector3Elements pVector3;
 	private final LimitElements pLimit;
 	private final InertialElements pInertial;
 	private final VisualElements pVisual;
@@ -1343,6 +1496,9 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final TerminalRule tDOUBLE;
 	private final TerminalRule tDECINT;
 	private final TerminalRule tJOINTTYPE;
+	private final TerminalRule tBEGIN;
+	private final TerminalRule tEND;
+	private final TerminalRule tSL_COMMENT;
 	private final Double0Elements pDouble0;
 	private final Integer0Elements pInteger0;
 	
@@ -1356,11 +1512,13 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pRobot = new RobotElements();
+		this.pMacro = new MacroElements();
 		this.pParameter = new ParameterElements();
+		this.eParameterType = new ParameterTypeElements();
 		this.pJoint = new JointElements();
 		this.pLink = new LinkElements();
-		this.pAxis = new AxisElements();
 		this.pPose = new PoseElements();
+		this.pVector3 = new Vector3Elements();
 		this.pLimit = new LimitElements();
 		this.pInertial = new InertialElements();
 		this.pVisual = new VisualElements();
@@ -1379,6 +1537,9 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.DOUBLE");
 		this.tDECINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.DECINT");
 		this.tJOINTTYPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.JOINTTYPE");
+		this.tBEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.BEGIN");
+		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.END");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.fraunhofer.ipa.kinematics.Kinematics.SL_COMMENT");
 		this.pDouble0 = new Double0Elements();
 		this.pInteger0 = new Integer0Elements();
 	}
@@ -1412,9 +1573,16 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Robot returns XacroRobot:
 	//    {XacroRobot}
-	//    'Robot'
-	//    '{'
-	//    '}';
+	//    'xacrorobot:'
+	//    BEGIN
+	//        'name:' name=EString
+	//        ('macros:'
+	//            macros+=Macro*
+	//        )?
+	////        ('configuredMacros:'
+	////            configuredMacros+=ConfiguredMacro*
+	////        )?
+	//    END;
 	public RobotElements getRobotAccess() {
 		return pRobot;
 	}
@@ -1423,12 +1591,35 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getRobotAccess().getRule();
 	}
 	
+	//Macro returns Macro:
+	//    '-' 'name:' name=EString
+	//    BEGIN
+	//        ('parameters:'
+	//            parameters+=Parameter*
+	//        )?
+	//        ('link:'
+	//            link+=Link*
+	//        )?
+	//        ('joint:'
+	//            joint+=Joint*
+	//        )?
+	//    END;
+	public MacroElements getMacroAccess() {
+		return pMacro;
+	}
+	
+	public ParserRule getMacroRule() {
+		return getMacroAccess().getRule();
+	}
+	
 	//Parameter returns Parameter:
 	//    {Parameter}
-	//    'Parameter'
-	//    name=EString
-	//    '{'
-	//    '}';
+	//    '-' 'name:' name=EString
+	//    BEGIN
+	//        'type:' type=ParameterType
+	//        ('default' default=EString)?
+	//        ('value' value=EString)?
+	//    END;
 	public ParameterElements getParameterAccess() {
 		return pParameter;
 	}
@@ -1437,17 +1628,27 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getParameterAccess().getRule();
 	}
 	
+	//enum ParameterType:
+	//    Link='0' | String='1' | Pose='2'
+	//;
+	public ParameterTypeElements getParameterTypeAccess() {
+		return eParameterType;
+	}
+	
+	public EnumRule getParameterTypeRule() {
+		return getParameterTypeAccess().getRule();
+	}
+	
 	//Joint returns urdf::Joint:
-	//    'Joint'
-	//    '{'
-	//        'name' name=EString
-	//        'type' type=JOINTTYPE
-	//        'parent' parent=[urdf::Link]
-	//        'child' child=[urdf::Link]
-	//        ('origin' origin=Pose)?
-	//        ('axis' axis=Axis)?
-	//        ('limit' limit=Limit)?
-	//    '}';
+	//    '-' 'name:' name=EString
+	//    BEGIN
+	//        'type:' type=JOINTTYPE
+	//        'parent:' parent=[urdf::Link]
+	//        'child:' child=[urdf::Link]
+	//        'origin:' origin=Pose
+	//        ('axis:' axis=Vector3)?
+	//        ('limit:' limit=Limit)?
+	//    END;
 	public JointElements getJointAccess() {
 		return pJoint;
 	}
@@ -1457,13 +1658,12 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Link returns urdf::Link:
-	//    'Link'
-	//    '{'
-	//        'name' name=EString
-	//        ('inertial' inertial=Inertial)?
-	//        ('visual' visual=Visual)?
-	//        ('collision' collision=Collision)?
-	//    '}';
+	//    '-' 'name:' name=EString
+	//    (':' BEGIN
+	//        ('inertial:' inertial=Inertial)?
+	//        ('visual:' visual=Visual)?
+	//        ('collision:' collision=Collision)?
+	//    END)?;
 	public LinkElements getLinkAccess() {
 		return pLink;
 	}
@@ -1472,27 +1672,12 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getLinkAccess().getRule();
 	}
 	
-	//Axis returns urdf::Axis:
-	//    {urdf::Axis}
-	//    'Axis'
-	//    '{'
-	//        ('xyz' xyz=EString)?
-	//    '}';
-	public AxisElements getAxisAccess() {
-		return pAxis;
-	}
-	
-	public ParserRule getAxisRule() {
-		return getAxisAccess().getRule();
-	}
-	
 	//Pose returns urdf::Pose:
 	//    {urdf::Pose}
-	//    'Pose'
-	//    '{'
-	//        ('rpy' rpy=EString)?
-	//        ('xyz' xyz=EString)?
-	//    '}';
+	//    BEGIN
+	//        ('rpy:' rpy=EString)?
+	//        ('xyz:' xyz=EString)?
+	//    END;
 	public PoseElements getPoseAccess() {
 		return pPose;
 	}
@@ -1501,15 +1686,27 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getPoseAccess().getRule();
 	}
 	
+	//Vector3 returns urdf::Axis:
+	//    {urdf::Axis}
+	//    BEGIN
+	//        ('xyz:' xyz=EString)?
+	//    END;
+	public Vector3Elements getVector3Access() {
+		return pVector3;
+	}
+	
+	public ParserRule getVector3Rule() {
+		return getVector3Access().getRule();
+	}
+	
 	//Limit returns urdf::Limit:
 	//    {urdf::Limit}
-	//    'Limit'
-	//    '{'
-	//        ('effort' effort=Double0)?
-	//        ('lower' lower=Double0)?
-	//        ('upper' upper=Double0)?
-	//        ('velocity' velocity=Double0)?
-	//    '}';
+	//    BEGIN
+	//        ('effort:' effort=Double0)?
+	//        ('lower:' lower=Double0)?
+	//        ('upper:' upper=Double0)?
+	//        ('velocity:' velocity=Double0)?
+	//    END;
 	public LimitElements getLimitAccess() {
 		return pLimit;
 	}
@@ -1520,12 +1717,11 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Inertial returns urdf::Inertial:
 	//    {urdf::Inertial}
-	//    'Inertial'
-	//    '{'
-	//        ('origin' origin=Pose)?
-	//        ('mass' mass=Mass)?
-	//        ('inertia' inertia=Inertia)?
-	//    '}';
+	//    BEGIN
+	//        ('origin:' origin=Pose)?
+	//        ('mass:' mass=Mass)?
+	//        ('inertia:' inertia=Inertia)?
+	//    END;
 	public InertialElements getInertialAccess() {
 		return pInertial;
 	}
@@ -1535,11 +1731,10 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Visual returns urdf::Visual:
-	//    'Visual'
-	//    '{'
-	//        ('origin' origin=Pose)?
-	//        'geometry' geometry=Geometry
-	//    '}';
+	//    BEGIN
+	//        ('origin:' origin=Pose)?
+	//        'geometry:' geometry=Geometry
+	//    END;
 	public VisualElements getVisualAccess() {
 		return pVisual;
 	}
@@ -1549,11 +1744,10 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Collision returns urdf::Collision:
-	//    'Collision'
-	//    '{'
-	//        ('origin' origin=Pose)?
-	//        'geometry' geometry=Geometry
-	//    '}';
+	//    BEGIN
+	//        ('origin:' origin=Pose)?
+	//        'geometry:' geometry=Geometry
+	//    END;
 	public CollisionElements getCollisionAccess() {
 		return pCollision;
 	}
@@ -1564,10 +1758,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Mass returns urdf::Mass:
 	//    {urdf::Mass}
-	//    'Mass'
-	//    '{'
-	//        ('value' value=Double0)?
-	//    '}';
+	//    value=Double0;
 	public MassElements getMassAccess() {
 		return pMass;
 	}
@@ -1578,15 +1769,14 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Inertia returns urdf::Inertia:
 	//    {urdf::Inertia}
-	//    'Inertia'
-	//    '{'
-	//        ('ixx' ixx=Double0)?
-	//        ('ixy' ixy=Double0)?
-	//        ('ixz' ixz=Double0)?
-	//        ('iyy' iyy=Double0)?
-	//        ('iyz' iyz=Double0)?
-	//        ('izz' izz=Double0)?
-	//    '}';
+	//    BEGIN
+	//        ('ixx:' ixx=Double0)?
+	//        ('ixy:' ixy=Double0)?
+	//        ('ixz:' ixz=Double0)?
+	//        ('iyy:' iyy=Double0)?
+	//        ('iyz:' iyz=Double0)?
+	//        ('izz:' izz=Double0)?
+	//    END;
 	public InertiaElements getInertiaAccess() {
 		return pInertia;
 	}
@@ -1597,13 +1787,12 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Geometry returns urdf::Geometry:
 	//    {urdf::Geometry}
-	//    'Geometry'
-	//    '{'
-	//        ('box' box=Box)?
-	//        ('cylinder' cylinder=Cylinder)?
-	//        ('sphere' sphere=Sphere)?
-	//        ('mesh' mesh=Mesh)?
-	//    '}';
+	//    BEGIN
+	//        ('box:' box=Box)?
+	//        ('cylinder:' cylinder=Cylinder)?
+	//        ('sphere:' sphere=Sphere)?
+	//        ('mesh:' mesh=Mesh)?
+	//    END;
 	public GeometryElements getGeometryAccess() {
 		return pGeometry;
 	}
@@ -1614,10 +1803,9 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Box returns urdf::Box:
 	//    {urdf::Box}
-	//    'Box'
-	//    '{'
-	//        ('size' size=EString)?
-	//    '}';
+	//    BEGIN
+	//        'size' size=EString
+	//    END;
 	public BoxElements getBoxAccess() {
 		return pBox;
 	}
@@ -1627,11 +1815,10 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Cylinder returns urdf::Cylinder:
-	//    'Cylinder'
-	//    '{'
-	//        'length' length=Double0
-	//        'radius' radius=Double0
-	//    '}';
+	//    BEGIN
+	//        'length:' length=Double0
+	//        'radius:' radius=Double0
+	//    END;
 	public CylinderElements getCylinderAccess() {
 		return pCylinder;
 	}
@@ -1641,10 +1828,9 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Sphere returns urdf::Sphere:
-	//    'Sphere'
-	//    '{'
-	//        'radius' radius=Double0
-	//    '}';
+	//    BEGIN
+	//        'radius:' radius=Double0
+	//    END;
 	public SphereElements getSphereAccess() {
 		return pSphere;
 	}
@@ -1654,11 +1840,10 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Mesh returns urdf::Mesh:
-	//    'Mesh'
-	//    '{'
-	//        'filename' filename=STRING
-	//        ('scale' scale=EString)?
-	//    '}';
+	//    BEGIN
+	//        'filename:' filename=EString
+	//        ('scale:' scale=EString)?
+	//    END;
 	public MeshElements getMeshAccess() {
 		return pMesh;
 	}
@@ -1715,6 +1900,25 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return tJOINTTYPE;
 	}
 	
+	/////////////////////
+	//// YAML format
+	/////////////////////
+	//terminal BEGIN: 'synthetic:BEGIN';
+	public TerminalRule getBEGINRule() {
+		return tBEGIN;
+	}
+	
+	//terminal END: 'synthetic:END';
+	public TerminalRule getENDRule() {
+		return tEND;
+	}
+	
+	//@Override
+	//terminal SL_COMMENT: '#' !('\n'|'\r')*;
+	public TerminalRule getSL_COMMENTRule() {
+		return tSL_COMMENT;
+	}
+	
 	//Double0 returns type::Double:
 	//    DOUBLE;
 	public Double0Elements getDouble0Access() {
@@ -1756,11 +1960,6 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//terminal ML_COMMENT : '/*' -> '*/';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
-	}
-	
-	//terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
-	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
 	}
 	
 	//terminal WS         : (' '|'\t'|'\r'|'\n')+;

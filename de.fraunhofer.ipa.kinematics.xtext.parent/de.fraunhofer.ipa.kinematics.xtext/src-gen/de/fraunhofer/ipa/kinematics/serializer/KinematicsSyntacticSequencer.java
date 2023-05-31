@@ -11,6 +11,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,17 +21,42 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected KinematicsGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Link___ColonKeyword_3_0_BEGINTerminalRuleCall_3_1_ENDTerminalRuleCall_3_5__q;
+	protected AbstractElementAlias match_Macro_JointKeyword_6_0_q;
+	protected AbstractElementAlias match_Macro_LinkKeyword_5_0_q;
+	protected AbstractElementAlias match_Macro_ParametersKeyword_4_0_q;
+	protected AbstractElementAlias match_Robot_MacrosKeyword_5_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (KinematicsGrammarAccess) access;
+		match_Link___ColonKeyword_3_0_BEGINTerminalRuleCall_3_1_ENDTerminalRuleCall_3_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getLinkAccess().getColonKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getLinkAccess().getBEGINTerminalRuleCall_3_1()), new TokenAlias(false, false, grammarAccess.getLinkAccess().getENDTerminalRuleCall_3_5()));
+		match_Macro_JointKeyword_6_0_q = new TokenAlias(false, true, grammarAccess.getMacroAccess().getJointKeyword_6_0());
+		match_Macro_LinkKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getMacroAccess().getLinkKeyword_5_0());
+		match_Macro_ParametersKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getMacroAccess().getParametersKeyword_4_0());
+		match_Robot_MacrosKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getRobotAccess().getMacrosKeyword_5_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getBEGINRule())
+			return getBEGINToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getENDRule())
+			return getENDToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * Synthetic terminal rule. The concrete syntax is to be specified by clients.
+	 * Defaults to the empty string.
+	 */
+	protected String getBEGINToken(EObject semanticObject, RuleCall ruleCall, INode node) { return ""; }
+	
+	/**
+	 * Synthetic terminal rule. The concrete syntax is to be specified by clients.
+	 * Defaults to the empty string.
+	 */
+	protected String getENDToken(EObject semanticObject, RuleCall ruleCall, INode node) { return ""; }
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -36,8 +64,95 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Link___ColonKeyword_3_0_BEGINTerminalRuleCall_3_1_ENDTerminalRuleCall_3_5__q.equals(syntax))
+				emit_Link___ColonKeyword_3_0_BEGINTerminalRuleCall_3_1_ENDTerminalRuleCall_3_5__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Macro_JointKeyword_6_0_q.equals(syntax))
+				emit_Macro_JointKeyword_6_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Macro_LinkKeyword_5_0_q.equals(syntax))
+				emit_Macro_LinkKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Macro_ParametersKeyword_4_0_q.equals(syntax))
+				emit_Macro_ParametersKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Robot_MacrosKeyword_5_0_q.equals(syntax))
+				emit_Robot_MacrosKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (':' BEGIN END)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=EString (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Link___ColonKeyword_3_0_BEGINTerminalRuleCall_3_1_ENDTerminalRuleCall_3_5__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'joint:'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     link+=Link (ambiguity) END (rule end)
+	 *     name=EString BEGIN 'parameters:'? 'link:'? (ambiguity) END (rule end)
+	 *     parameters+=Parameter 'link:'? (ambiguity) END (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Macro_JointKeyword_6_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'link:'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=EString BEGIN 'parameters:'? (ambiguity) 'joint:' joint+=Joint
+	 *     name=EString BEGIN 'parameters:'? (ambiguity) 'joint:'? END (rule end)
+	 *     parameters+=Parameter (ambiguity) 'joint:' joint+=Joint
+	 *     parameters+=Parameter (ambiguity) 'joint:'? END (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Macro_LinkKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'parameters:'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=EString BEGIN (ambiguity) 'link:' link+=Link
+	 *     name=EString BEGIN (ambiguity) 'link:'? 'joint:' joint+=Joint
+	 *     name=EString BEGIN (ambiguity) 'link:'? 'joint:'? END (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Macro_ParametersKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'macros:'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=EString (ambiguity) END (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Robot_MacrosKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

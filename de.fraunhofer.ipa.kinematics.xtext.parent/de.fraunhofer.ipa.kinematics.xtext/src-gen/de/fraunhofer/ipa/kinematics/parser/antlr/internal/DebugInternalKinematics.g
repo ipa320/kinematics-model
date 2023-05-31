@@ -5,212 +5,291 @@ grammar DebugInternalKinematics;
 
 // Rule Robot
 ruleRobot:
-	'Robot'
-	'{'
-	'}'
+	'xacrorobot:'
+	RULE_BEGIN
+	'name:'
+	ruleEString
+	(
+		'macros:'
+		ruleMacro
+		*
+	)?
+	RULE_END
 ;
 
-// Rule Axis
-ruleAxis:
-	'Axis'
-	'{'
+// Rule Macro
+ruleMacro:
+	'-'
+	'name:'
+	ruleEString
+	RULE_BEGIN
 	(
-		'xyz'
+		'parameters:'
+		ruleParameter
+		*
+	)?
+	(
+		'link:'
+		ruleLink
+		*
+	)?
+	(
+		'joint:'
+		ruleJoint
+		*
+	)?
+	RULE_END
+;
+
+// Rule Parameter
+ruleParameter:
+	'-'
+	'name:'
+	ruleEString
+	RULE_BEGIN
+	'type:'
+	ruleParameterType
+	(
+		'default'
 		ruleEString
 	)?
-	'}'
+	(
+		'value'
+		ruleEString
+	)?
+	RULE_END
+;
+
+// Rule Joint
+ruleJoint:
+	'-'
+	'name:'
+	ruleEString
+	RULE_BEGIN
+	'type:'
+	RULE_JOINTTYPE
+	'parent:'
+	RULE_ID
+	'child:'
+	RULE_ID
+	'origin:'
+	rulePose
+	(
+		'axis:'
+		ruleVector3
+	)?
+	(
+		'limit:'
+		ruleLimit
+	)?
+	RULE_END
+;
+
+// Rule Link
+ruleLink:
+	'-'
+	'name:'
+	ruleEString
+	(
+		':'
+		RULE_BEGIN
+		(
+			'inertial:'
+			ruleInertial
+		)?
+		(
+			'visual:'
+			ruleVisual
+		)?
+		(
+			'collision:'
+			ruleCollision
+		)?
+		RULE_END
+	)?
 ;
 
 // Rule Pose
 rulePose:
-	'Pose'
-	'{'
+	RULE_BEGIN
 	(
-		'rpy'
+		'rpy:'
 		ruleEString
 	)?
 	(
-		'xyz'
+		'xyz:'
 		ruleEString
 	)?
-	'}'
+	RULE_END
+;
+
+// Rule Vector3
+ruleVector3:
+	RULE_BEGIN
+	(
+		'xyz:'
+		ruleEString
+	)?
+	RULE_END
 ;
 
 // Rule Limit
 ruleLimit:
-	'Limit'
-	'{'
+	RULE_BEGIN
 	(
-		'effort'
+		'effort:'
 		ruleDouble0
 	)?
 	(
-		'lower'
+		'lower:'
 		ruleDouble0
 	)?
 	(
-		'upper'
+		'upper:'
 		ruleDouble0
 	)?
 	(
-		'velocity'
+		'velocity:'
 		ruleDouble0
 	)?
-	'}'
+	RULE_END
 ;
 
 // Rule Inertial
 ruleInertial:
-	'Inertial'
-	'{'
+	RULE_BEGIN
 	(
-		'origin'
+		'origin:'
 		rulePose
 	)?
 	(
-		'mass'
+		'mass:'
 		ruleMass
 	)?
 	(
-		'inertia'
+		'inertia:'
 		ruleInertia
 	)?
-	'}'
+	RULE_END
 ;
 
 // Rule Visual
 ruleVisual:
-	'Visual'
-	'{'
+	RULE_BEGIN
 	(
-		'origin'
+		'origin:'
 		rulePose
 	)?
-	'geometry'
+	'geometry:'
 	ruleGeometry
-	'}'
+	RULE_END
 ;
 
 // Rule Collision
 ruleCollision:
-	'Collision'
-	'{'
+	RULE_BEGIN
 	(
-		'origin'
+		'origin:'
 		rulePose
 	)?
-	'geometry'
+	'geometry:'
 	ruleGeometry
-	'}'
+	RULE_END
 ;
 
 // Rule Mass
 ruleMass:
-	'Mass'
-	'{'
-	(
-		'value'
-		ruleDouble0
-	)?
-	'}'
+	ruleDouble0
 ;
 
 // Rule Inertia
 ruleInertia:
-	'Inertia'
-	'{'
+	RULE_BEGIN
 	(
-		'ixx'
+		'ixx:'
 		ruleDouble0
 	)?
 	(
-		'ixy'
+		'ixy:'
 		ruleDouble0
 	)?
 	(
-		'ixz'
+		'ixz:'
 		ruleDouble0
 	)?
 	(
-		'iyy'
+		'iyy:'
 		ruleDouble0
 	)?
 	(
-		'iyz'
+		'iyz:'
 		ruleDouble0
 	)?
 	(
-		'izz'
+		'izz:'
 		ruleDouble0
 	)?
-	'}'
+	RULE_END
 ;
 
 // Rule Geometry
 ruleGeometry:
-	'Geometry'
-	'{'
+	RULE_BEGIN
 	(
-		'box'
+		'box:'
 		ruleBox
 	)?
 	(
-		'cylinder'
+		'cylinder:'
 		ruleCylinder
 	)?
 	(
-		'sphere'
+		'sphere:'
 		ruleSphere
 	)?
 	(
-		'mesh'
+		'mesh:'
 		ruleMesh
 	)?
-	'}'
+	RULE_END
 ;
 
 // Rule Box
 ruleBox:
-	'Box'
-	'{'
-	(
-		'size'
-		ruleEString
-	)?
-	'}'
+	RULE_BEGIN
+	'size'
+	ruleEString
+	RULE_END
 ;
 
 // Rule Cylinder
 ruleCylinder:
-	'Cylinder'
-	'{'
-	'length'
+	RULE_BEGIN
+	'length:'
 	ruleDouble0
-	'radius'
+	'radius:'
 	ruleDouble0
-	'}'
+	RULE_END
 ;
 
 // Rule Sphere
 ruleSphere:
-	'Sphere'
-	'{'
-	'radius'
+	RULE_BEGIN
+	'radius:'
 	ruleDouble0
-	'}'
+	RULE_END
 ;
 
 // Rule Mesh
 ruleMesh:
-	'Mesh'
-	'{'
-	'filename'
-	RULE_STRING
+	RULE_BEGIN
+	'filename:'
+	ruleEString
 	(
-		'scale'
+		'scale:'
 		ruleEString
 	)?
-	'}'
+	RULE_END
 ;
 
 // Rule EString
@@ -223,6 +302,17 @@ ruleDouble0:
 	RULE_DOUBLE
 ;
 
+// Rule ParameterType
+ruleParameterType:
+	(
+		'0'
+		    |
+		'1'
+		    |
+		'2'
+	)
+;
+
 fragment RULE_DIGIT : '0'..'9';
 
 RULE_BOOLEAN : ('true'|'false');
@@ -233,6 +323,12 @@ RULE_DECINT : ('0'|'1'..'9' RULE_DIGIT*|'-' '0'..'9' RULE_DIGIT*);
 
 RULE_JOINTTYPE : ('revolute'|'continuous'|'prismatic'|'fixed'|'floating'|'planar');
 
+fragment RULE_BEGIN : ;
+
+fragment RULE_END : ;
+
+RULE_SL_COMMENT : '#' ~(('\n'|'\r'))* {skip();};
+
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
@@ -240,8 +336,6 @@ RULE_INT : ('0'..'9')+;
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/' {skip();};
-
-RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')? {skip();};
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+ {skip();};
 

@@ -5,6 +5,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -21,63 +22,70 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalKinematicsParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_DOUBLE", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_JOINTTYPE", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Robot'", "'{'", "'}'", "'Axis'", "'xyz'", "'Pose'", "'rpy'", "'Limit'", "'effort'", "'lower'", "'upper'", "'velocity'", "'Inertial'", "'origin'", "'mass'", "'inertia'", "'Visual'", "'geometry'", "'Collision'", "'Mass'", "'value'", "'Inertia'", "'ixx'", "'ixy'", "'ixz'", "'iyy'", "'iyz'", "'izz'", "'Geometry'", "'box'", "'cylinder'", "'sphere'", "'mesh'", "'Box'", "'size'", "'Cylinder'", "'length'", "'radius'", "'Sphere'", "'Mesh'", "'filename'", "'scale'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Parameters", "Xacrorobot", "Collision", "Cylinder", "Filename", "Geometry", "Inertial", "Velocity", "Inertia", "Default", "Effort", "Length", "Macros", "Origin", "Parent", "Radius", "Sphere", "Visual", "AnyURI", "Child", "Joint", "Limit", "Lower", "Scale", "Upper", "Axis", "Link", "Mass", "Mesh", "Name", "Type", "Value", "Box", "Ixx", "Ixy", "Ixz", "Iyy", "Iyz", "Izz", "Rpy", "Size", "Xyz", "HyphenMinus", "DigitZero", "DigitOne", "DigitTwo", "Colon", "RULE_DIGIT", "RULE_BOOLEAN", "RULE_DECINT", "RULE_DOUBLE", "RULE_JOINTTYPE", "RULE_BEGIN", "RULE_END", "RULE_SL_COMMENT", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
     };
-    public static final int T__50=50;
-    public static final int RULE_BOOLEAN=7;
-    public static final int T__19=19;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
-    public static final int T__55=55;
-    public static final int T__56=56;
-    public static final int T__57=57;
-    public static final int T__51=51;
-    public static final int T__52=52;
-    public static final int T__53=53;
-    public static final int T__54=54;
-    public static final int RULE_ID=10;
-    public static final int RULE_DIGIT=6;
-    public static final int T__26=26;
-    public static final int T__27=27;
-    public static final int T__28=28;
-    public static final int RULE_INT=11;
-    public static final int T__29=29;
-    public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=12;
-    public static final int T__23=23;
-    public static final int T__24=24;
-    public static final int T__25=25;
-    public static final int T__20=20;
-    public static final int T__21=21;
-    public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=13;
-    public static final int T__37=37;
-    public static final int RULE_DOUBLE=5;
-    public static final int T__38=38;
-    public static final int T__39=39;
-    public static final int T__33=33;
-    public static final int T__34=34;
-    public static final int T__35=35;
-    public static final int RULE_JOINTTYPE=9;
-    public static final int T__36=36;
-    public static final int RULE_DECINT=8;
+    public static final int Origin=17;
+    public static final int DigitTwo=49;
+    public static final int Lower=26;
+    public static final int RULE_BEGIN=56;
+    public static final int Size=44;
+    public static final int Effort=14;
+    public static final int Ixx=37;
+    public static final int RULE_BOOLEAN=52;
+    public static final int Ixz=39;
+    public static final int Ixy=38;
+    public static final int Name=33;
+    public static final int Sphere=20;
+    public static final int Child=23;
+    public static final int Parameters=4;
+    public static final int RULE_ID=59;
+    public static final int Iyy=40;
+    public static final int Filename=8;
+    public static final int Mesh=32;
+    public static final int RULE_DIGIT=51;
+    public static final int Box=36;
+    public static final int Iyz=41;
+    public static final int Joint=24;
+    public static final int Macros=16;
+    public static final int Mass=31;
+    public static final int AnyURI=22;
+    public static final int DigitZero=47;
+    public static final int RULE_INT=60;
+    public static final int Value=35;
+    public static final int RULE_ML_COMMENT=62;
+    public static final int Inertia=12;
+    public static final int Link=30;
+    public static final int Xacrorobot=5;
+    public static final int Radius=19;
+    public static final int RULE_END=57;
+    public static final int Parent=18;
+    public static final int Izz=42;
+    public static final int RULE_STRING=61;
+    public static final int RULE_SL_COMMENT=58;
+    public static final int HyphenMinus=46;
+    public static final int RULE_DOUBLE=54;
+    public static final int Rpy=43;
+    public static final int RULE_JOINTTYPE=55;
+    public static final int Colon=50;
+    public static final int RULE_DECINT=53;
     public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
-    public static final int RULE_WS=14;
-    public static final int RULE_ANY_OTHER=15;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int T__44=44;
-    public static final int T__45=45;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__40=40;
-    public static final int T__41=41;
-    public static final int T__42=42;
-    public static final int T__43=43;
+    public static final int Visual=21;
+    public static final int Axis=29;
+    public static final int Upper=28;
+    public static final int RULE_WS=63;
+    public static final int Collision=6;
+    public static final int DigitOne=48;
+    public static final int Scale=27;
+    public static final int Inertial=10;
+    public static final int RULE_ANY_OTHER=64;
+    public static final int Velocity=11;
+    public static final int Default=13;
+    public static final int Geometry=9;
+    public static final int Cylinder=7;
+    public static final int Type=34;
+    public static final int Length=15;
+    public static final int Xyz=45;
+    public static final int Limit=25;
 
     // delegates
     // delegators
@@ -93,7 +101,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
         
 
     public String[] getTokenNames() { return InternalKinematicsParser.tokenNames; }
-    public String getGrammarFileName() { return "InternalKinematics.g"; }
+    public String getGrammarFileName() { return "InternalKinematicsParser.g"; }
 
 
 
@@ -119,7 +127,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRobot"
-    // InternalKinematics.g:64:1: entryRuleRobot returns [EObject current=null] : iv_ruleRobot= ruleRobot EOF ;
+    // InternalKinematicsParser.g:58:1: entryRuleRobot returns [EObject current=null] : iv_ruleRobot= ruleRobot EOF ;
     public final EObject entryRuleRobot() throws RecognitionException {
         EObject current = null;
 
@@ -127,8 +135,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:64:46: (iv_ruleRobot= ruleRobot EOF )
-            // InternalKinematics.g:65:2: iv_ruleRobot= ruleRobot EOF
+            // InternalKinematicsParser.g:58:46: (iv_ruleRobot= ruleRobot EOF )
+            // InternalKinematicsParser.g:59:2: iv_ruleRobot= ruleRobot EOF
             {
              newCompositeNode(grammarAccess.getRobotRule()); 
             pushFollow(FOLLOW_1);
@@ -155,26 +163,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRobot"
-    // InternalKinematics.g:71:1: ruleRobot returns [EObject current=null] : ( () otherlv_1= 'Robot' otherlv_2= '{' otherlv_3= '}' ) ;
+    // InternalKinematicsParser.g:65:1: ruleRobot returns [EObject current=null] : ( () otherlv_1= Xacrorobot this_BEGIN_2= RULE_BEGIN otherlv_3= Name ( (lv_name_4_0= ruleEString ) ) (otherlv_5= Macros ( (lv_macros_6_0= ruleMacro ) )* )? this_END_7= RULE_END ) ;
     public final EObject ruleRobot() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        Token otherlv_2=null;
+        Token this_BEGIN_2=null;
         Token otherlv_3=null;
+        Token otherlv_5=null;
+        Token this_END_7=null;
+        AntlrDatatypeRuleToken lv_name_4_0 = null;
+
+        EObject lv_macros_6_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:77:2: ( ( () otherlv_1= 'Robot' otherlv_2= '{' otherlv_3= '}' ) )
-            // InternalKinematics.g:78:2: ( () otherlv_1= 'Robot' otherlv_2= '{' otherlv_3= '}' )
+            // InternalKinematicsParser.g:71:2: ( ( () otherlv_1= Xacrorobot this_BEGIN_2= RULE_BEGIN otherlv_3= Name ( (lv_name_4_0= ruleEString ) ) (otherlv_5= Macros ( (lv_macros_6_0= ruleMacro ) )* )? this_END_7= RULE_END ) )
+            // InternalKinematicsParser.g:72:2: ( () otherlv_1= Xacrorobot this_BEGIN_2= RULE_BEGIN otherlv_3= Name ( (lv_name_4_0= ruleEString ) ) (otherlv_5= Macros ( (lv_macros_6_0= ruleMacro ) )* )? this_END_7= RULE_END )
             {
-            // InternalKinematics.g:78:2: ( () otherlv_1= 'Robot' otherlv_2= '{' otherlv_3= '}' )
-            // InternalKinematics.g:79:3: () otherlv_1= 'Robot' otherlv_2= '{' otherlv_3= '}'
+            // InternalKinematicsParser.g:72:2: ( () otherlv_1= Xacrorobot this_BEGIN_2= RULE_BEGIN otherlv_3= Name ( (lv_name_4_0= ruleEString ) ) (otherlv_5= Macros ( (lv_macros_6_0= ruleMacro ) )* )? this_END_7= RULE_END )
+            // InternalKinematicsParser.g:73:3: () otherlv_1= Xacrorobot this_BEGIN_2= RULE_BEGIN otherlv_3= Name ( (lv_name_4_0= ruleEString ) ) (otherlv_5= Macros ( (lv_macros_6_0= ruleMacro ) )* )? this_END_7= RULE_END
             {
-            // InternalKinematics.g:79:3: ()
-            // InternalKinematics.g:80:4: 
+            // InternalKinematicsParser.g:73:3: ()
+            // InternalKinematicsParser.g:74:4: 
             {
 
             				current = forceCreateModelElement(
@@ -184,17 +198,122 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_3); 
+            otherlv_1=(Token)match(input,Xacrorobot,FOLLOW_3); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getRobotAccess().getRobotKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getRobotAccess().getXacrorobotKeyword_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_4); 
+            this_BEGIN_2=(Token)match(input,RULE_BEGIN,FOLLOW_4); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_2());
+            			newLeafNode(this_BEGIN_2, grammarAccess.getRobotAccess().getBEGINTerminalRuleCall_2());
             		
-            otherlv_3=(Token)match(input,18,FOLLOW_2); 
+            otherlv_3=(Token)match(input,Name,FOLLOW_5); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getRobotAccess().getRightCurlyBracketKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getRobotAccess().getNameKeyword_3());
+            		
+            // InternalKinematicsParser.g:92:3: ( (lv_name_4_0= ruleEString ) )
+            // InternalKinematicsParser.g:93:4: (lv_name_4_0= ruleEString )
+            {
+            // InternalKinematicsParser.g:93:4: (lv_name_4_0= ruleEString )
+            // InternalKinematicsParser.g:94:5: lv_name_4_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getRobotAccess().getNameEStringParserRuleCall_4_0());
+            				
+            pushFollow(FOLLOW_6);
+            lv_name_4_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getRobotRule());
+            					}
+            					set(
+            						current,
+            						"name",
+            						lv_name_4_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalKinematicsParser.g:111:3: (otherlv_5= Macros ( (lv_macros_6_0= ruleMacro ) )* )?
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0==Macros) ) {
+                alt2=1;
+            }
+            switch (alt2) {
+                case 1 :
+                    // InternalKinematicsParser.g:112:4: otherlv_5= Macros ( (lv_macros_6_0= ruleMacro ) )*
+                    {
+                    otherlv_5=(Token)match(input,Macros,FOLLOW_7); 
+
+                    				newLeafNode(otherlv_5, grammarAccess.getRobotAccess().getMacrosKeyword_5_0());
+                    			
+                    // InternalKinematicsParser.g:116:4: ( (lv_macros_6_0= ruleMacro ) )*
+                    loop1:
+                    do {
+                        int alt1=2;
+                        int LA1_0 = input.LA(1);
+
+                        if ( (LA1_0==HyphenMinus) ) {
+                            alt1=1;
+                        }
+
+
+                        switch (alt1) {
+                    	case 1 :
+                    	    // InternalKinematicsParser.g:117:5: (lv_macros_6_0= ruleMacro )
+                    	    {
+                    	    // InternalKinematicsParser.g:117:5: (lv_macros_6_0= ruleMacro )
+                    	    // InternalKinematicsParser.g:118:6: lv_macros_6_0= ruleMacro
+                    	    {
+
+                    	    						newCompositeNode(grammarAccess.getRobotAccess().getMacrosMacroParserRuleCall_5_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_7);
+                    	    lv_macros_6_0=ruleMacro();
+
+                    	    state._fsp--;
+
+
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getRobotRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"macros",
+                    	    							lv_macros_6_0,
+                    	    							"de.fraunhofer.ipa.kinematics.Kinematics.Macro");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop1;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
+
+            this_END_7=(Token)match(input,RULE_END,FOLLOW_2); 
+
+            			newLeafNode(this_END_7, grammarAccess.getRobotAccess().getENDTerminalRuleCall_6());
             		
 
             }
@@ -218,25 +337,25 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleRobot"
 
 
-    // $ANTLR start "entryRuleAxis"
-    // InternalKinematics.g:102:1: entryRuleAxis returns [EObject current=null] : iv_ruleAxis= ruleAxis EOF ;
-    public final EObject entryRuleAxis() throws RecognitionException {
+    // $ANTLR start "entryRuleMacro"
+    // InternalKinematicsParser.g:144:1: entryRuleMacro returns [EObject current=null] : iv_ruleMacro= ruleMacro EOF ;
+    public final EObject entryRuleMacro() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleAxis = null;
+        EObject iv_ruleMacro = null;
 
 
         try {
-            // InternalKinematics.g:102:45: (iv_ruleAxis= ruleAxis EOF )
-            // InternalKinematics.g:103:2: iv_ruleAxis= ruleAxis EOF
+            // InternalKinematicsParser.g:144:46: (iv_ruleMacro= ruleMacro EOF )
+            // InternalKinematicsParser.g:145:2: iv_ruleMacro= ruleMacro EOF
             {
-             newCompositeNode(grammarAccess.getAxisRule()); 
+             newCompositeNode(grammarAccess.getMacroRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleAxis=ruleAxis();
+            iv_ruleMacro=ruleMacro();
 
             state._fsp--;
 
-             current =iv_ruleAxis; 
+             current =iv_ruleMacro; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -251,95 +370,146 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleAxis"
+    // $ANTLR end "entryRuleMacro"
 
 
-    // $ANTLR start "ruleAxis"
-    // InternalKinematics.g:109:1: ruleAxis returns [EObject current=null] : ( () otherlv_1= 'Axis' otherlv_2= '{' (otherlv_3= 'xyz' ( (lv_xyz_4_0= ruleEString ) ) )? otherlv_5= '}' ) ;
-    public final EObject ruleAxis() throws RecognitionException {
+    // $ANTLR start "ruleMacro"
+    // InternalKinematicsParser.g:151:1: ruleMacro returns [EObject current=null] : (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN (otherlv_4= Parameters ( (lv_parameters_5_0= ruleParameter ) )* )? (otherlv_6= Link ( (lv_link_7_0= ruleLink ) )* )? (otherlv_8= Joint ( (lv_joint_9_0= ruleJoint ) )* )? this_END_10= RULE_END ) ;
+    public final EObject ruleMacro() throws RecognitionException {
         EObject current = null;
 
+        Token otherlv_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        AntlrDatatypeRuleToken lv_xyz_4_0 = null;
+        Token this_BEGIN_3=null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token this_END_10=null;
+        AntlrDatatypeRuleToken lv_name_2_0 = null;
+
+        EObject lv_parameters_5_0 = null;
+
+        EObject lv_link_7_0 = null;
+
+        EObject lv_joint_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:115:2: ( ( () otherlv_1= 'Axis' otherlv_2= '{' (otherlv_3= 'xyz' ( (lv_xyz_4_0= ruleEString ) ) )? otherlv_5= '}' ) )
-            // InternalKinematics.g:116:2: ( () otherlv_1= 'Axis' otherlv_2= '{' (otherlv_3= 'xyz' ( (lv_xyz_4_0= ruleEString ) ) )? otherlv_5= '}' )
+            // InternalKinematicsParser.g:157:2: ( (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN (otherlv_4= Parameters ( (lv_parameters_5_0= ruleParameter ) )* )? (otherlv_6= Link ( (lv_link_7_0= ruleLink ) )* )? (otherlv_8= Joint ( (lv_joint_9_0= ruleJoint ) )* )? this_END_10= RULE_END ) )
+            // InternalKinematicsParser.g:158:2: (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN (otherlv_4= Parameters ( (lv_parameters_5_0= ruleParameter ) )* )? (otherlv_6= Link ( (lv_link_7_0= ruleLink ) )* )? (otherlv_8= Joint ( (lv_joint_9_0= ruleJoint ) )* )? this_END_10= RULE_END )
             {
-            // InternalKinematics.g:116:2: ( () otherlv_1= 'Axis' otherlv_2= '{' (otherlv_3= 'xyz' ( (lv_xyz_4_0= ruleEString ) ) )? otherlv_5= '}' )
-            // InternalKinematics.g:117:3: () otherlv_1= 'Axis' otherlv_2= '{' (otherlv_3= 'xyz' ( (lv_xyz_4_0= ruleEString ) ) )? otherlv_5= '}'
+            // InternalKinematicsParser.g:158:2: (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN (otherlv_4= Parameters ( (lv_parameters_5_0= ruleParameter ) )* )? (otherlv_6= Link ( (lv_link_7_0= ruleLink ) )* )? (otherlv_8= Joint ( (lv_joint_9_0= ruleJoint ) )* )? this_END_10= RULE_END )
+            // InternalKinematicsParser.g:159:3: otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN (otherlv_4= Parameters ( (lv_parameters_5_0= ruleParameter ) )* )? (otherlv_6= Link ( (lv_link_7_0= ruleLink ) )* )? (otherlv_8= Joint ( (lv_joint_9_0= ruleJoint ) )* )? this_END_10= RULE_END
             {
-            // InternalKinematics.g:117:3: ()
-            // InternalKinematics.g:118:4: 
+            otherlv_0=(Token)match(input,HyphenMinus,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getMacroAccess().getHyphenMinusKeyword_0());
+            		
+            otherlv_1=(Token)match(input,Name,FOLLOW_5); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getMacroAccess().getNameKeyword_1());
+            		
+            // InternalKinematicsParser.g:167:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalKinematicsParser.g:168:4: (lv_name_2_0= ruleEString )
+            {
+            // InternalKinematicsParser.g:168:4: (lv_name_2_0= ruleEString )
+            // InternalKinematicsParser.g:169:5: lv_name_2_0= ruleEString
             {
 
-            				current = forceCreateModelElement(
-            					grammarAccess.getAxisAccess().getAxisAction_0(),
-            					current);
-            			
+            					newCompositeNode(grammarAccess.getMacroAccess().getNameEStringParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_3);
+            lv_name_2_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getMacroRule());
+            					}
+            					set(
+            						current,
+            						"name",
+            						lv_name_2_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+            					afterParserOrEnumRuleCall();
+            				
 
             }
 
-            otherlv_1=(Token)match(input,19,FOLLOW_3); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getAxisAccess().getAxisKeyword_1());
-            		
-            otherlv_2=(Token)match(input,17,FOLLOW_5); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getAxisAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalKinematics.g:132:3: (otherlv_3= 'xyz' ( (lv_xyz_4_0= ruleEString ) ) )?
-            int alt1=2;
-            int LA1_0 = input.LA(1);
-
-            if ( (LA1_0==20) ) {
-                alt1=1;
             }
-            switch (alt1) {
+
+            this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_8); 
+
+            			newLeafNode(this_BEGIN_3, grammarAccess.getMacroAccess().getBEGINTerminalRuleCall_3());
+            		
+            // InternalKinematicsParser.g:190:3: (otherlv_4= Parameters ( (lv_parameters_5_0= ruleParameter ) )* )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0==Parameters) ) {
+                alt4=1;
+            }
+            switch (alt4) {
                 case 1 :
-                    // InternalKinematics.g:133:4: otherlv_3= 'xyz' ( (lv_xyz_4_0= ruleEString ) )
+                    // InternalKinematicsParser.g:191:4: otherlv_4= Parameters ( (lv_parameters_5_0= ruleParameter ) )*
                     {
-                    otherlv_3=(Token)match(input,20,FOLLOW_6); 
+                    otherlv_4=(Token)match(input,Parameters,FOLLOW_9); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getAxisAccess().getXyzKeyword_3_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getMacroAccess().getParametersKeyword_4_0());
                     			
-                    // InternalKinematics.g:137:4: ( (lv_xyz_4_0= ruleEString ) )
-                    // InternalKinematics.g:138:5: (lv_xyz_4_0= ruleEString )
-                    {
-                    // InternalKinematics.g:138:5: (lv_xyz_4_0= ruleEString )
-                    // InternalKinematics.g:139:6: lv_xyz_4_0= ruleEString
-                    {
+                    // InternalKinematicsParser.g:195:4: ( (lv_parameters_5_0= ruleParameter ) )*
+                    loop3:
+                    do {
+                        int alt3=2;
+                        int LA3_0 = input.LA(1);
 
-                    						newCompositeNode(grammarAccess.getAxisAccess().getXyzEStringParserRuleCall_3_1_0());
-                    					
-                    pushFollow(FOLLOW_4);
-                    lv_xyz_4_0=ruleEString();
-
-                    state._fsp--;
+                        if ( (LA3_0==HyphenMinus) ) {
+                            alt3=1;
+                        }
 
 
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getAxisRule());
-                    						}
-                    						set(
-                    							current,
-                    							"xyz",
-                    							lv_xyz_4_0,
-                    							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
-                    						afterParserOrEnumRuleCall();
-                    					
+                        switch (alt3) {
+                    	case 1 :
+                    	    // InternalKinematicsParser.g:196:5: (lv_parameters_5_0= ruleParameter )
+                    	    {
+                    	    // InternalKinematicsParser.g:196:5: (lv_parameters_5_0= ruleParameter )
+                    	    // InternalKinematicsParser.g:197:6: lv_parameters_5_0= ruleParameter
+                    	    {
 
-                    }
+                    	    						newCompositeNode(grammarAccess.getMacroAccess().getParametersParameterParserRuleCall_4_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_9);
+                    	    lv_parameters_5_0=ruleParameter();
+
+                    	    state._fsp--;
 
 
-                    }
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getMacroRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"parameters",
+                    	    							lv_parameters_5_0,
+                    	    							"de.fraunhofer.ipa.kinematics.Kinematics.Parameter");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop3;
+                        }
+                    } while (true);
 
 
                     }
@@ -347,9 +517,149 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,18,FOLLOW_2); 
+            // InternalKinematicsParser.g:215:3: (otherlv_6= Link ( (lv_link_7_0= ruleLink ) )* )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            			newLeafNode(otherlv_5, grammarAccess.getAxisAccess().getRightCurlyBracketKeyword_4());
+            if ( (LA6_0==Link) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalKinematicsParser.g:216:4: otherlv_6= Link ( (lv_link_7_0= ruleLink ) )*
+                    {
+                    otherlv_6=(Token)match(input,Link,FOLLOW_10); 
+
+                    				newLeafNode(otherlv_6, grammarAccess.getMacroAccess().getLinkKeyword_5_0());
+                    			
+                    // InternalKinematicsParser.g:220:4: ( (lv_link_7_0= ruleLink ) )*
+                    loop5:
+                    do {
+                        int alt5=2;
+                        int LA5_0 = input.LA(1);
+
+                        if ( (LA5_0==HyphenMinus) ) {
+                            alt5=1;
+                        }
+
+
+                        switch (alt5) {
+                    	case 1 :
+                    	    // InternalKinematicsParser.g:221:5: (lv_link_7_0= ruleLink )
+                    	    {
+                    	    // InternalKinematicsParser.g:221:5: (lv_link_7_0= ruleLink )
+                    	    // InternalKinematicsParser.g:222:6: lv_link_7_0= ruleLink
+                    	    {
+
+                    	    						newCompositeNode(grammarAccess.getMacroAccess().getLinkLinkParserRuleCall_5_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_10);
+                    	    lv_link_7_0=ruleLink();
+
+                    	    state._fsp--;
+
+
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getMacroRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"link",
+                    	    							lv_link_7_0,
+                    	    							"de.fraunhofer.ipa.kinematics.Kinematics.Link");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop5;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalKinematicsParser.g:240:3: (otherlv_8= Joint ( (lv_joint_9_0= ruleJoint ) )* )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==Joint) ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // InternalKinematicsParser.g:241:4: otherlv_8= Joint ( (lv_joint_9_0= ruleJoint ) )*
+                    {
+                    otherlv_8=(Token)match(input,Joint,FOLLOW_7); 
+
+                    				newLeafNode(otherlv_8, grammarAccess.getMacroAccess().getJointKeyword_6_0());
+                    			
+                    // InternalKinematicsParser.g:245:4: ( (lv_joint_9_0= ruleJoint ) )*
+                    loop7:
+                    do {
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
+
+                        if ( (LA7_0==HyphenMinus) ) {
+                            alt7=1;
+                        }
+
+
+                        switch (alt7) {
+                    	case 1 :
+                    	    // InternalKinematicsParser.g:246:5: (lv_joint_9_0= ruleJoint )
+                    	    {
+                    	    // InternalKinematicsParser.g:246:5: (lv_joint_9_0= ruleJoint )
+                    	    // InternalKinematicsParser.g:247:6: lv_joint_9_0= ruleJoint
+                    	    {
+
+                    	    						newCompositeNode(grammarAccess.getMacroAccess().getJointJointParserRuleCall_6_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_7);
+                    	    lv_joint_9_0=ruleJoint();
+
+                    	    state._fsp--;
+
+
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getMacroRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"joint",
+                    	    							lv_joint_9_0,
+                    	    							"de.fraunhofer.ipa.kinematics.Kinematics.Joint");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop7;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
+
+            this_END_10=(Token)match(input,RULE_END,FOLLOW_2); 
+
+            			newLeafNode(this_END_10, grammarAccess.getMacroAccess().getENDTerminalRuleCall_7());
             		
 
             }
@@ -370,11 +680,972 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleAxis"
+    // $ANTLR end "ruleMacro"
+
+
+    // $ANTLR start "entryRuleParameter"
+    // InternalKinematicsParser.g:273:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
+    public final EObject entryRuleParameter() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleParameter = null;
+
+
+        try {
+            // InternalKinematicsParser.g:273:50: (iv_ruleParameter= ruleParameter EOF )
+            // InternalKinematicsParser.g:274:2: iv_ruleParameter= ruleParameter EOF
+            {
+             newCompositeNode(grammarAccess.getParameterRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleParameter=ruleParameter();
+
+            state._fsp--;
+
+             current =iv_ruleParameter; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleParameter"
+
+
+    // $ANTLR start "ruleParameter"
+    // InternalKinematicsParser.g:280:1: ruleParameter returns [EObject current=null] : ( () otherlv_1= HyphenMinus otherlv_2= Name ( (lv_name_3_0= ruleEString ) ) this_BEGIN_4= RULE_BEGIN otherlv_5= Type ( (lv_type_6_0= ruleParameterType ) ) (otherlv_7= Default ( (lv_default_8_0= ruleEString ) ) )? (otherlv_9= Value ( (lv_value_10_0= ruleEString ) ) )? this_END_11= RULE_END ) ;
+    public final EObject ruleParameter() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+        Token this_BEGIN_4=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        Token this_END_11=null;
+        AntlrDatatypeRuleToken lv_name_3_0 = null;
+
+        Enumerator lv_type_6_0 = null;
+
+        AntlrDatatypeRuleToken lv_default_8_0 = null;
+
+        AntlrDatatypeRuleToken lv_value_10_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalKinematicsParser.g:286:2: ( ( () otherlv_1= HyphenMinus otherlv_2= Name ( (lv_name_3_0= ruleEString ) ) this_BEGIN_4= RULE_BEGIN otherlv_5= Type ( (lv_type_6_0= ruleParameterType ) ) (otherlv_7= Default ( (lv_default_8_0= ruleEString ) ) )? (otherlv_9= Value ( (lv_value_10_0= ruleEString ) ) )? this_END_11= RULE_END ) )
+            // InternalKinematicsParser.g:287:2: ( () otherlv_1= HyphenMinus otherlv_2= Name ( (lv_name_3_0= ruleEString ) ) this_BEGIN_4= RULE_BEGIN otherlv_5= Type ( (lv_type_6_0= ruleParameterType ) ) (otherlv_7= Default ( (lv_default_8_0= ruleEString ) ) )? (otherlv_9= Value ( (lv_value_10_0= ruleEString ) ) )? this_END_11= RULE_END )
+            {
+            // InternalKinematicsParser.g:287:2: ( () otherlv_1= HyphenMinus otherlv_2= Name ( (lv_name_3_0= ruleEString ) ) this_BEGIN_4= RULE_BEGIN otherlv_5= Type ( (lv_type_6_0= ruleParameterType ) ) (otherlv_7= Default ( (lv_default_8_0= ruleEString ) ) )? (otherlv_9= Value ( (lv_value_10_0= ruleEString ) ) )? this_END_11= RULE_END )
+            // InternalKinematicsParser.g:288:3: () otherlv_1= HyphenMinus otherlv_2= Name ( (lv_name_3_0= ruleEString ) ) this_BEGIN_4= RULE_BEGIN otherlv_5= Type ( (lv_type_6_0= ruleParameterType ) ) (otherlv_7= Default ( (lv_default_8_0= ruleEString ) ) )? (otherlv_9= Value ( (lv_value_10_0= ruleEString ) ) )? this_END_11= RULE_END
+            {
+            // InternalKinematicsParser.g:288:3: ()
+            // InternalKinematicsParser.g:289:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getParameterAccess().getParameterAction_0(),
+            					current);
+            			
+
+            }
+
+            otherlv_1=(Token)match(input,HyphenMinus,FOLLOW_4); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getParameterAccess().getHyphenMinusKeyword_1());
+            		
+            otherlv_2=(Token)match(input,Name,FOLLOW_5); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getParameterAccess().getNameKeyword_2());
+            		
+            // InternalKinematicsParser.g:303:3: ( (lv_name_3_0= ruleEString ) )
+            // InternalKinematicsParser.g:304:4: (lv_name_3_0= ruleEString )
+            {
+            // InternalKinematicsParser.g:304:4: (lv_name_3_0= ruleEString )
+            // InternalKinematicsParser.g:305:5: lv_name_3_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getParameterAccess().getNameEStringParserRuleCall_3_0());
+            				
+            pushFollow(FOLLOW_3);
+            lv_name_3_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getParameterRule());
+            					}
+            					set(
+            						current,
+            						"name",
+            						lv_name_3_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            this_BEGIN_4=(Token)match(input,RULE_BEGIN,FOLLOW_11); 
+
+            			newLeafNode(this_BEGIN_4, grammarAccess.getParameterAccess().getBEGINTerminalRuleCall_4());
+            		
+            otherlv_5=(Token)match(input,Type,FOLLOW_12); 
+
+            			newLeafNode(otherlv_5, grammarAccess.getParameterAccess().getTypeKeyword_5());
+            		
+            // InternalKinematicsParser.g:330:3: ( (lv_type_6_0= ruleParameterType ) )
+            // InternalKinematicsParser.g:331:4: (lv_type_6_0= ruleParameterType )
+            {
+            // InternalKinematicsParser.g:331:4: (lv_type_6_0= ruleParameterType )
+            // InternalKinematicsParser.g:332:5: lv_type_6_0= ruleParameterType
+            {
+
+            					newCompositeNode(grammarAccess.getParameterAccess().getTypeParameterTypeEnumRuleCall_6_0());
+            				
+            pushFollow(FOLLOW_13);
+            lv_type_6_0=ruleParameterType();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getParameterRule());
+            					}
+            					set(
+            						current,
+            						"type",
+            						lv_type_6_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.ParameterType");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalKinematicsParser.g:349:3: (otherlv_7= Default ( (lv_default_8_0= ruleEString ) ) )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==Default) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalKinematicsParser.g:350:4: otherlv_7= Default ( (lv_default_8_0= ruleEString ) )
+                    {
+                    otherlv_7=(Token)match(input,Default,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_7, grammarAccess.getParameterAccess().getDefaultKeyword_7_0());
+                    			
+                    // InternalKinematicsParser.g:354:4: ( (lv_default_8_0= ruleEString ) )
+                    // InternalKinematicsParser.g:355:5: (lv_default_8_0= ruleEString )
+                    {
+                    // InternalKinematicsParser.g:355:5: (lv_default_8_0= ruleEString )
+                    // InternalKinematicsParser.g:356:6: lv_default_8_0= ruleEString
+                    {
+
+                    						newCompositeNode(grammarAccess.getParameterAccess().getDefaultEStringParserRuleCall_7_1_0());
+                    					
+                    pushFollow(FOLLOW_14);
+                    lv_default_8_0=ruleEString();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getParameterRule());
+                    						}
+                    						set(
+                    							current,
+                    							"default",
+                    							lv_default_8_0,
+                    							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalKinematicsParser.g:374:3: (otherlv_9= Value ( (lv_value_10_0= ruleEString ) ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==Value) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // InternalKinematicsParser.g:375:4: otherlv_9= Value ( (lv_value_10_0= ruleEString ) )
+                    {
+                    otherlv_9=(Token)match(input,Value,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_9, grammarAccess.getParameterAccess().getValueKeyword_8_0());
+                    			
+                    // InternalKinematicsParser.g:379:4: ( (lv_value_10_0= ruleEString ) )
+                    // InternalKinematicsParser.g:380:5: (lv_value_10_0= ruleEString )
+                    {
+                    // InternalKinematicsParser.g:380:5: (lv_value_10_0= ruleEString )
+                    // InternalKinematicsParser.g:381:6: lv_value_10_0= ruleEString
+                    {
+
+                    						newCompositeNode(grammarAccess.getParameterAccess().getValueEStringParserRuleCall_8_1_0());
+                    					
+                    pushFollow(FOLLOW_15);
+                    lv_value_10_0=ruleEString();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getParameterRule());
+                    						}
+                    						set(
+                    							current,
+                    							"value",
+                    							lv_value_10_0,
+                    							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            this_END_11=(Token)match(input,RULE_END,FOLLOW_2); 
+
+            			newLeafNode(this_END_11, grammarAccess.getParameterAccess().getENDTerminalRuleCall_9());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleParameter"
+
+
+    // $ANTLR start "entryRuleJoint"
+    // InternalKinematicsParser.g:407:1: entryRuleJoint returns [EObject current=null] : iv_ruleJoint= ruleJoint EOF ;
+    public final EObject entryRuleJoint() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleJoint = null;
+
+
+        try {
+            // InternalKinematicsParser.g:407:46: (iv_ruleJoint= ruleJoint EOF )
+            // InternalKinematicsParser.g:408:2: iv_ruleJoint= ruleJoint EOF
+            {
+             newCompositeNode(grammarAccess.getJointRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleJoint=ruleJoint();
+
+            state._fsp--;
+
+             current =iv_ruleJoint; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleJoint"
+
+
+    // $ANTLR start "ruleJoint"
+    // InternalKinematicsParser.g:414:1: ruleJoint returns [EObject current=null] : (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN otherlv_4= Type ( (lv_type_5_0= RULE_JOINTTYPE ) ) otherlv_6= Parent ( (otherlv_7= RULE_ID ) ) otherlv_8= Child ( (otherlv_9= RULE_ID ) ) otherlv_10= Origin ( (lv_origin_11_0= rulePose ) ) (otherlv_12= Axis ( (lv_axis_13_0= ruleVector3 ) ) )? (otherlv_14= Limit ( (lv_limit_15_0= ruleLimit ) ) )? this_END_16= RULE_END ) ;
+    public final EObject ruleJoint() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token this_BEGIN_3=null;
+        Token otherlv_4=null;
+        Token lv_type_5_0=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+        Token otherlv_10=null;
+        Token otherlv_12=null;
+        Token otherlv_14=null;
+        Token this_END_16=null;
+        AntlrDatatypeRuleToken lv_name_2_0 = null;
+
+        EObject lv_origin_11_0 = null;
+
+        EObject lv_axis_13_0 = null;
+
+        EObject lv_limit_15_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalKinematicsParser.g:420:2: ( (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN otherlv_4= Type ( (lv_type_5_0= RULE_JOINTTYPE ) ) otherlv_6= Parent ( (otherlv_7= RULE_ID ) ) otherlv_8= Child ( (otherlv_9= RULE_ID ) ) otherlv_10= Origin ( (lv_origin_11_0= rulePose ) ) (otherlv_12= Axis ( (lv_axis_13_0= ruleVector3 ) ) )? (otherlv_14= Limit ( (lv_limit_15_0= ruleLimit ) ) )? this_END_16= RULE_END ) )
+            // InternalKinematicsParser.g:421:2: (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN otherlv_4= Type ( (lv_type_5_0= RULE_JOINTTYPE ) ) otherlv_6= Parent ( (otherlv_7= RULE_ID ) ) otherlv_8= Child ( (otherlv_9= RULE_ID ) ) otherlv_10= Origin ( (lv_origin_11_0= rulePose ) ) (otherlv_12= Axis ( (lv_axis_13_0= ruleVector3 ) ) )? (otherlv_14= Limit ( (lv_limit_15_0= ruleLimit ) ) )? this_END_16= RULE_END )
+            {
+            // InternalKinematicsParser.g:421:2: (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN otherlv_4= Type ( (lv_type_5_0= RULE_JOINTTYPE ) ) otherlv_6= Parent ( (otherlv_7= RULE_ID ) ) otherlv_8= Child ( (otherlv_9= RULE_ID ) ) otherlv_10= Origin ( (lv_origin_11_0= rulePose ) ) (otherlv_12= Axis ( (lv_axis_13_0= ruleVector3 ) ) )? (otherlv_14= Limit ( (lv_limit_15_0= ruleLimit ) ) )? this_END_16= RULE_END )
+            // InternalKinematicsParser.g:422:3: otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) this_BEGIN_3= RULE_BEGIN otherlv_4= Type ( (lv_type_5_0= RULE_JOINTTYPE ) ) otherlv_6= Parent ( (otherlv_7= RULE_ID ) ) otherlv_8= Child ( (otherlv_9= RULE_ID ) ) otherlv_10= Origin ( (lv_origin_11_0= rulePose ) ) (otherlv_12= Axis ( (lv_axis_13_0= ruleVector3 ) ) )? (otherlv_14= Limit ( (lv_limit_15_0= ruleLimit ) ) )? this_END_16= RULE_END
+            {
+            otherlv_0=(Token)match(input,HyphenMinus,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getJointAccess().getHyphenMinusKeyword_0());
+            		
+            otherlv_1=(Token)match(input,Name,FOLLOW_5); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getJointAccess().getNameKeyword_1());
+            		
+            // InternalKinematicsParser.g:430:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalKinematicsParser.g:431:4: (lv_name_2_0= ruleEString )
+            {
+            // InternalKinematicsParser.g:431:4: (lv_name_2_0= ruleEString )
+            // InternalKinematicsParser.g:432:5: lv_name_2_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getJointAccess().getNameEStringParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_3);
+            lv_name_2_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getJointRule());
+            					}
+            					set(
+            						current,
+            						"name",
+            						lv_name_2_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_11); 
+
+            			newLeafNode(this_BEGIN_3, grammarAccess.getJointAccess().getBEGINTerminalRuleCall_3());
+            		
+            otherlv_4=(Token)match(input,Type,FOLLOW_16); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getJointAccess().getTypeKeyword_4());
+            		
+            // InternalKinematicsParser.g:457:3: ( (lv_type_5_0= RULE_JOINTTYPE ) )
+            // InternalKinematicsParser.g:458:4: (lv_type_5_0= RULE_JOINTTYPE )
+            {
+            // InternalKinematicsParser.g:458:4: (lv_type_5_0= RULE_JOINTTYPE )
+            // InternalKinematicsParser.g:459:5: lv_type_5_0= RULE_JOINTTYPE
+            {
+            lv_type_5_0=(Token)match(input,RULE_JOINTTYPE,FOLLOW_17); 
+
+            					newLeafNode(lv_type_5_0, grammarAccess.getJointAccess().getTypeJOINTTYPETerminalRuleCall_5_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getJointRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"type",
+            						lv_type_5_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.JOINTTYPE");
+            				
+
+            }
+
+
+            }
+
+            otherlv_6=(Token)match(input,Parent,FOLLOW_18); 
+
+            			newLeafNode(otherlv_6, grammarAccess.getJointAccess().getParentKeyword_6());
+            		
+            // InternalKinematicsParser.g:479:3: ( (otherlv_7= RULE_ID ) )
+            // InternalKinematicsParser.g:480:4: (otherlv_7= RULE_ID )
+            {
+            // InternalKinematicsParser.g:480:4: (otherlv_7= RULE_ID )
+            // InternalKinematicsParser.g:481:5: otherlv_7= RULE_ID
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getJointRule());
+            					}
+            				
+            otherlv_7=(Token)match(input,RULE_ID,FOLLOW_19); 
+
+            					newLeafNode(otherlv_7, grammarAccess.getJointAccess().getParentLinkCrossReference_7_0());
+            				
+
+            }
+
+
+            }
+
+            otherlv_8=(Token)match(input,Child,FOLLOW_18); 
+
+            			newLeafNode(otherlv_8, grammarAccess.getJointAccess().getChildKeyword_8());
+            		
+            // InternalKinematicsParser.g:496:3: ( (otherlv_9= RULE_ID ) )
+            // InternalKinematicsParser.g:497:4: (otherlv_9= RULE_ID )
+            {
+            // InternalKinematicsParser.g:497:4: (otherlv_9= RULE_ID )
+            // InternalKinematicsParser.g:498:5: otherlv_9= RULE_ID
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getJointRule());
+            					}
+            				
+            otherlv_9=(Token)match(input,RULE_ID,FOLLOW_20); 
+
+            					newLeafNode(otherlv_9, grammarAccess.getJointAccess().getChildLinkCrossReference_9_0());
+            				
+
+            }
+
+
+            }
+
+            otherlv_10=(Token)match(input,Origin,FOLLOW_3); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getJointAccess().getOriginKeyword_10());
+            		
+            // InternalKinematicsParser.g:513:3: ( (lv_origin_11_0= rulePose ) )
+            // InternalKinematicsParser.g:514:4: (lv_origin_11_0= rulePose )
+            {
+            // InternalKinematicsParser.g:514:4: (lv_origin_11_0= rulePose )
+            // InternalKinematicsParser.g:515:5: lv_origin_11_0= rulePose
+            {
+
+            					newCompositeNode(grammarAccess.getJointAccess().getOriginPoseParserRuleCall_11_0());
+            				
+            pushFollow(FOLLOW_21);
+            lv_origin_11_0=rulePose();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getJointRule());
+            					}
+            					set(
+            						current,
+            						"origin",
+            						lv_origin_11_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.Pose");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalKinematicsParser.g:532:3: (otherlv_12= Axis ( (lv_axis_13_0= ruleVector3 ) ) )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==Axis) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalKinematicsParser.g:533:4: otherlv_12= Axis ( (lv_axis_13_0= ruleVector3 ) )
+                    {
+                    otherlv_12=(Token)match(input,Axis,FOLLOW_3); 
+
+                    				newLeafNode(otherlv_12, grammarAccess.getJointAccess().getAxisKeyword_12_0());
+                    			
+                    // InternalKinematicsParser.g:537:4: ( (lv_axis_13_0= ruleVector3 ) )
+                    // InternalKinematicsParser.g:538:5: (lv_axis_13_0= ruleVector3 )
+                    {
+                    // InternalKinematicsParser.g:538:5: (lv_axis_13_0= ruleVector3 )
+                    // InternalKinematicsParser.g:539:6: lv_axis_13_0= ruleVector3
+                    {
+
+                    						newCompositeNode(grammarAccess.getJointAccess().getAxisVector3ParserRuleCall_12_1_0());
+                    					
+                    pushFollow(FOLLOW_22);
+                    lv_axis_13_0=ruleVector3();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getJointRule());
+                    						}
+                    						set(
+                    							current,
+                    							"axis",
+                    							lv_axis_13_0,
+                    							"de.fraunhofer.ipa.kinematics.Kinematics.Vector3");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalKinematicsParser.g:557:3: (otherlv_14= Limit ( (lv_limit_15_0= ruleLimit ) ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==Limit) ) {
+                alt12=1;
+            }
+            switch (alt12) {
+                case 1 :
+                    // InternalKinematicsParser.g:558:4: otherlv_14= Limit ( (lv_limit_15_0= ruleLimit ) )
+                    {
+                    otherlv_14=(Token)match(input,Limit,FOLLOW_3); 
+
+                    				newLeafNode(otherlv_14, grammarAccess.getJointAccess().getLimitKeyword_13_0());
+                    			
+                    // InternalKinematicsParser.g:562:4: ( (lv_limit_15_0= ruleLimit ) )
+                    // InternalKinematicsParser.g:563:5: (lv_limit_15_0= ruleLimit )
+                    {
+                    // InternalKinematicsParser.g:563:5: (lv_limit_15_0= ruleLimit )
+                    // InternalKinematicsParser.g:564:6: lv_limit_15_0= ruleLimit
+                    {
+
+                    						newCompositeNode(grammarAccess.getJointAccess().getLimitLimitParserRuleCall_13_1_0());
+                    					
+                    pushFollow(FOLLOW_15);
+                    lv_limit_15_0=ruleLimit();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getJointRule());
+                    						}
+                    						set(
+                    							current,
+                    							"limit",
+                    							lv_limit_15_0,
+                    							"de.fraunhofer.ipa.kinematics.Kinematics.Limit");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            this_END_16=(Token)match(input,RULE_END,FOLLOW_2); 
+
+            			newLeafNode(this_END_16, grammarAccess.getJointAccess().getENDTerminalRuleCall_14());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleJoint"
+
+
+    // $ANTLR start "entryRuleLink"
+    // InternalKinematicsParser.g:590:1: entryRuleLink returns [EObject current=null] : iv_ruleLink= ruleLink EOF ;
+    public final EObject entryRuleLink() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleLink = null;
+
+
+        try {
+            // InternalKinematicsParser.g:590:45: (iv_ruleLink= ruleLink EOF )
+            // InternalKinematicsParser.g:591:2: iv_ruleLink= ruleLink EOF
+            {
+             newCompositeNode(grammarAccess.getLinkRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleLink=ruleLink();
+
+            state._fsp--;
+
+             current =iv_ruleLink; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleLink"
+
+
+    // $ANTLR start "ruleLink"
+    // InternalKinematicsParser.g:597:1: ruleLink returns [EObject current=null] : (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) (otherlv_3= Colon this_BEGIN_4= RULE_BEGIN (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )? (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )? (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )? this_END_11= RULE_END )? ) ;
+    public final EObject ruleLink() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        Token this_BEGIN_4=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        Token this_END_11=null;
+        AntlrDatatypeRuleToken lv_name_2_0 = null;
+
+        EObject lv_inertial_6_0 = null;
+
+        EObject lv_visual_8_0 = null;
+
+        EObject lv_collision_10_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalKinematicsParser.g:603:2: ( (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) (otherlv_3= Colon this_BEGIN_4= RULE_BEGIN (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )? (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )? (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )? this_END_11= RULE_END )? ) )
+            // InternalKinematicsParser.g:604:2: (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) (otherlv_3= Colon this_BEGIN_4= RULE_BEGIN (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )? (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )? (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )? this_END_11= RULE_END )? )
+            {
+            // InternalKinematicsParser.g:604:2: (otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) (otherlv_3= Colon this_BEGIN_4= RULE_BEGIN (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )? (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )? (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )? this_END_11= RULE_END )? )
+            // InternalKinematicsParser.g:605:3: otherlv_0= HyphenMinus otherlv_1= Name ( (lv_name_2_0= ruleEString ) ) (otherlv_3= Colon this_BEGIN_4= RULE_BEGIN (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )? (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )? (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )? this_END_11= RULE_END )?
+            {
+            otherlv_0=(Token)match(input,HyphenMinus,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getLinkAccess().getHyphenMinusKeyword_0());
+            		
+            otherlv_1=(Token)match(input,Name,FOLLOW_5); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getLinkAccess().getNameKeyword_1());
+            		
+            // InternalKinematicsParser.g:613:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalKinematicsParser.g:614:4: (lv_name_2_0= ruleEString )
+            {
+            // InternalKinematicsParser.g:614:4: (lv_name_2_0= ruleEString )
+            // InternalKinematicsParser.g:615:5: lv_name_2_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getLinkAccess().getNameEStringParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_23);
+            lv_name_2_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getLinkRule());
+            					}
+            					set(
+            						current,
+            						"name",
+            						lv_name_2_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalKinematicsParser.g:632:3: (otherlv_3= Colon this_BEGIN_4= RULE_BEGIN (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )? (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )? (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )? this_END_11= RULE_END )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
+
+            if ( (LA16_0==Colon) ) {
+                alt16=1;
+            }
+            switch (alt16) {
+                case 1 :
+                    // InternalKinematicsParser.g:633:4: otherlv_3= Colon this_BEGIN_4= RULE_BEGIN (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )? (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )? (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )? this_END_11= RULE_END
+                    {
+                    otherlv_3=(Token)match(input,Colon,FOLLOW_3); 
+
+                    				newLeafNode(otherlv_3, grammarAccess.getLinkAccess().getColonKeyword_3_0());
+                    			
+                    this_BEGIN_4=(Token)match(input,RULE_BEGIN,FOLLOW_24); 
+
+                    				newLeafNode(this_BEGIN_4, grammarAccess.getLinkAccess().getBEGINTerminalRuleCall_3_1());
+                    			
+                    // InternalKinematicsParser.g:641:4: (otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) ) )?
+                    int alt13=2;
+                    int LA13_0 = input.LA(1);
+
+                    if ( (LA13_0==Inertial) ) {
+                        alt13=1;
+                    }
+                    switch (alt13) {
+                        case 1 :
+                            // InternalKinematicsParser.g:642:5: otherlv_5= Inertial ( (lv_inertial_6_0= ruleInertial ) )
+                            {
+                            otherlv_5=(Token)match(input,Inertial,FOLLOW_3); 
+
+                            					newLeafNode(otherlv_5, grammarAccess.getLinkAccess().getInertialKeyword_3_2_0());
+                            				
+                            // InternalKinematicsParser.g:646:5: ( (lv_inertial_6_0= ruleInertial ) )
+                            // InternalKinematicsParser.g:647:6: (lv_inertial_6_0= ruleInertial )
+                            {
+                            // InternalKinematicsParser.g:647:6: (lv_inertial_6_0= ruleInertial )
+                            // InternalKinematicsParser.g:648:7: lv_inertial_6_0= ruleInertial
+                            {
+
+                            							newCompositeNode(grammarAccess.getLinkAccess().getInertialInertialParserRuleCall_3_2_1_0());
+                            						
+                            pushFollow(FOLLOW_25);
+                            lv_inertial_6_0=ruleInertial();
+
+                            state._fsp--;
+
+
+                            							if (current==null) {
+                            								current = createModelElementForParent(grammarAccess.getLinkRule());
+                            							}
+                            							set(
+                            								current,
+                            								"inertial",
+                            								lv_inertial_6_0,
+                            								"de.fraunhofer.ipa.kinematics.Kinematics.Inertial");
+                            							afterParserOrEnumRuleCall();
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    // InternalKinematicsParser.g:666:4: (otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) ) )?
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
+
+                    if ( (LA14_0==Visual) ) {
+                        alt14=1;
+                    }
+                    switch (alt14) {
+                        case 1 :
+                            // InternalKinematicsParser.g:667:5: otherlv_7= Visual ( (lv_visual_8_0= ruleVisual ) )
+                            {
+                            otherlv_7=(Token)match(input,Visual,FOLLOW_3); 
+
+                            					newLeafNode(otherlv_7, grammarAccess.getLinkAccess().getVisualKeyword_3_3_0());
+                            				
+                            // InternalKinematicsParser.g:671:5: ( (lv_visual_8_0= ruleVisual ) )
+                            // InternalKinematicsParser.g:672:6: (lv_visual_8_0= ruleVisual )
+                            {
+                            // InternalKinematicsParser.g:672:6: (lv_visual_8_0= ruleVisual )
+                            // InternalKinematicsParser.g:673:7: lv_visual_8_0= ruleVisual
+                            {
+
+                            							newCompositeNode(grammarAccess.getLinkAccess().getVisualVisualParserRuleCall_3_3_1_0());
+                            						
+                            pushFollow(FOLLOW_26);
+                            lv_visual_8_0=ruleVisual();
+
+                            state._fsp--;
+
+
+                            							if (current==null) {
+                            								current = createModelElementForParent(grammarAccess.getLinkRule());
+                            							}
+                            							set(
+                            								current,
+                            								"visual",
+                            								lv_visual_8_0,
+                            								"de.fraunhofer.ipa.kinematics.Kinematics.Visual");
+                            							afterParserOrEnumRuleCall();
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    // InternalKinematicsParser.g:691:4: (otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) ) )?
+                    int alt15=2;
+                    int LA15_0 = input.LA(1);
+
+                    if ( (LA15_0==Collision) ) {
+                        alt15=1;
+                    }
+                    switch (alt15) {
+                        case 1 :
+                            // InternalKinematicsParser.g:692:5: otherlv_9= Collision ( (lv_collision_10_0= ruleCollision ) )
+                            {
+                            otherlv_9=(Token)match(input,Collision,FOLLOW_3); 
+
+                            					newLeafNode(otherlv_9, grammarAccess.getLinkAccess().getCollisionKeyword_3_4_0());
+                            				
+                            // InternalKinematicsParser.g:696:5: ( (lv_collision_10_0= ruleCollision ) )
+                            // InternalKinematicsParser.g:697:6: (lv_collision_10_0= ruleCollision )
+                            {
+                            // InternalKinematicsParser.g:697:6: (lv_collision_10_0= ruleCollision )
+                            // InternalKinematicsParser.g:698:7: lv_collision_10_0= ruleCollision
+                            {
+
+                            							newCompositeNode(grammarAccess.getLinkAccess().getCollisionCollisionParserRuleCall_3_4_1_0());
+                            						
+                            pushFollow(FOLLOW_15);
+                            lv_collision_10_0=ruleCollision();
+
+                            state._fsp--;
+
+
+                            							if (current==null) {
+                            								current = createModelElementForParent(grammarAccess.getLinkRule());
+                            							}
+                            							set(
+                            								current,
+                            								"collision",
+                            								lv_collision_10_0,
+                            								"de.fraunhofer.ipa.kinematics.Kinematics.Collision");
+                            							afterParserOrEnumRuleCall();
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    this_END_11=(Token)match(input,RULE_END,FOLLOW_2); 
+
+                    				newLeafNode(this_END_11, grammarAccess.getLinkAccess().getENDTerminalRuleCall_3_5());
+                    			
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLink"
 
 
     // $ANTLR start "entryRulePose"
-    // InternalKinematics.g:165:1: entryRulePose returns [EObject current=null] : iv_rulePose= rulePose EOF ;
+    // InternalKinematicsParser.g:725:1: entryRulePose returns [EObject current=null] : iv_rulePose= rulePose EOF ;
     public final EObject entryRulePose() throws RecognitionException {
         EObject current = null;
 
@@ -382,8 +1653,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:165:45: (iv_rulePose= rulePose EOF )
-            // InternalKinematics.g:166:2: iv_rulePose= rulePose EOF
+            // InternalKinematicsParser.g:725:45: (iv_rulePose= rulePose EOF )
+            // InternalKinematicsParser.g:726:2: iv_rulePose= rulePose EOF
             {
              newCompositeNode(grammarAccess.getPoseRule()); 
             pushFollow(FOLLOW_1);
@@ -410,32 +1681,31 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePose"
-    // InternalKinematics.g:172:1: rulePose returns [EObject current=null] : ( () otherlv_1= 'Pose' otherlv_2= '{' (otherlv_3= 'rpy' ( (lv_rpy_4_0= ruleEString ) ) )? (otherlv_5= 'xyz' ( (lv_xyz_6_0= ruleEString ) ) )? otherlv_7= '}' ) ;
+    // InternalKinematicsParser.g:732:1: rulePose returns [EObject current=null] : ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Rpy ( (lv_rpy_3_0= ruleEString ) ) )? (otherlv_4= Xyz ( (lv_xyz_5_0= ruleEString ) ) )? this_END_6= RULE_END ) ;
     public final EObject rulePose() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token this_BEGIN_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        AntlrDatatypeRuleToken lv_rpy_4_0 = null;
+        Token otherlv_4=null;
+        Token this_END_6=null;
+        AntlrDatatypeRuleToken lv_rpy_3_0 = null;
 
-        AntlrDatatypeRuleToken lv_xyz_6_0 = null;
+        AntlrDatatypeRuleToken lv_xyz_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:178:2: ( ( () otherlv_1= 'Pose' otherlv_2= '{' (otherlv_3= 'rpy' ( (lv_rpy_4_0= ruleEString ) ) )? (otherlv_5= 'xyz' ( (lv_xyz_6_0= ruleEString ) ) )? otherlv_7= '}' ) )
-            // InternalKinematics.g:179:2: ( () otherlv_1= 'Pose' otherlv_2= '{' (otherlv_3= 'rpy' ( (lv_rpy_4_0= ruleEString ) ) )? (otherlv_5= 'xyz' ( (lv_xyz_6_0= ruleEString ) ) )? otherlv_7= '}' )
+            // InternalKinematicsParser.g:738:2: ( ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Rpy ( (lv_rpy_3_0= ruleEString ) ) )? (otherlv_4= Xyz ( (lv_xyz_5_0= ruleEString ) ) )? this_END_6= RULE_END ) )
+            // InternalKinematicsParser.g:739:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Rpy ( (lv_rpy_3_0= ruleEString ) ) )? (otherlv_4= Xyz ( (lv_xyz_5_0= ruleEString ) ) )? this_END_6= RULE_END )
             {
-            // InternalKinematics.g:179:2: ( () otherlv_1= 'Pose' otherlv_2= '{' (otherlv_3= 'rpy' ( (lv_rpy_4_0= ruleEString ) ) )? (otherlv_5= 'xyz' ( (lv_xyz_6_0= ruleEString ) ) )? otherlv_7= '}' )
-            // InternalKinematics.g:180:3: () otherlv_1= 'Pose' otherlv_2= '{' (otherlv_3= 'rpy' ( (lv_rpy_4_0= ruleEString ) ) )? (otherlv_5= 'xyz' ( (lv_xyz_6_0= ruleEString ) ) )? otherlv_7= '}'
+            // InternalKinematicsParser.g:739:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Rpy ( (lv_rpy_3_0= ruleEString ) ) )? (otherlv_4= Xyz ( (lv_xyz_5_0= ruleEString ) ) )? this_END_6= RULE_END )
+            // InternalKinematicsParser.g:740:3: () this_BEGIN_1= RULE_BEGIN (otherlv_2= Rpy ( (lv_rpy_3_0= ruleEString ) ) )? (otherlv_4= Xyz ( (lv_xyz_5_0= ruleEString ) ) )? this_END_6= RULE_END
             {
-            // InternalKinematics.g:180:3: ()
-            // InternalKinematics.g:181:4: 
+            // InternalKinematicsParser.g:740:3: ()
+            // InternalKinematicsParser.g:741:4: 
             {
 
             				current = forceCreateModelElement(
@@ -445,40 +1715,36 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FOLLOW_3); 
+            this_BEGIN_1=(Token)match(input,RULE_BEGIN,FOLLOW_27); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getPoseAccess().getPoseKeyword_1());
+            			newLeafNode(this_BEGIN_1, grammarAccess.getPoseAccess().getBEGINTerminalRuleCall_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_7); 
+            // InternalKinematicsParser.g:751:3: (otherlv_2= Rpy ( (lv_rpy_3_0= ruleEString ) ) )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            			newLeafNode(otherlv_2, grammarAccess.getPoseAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalKinematics.g:195:3: (otherlv_3= 'rpy' ( (lv_rpy_4_0= ruleEString ) ) )?
-            int alt2=2;
-            int LA2_0 = input.LA(1);
-
-            if ( (LA2_0==22) ) {
-                alt2=1;
+            if ( (LA17_0==Rpy) ) {
+                alt17=1;
             }
-            switch (alt2) {
+            switch (alt17) {
                 case 1 :
-                    // InternalKinematics.g:196:4: otherlv_3= 'rpy' ( (lv_rpy_4_0= ruleEString ) )
+                    // InternalKinematicsParser.g:752:4: otherlv_2= Rpy ( (lv_rpy_3_0= ruleEString ) )
                     {
-                    otherlv_3=(Token)match(input,22,FOLLOW_6); 
+                    otherlv_2=(Token)match(input,Rpy,FOLLOW_5); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getPoseAccess().getRpyKeyword_3_0());
+                    				newLeafNode(otherlv_2, grammarAccess.getPoseAccess().getRpyKeyword_2_0());
                     			
-                    // InternalKinematics.g:200:4: ( (lv_rpy_4_0= ruleEString ) )
-                    // InternalKinematics.g:201:5: (lv_rpy_4_0= ruleEString )
+                    // InternalKinematicsParser.g:756:4: ( (lv_rpy_3_0= ruleEString ) )
+                    // InternalKinematicsParser.g:757:5: (lv_rpy_3_0= ruleEString )
                     {
-                    // InternalKinematics.g:201:5: (lv_rpy_4_0= ruleEString )
-                    // InternalKinematics.g:202:6: lv_rpy_4_0= ruleEString
+                    // InternalKinematicsParser.g:757:5: (lv_rpy_3_0= ruleEString )
+                    // InternalKinematicsParser.g:758:6: lv_rpy_3_0= ruleEString
                     {
 
-                    						newCompositeNode(grammarAccess.getPoseAccess().getRpyEStringParserRuleCall_3_1_0());
+                    						newCompositeNode(grammarAccess.getPoseAccess().getRpyEStringParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_5);
-                    lv_rpy_4_0=ruleEString();
+                    pushFollow(FOLLOW_28);
+                    lv_rpy_3_0=ruleEString();
 
                     state._fsp--;
 
@@ -489,7 +1755,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"rpy",
-                    							lv_rpy_4_0,
+                    							lv_rpy_3_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
                     						afterParserOrEnumRuleCall();
                     					
@@ -505,32 +1771,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:220:3: (otherlv_5= 'xyz' ( (lv_xyz_6_0= ruleEString ) ) )?
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // InternalKinematicsParser.g:776:3: (otherlv_4= Xyz ( (lv_xyz_5_0= ruleEString ) ) )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA3_0==20) ) {
-                alt3=1;
+            if ( (LA18_0==Xyz) ) {
+                alt18=1;
             }
-            switch (alt3) {
+            switch (alt18) {
                 case 1 :
-                    // InternalKinematics.g:221:4: otherlv_5= 'xyz' ( (lv_xyz_6_0= ruleEString ) )
+                    // InternalKinematicsParser.g:777:4: otherlv_4= Xyz ( (lv_xyz_5_0= ruleEString ) )
                     {
-                    otherlv_5=(Token)match(input,20,FOLLOW_6); 
+                    otherlv_4=(Token)match(input,Xyz,FOLLOW_5); 
 
-                    				newLeafNode(otherlv_5, grammarAccess.getPoseAccess().getXyzKeyword_4_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getPoseAccess().getXyzKeyword_3_0());
                     			
-                    // InternalKinematics.g:225:4: ( (lv_xyz_6_0= ruleEString ) )
-                    // InternalKinematics.g:226:5: (lv_xyz_6_0= ruleEString )
+                    // InternalKinematicsParser.g:781:4: ( (lv_xyz_5_0= ruleEString ) )
+                    // InternalKinematicsParser.g:782:5: (lv_xyz_5_0= ruleEString )
                     {
-                    // InternalKinematics.g:226:5: (lv_xyz_6_0= ruleEString )
-                    // InternalKinematics.g:227:6: lv_xyz_6_0= ruleEString
+                    // InternalKinematicsParser.g:782:5: (lv_xyz_5_0= ruleEString )
+                    // InternalKinematicsParser.g:783:6: lv_xyz_5_0= ruleEString
                     {
 
-                    						newCompositeNode(grammarAccess.getPoseAccess().getXyzEStringParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getPoseAccess().getXyzEStringParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_4);
-                    lv_xyz_6_0=ruleEString();
+                    pushFollow(FOLLOW_15);
+                    lv_xyz_5_0=ruleEString();
 
                     state._fsp--;
 
@@ -541,7 +1807,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"xyz",
-                    							lv_xyz_6_0,
+                    							lv_xyz_5_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
                     						afterParserOrEnumRuleCall();
                     					
@@ -557,9 +1823,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,18,FOLLOW_2); 
+            this_END_6=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_7, grammarAccess.getPoseAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(this_END_6, grammarAccess.getPoseAccess().getENDTerminalRuleCall_4());
             		
 
             }
@@ -583,8 +1849,158 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulePose"
 
 
+    // $ANTLR start "entryRuleVector3"
+    // InternalKinematicsParser.g:809:1: entryRuleVector3 returns [EObject current=null] : iv_ruleVector3= ruleVector3 EOF ;
+    public final EObject entryRuleVector3() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleVector3 = null;
+
+
+        try {
+            // InternalKinematicsParser.g:809:48: (iv_ruleVector3= ruleVector3 EOF )
+            // InternalKinematicsParser.g:810:2: iv_ruleVector3= ruleVector3 EOF
+            {
+             newCompositeNode(grammarAccess.getVector3Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleVector3=ruleVector3();
+
+            state._fsp--;
+
+             current =iv_ruleVector3; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleVector3"
+
+
+    // $ANTLR start "ruleVector3"
+    // InternalKinematicsParser.g:816:1: ruleVector3 returns [EObject current=null] : ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Xyz ( (lv_xyz_3_0= ruleEString ) ) )? this_END_4= RULE_END ) ;
+    public final EObject ruleVector3() throws RecognitionException {
+        EObject current = null;
+
+        Token this_BEGIN_1=null;
+        Token otherlv_2=null;
+        Token this_END_4=null;
+        AntlrDatatypeRuleToken lv_xyz_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalKinematicsParser.g:822:2: ( ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Xyz ( (lv_xyz_3_0= ruleEString ) ) )? this_END_4= RULE_END ) )
+            // InternalKinematicsParser.g:823:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Xyz ( (lv_xyz_3_0= ruleEString ) ) )? this_END_4= RULE_END )
+            {
+            // InternalKinematicsParser.g:823:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Xyz ( (lv_xyz_3_0= ruleEString ) ) )? this_END_4= RULE_END )
+            // InternalKinematicsParser.g:824:3: () this_BEGIN_1= RULE_BEGIN (otherlv_2= Xyz ( (lv_xyz_3_0= ruleEString ) ) )? this_END_4= RULE_END
+            {
+            // InternalKinematicsParser.g:824:3: ()
+            // InternalKinematicsParser.g:825:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getVector3Access().getAxisAction_0(),
+            					current);
+            			
+
+            }
+
+            this_BEGIN_1=(Token)match(input,RULE_BEGIN,FOLLOW_28); 
+
+            			newLeafNode(this_BEGIN_1, grammarAccess.getVector3Access().getBEGINTerminalRuleCall_1());
+            		
+            // InternalKinematicsParser.g:835:3: (otherlv_2= Xyz ( (lv_xyz_3_0= ruleEString ) ) )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
+
+            if ( (LA19_0==Xyz) ) {
+                alt19=1;
+            }
+            switch (alt19) {
+                case 1 :
+                    // InternalKinematicsParser.g:836:4: otherlv_2= Xyz ( (lv_xyz_3_0= ruleEString ) )
+                    {
+                    otherlv_2=(Token)match(input,Xyz,FOLLOW_5); 
+
+                    				newLeafNode(otherlv_2, grammarAccess.getVector3Access().getXyzKeyword_2_0());
+                    			
+                    // InternalKinematicsParser.g:840:4: ( (lv_xyz_3_0= ruleEString ) )
+                    // InternalKinematicsParser.g:841:5: (lv_xyz_3_0= ruleEString )
+                    {
+                    // InternalKinematicsParser.g:841:5: (lv_xyz_3_0= ruleEString )
+                    // InternalKinematicsParser.g:842:6: lv_xyz_3_0= ruleEString
+                    {
+
+                    						newCompositeNode(grammarAccess.getVector3Access().getXyzEStringParserRuleCall_2_1_0());
+                    					
+                    pushFollow(FOLLOW_15);
+                    lv_xyz_3_0=ruleEString();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getVector3Rule());
+                    						}
+                    						set(
+                    							current,
+                    							"xyz",
+                    							lv_xyz_3_0,
+                    							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            this_END_4=(Token)match(input,RULE_END,FOLLOW_2); 
+
+            			newLeafNode(this_END_4, grammarAccess.getVector3Access().getENDTerminalRuleCall_3());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleVector3"
+
+
     // $ANTLR start "entryRuleLimit"
-    // InternalKinematics.g:253:1: entryRuleLimit returns [EObject current=null] : iv_ruleLimit= ruleLimit EOF ;
+    // InternalKinematicsParser.g:868:1: entryRuleLimit returns [EObject current=null] : iv_ruleLimit= ruleLimit EOF ;
     public final EObject entryRuleLimit() throws RecognitionException {
         EObject current = null;
 
@@ -592,8 +2008,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:253:46: (iv_ruleLimit= ruleLimit EOF )
-            // InternalKinematics.g:254:2: iv_ruleLimit= ruleLimit EOF
+            // InternalKinematicsParser.g:868:46: (iv_ruleLimit= ruleLimit EOF )
+            // InternalKinematicsParser.g:869:2: iv_ruleLimit= ruleLimit EOF
             {
              newCompositeNode(grammarAccess.getLimitRule()); 
             pushFollow(FOLLOW_1);
@@ -620,38 +2036,37 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLimit"
-    // InternalKinematics.g:260:1: ruleLimit returns [EObject current=null] : ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' ) ;
+    // InternalKinematicsParser.g:875:1: ruleLimit returns [EObject current=null] : ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Effort ( (lv_effort_3_0= ruleDouble0 ) ) )? (otherlv_4= Lower ( (lv_lower_5_0= ruleDouble0 ) ) )? (otherlv_6= Upper ( (lv_upper_7_0= ruleDouble0 ) ) )? (otherlv_8= Velocity ( (lv_velocity_9_0= ruleDouble0 ) ) )? this_END_10= RULE_END ) ;
     public final EObject ruleLimit() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token this_BEGIN_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
-        Token otherlv_11=null;
-        AntlrDatatypeRuleToken lv_effort_4_0 = null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token this_END_10=null;
+        AntlrDatatypeRuleToken lv_effort_3_0 = null;
 
-        AntlrDatatypeRuleToken lv_lower_6_0 = null;
+        AntlrDatatypeRuleToken lv_lower_5_0 = null;
 
-        AntlrDatatypeRuleToken lv_upper_8_0 = null;
+        AntlrDatatypeRuleToken lv_upper_7_0 = null;
 
-        AntlrDatatypeRuleToken lv_velocity_10_0 = null;
+        AntlrDatatypeRuleToken lv_velocity_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:266:2: ( ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' ) )
-            // InternalKinematics.g:267:2: ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' )
+            // InternalKinematicsParser.g:881:2: ( ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Effort ( (lv_effort_3_0= ruleDouble0 ) ) )? (otherlv_4= Lower ( (lv_lower_5_0= ruleDouble0 ) ) )? (otherlv_6= Upper ( (lv_upper_7_0= ruleDouble0 ) ) )? (otherlv_8= Velocity ( (lv_velocity_9_0= ruleDouble0 ) ) )? this_END_10= RULE_END ) )
+            // InternalKinematicsParser.g:882:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Effort ( (lv_effort_3_0= ruleDouble0 ) ) )? (otherlv_4= Lower ( (lv_lower_5_0= ruleDouble0 ) ) )? (otherlv_6= Upper ( (lv_upper_7_0= ruleDouble0 ) ) )? (otherlv_8= Velocity ( (lv_velocity_9_0= ruleDouble0 ) ) )? this_END_10= RULE_END )
             {
-            // InternalKinematics.g:267:2: ( () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}' )
-            // InternalKinematics.g:268:3: () otherlv_1= 'Limit' otherlv_2= '{' (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )? (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )? (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )? (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )? otherlv_11= '}'
+            // InternalKinematicsParser.g:882:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Effort ( (lv_effort_3_0= ruleDouble0 ) ) )? (otherlv_4= Lower ( (lv_lower_5_0= ruleDouble0 ) ) )? (otherlv_6= Upper ( (lv_upper_7_0= ruleDouble0 ) ) )? (otherlv_8= Velocity ( (lv_velocity_9_0= ruleDouble0 ) ) )? this_END_10= RULE_END )
+            // InternalKinematicsParser.g:883:3: () this_BEGIN_1= RULE_BEGIN (otherlv_2= Effort ( (lv_effort_3_0= ruleDouble0 ) ) )? (otherlv_4= Lower ( (lv_lower_5_0= ruleDouble0 ) ) )? (otherlv_6= Upper ( (lv_upper_7_0= ruleDouble0 ) ) )? (otherlv_8= Velocity ( (lv_velocity_9_0= ruleDouble0 ) ) )? this_END_10= RULE_END
             {
-            // InternalKinematics.g:268:3: ()
-            // InternalKinematics.g:269:4: 
+            // InternalKinematicsParser.g:883:3: ()
+            // InternalKinematicsParser.g:884:4: 
             {
 
             				current = forceCreateModelElement(
@@ -661,40 +2076,36 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,23,FOLLOW_3); 
+            this_BEGIN_1=(Token)match(input,RULE_BEGIN,FOLLOW_29); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getLimitAccess().getLimitKeyword_1());
+            			newLeafNode(this_BEGIN_1, grammarAccess.getLimitAccess().getBEGINTerminalRuleCall_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_8); 
+            // InternalKinematicsParser.g:894:3: (otherlv_2= Effort ( (lv_effort_3_0= ruleDouble0 ) ) )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            			newLeafNode(otherlv_2, grammarAccess.getLimitAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalKinematics.g:283:3: (otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) ) )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==24) ) {
-                alt4=1;
+            if ( (LA20_0==Effort) ) {
+                alt20=1;
             }
-            switch (alt4) {
+            switch (alt20) {
                 case 1 :
-                    // InternalKinematics.g:284:4: otherlv_3= 'effort' ( (lv_effort_4_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:895:4: otherlv_2= Effort ( (lv_effort_3_0= ruleDouble0 ) )
                     {
-                    otherlv_3=(Token)match(input,24,FOLLOW_9); 
+                    otherlv_2=(Token)match(input,Effort,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getLimitAccess().getEffortKeyword_3_0());
+                    				newLeafNode(otherlv_2, grammarAccess.getLimitAccess().getEffortKeyword_2_0());
                     			
-                    // InternalKinematics.g:288:4: ( (lv_effort_4_0= ruleDouble0 ) )
-                    // InternalKinematics.g:289:5: (lv_effort_4_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:899:4: ( (lv_effort_3_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:900:5: (lv_effort_3_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:289:5: (lv_effort_4_0= ruleDouble0 )
-                    // InternalKinematics.g:290:6: lv_effort_4_0= ruleDouble0
+                    // InternalKinematicsParser.g:900:5: (lv_effort_3_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:901:6: lv_effort_3_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_3_1_0());
+                    						newCompositeNode(grammarAccess.getLimitAccess().getEffortDouble0ParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_10);
-                    lv_effort_4_0=ruleDouble0();
+                    pushFollow(FOLLOW_31);
+                    lv_effort_3_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -705,7 +2116,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"effort",
-                    							lv_effort_4_0,
+                    							lv_effort_3_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -721,32 +2132,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:308:3: (otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) ) )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalKinematicsParser.g:919:3: (otherlv_4= Lower ( (lv_lower_5_0= ruleDouble0 ) ) )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA5_0==25) ) {
-                alt5=1;
+            if ( (LA21_0==Lower) ) {
+                alt21=1;
             }
-            switch (alt5) {
+            switch (alt21) {
                 case 1 :
-                    // InternalKinematics.g:309:4: otherlv_5= 'lower' ( (lv_lower_6_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:920:4: otherlv_4= Lower ( (lv_lower_5_0= ruleDouble0 ) )
                     {
-                    otherlv_5=(Token)match(input,25,FOLLOW_9); 
+                    otherlv_4=(Token)match(input,Lower,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_5, grammarAccess.getLimitAccess().getLowerKeyword_4_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getLimitAccess().getLowerKeyword_3_0());
                     			
-                    // InternalKinematics.g:313:4: ( (lv_lower_6_0= ruleDouble0 ) )
-                    // InternalKinematics.g:314:5: (lv_lower_6_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:924:4: ( (lv_lower_5_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:925:5: (lv_lower_5_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:314:5: (lv_lower_6_0= ruleDouble0 )
-                    // InternalKinematics.g:315:6: lv_lower_6_0= ruleDouble0
+                    // InternalKinematicsParser.g:925:5: (lv_lower_5_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:926:6: lv_lower_5_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getLimitAccess().getLowerDouble0ParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_11);
-                    lv_lower_6_0=ruleDouble0();
+                    pushFollow(FOLLOW_32);
+                    lv_lower_5_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -757,7 +2168,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"lower",
-                    							lv_lower_6_0,
+                    							lv_lower_5_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -773,32 +2184,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:333:3: (otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) ) )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalKinematicsParser.g:944:3: (otherlv_6= Upper ( (lv_upper_7_0= ruleDouble0 ) ) )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA6_0==26) ) {
-                alt6=1;
+            if ( (LA22_0==Upper) ) {
+                alt22=1;
             }
-            switch (alt6) {
+            switch (alt22) {
                 case 1 :
-                    // InternalKinematics.g:334:4: otherlv_7= 'upper' ( (lv_upper_8_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:945:4: otherlv_6= Upper ( (lv_upper_7_0= ruleDouble0 ) )
                     {
-                    otherlv_7=(Token)match(input,26,FOLLOW_9); 
+                    otherlv_6=(Token)match(input,Upper,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_7, grammarAccess.getLimitAccess().getUpperKeyword_5_0());
+                    				newLeafNode(otherlv_6, grammarAccess.getLimitAccess().getUpperKeyword_4_0());
                     			
-                    // InternalKinematics.g:338:4: ( (lv_upper_8_0= ruleDouble0 ) )
-                    // InternalKinematics.g:339:5: (lv_upper_8_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:949:4: ( (lv_upper_7_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:950:5: (lv_upper_7_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:339:5: (lv_upper_8_0= ruleDouble0 )
-                    // InternalKinematics.g:340:6: lv_upper_8_0= ruleDouble0
+                    // InternalKinematicsParser.g:950:5: (lv_upper_7_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:951:6: lv_upper_7_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_5_1_0());
+                    						newCompositeNode(grammarAccess.getLimitAccess().getUpperDouble0ParserRuleCall_4_1_0());
                     					
-                    pushFollow(FOLLOW_12);
-                    lv_upper_8_0=ruleDouble0();
+                    pushFollow(FOLLOW_33);
+                    lv_upper_7_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -809,7 +2220,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"upper",
-                    							lv_upper_8_0,
+                    							lv_upper_7_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -825,32 +2236,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:358:3: (otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) ) )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalKinematicsParser.g:969:3: (otherlv_8= Velocity ( (lv_velocity_9_0= ruleDouble0 ) ) )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA7_0==27) ) {
-                alt7=1;
+            if ( (LA23_0==Velocity) ) {
+                alt23=1;
             }
-            switch (alt7) {
+            switch (alt23) {
                 case 1 :
-                    // InternalKinematics.g:359:4: otherlv_9= 'velocity' ( (lv_velocity_10_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:970:4: otherlv_8= Velocity ( (lv_velocity_9_0= ruleDouble0 ) )
                     {
-                    otherlv_9=(Token)match(input,27,FOLLOW_9); 
+                    otherlv_8=(Token)match(input,Velocity,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_9, grammarAccess.getLimitAccess().getVelocityKeyword_6_0());
+                    				newLeafNode(otherlv_8, grammarAccess.getLimitAccess().getVelocityKeyword_5_0());
                     			
-                    // InternalKinematics.g:363:4: ( (lv_velocity_10_0= ruleDouble0 ) )
-                    // InternalKinematics.g:364:5: (lv_velocity_10_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:974:4: ( (lv_velocity_9_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:975:5: (lv_velocity_9_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:364:5: (lv_velocity_10_0= ruleDouble0 )
-                    // InternalKinematics.g:365:6: lv_velocity_10_0= ruleDouble0
+                    // InternalKinematicsParser.g:975:5: (lv_velocity_9_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:976:6: lv_velocity_9_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_6_1_0());
+                    						newCompositeNode(grammarAccess.getLimitAccess().getVelocityDouble0ParserRuleCall_5_1_0());
                     					
-                    pushFollow(FOLLOW_4);
-                    lv_velocity_10_0=ruleDouble0();
+                    pushFollow(FOLLOW_15);
+                    lv_velocity_9_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -861,7 +2272,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"velocity",
-                    							lv_velocity_10_0,
+                    							lv_velocity_9_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -877,9 +2288,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,18,FOLLOW_2); 
+            this_END_10=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_11, grammarAccess.getLimitAccess().getRightCurlyBracketKeyword_7());
+            			newLeafNode(this_END_10, grammarAccess.getLimitAccess().getENDTerminalRuleCall_6());
             		
 
             }
@@ -904,7 +2315,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInertial"
-    // InternalKinematics.g:391:1: entryRuleInertial returns [EObject current=null] : iv_ruleInertial= ruleInertial EOF ;
+    // InternalKinematicsParser.g:1002:1: entryRuleInertial returns [EObject current=null] : iv_ruleInertial= ruleInertial EOF ;
     public final EObject entryRuleInertial() throws RecognitionException {
         EObject current = null;
 
@@ -912,8 +2323,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:391:49: (iv_ruleInertial= ruleInertial EOF )
-            // InternalKinematics.g:392:2: iv_ruleInertial= ruleInertial EOF
+            // InternalKinematicsParser.g:1002:49: (iv_ruleInertial= ruleInertial EOF )
+            // InternalKinematicsParser.g:1003:2: iv_ruleInertial= ruleInertial EOF
             {
              newCompositeNode(grammarAccess.getInertialRule()); 
             pushFollow(FOLLOW_1);
@@ -940,35 +2351,34 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInertial"
-    // InternalKinematics.g:398:1: ruleInertial returns [EObject current=null] : ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' ) ;
+    // InternalKinematicsParser.g:1009:1: ruleInertial returns [EObject current=null] : ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Origin ( (lv_origin_3_0= rulePose ) ) )? (otherlv_4= Mass ( (lv_mass_5_0= ruleMass ) ) )? (otherlv_6= Inertia ( (lv_inertia_7_0= ruleInertia ) ) )? this_END_8= RULE_END ) ;
     public final EObject ruleInertial() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token this_BEGIN_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
-        EObject lv_origin_4_0 = null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        Token this_END_8=null;
+        EObject lv_origin_3_0 = null;
 
-        EObject lv_mass_6_0 = null;
+        EObject lv_mass_5_0 = null;
 
-        EObject lv_inertia_8_0 = null;
+        EObject lv_inertia_7_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:404:2: ( ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' ) )
-            // InternalKinematics.g:405:2: ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' )
+            // InternalKinematicsParser.g:1015:2: ( ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Origin ( (lv_origin_3_0= rulePose ) ) )? (otherlv_4= Mass ( (lv_mass_5_0= ruleMass ) ) )? (otherlv_6= Inertia ( (lv_inertia_7_0= ruleInertia ) ) )? this_END_8= RULE_END ) )
+            // InternalKinematicsParser.g:1016:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Origin ( (lv_origin_3_0= rulePose ) ) )? (otherlv_4= Mass ( (lv_mass_5_0= ruleMass ) ) )? (otherlv_6= Inertia ( (lv_inertia_7_0= ruleInertia ) ) )? this_END_8= RULE_END )
             {
-            // InternalKinematics.g:405:2: ( () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}' )
-            // InternalKinematics.g:406:3: () otherlv_1= 'Inertial' otherlv_2= '{' (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )? (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )? (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )? otherlv_9= '}'
+            // InternalKinematicsParser.g:1016:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Origin ( (lv_origin_3_0= rulePose ) ) )? (otherlv_4= Mass ( (lv_mass_5_0= ruleMass ) ) )? (otherlv_6= Inertia ( (lv_inertia_7_0= ruleInertia ) ) )? this_END_8= RULE_END )
+            // InternalKinematicsParser.g:1017:3: () this_BEGIN_1= RULE_BEGIN (otherlv_2= Origin ( (lv_origin_3_0= rulePose ) ) )? (otherlv_4= Mass ( (lv_mass_5_0= ruleMass ) ) )? (otherlv_6= Inertia ( (lv_inertia_7_0= ruleInertia ) ) )? this_END_8= RULE_END
             {
-            // InternalKinematics.g:406:3: ()
-            // InternalKinematics.g:407:4: 
+            // InternalKinematicsParser.g:1017:3: ()
+            // InternalKinematicsParser.g:1018:4: 
             {
 
             				current = forceCreateModelElement(
@@ -978,40 +2388,36 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,28,FOLLOW_3); 
+            this_BEGIN_1=(Token)match(input,RULE_BEGIN,FOLLOW_34); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getInertialAccess().getInertialKeyword_1());
+            			newLeafNode(this_BEGIN_1, grammarAccess.getInertialAccess().getBEGINTerminalRuleCall_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_13); 
+            // InternalKinematicsParser.g:1028:3: (otherlv_2= Origin ( (lv_origin_3_0= rulePose ) ) )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            			newLeafNode(otherlv_2, grammarAccess.getInertialAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalKinematics.g:421:3: (otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) ) )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
-
-            if ( (LA8_0==29) ) {
-                alt8=1;
+            if ( (LA24_0==Origin) ) {
+                alt24=1;
             }
-            switch (alt8) {
+            switch (alt24) {
                 case 1 :
-                    // InternalKinematics.g:422:4: otherlv_3= 'origin' ( (lv_origin_4_0= rulePose ) )
+                    // InternalKinematicsParser.g:1029:4: otherlv_2= Origin ( (lv_origin_3_0= rulePose ) )
                     {
-                    otherlv_3=(Token)match(input,29,FOLLOW_14); 
+                    otherlv_2=(Token)match(input,Origin,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getInertialAccess().getOriginKeyword_3_0());
+                    				newLeafNode(otherlv_2, grammarAccess.getInertialAccess().getOriginKeyword_2_0());
                     			
-                    // InternalKinematics.g:426:4: ( (lv_origin_4_0= rulePose ) )
-                    // InternalKinematics.g:427:5: (lv_origin_4_0= rulePose )
+                    // InternalKinematicsParser.g:1033:4: ( (lv_origin_3_0= rulePose ) )
+                    // InternalKinematicsParser.g:1034:5: (lv_origin_3_0= rulePose )
                     {
-                    // InternalKinematics.g:427:5: (lv_origin_4_0= rulePose )
-                    // InternalKinematics.g:428:6: lv_origin_4_0= rulePose
+                    // InternalKinematicsParser.g:1034:5: (lv_origin_3_0= rulePose )
+                    // InternalKinematicsParser.g:1035:6: lv_origin_3_0= rulePose
                     {
 
-                    						newCompositeNode(grammarAccess.getInertialAccess().getOriginPoseParserRuleCall_3_1_0());
+                    						newCompositeNode(grammarAccess.getInertialAccess().getOriginPoseParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_15);
-                    lv_origin_4_0=rulePose();
+                    pushFollow(FOLLOW_35);
+                    lv_origin_3_0=rulePose();
 
                     state._fsp--;
 
@@ -1022,7 +2428,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"origin",
-                    							lv_origin_4_0,
+                    							lv_origin_3_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Pose");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1038,32 +2444,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:446:3: (otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) ) )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalKinematicsParser.g:1053:3: (otherlv_4= Mass ( (lv_mass_5_0= ruleMass ) ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA9_0==30) ) {
-                alt9=1;
+            if ( (LA25_0==Mass) ) {
+                alt25=1;
             }
-            switch (alt9) {
+            switch (alt25) {
                 case 1 :
-                    // InternalKinematics.g:447:4: otherlv_5= 'mass' ( (lv_mass_6_0= ruleMass ) )
+                    // InternalKinematicsParser.g:1054:4: otherlv_4= Mass ( (lv_mass_5_0= ruleMass ) )
                     {
-                    otherlv_5=(Token)match(input,30,FOLLOW_16); 
+                    otherlv_4=(Token)match(input,Mass,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_5, grammarAccess.getInertialAccess().getMassKeyword_4_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getInertialAccess().getMassKeyword_3_0());
                     			
-                    // InternalKinematics.g:451:4: ( (lv_mass_6_0= ruleMass ) )
-                    // InternalKinematics.g:452:5: (lv_mass_6_0= ruleMass )
+                    // InternalKinematicsParser.g:1058:4: ( (lv_mass_5_0= ruleMass ) )
+                    // InternalKinematicsParser.g:1059:5: (lv_mass_5_0= ruleMass )
                     {
-                    // InternalKinematics.g:452:5: (lv_mass_6_0= ruleMass )
-                    // InternalKinematics.g:453:6: lv_mass_6_0= ruleMass
+                    // InternalKinematicsParser.g:1059:5: (lv_mass_5_0= ruleMass )
+                    // InternalKinematicsParser.g:1060:6: lv_mass_5_0= ruleMass
                     {
 
-                    						newCompositeNode(grammarAccess.getInertialAccess().getMassMassParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getInertialAccess().getMassMassParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_17);
-                    lv_mass_6_0=ruleMass();
+                    pushFollow(FOLLOW_36);
+                    lv_mass_5_0=ruleMass();
 
                     state._fsp--;
 
@@ -1074,7 +2480,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"mass",
-                    							lv_mass_6_0,
+                    							lv_mass_5_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Mass");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1090,32 +2496,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:471:3: (otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) ) )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalKinematicsParser.g:1078:3: (otherlv_6= Inertia ( (lv_inertia_7_0= ruleInertia ) ) )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA10_0==31) ) {
-                alt10=1;
+            if ( (LA26_0==Inertia) ) {
+                alt26=1;
             }
-            switch (alt10) {
+            switch (alt26) {
                 case 1 :
-                    // InternalKinematics.g:472:4: otherlv_7= 'inertia' ( (lv_inertia_8_0= ruleInertia ) )
+                    // InternalKinematicsParser.g:1079:4: otherlv_6= Inertia ( (lv_inertia_7_0= ruleInertia ) )
                     {
-                    otherlv_7=(Token)match(input,31,FOLLOW_18); 
+                    otherlv_6=(Token)match(input,Inertia,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_7, grammarAccess.getInertialAccess().getInertiaKeyword_5_0());
+                    				newLeafNode(otherlv_6, grammarAccess.getInertialAccess().getInertiaKeyword_4_0());
                     			
-                    // InternalKinematics.g:476:4: ( (lv_inertia_8_0= ruleInertia ) )
-                    // InternalKinematics.g:477:5: (lv_inertia_8_0= ruleInertia )
+                    // InternalKinematicsParser.g:1083:4: ( (lv_inertia_7_0= ruleInertia ) )
+                    // InternalKinematicsParser.g:1084:5: (lv_inertia_7_0= ruleInertia )
                     {
-                    // InternalKinematics.g:477:5: (lv_inertia_8_0= ruleInertia )
-                    // InternalKinematics.g:478:6: lv_inertia_8_0= ruleInertia
+                    // InternalKinematicsParser.g:1084:5: (lv_inertia_7_0= ruleInertia )
+                    // InternalKinematicsParser.g:1085:6: lv_inertia_7_0= ruleInertia
                     {
 
-                    						newCompositeNode(grammarAccess.getInertialAccess().getInertiaInertiaParserRuleCall_5_1_0());
+                    						newCompositeNode(grammarAccess.getInertialAccess().getInertiaInertiaParserRuleCall_4_1_0());
                     					
-                    pushFollow(FOLLOW_4);
-                    lv_inertia_8_0=ruleInertia();
+                    pushFollow(FOLLOW_15);
+                    lv_inertia_7_0=ruleInertia();
 
                     state._fsp--;
 
@@ -1126,7 +2532,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"inertia",
-                    							lv_inertia_8_0,
+                    							lv_inertia_7_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Inertia");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1142,9 +2548,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,18,FOLLOW_2); 
+            this_END_8=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_9, grammarAccess.getInertialAccess().getRightCurlyBracketKeyword_6());
+            			newLeafNode(this_END_8, grammarAccess.getInertialAccess().getENDTerminalRuleCall_5());
             		
 
             }
@@ -1169,7 +2575,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVisual"
-    // InternalKinematics.g:504:1: entryRuleVisual returns [EObject current=null] : iv_ruleVisual= ruleVisual EOF ;
+    // InternalKinematicsParser.g:1111:1: entryRuleVisual returns [EObject current=null] : iv_ruleVisual= ruleVisual EOF ;
     public final EObject entryRuleVisual() throws RecognitionException {
         EObject current = null;
 
@@ -1177,8 +2583,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:504:47: (iv_ruleVisual= ruleVisual EOF )
-            // InternalKinematics.g:505:2: iv_ruleVisual= ruleVisual EOF
+            // InternalKinematicsParser.g:1111:47: (iv_ruleVisual= ruleVisual EOF )
+            // InternalKinematicsParser.g:1112:2: iv_ruleVisual= ruleVisual EOF
             {
              newCompositeNode(grammarAccess.getVisualRule()); 
             pushFollow(FOLLOW_1);
@@ -1205,64 +2611,59 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVisual"
-    // InternalKinematics.g:511:1: ruleVisual returns [EObject current=null] : (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) ;
+    // InternalKinematicsParser.g:1118:1: ruleVisual returns [EObject current=null] : (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END ) ;
     public final EObject ruleVisual() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
+        Token this_BEGIN_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        EObject lv_origin_3_0 = null;
+        Token otherlv_3=null;
+        Token this_END_5=null;
+        EObject lv_origin_2_0 = null;
 
-        EObject lv_geometry_5_0 = null;
+        EObject lv_geometry_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:517:2: ( (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) )
-            // InternalKinematics.g:518:2: (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
+            // InternalKinematicsParser.g:1124:2: ( (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END ) )
+            // InternalKinematicsParser.g:1125:2: (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END )
             {
-            // InternalKinematics.g:518:2: (otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
-            // InternalKinematics.g:519:3: otherlv_0= 'Visual' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}'
+            // InternalKinematicsParser.g:1125:2: (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END )
+            // InternalKinematicsParser.g:1126:3: this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_3); 
+            this_BEGIN_0=(Token)match(input,RULE_BEGIN,FOLLOW_37); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getVisualAccess().getVisualKeyword_0());
+            			newLeafNode(this_BEGIN_0, grammarAccess.getVisualAccess().getBEGINTerminalRuleCall_0());
             		
-            otherlv_1=(Token)match(input,17,FOLLOW_19); 
+            // InternalKinematicsParser.g:1130:3: (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            			newLeafNode(otherlv_1, grammarAccess.getVisualAccess().getLeftCurlyBracketKeyword_1());
-            		
-            // InternalKinematics.g:527:3: (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
-
-            if ( (LA11_0==29) ) {
-                alt11=1;
+            if ( (LA27_0==Origin) ) {
+                alt27=1;
             }
-            switch (alt11) {
+            switch (alt27) {
                 case 1 :
-                    // InternalKinematics.g:528:4: otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) )
+                    // InternalKinematicsParser.g:1131:4: otherlv_1= Origin ( (lv_origin_2_0= rulePose ) )
                     {
-                    otherlv_2=(Token)match(input,29,FOLLOW_14); 
+                    otherlv_1=(Token)match(input,Origin,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_2, grammarAccess.getVisualAccess().getOriginKeyword_2_0());
+                    				newLeafNode(otherlv_1, grammarAccess.getVisualAccess().getOriginKeyword_1_0());
                     			
-                    // InternalKinematics.g:532:4: ( (lv_origin_3_0= rulePose ) )
-                    // InternalKinematics.g:533:5: (lv_origin_3_0= rulePose )
+                    // InternalKinematicsParser.g:1135:4: ( (lv_origin_2_0= rulePose ) )
+                    // InternalKinematicsParser.g:1136:5: (lv_origin_2_0= rulePose )
                     {
-                    // InternalKinematics.g:533:5: (lv_origin_3_0= rulePose )
-                    // InternalKinematics.g:534:6: lv_origin_3_0= rulePose
+                    // InternalKinematicsParser.g:1136:5: (lv_origin_2_0= rulePose )
+                    // InternalKinematicsParser.g:1137:6: lv_origin_2_0= rulePose
                     {
 
-                    						newCompositeNode(grammarAccess.getVisualAccess().getOriginPoseParserRuleCall_2_1_0());
+                    						newCompositeNode(grammarAccess.getVisualAccess().getOriginPoseParserRuleCall_1_1_0());
                     					
-                    pushFollow(FOLLOW_20);
-                    lv_origin_3_0=rulePose();
+                    pushFollow(FOLLOW_38);
+                    lv_origin_2_0=rulePose();
 
                     state._fsp--;
 
@@ -1273,7 +2674,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"origin",
-                    							lv_origin_3_0,
+                    							lv_origin_2_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Pose");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1289,21 +2690,21 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,33,FOLLOW_21); 
+            otherlv_3=(Token)match(input,Geometry,FOLLOW_3); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getVisualAccess().getGeometryKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getVisualAccess().getGeometryKeyword_2());
             		
-            // InternalKinematics.g:556:3: ( (lv_geometry_5_0= ruleGeometry ) )
-            // InternalKinematics.g:557:4: (lv_geometry_5_0= ruleGeometry )
+            // InternalKinematicsParser.g:1159:3: ( (lv_geometry_4_0= ruleGeometry ) )
+            // InternalKinematicsParser.g:1160:4: (lv_geometry_4_0= ruleGeometry )
             {
-            // InternalKinematics.g:557:4: (lv_geometry_5_0= ruleGeometry )
-            // InternalKinematics.g:558:5: lv_geometry_5_0= ruleGeometry
+            // InternalKinematicsParser.g:1160:4: (lv_geometry_4_0= ruleGeometry )
+            // InternalKinematicsParser.g:1161:5: lv_geometry_4_0= ruleGeometry
             {
 
-            					newCompositeNode(grammarAccess.getVisualAccess().getGeometryGeometryParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getVisualAccess().getGeometryGeometryParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_4);
-            lv_geometry_5_0=ruleGeometry();
+            pushFollow(FOLLOW_15);
+            lv_geometry_4_0=ruleGeometry();
 
             state._fsp--;
 
@@ -1314,7 +2715,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"geometry",
-            						lv_geometry_5_0,
+            						lv_geometry_4_0,
             						"de.fraunhofer.ipa.kinematics.Kinematics.Geometry");
             					afterParserOrEnumRuleCall();
             				
@@ -1324,9 +2725,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,18,FOLLOW_2); 
+            this_END_5=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getVisualAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(this_END_5, grammarAccess.getVisualAccess().getENDTerminalRuleCall_4());
             		
 
             }
@@ -1351,7 +2752,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCollision"
-    // InternalKinematics.g:583:1: entryRuleCollision returns [EObject current=null] : iv_ruleCollision= ruleCollision EOF ;
+    // InternalKinematicsParser.g:1186:1: entryRuleCollision returns [EObject current=null] : iv_ruleCollision= ruleCollision EOF ;
     public final EObject entryRuleCollision() throws RecognitionException {
         EObject current = null;
 
@@ -1359,8 +2760,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:583:50: (iv_ruleCollision= ruleCollision EOF )
-            // InternalKinematics.g:584:2: iv_ruleCollision= ruleCollision EOF
+            // InternalKinematicsParser.g:1186:50: (iv_ruleCollision= ruleCollision EOF )
+            // InternalKinematicsParser.g:1187:2: iv_ruleCollision= ruleCollision EOF
             {
              newCompositeNode(grammarAccess.getCollisionRule()); 
             pushFollow(FOLLOW_1);
@@ -1387,64 +2788,59 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCollision"
-    // InternalKinematics.g:590:1: ruleCollision returns [EObject current=null] : (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) ;
+    // InternalKinematicsParser.g:1193:1: ruleCollision returns [EObject current=null] : (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END ) ;
     public final EObject ruleCollision() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
+        Token this_BEGIN_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        EObject lv_origin_3_0 = null;
+        Token otherlv_3=null;
+        Token this_END_5=null;
+        EObject lv_origin_2_0 = null;
 
-        EObject lv_geometry_5_0 = null;
+        EObject lv_geometry_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:596:2: ( (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' ) )
-            // InternalKinematics.g:597:2: (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
+            // InternalKinematicsParser.g:1199:2: ( (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END ) )
+            // InternalKinematicsParser.g:1200:2: (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END )
             {
-            // InternalKinematics.g:597:2: (otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}' )
-            // InternalKinematics.g:598:3: otherlv_0= 'Collision' otherlv_1= '{' (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )? otherlv_4= 'geometry' ( (lv_geometry_5_0= ruleGeometry ) ) otherlv_6= '}'
+            // InternalKinematicsParser.g:1200:2: (this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END )
+            // InternalKinematicsParser.g:1201:3: this_BEGIN_0= RULE_BEGIN (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )? otherlv_3= Geometry ( (lv_geometry_4_0= ruleGeometry ) ) this_END_5= RULE_END
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_3); 
+            this_BEGIN_0=(Token)match(input,RULE_BEGIN,FOLLOW_37); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getCollisionAccess().getCollisionKeyword_0());
+            			newLeafNode(this_BEGIN_0, grammarAccess.getCollisionAccess().getBEGINTerminalRuleCall_0());
             		
-            otherlv_1=(Token)match(input,17,FOLLOW_19); 
+            // InternalKinematicsParser.g:1205:3: (otherlv_1= Origin ( (lv_origin_2_0= rulePose ) ) )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            			newLeafNode(otherlv_1, grammarAccess.getCollisionAccess().getLeftCurlyBracketKeyword_1());
-            		
-            // InternalKinematics.g:606:3: (otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) ) )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
-
-            if ( (LA12_0==29) ) {
-                alt12=1;
+            if ( (LA28_0==Origin) ) {
+                alt28=1;
             }
-            switch (alt12) {
+            switch (alt28) {
                 case 1 :
-                    // InternalKinematics.g:607:4: otherlv_2= 'origin' ( (lv_origin_3_0= rulePose ) )
+                    // InternalKinematicsParser.g:1206:4: otherlv_1= Origin ( (lv_origin_2_0= rulePose ) )
                     {
-                    otherlv_2=(Token)match(input,29,FOLLOW_14); 
+                    otherlv_1=(Token)match(input,Origin,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_2, grammarAccess.getCollisionAccess().getOriginKeyword_2_0());
+                    				newLeafNode(otherlv_1, grammarAccess.getCollisionAccess().getOriginKeyword_1_0());
                     			
-                    // InternalKinematics.g:611:4: ( (lv_origin_3_0= rulePose ) )
-                    // InternalKinematics.g:612:5: (lv_origin_3_0= rulePose )
+                    // InternalKinematicsParser.g:1210:4: ( (lv_origin_2_0= rulePose ) )
+                    // InternalKinematicsParser.g:1211:5: (lv_origin_2_0= rulePose )
                     {
-                    // InternalKinematics.g:612:5: (lv_origin_3_0= rulePose )
-                    // InternalKinematics.g:613:6: lv_origin_3_0= rulePose
+                    // InternalKinematicsParser.g:1211:5: (lv_origin_2_0= rulePose )
+                    // InternalKinematicsParser.g:1212:6: lv_origin_2_0= rulePose
                     {
 
-                    						newCompositeNode(grammarAccess.getCollisionAccess().getOriginPoseParserRuleCall_2_1_0());
+                    						newCompositeNode(grammarAccess.getCollisionAccess().getOriginPoseParserRuleCall_1_1_0());
                     					
-                    pushFollow(FOLLOW_20);
-                    lv_origin_3_0=rulePose();
+                    pushFollow(FOLLOW_38);
+                    lv_origin_2_0=rulePose();
 
                     state._fsp--;
 
@@ -1455,7 +2851,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"origin",
-                    							lv_origin_3_0,
+                    							lv_origin_2_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Pose");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1471,21 +2867,21 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,33,FOLLOW_21); 
+            otherlv_3=(Token)match(input,Geometry,FOLLOW_3); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getCollisionAccess().getGeometryKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getCollisionAccess().getGeometryKeyword_2());
             		
-            // InternalKinematics.g:635:3: ( (lv_geometry_5_0= ruleGeometry ) )
-            // InternalKinematics.g:636:4: (lv_geometry_5_0= ruleGeometry )
+            // InternalKinematicsParser.g:1234:3: ( (lv_geometry_4_0= ruleGeometry ) )
+            // InternalKinematicsParser.g:1235:4: (lv_geometry_4_0= ruleGeometry )
             {
-            // InternalKinematics.g:636:4: (lv_geometry_5_0= ruleGeometry )
-            // InternalKinematics.g:637:5: lv_geometry_5_0= ruleGeometry
+            // InternalKinematicsParser.g:1235:4: (lv_geometry_4_0= ruleGeometry )
+            // InternalKinematicsParser.g:1236:5: lv_geometry_4_0= ruleGeometry
             {
 
-            					newCompositeNode(grammarAccess.getCollisionAccess().getGeometryGeometryParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getCollisionAccess().getGeometryGeometryParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_4);
-            lv_geometry_5_0=ruleGeometry();
+            pushFollow(FOLLOW_15);
+            lv_geometry_4_0=ruleGeometry();
 
             state._fsp--;
 
@@ -1496,7 +2892,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"geometry",
-            						lv_geometry_5_0,
+            						lv_geometry_4_0,
             						"de.fraunhofer.ipa.kinematics.Kinematics.Geometry");
             					afterParserOrEnumRuleCall();
             				
@@ -1506,9 +2902,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,18,FOLLOW_2); 
+            this_END_5=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getCollisionAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(this_END_5, grammarAccess.getCollisionAccess().getENDTerminalRuleCall_4());
             		
 
             }
@@ -1533,7 +2929,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMass"
-    // InternalKinematics.g:662:1: entryRuleMass returns [EObject current=null] : iv_ruleMass= ruleMass EOF ;
+    // InternalKinematicsParser.g:1261:1: entryRuleMass returns [EObject current=null] : iv_ruleMass= ruleMass EOF ;
     public final EObject entryRuleMass() throws RecognitionException {
         EObject current = null;
 
@@ -1541,8 +2937,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:662:45: (iv_ruleMass= ruleMass EOF )
-            // InternalKinematics.g:663:2: iv_ruleMass= ruleMass EOF
+            // InternalKinematicsParser.g:1261:45: (iv_ruleMass= ruleMass EOF )
+            // InternalKinematicsParser.g:1262:2: iv_ruleMass= ruleMass EOF
             {
              newCompositeNode(grammarAccess.getMassRule()); 
             pushFollow(FOLLOW_1);
@@ -1569,29 +2965,25 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMass"
-    // InternalKinematics.g:669:1: ruleMass returns [EObject current=null] : ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' ) ;
+    // InternalKinematicsParser.g:1268:1: ruleMass returns [EObject current=null] : ( () ( (lv_value_1_0= ruleDouble0 ) ) ) ;
     public final EObject ruleMass() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        AntlrDatatypeRuleToken lv_value_4_0 = null;
+        AntlrDatatypeRuleToken lv_value_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:675:2: ( ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' ) )
-            // InternalKinematics.g:676:2: ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' )
+            // InternalKinematicsParser.g:1274:2: ( ( () ( (lv_value_1_0= ruleDouble0 ) ) ) )
+            // InternalKinematicsParser.g:1275:2: ( () ( (lv_value_1_0= ruleDouble0 ) ) )
             {
-            // InternalKinematics.g:676:2: ( () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}' )
-            // InternalKinematics.g:677:3: () otherlv_1= 'Mass' otherlv_2= '{' (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )? otherlv_5= '}'
+            // InternalKinematicsParser.g:1275:2: ( () ( (lv_value_1_0= ruleDouble0 ) ) )
+            // InternalKinematicsParser.g:1276:3: () ( (lv_value_1_0= ruleDouble0 ) )
             {
-            // InternalKinematics.g:677:3: ()
-            // InternalKinematics.g:678:4: 
+            // InternalKinematicsParser.g:1276:3: ()
+            // InternalKinematicsParser.g:1277:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1601,70 +2993,37 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,35,FOLLOW_3); 
+            // InternalKinematicsParser.g:1283:3: ( (lv_value_1_0= ruleDouble0 ) )
+            // InternalKinematicsParser.g:1284:4: (lv_value_1_0= ruleDouble0 )
+            {
+            // InternalKinematicsParser.g:1284:4: (lv_value_1_0= ruleDouble0 )
+            // InternalKinematicsParser.g:1285:5: lv_value_1_0= ruleDouble0
+            {
 
-            			newLeafNode(otherlv_1, grammarAccess.getMassAccess().getMassKeyword_1());
-            		
-            otherlv_2=(Token)match(input,17,FOLLOW_22); 
+            					newCompositeNode(grammarAccess.getMassAccess().getValueDouble0ParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_value_1_0=ruleDouble0();
 
-            			newLeafNode(otherlv_2, grammarAccess.getMassAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalKinematics.g:692:3: (otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) ) )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
-
-            if ( (LA13_0==36) ) {
-                alt13=1;
-            }
-            switch (alt13) {
-                case 1 :
-                    // InternalKinematics.g:693:4: otherlv_3= 'value' ( (lv_value_4_0= ruleDouble0 ) )
-                    {
-                    otherlv_3=(Token)match(input,36,FOLLOW_9); 
-
-                    				newLeafNode(otherlv_3, grammarAccess.getMassAccess().getValueKeyword_3_0());
-                    			
-                    // InternalKinematics.g:697:4: ( (lv_value_4_0= ruleDouble0 ) )
-                    // InternalKinematics.g:698:5: (lv_value_4_0= ruleDouble0 )
-                    {
-                    // InternalKinematics.g:698:5: (lv_value_4_0= ruleDouble0 )
-                    // InternalKinematics.g:699:6: lv_value_4_0= ruleDouble0
-                    {
-
-                    						newCompositeNode(grammarAccess.getMassAccess().getValueDouble0ParserRuleCall_3_1_0());
-                    					
-                    pushFollow(FOLLOW_4);
-                    lv_value_4_0=ruleDouble0();
-
-                    state._fsp--;
+            state._fsp--;
 
 
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getMassRule());
-                    						}
-                    						set(
-                    							current,
-                    							"value",
-                    							lv_value_4_0,
-                    							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getMassRule());
+            					}
+            					set(
+            						current,
+            						"value",
+            						lv_value_1_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
+            					afterParserOrEnumRuleCall();
+            				
 
             }
 
-            otherlv_5=(Token)match(input,18,FOLLOW_2); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getMassAccess().getRightCurlyBracketKeyword_4());
-            		
+            }
+
 
             }
 
@@ -1688,7 +3047,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInertia"
-    // InternalKinematics.g:725:1: entryRuleInertia returns [EObject current=null] : iv_ruleInertia= ruleInertia EOF ;
+    // InternalKinematicsParser.g:1306:1: entryRuleInertia returns [EObject current=null] : iv_ruleInertia= ruleInertia EOF ;
     public final EObject entryRuleInertia() throws RecognitionException {
         EObject current = null;
 
@@ -1696,8 +3055,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:725:48: (iv_ruleInertia= ruleInertia EOF )
-            // InternalKinematics.g:726:2: iv_ruleInertia= ruleInertia EOF
+            // InternalKinematicsParser.g:1306:48: (iv_ruleInertia= ruleInertia EOF )
+            // InternalKinematicsParser.g:1307:2: iv_ruleInertia= ruleInertia EOF
             {
              newCompositeNode(grammarAccess.getInertiaRule()); 
             pushFollow(FOLLOW_1);
@@ -1724,44 +3083,43 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInertia"
-    // InternalKinematics.g:732:1: ruleInertia returns [EObject current=null] : ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' ) ;
+    // InternalKinematicsParser.g:1313:1: ruleInertia returns [EObject current=null] : ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Ixx ( (lv_ixx_3_0= ruleDouble0 ) ) )? (otherlv_4= Ixy ( (lv_ixy_5_0= ruleDouble0 ) ) )? (otherlv_6= Ixz ( (lv_ixz_7_0= ruleDouble0 ) ) )? (otherlv_8= Iyy ( (lv_iyy_9_0= ruleDouble0 ) ) )? (otherlv_10= Iyz ( (lv_iyz_11_0= ruleDouble0 ) ) )? (otherlv_12= Izz ( (lv_izz_13_0= ruleDouble0 ) ) )? this_END_14= RULE_END ) ;
     public final EObject ruleInertia() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token this_BEGIN_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
-        Token otherlv_11=null;
-        Token otherlv_13=null;
-        Token otherlv_15=null;
-        AntlrDatatypeRuleToken lv_ixx_4_0 = null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token otherlv_10=null;
+        Token otherlv_12=null;
+        Token this_END_14=null;
+        AntlrDatatypeRuleToken lv_ixx_3_0 = null;
 
-        AntlrDatatypeRuleToken lv_ixy_6_0 = null;
+        AntlrDatatypeRuleToken lv_ixy_5_0 = null;
 
-        AntlrDatatypeRuleToken lv_ixz_8_0 = null;
+        AntlrDatatypeRuleToken lv_ixz_7_0 = null;
 
-        AntlrDatatypeRuleToken lv_iyy_10_0 = null;
+        AntlrDatatypeRuleToken lv_iyy_9_0 = null;
 
-        AntlrDatatypeRuleToken lv_iyz_12_0 = null;
+        AntlrDatatypeRuleToken lv_iyz_11_0 = null;
 
-        AntlrDatatypeRuleToken lv_izz_14_0 = null;
+        AntlrDatatypeRuleToken lv_izz_13_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:738:2: ( ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' ) )
-            // InternalKinematics.g:739:2: ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' )
+            // InternalKinematicsParser.g:1319:2: ( ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Ixx ( (lv_ixx_3_0= ruleDouble0 ) ) )? (otherlv_4= Ixy ( (lv_ixy_5_0= ruleDouble0 ) ) )? (otherlv_6= Ixz ( (lv_ixz_7_0= ruleDouble0 ) ) )? (otherlv_8= Iyy ( (lv_iyy_9_0= ruleDouble0 ) ) )? (otherlv_10= Iyz ( (lv_iyz_11_0= ruleDouble0 ) ) )? (otherlv_12= Izz ( (lv_izz_13_0= ruleDouble0 ) ) )? this_END_14= RULE_END ) )
+            // InternalKinematicsParser.g:1320:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Ixx ( (lv_ixx_3_0= ruleDouble0 ) ) )? (otherlv_4= Ixy ( (lv_ixy_5_0= ruleDouble0 ) ) )? (otherlv_6= Ixz ( (lv_ixz_7_0= ruleDouble0 ) ) )? (otherlv_8= Iyy ( (lv_iyy_9_0= ruleDouble0 ) ) )? (otherlv_10= Iyz ( (lv_iyz_11_0= ruleDouble0 ) ) )? (otherlv_12= Izz ( (lv_izz_13_0= ruleDouble0 ) ) )? this_END_14= RULE_END )
             {
-            // InternalKinematics.g:739:2: ( () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}' )
-            // InternalKinematics.g:740:3: () otherlv_1= 'Inertia' otherlv_2= '{' (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )? (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )? (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )? (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )? (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )? (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )? otherlv_15= '}'
+            // InternalKinematicsParser.g:1320:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Ixx ( (lv_ixx_3_0= ruleDouble0 ) ) )? (otherlv_4= Ixy ( (lv_ixy_5_0= ruleDouble0 ) ) )? (otherlv_6= Ixz ( (lv_ixz_7_0= ruleDouble0 ) ) )? (otherlv_8= Iyy ( (lv_iyy_9_0= ruleDouble0 ) ) )? (otherlv_10= Iyz ( (lv_iyz_11_0= ruleDouble0 ) ) )? (otherlv_12= Izz ( (lv_izz_13_0= ruleDouble0 ) ) )? this_END_14= RULE_END )
+            // InternalKinematicsParser.g:1321:3: () this_BEGIN_1= RULE_BEGIN (otherlv_2= Ixx ( (lv_ixx_3_0= ruleDouble0 ) ) )? (otherlv_4= Ixy ( (lv_ixy_5_0= ruleDouble0 ) ) )? (otherlv_6= Ixz ( (lv_ixz_7_0= ruleDouble0 ) ) )? (otherlv_8= Iyy ( (lv_iyy_9_0= ruleDouble0 ) ) )? (otherlv_10= Iyz ( (lv_iyz_11_0= ruleDouble0 ) ) )? (otherlv_12= Izz ( (lv_izz_13_0= ruleDouble0 ) ) )? this_END_14= RULE_END
             {
-            // InternalKinematics.g:740:3: ()
-            // InternalKinematics.g:741:4: 
+            // InternalKinematicsParser.g:1321:3: ()
+            // InternalKinematicsParser.g:1322:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1771,40 +3129,36 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,37,FOLLOW_3); 
+            this_BEGIN_1=(Token)match(input,RULE_BEGIN,FOLLOW_39); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getInertiaAccess().getInertiaKeyword_1());
+            			newLeafNode(this_BEGIN_1, grammarAccess.getInertiaAccess().getBEGINTerminalRuleCall_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_23); 
+            // InternalKinematicsParser.g:1332:3: (otherlv_2= Ixx ( (lv_ixx_3_0= ruleDouble0 ) ) )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            			newLeafNode(otherlv_2, grammarAccess.getInertiaAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalKinematics.g:755:3: (otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) ) )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
-
-            if ( (LA14_0==38) ) {
-                alt14=1;
+            if ( (LA29_0==Ixx) ) {
+                alt29=1;
             }
-            switch (alt14) {
+            switch (alt29) {
                 case 1 :
-                    // InternalKinematics.g:756:4: otherlv_3= 'ixx' ( (lv_ixx_4_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1333:4: otherlv_2= Ixx ( (lv_ixx_3_0= ruleDouble0 ) )
                     {
-                    otherlv_3=(Token)match(input,38,FOLLOW_9); 
+                    otherlv_2=(Token)match(input,Ixx,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getInertiaAccess().getIxxKeyword_3_0());
+                    				newLeafNode(otherlv_2, grammarAccess.getInertiaAccess().getIxxKeyword_2_0());
                     			
-                    // InternalKinematics.g:760:4: ( (lv_ixx_4_0= ruleDouble0 ) )
-                    // InternalKinematics.g:761:5: (lv_ixx_4_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1337:4: ( (lv_ixx_3_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1338:5: (lv_ixx_3_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:761:5: (lv_ixx_4_0= ruleDouble0 )
-                    // InternalKinematics.g:762:6: lv_ixx_4_0= ruleDouble0
+                    // InternalKinematicsParser.g:1338:5: (lv_ixx_3_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1339:6: lv_ixx_3_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getInertiaAccess().getIxxDouble0ParserRuleCall_3_1_0());
+                    						newCompositeNode(grammarAccess.getInertiaAccess().getIxxDouble0ParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_24);
-                    lv_ixx_4_0=ruleDouble0();
+                    pushFollow(FOLLOW_40);
+                    lv_ixx_3_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -1815,7 +3169,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"ixx",
-                    							lv_ixx_4_0,
+                    							lv_ixx_3_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1831,32 +3185,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:780:3: (otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) ) )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // InternalKinematicsParser.g:1357:3: (otherlv_4= Ixy ( (lv_ixy_5_0= ruleDouble0 ) ) )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA15_0==39) ) {
-                alt15=1;
+            if ( (LA30_0==Ixy) ) {
+                alt30=1;
             }
-            switch (alt15) {
+            switch (alt30) {
                 case 1 :
-                    // InternalKinematics.g:781:4: otherlv_5= 'ixy' ( (lv_ixy_6_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1358:4: otherlv_4= Ixy ( (lv_ixy_5_0= ruleDouble0 ) )
                     {
-                    otherlv_5=(Token)match(input,39,FOLLOW_9); 
+                    otherlv_4=(Token)match(input,Ixy,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_5, grammarAccess.getInertiaAccess().getIxyKeyword_4_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getInertiaAccess().getIxyKeyword_3_0());
                     			
-                    // InternalKinematics.g:785:4: ( (lv_ixy_6_0= ruleDouble0 ) )
-                    // InternalKinematics.g:786:5: (lv_ixy_6_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1362:4: ( (lv_ixy_5_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1363:5: (lv_ixy_5_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:786:5: (lv_ixy_6_0= ruleDouble0 )
-                    // InternalKinematics.g:787:6: lv_ixy_6_0= ruleDouble0
+                    // InternalKinematicsParser.g:1363:5: (lv_ixy_5_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1364:6: lv_ixy_5_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getInertiaAccess().getIxyDouble0ParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getInertiaAccess().getIxyDouble0ParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_25);
-                    lv_ixy_6_0=ruleDouble0();
+                    pushFollow(FOLLOW_41);
+                    lv_ixy_5_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -1867,7 +3221,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"ixy",
-                    							lv_ixy_6_0,
+                    							lv_ixy_5_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1883,32 +3237,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:805:3: (otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) ) )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalKinematicsParser.g:1382:3: (otherlv_6= Ixz ( (lv_ixz_7_0= ruleDouble0 ) ) )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA16_0==40) ) {
-                alt16=1;
+            if ( (LA31_0==Ixz) ) {
+                alt31=1;
             }
-            switch (alt16) {
+            switch (alt31) {
                 case 1 :
-                    // InternalKinematics.g:806:4: otherlv_7= 'ixz' ( (lv_ixz_8_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1383:4: otherlv_6= Ixz ( (lv_ixz_7_0= ruleDouble0 ) )
                     {
-                    otherlv_7=(Token)match(input,40,FOLLOW_9); 
+                    otherlv_6=(Token)match(input,Ixz,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_7, grammarAccess.getInertiaAccess().getIxzKeyword_5_0());
+                    				newLeafNode(otherlv_6, grammarAccess.getInertiaAccess().getIxzKeyword_4_0());
                     			
-                    // InternalKinematics.g:810:4: ( (lv_ixz_8_0= ruleDouble0 ) )
-                    // InternalKinematics.g:811:5: (lv_ixz_8_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1387:4: ( (lv_ixz_7_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1388:5: (lv_ixz_7_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:811:5: (lv_ixz_8_0= ruleDouble0 )
-                    // InternalKinematics.g:812:6: lv_ixz_8_0= ruleDouble0
+                    // InternalKinematicsParser.g:1388:5: (lv_ixz_7_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1389:6: lv_ixz_7_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getInertiaAccess().getIxzDouble0ParserRuleCall_5_1_0());
+                    						newCompositeNode(grammarAccess.getInertiaAccess().getIxzDouble0ParserRuleCall_4_1_0());
                     					
-                    pushFollow(FOLLOW_26);
-                    lv_ixz_8_0=ruleDouble0();
+                    pushFollow(FOLLOW_42);
+                    lv_ixz_7_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -1919,7 +3273,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"ixz",
-                    							lv_ixz_8_0,
+                    							lv_ixz_7_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1935,32 +3289,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:830:3: (otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) ) )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalKinematicsParser.g:1407:3: (otherlv_8= Iyy ( (lv_iyy_9_0= ruleDouble0 ) ) )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA17_0==41) ) {
-                alt17=1;
+            if ( (LA32_0==Iyy) ) {
+                alt32=1;
             }
-            switch (alt17) {
+            switch (alt32) {
                 case 1 :
-                    // InternalKinematics.g:831:4: otherlv_9= 'iyy' ( (lv_iyy_10_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1408:4: otherlv_8= Iyy ( (lv_iyy_9_0= ruleDouble0 ) )
                     {
-                    otherlv_9=(Token)match(input,41,FOLLOW_9); 
+                    otherlv_8=(Token)match(input,Iyy,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_9, grammarAccess.getInertiaAccess().getIyyKeyword_6_0());
+                    				newLeafNode(otherlv_8, grammarAccess.getInertiaAccess().getIyyKeyword_5_0());
                     			
-                    // InternalKinematics.g:835:4: ( (lv_iyy_10_0= ruleDouble0 ) )
-                    // InternalKinematics.g:836:5: (lv_iyy_10_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1412:4: ( (lv_iyy_9_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1413:5: (lv_iyy_9_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:836:5: (lv_iyy_10_0= ruleDouble0 )
-                    // InternalKinematics.g:837:6: lv_iyy_10_0= ruleDouble0
+                    // InternalKinematicsParser.g:1413:5: (lv_iyy_9_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1414:6: lv_iyy_9_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getInertiaAccess().getIyyDouble0ParserRuleCall_6_1_0());
+                    						newCompositeNode(grammarAccess.getInertiaAccess().getIyyDouble0ParserRuleCall_5_1_0());
                     					
-                    pushFollow(FOLLOW_27);
-                    lv_iyy_10_0=ruleDouble0();
+                    pushFollow(FOLLOW_43);
+                    lv_iyy_9_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -1971,7 +3325,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"iyy",
-                    							lv_iyy_10_0,
+                    							lv_iyy_9_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1987,32 +3341,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:855:3: (otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) ) )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalKinematicsParser.g:1432:3: (otherlv_10= Iyz ( (lv_iyz_11_0= ruleDouble0 ) ) )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA18_0==42) ) {
-                alt18=1;
+            if ( (LA33_0==Iyz) ) {
+                alt33=1;
             }
-            switch (alt18) {
+            switch (alt33) {
                 case 1 :
-                    // InternalKinematics.g:856:4: otherlv_11= 'iyz' ( (lv_iyz_12_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1433:4: otherlv_10= Iyz ( (lv_iyz_11_0= ruleDouble0 ) )
                     {
-                    otherlv_11=(Token)match(input,42,FOLLOW_9); 
+                    otherlv_10=(Token)match(input,Iyz,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_11, grammarAccess.getInertiaAccess().getIyzKeyword_7_0());
+                    				newLeafNode(otherlv_10, grammarAccess.getInertiaAccess().getIyzKeyword_6_0());
                     			
-                    // InternalKinematics.g:860:4: ( (lv_iyz_12_0= ruleDouble0 ) )
-                    // InternalKinematics.g:861:5: (lv_iyz_12_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1437:4: ( (lv_iyz_11_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1438:5: (lv_iyz_11_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:861:5: (lv_iyz_12_0= ruleDouble0 )
-                    // InternalKinematics.g:862:6: lv_iyz_12_0= ruleDouble0
+                    // InternalKinematicsParser.g:1438:5: (lv_iyz_11_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1439:6: lv_iyz_11_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getInertiaAccess().getIyzDouble0ParserRuleCall_7_1_0());
+                    						newCompositeNode(grammarAccess.getInertiaAccess().getIyzDouble0ParserRuleCall_6_1_0());
                     					
-                    pushFollow(FOLLOW_28);
-                    lv_iyz_12_0=ruleDouble0();
+                    pushFollow(FOLLOW_44);
+                    lv_iyz_11_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -2023,7 +3377,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"iyz",
-                    							lv_iyz_12_0,
+                    							lv_iyz_11_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -2039,32 +3393,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:880:3: (otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) ) )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalKinematicsParser.g:1457:3: (otherlv_12= Izz ( (lv_izz_13_0= ruleDouble0 ) ) )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA19_0==43) ) {
-                alt19=1;
+            if ( (LA34_0==Izz) ) {
+                alt34=1;
             }
-            switch (alt19) {
+            switch (alt34) {
                 case 1 :
-                    // InternalKinematics.g:881:4: otherlv_13= 'izz' ( (lv_izz_14_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1458:4: otherlv_12= Izz ( (lv_izz_13_0= ruleDouble0 ) )
                     {
-                    otherlv_13=(Token)match(input,43,FOLLOW_9); 
+                    otherlv_12=(Token)match(input,Izz,FOLLOW_30); 
 
-                    				newLeafNode(otherlv_13, grammarAccess.getInertiaAccess().getIzzKeyword_8_0());
+                    				newLeafNode(otherlv_12, grammarAccess.getInertiaAccess().getIzzKeyword_7_0());
                     			
-                    // InternalKinematics.g:885:4: ( (lv_izz_14_0= ruleDouble0 ) )
-                    // InternalKinematics.g:886:5: (lv_izz_14_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1462:4: ( (lv_izz_13_0= ruleDouble0 ) )
+                    // InternalKinematicsParser.g:1463:5: (lv_izz_13_0= ruleDouble0 )
                     {
-                    // InternalKinematics.g:886:5: (lv_izz_14_0= ruleDouble0 )
-                    // InternalKinematics.g:887:6: lv_izz_14_0= ruleDouble0
+                    // InternalKinematicsParser.g:1463:5: (lv_izz_13_0= ruleDouble0 )
+                    // InternalKinematicsParser.g:1464:6: lv_izz_13_0= ruleDouble0
                     {
 
-                    						newCompositeNode(grammarAccess.getInertiaAccess().getIzzDouble0ParserRuleCall_8_1_0());
+                    						newCompositeNode(grammarAccess.getInertiaAccess().getIzzDouble0ParserRuleCall_7_1_0());
                     					
-                    pushFollow(FOLLOW_4);
-                    lv_izz_14_0=ruleDouble0();
+                    pushFollow(FOLLOW_15);
+                    lv_izz_13_0=ruleDouble0();
 
                     state._fsp--;
 
@@ -2075,7 +3429,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"izz",
-                    							lv_izz_14_0,
+                    							lv_izz_13_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
                     						afterParserOrEnumRuleCall();
                     					
@@ -2091,9 +3445,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_15=(Token)match(input,18,FOLLOW_2); 
+            this_END_14=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_15, grammarAccess.getInertiaAccess().getRightCurlyBracketKeyword_9());
+            			newLeafNode(this_END_14, grammarAccess.getInertiaAccess().getENDTerminalRuleCall_8());
             		
 
             }
@@ -2118,7 +3472,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGeometry"
-    // InternalKinematics.g:913:1: entryRuleGeometry returns [EObject current=null] : iv_ruleGeometry= ruleGeometry EOF ;
+    // InternalKinematicsParser.g:1490:1: entryRuleGeometry returns [EObject current=null] : iv_ruleGeometry= ruleGeometry EOF ;
     public final EObject entryRuleGeometry() throws RecognitionException {
         EObject current = null;
 
@@ -2126,8 +3480,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:913:49: (iv_ruleGeometry= ruleGeometry EOF )
-            // InternalKinematics.g:914:2: iv_ruleGeometry= ruleGeometry EOF
+            // InternalKinematicsParser.g:1490:49: (iv_ruleGeometry= ruleGeometry EOF )
+            // InternalKinematicsParser.g:1491:2: iv_ruleGeometry= ruleGeometry EOF
             {
              newCompositeNode(grammarAccess.getGeometryRule()); 
             pushFollow(FOLLOW_1);
@@ -2154,38 +3508,37 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGeometry"
-    // InternalKinematics.g:920:1: ruleGeometry returns [EObject current=null] : ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' ) ;
+    // InternalKinematicsParser.g:1497:1: ruleGeometry returns [EObject current=null] : ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Box ( (lv_box_3_0= ruleBox ) ) )? (otherlv_4= Cylinder ( (lv_cylinder_5_0= ruleCylinder ) ) )? (otherlv_6= Sphere ( (lv_sphere_7_0= ruleSphere ) ) )? (otherlv_8= Mesh ( (lv_mesh_9_0= ruleMesh ) ) )? this_END_10= RULE_END ) ;
     public final EObject ruleGeometry() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token this_BEGIN_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
-        Token otherlv_11=null;
-        EObject lv_box_4_0 = null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        Token this_END_10=null;
+        EObject lv_box_3_0 = null;
 
-        EObject lv_cylinder_6_0 = null;
+        EObject lv_cylinder_5_0 = null;
 
-        EObject lv_sphere_8_0 = null;
+        EObject lv_sphere_7_0 = null;
 
-        EObject lv_mesh_10_0 = null;
+        EObject lv_mesh_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:926:2: ( ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' ) )
-            // InternalKinematics.g:927:2: ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' )
+            // InternalKinematicsParser.g:1503:2: ( ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Box ( (lv_box_3_0= ruleBox ) ) )? (otherlv_4= Cylinder ( (lv_cylinder_5_0= ruleCylinder ) ) )? (otherlv_6= Sphere ( (lv_sphere_7_0= ruleSphere ) ) )? (otherlv_8= Mesh ( (lv_mesh_9_0= ruleMesh ) ) )? this_END_10= RULE_END ) )
+            // InternalKinematicsParser.g:1504:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Box ( (lv_box_3_0= ruleBox ) ) )? (otherlv_4= Cylinder ( (lv_cylinder_5_0= ruleCylinder ) ) )? (otherlv_6= Sphere ( (lv_sphere_7_0= ruleSphere ) ) )? (otherlv_8= Mesh ( (lv_mesh_9_0= ruleMesh ) ) )? this_END_10= RULE_END )
             {
-            // InternalKinematics.g:927:2: ( () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}' )
-            // InternalKinematics.g:928:3: () otherlv_1= 'Geometry' otherlv_2= '{' (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )? (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )? (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )? (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )? otherlv_11= '}'
+            // InternalKinematicsParser.g:1504:2: ( () this_BEGIN_1= RULE_BEGIN (otherlv_2= Box ( (lv_box_3_0= ruleBox ) ) )? (otherlv_4= Cylinder ( (lv_cylinder_5_0= ruleCylinder ) ) )? (otherlv_6= Sphere ( (lv_sphere_7_0= ruleSphere ) ) )? (otherlv_8= Mesh ( (lv_mesh_9_0= ruleMesh ) ) )? this_END_10= RULE_END )
+            // InternalKinematicsParser.g:1505:3: () this_BEGIN_1= RULE_BEGIN (otherlv_2= Box ( (lv_box_3_0= ruleBox ) ) )? (otherlv_4= Cylinder ( (lv_cylinder_5_0= ruleCylinder ) ) )? (otherlv_6= Sphere ( (lv_sphere_7_0= ruleSphere ) ) )? (otherlv_8= Mesh ( (lv_mesh_9_0= ruleMesh ) ) )? this_END_10= RULE_END
             {
-            // InternalKinematics.g:928:3: ()
-            // InternalKinematics.g:929:4: 
+            // InternalKinematicsParser.g:1505:3: ()
+            // InternalKinematicsParser.g:1506:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2195,40 +3548,36 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,44,FOLLOW_3); 
+            this_BEGIN_1=(Token)match(input,RULE_BEGIN,FOLLOW_45); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getGeometryAccess().getGeometryKeyword_1());
+            			newLeafNode(this_BEGIN_1, grammarAccess.getGeometryAccess().getBEGINTerminalRuleCall_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_29); 
+            // InternalKinematicsParser.g:1516:3: (otherlv_2= Box ( (lv_box_3_0= ruleBox ) ) )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            			newLeafNode(otherlv_2, grammarAccess.getGeometryAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalKinematics.g:943:3: (otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) ) )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
-
-            if ( (LA20_0==45) ) {
-                alt20=1;
+            if ( (LA35_0==Box) ) {
+                alt35=1;
             }
-            switch (alt20) {
+            switch (alt35) {
                 case 1 :
-                    // InternalKinematics.g:944:4: otherlv_3= 'box' ( (lv_box_4_0= ruleBox ) )
+                    // InternalKinematicsParser.g:1517:4: otherlv_2= Box ( (lv_box_3_0= ruleBox ) )
                     {
-                    otherlv_3=(Token)match(input,45,FOLLOW_30); 
+                    otherlv_2=(Token)match(input,Box,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getGeometryAccess().getBoxKeyword_3_0());
+                    				newLeafNode(otherlv_2, grammarAccess.getGeometryAccess().getBoxKeyword_2_0());
                     			
-                    // InternalKinematics.g:948:4: ( (lv_box_4_0= ruleBox ) )
-                    // InternalKinematics.g:949:5: (lv_box_4_0= ruleBox )
+                    // InternalKinematicsParser.g:1521:4: ( (lv_box_3_0= ruleBox ) )
+                    // InternalKinematicsParser.g:1522:5: (lv_box_3_0= ruleBox )
                     {
-                    // InternalKinematics.g:949:5: (lv_box_4_0= ruleBox )
-                    // InternalKinematics.g:950:6: lv_box_4_0= ruleBox
+                    // InternalKinematicsParser.g:1522:5: (lv_box_3_0= ruleBox )
+                    // InternalKinematicsParser.g:1523:6: lv_box_3_0= ruleBox
                     {
 
-                    						newCompositeNode(grammarAccess.getGeometryAccess().getBoxBoxParserRuleCall_3_1_0());
+                    						newCompositeNode(grammarAccess.getGeometryAccess().getBoxBoxParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_31);
-                    lv_box_4_0=ruleBox();
+                    pushFollow(FOLLOW_46);
+                    lv_box_3_0=ruleBox();
 
                     state._fsp--;
 
@@ -2239,7 +3588,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"box",
-                    							lv_box_4_0,
+                    							lv_box_3_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Box");
                     						afterParserOrEnumRuleCall();
                     					
@@ -2255,32 +3604,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:968:3: (otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) ) )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // InternalKinematicsParser.g:1541:3: (otherlv_4= Cylinder ( (lv_cylinder_5_0= ruleCylinder ) ) )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA21_0==46) ) {
-                alt21=1;
+            if ( (LA36_0==Cylinder) ) {
+                alt36=1;
             }
-            switch (alt21) {
+            switch (alt36) {
                 case 1 :
-                    // InternalKinematics.g:969:4: otherlv_5= 'cylinder' ( (lv_cylinder_6_0= ruleCylinder ) )
+                    // InternalKinematicsParser.g:1542:4: otherlv_4= Cylinder ( (lv_cylinder_5_0= ruleCylinder ) )
                     {
-                    otherlv_5=(Token)match(input,46,FOLLOW_32); 
+                    otherlv_4=(Token)match(input,Cylinder,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_5, grammarAccess.getGeometryAccess().getCylinderKeyword_4_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getGeometryAccess().getCylinderKeyword_3_0());
                     			
-                    // InternalKinematics.g:973:4: ( (lv_cylinder_6_0= ruleCylinder ) )
-                    // InternalKinematics.g:974:5: (lv_cylinder_6_0= ruleCylinder )
+                    // InternalKinematicsParser.g:1546:4: ( (lv_cylinder_5_0= ruleCylinder ) )
+                    // InternalKinematicsParser.g:1547:5: (lv_cylinder_5_0= ruleCylinder )
                     {
-                    // InternalKinematics.g:974:5: (lv_cylinder_6_0= ruleCylinder )
-                    // InternalKinematics.g:975:6: lv_cylinder_6_0= ruleCylinder
+                    // InternalKinematicsParser.g:1547:5: (lv_cylinder_5_0= ruleCylinder )
+                    // InternalKinematicsParser.g:1548:6: lv_cylinder_5_0= ruleCylinder
                     {
 
-                    						newCompositeNode(grammarAccess.getGeometryAccess().getCylinderCylinderParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getGeometryAccess().getCylinderCylinderParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_33);
-                    lv_cylinder_6_0=ruleCylinder();
+                    pushFollow(FOLLOW_47);
+                    lv_cylinder_5_0=ruleCylinder();
 
                     state._fsp--;
 
@@ -2291,7 +3640,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"cylinder",
-                    							lv_cylinder_6_0,
+                    							lv_cylinder_5_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Cylinder");
                     						afterParserOrEnumRuleCall();
                     					
@@ -2307,32 +3656,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:993:3: (otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) ) )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalKinematicsParser.g:1566:3: (otherlv_6= Sphere ( (lv_sphere_7_0= ruleSphere ) ) )?
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA22_0==47) ) {
-                alt22=1;
+            if ( (LA37_0==Sphere) ) {
+                alt37=1;
             }
-            switch (alt22) {
+            switch (alt37) {
                 case 1 :
-                    // InternalKinematics.g:994:4: otherlv_7= 'sphere' ( (lv_sphere_8_0= ruleSphere ) )
+                    // InternalKinematicsParser.g:1567:4: otherlv_6= Sphere ( (lv_sphere_7_0= ruleSphere ) )
                     {
-                    otherlv_7=(Token)match(input,47,FOLLOW_34); 
+                    otherlv_6=(Token)match(input,Sphere,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_7, grammarAccess.getGeometryAccess().getSphereKeyword_5_0());
+                    				newLeafNode(otherlv_6, grammarAccess.getGeometryAccess().getSphereKeyword_4_0());
                     			
-                    // InternalKinematics.g:998:4: ( (lv_sphere_8_0= ruleSphere ) )
-                    // InternalKinematics.g:999:5: (lv_sphere_8_0= ruleSphere )
+                    // InternalKinematicsParser.g:1571:4: ( (lv_sphere_7_0= ruleSphere ) )
+                    // InternalKinematicsParser.g:1572:5: (lv_sphere_7_0= ruleSphere )
                     {
-                    // InternalKinematics.g:999:5: (lv_sphere_8_0= ruleSphere )
-                    // InternalKinematics.g:1000:6: lv_sphere_8_0= ruleSphere
+                    // InternalKinematicsParser.g:1572:5: (lv_sphere_7_0= ruleSphere )
+                    // InternalKinematicsParser.g:1573:6: lv_sphere_7_0= ruleSphere
                     {
 
-                    						newCompositeNode(grammarAccess.getGeometryAccess().getSphereSphereParserRuleCall_5_1_0());
+                    						newCompositeNode(grammarAccess.getGeometryAccess().getSphereSphereParserRuleCall_4_1_0());
                     					
-                    pushFollow(FOLLOW_35);
-                    lv_sphere_8_0=ruleSphere();
+                    pushFollow(FOLLOW_48);
+                    lv_sphere_7_0=ruleSphere();
 
                     state._fsp--;
 
@@ -2343,7 +3692,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"sphere",
-                    							lv_sphere_8_0,
+                    							lv_sphere_7_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Sphere");
                     						afterParserOrEnumRuleCall();
                     					
@@ -2359,32 +3708,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:1018:3: (otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) ) )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalKinematicsParser.g:1591:3: (otherlv_8= Mesh ( (lv_mesh_9_0= ruleMesh ) ) )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA23_0==48) ) {
-                alt23=1;
+            if ( (LA38_0==Mesh) ) {
+                alt38=1;
             }
-            switch (alt23) {
+            switch (alt38) {
                 case 1 :
-                    // InternalKinematics.g:1019:4: otherlv_9= 'mesh' ( (lv_mesh_10_0= ruleMesh ) )
+                    // InternalKinematicsParser.g:1592:4: otherlv_8= Mesh ( (lv_mesh_9_0= ruleMesh ) )
                     {
-                    otherlv_9=(Token)match(input,48,FOLLOW_36); 
+                    otherlv_8=(Token)match(input,Mesh,FOLLOW_3); 
 
-                    				newLeafNode(otherlv_9, grammarAccess.getGeometryAccess().getMeshKeyword_6_0());
+                    				newLeafNode(otherlv_8, grammarAccess.getGeometryAccess().getMeshKeyword_5_0());
                     			
-                    // InternalKinematics.g:1023:4: ( (lv_mesh_10_0= ruleMesh ) )
-                    // InternalKinematics.g:1024:5: (lv_mesh_10_0= ruleMesh )
+                    // InternalKinematicsParser.g:1596:4: ( (lv_mesh_9_0= ruleMesh ) )
+                    // InternalKinematicsParser.g:1597:5: (lv_mesh_9_0= ruleMesh )
                     {
-                    // InternalKinematics.g:1024:5: (lv_mesh_10_0= ruleMesh )
-                    // InternalKinematics.g:1025:6: lv_mesh_10_0= ruleMesh
+                    // InternalKinematicsParser.g:1597:5: (lv_mesh_9_0= ruleMesh )
+                    // InternalKinematicsParser.g:1598:6: lv_mesh_9_0= ruleMesh
                     {
 
-                    						newCompositeNode(grammarAccess.getGeometryAccess().getMeshMeshParserRuleCall_6_1_0());
+                    						newCompositeNode(grammarAccess.getGeometryAccess().getMeshMeshParserRuleCall_5_1_0());
                     					
-                    pushFollow(FOLLOW_4);
-                    lv_mesh_10_0=ruleMesh();
+                    pushFollow(FOLLOW_15);
+                    lv_mesh_9_0=ruleMesh();
 
                     state._fsp--;
 
@@ -2395,7 +3744,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"mesh",
-                    							lv_mesh_10_0,
+                    							lv_mesh_9_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.Mesh");
                     						afterParserOrEnumRuleCall();
                     					
@@ -2411,9 +3760,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,18,FOLLOW_2); 
+            this_END_10=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_11, grammarAccess.getGeometryAccess().getRightCurlyBracketKeyword_7());
+            			newLeafNode(this_END_10, grammarAccess.getGeometryAccess().getENDTerminalRuleCall_6());
             		
 
             }
@@ -2438,7 +3787,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBox"
-    // InternalKinematics.g:1051:1: entryRuleBox returns [EObject current=null] : iv_ruleBox= ruleBox EOF ;
+    // InternalKinematicsParser.g:1624:1: entryRuleBox returns [EObject current=null] : iv_ruleBox= ruleBox EOF ;
     public final EObject entryRuleBox() throws RecognitionException {
         EObject current = null;
 
@@ -2446,8 +3795,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:1051:44: (iv_ruleBox= ruleBox EOF )
-            // InternalKinematics.g:1052:2: iv_ruleBox= ruleBox EOF
+            // InternalKinematicsParser.g:1624:44: (iv_ruleBox= ruleBox EOF )
+            // InternalKinematicsParser.g:1625:2: iv_ruleBox= ruleBox EOF
             {
              newCompositeNode(grammarAccess.getBoxRule()); 
             pushFollow(FOLLOW_1);
@@ -2474,29 +3823,28 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBox"
-    // InternalKinematics.g:1058:1: ruleBox returns [EObject current=null] : ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleEString ) ) )? otherlv_5= '}' ) ;
+    // InternalKinematicsParser.g:1631:1: ruleBox returns [EObject current=null] : ( () this_BEGIN_1= RULE_BEGIN otherlv_2= Size ( (lv_size_3_0= ruleEString ) ) this_END_4= RULE_END ) ;
     public final EObject ruleBox() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token this_BEGIN_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        AntlrDatatypeRuleToken lv_size_4_0 = null;
+        Token this_END_4=null;
+        AntlrDatatypeRuleToken lv_size_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:1064:2: ( ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleEString ) ) )? otherlv_5= '}' ) )
-            // InternalKinematics.g:1065:2: ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleEString ) ) )? otherlv_5= '}' )
+            // InternalKinematicsParser.g:1637:2: ( ( () this_BEGIN_1= RULE_BEGIN otherlv_2= Size ( (lv_size_3_0= ruleEString ) ) this_END_4= RULE_END ) )
+            // InternalKinematicsParser.g:1638:2: ( () this_BEGIN_1= RULE_BEGIN otherlv_2= Size ( (lv_size_3_0= ruleEString ) ) this_END_4= RULE_END )
             {
-            // InternalKinematics.g:1065:2: ( () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleEString ) ) )? otherlv_5= '}' )
-            // InternalKinematics.g:1066:3: () otherlv_1= 'Box' otherlv_2= '{' (otherlv_3= 'size' ( (lv_size_4_0= ruleEString ) ) )? otherlv_5= '}'
+            // InternalKinematicsParser.g:1638:2: ( () this_BEGIN_1= RULE_BEGIN otherlv_2= Size ( (lv_size_3_0= ruleEString ) ) this_END_4= RULE_END )
+            // InternalKinematicsParser.g:1639:3: () this_BEGIN_1= RULE_BEGIN otherlv_2= Size ( (lv_size_3_0= ruleEString ) ) this_END_4= RULE_END
             {
-            // InternalKinematics.g:1066:3: ()
-            // InternalKinematics.g:1067:4: 
+            // InternalKinematicsParser.g:1639:3: ()
+            // InternalKinematicsParser.g:1640:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2506,69 +3854,48 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,49,FOLLOW_3); 
+            this_BEGIN_1=(Token)match(input,RULE_BEGIN,FOLLOW_49); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getBoxAccess().getBoxKeyword_1());
+            			newLeafNode(this_BEGIN_1, grammarAccess.getBoxAccess().getBEGINTerminalRuleCall_1());
             		
-            otherlv_2=(Token)match(input,17,FOLLOW_37); 
+            otherlv_2=(Token)match(input,Size,FOLLOW_5); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getBoxAccess().getLeftCurlyBracketKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getBoxAccess().getSizeKeyword_2());
             		
-            // InternalKinematics.g:1081:3: (otherlv_3= 'size' ( (lv_size_4_0= ruleEString ) ) )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // InternalKinematicsParser.g:1654:3: ( (lv_size_3_0= ruleEString ) )
+            // InternalKinematicsParser.g:1655:4: (lv_size_3_0= ruleEString )
+            {
+            // InternalKinematicsParser.g:1655:4: (lv_size_3_0= ruleEString )
+            // InternalKinematicsParser.g:1656:5: lv_size_3_0= ruleEString
+            {
 
-            if ( (LA24_0==50) ) {
-                alt24=1;
-            }
-            switch (alt24) {
-                case 1 :
-                    // InternalKinematics.g:1082:4: otherlv_3= 'size' ( (lv_size_4_0= ruleEString ) )
-                    {
-                    otherlv_3=(Token)match(input,50,FOLLOW_6); 
+            					newCompositeNode(grammarAccess.getBoxAccess().getSizeEStringParserRuleCall_3_0());
+            				
+            pushFollow(FOLLOW_15);
+            lv_size_3_0=ruleEString();
 
-                    				newLeafNode(otherlv_3, grammarAccess.getBoxAccess().getSizeKeyword_3_0());
-                    			
-                    // InternalKinematics.g:1086:4: ( (lv_size_4_0= ruleEString ) )
-                    // InternalKinematics.g:1087:5: (lv_size_4_0= ruleEString )
-                    {
-                    // InternalKinematics.g:1087:5: (lv_size_4_0= ruleEString )
-                    // InternalKinematics.g:1088:6: lv_size_4_0= ruleEString
-                    {
-
-                    						newCompositeNode(grammarAccess.getBoxAccess().getSizeEStringParserRuleCall_3_1_0());
-                    					
-                    pushFollow(FOLLOW_4);
-                    lv_size_4_0=ruleEString();
-
-                    state._fsp--;
+            state._fsp--;
 
 
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getBoxRule());
-                    						}
-                    						set(
-                    							current,
-                    							"size",
-                    							lv_size_4_0,
-                    							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getBoxRule());
+            					}
+            					set(
+            						current,
+            						"size",
+            						lv_size_3_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+            					afterParserOrEnumRuleCall();
+            				
 
             }
 
-            otherlv_5=(Token)match(input,18,FOLLOW_2); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getBoxAccess().getRightCurlyBracketKeyword_4());
+            }
+
+            this_END_4=(Token)match(input,RULE_END,FOLLOW_2); 
+
+            			newLeafNode(this_END_4, grammarAccess.getBoxAccess().getENDTerminalRuleCall_4());
             		
 
             }
@@ -2593,7 +3920,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCylinder"
-    // InternalKinematics.g:1114:1: entryRuleCylinder returns [EObject current=null] : iv_ruleCylinder= ruleCylinder EOF ;
+    // InternalKinematicsParser.g:1681:1: entryRuleCylinder returns [EObject current=null] : iv_ruleCylinder= ruleCylinder EOF ;
     public final EObject entryRuleCylinder() throws RecognitionException {
         EObject current = null;
 
@@ -2601,8 +3928,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:1114:49: (iv_ruleCylinder= ruleCylinder EOF )
-            // InternalKinematics.g:1115:2: iv_ruleCylinder= ruleCylinder EOF
+            // InternalKinematicsParser.g:1681:49: (iv_ruleCylinder= ruleCylinder EOF )
+            // InternalKinematicsParser.g:1682:2: iv_ruleCylinder= ruleCylinder EOF
             {
              newCompositeNode(grammarAccess.getCylinderRule()); 
             pushFollow(FOLLOW_1);
@@ -2629,53 +3956,48 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCylinder"
-    // InternalKinematics.g:1121:1: ruleCylinder returns [EObject current=null] : (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' ) ;
+    // InternalKinematicsParser.g:1688:1: ruleCylinder returns [EObject current=null] : (this_BEGIN_0= RULE_BEGIN otherlv_1= Length ( (lv_length_2_0= ruleDouble0 ) ) otherlv_3= Radius ( (lv_radius_4_0= ruleDouble0 ) ) this_END_5= RULE_END ) ;
     public final EObject ruleCylinder() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
+        Token this_BEGIN_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_length_3_0 = null;
+        Token otherlv_3=null;
+        Token this_END_5=null;
+        AntlrDatatypeRuleToken lv_length_2_0 = null;
 
-        AntlrDatatypeRuleToken lv_radius_5_0 = null;
+        AntlrDatatypeRuleToken lv_radius_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:1127:2: ( (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' ) )
-            // InternalKinematics.g:1128:2: (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' )
+            // InternalKinematicsParser.g:1694:2: ( (this_BEGIN_0= RULE_BEGIN otherlv_1= Length ( (lv_length_2_0= ruleDouble0 ) ) otherlv_3= Radius ( (lv_radius_4_0= ruleDouble0 ) ) this_END_5= RULE_END ) )
+            // InternalKinematicsParser.g:1695:2: (this_BEGIN_0= RULE_BEGIN otherlv_1= Length ( (lv_length_2_0= ruleDouble0 ) ) otherlv_3= Radius ( (lv_radius_4_0= ruleDouble0 ) ) this_END_5= RULE_END )
             {
-            // InternalKinematics.g:1128:2: (otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}' )
-            // InternalKinematics.g:1129:3: otherlv_0= 'Cylinder' otherlv_1= '{' otherlv_2= 'length' ( (lv_length_3_0= ruleDouble0 ) ) otherlv_4= 'radius' ( (lv_radius_5_0= ruleDouble0 ) ) otherlv_6= '}'
+            // InternalKinematicsParser.g:1695:2: (this_BEGIN_0= RULE_BEGIN otherlv_1= Length ( (lv_length_2_0= ruleDouble0 ) ) otherlv_3= Radius ( (lv_radius_4_0= ruleDouble0 ) ) this_END_5= RULE_END )
+            // InternalKinematicsParser.g:1696:3: this_BEGIN_0= RULE_BEGIN otherlv_1= Length ( (lv_length_2_0= ruleDouble0 ) ) otherlv_3= Radius ( (lv_radius_4_0= ruleDouble0 ) ) this_END_5= RULE_END
             {
-            otherlv_0=(Token)match(input,51,FOLLOW_3); 
+            this_BEGIN_0=(Token)match(input,RULE_BEGIN,FOLLOW_50); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getCylinderAccess().getCylinderKeyword_0());
+            			newLeafNode(this_BEGIN_0, grammarAccess.getCylinderAccess().getBEGINTerminalRuleCall_0());
             		
-            otherlv_1=(Token)match(input,17,FOLLOW_38); 
+            otherlv_1=(Token)match(input,Length,FOLLOW_30); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getCylinderAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getCylinderAccess().getLengthKeyword_1());
             		
-            otherlv_2=(Token)match(input,52,FOLLOW_9); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getCylinderAccess().getLengthKeyword_2());
-            		
-            // InternalKinematics.g:1141:3: ( (lv_length_3_0= ruleDouble0 ) )
-            // InternalKinematics.g:1142:4: (lv_length_3_0= ruleDouble0 )
+            // InternalKinematicsParser.g:1704:3: ( (lv_length_2_0= ruleDouble0 ) )
+            // InternalKinematicsParser.g:1705:4: (lv_length_2_0= ruleDouble0 )
             {
-            // InternalKinematics.g:1142:4: (lv_length_3_0= ruleDouble0 )
-            // InternalKinematics.g:1143:5: lv_length_3_0= ruleDouble0
+            // InternalKinematicsParser.g:1705:4: (lv_length_2_0= ruleDouble0 )
+            // InternalKinematicsParser.g:1706:5: lv_length_2_0= ruleDouble0
             {
 
-            					newCompositeNode(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_39);
-            lv_length_3_0=ruleDouble0();
+            pushFollow(FOLLOW_51);
+            lv_length_2_0=ruleDouble0();
 
             state._fsp--;
 
@@ -2686,7 +4008,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"length",
-            						lv_length_3_0,
+            						lv_length_2_0,
             						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
             					afterParserOrEnumRuleCall();
             				
@@ -2696,21 +4018,21 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,53,FOLLOW_9); 
+            otherlv_3=(Token)match(input,Radius,FOLLOW_30); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getCylinderAccess().getRadiusKeyword_4());
+            			newLeafNode(otherlv_3, grammarAccess.getCylinderAccess().getRadiusKeyword_3());
             		
-            // InternalKinematics.g:1164:3: ( (lv_radius_5_0= ruleDouble0 ) )
-            // InternalKinematics.g:1165:4: (lv_radius_5_0= ruleDouble0 )
+            // InternalKinematicsParser.g:1727:3: ( (lv_radius_4_0= ruleDouble0 ) )
+            // InternalKinematicsParser.g:1728:4: (lv_radius_4_0= ruleDouble0 )
             {
-            // InternalKinematics.g:1165:4: (lv_radius_5_0= ruleDouble0 )
-            // InternalKinematics.g:1166:5: lv_radius_5_0= ruleDouble0
+            // InternalKinematicsParser.g:1728:4: (lv_radius_4_0= ruleDouble0 )
+            // InternalKinematicsParser.g:1729:5: lv_radius_4_0= ruleDouble0
             {
 
-            					newCompositeNode(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_5_0());
+            					newCompositeNode(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_4_0());
             				
-            pushFollow(FOLLOW_4);
-            lv_radius_5_0=ruleDouble0();
+            pushFollow(FOLLOW_15);
+            lv_radius_4_0=ruleDouble0();
 
             state._fsp--;
 
@@ -2721,7 +4043,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"radius",
-            						lv_radius_5_0,
+            						lv_radius_4_0,
             						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
             					afterParserOrEnumRuleCall();
             				
@@ -2731,9 +4053,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,18,FOLLOW_2); 
+            this_END_5=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getCylinderAccess().getRightCurlyBracketKeyword_6());
+            			newLeafNode(this_END_5, grammarAccess.getCylinderAccess().getENDTerminalRuleCall_5());
             		
 
             }
@@ -2758,7 +4080,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSphere"
-    // InternalKinematics.g:1191:1: entryRuleSphere returns [EObject current=null] : iv_ruleSphere= ruleSphere EOF ;
+    // InternalKinematicsParser.g:1754:1: entryRuleSphere returns [EObject current=null] : iv_ruleSphere= ruleSphere EOF ;
     public final EObject entryRuleSphere() throws RecognitionException {
         EObject current = null;
 
@@ -2766,8 +4088,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:1191:47: (iv_ruleSphere= ruleSphere EOF )
-            // InternalKinematics.g:1192:2: iv_ruleSphere= ruleSphere EOF
+            // InternalKinematicsParser.g:1754:47: (iv_ruleSphere= ruleSphere EOF )
+            // InternalKinematicsParser.g:1755:2: iv_ruleSphere= ruleSphere EOF
             {
              newCompositeNode(grammarAccess.getSphereRule()); 
             pushFollow(FOLLOW_1);
@@ -2794,50 +4116,45 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSphere"
-    // InternalKinematics.g:1198:1: ruleSphere returns [EObject current=null] : (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' ) ;
+    // InternalKinematicsParser.g:1761:1: ruleSphere returns [EObject current=null] : (this_BEGIN_0= RULE_BEGIN otherlv_1= Radius ( (lv_radius_2_0= ruleDouble0 ) ) this_END_3= RULE_END ) ;
     public final EObject ruleSphere() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
+        Token this_BEGIN_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        AntlrDatatypeRuleToken lv_radius_3_0 = null;
+        Token this_END_3=null;
+        AntlrDatatypeRuleToken lv_radius_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:1204:2: ( (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' ) )
-            // InternalKinematics.g:1205:2: (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' )
+            // InternalKinematicsParser.g:1767:2: ( (this_BEGIN_0= RULE_BEGIN otherlv_1= Radius ( (lv_radius_2_0= ruleDouble0 ) ) this_END_3= RULE_END ) )
+            // InternalKinematicsParser.g:1768:2: (this_BEGIN_0= RULE_BEGIN otherlv_1= Radius ( (lv_radius_2_0= ruleDouble0 ) ) this_END_3= RULE_END )
             {
-            // InternalKinematics.g:1205:2: (otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}' )
-            // InternalKinematics.g:1206:3: otherlv_0= 'Sphere' otherlv_1= '{' otherlv_2= 'radius' ( (lv_radius_3_0= ruleDouble0 ) ) otherlv_4= '}'
+            // InternalKinematicsParser.g:1768:2: (this_BEGIN_0= RULE_BEGIN otherlv_1= Radius ( (lv_radius_2_0= ruleDouble0 ) ) this_END_3= RULE_END )
+            // InternalKinematicsParser.g:1769:3: this_BEGIN_0= RULE_BEGIN otherlv_1= Radius ( (lv_radius_2_0= ruleDouble0 ) ) this_END_3= RULE_END
             {
-            otherlv_0=(Token)match(input,54,FOLLOW_3); 
+            this_BEGIN_0=(Token)match(input,RULE_BEGIN,FOLLOW_51); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getSphereAccess().getSphereKeyword_0());
+            			newLeafNode(this_BEGIN_0, grammarAccess.getSphereAccess().getBEGINTerminalRuleCall_0());
             		
-            otherlv_1=(Token)match(input,17,FOLLOW_39); 
+            otherlv_1=(Token)match(input,Radius,FOLLOW_30); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getSphereAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getSphereAccess().getRadiusKeyword_1());
             		
-            otherlv_2=(Token)match(input,53,FOLLOW_9); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getSphereAccess().getRadiusKeyword_2());
-            		
-            // InternalKinematics.g:1218:3: ( (lv_radius_3_0= ruleDouble0 ) )
-            // InternalKinematics.g:1219:4: (lv_radius_3_0= ruleDouble0 )
+            // InternalKinematicsParser.g:1777:3: ( (lv_radius_2_0= ruleDouble0 ) )
+            // InternalKinematicsParser.g:1778:4: (lv_radius_2_0= ruleDouble0 )
             {
-            // InternalKinematics.g:1219:4: (lv_radius_3_0= ruleDouble0 )
-            // InternalKinematics.g:1220:5: lv_radius_3_0= ruleDouble0
+            // InternalKinematicsParser.g:1778:4: (lv_radius_2_0= ruleDouble0 )
+            // InternalKinematicsParser.g:1779:5: lv_radius_2_0= ruleDouble0
             {
 
-            					newCompositeNode(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_4);
-            lv_radius_3_0=ruleDouble0();
+            pushFollow(FOLLOW_15);
+            lv_radius_2_0=ruleDouble0();
 
             state._fsp--;
 
@@ -2848,7 +4165,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"radius",
-            						lv_radius_3_0,
+            						lv_radius_2_0,
             						"de.fraunhofer.ipa.kinematics.Kinematics.Double0");
             					afterParserOrEnumRuleCall();
             				
@@ -2858,9 +4175,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,18,FOLLOW_2); 
+            this_END_3=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getSphereAccess().getRightCurlyBracketKeyword_4());
+            			newLeafNode(this_END_3, grammarAccess.getSphereAccess().getENDTerminalRuleCall_3());
             		
 
             }
@@ -2885,7 +4202,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMesh"
-    // InternalKinematics.g:1245:1: entryRuleMesh returns [EObject current=null] : iv_ruleMesh= ruleMesh EOF ;
+    // InternalKinematicsParser.g:1804:1: entryRuleMesh returns [EObject current=null] : iv_ruleMesh= ruleMesh EOF ;
     public final EObject entryRuleMesh() throws RecognitionException {
         EObject current = null;
 
@@ -2893,8 +4210,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:1245:45: (iv_ruleMesh= ruleMesh EOF )
-            // InternalKinematics.g:1246:2: iv_ruleMesh= ruleMesh EOF
+            // InternalKinematicsParser.g:1804:45: (iv_ruleMesh= ruleMesh EOF )
+            // InternalKinematicsParser.g:1805:2: iv_ruleMesh= ruleMesh EOF
             {
              newCompositeNode(grammarAccess.getMeshRule()); 
             pushFollow(FOLLOW_1);
@@ -2921,60 +4238,61 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMesh"
-    // InternalKinematics.g:1252:1: ruleMesh returns [EObject current=null] : (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' ) ;
+    // InternalKinematicsParser.g:1811:1: ruleMesh returns [EObject current=null] : (this_BEGIN_0= RULE_BEGIN otherlv_1= Filename ( (lv_filename_2_0= ruleEString ) ) (otherlv_3= Scale ( (lv_scale_4_0= ruleEString ) ) )? this_END_5= RULE_END ) ;
     public final EObject ruleMesh() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
+        Token this_BEGIN_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token lv_filename_3_0=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_scale_5_0 = null;
+        Token otherlv_3=null;
+        Token this_END_5=null;
+        AntlrDatatypeRuleToken lv_filename_2_0 = null;
+
+        AntlrDatatypeRuleToken lv_scale_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKinematics.g:1258:2: ( (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' ) )
-            // InternalKinematics.g:1259:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' )
+            // InternalKinematicsParser.g:1817:2: ( (this_BEGIN_0= RULE_BEGIN otherlv_1= Filename ( (lv_filename_2_0= ruleEString ) ) (otherlv_3= Scale ( (lv_scale_4_0= ruleEString ) ) )? this_END_5= RULE_END ) )
+            // InternalKinematicsParser.g:1818:2: (this_BEGIN_0= RULE_BEGIN otherlv_1= Filename ( (lv_filename_2_0= ruleEString ) ) (otherlv_3= Scale ( (lv_scale_4_0= ruleEString ) ) )? this_END_5= RULE_END )
             {
-            // InternalKinematics.g:1259:2: (otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}' )
-            // InternalKinematics.g:1260:3: otherlv_0= 'Mesh' otherlv_1= '{' otherlv_2= 'filename' ( (lv_filename_3_0= RULE_STRING ) ) (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )? otherlv_6= '}'
+            // InternalKinematicsParser.g:1818:2: (this_BEGIN_0= RULE_BEGIN otherlv_1= Filename ( (lv_filename_2_0= ruleEString ) ) (otherlv_3= Scale ( (lv_scale_4_0= ruleEString ) ) )? this_END_5= RULE_END )
+            // InternalKinematicsParser.g:1819:3: this_BEGIN_0= RULE_BEGIN otherlv_1= Filename ( (lv_filename_2_0= ruleEString ) ) (otherlv_3= Scale ( (lv_scale_4_0= ruleEString ) ) )? this_END_5= RULE_END
             {
-            otherlv_0=(Token)match(input,55,FOLLOW_3); 
+            this_BEGIN_0=(Token)match(input,RULE_BEGIN,FOLLOW_52); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getMeshAccess().getMeshKeyword_0());
+            			newLeafNode(this_BEGIN_0, grammarAccess.getMeshAccess().getBEGINTerminalRuleCall_0());
             		
-            otherlv_1=(Token)match(input,17,FOLLOW_40); 
+            otherlv_1=(Token)match(input,Filename,FOLLOW_5); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getMeshAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getMeshAccess().getFilenameKeyword_1());
             		
-            otherlv_2=(Token)match(input,56,FOLLOW_6); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getMeshAccess().getFilenameKeyword_2());
-            		
-            // InternalKinematics.g:1272:3: ( (lv_filename_3_0= RULE_STRING ) )
-            // InternalKinematics.g:1273:4: (lv_filename_3_0= RULE_STRING )
+            // InternalKinematicsParser.g:1827:3: ( (lv_filename_2_0= ruleEString ) )
+            // InternalKinematicsParser.g:1828:4: (lv_filename_2_0= ruleEString )
             {
-            // InternalKinematics.g:1273:4: (lv_filename_3_0= RULE_STRING )
-            // InternalKinematics.g:1274:5: lv_filename_3_0= RULE_STRING
+            // InternalKinematicsParser.g:1828:4: (lv_filename_2_0= ruleEString )
+            // InternalKinematicsParser.g:1829:5: lv_filename_2_0= ruleEString
             {
-            lv_filename_3_0=(Token)match(input,RULE_STRING,FOLLOW_41); 
 
-            					newLeafNode(lv_filename_3_0, grammarAccess.getMeshAccess().getFilenameSTRINGTerminalRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getMeshAccess().getFilenameEStringParserRuleCall_2_0());
             				
+            pushFollow(FOLLOW_53);
+            lv_filename_2_0=ruleEString();
+
+            state._fsp--;
+
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getMeshRule());
+            						current = createModelElementForParent(grammarAccess.getMeshRule());
             					}
-            					setWithLastConsumed(
+            					set(
             						current,
             						"filename",
-            						lv_filename_3_0,
-            						"org.eclipse.xtext.common.Terminals.STRING");
+            						lv_filename_2_0,
+            						"de.fraunhofer.ipa.kinematics.Kinematics.EString");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -2982,32 +4300,32 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalKinematics.g:1290:3: (otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) ) )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalKinematicsParser.g:1846:3: (otherlv_3= Scale ( (lv_scale_4_0= ruleEString ) ) )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA25_0==57) ) {
-                alt25=1;
+            if ( (LA39_0==Scale) ) {
+                alt39=1;
             }
-            switch (alt25) {
+            switch (alt39) {
                 case 1 :
-                    // InternalKinematics.g:1291:4: otherlv_4= 'scale' ( (lv_scale_5_0= ruleEString ) )
+                    // InternalKinematicsParser.g:1847:4: otherlv_3= Scale ( (lv_scale_4_0= ruleEString ) )
                     {
-                    otherlv_4=(Token)match(input,57,FOLLOW_6); 
+                    otherlv_3=(Token)match(input,Scale,FOLLOW_5); 
 
-                    				newLeafNode(otherlv_4, grammarAccess.getMeshAccess().getScaleKeyword_4_0());
+                    				newLeafNode(otherlv_3, grammarAccess.getMeshAccess().getScaleKeyword_3_0());
                     			
-                    // InternalKinematics.g:1295:4: ( (lv_scale_5_0= ruleEString ) )
-                    // InternalKinematics.g:1296:5: (lv_scale_5_0= ruleEString )
+                    // InternalKinematicsParser.g:1851:4: ( (lv_scale_4_0= ruleEString ) )
+                    // InternalKinematicsParser.g:1852:5: (lv_scale_4_0= ruleEString )
                     {
-                    // InternalKinematics.g:1296:5: (lv_scale_5_0= ruleEString )
-                    // InternalKinematics.g:1297:6: lv_scale_5_0= ruleEString
+                    // InternalKinematicsParser.g:1852:5: (lv_scale_4_0= ruleEString )
+                    // InternalKinematicsParser.g:1853:6: lv_scale_4_0= ruleEString
                     {
 
-                    						newCompositeNode(grammarAccess.getMeshAccess().getScaleEStringParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getMeshAccess().getScaleEStringParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_4);
-                    lv_scale_5_0=ruleEString();
+                    pushFollow(FOLLOW_15);
+                    lv_scale_4_0=ruleEString();
 
                     state._fsp--;
 
@@ -3018,7 +4336,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"scale",
-                    							lv_scale_5_0,
+                    							lv_scale_4_0,
                     							"de.fraunhofer.ipa.kinematics.Kinematics.EString");
                     						afterParserOrEnumRuleCall();
                     					
@@ -3034,9 +4352,9 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,18,FOLLOW_2); 
+            this_END_5=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getMeshAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(this_END_5, grammarAccess.getMeshAccess().getENDTerminalRuleCall_4());
             		
 
             }
@@ -3061,7 +4379,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalKinematics.g:1323:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalKinematicsParser.g:1879:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -3069,8 +4387,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:1323:47: (iv_ruleEString= ruleEString EOF )
-            // InternalKinematics.g:1324:2: iv_ruleEString= ruleEString EOF
+            // InternalKinematicsParser.g:1879:47: (iv_ruleEString= ruleEString EOF )
+            // InternalKinematicsParser.g:1880:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -3097,7 +4415,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalKinematics.g:1330:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_STRING_0= RULE_STRING ;
+    // InternalKinematicsParser.g:1886:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_STRING_0= RULE_STRING ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3107,8 +4425,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKinematics.g:1336:2: (this_STRING_0= RULE_STRING )
-            // InternalKinematics.g:1337:2: this_STRING_0= RULE_STRING
+            // InternalKinematicsParser.g:1892:2: (this_STRING_0= RULE_STRING )
+            // InternalKinematicsParser.g:1893:2: this_STRING_0= RULE_STRING
             {
             this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3137,7 +4455,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDouble0"
-    // InternalKinematics.g:1347:1: entryRuleDouble0 returns [String current=null] : iv_ruleDouble0= ruleDouble0 EOF ;
+    // InternalKinematicsParser.g:1903:1: entryRuleDouble0 returns [String current=null] : iv_ruleDouble0= ruleDouble0 EOF ;
     public final String entryRuleDouble0() throws RecognitionException {
         String current = null;
 
@@ -3145,8 +4463,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKinematics.g:1347:47: (iv_ruleDouble0= ruleDouble0 EOF )
-            // InternalKinematics.g:1348:2: iv_ruleDouble0= ruleDouble0 EOF
+            // InternalKinematicsParser.g:1903:47: (iv_ruleDouble0= ruleDouble0 EOF )
+            // InternalKinematicsParser.g:1904:2: iv_ruleDouble0= ruleDouble0 EOF
             {
              newCompositeNode(grammarAccess.getDouble0Rule()); 
             pushFollow(FOLLOW_1);
@@ -3173,7 +4491,7 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDouble0"
-    // InternalKinematics.g:1354:1: ruleDouble0 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_DOUBLE_0= RULE_DOUBLE ;
+    // InternalKinematicsParser.g:1910:1: ruleDouble0 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_DOUBLE_0= RULE_DOUBLE ;
     public final AntlrDatatypeRuleToken ruleDouble0() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3183,8 +4501,8 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKinematics.g:1360:2: (this_DOUBLE_0= RULE_DOUBLE )
-            // InternalKinematics.g:1361:2: this_DOUBLE_0= RULE_DOUBLE
+            // InternalKinematicsParser.g:1916:2: (this_DOUBLE_0= RULE_DOUBLE )
+            // InternalKinematicsParser.g:1917:2: this_DOUBLE_0= RULE_DOUBLE
             {
             this_DOUBLE_0=(Token)match(input,RULE_DOUBLE,FOLLOW_2); 
 
@@ -3211,6 +4529,121 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleDouble0"
 
+
+    // $ANTLR start "ruleParameterType"
+    // InternalKinematicsParser.g:1927:1: ruleParameterType returns [Enumerator current=null] : ( (enumLiteral_0= DigitZero ) | (enumLiteral_1= DigitOne ) | (enumLiteral_2= DigitTwo ) ) ;
+    public final Enumerator ruleParameterType() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalKinematicsParser.g:1933:2: ( ( (enumLiteral_0= DigitZero ) | (enumLiteral_1= DigitOne ) | (enumLiteral_2= DigitTwo ) ) )
+            // InternalKinematicsParser.g:1934:2: ( (enumLiteral_0= DigitZero ) | (enumLiteral_1= DigitOne ) | (enumLiteral_2= DigitTwo ) )
+            {
+            // InternalKinematicsParser.g:1934:2: ( (enumLiteral_0= DigitZero ) | (enumLiteral_1= DigitOne ) | (enumLiteral_2= DigitTwo ) )
+            int alt40=3;
+            switch ( input.LA(1) ) {
+            case DigitZero:
+                {
+                alt40=1;
+                }
+                break;
+            case DigitOne:
+                {
+                alt40=2;
+                }
+                break;
+            case DigitTwo:
+                {
+                alt40=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 40, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt40) {
+                case 1 :
+                    // InternalKinematicsParser.g:1935:3: (enumLiteral_0= DigitZero )
+                    {
+                    // InternalKinematicsParser.g:1935:3: (enumLiteral_0= DigitZero )
+                    // InternalKinematicsParser.g:1936:4: enumLiteral_0= DigitZero
+                    {
+                    enumLiteral_0=(Token)match(input,DigitZero,FOLLOW_2); 
+
+                    				current = grammarAccess.getParameterTypeAccess().getLinkEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getParameterTypeAccess().getLinkEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalKinematicsParser.g:1943:3: (enumLiteral_1= DigitOne )
+                    {
+                    // InternalKinematicsParser.g:1943:3: (enumLiteral_1= DigitOne )
+                    // InternalKinematicsParser.g:1944:4: enumLiteral_1= DigitOne
+                    {
+                    enumLiteral_1=(Token)match(input,DigitOne,FOLLOW_2); 
+
+                    				current = grammarAccess.getParameterTypeAccess().getStringEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getParameterTypeAccess().getStringEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalKinematicsParser.g:1951:3: (enumLiteral_2= DigitTwo )
+                    {
+                    // InternalKinematicsParser.g:1951:3: (enumLiteral_2= DigitTwo )
+                    // InternalKinematicsParser.g:1952:4: enumLiteral_2= DigitTwo
+                    {
+                    enumLiteral_2=(Token)match(input,DigitTwo,FOLLOW_2); 
+
+                    				current = grammarAccess.getParameterTypeAccess().getPoseEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getParameterTypeAccess().getPoseEnumLiteralDeclaration_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleParameterType"
+
     // Delegated rules
 
 
@@ -3218,44 +4651,56 @@ public class InternalKinematicsParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000140000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000540000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000000F040000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000000E040000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000000000C040000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000008040000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000000E0040000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000000C0040000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000080040000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000220000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000001000040000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000FC000040000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x00000F8000040000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000F0000040000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x00000E0000040000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x00000C0000040000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000080000040000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0001E00000040000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0001C00000040000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0001800000040000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0001000000040000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0004000000040000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0200000000040000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0200000000010000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0200400000000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0200000041000010L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0200400041000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0200400001000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0003800000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0200000800002000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0200000800000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0200000022000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0200000002000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0004000000000002L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0200000000200440L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0200000000200040L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0200000000000040L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0200280000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0200200000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0200000014004800L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0200000014000800L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0200000010000800L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0200000000000800L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0200000080021000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0200000080001000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0200000000001000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000020200L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x020007E000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x020007C000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0200078000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0200070000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0200060000000000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0200040000000000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0200001100100080L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0200000100100080L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0200000100100000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0200000100000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0200000008000000L});
 
 }

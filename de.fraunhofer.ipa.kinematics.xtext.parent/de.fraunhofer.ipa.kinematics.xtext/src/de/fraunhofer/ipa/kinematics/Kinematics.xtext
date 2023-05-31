@@ -8,142 +8,151 @@ import "http://www.eclipse.org/emf/2003/XMLType" as type
 
 Robot returns XacroRobot:
 	{XacroRobot}
-	'Robot'
-	'{'
+	'xacrorobot:'
+	BEGIN
+		'name:' name=EString
+		('macros:'
+			macros+=Macro*
+		)?
+//		('configuredMacros:'
+//			configuredMacros+=ConfiguredMacro*
+//		)?
+	END;	
 
-	'}';
+Macro returns Macro:
+	'-' 'name:' name=EString
+	BEGIN
+		('parameters:'
+			parameters+=Parameter*
+		)?
+		('link:'
+			link+=Link*
+		)?
+		('joint:'
+			joint+=Joint*
+		)?
+	END;
 
 Parameter returns Parameter:
 	{Parameter}
-	'Parameter'
-	name=EString
-	'{'
-	'}';
+	'-' 'name:' name=EString
+	BEGIN
+		'type:' type=ParameterType
+		('default' default=EString)?
+		('value' value=EString)?
+	END;
+
+enum ParameterType:
+	Link='0' | String='1' | Pose='2'
+;
 
 Joint returns urdf::Joint:
-	'Joint'
-	'{'
-		'name' name=EString
-		'type' type=JOINTTYPE
-		'parent' parent=[urdf::Link]
-		'child' child=[urdf::Link]
-		('origin' origin=Pose)?
-		('axis' axis=Axis)?
-		('limit' limit=Limit)?
-	'}';
+	'-' 'name:' name=EString
+	BEGIN
+		'type:' type=JOINTTYPE
+		'parent:' parent=[urdf::Link] 
+		'child:' child=[urdf::Link]
+		'origin:' origin=Pose
+		('axis:' axis=Vector3)?
+		('limit:' limit=Limit)?
+	END;
 
 Link returns urdf::Link:
-	'Link'
-	'{'
-		'name' name=EString
-		('inertial' inertial=Inertial)?
-		('visual' visual=Visual)?
-		('collision' collision=Collision)?
-	'}';
-
-Axis returns urdf::Axis:
-	{urdf::Axis}
-	'Axis'
-	'{'
-		('xyz' xyz=EString)?
-	'}';
+	'-' 'name:' name=EString
+	(':' BEGIN
+		('inertial:' inertial=Inertial)?
+		('visual:' visual=Visual)?
+		('collision:' collision=Collision)?
+	END)?;
 
 Pose returns urdf::Pose:
 	{urdf::Pose}
-	'Pose'
-	'{'
-		('rpy' rpy=EString)?
-		('xyz' xyz=EString)?
-	'}';
+	BEGIN
+		('rpy:' rpy=EString)?
+		('xyz:' xyz=EString)?
+	END;
+
+Vector3 returns urdf::Axis:
+	{urdf::Axis}
+	BEGIN
+		('xyz:' xyz=EString)?
+	END;
 
 Limit returns urdf::Limit:
 	{urdf::Limit}
-	'Limit'
-	'{'
-		('effort' effort=Double0)?
-		('lower' lower=Double0)?
-		('upper' upper=Double0)?
-		('velocity' velocity=Double0)?
-	'}';
+	BEGIN
+		('effort:' effort=Double0)?
+		('lower:' lower=Double0)?
+		('upper:' upper=Double0)?
+		('velocity:' velocity=Double0)?
+	END;
 
 Inertial returns urdf::Inertial:
 	{urdf::Inertial}
-	'Inertial'
-	'{'
-		('origin' origin=Pose)?
-		('mass' mass=Mass)?
-		('inertia' inertia=Inertia)?
-	'}';
+	BEGIN
+		('origin:' origin=Pose)?
+		('mass:' mass=Mass)?
+		('inertia:' inertia=Inertia)?
+	END;
 
 Visual returns urdf::Visual:
-	'Visual'
-	'{'
-		('origin' origin=Pose)?
-		'geometry' geometry=Geometry
-	'}';
+	BEGIN
+		('origin:' origin=Pose)?
+		'geometry:' geometry=Geometry
+	END;
 
 Collision returns urdf::Collision:
-	'Collision'
-	'{'
-		('origin' origin=Pose)?
-		'geometry' geometry=Geometry
-	'}';
+	BEGIN
+		('origin:' origin=Pose)?
+		'geometry:' geometry=Geometry
+	END;
 
 Mass returns urdf::Mass:
 	{urdf::Mass}
-	'Mass'
-	'{'
-		('value' value=Double0)?
-	'}';
+	value=Double0;
 
 Inertia returns urdf::Inertia:
 	{urdf::Inertia}
-	'Inertia'
-	'{'
-		('ixx' ixx=Double0)?
-		('ixy' ixy=Double0)?
-		('ixz' ixz=Double0)?
-		('iyy' iyy=Double0)?
-		('iyz' iyz=Double0)?
-		('izz' izz=Double0)?
-	'}';
+	BEGIN
+		('ixx:' ixx=Double0)?
+		('ixy:' ixy=Double0)?
+		('ixz:' ixz=Double0)?
+		('iyy:' iyy=Double0)?
+		('iyz:' iyz=Double0)?
+		('izz:' izz=Double0)?
+	END;
 
 Geometry returns urdf::Geometry:
 	{urdf::Geometry}
-	'Geometry'
-	'{'
-		('box' box=Box)?
-		('cylinder' cylinder=Cylinder)?
-		('sphere' sphere=Sphere)?
-		('mesh' mesh=Mesh)?
-	'}';
+	BEGIN
+		('box:' box=Box)?
+		('cylinder:' cylinder=Cylinder)?
+		('sphere:' sphere=Sphere)?
+		('mesh:' mesh=Mesh)?
+	END;
 
 Box returns urdf::Box:
 	{urdf::Box}
-	'Box'
-	'{'
-		('size' size=EString)?
-	'}';
+	BEGIN
+		'size' size=EString
+	END;
 
 Cylinder returns urdf::Cylinder:
-	'Cylinder'
-	'{'
-		'length' length=Double0
-		'radius' radius=Double0
-	'}';
+	BEGIN
+		'length:' length=Double0
+		'radius:' radius=Double0
+	END;
 
 Sphere returns urdf::Sphere:
-	'Sphere'
-	'{'
-		'radius' radius=Double0
-	'}';
+	BEGIN
+		'radius:' radius=Double0
+	END;
 
 Mesh returns urdf::Mesh:
-	'Mesh'
-	'{'
-		'filename' filename=STRING
-		('scale' scale=EString)?
-	'}';
+	BEGIN
+		'filename:' filename=EString
+		('scale:' scale=EString)?
+	END;
 
 AnyURI returns type::AnyURI:
 	'AnyURI' /* TODO: implement this rule and an appropriate IValueConverter */;
@@ -158,6 +167,16 @@ terminal BOOLEAN: 'true'|'false';
 terminal DOUBLE returns ecore::EDouble: DECINT (('.' DIGIT*) | (('.' DIGIT*)? ('E'|'e') ('-'|'+')? DECINT));  // Use terminal to avoid 'e' turning into a keyword
 terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
 terminal JOINTTYPE: 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar';
+
+///////////////////
+// YAML format
+///////////////////
+terminal BEGIN: 'synthetic:BEGIN';
+terminal END: 'synthetic:END';
+
+@Override 
+terminal SL_COMMENT: '#' !('\n'|'\r')*;
+
 
 Double0 returns type::Double:
 	DOUBLE;

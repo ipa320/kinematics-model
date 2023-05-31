@@ -8,7 +8,7 @@ import com.google.inject.Provider;
 import com.google.inject.name.Names;
 import de.fraunhofer.ipa.kinematics.ide.contentassist.antlr.KinematicsParser;
 import de.fraunhofer.ipa.kinematics.ide.contentassist.antlr.PartialKinematicsContentAssistParser;
-import de.fraunhofer.ipa.kinematics.ide.contentassist.antlr.internal.InternalKinematicsLexer;
+import de.fraunhofer.ipa.kinematics.ide.contentassist.antlr.lexer.InternalKinematicsLexer;
 import de.fraunhofer.ipa.kinematics.ui.contentassist.KinematicsProposalProvider;
 import de.fraunhofer.ipa.kinematics.ui.labeling.KinematicsDescriptionLabelProvider;
 import de.fraunhofer.ipa.kinematics.ui.labeling.KinematicsLabelProvider;
@@ -30,6 +30,8 @@ import org.eclipse.xtext.builder.nature.NatureAddingEditorCallback;
 import org.eclipse.xtext.builder.preferences.BuilderPreferenceAccess;
 import org.eclipse.xtext.generator.IContextualOutputConfigurationProvider;
 import org.eclipse.xtext.ide.LexerIdeBindings;
+import org.eclipse.xtext.ide.editor.contentassist.CompletionPrefixProvider;
+import org.eclipse.xtext.ide.editor.contentassist.IndentationAwareCompletionPrefixProvider;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.IContentAssistParser;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 import org.eclipse.xtext.ide.editor.partialEditing.IPartialEditingContentAssistParser;
@@ -112,7 +114,7 @@ public abstract class AbstractKinematicsUiModule extends DefaultUiModule {
 	public void configureHighlightingLexer(Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.HIGHLIGHTING))
-			.to(de.fraunhofer.ipa.kinematics.parser.antlr.internal.InternalKinematicsLexer.class);
+			.to(de.fraunhofer.ipa.kinematics.parser.antlr.lexer.InternalKinematicsLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
@@ -135,6 +137,11 @@ public abstract class AbstractKinematicsUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureContentAssistLexerProvider(Binder binder) {
 		binder.bind(InternalKinematicsLexer.class).toProvider(LexerProvider.create(InternalKinematicsLexer.class));
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends CompletionPrefixProvider> bindCompletionPrefixProvider() {
+		return IndentationAwareCompletionPrefixProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2

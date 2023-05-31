@@ -31,6 +31,7 @@ import urdf.Pose;
 import urdf.Sphere;
 import urdf.UrdfPackage;
 import urdf.Visual;
+import xacro.Macro;
 import xacro.XacroPackage;
 import xacro.XacroRobot;
 
@@ -49,7 +50,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (epackage == UrdfPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case UrdfPackage.AXIS:
-				sequence_Axis(context, (Axis) semanticObject); 
+				sequence_Vector3(context, (Axis) semanticObject); 
 				return; 
 			case UrdfPackage.BOX:
 				sequence_Box(context, (Box) semanticObject); 
@@ -96,6 +97,9 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 			}
 		else if (epackage == XacroPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case XacroPackage.MACRO:
+				sequence_Macro(context, (Macro) semanticObject); 
+				return; 
 			case XacroPackage.PARAMETER:
 				sequence_Parameter(context, (xacro.Parameter) semanticObject); 
 				return; 
@@ -110,28 +114,20 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Axis returns Axis
-	 *
-	 * Constraint:
-	 *     xyz=EString?
-	 * </pre>
-	 */
-	protected void sequence_Axis(ISerializationContext context, Axis semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Box returns Box
 	 *
 	 * Constraint:
-	 *     size=EString?
+	 *     size=EString
 	 * </pre>
 	 */
 	protected void sequence_Box(ISerializationContext context, Box semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UrdfPackage.Literals.BOX__SIZE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.BOX__SIZE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBoxAccess().getSizeEStringParserRuleCall_3_0(), semanticObject.getSize());
+		feeder.finish();
 	}
 	
 	
@@ -166,8 +162,8 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.CYLINDER__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_3_0(), semanticObject.getLength());
-		feeder.accept(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_5_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getCylinderAccess().getLengthDouble0ParserRuleCall_2_0(), semanticObject.getLength());
+		feeder.accept(grammarAccess.getCylinderAccess().getRadiusDouble0ParserRuleCall_4_0(), semanticObject.getRadius());
 		feeder.finish();
 	}
 	
@@ -232,8 +228,8 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         type=JOINTTYPE 
 	 *         parent=[Link|ID] 
 	 *         child=[Link|ID] 
-	 *         origin=Pose? 
-	 *         axis=Axis? 
+	 *         origin=Pose 
+	 *         axis=Vector3? 
 	 *         limit=Limit?
 	 *     )
 	 * </pre>
@@ -274,14 +270,34 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Macro returns Macro
+	 *
+	 * Constraint:
+	 *     (name=EString parameters+=Parameter* link+=Link* joint+=Joint*)
+	 * </pre>
+	 */
+	protected void sequence_Macro(ISerializationContext context, Macro semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Mass returns Mass
 	 *
 	 * Constraint:
-	 *     value=Double0?
+	 *     value=Double0
 	 * </pre>
 	 */
 	protected void sequence_Mass(ISerializationContext context, Mass semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UrdfPackage.Literals.MASS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.MASS__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMassAccess().getValueDouble0ParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -291,7 +307,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Mesh returns Mesh
 	 *
 	 * Constraint:
-	 *     (filename=STRING scale=EString?)
+	 *     (filename=EString scale=EString?)
 	 * </pre>
 	 */
 	protected void sequence_Mesh(ISerializationContext context, Mesh semanticObject) {
@@ -305,17 +321,11 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=EString type=ParameterType default=EString? value=EString?)
 	 * </pre>
 	 */
 	protected void sequence_Parameter(ISerializationContext context, xacro.Parameter semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, XacroPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XacroPackage.Literals.PARAMETER__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParameterAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -339,7 +349,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Robot returns XacroRobot
 	 *
 	 * Constraint:
-	 *     {XacroRobot}
+	 *     (name=EString macros+=Macro*)
 	 * </pre>
 	 */
 	protected void sequence_Robot(ISerializationContext context, XacroRobot semanticObject) {
@@ -362,8 +372,22 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrdfPackage.Literals.SPHERE__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_3_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getSphereAccess().getRadiusDouble0ParserRuleCall_2_0(), semanticObject.getRadius());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Vector3 returns Axis
+	 *
+	 * Constraint:
+	 *     xyz=EString?
+	 * </pre>
+	 */
+	protected void sequence_Vector3(ISerializationContext context, Axis semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
