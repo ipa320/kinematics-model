@@ -4,9 +4,9 @@ package urdf.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -14,16 +14,17 @@ import urdf.ActuatorTransmission;
 import urdf.Axis;
 import urdf.Box;
 import urdf.Calibration;
+import urdf.Child;
 import urdf.Collision;
 import urdf.Color;
 import urdf.Cylinder;
-import urdf.DocumentRoot;
 import urdf.Dynamics;
 import urdf.GapJointTransmission;
 import urdf.Geometry;
 import urdf.Inertia;
 import urdf.Inertial;
 import urdf.Joint;
+import urdf.JointType;
 import urdf.Limit;
 import urdf.Link;
 import urdf.Mass;
@@ -32,6 +33,7 @@ import urdf.MaterialGlobal;
 import urdf.Mesh;
 import urdf.Mimic;
 import urdf.Name;
+import urdf.Parent;
 import urdf.PassiveJointTransmission;
 import urdf.Pose;
 import urdf.Robot;
@@ -85,6 +87,13 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass childEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass collisionEClass = null;
 
 	/**
@@ -100,13 +109,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * @generated
 	 */
 	private EClass cylinderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass documentRootEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,6 +213,13 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass parentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass passiveJointTransmissionEClass = null;
 
 	/**
@@ -277,6 +286,13 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	private EClass visualEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum jointTypeEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -322,9 +338,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		UrdfPackageImpl theUrdfPackage = registeredUrdfPackage instanceof UrdfPackageImpl ? (UrdfPackageImpl)registeredUrdfPackage : new UrdfPackageImpl();
 
 		isInited = true;
-
-		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theUrdfPackage.createPackageContents();
@@ -444,6 +457,24 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getChild() {
+		return childEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChild_Link() {
+		return (EAttribute)childEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCollision() {
 		return collisionEClass;
 	}
@@ -527,51 +558,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 */
 	public EAttribute getCylinder_Radius() {
 		return (EAttribute)cylinderEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDocumentRoot() {
-		return documentRootEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDocumentRoot_Mixed() {
-		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_XMLNSPrefixMap() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_XSISchemaLocation() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocumentRoot_Robot() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1245,6 +1231,24 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getParent() {
+		return parentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParent_Link() {
+		return (EAttribute)parentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPassiveJointTransmission() {
 		return passiveJointTransmissionEClass;
 	}
@@ -1614,6 +1618,15 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getJointType() {
+		return jointTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UrdfFactory getUrdfFactory() {
 		return (UrdfFactory)getEFactoryInstance();
 	}
@@ -1652,6 +1665,9 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEAttribute(calibrationEClass, CALIBRATION__REFERENCE_POSITION);
 		createEAttribute(calibrationEClass, CALIBRATION__RISING);
 
+		childEClass = createEClass(CHILD);
+		createEAttribute(childEClass, CHILD__LINK);
+
 		collisionEClass = createEClass(COLLISION);
 		createEReference(collisionEClass, COLLISION__ORIGIN);
 		createEReference(collisionEClass, COLLISION__GEOMETRY);
@@ -1664,12 +1680,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		cylinderEClass = createEClass(CYLINDER);
 		createEAttribute(cylinderEClass, CYLINDER__LENGTH);
 		createEAttribute(cylinderEClass, CYLINDER__RADIUS);
-
-		documentRootEClass = createEClass(DOCUMENT_ROOT);
-		createEAttribute(documentRootEClass, DOCUMENT_ROOT__MIXED);
-		createEReference(documentRootEClass, DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
-		createEReference(documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
-		createEReference(documentRootEClass, DOCUMENT_ROOT__ROBOT);
 
 		dynamicsEClass = createEClass(DYNAMICS);
 		createEAttribute(dynamicsEClass, DYNAMICS__DAMPING);
@@ -1759,6 +1769,9 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		nameEClass = createEClass(NAME);
 		createEAttribute(nameEClass, NAME__NAME);
 
+		parentEClass = createEClass(PARENT);
+		createEAttribute(parentEClass, PARENT__LINK);
+
 		passiveJointTransmissionEClass = createEClass(PASSIVE_JOINT_TRANSMISSION);
 		createEAttribute(passiveJointTransmissionEClass, PASSIVE_JOINT_TRANSMISSION__NAME);
 
@@ -1809,6 +1822,9 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		createEReference(visualEClass, VISUAL__ORIGIN);
 		createEReference(visualEClass, VISUAL__GEOMETRY);
 		createEReference(visualEClass, VISUAL__MATERIAL);
+
+		// Create enums
+		jointTypeEEnum = createEEnum(JOINT_TYPE);
 	}
 
 	/**
@@ -1834,9 +1850,6 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -1859,6 +1872,9 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEAttribute(getCalibration_ReferencePosition(), ecorePackage.getEDouble(), "referencePosition", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCalibration_Rising(), ecorePackage.getEDouble(), "rising", null, 0, 1, Calibration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChild_Link(), ecorePackage.getEString(), "link", null, 1, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(collisionEClass, Collision.class, "Collision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCollision_Origin(), this.getPose(), null, "origin", null, 0, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCollision_Geometry(), this.getGeometry(), null, "geometry", null, 1, 1, Collision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1869,14 +1885,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEAttribute(getColor_Rgba(), ecorePackage.getEString(), "rgba", "0 0 0 0", 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cylinderEClass, Cylinder.class, "Cylinder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCylinder_Length(), ecorePackage.getEDouble(), "length", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCylinder_Radius(), ecorePackage.getEDouble(), "radius", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, DocumentRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XMLNSPrefixMap(), theEcorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, DocumentRoot.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XSISchemaLocation(), theEcorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, DocumentRoot.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_Robot(), this.getRobot(), null, "robot", null, 0, -2, DocumentRoot.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCylinder_Length(), ecorePackage.getEString(), "length", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCylinder_Radius(), ecorePackage.getEString(), "radius", null, 1, 1, Cylinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dynamicsEClass, Dynamics.class, "Dynamics", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDynamics_Damping(), ecorePackage.getEDouble(), "damping", "0", 0, 1, Dynamics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1917,8 +1927,8 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Child(), this.getLink(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Parent(), this.getParent(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoint_Child(), this.getChild(), null, "child", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Axis(), this.getAxis(), null, "axis", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Calibration(), this.getCalibration(), null, "calibration", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoint_Dynamics(), this.getDynamics(), null, "dynamics", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1956,7 +1966,7 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 
 		initEClass(meshEClass, Mesh.class, "Mesh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMesh_Filename(), ecorePackage.getEString(), "filename", null, 1, 1, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMesh_Scale(), ecorePackage.getEString(), "scale", "1 1 1", 0, 1, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMesh_Scale(), ecorePackage.getEDouble(), "scale", "1", 0, 3, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mimicEClass, Mimic.class, "Mimic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMimic_Joint(), ecorePackage.getEString(), "joint", null, 1, 1, Mimic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1966,12 +1976,15 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEClass(nameEClass, Name.class, "Name", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getName_Name(), ecorePackage.getEString(), "name", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(parentEClass, Parent.class, "Parent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParent_Link(), ecorePackage.getEString(), "link", null, 1, 1, Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(passiveJointTransmissionEClass, PassiveJointTransmission.class, "PassiveJointTransmission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPassiveJointTransmission_Name(), ecorePackage.getEString(), "name", null, 1, 1, PassiveJointTransmission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", "0 0 0", 0, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", "0 0 0", 0, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPose_Rpy(), ecorePackage.getEDouble(), "rpy", "0", 0, 3, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPose_Xyz(), ecorePackage.getEDouble(), "xyz", "0", 0, 3, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRobot_Joint(), this.getJoint(), null, "joint", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2016,6 +2029,9 @@ public class UrdfPackageImpl extends EPackageImpl implements UrdfPackage {
 		initEReference(getVisual_Origin(), this.getPose(), null, "origin", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVisual_Geometry(), this.getGeometry(), null, "geometry", null, 1, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVisual_Material(), this.getMaterial(), null, "material", null, 0, 1, Visual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(jointTypeEEnum, JointType.class, "JointType");
 
 		// Create resource
 		createResource(eNS_URI);

@@ -2,12 +2,16 @@
  */
 package urdf.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import urdf.Pose;
 import urdf.UrdfPackage;
@@ -28,62 +32,24 @@ import urdf.UrdfPackage;
  */
 public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	/**
-	 * The default value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
+	 * The cached value of the '{@link #getRpy() <em>Rpy</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRpy()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String RPY_EDEFAULT = "0 0 0";
+	protected EList<Double> rpy;
 
 	/**
-	 * The cached value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRpy()
-	 * @generated
-	 * @ordered
-	 */
-	protected String rpy = RPY_EDEFAULT;
-
-	/**
-	 * This is true if the Rpy attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean rpyESet;
-
-	/**
-	 * The default value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
+	 * The cached value of the '{@link #getXyz() <em>Xyz</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getXyz()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String XYZ_EDEFAULT = "0 0 0";
-
-	/**
-	 * The cached value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getXyz()
-	 * @generated
-	 * @ordered
-	 */
-	protected String xyz = XYZ_EDEFAULT;
-
-	/**
-	 * This is true if the Xyz attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean xyzESet;
+	protected EList<Double> xyz;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +75,10 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRpy() {
+	public EList<Double> getRpy() {
+		if (rpy == null) {
+			rpy = new EDataTypeEList.Unsettable<Double>(Double.class, this, UrdfPackage.POSE__RPY);
+		}
 		return rpy;
 	}
 
@@ -118,27 +87,8 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRpy(String newRpy) {
-		String oldRpy = rpy;
-		rpy = newRpy;
-		boolean oldRpyESet = rpyESet;
-		rpyESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.POSE__RPY, oldRpy, rpy, !oldRpyESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void unsetRpy() {
-		String oldRpy = rpy;
-		boolean oldRpyESet = rpyESet;
-		rpy = RPY_EDEFAULT;
-		rpyESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, UrdfPackage.POSE__RPY, oldRpy, RPY_EDEFAULT, oldRpyESet));
+		if (rpy != null) ((InternalEList.Unsettable<?>)rpy).unset();
 	}
 
 	/**
@@ -147,7 +97,7 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * @generated
 	 */
 	public boolean isSetRpy() {
-		return rpyESet;
+		return rpy != null && ((InternalEList.Unsettable<?>)rpy).isSet();
 	}
 
 	/**
@@ -155,7 +105,10 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getXyz() {
+	public EList<Double> getXyz() {
+		if (xyz == null) {
+			xyz = new EDataTypeEList.Unsettable<Double>(Double.class, this, UrdfPackage.POSE__XYZ);
+		}
 		return xyz;
 	}
 
@@ -164,27 +117,8 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setXyz(String newXyz) {
-		String oldXyz = xyz;
-		xyz = newXyz;
-		boolean oldXyzESet = xyzESet;
-		xyzESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.POSE__XYZ, oldXyz, xyz, !oldXyzESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void unsetXyz() {
-		String oldXyz = xyz;
-		boolean oldXyzESet = xyzESet;
-		xyz = XYZ_EDEFAULT;
-		xyzESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, UrdfPackage.POSE__XYZ, oldXyz, XYZ_EDEFAULT, oldXyzESet));
+		if (xyz != null) ((InternalEList.Unsettable<?>)xyz).unset();
 	}
 
 	/**
@@ -193,7 +127,7 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * @generated
 	 */
 	public boolean isSetXyz() {
-		return xyzESet;
+		return xyz != null && ((InternalEList.Unsettable<?>)xyz).isSet();
 	}
 
 	/**
@@ -217,14 +151,17 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UrdfPackage.POSE__RPY:
-				setRpy((String)newValue);
+				getRpy().clear();
+				getRpy().addAll((Collection<? extends Double>)newValue);
 				return;
 			case UrdfPackage.POSE__XYZ:
-				setXyz((String)newValue);
+				getXyz().clear();
+				getXyz().addAll((Collection<? extends Double>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,9 +212,9 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (rpy: ");
-		if (rpyESet) result.append(rpy); else result.append("<unset>");
+		result.append(rpy);
 		result.append(", xyz: ");
-		if (xyzESet) result.append(xyz); else result.append("<unset>");
+		result.append(xyz);
 		result.append(')');
 		return result.toString();
 	}

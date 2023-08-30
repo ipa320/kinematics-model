@@ -164,6 +164,29 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link urdf.Child} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChildItemProvider childItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link urdf.Child}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChildAdapter() {
+		if (childItemProvider == null) {
+			childItemProvider = new ChildItemProvider(this);
+		}
+
+		return childItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link urdf.Collision} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,29 +253,6 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 		}
 
 		return cylinderItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link urdf.DocumentRoot} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DocumentRootItemProvider documentRootItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link urdf.DocumentRoot}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDocumentRootAdapter() {
-		if (documentRootItemProvider == null) {
-			documentRootItemProvider = new DocumentRootItemProvider(this);
-		}
-
-		return documentRootItemProvider;
 	}
 
 	/**
@@ -575,6 +575,29 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 		}
 
 		return nameItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link urdf.Parent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParentItemProvider parentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link urdf.Parent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParentAdapter() {
+		if (parentItemProvider == null) {
+			parentItemProvider = new ParentItemProvider(this);
+		}
+
+		return parentItemProvider;
 	}
 
 	/**
@@ -910,10 +933,10 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 		if (axisItemProvider != null) axisItemProvider.dispose();
 		if (boxItemProvider != null) boxItemProvider.dispose();
 		if (calibrationItemProvider != null) calibrationItemProvider.dispose();
+		if (childItemProvider != null) childItemProvider.dispose();
 		if (collisionItemProvider != null) collisionItemProvider.dispose();
 		if (colorItemProvider != null) colorItemProvider.dispose();
 		if (cylinderItemProvider != null) cylinderItemProvider.dispose();
-		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
 		if (dynamicsItemProvider != null) dynamicsItemProvider.dispose();
 		if (gapJointTransmissionItemProvider != null) gapJointTransmissionItemProvider.dispose();
 		if (geometryItemProvider != null) geometryItemProvider.dispose();
@@ -928,6 +951,7 @@ public class UrdfItemProviderAdapterFactory extends UrdfAdapterFactory implement
 		if (meshItemProvider != null) meshItemProvider.dispose();
 		if (mimicItemProvider != null) mimicItemProvider.dispose();
 		if (nameItemProvider != null) nameItemProvider.dispose();
+		if (parentItemProvider != null) parentItemProvider.dispose();
 		if (passiveJointTransmissionItemProvider != null) passiveJointTransmissionItemProvider.dispose();
 		if (poseItemProvider != null) poseItemProvider.dispose();
 		if (robotItemProvider != null) robotItemProvider.dispose();

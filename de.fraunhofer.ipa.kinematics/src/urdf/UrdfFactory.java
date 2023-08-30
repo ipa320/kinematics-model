@@ -58,6 +58,15 @@ public interface UrdfFactory extends EFactory {
 	Calibration createCalibration();
 
 	/**
+	 * Returns a new object of class '<em>Child</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Child</em>'.
+	 * @generated
+	 */
+	Child createChild();
+
+	/**
 	 * Returns a new object of class '<em>Collision</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,15 +92,6 @@ public interface UrdfFactory extends EFactory {
 	 * @generated
 	 */
 	Cylinder createCylinder();
-
-	/**
-	 * Returns a new object of class '<em>Document Root</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Document Root</em>'.
-	 * @generated
-	 */
-	DocumentRoot createDocumentRoot();
 
 	/**
 	 * Returns a new object of class '<em>Dynamics</em>'.
@@ -218,6 +218,15 @@ public interface UrdfFactory extends EFactory {
 	 * @generated
 	 */
 	Name createName();
+
+	/**
+	 * Returns a new object of class '<em>Parent</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parent</em>'.
+	 * @generated
+	 */
+	Parent createParent();
 
 	/**
 	 * Returns a new object of class '<em>Passive Joint Transmission</em>'.

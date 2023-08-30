@@ -54,48 +54,48 @@ public interface Joint extends EObject {
 	void setOrigin(Pose value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * Returns the value of the '<em><b>Parent</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
-	 * @see #setParent(Link)
+	 * @return the value of the '<em>Parent</em>' containment reference.
+	 * @see #setParent(Parent)
 	 * @see urdf.UrdfPackage#getJoint_Parent()
-	 * @model resolveProxies="false" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Link getParent();
+	Parent getParent();
 
 	/**
-	 * Sets the value of the '{@link urdf.Joint#getParent <em>Parent</em>}' reference.
+	 * Sets the value of the '{@link urdf.Joint#getParent <em>Parent</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' reference.
+	 * @param value the new value of the '<em>Parent</em>' containment reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-	void setParent(Link value);
+	void setParent(Parent value);
 
 	/**
-	 * Returns the value of the '<em><b>Child</b></em>' reference.
+	 * Returns the value of the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child</em>' reference.
-	 * @see #setChild(Link)
+	 * @return the value of the '<em>Child</em>' containment reference.
+	 * @see #setChild(Child)
 	 * @see urdf.UrdfPackage#getJoint_Child()
-	 * @model resolveProxies="false" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Link getChild();
+	Child getChild();
 
 	/**
-	 * Sets the value of the '{@link urdf.Joint#getChild <em>Child</em>}' reference.
+	 * Sets the value of the '{@link urdf.Joint#getChild <em>Child</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Child</em>' reference.
+	 * @param value the new value of the '<em>Child</em>' containment reference.
 	 * @see #getChild()
 	 * @generated
 	 */
-	void setChild(Link value);
+	void setChild(Child value);
 
 	/**
 	 * Returns the value of the '<em><b>Axis</b></em>' containment reference.

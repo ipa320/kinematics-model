@@ -63,56 +63,10 @@ public class JointItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParentPropertyDescriptor(object);
-			addChildPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Parent feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Joint_parent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Joint_parent_feature", "_UI_Joint_type"),
-				 UrdfPackage.Literals.JOINT__PARENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Child feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addChildPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Joint_child_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Joint_child_feature", "_UI_Joint_type"),
-				 UrdfPackage.Literals.JOINT__CHILD,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -172,6 +126,8 @@ public class JointItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__ORIGIN);
+			childrenFeatures.add(UrdfPackage.Literals.JOINT__PARENT);
+			childrenFeatures.add(UrdfPackage.Literals.JOINT__CHILD);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__AXIS);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__CALIBRATION);
 			childrenFeatures.add(UrdfPackage.Literals.JOINT__DYNAMICS);
@@ -238,6 +194,8 @@ public class JointItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case UrdfPackage.JOINT__ORIGIN:
+			case UrdfPackage.JOINT__PARENT:
+			case UrdfPackage.JOINT__CHILD:
 			case UrdfPackage.JOINT__AXIS:
 			case UrdfPackage.JOINT__CALIBRATION:
 			case UrdfPackage.JOINT__DYNAMICS:
@@ -265,6 +223,16 @@ public class JointItemProvider
 			(createChildParameter
 				(UrdfPackage.Literals.JOINT__ORIGIN,
 				 UrdfFactory.eINSTANCE.createPose()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UrdfPackage.Literals.JOINT__PARENT,
+				 UrdfFactory.eINSTANCE.createParent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UrdfPackage.Literals.JOINT__CHILD,
+				 UrdfFactory.eINSTANCE.createChild()));
 
 		newChildDescriptors.add
 			(createChildParameter

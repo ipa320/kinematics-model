@@ -83,7 +83,7 @@ public class CylinderItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -105,7 +105,7 @@ public class CylinderItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -129,8 +129,10 @@ public class CylinderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Cylinder cylinder = (Cylinder)object;
-		return getString("_UI_Cylinder_type") + " " + cylinder.getLength();
+		String label = ((Cylinder)object).getLength();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Cylinder_type") :
+			getString("_UI_Cylinder_type") + " " + label;
 	}
 
 

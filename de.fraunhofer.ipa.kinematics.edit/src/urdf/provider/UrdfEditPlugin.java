@@ -6,8 +6,6 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
 /**
  * This is the central singleton for the Urdf edit plugin.
  * <!-- begin-user-doc -->
@@ -40,7 +38,6 @@ public final class UrdfEditPlugin extends EMFPlugin {
 	public UrdfEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     EcoreEditPlugin.INSTANCE,
 		   });
 	}
 

@@ -3,10 +3,10 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.ipa.kinematics/src" modelPluginID="de.fraunhofer.ipa.kinematics"
     modelName="Urdf" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
-    importOrganizing="true">
+    operationReflection="true" importOrganizing="true">
   <foreignModel>urdf.ecore</foreignModel>
   <genPackages prefix="Urdf" disposableProviderFactory="true" ecorePackage="urdf.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="urdf.ecore#//JointType"/>
     <genClasses ecoreClass="urdf.ecore#//ActuatorTransmission">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//ActuatorTransmission/mechanicalReduction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//ActuatorTransmission/name"/>
@@ -22,6 +22,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Calibration/referencePosition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Calibration/rising"/>
     </genClasses>
+    <genClasses ecoreClass="urdf.ecore#//Child">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Child/link"/>
+    </genClasses>
     <genClasses ecoreClass="urdf.ecore#//Collision">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Collision/origin"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Collision/geometry"/>
@@ -34,12 +37,6 @@
     <genClasses ecoreClass="urdf.ecore#//Cylinder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Cylinder/length"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Cylinder/radius"/>
-    </genClasses>
-    <genClasses ecoreClass="urdf.ecore#//DocumentRoot">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute urdf.ecore#//DocumentRoot/mixed"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//DocumentRoot/xMLNSPrefixMap"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//DocumentRoot/xSISchemaLocation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//DocumentRoot/robot"/>
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//Dynamics">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Dynamics/damping"/>
@@ -80,8 +77,8 @@
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//Joint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/origin"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/parent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/child"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/child"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/axis"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/calibration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference urdf.ecore#//Joint/dynamics"/>
@@ -128,6 +125,9 @@
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//Name">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Name/name"/>
+    </genClasses>
+    <genClasses ecoreClass="urdf.ecore#//Parent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//Parent/link"/>
     </genClasses>
     <genClasses ecoreClass="urdf.ecore#//PassiveJointTransmission">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute urdf.ecore#//PassiveJointTransmission/name"/>

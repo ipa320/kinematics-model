@@ -4,6 +4,7 @@ package urdf;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -232,6 +233,43 @@ public interface UrdfPackage extends EPackage {
 	int CALIBRATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link urdf.impl.ChildImpl <em>Child</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see urdf.impl.ChildImpl
+	 * @see urdf.impl.UrdfPackageImpl#getChild()
+	 * @generated
+	 */
+	int CHILD = 4;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD__LINK = 0;
+
+	/**
+	 * The number of structural features of the '<em>Child</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Child</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link urdf.impl.CollisionImpl <em>Collision</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -239,7 +277,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getCollision()
 	 * @generated
 	 */
-	int COLLISION = 4;
+	int COLLISION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Origin</b></em>' containment reference.
@@ -303,7 +341,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 5;
+	int COLOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Rgba</b></em>' attribute.
@@ -340,7 +378,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getCylinder()
 	 * @generated
 	 */
-	int CYLINDER = 6;
+	int CYLINDER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
@@ -377,70 +415,6 @@ public interface UrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int CYLINDER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link urdf.impl.DocumentRootImpl <em>Document Root</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see urdf.impl.DocumentRootImpl
-	 * @see urdf.impl.UrdfPackageImpl#getDocumentRoot()
-	 * @generated
-	 */
-	int DOCUMENT_ROOT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__MIXED = 0;
-
-	/**
-	 * The feature id for the '<em><b>XMLNS Prefix Map</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__XMLNS_PREFIX_MAP = 1;
-
-	/**
-	 * The feature id for the '<em><b>XSI Schema Location</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Robot</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__ROBOT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Document Root</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Document Root</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link urdf.impl.DynamicsImpl <em>Dynamics</em>}' class.
@@ -845,7 +819,7 @@ public interface UrdfPackage extends EPackage {
 	int JOINT__ORIGIN = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * The feature id for the '<em><b>Parent</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -854,7 +828,7 @@ public interface UrdfPackage extends EPackage {
 	int JOINT__PARENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' reference.
+	 * The feature id for the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1256,7 +1230,7 @@ public interface UrdfPackage extends EPackage {
 	int MESH__FILENAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Scale</b></em>' attribute.
+	 * The feature id for the '<em><b>Scale</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1375,6 +1349,43 @@ public interface UrdfPackage extends EPackage {
 	int NAME_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link urdf.impl.ParentImpl <em>Parent</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see urdf.impl.ParentImpl
+	 * @see urdf.impl.UrdfPackageImpl#getParent()
+	 * @generated
+	 */
+	int PARENT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT__LINK = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parent</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parent</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link urdf.impl.PassiveJointTransmissionImpl <em>Passive Joint Transmission</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1382,7 +1393,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getPassiveJointTransmission()
 	 * @generated
 	 */
-	int PASSIVE_JOINT_TRANSMISSION = 22;
+	int PASSIVE_JOINT_TRANSMISSION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1419,10 +1430,10 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getPose()
 	 * @generated
 	 */
-	int POSE = 23;
+	int POSE = 24;
 
 	/**
-	 * The feature id for the '<em><b>Rpy</b></em>' attribute.
+	 * The feature id for the '<em><b>Rpy</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1431,7 +1442,7 @@ public interface UrdfPackage extends EPackage {
 	int POSE__RPY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Xyz</b></em>' attribute.
+	 * The feature id for the '<em><b>Xyz</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1465,7 +1476,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getRobot()
 	 * @generated
 	 */
-	int ROBOT = 24;
+	int ROBOT = 25;
 
 	/**
 	 * The feature id for the '<em><b>Joint</b></em>' containment reference list.
@@ -1547,7 +1558,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getSafetyController()
 	 * @generated
 	 */
-	int SAFETY_CONTROLLER = 25;
+	int SAFETY_CONTROLLER = 26;
 
 	/**
 	 * The feature id for the '<em><b>KPosition</b></em>' attribute.
@@ -1611,7 +1622,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getSphere()
 	 * @generated
 	 */
-	int SPHERE = 26;
+	int SPHERE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Radius</b></em>' attribute.
@@ -1648,7 +1659,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getTexture()
 	 * @generated
 	 */
-	int TEXTURE = 27;
+	int TEXTURE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Filename</b></em>' attribute.
@@ -1685,7 +1696,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getTransmission()
 	 * @generated
 	 */
-	int TRANSMISSION = 28;
+	int TRANSMISSION = 29;
 
 	/**
 	 * The feature id for the '<em><b>Left Actuator</b></em>' containment reference list.
@@ -1821,7 +1832,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getUseSimulatedGripperJointType()
 	 * @generated
 	 */
-	int USE_SIMULATED_GRIPPER_JOINT_TYPE = 29;
+	int USE_SIMULATED_GRIPPER_JOINT_TYPE = 30;
 
 	/**
 	 * The number of structural features of the '<em>Use Simulated Gripper Joint Type</em>' class.
@@ -1849,7 +1860,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getVerbose()
 	 * @generated
 	 */
-	int VERBOSE = 30;
+	int VERBOSE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1886,7 +1897,7 @@ public interface UrdfPackage extends EPackage {
 	 * @see urdf.impl.UrdfPackageImpl#getVisual()
 	 * @generated
 	 */
-	int VISUAL = 31;
+	int VISUAL = 32;
 
 	/**
 	 * The feature id for the '<em><b>Origin</b></em>' containment reference.
@@ -1932,6 +1943,16 @@ public interface UrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int VISUAL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link urdf.JointType <em>Joint Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see urdf.JointType
+	 * @see urdf.impl.UrdfPackageImpl#getJointType()
+	 * @generated
+	 */
+	int JOINT_TYPE = 33;
 
 
 	/**
@@ -2052,6 +2073,27 @@ public interface UrdfPackage extends EPackage {
 	EAttribute getCalibration_Rising();
 
 	/**
+	 * Returns the meta object for class '{@link urdf.Child <em>Child</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Child</em>'.
+	 * @see urdf.Child
+	 * @generated
+	 */
+	EClass getChild();
+
+	/**
+	 * Returns the meta object for the attribute '{@link urdf.Child#getLink <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Link</em>'.
+	 * @see urdf.Child#getLink()
+	 * @see #getChild()
+	 * @generated
+	 */
+	EAttribute getChild_Link();
+
+	/**
 	 * Returns the meta object for class '{@link urdf.Collision <em>Collision</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2157,60 +2199,6 @@ public interface UrdfPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCylinder_Radius();
-
-	/**
-	 * Returns the meta object for class '{@link urdf.DocumentRoot <em>Document Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Document Root</em>'.
-	 * @see urdf.DocumentRoot
-	 * @generated
-	 */
-	EClass getDocumentRoot();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link urdf.DocumentRoot#getMixed <em>Mixed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see urdf.DocumentRoot#getMixed()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EAttribute getDocumentRoot_Mixed();
-
-	/**
-	 * Returns the meta object for the map '{@link urdf.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
-	 * @see urdf.DocumentRoot#getXMLNSPrefixMap()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_XMLNSPrefixMap();
-
-	/**
-	 * Returns the meta object for the map '{@link urdf.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>XSI Schema Location</em>'.
-	 * @see urdf.DocumentRoot#getXSISchemaLocation()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_XSISchemaLocation();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link urdf.DocumentRoot#getRobot <em>Robot</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Robot</em>'.
-	 * @see urdf.DocumentRoot#getRobot()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_Robot();
 
 	/**
 	 * Returns the meta object for class '{@link urdf.Dynamics <em>Dynamics</em>}'.
@@ -2581,10 +2569,10 @@ public interface UrdfPackage extends EPackage {
 	EReference getJoint_Origin();
 
 	/**
-	 * Returns the meta object for the reference '{@link urdf.Joint#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the containment reference '{@link urdf.Joint#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @return the meta object for the containment reference '<em>Parent</em>'.
 	 * @see urdf.Joint#getParent()
 	 * @see #getJoint()
 	 * @generated
@@ -2592,10 +2580,10 @@ public interface UrdfPackage extends EPackage {
 	EReference getJoint_Parent();
 
 	/**
-	 * Returns the meta object for the reference '{@link urdf.Joint#getChild <em>Child</em>}'.
+	 * Returns the meta object for the containment reference '{@link urdf.Joint#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Child</em>'.
+	 * @return the meta object for the containment reference '<em>Child</em>'.
 	 * @see urdf.Joint#getChild()
 	 * @see #getJoint()
 	 * @generated
@@ -2938,10 +2926,10 @@ public interface UrdfPackage extends EPackage {
 	EAttribute getMesh_Filename();
 
 	/**
-	 * Returns the meta object for the attribute '{@link urdf.Mesh#getScale <em>Scale</em>}'.
+	 * Returns the meta object for the attribute list '{@link urdf.Mesh#getScale <em>Scale</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scale</em>'.
+	 * @return the meta object for the attribute list '<em>Scale</em>'.
 	 * @see urdf.Mesh#getScale()
 	 * @see #getMesh()
 	 * @generated
@@ -3013,6 +3001,27 @@ public interface UrdfPackage extends EPackage {
 	EAttribute getName_Name();
 
 	/**
+	 * Returns the meta object for class '{@link urdf.Parent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parent</em>'.
+	 * @see urdf.Parent
+	 * @generated
+	 */
+	EClass getParent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link urdf.Parent#getLink <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Link</em>'.
+	 * @see urdf.Parent#getLink()
+	 * @see #getParent()
+	 * @generated
+	 */
+	EAttribute getParent_Link();
+
+	/**
 	 * Returns the meta object for class '{@link urdf.PassiveJointTransmission <em>Passive Joint Transmission</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3044,10 +3053,10 @@ public interface UrdfPackage extends EPackage {
 	EClass getPose();
 
 	/**
-	 * Returns the meta object for the attribute '{@link urdf.Pose#getRpy <em>Rpy</em>}'.
+	 * Returns the meta object for the attribute list '{@link urdf.Pose#getRpy <em>Rpy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rpy</em>'.
+	 * @return the meta object for the attribute list '<em>Rpy</em>'.
 	 * @see urdf.Pose#getRpy()
 	 * @see #getPose()
 	 * @generated
@@ -3055,10 +3064,10 @@ public interface UrdfPackage extends EPackage {
 	EAttribute getPose_Rpy();
 
 	/**
-	 * Returns the meta object for the attribute '{@link urdf.Pose#getXyz <em>Xyz</em>}'.
+	 * Returns the meta object for the attribute list '{@link urdf.Pose#getXyz <em>Xyz</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Xyz</em>'.
+	 * @return the meta object for the attribute list '<em>Xyz</em>'.
 	 * @see urdf.Pose#getXyz()
 	 * @see #getPose()
 	 * @generated
@@ -3454,6 +3463,16 @@ public interface UrdfPackage extends EPackage {
 	EReference getVisual_Material();
 
 	/**
+	 * Returns the meta object for enum '{@link urdf.JointType <em>Joint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Joint Type</em>'.
+	 * @see urdf.JointType
+	 * @generated
+	 */
+	EEnum getJointType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3573,6 +3592,24 @@ public interface UrdfPackage extends EPackage {
 		EAttribute CALIBRATION__RISING = eINSTANCE.getCalibration_Rising();
 
 		/**
+		 * The meta object literal for the '{@link urdf.impl.ChildImpl <em>Child</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see urdf.impl.ChildImpl
+		 * @see urdf.impl.UrdfPackageImpl#getChild()
+		 * @generated
+		 */
+		EClass CHILD = eINSTANCE.getChild();
+
+		/**
+		 * The meta object literal for the '<em><b>Link</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHILD__LINK = eINSTANCE.getChild_Link();
+
+		/**
 		 * The meta object literal for the '{@link urdf.impl.CollisionImpl <em>Collision</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3657,48 +3694,6 @@ public interface UrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CYLINDER__RADIUS = eINSTANCE.getCylinder_Radius();
-
-		/**
-		 * The meta object literal for the '{@link urdf.impl.DocumentRootImpl <em>Document Root</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see urdf.impl.DocumentRootImpl
-		 * @see urdf.impl.UrdfPackageImpl#getDocumentRoot()
-		 * @generated
-		 */
-		EClass DOCUMENT_ROOT = eINSTANCE.getDocumentRoot();
-
-		/**
-		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT_ROOT__MIXED = eINSTANCE.getDocumentRoot_Mixed();
-
-		/**
-		 * The meta object literal for the '<em><b>XMLNS Prefix Map</b></em>' map feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
-
-		/**
-		 * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Robot</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__ROBOT = eINSTANCE.getDocumentRoot_Robot();
 
 		/**
 		 * The meta object literal for the '{@link urdf.impl.DynamicsImpl <em>Dynamics</em>}' class.
@@ -3985,7 +3980,7 @@ public interface UrdfPackage extends EPackage {
 		EReference JOINT__ORIGIN = eINSTANCE.getJoint_Origin();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parent</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3993,7 +3988,7 @@ public interface UrdfPackage extends EPackage {
 		EReference JOINT__PARENT = eINSTANCE.getJoint_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4261,7 +4256,7 @@ public interface UrdfPackage extends EPackage {
 		EAttribute MESH__FILENAME = eINSTANCE.getMesh_Filename();
 
 		/**
-		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Scale</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4321,6 +4316,24 @@ public interface UrdfPackage extends EPackage {
 		EAttribute NAME__NAME = eINSTANCE.getName_Name();
 
 		/**
+		 * The meta object literal for the '{@link urdf.impl.ParentImpl <em>Parent</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see urdf.impl.ParentImpl
+		 * @see urdf.impl.UrdfPackageImpl#getParent()
+		 * @generated
+		 */
+		EClass PARENT = eINSTANCE.getParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Link</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARENT__LINK = eINSTANCE.getParent_Link();
+
+		/**
 		 * The meta object literal for the '{@link urdf.impl.PassiveJointTransmissionImpl <em>Passive Joint Transmission</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4349,7 +4362,7 @@ public interface UrdfPackage extends EPackage {
 		EClass POSE = eINSTANCE.getPose();
 
 		/**
-		 * The meta object literal for the '<em><b>Rpy</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Rpy</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4357,7 +4370,7 @@ public interface UrdfPackage extends EPackage {
 		EAttribute POSE__RPY = eINSTANCE.getPose_Rpy();
 
 		/**
-		 * The meta object literal for the '<em><b>Xyz</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Xyz</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4667,6 +4680,16 @@ public interface UrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VISUAL__MATERIAL = eINSTANCE.getVisual_Material();
+
+		/**
+		 * The meta object literal for the '{@link urdf.JointType <em>Joint Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see urdf.JointType
+		 * @see urdf.impl.UrdfPackageImpl#getJointType()
+		 * @generated
+		 */
+		EEnum JOINT_TYPE = eINSTANCE.getJointType();
 
 	}
 

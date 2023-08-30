@@ -22,16 +22,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import urdf.Pose;
+import urdf.Child;
 import urdf.UrdfPackage;
 
 /**
- * This is the item provider adapter for a {@link urdf.Pose} object.
+ * This is the item provider adapter for a {@link urdf.Child} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PoseItemProvider 
+public class ChildItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +45,7 @@ public class PoseItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PoseItemProvider(AdapterFactory adapterFactory) {
+	public ChildItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,65 +60,42 @@ public class PoseItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRpyPropertyDescriptor(object);
-			addXyzPropertyDescriptor(object);
+			addLinkPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Rpy feature.
+	 * This adds a property descriptor for the Link feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRpyPropertyDescriptor(Object object) {
+	protected void addLinkPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pose_rpy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pose_rpy_feature", "_UI_Pose_type"),
-				 UrdfPackage.Literals.POSE__RPY,
+				 getString("_UI_Child_link_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Child_link_feature", "_UI_Child_type"),
+				 UrdfPackage.Literals.CHILD__LINK,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Xyz feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXyzPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Pose_xyz_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pose_xyz_feature", "_UI_Pose_type"),
-				 UrdfPackage.Literals.POSE__XYZ,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Pose.gif.
+	 * This returns Child.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Pose"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Child"));
 	}
 
 	/**
@@ -129,7 +106,10 @@ public class PoseItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Pose_type");
+		String label = ((Child)object).getLink();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Child_type") :
+			getString("_UI_Child_type") + " " + label;
 	}
 
 
@@ -144,9 +124,8 @@ public class PoseItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Pose.class)) {
-			case UrdfPackage.POSE__RPY:
-			case UrdfPackage.POSE__XYZ:
+		switch (notification.getFeatureID(Child.class)) {
+			case UrdfPackage.CHILD__LINK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
