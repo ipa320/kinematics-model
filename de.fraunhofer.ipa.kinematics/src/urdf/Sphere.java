@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getSphere()
- * @model extendedMetaData="name='sphere' kind='empty'"
+ * @model
  * @generated
  */
 public interface Sphere extends EObject {
@@ -30,8 +30,7 @@ public interface Sphere extends EObject {
 	 * @see #unsetRadius()
 	 * @see #setRadius(double)
 	 * @see urdf.UrdfPackage#getSphere_Radius()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='radius'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getRadius();

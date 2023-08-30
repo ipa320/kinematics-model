@@ -2,12 +2,19 @@
  */
 package urdf.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import urdf.Mesh;
 import urdf.UrdfPackage;
@@ -48,33 +55,14 @@ public class MeshImpl extends MinimalEObjectImpl.Container implements Mesh {
 	protected String filename = FILENAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getScale() <em>Scale</em>}' attribute.
+	 * The cached value of the '{@link #getScale() <em>Scale</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getScale()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SCALE_EDEFAULT = "1 1 1";
-
-	/**
-	 * The cached value of the '{@link #getScale() <em>Scale</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScale()
-	 * @generated
-	 * @ordered
-	 */
-	protected String scale = SCALE_EDEFAULT;
-
-	/**
-	 * This is true if the Scale attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean scaleESet;
+	protected EList<Double> scale;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +109,10 @@ public class MeshImpl extends MinimalEObjectImpl.Container implements Mesh {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getScale() {
+	public EList<Double> getScale() {
+		if (scale == null) {
+			scale = new EDataTypeEList.Unsettable<Double>(Double.class, this, UrdfPackage.MESH__SCALE);
+		}
 		return scale;
 	}
 
@@ -130,27 +121,8 @@ public class MeshImpl extends MinimalEObjectImpl.Container implements Mesh {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setScale(String newScale) {
-		String oldScale = scale;
-		scale = newScale;
-		boolean oldScaleESet = scaleESet;
-		scaleESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UrdfPackage.MESH__SCALE, oldScale, scale, !oldScaleESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void unsetScale() {
-		String oldScale = scale;
-		boolean oldScaleESet = scaleESet;
-		scale = SCALE_EDEFAULT;
-		scaleESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, UrdfPackage.MESH__SCALE, oldScale, SCALE_EDEFAULT, oldScaleESet));
+		if (scale != null) ((InternalEList.Unsettable<?>)scale).unset();
 	}
 
 	/**
@@ -159,7 +131,7 @@ public class MeshImpl extends MinimalEObjectImpl.Container implements Mesh {
 	 * @generated
 	 */
 	public boolean isSetScale() {
-		return scaleESet;
+		return scale != null && ((InternalEList.Unsettable<?>)scale).isSet();
 	}
 
 	/**
@@ -183,6 +155,7 @@ public class MeshImpl extends MinimalEObjectImpl.Container implements Mesh {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -190,7 +163,8 @@ public class MeshImpl extends MinimalEObjectImpl.Container implements Mesh {
 				setFilename((String)newValue);
 				return;
 			case UrdfPackage.MESH__SCALE:
-				setScale((String)newValue);
+				getScale().clear();
+				getScale().addAll((Collection<? extends Double>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -243,7 +217,7 @@ public class MeshImpl extends MinimalEObjectImpl.Container implements Mesh {
 		result.append(" (filename: ");
 		result.append(filename);
 		result.append(", scale: ");
-		if (scaleESet) result.append(scale); else result.append("<unset>");
+		result.append(scale);
 		result.append(')');
 		return result.toString();
 	}

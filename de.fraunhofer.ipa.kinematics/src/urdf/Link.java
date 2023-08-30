@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getLink()
- * @model extendedMetaData="name='link' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface Link extends EObject {
@@ -33,7 +33,6 @@ public interface Link extends EObject {
 	 * @see #setInertial(Inertial)
 	 * @see urdf.UrdfPackage#getLink_Inertial()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='inertial' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Inertial getInertial();
@@ -56,7 +55,6 @@ public interface Link extends EObject {
 	 * @see #setVisual(Visual)
 	 * @see urdf.UrdfPackage#getLink_Visual()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='visual' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Visual getVisual();
@@ -79,7 +77,6 @@ public interface Link extends EObject {
 	 * @see #setCollision(Collision)
 	 * @see urdf.UrdfPackage#getLink_Collision()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='collision' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Collision getCollision();
@@ -101,8 +98,7 @@ public interface Link extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getLink_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -124,8 +120,7 @@ public interface Link extends EObject {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(String)
 	 * @see urdf.UrdfPackage#getLink_Type()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='type'"
+	 * @model
 	 * @generated
 	 */
 	String getType();

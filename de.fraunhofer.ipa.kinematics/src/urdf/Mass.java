@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getMass()
- * @model extendedMetaData="name='mass' kind='empty'"
+ * @model
  * @generated
  */
 public interface Mass extends EObject {
@@ -31,8 +31,7 @@ public interface Mass extends EObject {
 	 * @see #unsetValue()
 	 * @see #setValue(double)
 	 * @see urdf.UrdfPackage#getMass_Value()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='value'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getValue();

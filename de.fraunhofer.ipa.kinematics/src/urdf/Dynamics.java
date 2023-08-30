@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getDynamics()
- * @model extendedMetaData="name='dynamics' kind='empty'"
+ * @model
  * @generated
  */
 public interface Dynamics extends EObject {
@@ -32,8 +32,7 @@ public interface Dynamics extends EObject {
 	 * @see #unsetDamping()
 	 * @see #setDamping(double)
 	 * @see urdf.UrdfPackage#getDynamics_Damping()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='damping'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getDamping();
@@ -83,8 +82,7 @@ public interface Dynamics extends EObject {
 	 * @see #unsetFriction()
 	 * @see #setFriction(double)
 	 * @see urdf.UrdfPackage#getDynamics_Friction()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='friction'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getFriction();

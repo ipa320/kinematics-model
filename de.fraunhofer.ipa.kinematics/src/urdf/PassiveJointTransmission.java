@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getPassiveJointTransmission()
- * @model extendedMetaData="name='passive_joint_transmission' kind='empty'"
+ * @model
  * @generated
  */
 public interface PassiveJointTransmission extends EObject {
@@ -28,8 +28,7 @@ public interface PassiveJointTransmission extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getPassiveJointTransmission_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

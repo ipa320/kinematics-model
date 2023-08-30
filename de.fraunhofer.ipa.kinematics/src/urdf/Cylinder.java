@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getCylinder()
- * @model extendedMetaData="name='cylinder' kind='empty'"
+ * @model
  * @generated
  */
 public interface Cylinder extends EObject {
@@ -29,13 +29,12 @@ public interface Cylinder extends EObject {
 	 * @return the value of the '<em>Length</em>' attribute.
 	 * @see #isSetLength()
 	 * @see #unsetLength()
-	 * @see #setLength(double)
+	 * @see #setLength(String)
 	 * @see urdf.UrdfPackage#getCylinder_Length()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='length'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
-	double getLength();
+	String getLength();
 
 	/**
 	 * Sets the value of the '{@link urdf.Cylinder#getLength <em>Length</em>}' attribute.
@@ -47,7 +46,7 @@ public interface Cylinder extends EObject {
 	 * @see #getLength()
 	 * @generated
 	 */
-	void setLength(double value);
+	void setLength(String value);
 
 	/**
 	 * Unsets the value of the '{@link urdf.Cylinder#getLength <em>Length</em>}' attribute.
@@ -55,7 +54,7 @@ public interface Cylinder extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetLength()
 	 * @see #getLength()
-	 * @see #setLength(double)
+	 * @see #setLength(String)
 	 * @generated
 	 */
 	void unsetLength();
@@ -67,7 +66,7 @@ public interface Cylinder extends EObject {
 	 * @return whether the value of the '<em>Length</em>' attribute is set.
 	 * @see #unsetLength()
 	 * @see #getLength()
-	 * @see #setLength(double)
+	 * @see #setLength(String)
 	 * @generated
 	 */
 	boolean isSetLength();
@@ -79,13 +78,12 @@ public interface Cylinder extends EObject {
 	 * @return the value of the '<em>Radius</em>' attribute.
 	 * @see #isSetRadius()
 	 * @see #unsetRadius()
-	 * @see #setRadius(double)
+	 * @see #setRadius(String)
 	 * @see urdf.UrdfPackage#getCylinder_Radius()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='radius'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
-	double getRadius();
+	String getRadius();
 
 	/**
 	 * Sets the value of the '{@link urdf.Cylinder#getRadius <em>Radius</em>}' attribute.
@@ -97,7 +95,7 @@ public interface Cylinder extends EObject {
 	 * @see #getRadius()
 	 * @generated
 	 */
-	void setRadius(double value);
+	void setRadius(String value);
 
 	/**
 	 * Unsets the value of the '{@link urdf.Cylinder#getRadius <em>Radius</em>}' attribute.
@@ -105,7 +103,7 @@ public interface Cylinder extends EObject {
 	 * <!-- end-user-doc -->
 	 * @see #isSetRadius()
 	 * @see #getRadius()
-	 * @see #setRadius(double)
+	 * @see #setRadius(String)
 	 * @generated
 	 */
 	void unsetRadius();
@@ -117,7 +115,7 @@ public interface Cylinder extends EObject {
 	 * @return whether the value of the '<em>Radius</em>' attribute is set.
 	 * @see #unsetRadius()
 	 * @see #getRadius()
-	 * @see #setRadius(double)
+	 * @see #setRadius(String)
 	 * @generated
 	 */
 	boolean isSetRadius();

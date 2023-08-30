@@ -35,7 +35,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double LENGTH_EDEFAULT = 0.0;
+	protected static final String LENGTH_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLength() <em>Length</em>}' attribute.
@@ -45,7 +45,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * @generated
 	 * @ordered
 	 */
-	protected double length = LENGTH_EDEFAULT;
+	protected String length = LENGTH_EDEFAULT;
 
 	/**
 	 * This is true if the Length attribute has been set.
@@ -64,7 +64,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double RADIUS_EDEFAULT = 0.0;
+	protected static final String RADIUS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getRadius() <em>Radius</em>}' attribute.
@@ -74,7 +74,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * @generated
 	 * @ordered
 	 */
-	protected double radius = RADIUS_EDEFAULT;
+	protected String radius = RADIUS_EDEFAULT;
 
 	/**
 	 * This is true if the Radius attribute has been set.
@@ -109,7 +109,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getLength() {
+	public String getLength() {
 		return length;
 	}
 
@@ -118,8 +118,8 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLength(double newLength) {
-		double oldLength = length;
+	public void setLength(String newLength) {
+		String oldLength = length;
 		length = newLength;
 		boolean oldLengthESet = lengthESet;
 		lengthESet = true;
@@ -133,7 +133,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * @generated
 	 */
 	public void unsetLength() {
-		double oldLength = length;
+		String oldLength = length;
 		boolean oldLengthESet = lengthESet;
 		length = LENGTH_EDEFAULT;
 		lengthESet = false;
@@ -155,7 +155,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getRadius() {
+	public String getRadius() {
 		return radius;
 	}
 
@@ -164,8 +164,8 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRadius(double newRadius) {
-		double oldRadius = radius;
+	public void setRadius(String newRadius) {
+		String oldRadius = radius;
 		radius = newRadius;
 		boolean oldRadiusESet = radiusESet;
 		radiusESet = true;
@@ -179,7 +179,7 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	 * @generated
 	 */
 	public void unsetRadius() {
-		double oldRadius = radius;
+		String oldRadius = radius;
 		boolean oldRadiusESet = radiusESet;
 		radius = RADIUS_EDEFAULT;
 		radiusESet = false;
@@ -221,10 +221,10 @@ public class CylinderImpl extends MinimalEObjectImpl.Container implements Cylind
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UrdfPackage.CYLINDER__LENGTH:
-				setLength((Double)newValue);
+				setLength((String)newValue);
 				return;
 			case UrdfPackage.CYLINDER__RADIUS:
-				setRadius((Double)newValue);
+				setRadius((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

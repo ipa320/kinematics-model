@@ -3,133 +3,56 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.ipa.kinematics/src" modelPluginID="de.fraunhofer.ipa.kinematics"
     modelName="Xacro" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore urdf.genmodel#//urdf"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="urdf.genmodel#//urdf" operationReflection="true" importOrganizing="true">
   <foreignModel>xacro.ecore</foreignModel>
   <genPackages prefix="Xacro" disposableProviderFactory="true" ecorePackage="xacro.ecore#/">
-    <genClasses ecoreClass="xacro.ecore#//Robot">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Robot/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/macro"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Robot/version"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/body"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Robot/macroCall"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xacro.ecore#//ParameterType">
+      <genEnumLiterals ecoreEnumLiteral="xacro.ecore#//ParameterType/Link"/>
+      <genEnumLiterals ecoreEnumLiteral="xacro.ecore#//ParameterType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="xacro.ecore#//ParameterType/Pose"/>
+    </genEnums>
+    <genClasses ecoreClass="xacro.ecore#//Macro">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Macro/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/configuredMacros"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/link"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//ConfiguredMacro">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ConfiguredMacro/macro"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//ConfiguredMacro/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//ConfiguredParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ConfiguredParameter/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//ConfiguredParameter/value"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference xacro.ecore#//Parameter/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Parameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Parameter/value"/>
     </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Body">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/joint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Body/link"/>
+    <genClasses ecoreClass="xacro.ecore#//XacroRobot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//XacroRobot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//XacroRobot/macros"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//XacroRobot/configuredMacros"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//XacroRobot/gitRepo"/>
     </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Macro">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/parameter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/body"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Macro/name"/>
+    <genClasses ecoreClass="xacro.ecore#//GitRepo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/raw_file_url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/package"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/repo"/>
     </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//MacroCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//MacroCall/macro"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//MacroCall/parameterCall"/>
+    <genClasses ecoreClass="xacro.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Condition/param"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Condition/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Condition/unless"/>
     </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//ParameterCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterCall/parameter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference xacro.ecore#//ParameterCall/value"/>
+    <genClasses ecoreClass="xacro.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Block/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Block/link"/>
     </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//ParameterString">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterString/ref"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//ParameterString/value"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Link">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Link/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Link/visual"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Link/collision"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Link/inertial"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Link/resolved"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Joint">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Joint/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//Joint/parent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//Joint/child"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Joint/origin"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Joint/axis"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Joint/limit"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Joint/type"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Pose">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xacro.ecore#//Pose/rpy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute xacro.ecore#//Pose/xyz"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Visual">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Visual/origin"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Visual/geometry"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Collision">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Collision/origin"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//Collision/geometry"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Geometry">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Geometry/box"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Geometry/cylinder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Geometry/mesh"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Geometry/sphere"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Box">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Box/size"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Cylinder">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Cylinder/length"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Cylinder/radius"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Vector3">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Vector3/xyz"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Limit">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Limit/lower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Limit/upper"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Limit/effort"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Limit/velocity"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Mass">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Mass/value"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Inertial">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Inertial/mass"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Inertial/origin"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Inertial/inertia"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Inertia">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Inertia/ixx"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Inertia/ixy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Inertia/ixz"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Inertia/iyy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Inertia/iyz"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Inertia/izz"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Mesh">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Mesh/filename"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Mesh/scale"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//Sphere">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Sphere/radius"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//ParameterPose">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterPose/ref"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterPose/value"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//ParameterValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//ParameterValue/value"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//ParameterLink">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterLink/param"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//ParameterLink/link"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//LinkRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//LinkRef/ref"/>
-    </genClasses>
-    <genClasses ecoreClass="xacro.ecore#//ParameterType"/>
-    <genClasses ecoreClass="xacro.ecore#//ParameterPoseType"/>
-    <genClasses ecoreClass="xacro.ecore#//ParameterStringType"/>
-    <genClasses ecoreClass="xacro.ecore#//ParameterLinkRefType"/>
   </genPackages>
 </genmodel:GenModel>

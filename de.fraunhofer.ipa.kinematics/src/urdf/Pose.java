@@ -2,6 +2,8 @@
  */
 package urdf;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,108 +20,76 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getPose()
- * @model extendedMetaData="name='pose' kind='empty'"
+ * @model
  * @generated
  */
 public interface Pose extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Rpy</b></em>' attribute.
-	 * The default value is <code>"0 0 0"</code>.
+	 * Returns the value of the '<em><b>Rpy</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Double}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rpy</em>' attribute.
+	 * @return the value of the '<em>Rpy</em>' attribute list.
 	 * @see #isSetRpy()
 	 * @see #unsetRpy()
-	 * @see #setRpy(String)
 	 * @see urdf.UrdfPackage#getPose_Rpy()
-	 * @model default="0 0 0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='rpy'"
+	 * @model default="0" unique="false" unsettable="true" upper="3"
 	 * @generated
 	 */
-	String getRpy();
+	EList<Double> getRpy();
 
 	/**
-	 * Sets the value of the '{@link urdf.Pose#getRpy <em>Rpy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rpy</em>' attribute.
-	 * @see #isSetRpy()
-	 * @see #unsetRpy()
-	 * @see #getRpy()
-	 * @generated
-	 */
-	void setRpy(String value);
-
-	/**
-	 * Unsets the value of the '{@link urdf.Pose#getRpy <em>Rpy</em>}' attribute.
+	 * Unsets the value of the '{@link urdf.Pose#getRpy <em>Rpy</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetRpy()
 	 * @see #getRpy()
-	 * @see #setRpy(String)
 	 * @generated
 	 */
 	void unsetRpy();
 
 	/**
-	 * Returns whether the value of the '{@link urdf.Pose#getRpy <em>Rpy</em>}' attribute is set.
+	 * Returns whether the value of the '{@link urdf.Pose#getRpy <em>Rpy</em>}' attribute list is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Rpy</em>' attribute is set.
+	 * @return whether the value of the '<em>Rpy</em>' attribute list is set.
 	 * @see #unsetRpy()
 	 * @see #getRpy()
-	 * @see #setRpy(String)
 	 * @generated
 	 */
 	boolean isSetRpy();
 
 	/**
-	 * Returns the value of the '<em><b>Xyz</b></em>' attribute.
-	 * The default value is <code>"0 0 0"</code>.
+	 * Returns the value of the '<em><b>Xyz</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Double}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xyz</em>' attribute.
+	 * @return the value of the '<em>Xyz</em>' attribute list.
 	 * @see #isSetXyz()
 	 * @see #unsetXyz()
-	 * @see #setXyz(String)
 	 * @see urdf.UrdfPackage#getPose_Xyz()
-	 * @model default="0 0 0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='xyz'"
+	 * @model default="0" unique="false" unsettable="true" upper="3"
 	 * @generated
 	 */
-	String getXyz();
+	EList<Double> getXyz();
 
 	/**
-	 * Sets the value of the '{@link urdf.Pose#getXyz <em>Xyz</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xyz</em>' attribute.
-	 * @see #isSetXyz()
-	 * @see #unsetXyz()
-	 * @see #getXyz()
-	 * @generated
-	 */
-	void setXyz(String value);
-
-	/**
-	 * Unsets the value of the '{@link urdf.Pose#getXyz <em>Xyz</em>}' attribute.
+	 * Unsets the value of the '{@link urdf.Pose#getXyz <em>Xyz</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetXyz()
 	 * @see #getXyz()
-	 * @see #setXyz(String)
 	 * @generated
 	 */
 	void unsetXyz();
 
 	/**
-	 * Returns whether the value of the '{@link urdf.Pose#getXyz <em>Xyz</em>}' attribute is set.
+	 * Returns whether the value of the '{@link urdf.Pose#getXyz <em>Xyz</em>}' attribute list is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Xyz</em>' attribute is set.
+	 * @return whether the value of the '<em>Xyz</em>' attribute list is set.
 	 * @see #unsetXyz()
 	 * @see #getXyz()
-	 * @see #setXyz(String)
 	 * @generated
 	 */
 	boolean isSetXyz();

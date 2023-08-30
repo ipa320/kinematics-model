@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getInertia()
- * @model extendedMetaData="name='inertia' kind='empty'"
+ * @model
  * @generated
  */
 public interface Inertia extends EObject {
@@ -36,8 +36,7 @@ public interface Inertia extends EObject {
 	 * @see #unsetIxx()
 	 * @see #setIxx(double)
 	 * @see urdf.UrdfPackage#getInertia_Ixx()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='ixx'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getIxx();
@@ -87,8 +86,7 @@ public interface Inertia extends EObject {
 	 * @see #unsetIxy()
 	 * @see #setIxy(double)
 	 * @see urdf.UrdfPackage#getInertia_Ixy()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='ixy'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getIxy();
@@ -138,8 +136,7 @@ public interface Inertia extends EObject {
 	 * @see #unsetIxz()
 	 * @see #setIxz(double)
 	 * @see urdf.UrdfPackage#getInertia_Ixz()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='ixz'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getIxz();
@@ -189,8 +186,7 @@ public interface Inertia extends EObject {
 	 * @see #unsetIyy()
 	 * @see #setIyy(double)
 	 * @see urdf.UrdfPackage#getInertia_Iyy()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='iyy'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getIyy();
@@ -240,8 +236,7 @@ public interface Inertia extends EObject {
 	 * @see #unsetIyz()
 	 * @see #setIyz(double)
 	 * @see urdf.UrdfPackage#getInertia_Iyz()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='iyz'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getIyz();
@@ -291,8 +286,7 @@ public interface Inertia extends EObject {
 	 * @see #unsetIzz()
 	 * @see #setIzz(double)
 	 * @see urdf.UrdfPackage#getInertia_Izz()
-	 * @model default="0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='attribute' name='izz'"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	double getIzz();

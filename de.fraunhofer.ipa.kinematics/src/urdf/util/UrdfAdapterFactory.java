@@ -100,10 +100,6 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 				return createCylinderAdapter();
 			}
 			@Override
-			public Adapter caseDocumentRoot(DocumentRoot object) {
-				return createDocumentRootAdapter();
-			}
-			@Override
 			public Adapter caseDynamics(Dynamics object) {
 				return createDynamicsAdapter();
 			}
@@ -172,8 +168,8 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 				return createPoseAdapter();
 			}
 			@Override
-			public Adapter caseRobotType(RobotType object) {
-				return createRobotTypeAdapter();
+			public Adapter caseRobot(Robot object) {
+				return createRobotAdapter();
 			}
 			@Override
 			public Adapter caseSafetyController(SafetyController object) {
@@ -332,20 +328,6 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCylinderAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link urdf.DocumentRoot <em>Document Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see urdf.DocumentRoot
-	 * @generated
-	 */
-	public Adapter createDocumentRootAdapter() {
 		return null;
 	}
 
@@ -588,16 +570,16 @@ public class UrdfAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link urdf.RobotType <em>Robot Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link urdf.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see urdf.RobotType
+	 * @see urdf.Robot
 	 * @generated
 	 */
-	public Adapter createRobotTypeAdapter() {
+	public Adapter createRobotAdapter() {
 		return null;
 	}
 

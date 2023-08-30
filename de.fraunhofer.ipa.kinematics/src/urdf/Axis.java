@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getAxis()
- * @model extendedMetaData="name='axis' kind='empty'"
+ * @model
  * @generated
  */
 public interface Axis extends EObject {
@@ -31,8 +31,7 @@ public interface Axis extends EObject {
 	 * @see #unsetXyz()
 	 * @see #setXyz(String)
 	 * @see urdf.UrdfPackage#getAxis_Xyz()
-	 * @model default="1 0 0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='xyz'"
+	 * @model default="1 0 0" unsettable="true"
 	 * @generated
 	 */
 	String getXyz();

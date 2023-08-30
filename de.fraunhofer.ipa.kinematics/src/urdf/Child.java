@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getChild()
- * @model extendedMetaData="name='child' kind='empty'"
+ * @model
  * @generated
  */
 public interface Child extends EObject {
@@ -28,8 +28,7 @@ public interface Child extends EObject {
 	 * @return the value of the '<em>Link</em>' attribute.
 	 * @see #setLink(String)
 	 * @see urdf.UrdfPackage#getChild_Link()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='link'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getLink();

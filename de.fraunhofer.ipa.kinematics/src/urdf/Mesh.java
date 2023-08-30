@@ -2,6 +2,8 @@
  */
 package urdf;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getMesh()
- * @model extendedMetaData="name='mesh' kind='empty'"
+ * @model
  * @generated
  */
 public interface Mesh extends EObject {
@@ -29,8 +31,7 @@ public interface Mesh extends EObject {
 	 * @return the value of the '<em>Filename</em>' attribute.
 	 * @see #setFilename(String)
 	 * @see urdf.UrdfPackage#getMesh_Filename()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI" required="true"
-	 *        extendedMetaData="kind='attribute' name='filename'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getFilename();
@@ -46,52 +47,36 @@ public interface Mesh extends EObject {
 	void setFilename(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Scale</b></em>' attribute.
-	 * The default value is <code>"1 1 1"</code>.
+	 * Returns the value of the '<em><b>Scale</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Double}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scale</em>' attribute.
+	 * @return the value of the '<em>Scale</em>' attribute list.
 	 * @see #isSetScale()
 	 * @see #unsetScale()
-	 * @see #setScale(String)
 	 * @see urdf.UrdfPackage#getMesh_Scale()
-	 * @model default="1 1 1" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='scale'"
+	 * @model default="1" unique="false" unsettable="true" upper="3"
 	 * @generated
 	 */
-	String getScale();
+	EList<Double> getScale();
 
 	/**
-	 * Sets the value of the '{@link urdf.Mesh#getScale <em>Scale</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scale</em>' attribute.
-	 * @see #isSetScale()
-	 * @see #unsetScale()
-	 * @see #getScale()
-	 * @generated
-	 */
-	void setScale(String value);
-
-	/**
-	 * Unsets the value of the '{@link urdf.Mesh#getScale <em>Scale</em>}' attribute.
+	 * Unsets the value of the '{@link urdf.Mesh#getScale <em>Scale</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetScale()
 	 * @see #getScale()
-	 * @see #setScale(String)
 	 * @generated
 	 */
 	void unsetScale();
 
 	/**
-	 * Returns whether the value of the '{@link urdf.Mesh#getScale <em>Scale</em>}' attribute is set.
+	 * Returns whether the value of the '{@link urdf.Mesh#getScale <em>Scale</em>}' attribute list is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Scale</em>' attribute is set.
+	 * @return whether the value of the '<em>Scale</em>' attribute list is set.
 	 * @see #unsetScale()
 	 * @see #getScale()
-	 * @see #setScale(String)
 	 * @generated
 	 */
 	boolean isSetScale();

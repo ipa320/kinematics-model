@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getActuatorTransmission()
- * @model extendedMetaData="name='actuator_transmission' kind='empty'"
+ * @model
  * @generated
  */
 public interface ActuatorTransmission extends EObject {
@@ -31,8 +31,7 @@ public interface ActuatorTransmission extends EObject {
 	 * @see #unsetMechanicalReduction()
 	 * @see #setMechanicalReduction(double)
 	 * @see urdf.UrdfPackage#getActuatorTransmission_MechanicalReduction()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='mechanicalReduction'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getMechanicalReduction();
@@ -79,8 +78,7 @@ public interface ActuatorTransmission extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getActuatorTransmission_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

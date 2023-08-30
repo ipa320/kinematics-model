@@ -20,10 +20,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated xacro -->
+      <!-- @generated component -->
       <factory
-            uri="http://www.ipa.fraunhofer.de/xacro"
-            class="xacro.provider.XacroItemProviderAdapterFactory"
+            uri="http://www.ipa.fraunhofer.de/component"
+            class="component.provider.ComponentItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

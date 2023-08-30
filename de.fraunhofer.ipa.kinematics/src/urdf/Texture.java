@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getTexture()
- * @model extendedMetaData="name='texture' kind='empty'"
+ * @model
  * @generated
  */
 public interface Texture extends EObject {
@@ -28,8 +28,7 @@ public interface Texture extends EObject {
 	 * @return the value of the '<em>Filename</em>' attribute.
 	 * @see #setFilename(String)
 	 * @see urdf.UrdfPackage#getTexture_Filename()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI"
-	 *        extendedMetaData="kind='attribute' name='filename'"
+	 * @model
 	 * @generated
 	 */
 	String getFilename();

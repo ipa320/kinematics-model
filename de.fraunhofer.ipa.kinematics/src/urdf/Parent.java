@@ -17,30 +17,30 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getParent()
- * @model extendedMetaData="name='parent' kind='empty'"
+ * @model
  * @generated
  */
 public interface Parent extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Link</b></em>' reference.
+	 * Returns the value of the '<em><b>Link</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Link</em>' reference.
-	 * @see #setLink(Link)
+	 * @return the value of the '<em>Link</em>' attribute.
+	 * @see #setLink(String)
 	 * @see urdf.UrdfPackage#getParent_Link()
 	 * @model required="true"
 	 * @generated
 	 */
-	Link getLink();
+	String getLink();
 
 	/**
-	 * Sets the value of the '{@link urdf.Parent#getLink <em>Link</em>}' reference.
+	 * Sets the value of the '{@link urdf.Parent#getLink <em>Link</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Link</em>' reference.
+	 * @param value the new value of the '<em>Link</em>' attribute.
 	 * @see #getLink()
 	 * @generated
 	 */
-	void setLink(Link value);
+	void setLink(String value);
 
 } // Parent

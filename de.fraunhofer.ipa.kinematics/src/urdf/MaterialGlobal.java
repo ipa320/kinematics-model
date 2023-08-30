@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getMaterialGlobal()
- * @model extendedMetaData="name='material_global' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface MaterialGlobal extends EObject {
@@ -31,7 +31,6 @@ public interface MaterialGlobal extends EObject {
 	 * @see #setColor(Color)
 	 * @see urdf.UrdfPackage#getMaterialGlobal_Color()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='color' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Color getColor();
@@ -54,7 +53,6 @@ public interface MaterialGlobal extends EObject {
 	 * @see #setTexture(Texture)
 	 * @see urdf.UrdfPackage#getMaterialGlobal_Texture()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='texture' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Texture getTexture();
@@ -76,8 +74,7 @@ public interface MaterialGlobal extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getMaterialGlobal_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

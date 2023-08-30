@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getGapJointTransmission()
- * @model extendedMetaData="name='gap_joint_transmission' kind='empty'"
+ * @model
  * @generated
  */
 public interface GapJointTransmission extends EObject {
@@ -41,8 +41,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetA()
 	 * @see #setA(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_A()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='a'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getA();
@@ -91,8 +90,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetB()
 	 * @see #setB(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_B()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='b'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getB();
@@ -141,8 +139,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetGearRatio()
 	 * @see #setGearRatio(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_GearRatio()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='gear_ratio'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getGearRatio();
@@ -191,8 +188,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetH()
 	 * @see #setH(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_H()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='h'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getH();
@@ -241,8 +237,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetL0()
 	 * @see #setL0(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_L0()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='L0'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getL0();
@@ -291,8 +286,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetMechanicalReduction()
 	 * @see #setMechanicalReduction(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_MechanicalReduction()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='mechanical_reduction'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getMechanicalReduction();
@@ -339,8 +333,7 @@ public interface GapJointTransmission extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -364,8 +357,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetPhi0()
 	 * @see #setPhi0(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_Phi0()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='phi0'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getPhi0();
@@ -414,8 +406,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetR()
 	 * @see #setR(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_R()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='r'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getR();
@@ -464,8 +455,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetScrewReduction()
 	 * @see #setScrewReduction(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_ScrewReduction()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='screw_reduction'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getScrewReduction();
@@ -514,8 +504,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetT0()
 	 * @see #setT0(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_T0()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='t0'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getT0();
@@ -564,8 +553,7 @@ public interface GapJointTransmission extends EObject {
 	 * @see #unsetTheta0()
 	 * @see #setTheta0(double)
 	 * @see urdf.UrdfPackage#getGapJointTransmission_Theta0()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
-	 *        extendedMetaData="kind='attribute' name='theta0'"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	double getTheta0();

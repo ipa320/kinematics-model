@@ -3,6 +3,7 @@
 package urdf.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -64,7 +65,6 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 			case UrdfPackage.COLLISION: return createCollision();
 			case UrdfPackage.COLOR: return createColor();
 			case UrdfPackage.CYLINDER: return createCylinder();
-			case UrdfPackage.DOCUMENT_ROOT: return createDocumentRoot();
 			case UrdfPackage.DYNAMICS: return createDynamics();
 			case UrdfPackage.GAP_JOINT_TRANSMISSION: return createGapJointTransmission();
 			case UrdfPackage.GEOMETRY: return createGeometry();
@@ -82,7 +82,7 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 			case UrdfPackage.PARENT: return createParent();
 			case UrdfPackage.PASSIVE_JOINT_TRANSMISSION: return createPassiveJointTransmission();
 			case UrdfPackage.POSE: return createPose();
-			case UrdfPackage.ROBOT_TYPE: return createRobotType();
+			case UrdfPackage.ROBOT: return createRobot();
 			case UrdfPackage.SAFETY_CONTROLLER: return createSafetyController();
 			case UrdfPackage.SPHERE: return createSphere();
 			case UrdfPackage.TEXTURE: return createTexture();
@@ -92,6 +92,36 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 			case UrdfPackage.VISUAL: return createVisual();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case UrdfPackage.JOINT_TYPE:
+				return createJointTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case UrdfPackage.JOINT_TYPE:
+				return convertJointTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -173,16 +203,6 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 	public Cylinder createCylinder() {
 		CylinderImpl cylinder = new CylinderImpl();
 		return cylinder;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DocumentRoot createDocumentRoot() {
-		DocumentRootImpl documentRoot = new DocumentRootImpl();
-		return documentRoot;
 	}
 
 	/**
@@ -360,9 +380,9 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RobotType createRobotType() {
-		RobotTypeImpl robotType = new RobotTypeImpl();
-		return robotType;
+	public Robot createRobot() {
+		RobotImpl robot = new RobotImpl();
+		return robot;
 	}
 
 	/**
@@ -433,6 +453,26 @@ public class UrdfFactoryImpl extends EFactoryImpl implements UrdfFactory {
 	public Visual createVisual() {
 		VisualImpl visual = new VisualImpl();
 		return visual;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JointType createJointTypeFromString(EDataType eDataType, String initialValue) {
+		JointType result = JointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJointTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

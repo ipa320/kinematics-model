@@ -6,8 +6,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.emf.ecore.util.FeatureMap;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Transmission</b></em>'.
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link urdf.Transmission#getGroup <em>Group</em>}</li>
  *   <li>{@link urdf.Transmission#getLeftActuator <em>Left Actuator</em>}</li>
  *   <li>{@link urdf.Transmission#getRightActuator <em>Right Actuator</em>}</li>
  *   <li>{@link urdf.Transmission#getFlexJoint <em>Flex Joint</em>}</li>
@@ -33,23 +30,10 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * </ul>
  *
  * @see urdf.UrdfPackage#getTransmission()
- * @model extendedMetaData="name='transmission' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface Transmission extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Group</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group</em>' attribute list.
-	 * @see urdf.UrdfPackage#getTransmission_Group()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-	 *        extendedMetaData="kind='group' name='group:0'"
-	 * @generated
-	 */
-	FeatureMap getGroup();
-
 	/**
 	 * Returns the value of the '<em><b>Left Actuator</b></em>' containment reference list.
 	 * The list contents are of type {@link urdf.ActuatorTransmission}.
@@ -57,8 +41,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Left Actuator</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_LeftActuator()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='leftActuator' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<ActuatorTransmission> getLeftActuator();
@@ -70,8 +53,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Right Actuator</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_RightActuator()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rightActuator' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<ActuatorTransmission> getRightActuator();
@@ -83,8 +65,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Flex Joint</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_FlexJoint()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='flexJoint' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<ActuatorTransmission> getFlexJoint();
@@ -96,8 +77,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roll Joint</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_RollJoint()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rollJoint' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<ActuatorTransmission> getRollJoint();
@@ -109,8 +89,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Gap Joint</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_GapJoint()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='gap_joint' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<GapJointTransmission> getGapJoint();
@@ -122,8 +101,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Passive Joint</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_PassiveJoint()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='passive_joint' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<PassiveJointTransmission> getPassiveJoint();
@@ -135,8 +113,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Use Simulated Gripper Joint</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_UseSimulatedGripperJoint()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='use_simulated_gripper_joint' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<UseSimulatedGripperJointType> getUseSimulatedGripperJoint();
@@ -147,12 +124,34 @@ public interface Transmission extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mechanical Reduction</em>' attribute list.
+	 * @see #isSetMechanicalReduction()
+	 * @see #unsetMechanicalReduction()
 	 * @see urdf.UrdfPackage#getTransmission_MechanicalReduction()
-	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Double"
-	 *        extendedMetaData="kind='element' name='mechanicalReduction' namespace='##targetNamespace' group='#group:0'"
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	EList<Double> getMechanicalReduction();
+
+	/**
+	 * Unsets the value of the '{@link urdf.Transmission#getMechanicalReduction <em>Mechanical Reduction</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetMechanicalReduction()
+	 * @see #getMechanicalReduction()
+	 * @generated
+	 */
+	void unsetMechanicalReduction();
+
+	/**
+	 * Returns whether the value of the '{@link urdf.Transmission#getMechanicalReduction <em>Mechanical Reduction</em>}' attribute list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Mechanical Reduction</em>' attribute list is set.
+	 * @see #unsetMechanicalReduction()
+	 * @see #getMechanicalReduction()
+	 * @generated
+	 */
+	boolean isSetMechanicalReduction();
 
 	/**
 	 * Returns the value of the '<em><b>Actuator</b></em>' containment reference list.
@@ -161,8 +160,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actuator</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_Actuator()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actuator' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<Name> getActuator();
@@ -174,8 +172,7 @@ public interface Transmission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Joint</em>' containment reference list.
 	 * @see urdf.UrdfPackage#getTransmission_Joint()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='joint' namespace='##targetNamespace' group='#group:0'"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<Name> getJoint();
@@ -187,8 +184,7 @@ public interface Transmission extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getTransmission_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -210,8 +206,7 @@ public interface Transmission extends EObject {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(String)
 	 * @see urdf.UrdfPackage#getTransmission_Type()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='type'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getType();

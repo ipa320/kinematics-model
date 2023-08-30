@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see urdf.UrdfPackage#getColor()
- * @model extendedMetaData="name='color' kind='empty'"
+ * @model
  * @generated
  */
 public interface Color extends EObject {
@@ -31,8 +31,7 @@ public interface Color extends EObject {
 	 * @see #unsetRgba()
 	 * @see #setRgba(String)
 	 * @see urdf.UrdfPackage#getColor_Rgba()
-	 * @model default="0 0 0 0" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='rgba'"
+	 * @model default="0 0 0 0" unsettable="true"
 	 * @generated
 	 */
 	String getRgba();

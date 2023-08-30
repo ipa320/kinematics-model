@@ -15,10 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.BasicFeatureMap;
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import urdf.ActuatorTransmission;
@@ -37,7 +34,6 @@ import urdf.UseSimulatedGripperJointType;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link urdf.impl.TransmissionImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link urdf.impl.TransmissionImpl#getLeftActuator <em>Left Actuator</em>}</li>
  *   <li>{@link urdf.impl.TransmissionImpl#getRightActuator <em>Right Actuator</em>}</li>
  *   <li>{@link urdf.impl.TransmissionImpl#getFlexJoint <em>Flex Joint</em>}</li>
@@ -56,86 +52,6 @@ import urdf.UseSimulatedGripperJointType;
  */
 public class TransmissionImpl extends MinimalEObjectImpl.Container implements Transmission {
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected FeatureMap group;
-
-	/**
-	 * The cached value of the '{@link #getLeftActuator() <em>Left Actuator</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLeftActuator()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActuatorTransmission> leftActuator;
-
-	/**
-	 * The cached value of the '{@link #getRightActuator() <em>Right Actuator</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRightActuator()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActuatorTransmission> rightActuator;
-
-	/**
-	 * The cached value of the '{@link #getFlexJoint() <em>Flex Joint</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFlexJoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActuatorTransmission> flexJoint;
-
-	/**
-	 * The cached value of the '{@link #getRollJoint() <em>Roll Joint</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRollJoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActuatorTransmission> rollJoint;
-
-	/**
-	 * The cached value of the '{@link #getGapJoint() <em>Gap Joint</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGapJoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GapJointTransmission> gapJoint;
-
-	/**
-	 * The cached value of the '{@link #getPassiveJoint() <em>Passive Joint</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPassiveJoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PassiveJointTransmission> passiveJoint;
-
-	/**
-	 * The cached value of the '{@link #getUseSimulatedGripperJoint() <em>Use Simulated Gripper Joint</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUseSimulatedGripperJoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<UseSimulatedGripperJointType> useSimulatedGripperJoint;
-
-	/**
 	 * The cached value of the '{@link #getMechanicalReduction() <em>Mechanical Reduction</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,26 +60,6 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @ordered
 	 */
 	protected EList<Double> mechanicalReduction;
-
-	/**
-	 * The cached value of the '{@link #getActuator() <em>Actuator</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActuator()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Name> actuator;
-
-	/**
-	 * The cached value of the '{@link #getJoint() <em>Joint</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getJoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Name> joint;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -229,23 +125,12 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getGroup() {
-		if (group == null) {
-			group = new BasicFeatureMap(this, UrdfPackage.TRANSMISSION__GROUP);
-		}
-		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ActuatorTransmission> getLeftActuator() {
-		if (leftActuator == null) {
-			leftActuator = new EObjectContainmentEList<ActuatorTransmission>(ActuatorTransmission.class, this, UrdfPackage.TRANSMISSION__LEFT_ACTUATOR);
-		}
-		return leftActuator;
+		// TODO: implement this method to return the 'Left Actuator' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -254,10 +139,11 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @generated
 	 */
 	public EList<ActuatorTransmission> getRightActuator() {
-		if (rightActuator == null) {
-			rightActuator = new EObjectContainmentEList<ActuatorTransmission>(ActuatorTransmission.class, this, UrdfPackage.TRANSMISSION__RIGHT_ACTUATOR);
-		}
-		return rightActuator;
+		// TODO: implement this method to return the 'Right Actuator' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -266,10 +152,11 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @generated
 	 */
 	public EList<ActuatorTransmission> getFlexJoint() {
-		if (flexJoint == null) {
-			flexJoint = new EObjectContainmentEList<ActuatorTransmission>(ActuatorTransmission.class, this, UrdfPackage.TRANSMISSION__FLEX_JOINT);
-		}
-		return flexJoint;
+		// TODO: implement this method to return the 'Flex Joint' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -278,10 +165,11 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @generated
 	 */
 	public EList<ActuatorTransmission> getRollJoint() {
-		if (rollJoint == null) {
-			rollJoint = new EObjectContainmentEList<ActuatorTransmission>(ActuatorTransmission.class, this, UrdfPackage.TRANSMISSION__ROLL_JOINT);
-		}
-		return rollJoint;
+		// TODO: implement this method to return the 'Roll Joint' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -290,10 +178,11 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @generated
 	 */
 	public EList<GapJointTransmission> getGapJoint() {
-		if (gapJoint == null) {
-			gapJoint = new EObjectContainmentEList<GapJointTransmission>(GapJointTransmission.class, this, UrdfPackage.TRANSMISSION__GAP_JOINT);
-		}
-		return gapJoint;
+		// TODO: implement this method to return the 'Gap Joint' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -302,10 +191,11 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @generated
 	 */
 	public EList<PassiveJointTransmission> getPassiveJoint() {
-		if (passiveJoint == null) {
-			passiveJoint = new EObjectContainmentEList<PassiveJointTransmission>(PassiveJointTransmission.class, this, UrdfPackage.TRANSMISSION__PASSIVE_JOINT);
-		}
-		return passiveJoint;
+		// TODO: implement this method to return the 'Passive Joint' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -314,10 +204,11 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @generated
 	 */
 	public EList<UseSimulatedGripperJointType> getUseSimulatedGripperJoint() {
-		if (useSimulatedGripperJoint == null) {
-			useSimulatedGripperJoint = new EObjectContainmentEList<UseSimulatedGripperJointType>(UseSimulatedGripperJointType.class, this, UrdfPackage.TRANSMISSION__USE_SIMULATED_GRIPPER_JOINT);
-		}
-		return useSimulatedGripperJoint;
+		// TODO: implement this method to return the 'Use Simulated Gripper Joint' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -327,7 +218,7 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 */
 	public EList<Double> getMechanicalReduction() {
 		if (mechanicalReduction == null) {
-			mechanicalReduction = new EDataTypeEList<Double>(Double.class, this, UrdfPackage.TRANSMISSION__MECHANICAL_REDUCTION);
+			mechanicalReduction = new EDataTypeUniqueEList.Unsettable<Double>(Double.class, this, UrdfPackage.TRANSMISSION__MECHANICAL_REDUCTION);
 		}
 		return mechanicalReduction;
 	}
@@ -337,11 +228,30 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void unsetMechanicalReduction() {
+		if (mechanicalReduction != null) ((InternalEList.Unsettable<?>)mechanicalReduction).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetMechanicalReduction() {
+		return mechanicalReduction != null && ((InternalEList.Unsettable<?>)mechanicalReduction).isSet();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Name> getActuator() {
-		if (actuator == null) {
-			actuator = new EObjectContainmentEList<Name>(Name.class, this, UrdfPackage.TRANSMISSION__ACTUATOR);
-		}
-		return actuator;
+		// TODO: implement this method to return the 'Actuator' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -350,10 +260,11 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	 * @generated
 	 */
 	public EList<Name> getJoint() {
-		if (joint == null) {
-			joint = new EObjectContainmentEList<Name>(Name.class, this, UrdfPackage.TRANSMISSION__JOINT);
-		}
-		return joint;
+		// TODO: implement this method to return the 'Joint' containment reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -406,8 +317,6 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UrdfPackage.TRANSMISSION__GROUP:
-				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
 			case UrdfPackage.TRANSMISSION__LEFT_ACTUATOR:
 				return ((InternalEList<?>)getLeftActuator()).basicRemove(otherEnd, msgs);
 			case UrdfPackage.TRANSMISSION__RIGHT_ACTUATOR:
@@ -438,9 +347,6 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UrdfPackage.TRANSMISSION__GROUP:
-				if (coreType) return getGroup();
-				return ((FeatureMap.Internal)getGroup()).getWrapper();
 			case UrdfPackage.TRANSMISSION__LEFT_ACTUATOR:
 				return getLeftActuator();
 			case UrdfPackage.TRANSMISSION__RIGHT_ACTUATOR:
@@ -478,9 +384,6 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UrdfPackage.TRANSMISSION__GROUP:
-				((FeatureMap.Internal)getGroup()).set(newValue);
-				return;
 			case UrdfPackage.TRANSMISSION__LEFT_ACTUATOR:
 				getLeftActuator().clear();
 				getLeftActuator().addAll((Collection<? extends ActuatorTransmission>)newValue);
@@ -539,9 +442,6 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UrdfPackage.TRANSMISSION__GROUP:
-				getGroup().clear();
-				return;
 			case UrdfPackage.TRANSMISSION__LEFT_ACTUATOR:
 				getLeftActuator().clear();
 				return;
@@ -564,7 +464,7 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 				getUseSimulatedGripperJoint().clear();
 				return;
 			case UrdfPackage.TRANSMISSION__MECHANICAL_REDUCTION:
-				getMechanicalReduction().clear();
+				unsetMechanicalReduction();
 				return;
 			case UrdfPackage.TRANSMISSION__ACTUATOR:
 				getActuator().clear();
@@ -590,28 +490,26 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UrdfPackage.TRANSMISSION__GROUP:
-				return group != null && !group.isEmpty();
 			case UrdfPackage.TRANSMISSION__LEFT_ACTUATOR:
-				return leftActuator != null && !leftActuator.isEmpty();
+				return !getLeftActuator().isEmpty();
 			case UrdfPackage.TRANSMISSION__RIGHT_ACTUATOR:
-				return rightActuator != null && !rightActuator.isEmpty();
+				return !getRightActuator().isEmpty();
 			case UrdfPackage.TRANSMISSION__FLEX_JOINT:
-				return flexJoint != null && !flexJoint.isEmpty();
+				return !getFlexJoint().isEmpty();
 			case UrdfPackage.TRANSMISSION__ROLL_JOINT:
-				return rollJoint != null && !rollJoint.isEmpty();
+				return !getRollJoint().isEmpty();
 			case UrdfPackage.TRANSMISSION__GAP_JOINT:
-				return gapJoint != null && !gapJoint.isEmpty();
+				return !getGapJoint().isEmpty();
 			case UrdfPackage.TRANSMISSION__PASSIVE_JOINT:
-				return passiveJoint != null && !passiveJoint.isEmpty();
+				return !getPassiveJoint().isEmpty();
 			case UrdfPackage.TRANSMISSION__USE_SIMULATED_GRIPPER_JOINT:
-				return useSimulatedGripperJoint != null && !useSimulatedGripperJoint.isEmpty();
+				return !getUseSimulatedGripperJoint().isEmpty();
 			case UrdfPackage.TRANSMISSION__MECHANICAL_REDUCTION:
-				return mechanicalReduction != null && !mechanicalReduction.isEmpty();
+				return isSetMechanicalReduction();
 			case UrdfPackage.TRANSMISSION__ACTUATOR:
-				return actuator != null && !actuator.isEmpty();
+				return !getActuator().isEmpty();
 			case UrdfPackage.TRANSMISSION__JOINT:
-				return joint != null && !joint.isEmpty();
+				return !getJoint().isEmpty();
 			case UrdfPackage.TRANSMISSION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UrdfPackage.TRANSMISSION__TYPE:
@@ -630,9 +528,7 @@ public class TransmissionImpl extends MinimalEObjectImpl.Container implements Tr
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (group: ");
-		result.append(group);
-		result.append(", mechanicalReduction: ");
+		result.append(" (mechanicalReduction: ");
 		result.append(mechanicalReduction);
 		result.append(", name: ");
 		result.append(name);

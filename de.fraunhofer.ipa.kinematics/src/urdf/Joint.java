@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link urdf.Joint#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link urdf.Joint#getParent <em>Parent</em>}</li>
+ *   <li>{@link urdf.Joint#getChild <em>Child</em>}</li>
  *   <li>{@link urdf.Joint#getAxis <em>Axis</em>}</li>
  *   <li>{@link urdf.Joint#getCalibration <em>Calibration</em>}</li>
  *   <li>{@link urdf.Joint#getDynamics <em>Dynamics</em>}</li>
@@ -22,12 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link urdf.Joint#getMimic <em>Mimic</em>}</li>
  *   <li>{@link urdf.Joint#getName <em>Name</em>}</li>
  *   <li>{@link urdf.Joint#getType <em>Type</em>}</li>
- *   <li>{@link urdf.Joint#getParent <em>Parent</em>}</li>
- *   <li>{@link urdf.Joint#getChild <em>Child</em>}</li>
  * </ul>
  *
  * @see urdf.UrdfPackage#getJoint()
- * @model extendedMetaData="name='joint' kind='elementOnly'"
+ * @model
  * @generated
  */
 public interface Joint extends EObject {
@@ -39,7 +39,6 @@ public interface Joint extends EObject {
 	 * @see #setOrigin(Pose)
 	 * @see urdf.UrdfPackage#getJoint_Origin()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='origin' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Pose getOrigin();
@@ -55,48 +54,48 @@ public interface Joint extends EObject {
 	void setOrigin(Pose value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * Returns the value of the '<em><b>Parent</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
-	 * @see #setParent(Link)
+	 * @return the value of the '<em>Parent</em>' containment reference.
+	 * @see #setParent(Parent)
 	 * @see urdf.UrdfPackage#getJoint_Parent()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Link getParent();
+	Parent getParent();
 
 	/**
-	 * Sets the value of the '{@link urdf.Joint#getParent <em>Parent</em>}' reference.
+	 * Sets the value of the '{@link urdf.Joint#getParent <em>Parent</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' reference.
+	 * @param value the new value of the '<em>Parent</em>' containment reference.
 	 * @see #getParent()
 	 * @generated
 	 */
-	void setParent(Link value);
+	void setParent(Parent value);
 
 	/**
-	 * Returns the value of the '<em><b>Child</b></em>' reference.
+	 * Returns the value of the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child</em>' reference.
-	 * @see #setChild(Link)
+	 * @return the value of the '<em>Child</em>' containment reference.
+	 * @see #setChild(Child)
 	 * @see urdf.UrdfPackage#getJoint_Child()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Link getChild();
+	Child getChild();
 
 	/**
-	 * Sets the value of the '{@link urdf.Joint#getChild <em>Child</em>}' reference.
+	 * Sets the value of the '{@link urdf.Joint#getChild <em>Child</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Child</em>' reference.
+	 * @param value the new value of the '<em>Child</em>' containment reference.
 	 * @see #getChild()
 	 * @generated
 	 */
-	void setChild(Link value);
+	void setChild(Child value);
 
 	/**
 	 * Returns the value of the '<em><b>Axis</b></em>' containment reference.
@@ -106,7 +105,6 @@ public interface Joint extends EObject {
 	 * @see #setAxis(Axis)
 	 * @see urdf.UrdfPackage#getJoint_Axis()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='axis' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Axis getAxis();
@@ -129,7 +127,6 @@ public interface Joint extends EObject {
 	 * @see #setCalibration(Calibration)
 	 * @see urdf.UrdfPackage#getJoint_Calibration()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='calibration' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Calibration getCalibration();
@@ -152,7 +149,6 @@ public interface Joint extends EObject {
 	 * @see #setDynamics(Dynamics)
 	 * @see urdf.UrdfPackage#getJoint_Dynamics()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dynamics' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Dynamics getDynamics();
@@ -175,7 +171,6 @@ public interface Joint extends EObject {
 	 * @see #setLimit(Limit)
 	 * @see urdf.UrdfPackage#getJoint_Limit()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='limit' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Limit getLimit();
@@ -198,7 +193,6 @@ public interface Joint extends EObject {
 	 * @see #setSafetyController(SafetyController)
 	 * @see urdf.UrdfPackage#getJoint_SafetyController()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='safety_controller' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	SafetyController getSafetyController();
@@ -221,7 +215,6 @@ public interface Joint extends EObject {
 	 * @see #setMimic(Mimic)
 	 * @see urdf.UrdfPackage#getJoint_Mimic()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='mimic' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Mimic getMimic();
@@ -243,8 +236,7 @@ public interface Joint extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see urdf.UrdfPackage#getJoint_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -266,8 +258,7 @@ public interface Joint extends EObject {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(String)
 	 * @see urdf.UrdfPackage#getJoint_Type()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='type'"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getType();
