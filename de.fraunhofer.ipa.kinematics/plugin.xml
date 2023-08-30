@@ -22,4 +22,12 @@
             genModel="model/xacro.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated component -->
+      <package
+            uri="http://www.ipa.fraunhofer.de/component"
+            class="component.ComponentPackage"
+            genModel="model/component.genmodel"/>
+   </extension>
+
 </plugin>

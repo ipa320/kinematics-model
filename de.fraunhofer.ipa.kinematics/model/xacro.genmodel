@@ -3,8 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.ipa.kinematics/src" modelPluginID="de.fraunhofer.ipa.kinematics"
     modelName="Xacro" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore urdf.genmodel#//urdf"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="urdf.genmodel#//urdf" operationReflection="true" importOrganizing="true">
   <foreignModel>xacro.ecore</foreignModel>
   <genPackages prefix="Xacro" disposableProviderFactory="true" ecorePackage="xacro.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="xacro.ecore#//ParameterType">
@@ -18,6 +17,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/configuredMacros"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/link"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Macro/condition"/>
     </genClasses>
     <genClasses ecoreClass="xacro.ecore#//ConfiguredMacro">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xacro.ecore#//ConfiguredMacro/macro"/>
@@ -37,6 +37,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//XacroRobot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//XacroRobot/macros"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//XacroRobot/configuredMacros"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//XacroRobot/gitRepo"/>
+    </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//GitRepo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/raw_file_url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/package"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//GitRepo/repo"/>
+    </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xacro.ecore#//Condition/param"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Condition/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Condition/unless"/>
+    </genClasses>
+    <genClasses ecoreClass="xacro.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Block/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xacro.ecore#//Block/link"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -4,19 +4,19 @@
 package de.fraunhofer.ipa.kinematics.tests
 
 import com.google.inject.Inject
+import component.Component
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import xacro.XacroRobot
 
 @ExtendWith(InjectionExtension)
 @InjectWith(KinematicsInjectorProvider)
 class KinematicsParsingTest {
 	@Inject
-	ParseHelper<XacroRobot> parseHelper
+	ParseHelper<Component> parseHelper
 	
 	@Test
 	def void loadModel() {

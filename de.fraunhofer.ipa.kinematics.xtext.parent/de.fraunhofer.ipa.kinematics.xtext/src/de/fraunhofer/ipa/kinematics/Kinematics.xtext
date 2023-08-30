@@ -2,64 +2,116 @@
 grammar de.fraunhofer.ipa.kinematics.Kinematics with org.eclipse.xtext.common.Terminals
 
 import "http://www.ipa.fraunhofer.de/urdf" as urdf
-import "http://www.ipa.fraunhofer.de/xacro" 
+import "http://www.ipa.fraunhofer.de/component" 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.eclipse.org/emf/2003/XMLType" as type
 
-Robot returns XacroRobot:
-	{XacroRobot}
-	'xacrorobot:'
+Component returns Component:
+	{Component}
+	'component:'
 	BEGIN
 		'name:' name=EString
-		('macros:'
-			macros+=Macro*
+		'version:' version=EString
+		('category:' category=CATEGORY)?
+		('gitRepo:' gitRepo=GitRepo)?
+		('baseAttachment:'
+			(baseAttachment+=BaseAttachment)* | baseAttachment+=BaseAttachment
 		)?
-//		('configuredMacros:'
-//			configuredMacros+=ConfiguredMacro*
-//		)?
-	END;	
-
-Macro returns Macro:
-	'-' 'name:' name=EString
-	BEGIN
-		('parameters:'
-			parameters+=Parameter*
+		('flangeAttachment:'
+			(flangeAttachment+=FlangeAttachment)* | flangeAttachment+=FlangeAttachment
+		)?
+		('component:'
+			(component+=ConfiguredComponent)* | component+=ConfiguredComponent
+		)?
+		('connection:'
+			(connection+=Connection)* | connection+=Connection
+		)?
+		('group:'
+			(group+=Group)* | group+=Group
 		)?
 		('link:'
-			link+=Link*
+			(link+=Link)* | link+=Link
 		)?
 		('joint:'
-			joint+=Joint*
+			(joint+=Joint)* | joint+=Joint
 		)?
 	END;
-
-Parameter returns Parameter:
-	{Parameter}
+	
+ConfiguredComponent returns ConfiguredComponent:
 	'-' 'name:' name=EString
 	BEGIN
-		'type:' type=ParameterType
-		('default' default=EString)?
-		('value' value=EString)?
-	END;
+		'type:' type=[Component|EString]
+		('prefix:' prefix=EString)?
+	END
+;
 
-enum ParameterType:
-	Link='0' | String='1' | Pose='2'
+
+GitRepo returns GitRepo:
+	BEGIN
+		'distro:' distro=EString
+		'repo:' repo=EString
+		'branch:' branch=EString
+		'package:' package=EString
+		'version:' version=EString
+	END;
+	
+Group returns Group:
+	'-' 'name:' name=EString
+	BEGIN
+		'baseLink:' baseLink=[urdf::Link|EString]
+		'endLink:' endLink=[urdf::Link|EString]
+		('ros2_control:' ros2_control=EString)?
+	END
+;
+
+BaseAttachment returns BaseAttachment:
+	'-' 'name:' name=EString
+	BEGIN
+		'origin:' origin=Pose
+		'parent:' parent=[urdf::Link|EString]
+	END
+;
+
+FlangeAttachment returns FlangeAttachment:
+	'-' 'name:' name=EString
+	BEGIN
+		'origin:' origin=Pose
+		'parent:' parent=[urdf::Link|EString]
+	END
+;
+
+Connection returns Connection:
+	'-' 'name:' name=EString
+	BEGIN
+		'baseAttachment:' baseAttachment=[BaseAttachment|EString]
+		'flangeAttachment:' flangeAttachment=[FlangeAttachment|EString]
+	END
 ;
 
 Joint returns urdf::Joint:
 	'-' 'name:' name=EString
 	BEGIN
-		'type:' type=JOINTTYPE
-		'parent:' parent=[urdf::Link] 
-		'child:' child=[urdf::Link]
-		'origin:' origin=Pose
-		('axis:' axis=Vector3)?
+		('type:' type=JOINTTYPE)
+		('parent:' parent=Parent) 
+		('child:' child=Child)
+		('origin:' origin=Pose)
+		('axis:' axis=Axis)?
 		('limit:' limit=Limit)?
+	END;
+
+Parent returns urdf::Parent:
+	BEGIN
+		'link:' link=EString
+	END;
+
+Child returns urdf::Child:
+	BEGIN
+		'link:' link=EString
 	END;
 
 Link returns urdf::Link:
 	'-' 'name:' name=EString
-	(':' BEGIN
+	(BEGIN
 		('inertial:' inertial=Inertial)?
 		('visual:' visual=Visual)?
 		('collision:' collision=Collision)?
@@ -68,11 +120,11 @@ Link returns urdf::Link:
 Pose returns urdf::Pose:
 	{urdf::Pose}
 	BEGIN
-		('rpy:' rpy=EString)?
-		('xyz:' xyz=EString)?
+		('rpy:' '[' rpy+=DOUBLE (',' rpy+=DOUBLE)* ']')?
+		('xyz:' '[' xyz+=DOUBLE (',' xyz+=DOUBLE)* ']')?
 	END;
 
-Vector3 returns urdf::Axis:
+Axis returns urdf::Axis:
 	{urdf::Axis}
 	BEGIN
 		('xyz:' xyz=EString)?
@@ -81,10 +133,10 @@ Vector3 returns urdf::Axis:
 Limit returns urdf::Limit:
 	{urdf::Limit}
 	BEGIN
-		('effort:' effort=Double0)?
-		('lower:' lower=Double0)?
-		('upper:' upper=Double0)?
-		('velocity:' velocity=Double0)?
+		('effort:' effort=DOUBLE)?
+		('lower:' lower=DOUBLE)?
+		('upper:' upper=DOUBLE)?
+		('velocity:' velocity=DOUBLE)?
 	END;
 
 Inertial returns urdf::Inertial:
@@ -109,17 +161,19 @@ Collision returns urdf::Collision:
 
 Mass returns urdf::Mass:
 	{urdf::Mass}
-	value=Double0;
+	BEGIN
+		'value:' value=DOUBLE
+	END;
 
 Inertia returns urdf::Inertia:
 	{urdf::Inertia}
 	BEGIN
-		('ixx:' ixx=Double0)?
-		('ixy:' ixy=Double0)?
-		('ixz:' ixz=Double0)?
-		('iyy:' iyy=Double0)?
-		('iyz:' iyz=Double0)?
-		('izz:' izz=Double0)?
+		('ixx:' ixx=DOUBLE)?
+		('ixy:' ixy=DOUBLE)?
+		('ixz:' ixz=DOUBLE)?
+		('iyy:' iyy=DOUBLE)?
+		('iyz:' iyz=DOUBLE)?
+		('izz:' izz=DOUBLE)?
 	END;
 
 Geometry returns urdf::Geometry:
@@ -134,13 +188,13 @@ Geometry returns urdf::Geometry:
 Box returns urdf::Box:
 	{urdf::Box}
 	BEGIN
-		'size' size=EString
+		'size:' size=EString
 	END;
 
 Cylinder returns urdf::Cylinder:
 	BEGIN
-		'length:' length=Double0
-		'radius:' radius=Double0
+		'length:' length=EString
+		'radius:' radius=EString
 	END;
 
 Sphere returns urdf::Sphere:
@@ -151,7 +205,7 @@ Sphere returns urdf::Sphere:
 Mesh returns urdf::Mesh:
 	BEGIN
 		'filename:' filename=EString
-		('scale:' scale=EString)?
+		('scale:' '[' scale+=DOUBLE (',' scale+=DOUBLE)* ']')?
 	END;
 
 AnyURI returns type::AnyURI:
@@ -164,9 +218,10 @@ EString returns ecore::EString:
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307
 terminal fragment DIGIT: '0'..'9';
 terminal BOOLEAN: 'true'|'false';
-terminal DOUBLE returns ecore::EDouble: DECINT (('.' DIGIT*) | (('.' DIGIT*)? ('E'|'e') ('-'|'+')? DECINT));  // Use terminal to avoid 'e' turning into a keyword
+terminal DOUBLE returns ecore::EDouble: ('-')? INT* ('.' INT+)? ;  // Use terminal to avoid 'e' turning into a keyword
 terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
-terminal JOINTTYPE: 'revolute' | 'continuous' | 'prismatic' | 'fixed' | 'floating' | 'planar';
+terminal JOINTTYPE: "revolute" | "continuous" | "prismatic" | "fixed" | "floating" | "planar";
+terminal CATEGORY: "manipulator" | "gripper" | "camera";
 
 ///////////////////
 // YAML format
@@ -176,7 +231,6 @@ terminal END: 'synthetic:END';
 
 @Override 
 terminal SL_COMMENT: '#' !('\n'|'\r')*;
-
 
 Double0 returns type::Double:
 	DOUBLE;

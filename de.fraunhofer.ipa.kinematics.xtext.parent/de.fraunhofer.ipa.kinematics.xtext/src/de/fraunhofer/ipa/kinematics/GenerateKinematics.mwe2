@@ -33,7 +33,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "de.fraunhofer.ipa.kinematics.Kinematics"
 			fileExtensions = "kin"
-			referencedResource = "platform:/resource/de.fraunhofer.ipa.kinematics/model/xacro.genmodel"
+			referencedResource = "platform:/resource/de.fraunhofer.ipa.kinematics/model/component.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
@@ -52,6 +52,7 @@ Workflow {
 			}
 			generator = {
 				generateXtendStub = true
+				generateJavaMain = true
 			}
 			junitSupport = {
 				junitVersion = "5"

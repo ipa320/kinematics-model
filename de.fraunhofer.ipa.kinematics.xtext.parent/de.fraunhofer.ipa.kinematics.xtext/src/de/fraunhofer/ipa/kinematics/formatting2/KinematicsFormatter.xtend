@@ -3,13 +3,33 @@
  */
 package de.fraunhofer.ipa.kinematics.formatting2
 
+import com.google.inject.Inject
+import component.Component
+import de.fraunhofer.ipa.kinematics.services.KinematicsGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class KinematicsFormatter extends AbstractFormatter2 {
 	
-	override format(Object obj, IFormattableDocument document) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	@Inject extension KinematicsGrammarAccess
+
+	def dispatch void format(Component component, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+//		for (macro : robot.macros) {
+//			macro.format
+//		}
+//		for (configuredMacros : robot.configuredMacros) {
+//			configuredMacros.format
+//		}
 	}
+
+//	def dispatch void format(Macro macro, extension IFormattableDocument document) {
+//		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+//		for (parameter : macro.parameters) {
+//			parameter.format
+//		}
+//	}
+	
+	// TODO: implement for Parameter, ParameterPose, Body, MacroCall, ParameterCall, Joint, Link, Inertial, Visual, Collision, Geometry, Box
 	
 }

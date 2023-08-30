@@ -12,6 +12,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
         eType="ecore:EClass urdf.ecore#//Joint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" upperBound="-1"
+        eType="#//Condition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfiguredMacro">
     <eStructuralFeatures xsi:type="ecore:EReference" name="macro" lowerBound="1" eType="#//Macro"/>
@@ -40,5 +42,28 @@
         eType="#//Macro" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configuredMacros" upperBound="-1"
         eType="#//ConfiguredMacro" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gitRepo" lowerBound="1"
+        eType="#//GitRepo" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GitRepo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="raw_file_url" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="package" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="param" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="#//Block" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unless" eType="#//Block"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joint" upperBound="-1"
+        eType="ecore:EClass urdf.ecore#//Joint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="ecore:EClass urdf.ecore#//Link"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

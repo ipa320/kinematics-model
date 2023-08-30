@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import com.google.inject.Injector;
 
-import xacro.XacroPackage;
+import component.ComponentPackage;
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -20,7 +20,7 @@ public class KinematicsStandaloneSetup extends KinematicsStandaloneSetupGenerate
 	
 	@Override
 	public void register(final Injector injector) {
-		EPackage.Registry.INSTANCE.put(XacroPackage.eNS_URI, XacroPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(ComponentPackage.eNS_URI, ComponentPackage.eINSTANCE);
 		super.register(injector);
 	}
 }
