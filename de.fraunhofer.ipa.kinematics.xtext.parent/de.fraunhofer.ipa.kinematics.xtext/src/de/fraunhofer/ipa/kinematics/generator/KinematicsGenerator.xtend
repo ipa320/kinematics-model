@@ -10,6 +10,9 @@ import component.Connection
 import component.impl.ConfiguredComponentImpl
 import java.io.ByteArrayOutputStream
 import java.util.ArrayList
+import org.apache.commons.math3.geometry.euclidean.threed.Rotation
+import org.apache.commons.math3.geometry.euclidean.threed.RotationOrder
+import org.apache.commons.math3.geometry.euclidean.threed.Vector3D
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
@@ -17,6 +20,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import urdf.Joint
 import urdf.Link
 import urdf.Pose
+import urdf.UrdfFactory
 import urdf.impl.LinkImpl
 
 /**
@@ -70,6 +74,56 @@ class KinematicsGenerator extends AbstractGenerator {
 			depends_list.add(configuredComponent.type.gitRepo.package);
 		}
 		return depends_list;
+	}
+
+//	private def get_transform(EList<Double> xyz1, EList<Double> rpy1, EList<Double> xyz2, EList<Double> rpy2) {
+	private def get_transform(Pose pose1, Pose pose2) {
+		val xyz1 = pose1.xyz;
+		val rpy1 = pose1.rpy;
+		val xyz2 = pose2.xyz;
+		val rpy2 = pose1.rpy;
+
+		var translationLinkCommonToLink1 = new Vector3D(xyz1.get(0), xyz1.get(1), xyz1.get(2));
+		var rotationLinkCommonToLink1 = new Vector3D(rpy1.get(0), rpy1.get(1), rpy1.get(2));
+
+		var translationLinkCommonToLink2 = new Vector3D(xyz2.get(0), xyz2.get(1), xyz2.get(2));
+		var rotationLinkCommonToLink2 = new Vector3D(rpy2.get(0), rpy2.get(1), rpy2.get(2));
+
+		// Convert Euler angles to rotation matrices
+		var rotationMatrixLinkCommonToLink1 = new Rotation(
+			RotationOrder.XYZ,
+			rotationLinkCommonToLink1.getX(),
+			rotationLinkCommonToLink1.getY(),
+			rotationLinkCommonToLink1.getZ()
+		);
+
+		var rotationMatrixLinkCommonToLink2 = new Rotation(
+			RotationOrder.XYZ,
+			rotationLinkCommonToLink2.getX(),
+			rotationLinkCommonToLink2.getY(),
+			rotationLinkCommonToLink2.getZ()
+		);
+
+		// Compute the transformation from link1 to link2
+		var rotationFromLink1ToLink2 = rotationMatrixLinkCommonToLink2.applyTo(
+			rotationMatrixLinkCommonToLink1.revert());
+
+		var translationFromLink1ToLink2 = translationLinkCommonToLink2.subtract(
+			rotationMatrixLinkCommonToLink2.applyInverseTo(translationLinkCommonToLink1)
+		);
+
+		var newOrigin = UrdfFactory.eINSTANCE.createPose();
+		newOrigin.xyz.add(translationFromLink1ToLink2.x);
+		newOrigin.xyz.add(translationFromLink1ToLink2.y);
+		newOrigin.xyz.add(translationFromLink1ToLink2.z);
+
+		val rpyAngles = rotationFromLink1ToLink2.getAngles(RotationOrder.XYZ);
+
+		newOrigin.rpy.add(rpyAngles.get(0));
+		newOrigin.rpy.add(rpyAngles.get(0));
+		newOrigin.rpy.add(rpyAngles.get(0));
+
+		return newOrigin;
 	}
 
 	private def compile_origin(Pose pose) {
@@ -205,6 +259,10 @@ class KinematicsGenerator extends AbstractGenerator {
 		jointStr += "\n<joint name=\"" + connection.name + "\" type=\"fixed\"";
 		jointStr += "\n\t<parent link=\"" + flangeAttachmentPrefix + flangeAttachment.name + "\" />";
 		jointStr += "\n\t<child link=\"" + baseAttachmentPrefix + baseAttachment.name + "\" />";
+
+		val origin = get_transform(connection.baseAttachment.origin, connection.flangeAttachment.origin);
+		val originStr = compile_origin(origin);
+		jointStr += "\n\t" + originStr
 
 		jointStr += "\n</joint>"
 
