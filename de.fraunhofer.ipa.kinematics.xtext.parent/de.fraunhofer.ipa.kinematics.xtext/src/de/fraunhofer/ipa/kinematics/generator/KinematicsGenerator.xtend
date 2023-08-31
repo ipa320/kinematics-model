@@ -3,11 +3,12 @@
  */
 package de.fraunhofer.ipa.kinematics.generator
 
+import com.google.inject.Inject
 import component.Component
 import component.ConfiguredComponent
 import component.Connection
-import org.eclipse.emf.common.util.EList
-import org.eclipse.emf.ecore.EObject
+import component.impl.ConfiguredComponentImpl
+import java.util.ArrayList
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
@@ -16,7 +17,6 @@ import urdf.Joint
 import urdf.Link
 import urdf.Pose
 import urdf.impl.LinkImpl
-import component.impl.ConfiguredComponentImpl
 
 /**
  * Generates code from your model files on save.
@@ -25,10 +25,25 @@ import component.impl.ConfiguredComponentImpl
  */
 class KinematicsGenerator extends AbstractGenerator {
 
+	@Inject extension CMakeListsCompiler
+	@Inject extension PackageXmlCompiler
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (component : resource.allContents.toIterable.filter(Component)) {
-			fsa.generateFile(component.name + ".urdf", component.compile)
+			fsa.generateFile(component.name + "_description/urdf/" + component.name + ".urdf", component.compile);
+
+			var depends_list = get_dependency_list(component);
+
+			fsa.generateFile(component.name + "_description/package.xml",
+				compile_package_xml_format3(component.name, depends_list));
+			fsa.generateFile(component.name + "_description/CMakeLists.txt", compile_CMakeLists(component.name));
+
+	private def get_dependency_list(Component component) {
+		var depends_list = new ArrayList<CharSequence>();
+		for (configuredComponent : component.component) {
+			depends_list.add(configuredComponent.type.gitRepo.package);
 		}
+		return depends_list;
 	}
 
 	private def compile_origin(Pose pose) {
