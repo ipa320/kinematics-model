@@ -4,10 +4,19 @@
 package de.fraunhofer.ipa.kinematics.generator
 
 import component.Component
+import component.ConfiguredComponent
+import component.Connection
+import org.eclipse.emf.common.util.EList
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import urdf.Joint
+import urdf.Link
+import urdf.Pose
+import urdf.impl.LinkImpl
+import component.impl.ConfiguredComponentImpl
 
 /**
  * Generates code from your model files on save.
@@ -16,221 +25,172 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class KinematicsGenerator extends AbstractGenerator {
 
-		override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (component : resource.allContents.toIterable.filter(Component)) {
 			fsa.generateFile(component.name + ".urdf", component.compile)
 		}
 	}
 
-//	private def get_prefix(Parameter param) {
-//		var prefix = "";
-//		if (param !== null) {
-//			prefix = "${" + param.name + "}"
-//		}
-//		return prefix;
-//	}
-//
-//	private def compile_parameter_string(ParameterString paramStr, boolean resolveParam) {
-//		return get_prefix(paramStr.ref) + paramStr.value;
-//	}
-//
-//	private def compile_link(Link link)'''
-//<link name="«compile_parameter_string(link.name, false)»" >
-//	«IF link.visual !== null»
-//	<visual>
-//		«IF link.visual.origin !== null»
-//		<origin xyz="«link.visual.origin.xyz»" rpy="«link.visual.origin.rpy»" />"
-//		«ENDIF»
-//		«IF link.visual.geometry !== null»
-//		<geometry>
-//			«IF link.visual.geometry.mesh !== null»
-//			<mesh filename="«link.visual.geometry.mesh.filename»" />
-//			«ENDIF»
-//			«IF link.visual.geometry.box !== null»
-//			<box size="«link.visual.geometry.box.size»" />
-//			«ENDIF»
-//			«IF link.visual.geometry.cylinder !== null»
-//			<cylinder length="«link.visual.geometry.cylinder.length»" radius"«link.visual.geometry.cylinder.radius»"/>
-//			«ENDIF»
-//		</geometry>
-//		«ENDIF»
-//	</visual>
-//	«ENDIF»
-//	«IF link.collision !== null»
-//	<collision>
-//		«IF link.collision.origin !== null»
-//		<origin xyz="«link.collision.origin.xyz»" rpy="«link.collision.origin.rpy»" />"
-//		«ENDIF»
-//		«IF link.collision.geometry !== null»
-//		<geometry>
-//			«IF link.collision.geometry.mesh !== null»
-//			<mesh filename="«link.collision.geometry.mesh.filename»" />
-//			«ENDIF»
-//			«IF link.collision.geometry.box !== null»
-//			<box size="«link.collision.geometry.box.size»" />
-//			«ENDIF»
-//			«IF link.collision.geometry.cylinder !== null»
-//			<cylinder length="«link.collision.geometry.cylinder.length»" radius"«link.collision.geometry.cylinder.radius»"/>
-//			«ENDIF»
-//		</geometry>
-//		«ENDIF»
-//	</collision>
-//	«ENDIF»
-//	«IF link.inertial !== null»
-//	<inertial>
-//		«IF link.inertial.mass !== null»
-//		<mass value="«link.inertial.mass.value»" />
-//		«ENDIF»
-//		«IF link.inertial.origin !== null»
-//		<origin xyz="«link.inertial.origin.xyz»" rpy="«link.inertial.origin.rpy»" />
-//		«ENDIF»
-//		«IF link.inertial.inertia !== null»
-//		<inertia ixx="«link.inertial.inertia.ixx»" ixy="«link.inertial.inertia.ixy»" ixz="«link.inertial.inertia.ixz»"
-//			iyy="«link.inertial.inertia.iyy»" iyz="«link.inertial.inertia.iyz»"
-//			izz="«link.inertial.inertia.izz»" />
-//		«ENDIF»
-//	</inertial>
-//	«ENDIF»
-//</link>
-//	'''
-//
-//	private def get_link_name(ParameterLink paramLink) {
-//		var link_name = "";
-//		if (paramLink.param !== null) {
-//			var param = paramLink.param as Parameter
-//			link_name = "${" + param.name + "}";
-//		} else if (paramLink.link !== null) {
-//			var link = paramLink.link as Link
-//			link_name = compile_parameter_string(link.name, false);
-//		}
-//		return link_name;
-//	}
-//
-//	private def compile_origin(ParameterPose pose) {
-//		var originStr = "";
-//		if (pose.value !== null) {
-//			originStr = "<origin xyz=\"" + pose.value.xyz + "\" rpy=\"" + pose.value.rpy + "\" />"; 
-//		} else if (pose.ref !== null) {
-//			var param = pose.ref as Parameter;
-//			originStr = "<xacro:insert_block name=\"" + param.name + "\"/>"
-//		}
-//		return originStr;
-//	}
-//
-//	private def compile_joint(Joint joint)'''
-//<joint name="«compile_parameter_string(joint.name, false)»" type="«joint.type»">
-//	«IF joint.parent.link !== null && joint.parent.link.resolved !== null»
-//	<parent link="«joint.parent.link.resolved»" />
-//	«ELSE»
-//	<parent link="«get_link_name(joint.parent)»" />
-//	«ENDIF»
-//	«IF joint.child.link !== null &&  joint.child.link.resolved !== null»
-//	<child link="«joint.child.link.resolved»" />
-//	«ELSE»
-//	<child link="«get_link_name(joint.child)»" />
-//	«ENDIF»
-//	«compile_origin(joint.origin)»
-//	«IF joint.axis !== null»
-//	<axis xyz="«joint.axis.xyz»" />
-//	«ENDIF»
-//	«IF joint.limit !== null»
-//	<limit effort="«joint.limit.effort»" lower="«joint.limit.lower»" upper="«joint.limit.upper»" velocity="«joint.limit.velocity»" />
-//	«ENDIF»
-//</joint>
-//	'''
-//
-//	private def compile_body(Body body)'''
-//	«FOR link : body.link»
-//	«compile_link(link)»
-//	«ENDFOR»
-//	«FOR joint : body.joint»
-//	«compile_joint(joint)»
-//	«ENDFOR»
-//	'''
-//
-//	private def compile_macro(Macro macro) '''
-//	<xacro:macro name="«macro.name»" params="«FOR param : macro.parameter»«IF param.type instanceof ParameterPoseType»*«ENDIF»«param.name» «ENDFOR»">
-//		«IF macro.body !== null»
-//		«compile_body(macro.body)»
-//		«ENDIF»
-//	</xacro:macro>
-//	'''
-//
-//	private def get_params(EList<ParameterCall> params) {
-//		var paramStr = "";
-//		for(param : params) {
-//			if(param.value.value !== null) {
-//				paramStr += " " + param.parameter.name + "=\"" + param.value.value + "\"";
-//			} else if(param.value instanceof LinkRef) {
-//				paramStr += " " + param.parameter.name + "=\"" + ((param.value as LinkRef).ref as Link).resolved + "\"";
-//			}
-//		}
-//		paramStr += ">";
-//		for(param : params) {
-//			if(param.value instanceof Pose) {
-//				var pose = param.value as Pose;
-//				paramStr += "\n\t" + "<origin xyz=\"" + pose.xyz + "\" rpy=\"" + pose.rpy + "\" />";
-//			}
-//		}
-//		return paramStr;
-//	}
-//
-//	private def resolve_body_elements(MacroCall macroCall) {
-//		if (macroCall.macro.body === null) {
-//			return;
-//		}
-//		var paramStrings = new HashMap<String, String>();
-//		for (param : macroCall.parameterCall) {
-//			if (param.value.value !== null) {
-//				paramStrings.put(param.parameter.name, param.value.value);
-//			}
-//		}
-//		for (link : macroCall.macro.body.link) {
-//			if (link.name.ref !== null) {
-//				var p = link.name.ref;
-//				link.resolved = paramStrings.get(p.name) + link.name.value;
-//			} else {
-//				link.resolved = link.name.value;
-//			}
-//		}
-//	}
-//
-//	private def compile_macroCall(MacroCall macroCall)'''
-//	«resolve_body_elements(macroCall)»
-//	<xacro:«macroCall.macro.name» «get_params(macroCall.parameterCall)»
-//	</xacro:«macroCall.macro.name»>
-//	'''
-//
-//	private def get_include_robots(Robot robot) {
-//		var rNames = new ArrayList<String>();
-//		for (macroCall : robot.macroCall) {
-//			var rName = (macroCall.macro.eContainer() as Robot).name
-//			if (!rNames.contains(rName)) {
-//				rNames.add(rName);
-//			}
-//		}
-//		return rNames;
-//	}
+	private def compile_origin(Pose pose) {
+		var xyzStr = "";
+		var rpyStr = "";
+
+		if (pose.xyz.size() > 0) {
+			xyzStr = " xyz=\"" + pose.xyz.get(0) + " " + pose.xyz.get(1) + " " + pose.xyz.get(2) + "\" ";
+		}
+		if (pose.rpy.size() > 0) {
+			rpyStr = " rpy=\"" + pose.rpy.get(0) + " " + pose.rpy.get(1) + " " + pose.rpy.get(2) + "\" ";
+		}
+		var originStr = "<origin" + xyzStr + rpyStr + "/>";
+
+		return originStr;
+	}
+
+	private def compile_joint(Joint joint, String prefix) '''
+<joint name="«prefix + joint.name»" type="«joint.type»">
+	<parent link="«prefix + joint.parent.link»" />
+	<child link="«prefix + joint.child.link»" />
+	«compile_origin(joint.origin)»
+	«IF joint.axis !== null»
+	<axis xyz="«joint.axis.xyz»" />
+	«ENDIF»
+	«IF joint.limit !== null»
+	<limit effort="«joint.limit.effort»" lower="«joint.limit.lower»" upper="«joint.limit.upper»" velocity="«joint.limit.velocity»" />
+	«ENDIF»
+</joint>
+	'''
+
+	private def compile_link(Link link, String prefix) '''
+<link name="«prefix + link.name»" >
+	«IF link.visual !== null»
+	<visual>
+		«IF link.visual.origin !== null»
+		«compile_origin(link.visual.origin)»
+		«ENDIF»
+		«IF link.visual.geometry !== null»
+		<geometry>
+			«IF link.visual.geometry.mesh !== null»
+			<mesh filename="«link.visual.geometry.mesh.filename»" />
+			«ENDIF»
+			«IF link.visual.geometry.box !== null»
+			<box size="«link.visual.geometry.box.size»" />
+			«ENDIF»
+			«IF link.visual.geometry.cylinder !== null»
+			<cylinder length="«link.visual.geometry.cylinder.length»" radius"«link.visual.geometry.cylinder.radius»"/>
+			«ENDIF»
+		</geometry>
+		«ENDIF»
+	</visual>
+	«ENDIF»
+	«IF link.collision !== null»
+		<collision>
+			«IF link.collision.origin !== null»
+			«compile_origin(link.collision.origin)»
+			«ENDIF»
+			«IF link.collision.geometry !== null»
+			<geometry>
+				«IF link.collision.geometry.mesh !== null»
+				<mesh filename="«link.collision.geometry.mesh.filename»" />
+				«ENDIF»
+				«IF link.collision.geometry.box !== null»
+				<box size="«link.collision.geometry.box.size»" />
+				«ENDIF»
+				«IF link.collision.geometry.cylinder !== null»
+				<cylinder length="«link.collision.geometry.cylinder.length»" radius"«link.collision.geometry.cylinder.radius»"/>
+				«ENDIF»
+			</geometry>
+			«ENDIF»
+		</collision>
+		«ENDIF»
+		«IF link.inertial !== null»
+			<inertial>
+				«IF link.inertial.mass !== null»
+				<mass value="«link.inertial.mass.value»" />
+				«ENDIF»
+				«IF link.inertial.origin !== null»
+				«compile_origin(link.inertial.origin)»
+				«ENDIF»
+				«IF link.inertial.inertia !== null»
+				<inertia ixx="«link.inertial.inertia.ixx»" ixy="«link.inertial.inertia.ixy»" ixz="«link.inertial.inertia.ixz»"
+					iyy="«link.inertial.inertia.iyy»" iyz="«link.inertial.inertia.iyz»"
+					izz="«link.inertial.inertia.izz»" />
+				«ENDIF»
+			</inertial>
+			«ENDIF»
+</link>
+	'''
+
+	def compile_config_component(ConfiguredComponent configuredComponent) {
+		var component = configuredComponent.type;
+		var prefix = "";
+		if (configuredComponent.prefix !== null) {
+			prefix = configuredComponent.prefix;
+		}
+		compile_component(component, prefix);
+	}
+
+	def compile_connection(Connection connection) {
+		val baseAttachment = connection.baseAttachment.eCrossReferences.get(0) as LinkImpl;
+		val flangeAttachment = connection.flangeAttachment.eCrossReferences.get(0) as LinkImpl;
+
+		val baseAttachmentComponentName = (connection.baseAttachment.eContainer() as Component).name;
+		val flangeAttachmentComponentName = (connection.flangeAttachment.eContainer() as Component).name;
+
+		var flangeAttachmentPrefix = "";
+		var baseAttachmentPrefix = "";
+		var baseComponentName = "";
+		var flangeComponentName = "";
+		for (content : connection.eContainer().eContents()) {
+			if (content instanceof ConfiguredComponentImpl) {
+				// TODO: the qualified name for the attachments in connection should have "name" and not "type"
+				val component = content as ConfiguredComponentImpl;
+				val name = component.type.name;
+				if (flangeAttachmentComponentName.equals(name)) {
+					flangeComponentName = component.name;
+					if (component.prefix !== null) {
+						flangeAttachmentPrefix = component.prefix;
+					}
+				} else if (baseAttachmentComponentName.equals(name)) {
+					baseComponentName = component.name;
+					if (component.prefix !== null) {
+						baseAttachmentPrefix = component.prefix;
+					}
+				}
+			}
+		}
+
+		var jointStr = "<!-- Connection between components " + flangeComponentName + " and " + baseComponentName +
+			" -->";
+		jointStr += "\n<joint name=\"" + connection.name + "\" type=\"fixed\"";
+		jointStr += "\n\t<parent link=\"" + flangeAttachmentPrefix + flangeAttachment.name + "\" />";
+		jointStr += "\n\t<child link=\"" + baseAttachmentPrefix + baseAttachment.name + "\" />";
+
+		jointStr += "\n</joint>"
+
+		return jointStr;
+	}
+
+	private def compile_component(Component component, String prefix) '''
+		«FOR configComponent : component.component»
+			<!-- Description of component «configComponent.name» of type «configComponent.type.name» -->
+			«compile_config_component(configComponent)»
+			<!-- End of description of component «configComponent.name» -->
+		«ENDFOR»
+		«FOR connection : component.connection»
+			«compile_connection(connection)»
+		«ENDFOR»
+		«FOR link : component.link»
+			«compile_link(link, prefix)»
+		«ENDFOR»
+		«FOR joint : component.joint»
+			«compile_joint(joint, prefix)»
+		«ENDFOR»
+	'''
 
 	private def compile(Component component) '''
-	<?xml version="1.0"?>
-	<robot xmlns:xacro="http://wiki.ros.org/xacro" name="«component.name»" >
-
-«««	«val includes = get_include_robots(robot)»
-«««		«FOR include : includes»
-«««		<xacro:include filename="$(find «robot.name»_description)/urdf/«include».xacro" />
-«««		«ENDFOR»
-«««
-«««		«FOR macro : robot.macro»
-«««		«compile_macro(macro)»
-«««		«ENDFOR»
-«««		«FOR macroCall : robot.macroCall»
-«««		«compile_macroCall(macroCall)»
-«««		«ENDFOR»
-«««
-«««		«IF robot.body !== null»
-«««		«compile_body(robot.body)»
-«««		«ENDIF»
-	</robot>
+		<?xml version="1.0"?>
+		<robot name="«component.name»" >
+			«compile_component(component, "")»
+		</robot>
 	'''
 }
