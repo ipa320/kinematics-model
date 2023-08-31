@@ -29,6 +29,7 @@ class KinematicsGenerator extends AbstractGenerator {
 	@Inject extension CMakeListsCompiler
 	@Inject extension DisplayLaunchCompiler
 	@Inject extension PackageXmlCompiler
+	@Inject extension ReadMeCompiler
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (component : resource.allContents.toIterable.filter(Component)) {
@@ -41,6 +42,7 @@ class KinematicsGenerator extends AbstractGenerator {
 			fsa.generateFile(component.name + "_description/package.xml",
 				compile_package_xml_format3(component.name, depends_list));
 			fsa.generateFile(component.name + "_description/CMakeLists.txt", compile_CMakeLists(component.name));
+			fsa.generateFile(component.name + "_description/README.md", compile_ReadMe(component));
 
 			// "Copy" model and its dependent models into the description folder
 			fsa.generateFile(component.name + "_description/models/" + component.name + ".kin",
