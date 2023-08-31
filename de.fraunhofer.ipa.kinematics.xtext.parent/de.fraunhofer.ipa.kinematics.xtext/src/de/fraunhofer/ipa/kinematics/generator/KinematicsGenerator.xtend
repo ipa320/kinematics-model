@@ -8,6 +8,7 @@ import component.Component
 import component.ConfiguredComponent
 import component.Connection
 import component.impl.ConfiguredComponentImpl
+import java.io.ByteArrayOutputStream
 import java.util.ArrayList
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
@@ -37,6 +38,24 @@ class KinematicsGenerator extends AbstractGenerator {
 			fsa.generateFile(component.name + "_description/package.xml",
 				compile_package_xml_format3(component.name, depends_list));
 			fsa.generateFile(component.name + "_description/CMakeLists.txt", compile_CMakeLists(component.name));
+
+			// "Copy" model and its dependent models into the description folder
+			fsa.generateFile(component.name + "_description/models/" + component.name + ".kin",
+				compile_Model(component));
+			for (configuredComponent : component.component) {
+				val depComponent = configuredComponent.type;
+				fsa.generateFile(component.name + "_description/models/" + depComponent.name + ".kin",
+					compile_Model(depComponent));
+			}
+		}
+	}
+
+	private def compile_Model(Component component) {
+		var outputStream = new ByteArrayOutputStream();
+		component.eResource.save(outputStream, null);
+		val modelStr = new String(outputStream.toByteArray());
+		return modelStr;
+	}
 
 	private def get_dependency_list(Component component) {
 		var depends_list = new ArrayList<CharSequence>();
