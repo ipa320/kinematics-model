@@ -27,11 +27,14 @@ import urdf.impl.LinkImpl
 class KinematicsGenerator extends AbstractGenerator {
 
 	@Inject extension CMakeListsCompiler
+	@Inject extension DisplayLaunchCompiler
 	@Inject extension PackageXmlCompiler
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (component : resource.allContents.toIterable.filter(Component)) {
 			fsa.generateFile(component.name + "_description/urdf/" + component.name + ".urdf", component.compile);
+			fsa.generateFile(component.name + "_description/launch/display.launch.py",
+				compile_DisplayLaunch(component));
 
 			var depends_list = get_dependency_list(component);
 
