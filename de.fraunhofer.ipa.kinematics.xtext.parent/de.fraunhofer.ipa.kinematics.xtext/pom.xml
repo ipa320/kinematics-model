@@ -9,6 +9,14 @@
 	<artifactId>de.fraunhofer.ipa.kinematics.xtext</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
+	<repositories>
+	    <repository>
+	      <id>commons-math3</id>
+	      <name>commons-math3</name>
+	      <url>https://mvnrepository.com/artifact/org.apache.commons/commons-math3/3.6.1</url>
+	    </repository>
+	 </repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

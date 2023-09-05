@@ -25,5 +25,5 @@ Export-Package: de.fraunhofer.ipa.kinematics.formatting2,
  de.fraunhofer.ipa.kinematics.scoping,
  de.fraunhofer.ipa.kinematics.serializer,
  de.fraunhofer.ipa.kinematics.parser.antlr.lexer
-Import-Package: org.apache.commons.math3;version="3.6.1",
- org.apache.log4j
+Import-Package: org.apache.log4j,
+ org.apache.commons.math3
