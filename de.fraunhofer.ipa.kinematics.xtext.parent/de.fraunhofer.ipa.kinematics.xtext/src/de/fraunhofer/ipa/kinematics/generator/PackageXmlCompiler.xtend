@@ -38,7 +38,7 @@ class PackageXmlCompiler{
   <test_depend>python3-pytest</test_depend-->
 
   <export>
-  	<build_type>ament_python</build_type>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>
 		'''
