@@ -165,7 +165,7 @@ class KinematicsGenerator extends AbstractGenerator {
 		«IF link.visual.geometry !== null»
 		<geometry>
 			«IF link.visual.geometry.mesh !== null»
-			<mesh filename="«link.visual.geometry.mesh.filename»" />
+			<mesh filename="«link.visual.geometry.mesh.filename»" «IF (link.visual.geometry.mesh.scale.size >= 3)»scale="«link.visual.geometry.mesh.scale.get(0)» «link.visual.geometry.mesh.scale.get(1)» «link.visual.geometry.mesh.scale.get(2)»"«ENDIF» />
 			«ENDIF»
 			«IF link.visual.geometry.box !== null»
 			<box size="«link.visual.geometry.box.size»" />
@@ -185,7 +185,7 @@ class KinematicsGenerator extends AbstractGenerator {
 			«IF link.collision.geometry !== null»
 			<geometry>
 				«IF link.collision.geometry.mesh !== null»
-				<mesh filename="«link.collision.geometry.mesh.filename»" />
+				<mesh filename="«link.collision.geometry.mesh.filename»" «IF (link.visual.geometry.mesh.scale.size >= 3)»scale="«link.collision.geometry.mesh.scale.get(0)» «link.collision.geometry.mesh.scale.get(1)» «link.collision.geometry.mesh.scale.get(2)»"«ENDIF» />
 				«ENDIF»
 				«IF link.collision.geometry.box !== null»
 				<box size="«link.collision.geometry.box.size»" />
