@@ -9,6 +9,14 @@
 	<artifactId>de.fraunhofer.ipa.kinematics.xtext.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.core.commands</artifactId>
+			<version>3.11.0</version>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -17,5 +25,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
