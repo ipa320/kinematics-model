@@ -31,7 +31,7 @@ class ReadMeCompiler {
 		cd ~/ros2_ws
 		sudo apt update
 		rosdep update
-		rosdep install --rosdistro ${ROS_DISTRO} --from-paths src
+		rosdep install --rosdistro ${ROS_DISTRO} --from-paths src --ignore-src
 		```
 
 		And finally, build your workspace:
