@@ -137,7 +137,7 @@ RULE_DECINT : ('0'|'1'..'9' RULE_DIGIT*|'-' '0'..'9' RULE_DIGIT*);
 
 RULE_JOINTTYPE : ('revolute'|'continuous'|'prismatic'|'fixed'|'floating'|'planar');
 
-RULE_CATEGORY : ('manipulator'|'gripper'|'camera');
+RULE_CATEGORY : ('manipulator'|'gripper'|'camera'|'workcell'|'flange');
 
 fragment RULE_BEGIN : ;
 

@@ -2675,7 +2675,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return tJOINTTYPE;
 	}
 	
-	//terminal CATEGORY: "manipulator" | "gripper" | "camera";
+	//terminal CATEGORY: "manipulator" | "gripper" | "camera" | "workcell" | "flange";
 	public TerminalRule getCATEGORYRule() {
 		return tCATEGORY;
 	}

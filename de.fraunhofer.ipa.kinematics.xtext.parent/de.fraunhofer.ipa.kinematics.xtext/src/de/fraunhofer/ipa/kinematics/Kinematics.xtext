@@ -221,7 +221,7 @@ terminal BOOLEAN: 'true'|'false';
 terminal DOUBLE returns ecore::EDouble: ('-')? INT* ('.' INT+)? (('e' | 'E') ('-' | '+') INT)?;  // Use terminal to avoid 'e' turning into a keyword
 terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
 terminal JOINTTYPE: "revolute" | "continuous" | "prismatic" | "fixed" | "floating" | "planar";
-terminal CATEGORY: "manipulator" | "gripper" | "camera";
+terminal CATEGORY: "manipulator" | "gripper" | "camera" | "workcell" | "flange";
 
 ///////////////////
 // YAML format
