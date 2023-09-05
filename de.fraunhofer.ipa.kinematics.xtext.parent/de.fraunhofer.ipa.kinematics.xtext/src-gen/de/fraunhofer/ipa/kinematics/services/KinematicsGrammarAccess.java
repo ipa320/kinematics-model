@@ -2659,7 +2659,7 @@ public class KinematicsGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return tBOOLEAN;
 	}
 	
-	//terminal DOUBLE returns ecore::EDouble: ('-')? INT* ('.' INT+)? ;
+	//terminal DOUBLE returns ecore::EDouble: ('-')? INT* ('.' INT+)? (('e' | 'E') ('-' | '+') INT)?;
 	public TerminalRule getDOUBLERule() {
 		return tDOUBLE;
 	}

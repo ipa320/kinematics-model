@@ -218,7 +218,7 @@ EString returns ecore::EString:
 // from https://github.com/ipa320/ros-model/blob/e9279c9eab1c5d2554f239e80150f2df1bbb5ab3/plugins/de.fraunhofer.ipa.rossystem.xtext/src/de/fraunhofer/ipa/rossystem/RosSystem.xtext#L283-L307
 terminal fragment DIGIT: '0'..'9';
 terminal BOOLEAN: 'true'|'false';
-terminal DOUBLE returns ecore::EDouble: ('-')? INT* ('.' INT+)? ;  // Use terminal to avoid 'e' turning into a keyword
+terminal DOUBLE returns ecore::EDouble: ('-')? INT* ('.' INT+)? (('e' | 'E') ('-' | '+') INT)?;  // Use terminal to avoid 'e' turning into a keyword
 terminal DECINT: '0' | ('1'..'9' DIGIT*) | ('-''0'..'9' DIGIT*) ;
 terminal JOINTTYPE: "revolute" | "continuous" | "prismatic" | "fixed" | "floating" | "planar";
 terminal CATEGORY: "manipulator" | "gripper" | "camera";

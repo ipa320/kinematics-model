@@ -440,7 +440,7 @@ fragment RULE_DIGIT : '0'..'9';
 
 RULE_BOOLEAN : ('true'|'false');
 
-RULE_DOUBLE : '-'? RULE_INT* ('.' RULE_INT+)?;
+RULE_DOUBLE : '-'? RULE_INT* ('.' RULE_INT+)? (('e'|'E') ('-'|'+') RULE_INT)?;
 
 RULE_DECINT : ('0'|'1'..'9' RULE_DIGIT*|'-' '0'..'9' RULE_DIGIT*);
 
