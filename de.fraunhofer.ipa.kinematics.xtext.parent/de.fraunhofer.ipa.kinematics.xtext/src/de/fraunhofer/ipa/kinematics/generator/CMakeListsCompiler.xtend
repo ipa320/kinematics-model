@@ -16,7 +16,7 @@ find_package(ament_cmake REQUIRED)
 
 # install launch file
 install(DIRECTORY
-  launch urdf meshes config
+  launch urdf
   DESTINATION share/${PROJECT_NAME})
 
 
