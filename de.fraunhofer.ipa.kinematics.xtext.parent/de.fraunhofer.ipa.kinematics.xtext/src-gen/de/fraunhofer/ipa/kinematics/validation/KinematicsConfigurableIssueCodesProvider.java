@@ -8,7 +8,6 @@ import org.eclipse.xtext.util.IAcceptor;
 import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 import org.eclipse.xtext.validation.SeverityConverter;
 
-@SuppressWarnings("restriction")
 public class KinematicsConfigurableIssueCodesProvider extends ConfigurableIssueCodesProvider {
 	protected static final String ISSUE_CODE_PREFIX = "de.fraunhofer.ipa.kinematics.";
 

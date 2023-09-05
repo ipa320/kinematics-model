@@ -91,6 +91,7 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'baseAttachment:'?
 	 *
@@ -134,12 +135,15 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     version=EString (ambiguity) 'flangeAttachment:'? 'component:'? connection+=Connection
 	 *     version=EString (ambiguity) 'flangeAttachment:'? component+=ConfiguredComponent
 	 *     version=EString (ambiguity) flangeAttachment+=FlangeAttachment
+	 
+	 * </pre>
 	 */
 	protected void emit_Component_BaseAttachmentKeyword_9_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'component:'?
 	 *
@@ -189,12 +193,15 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? (ambiguity) 'connection:'? 'group:'? link+=Link
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? (ambiguity) 'connection:'? group+=Group
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? (ambiguity) connection+=Connection
+	 
+	 * </pre>
 	 */
 	protected void emit_Component_ComponentKeyword_11_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'connection:'?
 	 *
@@ -241,12 +248,15 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? (ambiguity) 'group:'? 'link:'? joint+=Joint
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? (ambiguity) 'group:'? link+=Link
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? (ambiguity) group+=Group
+	 
+	 * </pre>
 	 */
 	protected void emit_Component_ConnectionKeyword_12_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'flangeAttachment:'?
 	 *
@@ -295,12 +305,15 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     version=EString 'baseAttachment:'? (ambiguity) 'component:'? 'connection:'? group+=Group
 	 *     version=EString 'baseAttachment:'? (ambiguity) 'component:'? connection+=Connection
 	 *     version=EString 'baseAttachment:'? (ambiguity) component+=ConfiguredComponent
+	 
+	 * </pre>
 	 */
 	protected void emit_Component_FlangeAttachmentKeyword_10_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'group:'?
 	 *
@@ -340,12 +353,15 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? 'connection:'? (ambiguity) 'link:'? 'joint:'? END (rule end)
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? 'connection:'? (ambiguity) 'link:'? joint+=Joint
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? 'connection:'? (ambiguity) link+=Link
+	 
+	 * </pre>
 	 */
 	protected void emit_Component_GroupKeyword_13_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'joint:'?
 	 *
@@ -359,12 +375,15 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     group+=Group 'link:'? (ambiguity) END (rule end)
 	 *     link+=Link (ambiguity) END (rule end)
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? 'connection:'? 'group:'? 'link:'? (ambiguity) END (rule end)
+	 
+	 * </pre>
 	 */
 	protected void emit_Component_JointKeyword_15_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'link:'?
 	 *
@@ -393,17 +412,22 @@ public class KinematicsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? 'connection:'? 'group:'? (ambiguity) 'joint:' joint+=Joint
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? 'connection:'? 'group:'? (ambiguity) 'joint:'? END (rule end)
 	 *     version=EString 'baseAttachment:'? 'flangeAttachment:'? 'component:'? 'connection:'? 'group:'? (ambiguity) joint+=Joint
+	 
+	 * </pre>
 	 */
 	protected void emit_Component_LinkKeyword_14_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     (BEGIN END)?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=EString (ambiguity) (rule end)
+	 
+	 * </pre>
 	 */
 	protected void emit_Link___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

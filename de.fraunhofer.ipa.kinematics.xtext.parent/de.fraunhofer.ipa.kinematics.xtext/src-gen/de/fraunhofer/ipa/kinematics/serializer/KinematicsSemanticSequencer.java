@@ -137,11 +137,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	}
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Axis returns Axis
 	 *
 	 * Constraint:
 	 *     xyz=EString?
+	 * </pre>
 	 */
 	protected void sequence_Axis(ISerializationContext context, Axis semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -149,11 +151,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     BaseAttachment returns BaseAttachment
 	 *
 	 * Constraint:
 	 *     (name=EString origin=Pose parent=[Link|EString])
+	 * </pre>
 	 */
 	protected void sequence_BaseAttachment(ISerializationContext context, BaseAttachment semanticObject) {
 		if (errorAcceptor != null) {
@@ -173,11 +177,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Box returns Box
 	 *
 	 * Constraint:
 	 *     size=EString
+	 * </pre>
 	 */
 	protected void sequence_Box(ISerializationContext context, Box semanticObject) {
 		if (errorAcceptor != null) {
@@ -191,11 +197,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Child returns Child
 	 *
 	 * Constraint:
 	 *     link=EString
+	 * </pre>
 	 */
 	protected void sequence_Child(ISerializationContext context, Child semanticObject) {
 		if (errorAcceptor != null) {
@@ -209,11 +217,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Collision returns Collision
 	 *
 	 * Constraint:
 	 *     (origin=Pose? geometry=Geometry)
+	 * </pre>
 	 */
 	protected void sequence_Collision(ISerializationContext context, Collision semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -221,6 +231,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Component returns Component
 	 *
@@ -238,6 +249,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         (link+=Link+ | link+=Link)? 
 	 *         (joint+=Joint+ | joint+=Joint)?
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -245,11 +257,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ConfiguredComponent returns ConfiguredComponent
 	 *
 	 * Constraint:
 	 *     (name=EString type=[Component|EString] prefix=EString?)
+	 * </pre>
 	 */
 	protected void sequence_ConfiguredComponent(ISerializationContext context, ConfiguredComponent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -257,11 +271,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Connection returns Connection
 	 *
 	 * Constraint:
 	 *     (name=EString baseAttachment=[BaseAttachment|EString] flangeAttachment=[FlangeAttachment|EString])
+	 * </pre>
 	 */
 	protected void sequence_Connection(ISerializationContext context, Connection semanticObject) {
 		if (errorAcceptor != null) {
@@ -281,11 +297,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Cylinder returns Cylinder
 	 *
 	 * Constraint:
 	 *     (length=EString radius=EString)
+	 * </pre>
 	 */
 	protected void sequence_Cylinder(ISerializationContext context, Cylinder semanticObject) {
 		if (errorAcceptor != null) {
@@ -302,11 +320,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     FlangeAttachment returns FlangeAttachment
 	 *
 	 * Constraint:
 	 *     (name=EString origin=Pose parent=[Link|EString])
+	 * </pre>
 	 */
 	protected void sequence_FlangeAttachment(ISerializationContext context, FlangeAttachment semanticObject) {
 		if (errorAcceptor != null) {
@@ -326,11 +346,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Geometry returns Geometry
 	 *
 	 * Constraint:
 	 *     (box=Box? cylinder=Cylinder? sphere=Sphere? mesh=Mesh?)
+	 * </pre>
 	 */
 	protected void sequence_Geometry(ISerializationContext context, Geometry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -338,11 +360,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     GitRepo returns GitRepo
 	 *
 	 * Constraint:
 	 *     (distro=EString repo=EString branch=EString package=EString version=EString)
+	 * </pre>
 	 */
 	protected void sequence_GitRepo(ISerializationContext context, GitRepo semanticObject) {
 		if (errorAcceptor != null) {
@@ -368,11 +392,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Group returns Group
 	 *
 	 * Constraint:
 	 *     (name=EString baseLink=[Link|EString] endLink=[Link|EString] ros2_control=EString?)
+	 * </pre>
 	 */
 	protected void sequence_Group(ISerializationContext context, Group semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -380,6 +406,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Inertia returns Inertia
 	 *
@@ -392,6 +419,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         iyz=DOUBLE? 
 	 *         izz=DOUBLE?
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_Inertia(ISerializationContext context, Inertia semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -399,11 +427,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Inertial returns Inertial
 	 *
 	 * Constraint:
 	 *     (origin=Pose? mass=Mass? inertia=Inertia?)
+	 * </pre>
 	 */
 	protected void sequence_Inertial(ISerializationContext context, Inertial semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -411,6 +441,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Joint returns Joint
 	 *
@@ -424,6 +455,7 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         axis=Axis? 
 	 *         limit=Limit?
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_Joint(ISerializationContext context, Joint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -431,11 +463,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Limit returns Limit
 	 *
 	 * Constraint:
 	 *     (effort=DOUBLE? lower=DOUBLE? upper=DOUBLE? velocity=DOUBLE?)
+	 * </pre>
 	 */
 	protected void sequence_Limit(ISerializationContext context, Limit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -443,11 +477,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Link returns Link
 	 *
 	 * Constraint:
 	 *     (name=EString inertial=Inertial? visual=Visual? collision=Collision?)
+	 * </pre>
 	 */
 	protected void sequence_Link(ISerializationContext context, Link semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -455,11 +491,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Mass returns Mass
 	 *
 	 * Constraint:
 	 *     value=DOUBLE
+	 * </pre>
 	 */
 	protected void sequence_Mass(ISerializationContext context, Mass semanticObject) {
 		if (errorAcceptor != null) {
@@ -473,11 +511,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Mesh returns Mesh
 	 *
 	 * Constraint:
 	 *     (filename=EString (scale+=DOUBLE scale+=DOUBLE*)?)
+	 * </pre>
 	 */
 	protected void sequence_Mesh(ISerializationContext context, Mesh semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -485,11 +525,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Parent returns Parent
 	 *
 	 * Constraint:
 	 *     link=EString
+	 * </pre>
 	 */
 	protected void sequence_Parent(ISerializationContext context, Parent semanticObject) {
 		if (errorAcceptor != null) {
@@ -503,11 +545,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Pose returns Pose
 	 *
 	 * Constraint:
 	 *     ((rpy+=DOUBLE rpy+=DOUBLE*)? (xyz+=DOUBLE xyz+=DOUBLE*)?)
+	 * </pre>
 	 */
 	protected void sequence_Pose(ISerializationContext context, Pose semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -515,11 +559,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Sphere returns Sphere
 	 *
 	 * Constraint:
 	 *     radius=Double0
+	 * </pre>
 	 */
 	protected void sequence_Sphere(ISerializationContext context, Sphere semanticObject) {
 		if (errorAcceptor != null) {
@@ -533,11 +579,13 @@ public class KinematicsSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Visual returns Visual
 	 *
 	 * Constraint:
 	 *     (origin=Pose? geometry=Geometry)
+	 * </pre>
 	 */
 	protected void sequence_Visual(ISerializationContext context, Visual semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
