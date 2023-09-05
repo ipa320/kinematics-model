@@ -256,7 +256,7 @@ class KinematicsGenerator extends AbstractGenerator {
 
 		var jointStr = "<!-- Connection between components " + flangeComponentName + " and " + baseComponentName +
 			" -->";
-		jointStr += "\n<joint name=\"" + connection.name + "\" type=\"fixed\"";
+		jointStr += "\n<joint name=\"" + connection.name + "\" type=\"fixed\">";
 		jointStr += "\n\t<parent link=\"" + flangeAttachmentPrefix + flangeAttachment.name + "\" />";
 		jointStr += "\n\t<child link=\"" + baseAttachmentPrefix + baseAttachment.name + "\" />";
 
