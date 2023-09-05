@@ -76,7 +76,6 @@ class KinematicsGenerator extends AbstractGenerator {
 		return depends_list;
 	}
 
-//	private def get_transform(EList<Double> xyz1, EList<Double> rpy1, EList<Double> xyz2, EList<Double> rpy2) {
 	private def get_transform(Pose pose1, Pose pose2) {
 		val xyz1 = pose1.xyz;
 		val rpy1 = pose1.rpy;
