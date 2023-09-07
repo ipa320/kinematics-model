@@ -38,6 +38,11 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.eclipse.lsp4j</groupId>
+				<artifactId>org.eclipse.lsp4j</artifactId>
+				<version>0.21.0</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
