@@ -190,7 +190,7 @@ class KinematicsGenerator extends AbstractGenerator {
 				<box size="«link.collision.geometry.box.size»" />
 				«ENDIF»
 				«IF link.collision.geometry.cylinder !== null»
-				<cylinder length="«link.collision.geometry.cylinder.length»" radius"«link.collision.geometry.cylinder.radius»"/>
+				<cylinder length="«link.collision.geometry.cylinder.length»" radius="«link.collision.geometry.cylinder.radius»"/>
 				«ENDIF»
 			</geometry>
 			«ENDIF»
