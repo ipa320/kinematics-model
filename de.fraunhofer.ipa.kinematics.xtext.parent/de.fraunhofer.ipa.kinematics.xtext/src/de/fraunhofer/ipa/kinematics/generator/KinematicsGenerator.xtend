@@ -38,24 +38,25 @@ class KinematicsGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (component : resource.allContents.toIterable.filter(Component)) {
-			fsa.generateFile(component.name + "_description/urdf/" + component.name + ".urdf", component.compile);
-			fsa.generateFile(component.name + "_description/launch/display.launch.py",
+			val pkg_name = component.gitRepo.package;
+			fsa.generateFile(pkg_name + "/urdf/" + component.name + ".urdf", component.compile);
+			fsa.generateFile(pkg_name + "/launch/display.launch.py",
 				compile_DisplayLaunch(component));
 
 			var depends_list = get_dependency_list(component);
 
-			fsa.generateFile(component.name + "_description/package.xml",
-				compile_package_xml_format3(component.name, depends_list));
-			fsa.generateFile(component.name + "_description/CMakeLists.txt", compile_CMakeLists(component.name));
-			fsa.generateFile(component.name + "_description/" + component.name + ".repos", compile_Repos(component));
-			fsa.generateFile(component.name + "_description/README.md", compile_ReadMe(component));
+			fsa.generateFile(pkg_name + "/package.xml",
+				compile_package_xml_format3(pkg_name, depends_list));
+			fsa.generateFile(pkg_name + "/CMakeLists.txt", compile_CMakeLists(pkg_name));
+			fsa.generateFile(pkg_name + "/" + component.name + ".repos", compile_Repos(component));
+			fsa.generateFile(pkg_name + "/README.md", compile_ReadMe(component));
 
 			// "Copy" model and its dependent models into the description folder
-			fsa.generateFile(component.name + "_description/models/" + component.name + ".kin",
+			fsa.generateFile(pkg_name + "/models/" + component.name + ".kin",
 				compile_Model(component));
 			for (configuredComponent : component.component) {
 				val depComponent = configuredComponent.type;
-				fsa.generateFile(component.name + "_description/models/" + depComponent.name + ".kin",
+				fsa.generateFile(pkg_name + "/models/" + depComponent.name + ".kin",
 					compile_Model(depComponent));
 			}
 		}

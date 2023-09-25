@@ -10,7 +10,7 @@ class PackageXmlCompiler{
    href="http://download.ros.org/schema/package_format3.xsd"
    schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
- <name>«name»_description</name>
+ <name>«name»</name>
  <version>0.0.1</version>
  <description>Description package for component «name»</description>
   <maintainer email="jane.doe@example.com">Jane Doe</maintainer>
