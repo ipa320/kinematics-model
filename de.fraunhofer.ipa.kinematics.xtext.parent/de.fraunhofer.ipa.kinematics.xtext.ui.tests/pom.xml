@@ -9,6 +9,26 @@
 	<artifactId>de.fraunhofer.ipa.kinematics.xtext.ui.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
+	<dependencies>
+		<dependency>
+		   <groupId>de.fraunhofer.ipa.kinematics.xtext</groupId>
+		   <artifactId>de.fraunhofer.ipa.kinematics.xtext.ide</artifactId>
+		   <version>1.0.0-SNAPSHOT</version>
+		   <exclusions>
+		      <exclusion>
+		        <groupId>org.eclipse.lsp4j</groupId>
+		        <artifactId>org.eclipse.lsp4j</artifactId>
+		      </exclusion>
+		    </exclusions>
+		</dependency>
+		<dependency>
+		   <groupId>org.eclipse.lsp4j</groupId>
+		   <artifactId>org.eclipse.lsp4j</artifactId>
+		   <version>0.21.0</version>
+		   <scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
