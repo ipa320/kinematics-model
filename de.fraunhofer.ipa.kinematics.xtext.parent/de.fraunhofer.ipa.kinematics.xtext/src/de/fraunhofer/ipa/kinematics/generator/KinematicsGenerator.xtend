@@ -32,6 +32,7 @@ class KinematicsGenerator extends AbstractGenerator {
 
 	@Inject extension CMakeListsCompiler
 	@Inject extension DisplayLaunchCompiler
+	@Inject extension RvizConfigCompiler
 	@Inject extension PackageXmlCompiler
 	@Inject extension ReadMeCompiler
 	@Inject extension VCSReposCompiler
@@ -42,7 +43,8 @@ class KinematicsGenerator extends AbstractGenerator {
 			fsa.generateFile(pkg_name + "/urdf/" + component.name + ".urdf", component.compile);
 			fsa.generateFile(pkg_name + "/launch/display.launch.py",
 				compile_DisplayLaunch(component));
-
+			fsa.generateFile(pkg_name + "/rviz/display.rviz",
+				compile_RvizConfig(""));
 			var depends_list = get_dependency_list(component);
 
 			fsa.generateFile(pkg_name + "/package.xml",

@@ -13,7 +13,7 @@ import os
 def generate_launch_description():
     pkg_share = get_package_share_directory('«component.name»_description')
     default_model_path = os.path.join(pkg_share, 'urdf/«component.name».urdf')
-    # default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config.rviz')
+    default_rviz_config_path = os.path.join(pkg_share, 'rviz/display.rviz')
 
     with open(default_model_path, 'r') as infp:
         robot_desc = infp.read()
@@ -33,6 +33,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
+        arguments=['-d ' + default_rviz_config_path],
         output='screen'
     )
 
